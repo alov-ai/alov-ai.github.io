@@ -226,6 +226,10 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
+  # LLM-вики — внутренняя база знаний, не публикуется на сайте
+  - wiki
+  - raw
+  - CLAUDE.md
 
 jekyll-archives:
   enabled: [categories, tags]
