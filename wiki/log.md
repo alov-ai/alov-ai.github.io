@@ -71,3 +71,25 @@ collaboration. Decided file hosting: **inside the site repo**
 launch). Created [[decision-course-file-hosting]]; updated [[cryptography-course]],
 [[index]]. Site placement settled as a single course page under a
 Collaborations/Partners area (no full Courses catalog for a one-off).
+
+## [2026-06-26] build | Landing page implemented
+
+Built the custom homepage agreed in [[homepage-structure]]. Added
+`_layouts/landing.html` (on Chirpy's `default`, keeps the sidebar),
+`_includes/landing/{hero,manifesto,pillars,blog}.html`, and
+`assets/css/landing.scss` (theme CSS variables, light/dark). `index.html` now
+uses `layout: landing`; the post feed moved to `_tabs/blog.md` (`layout: home`,
+order 1), shifting categories/tags/archives/about to 2-5. Hero CTA -> GitHub org.
+Filled real `_config.yml` values (title, tagline, description, url, github,
+social); Twitter handle and org email left blank (unknown, not fabricated).
+Created [[decision-landing-page]]; updated [[homepage-structure]], [[index]].
+Not built locally (no Ruby/Jekyll toolchain on this machine) - relies on the
+Pages CI build.
+
+## [2026-06-26] build | About page + first blog post
+
+Filled the previously-empty About tab (`_tabs/about.md`) with real Alov
+Intelligence content (mission, four pillars, audience, get-involved -> GitHub
+org). Added a first pinned post `_posts/2026-06-26-welcome-more-coming-soon.md`
+as a "coming soon" placeholder, which also populates the landing's "Latest from
+blog" section so it no longer shows the empty-state text.

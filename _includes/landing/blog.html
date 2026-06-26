@@ -1,0 +1,20 @@
+<section class="landing-blog">
+  <h2 class="landing-section__title">Latest from the blog</h2>
+
+  {% if site.posts.size > 0 %}
+    <ul class="landing-blog__list">
+      {% for post in site.posts limit: 3 %}
+        <li class="landing-blog__item">
+          <a class="landing-blog__link" href="{{ post.url | relative_url }}">
+            <span class="landing-blog__post-title">{{ post.title }}</span>
+            <time class="landing-blog__date">{{ post.date | date: "%b %-d, %Y" }}</time>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="landing-link" href="{{ '/blog/' | relative_url }}">All posts &rarr;</a>
+  {% else %}
+    <p class="landing-blog__soon">Articles, case studies, and tutorials are on the
+      way. Coming soon.</p>
+  {% endif %}
+</section>

@@ -23,9 +23,14 @@ organization whose key visitor actions are *understand the mission* and
 no posts yet. So the home becomes a landing page, and the post feed moves to a
 dedicated **Blog** tab.
 
-> Technical note (deferred): this needs a custom `index.html` with its own
-> layout (e.g. `_layouts/landing.html`) layered on top of Chirpy. To be tracked
-> as its own decision (ADR), like [[decision-chirpy-theme]].
+> **Implemented (2026-06-26).** The landing is realized and tracked in
+> [[decision-landing-page]]: `_layouts/landing.html` (built on Chirpy's `default`,
+> so it keeps the sidebar), one partial per section under `_includes/landing/`,
+> styles in `assets/css/landing.scss`, and `index.html` set to `layout: landing`.
+> The post feed moved to `_tabs/blog.md` (`layout: home`, order 1). The Hero CTA
+> points at the GitHub org `github.com/alov-ai`. `_config.yml` placeholders
+> (title, url, description, github, social) were filled with real data at the same
+> time.
 
 ## Sections (current scope)
 

@@ -36,6 +36,7 @@ its website. Grouped by category. Updated on each ingest.
 ## Decisions (decisions/)
 
 - [[decision-chirpy-theme]] - choice of the Chirpy Jekyll theme for the website. *(status: accepted)*
+- [[decision-landing-page]] - custom landing page over the Chirpy home feed. *(status: accepted)*
 - [[decision-course-file-hosting]] - host course files (PDF/TeX/notebooks) inside the site repo. *(status: accepted)*
 
 ## Sources (sources/)
