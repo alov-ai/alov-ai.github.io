@@ -23,7 +23,8 @@ knowledge exchange, collaborative problem solving, and product development (see
 - **Mentorship programs.** Connect experienced professionals with early-career
   researchers and developers.
 - **Workshops and bootcamps.** Regular workshops, hackathons, and bootcamps to
-  accelerate skill development and practical application of knowledge.
+  accelerate skill development and practical application of knowledge. First
+  concrete example: the [[cryptography-course]] by the [[bsu-digital-center]].
 
 ## Role in the Strategy
 

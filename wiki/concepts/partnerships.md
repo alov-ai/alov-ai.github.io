@@ -25,6 +25,12 @@ ecosystem.
   local talent, the economy, and technology. **Sponsorship tiers** with clear
   benefits and recognition formats are proposed.
 
+## Concrete partners
+
+- [[bsu-digital-center]] - Center for Digital Technologies and Applied Research,
+  Baku State University. The first recorded **academic collaboration**; created
+  the [[cryptography-course]]. *(early collaboration; details unconfirmed)*
+
 ## Connections
 
 - **Internships + Alov process.** Industry partners and sponsors connect to the

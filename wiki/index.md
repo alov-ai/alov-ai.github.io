@@ -18,6 +18,8 @@ its website. Grouped by category. Updated on each ingest.
 - [[organization]] - **Alov Intelligence**: mission, strategy, audience, commercial paths. *(1 source)*
 - [[products]] - product direction catalog (~11 planned directions). *(1 source)*
 - [[website]] - the organization's website: stack, structure, and how it is set up. *(2 sources)*
+- [[bsu-digital-center]] - BSU Center for Digital Technologies and Applied Research; first academic partner. *(0 sources)*
+- [[cryptography-course]] - cryptography course created by the BSU center. *(0 sources)*
 
 ## Concepts (concepts/)
 
@@ -27,9 +29,14 @@ its website. Grouped by category. Updated on each ingest.
 - [[inbound-marketing]] - content, engagement, events (pillar 3). *(1 source)*
 - [[partnerships]] - universities, industry, government, sponsors (pillar 4). *(1 source)*
 
+## Website docs (website/)
+
+- [[homepage-structure]] - homepage section skeleton (custom landing). *(Hero · Manifesto · Four pillars · Blog)*
+
 ## Decisions (decisions/)
 
 - [[decision-chirpy-theme]] - choice of the Chirpy Jekyll theme for the website. *(status: accepted)*
+- [[decision-course-file-hosting]] - host course files (PDF/TeX/notebooks) inside the site repo. *(status: accepted)*
 
 ## Sources (sources/)
 

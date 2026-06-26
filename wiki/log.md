@@ -43,3 +43,31 @@ the "open questions" block was not split into separate pages.
 
 Translated the `wiki/` Markdown pages from Russian to English while preserving
 file names, frontmatter keys, tags, sources, and wiki links.
+
+## [2026-06-26] design | Homepage structure
+
+Worked out the homepage section skeleton with the human. Decided on a **custom
+landing page** (not the default Chirpy post feed). Initial scope: four sections -
+Hero, Manifesto, Four pillars, Latest from blog (IDs 1-2-3-6); directions,
+gamification, and a final CTA deferred. Created the first `wiki/website/` doc:
+[[homepage-structure]]. Touched [[index]].
+
+## [2026-06-26] ingest | BSU partner and cryptography course
+
+Human reported (in conversation, no `raw/` source yet) a partner: the Center for
+Digital Technologies and Applied Research at Baku State University, which created
+a cryptography course. Created: [[bsu-digital-center]], [[cryptography-course]].
+Updated: [[partnerships]] (first concrete partner), [[community-model]] (first
+workshop example), [[index]]. Both pages are stubs with explicit Data gaps;
+website placement (Education/Courses vs Collaborations/Partners) noted but not
+yet decided.
+
+## [2026-06-26] decision | Course file hosting
+
+Added course facts: free, TeX/PDF + Jupyter notebooks, Azerbaijani, one semester
+(half published at launch), Alov role = hosting + promotion, one-off
+collaboration. Decided file hosting: **inside the site repo**
+(`assets/courses/cryptography/`), notebooks via Colab/nbviewer (no nbconvert at
+launch). Created [[decision-course-file-hosting]]; updated [[cryptography-course]],
+[[index]]. Site placement settled as a single course page under a
+Collaborations/Partners area (no full Courses catalog for a one-off).
