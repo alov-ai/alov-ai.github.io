@@ -80,11 +80,16 @@ is enough, cross-linked to [[bsu-digital-center]]. A broader Courses section can
 wait until more courses exist.
 
 **Built:** the page lives at `courses/cryptography.md` -> `/courses/cryptography/`.
-It is reachable by direct URL only - **not yet linked from the nav or landing**
-(a follow-up step). The syllabus table is generated from `_data/crypto_course.yml`
-(per-lecture: AZ/EN title, PDF link, Colab + nbviewer links). Bilingual switcher,
-CSS, and JS live in `assets/css/course.css` and `assets/js/course-lang.js`. See
+The syllabus table is generated from `_data/crypto_course.yml` (per-lecture: AZ/EN
+title, PDF link, Colab + nbviewer links). Bilingual switcher, CSS, and JS live in
+`assets/css/course.css` and `assets/js/course-lang.js`. See
 [[decision-bilingual-course-page]].
+
+**Discoverability:** the page is now reached from a new **Collaborations** nav tab
+(`_tabs/collaborations.md`, `/collaborations/`, order 2 - right after Blog), which
+introduces partners and links the course under an **Academic** section. The course
+page links back to `/collaborations/`. This realizes the "single course page under
+a Collaborations / Partners area" placement decided earlier.
 
 ## File hosting
 

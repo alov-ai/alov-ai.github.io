@@ -110,3 +110,14 @@ Findings: (1) the repo actually holds **all 17 lectures + 17 practicals**, not
 lecture-17 PDF was a byte-for-byte **duplicate of lecture 16**; the human
 replaced it with the correct HMAC/Poly1305 file. Not built locally (no
 Ruby/Jekyll on this machine) - relies on the Pages CI build.
+
+## [2026-06-26] build | Collaborations nav area
+
+Gave the [[partnerships]] pillar a public home and made the [[cryptography-course]]
+discoverable. Added a **Collaborations** nav tab (`_tabs/collaborations.md`,
+`/collaborations/`, icon `fas fa-handshake`, **order 2** - right after Blog),
+introducing partners by type with an **Academic** section linking the BSU course;
+the course page links back. Reordered the remaining tabs down by one
+(Categories 3, Tags 4, Archives 5, About 6). This realizes the earlier placement
+decision (single course page under a Collaborations / Partners area). Updated
+[[cryptography-course]], [[partnerships]], [[bsu-digital-center]].

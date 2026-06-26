@@ -31,6 +31,11 @@ ecosystem.
   Baku State University. The first recorded **academic collaboration**; created
   the [[cryptography-course]]. *(early collaboration; details unconfirmed)*
 
+This pillar now has a public home on the site: a **Collaborations** nav tab
+(`_tabs/collaborations.md`, `/collaborations/`) that introduces partners by type
+and links their output - currently the BSU [[cryptography-course]] under
+**Academic**.
+
 ## Connections
 
 - **Internships + Alov process.** Industry partners and sponsors connect to the

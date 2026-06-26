@@ -42,8 +42,16 @@ To be confirmed with the human or a source document in `raw/`:
 - The center's focus areas, leadership, and contact points.
 - Other joint activities beyond the cryptography course.
 
+## On the site
+
+The Center is featured on the **Collaborations** page (`/collaborations/`, under
+**Academic**), which links to the hosted [[cryptography-course]]. The official
+Azerbaijani name is still unconfirmed - the site uses a tentative translation
+(see Data gaps).
+
 ## Links
 
 - [[partnerships]] - the strategy pillar this partner belongs to.
 - [[cryptography-course]] - the joint course.
+- [[decision-bilingual-course-page]] - the course page it links to.
 - [[organization]] - Alov Intelligence.

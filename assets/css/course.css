@@ -101,3 +101,8 @@
 .course-note p {
   margin: 0;
 }
+
+.course-back {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}

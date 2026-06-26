@@ -67,6 +67,11 @@ toc: false
     <strong>Alov Intelligence</strong>.
   </p>
 
+  <p class="course-back">
+    <a class="lang az" href="{{ '/collaborations/' | relative_url }}">← Əməkdaşlıqlarımız</a>
+    <a class="lang en" href="{{ '/collaborations/' | relative_url }}">← Part of our collaborations</a>
+  </p>
+
   <!-- ===== Syllabus ===== -->
   <h2 class="lang az">Proqram</h2>
   <h2 class="lang en">Syllabus</h2>
