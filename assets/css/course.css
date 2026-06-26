@@ -1,0 +1,103 @@
+/* Bilingual course page (see /courses/cryptography/). */
+
+/* Language switching: hide the inactive language; the active one keeps its
+   natural display (span -> inline, block elements -> block). */
+.course-page[data-lang="az"] .lang.en,
+.course-page[data-lang="en"] .lang.az {
+  display: none;
+}
+
+/* Language switcher bar */
+.course-langbar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.course-lang-btn {
+  border: 1px solid var(--btn-border-color, #d0d0d0);
+  background: transparent;
+  color: inherit;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.course-lang-btn:hover {
+  background: var(--btn-box-shadow, rgba(128, 128, 128, 0.12));
+}
+
+.course-lang-btn.is-active {
+  background: var(--link-color, #1565c0);
+  border-color: var(--link-color, #1565c0);
+  color: #fff;
+}
+
+.course-page .lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Facts list */
+.course-facts {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem 1.5rem;
+}
+
+.course-facts li {
+  padding: 0.25rem 0;
+}
+
+.course-by {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Syllabus table */
+.course-syllabus {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 2rem;
+}
+
+.course-syllabus th,
+.course-syllabus td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--tb-border-color, rgba(128, 128, 128, 0.25));
+  vertical-align: top;
+}
+
+.course-syllabus thead th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.course-num {
+  width: 2.5rem;
+  text-align: right;
+  color: var(--text-muted-color, #888);
+  white-space: nowrap;
+}
+
+.course-nb a + a {
+  margin-left: 0.5rem;
+}
+
+.course-note {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--link-color, #1565c0);
+  background: var(--blockquote-border-color, rgba(128, 128, 128, 0.08));
+  border-radius: 0 4px 4px 0;
+}
+
+.course-note p {
+  margin: 0;
+}

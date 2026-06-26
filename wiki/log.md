@@ -93,3 +93,20 @@ Intelligence content (mission, four pillars, audience, get-involved -> GitHub
 org). Added a first pinned post `_posts/2026-06-26-welcome-more-coming-soon.md`
 as a "coming soon" placeholder, which also populates the landing's "Latest from
 blog" section so it no longer shows the empty-state text.
+
+## [2026-06-26] build | Bilingual cryptography course page
+
+Built the course page at `courses/cryptography.md` -> `/courses/cryptography/`:
+**bilingual Azerbaijani / English** with an in-page language switcher
+(`.lang.az`/`.lang.en` + `data-lang`, toggled by `assets/js/course-lang.js`,
+styled by `assets/css/course.css`; choice saved in `localStorage`). The 17-row
+syllabus is data-driven from `_data/crypto_course.yml` (per lecture: AZ/EN title,
+PDF, Colab, nbviewer); file links are percent-encoded from the real non-ASCII
+filenames. **Lecture titles were taken from the lecture PDFs themselves.**
+Created [[decision-bilingual-course-page]]; updated [[cryptography-course]],
+[[decision-course-file-hosting]], [[index]].
+Findings: (1) the repo actually holds **all 17 lectures + 17 practicals**, not
+"half at launch" as previously recorded - corrected both pages. (2) The
+lecture-17 PDF was a byte-for-byte **duplicate of lecture 16**; the human
+replaced it with the correct HMAC/Poly1305 file. Not built locally (no
+Ruby/Jekyll on this machine) - relies on the Pages CI build.

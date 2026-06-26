@@ -19,7 +19,7 @@ its website. Grouped by category. Updated on each ingest.
 - [[products]] - product direction catalog (~11 planned directions). *(1 source)*
 - [[website]] - the organization's website: stack, structure, and how it is set up. *(2 sources)*
 - [[bsu-digital-center]] - BSU Center for Digital Technologies and Applied Research; first academic partner. *(0 sources)*
-- [[cryptography-course]] - cryptography course created by the BSU center. *(0 sources)*
+- [[cryptography-course]] - cryptography course (17 lectures + 17 practicals) by the BSU center; bilingual page built. *(0 sources)*
 
 ## Concepts (concepts/)
 
@@ -38,6 +38,7 @@ its website. Grouped by category. Updated on each ingest.
 - [[decision-chirpy-theme]] - choice of the Chirpy Jekyll theme for the website. *(status: accepted)*
 - [[decision-landing-page]] - custom landing page over the Chirpy home feed. *(status: accepted)*
 - [[decision-course-file-hosting]] - host course files (PDF/TeX/notebooks) inside the site repo. *(status: accepted)*
+- [[decision-bilingual-course-page]] - bilingual AZ/EN course page with a language switcher. *(status: accepted)*
 
 ## Sources (sources/)
 

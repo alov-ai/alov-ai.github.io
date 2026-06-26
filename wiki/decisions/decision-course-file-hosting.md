@@ -9,8 +9,12 @@ sources: []
 
 # Decision - Course File Hosting in the Site Repo
 
-**Status:** accepted (chosen by the human on 2026-06-26; planning - course
-materials not yet provided).
+**Status:** accepted (chosen by the human on 2026-06-26; implemented - files are
+in the repo and the page is built, see [[decision-bilingual-course-page]]).
+
+> **Correction (2026-06-26):** the Context below says "only about half of it goes
+> live at launch". In fact the repo now holds **all 17 lectures and 17
+> practicals** - the full course, not half. See [[cryptography-course]].
 
 ## Context
 
