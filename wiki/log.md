@@ -121,3 +121,17 @@ the course page links back. Reordered the remaining tabs down by one
 (Categories 3, Tags 4, Archives 5, About 6). This realizes the earlier placement
 decision (single course page under a Collaborations / Partners area). Updated
 [[cryptography-course]], [[partnerships]], [[bsu-digital-center]].
+
+## [2026-06-26] fix | Blog feed empty-card / CI failure
+
+The Pages CI (htmlproofer) failed: `_site/blog/index.html` had an `<a>` with an
+empty `href`. Root cause traced (the data has exactly one post - confirmed via
+feed/sitemap/search.json): the [[decision-landing-page|landing move]] put the
+post feed under `/blog/` (`_tabs/blog.md`), but jekyll-paginate only paginates a
+source named `index.html`, so the feed page has **no `paginator`**. The theme's
+`home` layout then runs its pinned-posts loop as `(start..size) limit: nil`,
+overshoots by one, and pushes a `nil` post -> an empty card with `href=""`.
+Fixed with a local `_layouts/home.html` override (verbatim card markup from
+Chirpy v7.6.0) that drops pagination and lists posts directly (pinned first, then
+normal). Pre-existing bug from the landing restructure, not the course/nav work.
+Updated [[decision-landing-page]] (correction + consequence).

@@ -56,7 +56,17 @@ Intelligence data, since they drive the home page's `<title>` and SEO.
   than a full-width landing would give.
 - Customization is now vendored locally (`_layouts/`, `_includes/`, `assets/css`)
   - these files shadow the gem and must be kept in step with theme upgrades.
-- The post feed continues to work, just under `/blog/` instead of `/`.
+- The post feed moved under `/blog/` instead of `/`.
+
+> **Correction (2026-06-26):** moving the feed off root **broke pagination** as a
+> side effect. jekyll-paginate only paginates a source named `index.html`; root
+> is now `layout: landing` and the feed lives in `_tabs/blog.md`, so the feed page
+> has **no `paginator`**. With a nil paginator the theme's `home` layout pushes a
+> `nil` post (off-by-one in its pinned-posts loop), rendering an empty card with
+> an empty `<a href="">` that also **failed CI** (htmlproofer). Fixed by a local
+> `_layouts/home.html` override that drops pagination and lists posts directly
+> (pinned first, then normal). Re-introducing paging later would require serving
+> the feed from a real `index.html` source. See [[website]].
 
 ## Links
 
