@@ -4,7 +4,7 @@ type: entity
 tags: [website, jekyll, chirpy, github-pages]
 created: 2026-06-26
 updated: 2026-06-26
-sources: [2026-06-26-repo-snapshot]
+sources: [2026-06-26-repo-snapshot, 2026-06-26-mission-strategy]
 ---
 
 # Сайт alov-ai
@@ -46,8 +46,14 @@ sources: [2026-06-26-repo-snapshot]
 
 Постов нет, один коммит `Initial commit`.
 
+## Роль в стратегии
+
+Сайт принадлежит организации [[organization|Alov Intelligence]] и — как блог на
+Chirpy — естественная площадка для [[inbound-marketing|inbound-контента]] (статьи,
+кейсы, туториалы, истории успеха). Сейчас этот потенциал не реализован: постов нет.
+
 ## TODO по сайту (кандидаты в решения/задачи)
 
-- Заполнить `url`, `github`/`social`, `title`, `lang`, `timezone`.
-- Определить замысел сайта и первый контент (см. [[overview]] → Открытые вопросы).
+- Заполнить `url`, `github`/`social`, `title`, `lang`, `timezone` под Alov Intelligence.
+- Определить замысел сайта и первый контент; связать с [[inbound-marketing]].
 - Инициализировать сабмодуль `assets/lib` при локальной сборке.

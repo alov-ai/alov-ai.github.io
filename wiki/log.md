@@ -23,3 +23,15 @@ updated: 2026-06-26
 Источник: сам репозиторий на момент старта (см. [[2026-06-26-repo-snapshot]]).
 Создано: [[website]], [[decision-chirpy-theme]], [[overview]]. Затронут [[index]].
 Ключевое: сайт — нетронутый стартовый шаблон Chirpy; конфиг содержит плейсхолдеры.
+
+## [2026-06-26] ingest | Миссия и стратегия Alov Intelligence
+
+Источник: текст миссии/стратегии/продуктов от человека (см. [[2026-06-26-mission-strategy]];
+оригинал — `raw/2026-06-26-mission-strategy.md`). Закрыт центральный пробел «что за
+организация alov-ai».
+Создано: [[organization]], [[products]], [[gamified-learning]], [[community-model]],
+[[open-source-first]], [[inbound-marketing]], [[partnerships]].
+Обновлено: [[overview]] (переписан), [[website]] (роль в стратегии), [[index]].
+Ключевое: open-source product company для R&D в Азербайджане, подход снизу вверх,
+геймификация навыков, широкая диаспора-аудитория. Блок «open questions» по решению
+человека в отдельные страницы не выносился.
