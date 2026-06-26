@@ -1,5 +1,5 @@
 ---
-title: Снимок репозитория сайта (старт вики)
+title: Website Repository Snapshot (wiki start)
 type: source
 tags: [website, jekyll, chirpy]
 created: 2026-06-26
@@ -7,30 +7,34 @@ updated: 2026-06-26
 sources: []
 ---
 
-# Снимок репозитория сайта (старт вики)
+# Website Repository Snapshot (wiki start)
 
-**Источник:** сам репозиторий `alov-ai.github.io` на момент инициализации вики
-(2026-06-26, коммит `7ab81d5 Initial commit`). Первый «ингест» — отправная точка.
+**Source:** the `alov-ai.github.io` repository itself at the time the wiki was
+initialized (2026-06-26, commit `7ab81d5 Initial commit`). The first "ingest" is
+the starting point.
 
-## Что это
+## What This Is
 
-Стартовый шаблон Chirpy для Jekyll-блога на GitHub Pages. Подробный разбор стека и
-структуры вынесен в [[website]].
+A Chirpy starter template for a Jekyll blog on GitHub Pages. The detailed stack
+and structure breakdown is in [[website]].
 
-## Ключевые выводы
+## Key Takeaways
 
-- Сайт — нетронутый шаблон Chirpy; конфиг (`_config.yml`) полон плейсхолдеров.
-- Постов нет (`_posts/` пуст), один коммит.
-- Деплой через GitHub Actions на Pages; статика темы — сабмодуль `assets/lib`.
-- Об организации `alov-ai` из репозитория самого по себе данных нет — только имя.
+- The website is an untouched Chirpy template; the config (`_config.yml`) is full
+  of placeholders.
+- There are no posts (`_posts/` is empty), and there is one commit.
+- Deployment runs through GitHub Actions to Pages; theme static assets are in the
+  `assets/lib` submodule.
+- The repository itself does not contain information about the `alov-ai`
+  organization beyond the name.
 
-## Затронутые страницы вики
+## Touched Wiki Pages
 
-- Создано: [[website]], [[decision-chirpy-theme]], [[overview]].
-- Обновлено: [[index]], [[log]].
+- Created: [[website]], [[decision-chirpy-theme]], [[overview]].
+- Updated: [[index]], [[log]].
 
-## Ссылки на оригинал
+## Original Links
 
-Файлы в корне репозитория: `_config.yml`, `README.md`, `_tabs/`, `_data/`,
+Files in the repository root: `_config.yml`, `README.md`, `_tabs/`, `_data/`,
 `_plugins/posts-lastmod-hook.rb`, `.github/workflows/pages-deploy.yml`.
-(Это не `raw/`-источник, а сам рабочий репозиторий.)
+(This is not a `raw/` source; it is the working repository itself.)

@@ -1,5 +1,5 @@
 ---
-title: Решение — тема Chirpy для сайта
+title: Decision - Chirpy Theme for the Website
 type: decision
 tags: [website, jekyll, chirpy]
 created: 2026-06-26
@@ -7,30 +7,33 @@ updated: 2026-06-26
 sources: [2026-06-26-repo-snapshot]
 ---
 
-# Решение — тема Chirpy для сайта
+# Decision - Chirpy Theme for the Website
 
-**Статус:** принято (зафиксировано фактом использования; обоснование реконструировано).
+**Status:** accepted (recorded by usage; rationale reconstructed).
 
-## Контекст
+## Context
 
-Для сайта организации `alov-ai` нужен был статический сайт/блог на GitHub Pages.
-Репозиторий создан из стартового шаблона [Chirpy Starter](https://github.com/cotes2020/chirpy-starter).
+The `alov-ai` organization needed a static website/blog on GitHub Pages. The
+repository was created from the
+[Chirpy Starter](https://github.com/cotes2020/chirpy-starter) template.
 
-## Решение
+## Decision
 
-Использовать Jekyll с темой **jekyll-theme-chirpy** через официальный starter-шаблон,
-с CD-воркфлоу для деплоя на GitHub Pages.
+Use Jekyll with the **jekyll-theme-chirpy** theme through the official starter
+template, with a CD workflow for deployment to GitHub Pages.
 
-## Последствия
+## Consequences
 
-- Из коробки: тёмная/светлая тема, TOC, категории/теги, архивы, PWA, поиск, SEO-теги.
-- Статика темы подключена git-сабмодулем `assets/lib` — требует
-  `git submodule update --init` при локальной работе.
-- Контент и конфиг нужно наполнять вручную (сейчас — плейсхолдеры,
-  см. [[website]]).
-- Привязка к структуре Chirpy (layouts/collections); кастомизация — в рамках темы.
+- Out of the box: dark/light theme, TOC, categories/tags, archives, PWA, search,
+  SEO tags.
+- Theme static assets are connected through the `assets/lib` git submodule, which
+  requires `git submodule update --init` for local work.
+- Content and config need to be filled in manually (currently placeholders; see
+  [[website]]).
+- The site is tied to the Chirpy structure (layouts/collections); customization
+  happens within the theme's constraints.
 
-## Связи
+## Links
 
-- Затрагивает [[website]].
-- Открытый вопрос о замысле сайта — в [[overview]].
+- Affects [[website]].
+- The open question about the website concept is in [[overview]].

@@ -1,5 +1,5 @@
 ---
-title: Open-source разработка продуктов
+title: Open-source Product Development
 type: concept
 tags: [open-source, product-development, bottom-up, agile]
 created: 2026-06-26
@@ -7,31 +7,31 @@ updated: 2026-06-26
 sources: [2026-06-26-mission-strategy]
 ---
 
-# Open-source разработка продуктов
+# Open-source Product Development
 
-Вторая опора стратегии [[organization|Alov Intelligence]]: как именно создаются
-продукты. Три принципа.
+The second pillar of the [[organization|Alov Intelligence]] strategy: how products
+are created. Three principles.
 
-## Принципы
+## Principles
 
-- **Bottom-up innovation.** Разработка движима потребностями и вкладом технических
-  сообществ (см. [[community-model]]). Идеи рождаются снизу — это гарантирует
-  релевантность и практичность.
-- **Open-source first.** Все продукты и инструменты — открытые. Это даёт прозрачность,
-  коллаборацию и широкое распространение; привлекает глобальное сообщество и при этом
-  растит локальные таланты.
-- **Iterative development.** Agile и итеративная методология — для непрерывного
-  улучшения и быстрой адаптации к новым вызовам и возможностям.
+- **Bottom-up innovation.** Development is driven by the needs and contributions of
+  technical communities (see [[community-model]]). Ideas emerge from below, which
+  helps ensure relevance and practicality.
+- **Open-source first.** All products and tools are open. This provides transparency,
+  collaboration, and broad distribution; it attracts a global community while also
+  growing local talent.
+- **Iterative development.** Agile and iterative methodology support continuous
+  improvement and fast adaptation to new challenges and opportunities.
 
-## Что разрабатывается
+## What Is Developed
 
-Продуктовые направления — в [[products]]. Важно: на 2026-06-26 это намерения, готовых
-продуктов нет. Источник также упоминает идею начать с «bootstrap-компонентов для
-продуктов» при сценарии «процесс раньше продукта» — но приоритизация осталась
-открытым вопросом и здесь не фиксируется.
+Product directions are listed in [[products]]. Important: as of 2026-06-26 these
+are intentions, not finished products. The source also mentions the idea of
+starting with "bootstrap components for products" under a "process before product"
+scenario, but prioritization remained open and is not fixed here.
 
-## Связи
+## Links
 
-- [[community-model]] — источник идей и вклада.
-- [[products]] — что именно разрабатывается.
-- [[organization]] — принципы и коммерческие пути.
+- [[community-model]] - source of ideas and contributions.
+- [[products]] - what is developed.
+- [[organization]] - principles and commercial paths.

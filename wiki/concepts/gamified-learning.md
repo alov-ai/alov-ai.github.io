@@ -1,5 +1,5 @@
 ---
-title: Геймификация приобретения навыков
+title: Gamified Skill Acquisition
 type: concept
 tags: [gamification, learning, community, business-model]
 created: 2026-06-26
@@ -7,44 +7,45 @@ updated: 2026-06-26
 sources: [2026-06-26-mission-strategy]
 ---
 
-# Геймификация приобретения навыков
+# Gamified Skill Acquisition
 
-Отличительная идея [[organization|Alov Intelligence]]: замысел шире поставки
-продуктов — нужно **геймифицировать сам процесс приобретения навыков**, превратив его
-в путь непрерывных достижений и совместного прогресса.
+A distinctive idea of [[organization|Alov Intelligence]]: the concept is broader
+than product delivery. It aims to **gamify the process of skill acquisition** and
+turn it into a path of continuous achievements and shared progress.
 
-## Механики
+## Mechanics
 
-- **Tiered achievements & badges** — многоуровневые достижения и значки за освоение
-  конкретных концепций, вклад в проекты и лидерство в инициативах.
-- **Leaderboards & public recognition** — таблицы лидеров и публичное признание как
-  дополнительная мотивация.
-- **Gamified learning paths** — геймифицированные обучающие траектории,
-  стимулирующие приобретение релевантных технических навыков.
+- **Tiered achievements & badges** - multi-level achievements and badges for
+  mastering specific concepts, contributing to projects, and leading initiatives.
+- **Leaderboards & public recognition** - leaderboards and public recognition as
+  additional motivation.
+- **Gamified learning paths** - gamified learning tracks that encourage acquisition
+  of relevant technical skills.
 
-Геймификация — часть опоры «сообщества и развитие навыков» (см. [[community-model]]).
+Gamification is part of the "communities and skill development" pillar (see
+[[community-model]]).
 
-## Связка с бизнес-моделью
+## Link to the Business Model
 
-Источник прямо связывает геймификацию с монетизацией:
+The source directly connects gamification to monetization:
 
-- **Achievements как платные спонсорства.** Достижения могут рассматриваться как
-  оплачиваемые компаниями спонсорства.
-- **Alov-процесс для интернов.** На базе достижений выстраивается процесс подготовки
-  интернов для компаний.
-- **Метрики компетентности.** Нужны метрики, квалифицирующие компетентность
-  выпускников Alov-процесса — чтобы достижения были измеримым сигналом для работодателей.
+- **Achievements as paid sponsorships.** Achievements can be treated as sponsorships
+  paid for by companies.
+- **Alov process for interns.** Achievements become the basis for an intern
+  preparation process for companies.
+- **Competence metrics.** Metrics are needed to qualify the competence of graduates
+  from the Alov process, so achievements become a measurable signal for employers.
 
-Это перекидывает мостик к коммерческим путям и спонсорствам — см. [[organization]] и
+This creates a bridge to commercial paths and sponsorships; see [[organization]] and
 [[partnerships]].
 
-## Открытые вопросы (не раскрываются здесь)
+## Open Questions (not expanded here)
 
-Какие именно достижения «разблокируются» первыми и как они привязаны к приоритетным
-продуктам — в источнике осталось открытым вопросом. Оригинал — `raw/`.
+Which achievements are "unlocked" first and how they connect to priority products
+remained open in the source. Original: `raw/`.
 
-## Связи
+## Links
 
-- [[community-model]] — где живёт геймификация.
-- [[organization]] — миссия и коммерческие пути.
-- [[partnerships]] — спонсоры и индустрия.
+- [[community-model]] - where gamification lives.
+- [[organization]] - mission and commercial paths.
+- [[partnerships]] - sponsors and industry.

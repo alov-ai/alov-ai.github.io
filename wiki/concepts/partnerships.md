@@ -1,5 +1,5 @@
 ---
-title: Партнёрства и спонсорства
+title: Partnerships and Sponsorships
 type: concept
 tags: [partnerships, sponsorship, academia, industry, government]
 created: 2026-06-26
@@ -7,33 +7,34 @@ updated: 2026-06-26
 sources: [2026-06-26-mission-strategy]
 ---
 
-# Партнёрства и спонсорства
+# Partnerships and Sponsorships
 
-Четвёртая опора стратегии [[organization|Alov Intelligence]]. Внешние связи, которые
-обеспечивают ресурсы, реальные задачи и легитимность экосистемы.
+The fourth pillar of the [[organization|Alov Intelligence]] strategy. External
+relationships provide resources, real-world problems, and legitimacy for the
+ecosystem.
 
-## Типы партнёров
+## Partner Types
 
-- **Академические коллаборации.** Партнёрства с вузами и исследовательскими
-  институтами Азербайджана; интеграция инициатив в учебные программы и исследования.
-- **Индустриальные партнёрства.** Локальные и международные компании дают реальные
-  задачи для сообществ, стажировки и потенциальную коммерциализацию решений.
-- **Государственная поддержка.** Поддержка и признание со стороны госорганов и
-  профильных министерств — для благоприятной среды R&D и инноваций.
-- **Спонсоры.** Вовлечение через демонстрацию ощутимого эффекта проектов на развитие
-  локальных талантов, экономику и технологии. Предлагаются **тиры спонсорства** с
-  чёткими выгодами и формами признания.
+- **Academic collaborations.** Partnerships with universities and research
+  institutes in Azerbaijan; integration of initiatives into curricula and research.
+- **Industry partnerships.** Local and international companies provide real-world
+  problems for communities, internships, and potential commercialization of solutions.
+- **Government support.** Support and recognition from government bodies and
+  relevant ministries to create a favorable environment for R&D and innovation.
+- **Sponsors.** Engagement through demonstrating the tangible impact of projects on
+  local talent, the economy, and technology. **Sponsorship tiers** with clear
+  benefits and recognition formats are proposed.
 
-## Связки
+## Connections
 
-- **Стажировки + Alov-процесс.** Индустриальные партнёры и спонсоры смыкаются с
-  идеей [[gamified-learning|achievements как платных спонсорств]] и подготовки
-  интернов с метриками компетентности.
-- **События как мост.** Конференции и форумы из [[inbound-marketing]] — канал выхода
-  на партнёров.
+- **Internships + Alov process.** Industry partners and sponsors connect to the
+  [[gamified-learning|achievements as paid sponsorships]] idea and to intern
+  preparation with competence metrics.
+- **Events as a bridge.** Conferences and forums from [[inbound-marketing]] are a
+  channel for reaching partners.
 
-## Связи
+## Links
 
-- [[organization]] — коммерческие пути и миссия.
-- [[gamified-learning]] — спонсорства и интерн-процесс.
-- [[community-model]] — кого партнёры поддерживают.
+- [[organization]] - commercial paths and mission.
+- [[gamified-learning]] - sponsorships and intern process.
+- [[community-model]] - whom partners support.

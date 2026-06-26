@@ -1,5 +1,5 @@
 ---
-title: Миссия и стратегия Alov Intelligence
+title: Alov Intelligence Mission and Strategy
 type: source
 tags: [organization, mission, strategy, products, community, gamification]
 created: 2026-06-26
@@ -7,53 +7,56 @@ updated: 2026-06-26
 sources: []
 ---
 
-# Миссия и стратегия Alov Intelligence
+# Alov Intelligence Mission and Strategy
 
-**Источник:** текст, предоставленный человеком 2026-06-26 — миссия, стратегия,
-открытые вопросы, коммерческие пути, аудитория и каталог продуктов, плюс исходный
-«gemini»-промпт-зерно. Оригинал дословно: `raw/2026-06-26-mission-strategy.md`.
+**Source:** text provided by a human on 2026-06-26: mission, strategy, open
+questions, commercial paths, audience, product catalog, plus the original
+"gemini" seed prompt. Verbatim original: `raw/2026-06-26-mission-strategy.md`.
 
-Это **первый содержательный источник об организации** — до него вики знала только про
-сайт-шаблон (см. [[2026-06-26-repo-snapshot]]). Он заполняет центральный пробел
-«что за организация alov-ai», который был помечен в [[overview]].
+This is the **first substantive source about the organization**. Before it, the
+wiki only knew about the website template (see [[2026-06-26-repo-snapshot]]). It
+fills the central gap, "what kind of organization is alov-ai?", that had been
+marked in [[overview]].
 
-## Ключевые выводы
+## Key Takeaways
 
-- **Что за организация.** [[organization|Alov Intelligence]] — задумана как
-  open-source product company, цель — перестроить R&D и прикладные исследования в
-  Азербайджане **подходом снизу вверх**: через техсообщества и inbound-маркетинг.
-- **Не только продукты, но и процесс.** Ядро замысла — **геймификация приобретения
-  навыков** (achievements, badges, leaderboards, tiered learning paths). См.
+- **What kind of organization.** [[organization|Alov Intelligence]] is intended as
+  an open-source product company whose goal is to reshape R&D and applied research
+  in Azerbaijan through a **bottom-up approach**: technical communities and inbound
+  marketing.
+- **Not only products, but also the process.** The core idea is **gamified skill
+  acquisition**: achievements, badges, leaderboards, tiered learning paths. See
   [[gamified-learning]].
-- **Четыре опоры стратегии:** [[community-model|сообщества и развитие навыков]],
-  [[open-source-first|open-source разработка продуктов]],
-  [[inbound-marketing|inbound-маркетинг]], [[partnerships|партнёрства и спонсорства]].
-- **Аудитория шире локальной.** Не только граждане Азербайджана, но и глобальная
-  азербайджанская диаспора (в самом широком смысле); тюркские (Turan) народы тоже
-  приветствуются. См. [[organization]] → Аудитория.
-- **Каталог продуктов** — ~11 направлений (forecasting, LLMs, CV, remote sensing,
-  сети, supply/demand, геопространство, SDI, geospatial ETL, дроны/беспилотники,
-  симуляции/цифровые двойники). См. [[products]].
-- **Коммерческие пути** (4 варианта): engineering management, technical product
-  management, portfolio/community management, product company. См. [[organization]].
-- **Связка геймификации и бизнес-модели.** Achievements рассматриваются и как
-  **платные спонсорства от компаний**: Alov-процесс готовит интернов, нужны метрики
-  компетентности выпускников. См. [[gamified-learning]].
+- **Four strategy pillars:** [[community-model|communities and skill development]],
+  [[open-source-first|open-source product development]],
+  [[inbound-marketing|inbound marketing]], [[partnerships|partnerships and sponsorships]].
+- **The audience is broader than local.** Not only citizens of Azerbaijan, but also
+  the global Azerbaijani diaspora in the broadest sense; Turkic (Turan) peoples
+  are also welcome. See [[organization]] -> Audience.
+- **Product catalog:** ~11 directions: forecasting, LLMs, CV, remote sensing,
+  networks, supply/demand, geospatial work, SDI, geospatial ETL, drones/autonomous
+  vehicles, simulations/digital twins. See [[products]].
+- **Commercial paths** (4 options): engineering management, technical product
+  management, portfolio/community management, product company. See [[organization]].
+- **Gamification and business-model link.** Achievements are also considered as
+  **paid sponsorships from companies**: the Alov process prepares interns, and
+  graduate competence metrics are needed. See [[gamified-learning]].
 
-## Не зафиксировано намеренно
+## Intentionally Not Captured
 
-Источник содержит блок «Critical open questions» (приоритетные продукты, модель
-ownership/maintainer, как не стать бутылочным горлышком, финансирование, найм,
-корпоративная структура, «продукты или процесс первыми»). По указанию человека эти
-развилки в отдельные страницы пока **не выносятся** — оригинал сохранён в `raw/`.
+The source contains a "Critical open questions" block: priority products,
+ownership/maintainer model, how not to become a bottleneck, funding, hiring,
+corporate structure, and "products first or process first." Per human instruction,
+these forks are **not yet split into separate pages**. The original is preserved
+in `raw/`.
 
-## Затронутые страницы вики
+## Touched Wiki Pages
 
-- Создано: [[organization]], [[products]], [[gamified-learning]], [[community-model]],
+- Created: [[organization]], [[products]], [[gamified-learning]], [[community-model]],
   [[open-source-first]], [[inbound-marketing]], [[partnerships]].
-- Обновлено: [[overview]], [[index]], [[log]].
+- Updated: [[overview]], [[index]], [[log]].
 
-## Ссылки на оригинал
+## Original Links
 
-`raw/2026-06-26-mission-strategy.md` — полный текст миссии, стратегии, открытых
-вопросов, коммерческих путей, аудитории и продуктов.
+`raw/2026-06-26-mission-strategy.md` - full text of the mission, strategy, open
+questions, commercial paths, audience, and products.

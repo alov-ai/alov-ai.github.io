@@ -1,37 +1,45 @@
 ---
-title: Журнал вики
+title: Wiki Log
 type: log
 updated: 2026-06-26
 ---
 
-# Журнал вики
+# Wiki Log
 
-Хронологический, append-only журнал. Каждая запись начинается с префикса
-`## [YYYY-MM-DD] <ingest|query|lint> | Заголовок`.
+A chronological, append-only log. Each entry starts with the prefix
+`## [YYYY-MM-DD] <ingest|query|lint> | Title`.
 
-## [2026-06-26] setup | Инициализация вики
+## [2026-06-26] setup | Wiki initialization
 
-Создан каркас LLM-вики в репозитории сайта `alov-ai.github.io`:
+An LLM-wiki scaffold was created in the `alov-ai.github.io` website repository:
 
-- Схема `CLAUDE.md` (домен: организация и её сайт; ингест по одному, с участием).
-- Структура `wiki/` (index, log, overview, entities, concepts, decisions, sources)
-  и `raw/` (источники + assets/).
-- Папки `wiki/` и `raw/` добавлены в `exclude` в `_config.yml` — не публикуются Jekyll.
+- `CLAUDE.md` schema (domain: the organization and its website; one source per
+  ingest, with human involvement).
+- `wiki/` structure (index, log, overview, entities, concepts, decisions, sources)
+  and `raw/` (sources + assets/).
+- `wiki/` and `raw/` were added to `exclude` in `_config.yml` so Jekyll does not
+  publish them.
 
-## [2026-06-26] ingest | Снимок репозитория сайта
+## [2026-06-26] ingest | Website repository snapshot
 
-Источник: сам репозиторий на момент старта (см. [[2026-06-26-repo-snapshot]]).
-Создано: [[website]], [[decision-chirpy-theme]], [[overview]]. Затронут [[index]].
-Ключевое: сайт — нетронутый стартовый шаблон Chirpy; конфиг содержит плейсхолдеры.
+Source: the repository itself at the time of wiki start (see [[2026-06-26-repo-snapshot]]).
+Created: [[website]], [[decision-chirpy-theme]], [[overview]]. Touched [[index]].
+Key point: the website is an untouched Chirpy starter template; the config
+contains placeholders.
 
-## [2026-06-26] ingest | Миссия и стратегия Alov Intelligence
+## [2026-06-26] ingest | Alov Intelligence mission and strategy
 
-Источник: текст миссии/стратегии/продуктов от человека (см. [[2026-06-26-mission-strategy]];
-оригинал — `raw/2026-06-26-mission-strategy.md`). Закрыт центральный пробел «что за
-организация alov-ai».
-Создано: [[organization]], [[products]], [[gamified-learning]], [[community-model]],
+Source: human-provided text about the mission, strategy, and products (see
+[[2026-06-26-mission-strategy]]; original: `raw/2026-06-26-mission-strategy.md`).
+It closed the central gap: "what kind of organization is alov-ai?"
+Created: [[organization]], [[products]], [[gamified-learning]], [[community-model]],
 [[open-source-first]], [[inbound-marketing]], [[partnerships]].
-Обновлено: [[overview]] (переписан), [[website]] (роль в стратегии), [[index]].
-Ключевое: open-source product company для R&D в Азербайджане, подход снизу вверх,
-геймификация навыков, широкая диаспора-аудитория. Блок «open questions» по решению
-человека в отдельные страницы не выносился.
+Updated: [[overview]] (rewritten), [[website]] (role in strategy), [[index]].
+Key point: an open-source product company for R&D in Azerbaijan, a bottom-up
+approach, skill gamification, and a broad diaspora audience. By human decision,
+the "open questions" block was not split into separate pages.
+
+## [2026-06-26] lint | Wiki translated to English
+
+Translated the `wiki/` Markdown pages from Russian to English while preserving
+file names, frontmatter keys, tags, sources, and wiki links.

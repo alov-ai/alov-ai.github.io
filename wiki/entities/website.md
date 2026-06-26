@@ -1,5 +1,5 @@
 ---
-title: Сайт alov-ai
+title: alov-ai Website
 type: entity
 tags: [website, jekyll, chirpy, github-pages]
 created: 2026-06-26
@@ -7,53 +7,55 @@ updated: 2026-06-26
 sources: [2026-06-26-repo-snapshot, 2026-06-26-mission-strategy]
 ---
 
-# Сайт alov-ai
+# alov-ai Website
 
-Публикуемый сайт организации — репозиторий `alov-ai.github.io`.
+The organization's published website is the `alov-ai.github.io` repository.
 
-## Стек
+## Stack
 
-- **Генератор:** Jekyll (статический сайт).
-- **Тема:** [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
-  — минималистичная тема для технического блога. См. [[decision-chirpy-theme]].
-- **Хостинг:** GitHub Pages, деплой через GitHub Actions
+- **Generator:** Jekyll (static site).
+- **Theme:** [jekyll-theme-chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
+  - a minimalist theme for a technical blog. See [[decision-chirpy-theme]].
+- **Hosting:** GitHub Pages, deployed through GitHub Actions
   (`.github/workflows/pages-deploy.yml`).
-- **Статика темы:** git-сабмодуль `assets/lib` →
+- **Theme static assets:** git submodule `assets/lib` ->
   `github.com/cotes2020/chirpy-static-assets`.
 
-## Структура репозитория
+## Repository Structure
 
-| Путь | Назначение |
-|------|-----------|
-| `_config.yml` | Основная конфигурация сайта |
-| `_posts/` | Посты блога (**пусто** на момент старта) |
-| `_tabs/` | Страницы навигации: about, archives, categories, tags |
+| Path | Purpose |
+|------|---------|
+| `_config.yml` | Main site configuration |
+| `_posts/` | Blog posts (**empty** at the starting point) |
+| `_tabs/` | Navigation pages: about, archives, categories, tags |
 | `_data/` | `contact.yml`, `share.yml` |
-| `_plugins/posts-lastmod-hook.rb` | Плагин авто-даты обновления постов |
-| `tools/` | `run.sh` (локальный запуск), `test.sh` (html-proofer) |
-| `assets/lib` | Сабмодуль со статикой темы |
-| `.github/` | CI/CD: сборка и деплой на Pages |
+| `_plugins/posts-lastmod-hook.rb` | Plugin for automatic post last-modified dates |
+| `tools/` | `run.sh` (local run), `test.sh` (html-proofer) |
+| `assets/lib` | Submodule with theme static assets |
+| `.github/` | CI/CD: build and deploy to Pages |
 
-## Текущее состояние
+## Current State
 
-Сайт — **нетронутый стартовый шаблон Chirpy**. Конфигурация содержит плейсхолдеры:
+The website is an **untouched Chirpy starter template**. The configuration contains
+placeholders:
 
-- `title: Chirpy`, дефолтные `tagline`/`description`;
-- `url: ""` — не заполнен (ожидается `https://alov-ai.github.io`);
+- `title: Chirpy`, default `tagline`/`description`;
+- `url: ""` - not filled in (expected: `https://alov-ai.github.io`);
 - `github.username: github_username`, `twitter.username: twitter_username`;
 - `social.name: your_full_name`, `email: example@domain.com`;
-- `lang: en`, `timezone:` — пусто; аватар, аналитика, комментарии не настроены.
+- `lang: en`, `timezone:` is empty; avatar, analytics, and comments are not configured.
 
-Постов нет, один коммит `Initial commit`.
+There are no posts and one commit, `Initial commit`.
 
-## Роль в стратегии
+## Role in the Strategy
 
-Сайт принадлежит организации [[organization|Alov Intelligence]] и — как блог на
-Chirpy — естественная площадка для [[inbound-marketing|inbound-контента]] (статьи,
-кейсы, туториалы, истории успеха). Сейчас этот потенциал не реализован: постов нет.
+The website belongs to [[organization|Alov Intelligence]] and, as a Chirpy blog, is
+the natural place for [[inbound-marketing|inbound content]]: articles, case studies,
+tutorials, and success stories. This potential is not currently realized: there
+are no posts.
 
-## TODO по сайту (кандидаты в решения/задачи)
+## Website TODOs (candidates for decisions/tasks)
 
-- Заполнить `url`, `github`/`social`, `title`, `lang`, `timezone` под Alov Intelligence.
-- Определить замысел сайта и первый контент; связать с [[inbound-marketing]].
-- Инициализировать сабмодуль `assets/lib` при локальной сборке.
+- Fill in `url`, `github`/`social`, `title`, `lang`, and `timezone` for Alov Intelligence.
+- Define the website concept and first content; connect it to [[inbound-marketing]].
+- Initialize the `assets/lib` submodule during local builds.

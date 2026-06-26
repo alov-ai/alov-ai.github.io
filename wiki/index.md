@@ -1,37 +1,37 @@
 ---
-title: Индекс вики
+title: Wiki Index
 type: index
 updated: 2026-06-26
 ---
 
-# Индекс вики
+# Wiki Index
 
-Каталог всех страниц базы знаний об организации **Alov Intelligence** (`alov-ai`) и
-её сайте. Сгруппирован по категориям. Обновляется при каждом ингесте.
+A catalog of all knowledge-base pages about **Alov Intelligence** (`alov-ai`) and
+its website. Grouped by category. Updated on each ingest.
 
-## Обзор
+## Overview
 
-- [[overview]] — что за организация и сайт; высокоуровневый синтез.
+- [[overview]] - what the organization and website are; a high-level synthesis.
 
-## Сущности (entities/)
+## Entities (entities/)
 
-- [[organization]] — **Alov Intelligence**: миссия, стратегия, аудитория, коммерческие пути. *(1 источник)*
-- [[products]] — каталог продуктовых направлений (~11, намерения). *(1 источник)*
-- [[website]] — сайт организации: стек, структура, как устроен. *(2 источника)*
+- [[organization]] - **Alov Intelligence**: mission, strategy, audience, commercial paths. *(1 source)*
+- [[products]] - product direction catalog (~11 planned directions). *(1 source)*
+- [[website]] - the organization's website: stack, structure, and how it is set up. *(2 sources)*
 
-## Концепции (concepts/)
+## Concepts (concepts/)
 
-- [[community-model]] — техсообщества, менторство, воркшопы (опора 1 стратегии). *(1 источник)*
-- [[gamified-learning]] — геймификация навыков: achievements, бейджи, leaderboards. *(1 источник)*
-- [[open-source-first]] — bottom-up, open-source, итеративная разработка (опора 2). *(1 источник)*
-- [[inbound-marketing]] — контент, вовлечение, события (опора 3). *(1 источник)*
-- [[partnerships]] — вузы, индустрия, государство, спонсоры (опора 4). *(1 источник)*
+- [[community-model]] - technical communities, mentorship, workshops (strategy pillar 1). *(1 source)*
+- [[gamified-learning]] - skill gamification: achievements, badges, leaderboards. *(1 source)*
+- [[open-source-first]] - bottom-up, open-source, iterative development (pillar 2). *(1 source)*
+- [[inbound-marketing]] - content, engagement, events (pillar 3). *(1 source)*
+- [[partnerships]] - universities, industry, government, sponsors (pillar 4). *(1 source)*
 
-## Решения (decisions/)
+## Decisions (decisions/)
 
-- [[decision-chirpy-theme]] — выбор Jekyll-темы Chirpy для сайта. *(статус: принято)*
+- [[decision-chirpy-theme]] - choice of the Chirpy Jekyll theme for the website. *(status: accepted)*
 
-## Источники (sources/)
+## Sources (sources/)
 
-- [[2026-06-26-mission-strategy]] — миссия, стратегия, продукты, аудитория организации.
-- [[2026-06-26-repo-snapshot]] — снимок репозитория сайта на момент старта вики.
+- [[2026-06-26-mission-strategy]] - mission, strategy, products, and audience of the organization.
+- [[2026-06-26-repo-snapshot]] - snapshot of the website repository at wiki start.

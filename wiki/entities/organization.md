@@ -1,5 +1,5 @@
 ---
-title: Alov Intelligence (организация)
+title: Alov Intelligence (organization)
 type: entity
 tags: [organization, mission, strategy, azerbaijan, open-source]
 created: 2026-06-26
@@ -7,60 +7,62 @@ updated: 2026-06-26
 sources: [2026-06-26-mission-strategy]
 ---
 
-# Alov Intelligence (организация)
+# Alov Intelligence (organization)
 
-**Alov Intelligence** — задуманная open-source product company, цель которой —
-перестроить ландшафт R&D и прикладных исследований **в Азербайджане** через
-открытый, community-driven подход **снизу вверх** (bottom-up). На GitHub организация
-представлена как `alov-ai`, её сайт — [[website]].
+**Alov Intelligence** is a planned open-source product company whose goal is to
+reshape the landscape of R&D and applied research **in Azerbaijan** through an
+open, community-driven **bottom-up** approach. On GitHub the organization is
+represented as `alov-ai`; its website is [[website]].
 
-> Статус: на момент 2026-06-26 это замысел/проект на ранней стадии. Источник —
-> текст миссии и стратегии (см. [[2026-06-26-mission-strategy]]); сам сайт пока
-> нетронутый шаблон (см. [[2026-06-26-repo-snapshot]]).
+> Status: as of 2026-06-26 this is an early-stage concept/project. The source is
+> the mission and strategy text (see [[2026-06-26-mission-strategy]]); the website
+> itself is still an untouched template (see [[2026-06-26-repo-snapshot]]).
 
-## Миссия
+## Mission
 
-Перестроить R&D и прикладные исследования в Азербайджане через open-source и
-community-driven подход. Замысел шире поставки продуктов: **геймифицировать
-приобретение навыков**, превратив его в путь непрерывных достижений и совместного
-прогресса. Через inbound-маркетинг — продвигать инициативы, выращивающие локальные
-таланты, и сделать Азербайджан хабом передовых технологий.
+Reshape R&D and applied research in Azerbaijan through an open-source and
+community-driven approach. The concept is broader than product delivery: it aims
+to **gamify skill acquisition**, turning it into a path of continuous achievement
+and shared progress. Through inbound marketing, it aims to promote initiatives
+that grow local talent and make Azerbaijan a hub for advanced technologies.
 
-## Стратегия — четыре опоры
+## Strategy - four pillars
 
-1. **Сообщества и развитие навыков** — [[community-model]] + [[gamified-learning]].
-2. **Open-source разработка продуктов** — [[open-source-first]].
-3. **Inbound-маркетинг и продвижение** — [[inbound-marketing]].
-4. **Партнёрства и спонсорства** — [[partnerships]].
+1. **Communities and skill development** - [[community-model]] + [[gamified-learning]].
+2. **Open-source product development** - [[open-source-first]].
+3. **Inbound marketing and promotion** - [[inbound-marketing]].
+4. **Partnerships and sponsorships** - [[partnerships]].
 
-## Аудитория
+## Audience
 
-Контрибьюторы **не ограничены гражданами Азербайджана**. Целевая аудитория — глобальная
-азербайджанская диаспора в самом широком смысле, по всему миру. Тюркские (Turan)
-народы также тепло приветствуются. Это сознательно широкое определение «своих».
+Contributors are **not limited to citizens of Azerbaijan**. The target audience is
+the global Azerbaijani diaspora in the broadest sense, worldwide. Turkic (Turan)
+peoples are also warmly welcomed. This is a deliberately broad definition of
+"our people."
 
-## Коммерческие пути (рассматриваемые)
+## Commercial paths under consideration
 
-Источник перечисляет четыре возможных направления деятельности/монетизации:
+The source lists four possible activity/monetization directions:
 
-1. **Engineering management** — инженерный менеджмент.
-2. **Technical product management** — техническое продуктовое управление.
-3. **Portfolio / community management** — управление портфелем и сообществами.
-4. **Product company** — продуктовая компания.
+1. **Engineering management** - engineering management.
+2. **Technical product management** - technical product management.
+3. **Portfolio / community management** - portfolio and community management.
+4. **Product company** - product company.
 
-Связанная идея монетизации: **achievements как платные спонсорства** компаний +
-Alov-процесс подготовки интернов с метриками компетентности выпускников
-(подробнее — [[gamified-learning]]).
+A related monetization idea: **achievements as paid sponsorships** by companies +
+an Alov process for preparing interns, with graduate competence metrics (details:
+[[gamified-learning]]).
 
-## Принципы
+## Principles
 
-- **Bottom-up:** идеи и продукты рождаются из потребностей сообществ, а не спускаются
-  сверху. См. [[open-source-first]], [[community-model]].
-- **Open-source first:** всё разрабатываемое — открытое. См. [[open-source-first]].
-- **Самоподдерживающаяся экосистема** талантов и инноваций — конечная цель стратегии.
+- **Bottom-up:** ideas and products emerge from community needs rather than being
+  imposed from above. See [[open-source-first]], [[community-model]].
+- **Open-source first:** everything developed is open. See [[open-source-first]].
+- **Self-sustaining ecosystem** of talent and innovation: the ultimate goal of
+  the strategy.
 
-## Связи
+## Links
 
-- Сайт организации: [[website]].
-- Каталог продуктовых направлений: [[products]].
-- Высокоуровневый синтез: [[overview]].
+- Organization website: [[website]].
+- Product direction catalog: [[products]].
+- High-level synthesis: [[overview]].

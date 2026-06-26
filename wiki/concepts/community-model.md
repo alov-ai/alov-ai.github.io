@@ -1,5 +1,5 @@
 ---
-title: Сообщества и развитие навыков
+title: Communities and Skill Development
 type: concept
 tags: [community, mentorship, education, bottom-up]
 created: 2026-06-26
@@ -7,33 +7,34 @@ updated: 2026-06-26
 sources: [2026-06-26-mission-strategy]
 ---
 
-# Сообщества и развитие навыков
+# Communities and Skill Development
 
-Первая опора стратегии [[organization|Alov Intelligence]]. Технические сообщества —
-фундамент всего подхода **снизу вверх**: на них держатся обмен знаниями, совместное
-решение задач и разработка продуктов (см. [[open-source-first]]).
+The first pillar of the [[organization|Alov Intelligence]] strategy. Technical
+communities are the foundation of the entire **bottom-up** approach: they support
+knowledge exchange, collaborative problem solving, and product development (see
+[[open-source-first]]).
 
-## Элементы
+## Elements
 
-- **Технические сообщества.** Создаются и развиваются вокруг ключевых направлений:
-  LLMs, computer vision, remote sensing, network optimization, supply & demand
-  modeling, geospatial solutions. (Этот список ýже полного [[products|каталога продуктов]].)
-- **Геймифицированные learning paths.** См. отдельную страницу [[gamified-learning]].
-- **Менторские программы.** Связывают опытных профессионалов с начинающими
-  исследователями и разработчиками.
-- **Воркшопы и буткемпы.** Регулярные воркшопы, хакатоны, буткемпы — для ускорения
-  развития навыков и практического применения знаний.
+- **Technical communities.** Created and developed around key directions: LLMs,
+  computer vision, remote sensing, network optimization, supply & demand modeling,
+  geospatial solutions. (This list is narrower than the full [[products|product catalog]].)
+- **Gamified learning paths.** See the dedicated [[gamified-learning]] page.
+- **Mentorship programs.** Connect experienced professionals with early-career
+  researchers and developers.
+- **Workshops and bootcamps.** Regular workshops, hackathons, and bootcamps to
+  accelerate skill development and practical application of knowledge.
 
-## Роль в стратегии
+## Role in the Strategy
 
-Сообщества — это «фундамент»: именно из их потребностей и вклада рождаются продукты
-(bottom-up innovation, см. [[open-source-first]]). Аудитория сообществ сознательно
-широкая — глобальная азербайджанская диаспора и тюркские народы (см. [[organization]]
-→ Аудитория).
+Communities are the "foundation": products are born from their needs and
+contributions (bottom-up innovation; see [[open-source-first]]). The community
+audience is deliberately broad: the global Azerbaijani diaspora and Turkic peoples
+(see [[organization]] -> Audience).
 
-## Связи
+## Links
 
-- [[gamified-learning]] — как мотивируется развитие навыков.
-- [[open-source-first]] — как вклад сообществ превращается в продукты.
-- [[inbound-marketing]] — как сообщества растят и продвигают.
-- [[partnerships]] — вузы и индустрия как партнёры сообществ.
+- [[gamified-learning]] - how skill development is motivated.
+- [[open-source-first]] - how community contributions become products.
+- [[inbound-marketing]] - how communities are grown and promoted.
+- [[partnerships]] - universities and industry as community partners.

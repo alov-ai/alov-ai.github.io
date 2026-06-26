@@ -1,5 +1,5 @@
 ---
-title: Обзор
+title: Overview
 type: overview
 tags: [organization, website, strategy]
 created: 2026-06-26
@@ -7,49 +7,53 @@ updated: 2026-06-26
 sources: [2026-06-26-repo-snapshot, 2026-06-26-mission-strategy]
 ---
 
-# Обзор
+# Overview
 
-Высокоуровневый синтез того, что мы знаем об организации **Alov Intelligence**
-(`alov-ai`) и её сайте. Обновляется по мере накопления источников.
+A high-level synthesis of what we know about **Alov Intelligence** (`alov-ai`) and
+its website. Updated as sources accumulate.
 
-## Организация
+## Organization
 
-**Alov Intelligence** — задуманная open-source product company, цель которой —
-перестроить R&D и прикладные исследования **в Азербайджане** через открытый,
-community-driven подход **снизу вверх**. Подробно — [[organization]].
+**Alov Intelligence** is a planned open-source product company whose goal is to
+reshape R&D and applied research **in Azerbaijan** through an open,
+community-driven **bottom-up** approach. Details: [[organization]].
 
-Отличительная черта замысла: ставка не только на продукты, но и на **геймификацию
-приобретения навыков** ([[gamified-learning]]) — достижения, бейджи, leaderboards,
-обучающие траектории. Аудитория сознательно широкая: глобальная азербайджанская
-диаспора и тюркские (Turan) народы, а не только граждане Азербайджана.
+A distinctive feature of the concept is that it focuses not only on products, but
+also on **gamifying skill acquisition** ([[gamified-learning]]) through
+achievements, badges, leaderboards, and learning paths. The intended audience is
+deliberately broad: the global Azerbaijani diaspora and Turkic (Turan) peoples,
+not only citizens of Azerbaijan.
 
-### Стратегия — четыре опоры
+### Strategy - four pillars
 
-1. [[community-model]] — техсообщества, менторство, воркшопы (+ [[gamified-learning]]).
-2. [[open-source-first]] — bottom-up, open-source, итеративная разработка продуктов.
-3. [[inbound-marketing]] — контент, вовлечение сообществ, события.
-4. [[partnerships]] — вузы, индустрия, государство, спонсоры.
+1. [[community-model]] - technical communities, mentorship, workshops (+ [[gamified-learning]]).
+2. [[open-source-first]] - bottom-up, open-source, iterative product development.
+3. [[inbound-marketing]] - content, community engagement, events.
+4. [[partnerships]] - universities, industry, government, sponsors.
 
-Продуктовые направления (~11, намерения) — в [[products]]. Коммерческие пути и связка
-«achievements как платные спонсорства» — в [[organization]].
+Product directions (~11 planned directions) are listed in [[products]]. Commercial
+paths and the "achievements as paid sponsorships" connection are covered in
+[[organization]].
 
-## Сайт
+## Website
 
-Сайт организации — блог на **Jekyll** с темой **Chirpy**, задеплоенный на GitHub Pages
-по адресу вида `https://alov-ai.github.io`. На момент старта вики это **практически
-нетронутый стартовый шаблон**: конфигурация содержит значения-заглушки, постов нет.
-Подробности — [[website]]. Выбор темы — [[decision-chirpy-theme]].
+The organization's website is a **Jekyll** blog using the **Chirpy** theme,
+deployed to GitHub Pages at an address like `https://alov-ai.github.io`. At the
+time the wiki was started, it was **almost an untouched starter template**: the
+configuration contains placeholder values and there are no posts. Details:
+[[website]]. Theme choice: [[decision-chirpy-theme]].
 
-> Разрыв: стратегия делает ставку на [[inbound-marketing|inbound-контент]], а сайт —
-> естественная площадка для него — пока пуст. Это направление для следующей работы.
+> Gap: the strategy relies on [[inbound-marketing|inbound content]], and the
+> website is the natural place for it, but it is currently empty. This is an area
+> for future work.
 
-## Открытые вопросы
+## Open Questions
 
-- **Приоритеты.** Какие продукты и какие достижения «разблокируются» первыми?
-  «Продукты или процесс первыми»? (Источник оставил это открытым — см. `raw/`.)
-- **Модель и устройство.** Ownership/maintainer-модель, как не стать бутылочным
-  горлышком, корпоративная структура, финансирование, найм. (Намеренно не разложено
-  по страницам по решению человека.)
-- **Сайт.** Замысел сайта и первый контент; связать с inbound-стратегией.
+- **Priorities.** Which products and which achievements get "unlocked" first?
+  "Products first or process first"? (The source left this open; see `raw/`.)
+- **Model and structure.** Ownership/maintainer model, how not to become a
+  bottleneck, corporate structure, funding, hiring. (Intentionally not split into
+  separate pages by human decision.)
+- **Website.** Website concept and first content; connect it to the inbound strategy.
 
-Эти вопросы — направление для следующих источников и ингестов.
+These questions are directions for future sources and ingests.
