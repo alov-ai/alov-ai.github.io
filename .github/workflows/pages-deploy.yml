@@ -8,6 +8,11 @@ on:
       - .gitignore
       - README.md
       - LICENSE
+      # LLM-вики и агентские файлы — не триггерят деплой сайта
+      - wiki/**
+      - raw/**
+      - CLAUDE.md
+      - AGENTS.md
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
