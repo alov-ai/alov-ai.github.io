@@ -33,3 +33,6 @@ Thumbs.db
 
 # Root Obsidian vault config (not the wiki vault at wiki/.obsidian)
 /.obsidian/
+
+# Raw sources for the LLM-wiki — kept locally, not tracked
+/raw/
