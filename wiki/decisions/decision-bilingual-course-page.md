@@ -33,14 +33,18 @@ with an in-page **language switcher** (no separate per-language URLs).
   (`assets/js/course-lang.js`) toggles `data-lang` and remembers the choice in
   `localStorage`. Default language: **Azerbaijani**.
 - **Syllabus as data:** the 17-row table is generated from
-  `_data/crypto_course.yml` (per lecture: `n`, `az`, `en`, `pdf`, `colab`,
-  `nbviewer`), so titles/links live in one place, not in markup.
+  `_data/crypto_course.yml` (per lecture: `n`, `az`, `en`, `pdf`, `colab`), so
+  titles/links live in one place, not in markup. (The `nbviewer` field was dropped
+  on 2026-06-27 - see [[decision-course-file-hosting]].)
 - **Lecture titles** come from the **lecture PDFs themselves**, written in proper
   Azerbaijani Latin orthography, with English translations.
 - **File links** are pre-percent-encoded from the real filenames, which contain
   non-ASCII characters (`ə` U+0259 in notebooks, `ә` U+04D9 in PDFs) and spaces;
   encoding is generated from the actual bytes so htmlproofer (CI) can resolve the
-  internal PDF links.
+  internal PDF links. **Caveat (2026-06-27):** these non-ASCII notebook names broke
+  the planned nbviewer link (nbviewer fails to match the name in its directory
+  listing); the Colab link, which fetches the file directly, is unaffected. See
+  [[decision-course-file-hosting]].
 
 ## Consequences
 

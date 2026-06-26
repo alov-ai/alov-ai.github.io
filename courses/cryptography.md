@@ -110,7 +110,6 @@ toc: false
         <td class="course-nb">
           {% if item.colab and item.colab != "" %}
           <a href="{{ item.colab }}" target="_blank" rel="noopener">Colab</a>
-          <a href="{{ item.nbviewer }}" target="_blank" rel="noopener">nbviewer</a>
           {% else %}—{% endif %}
         </td>
       </tr>
@@ -122,7 +121,7 @@ toc: false
   <div class="lang az course-note">
     <p><strong>Məşğələləri necə işə salmaq olar?</strong>
     <em>Colab</em> dəftəri brauzerdə birbaşa açıb işə salır (quraşdırma tələb
-    olunmur); <em>nbviewer</em> isə onu yalnız oxumaq üçün göstərir. Mənbə
+    olunmur). Mənbə
     faylları (PDF, TeX, Jupyter) layihənin
     <a href="https://github.com/alov-ai/alov-ai.github.io" target="_blank" rel="noopener">GitHub anbarında</a>
     açıq şəkildə saxlanılır.</p>
@@ -130,7 +129,7 @@ toc: false
   <div class="lang en course-note">
     <p><strong>How to run the practicals.</strong>
     <em>Colab</em> opens and runs a notebook right in your browser (no setup
-    needed); <em>nbviewer</em> renders it read-only. The source files (PDF, TeX,
+    needed). The source files (PDF, TeX,
     Jupyter) are kept openly in the project's
     <a href="https://github.com/alov-ai/alov-ai.github.io" target="_blank" rel="noopener">GitHub repository</a>.</p>
   </div>

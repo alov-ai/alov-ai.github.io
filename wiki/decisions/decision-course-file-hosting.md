@@ -3,7 +3,7 @@ title: Decision - Course File Hosting in the Site Repo
 type: decision
 tags: [website, course, hosting, jupyter, assets]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
 sources: []
 ---
 
@@ -11,6 +11,18 @@ sources: []
 
 **Status:** accepted (chosen by the human on 2026-06-26; implemented - files are
 in the repo and the page is built, see [[decision-bilingual-course-page]]).
+
+> **Correction (2026-06-27):** the **nbviewer** link was **dropped**; only the
+> "Open in Colab" link survives. Two issues surfaced when testing the live links:
+> (1) the Colab/nbviewer URLs pointed at `assets/courses/cryptography/` but the
+> notebooks actually live in the `notebooks/` subfolder - fixed by adding
+> `notebooks/` to the URLs in `_data/crypto_course.yml`. (2) Even with the right
+> path, **nbviewer cannot resolve the non-ASCII notebook filenames** (`Məşğələ_*`,
+> with `ə ş ğ`): its `/github/` mode matches the file by name against a directory
+> listing and fails (`not found among N files`), almost certainly a Unicode
+> normalization (NFC vs NFD) mismatch. Colab works because it fetches the file
+> directly from GitHub without a listing-based name match. The human chose to
+> remove the nbviewer link rather than rename the files to ASCII. See [[log]].
 
 > **Correction (2026-06-26):** the Context below says "only about half of it goes
 > live at launch". In fact the repo now holds **all 17 lectures and 17
@@ -43,11 +55,12 @@ Host the course files **inside the `alov-ai.github.io` repository**.
   page.
 - **TeX:** kept as open source for transparency; available in the repo, not
   rendered on the site.
-- **Notebooks:** stored as `.ipynb` in the repo. On the site, surface them via
-  **"Open in Colab"** (run) and a **"View" (nbviewer)** link (read) - no build
-  step needed, since the files are reachable by URL once deployed. A
+- **Notebooks:** stored as `.ipynb` in the repo (under `notebooks/`). On the site,
+  surface them via **"Open in Colab"** (run) only - no build step needed, since the
+  files are reachable by URL once deployed. An nbviewer "View" link was planned but
+  dropped (non-ASCII filenames break nbviewer; see the Correction above). A
   `nbconvert` -> HTML step in the deploy workflow is a possible later upgrade if
-  inline rendering is wanted.
+  read-only inline rendering is wanted.
 - **Site page:** a single course page under a **Collaborations / Partners** area
   (no full Courses catalog for a one-off), with description, syllabus, language,
   status (half the course at launch), BSU attribution, and links to the
@@ -58,8 +71,9 @@ Host the course files **inside the `alov-ai.github.io` repository**.
 - One repo to manage; no separate course repo to set up.
 - The site repo grows with PDFs/notebooks; keep an eye on size if more material
   lands (revisit toward a separate repo if it stops being a one-off).
-- No native in-page notebook rendering at launch; readers go to Colab/nbviewer.
-  Acceptable for executable material, revisitable via `nbconvert`.
+- No native in-page notebook rendering at launch; readers go to Colab (run-only;
+  no read-only viewer after nbviewer was dropped). Acceptable for executable
+  material, revisitable via `nbconvert` if a read-only view is wanted.
 - Files deploy and version together with the site - simple, but couples course
   updates to site deploys.
 

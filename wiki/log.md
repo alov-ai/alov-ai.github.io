@@ -122,6 +122,25 @@ the course page links back. Reordered the remaining tabs down by one
 decision (single course page under a Collaborations / Partners area). Updated
 [[cryptography-course]], [[partnerships]], [[bsu-digital-center]].
 
+## [2026-06-27] build | Fixed course notebook links; dropped nbviewer
+
+Testing the live course links surfaced two bugs in the notebook URLs. (1) The
+Colab/nbviewer URLs in `_data/crypto_course.yml` pointed at
+`assets/courses/cryptography/` but the notebooks live in the `notebooks/`
+subfolder - added `notebooks/` to all URLs. This fixed **Colab**. (2) **nbviewer
+still 404'd**: it cannot resolve the non-ASCII notebook filenames (`Məşğələ_*`)
+via its `/github/` directory-listing name match (`not found among N files`),
+almost certainly an NFC/NFD Unicode normalization mismatch; the `/urls/` raw
+workaround just redirects back to the failing `/github/` form. Verified the file
+is reachable on GitHub (raw 200, contents API lists it), so it is purely an
+nbviewer limitation. The human chose to **drop the nbviewer link** rather than
+rename files to ASCII. Removed the `nbviewer` field from all 17 yml rows, the
+nbviewer `<a>` from the syllabus table in `courses/cryptography.md`, and the
+nbviewer mention from the bilingual help notes (AZ + EN). Updated
+[[decision-course-file-hosting]], [[decision-bilingual-course-page]],
+[[cryptography-course]]. Not built locally (no Ruby/Jekyll here) - relies on
+Pages CI. Changes not yet committed/pushed.
+
 ## [2026-06-26] fix | Blog feed empty-card / CI failure
 
 The Pages CI (htmlproofer) failed: `_site/blog/index.html` had an `<a>` with an

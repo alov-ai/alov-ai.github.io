@@ -3,7 +3,7 @@ title: Cryptography Course
 type: entity
 tags: [course, education, cryptography, collaboration, content]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-06-27
 sources: []
 ---
 
@@ -81,7 +81,7 @@ wait until more courses exist.
 
 **Built:** the page lives at `courses/cryptography.md` -> `/courses/cryptography/`.
 The syllabus table is generated from `_data/crypto_course.yml` (per-lecture: AZ/EN
-title, PDF link, Colab + nbviewer links). Bilingual switcher, CSS, and JS live in
+title, PDF link, Colab link). Bilingual switcher, CSS, and JS live in
 `assets/css/course.css` and `assets/js/course-lang.js`. See
 [[decision-bilingual-course-page]].
 
@@ -95,8 +95,8 @@ a Collaborations / Partners area" placement decided earlier.
 
 Decided: files live **inside the site repo** under `assets/courses/cryptography/`
 (pdf/tex/notebooks). PDF is linked for view/download; notebooks are surfaced via
-"Open in Colab" / nbviewer rather than rendered by Jekyll. See
-[[decision-course-file-hosting]].
+"Open in Colab" only - the nbviewer link was dropped because nbviewer can't
+resolve the non-ASCII notebook filenames. See [[decision-course-file-hosting]].
 
 ## Data gaps
 
