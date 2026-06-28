@@ -165,6 +165,25 @@ toc: false
   </ul>
   {% endif %}
 
+  <!-- ===== Feedback ===== -->
+  <h2 class="lang az">Rəy</h2>
+  <h2 class="lang en">Feedback</h2>
+
+  <p class="lang az">
+    Rəyiniz hər zaman xoş qarşılanır! Kursla bağlı təklif, qeyd və ya səhv
+    bildirişiniz varsa, bizə e-poçt göndərin — rəyiniz kursu yaxşılaşdırmağa
+    kömək edir.
+  </p>
+  <p class="lang en">
+    Your feedback is always welcome! Have a suggestion, a note, or spotted a
+    mistake? Send us an email — your feedback helps improve the course.
+  </p>
+
+  <p class="course-feedback">
+    <a class="course-feedback-btn lang az" href="mailto:kaveh.babai@bsu.edu.az?subject=Kriptoqrafiya%20kursu%20-%20r%C9%99y">✉️ Rəy bildir</a>
+    <a class="course-feedback-btn lang en" href="mailto:kaveh.babai@bsu.edu.az?subject=Cryptography%20course%20-%20feedback">✉️ Give feedback</a>
+  </p>
+
   <!-- ===== Notebook help ===== -->
   <div class="lang az course-note">
     <p><strong>Məşğələləri necə işə salmaq olar?</strong>
