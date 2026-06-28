@@ -35,6 +35,13 @@ toc: false
     worked <strong>practical</strong> (Jupyter notebook) in Python.
   </p>
 
+  <p class="lang az course-status">
+    📚 Bu kursun <strong>birinci hissəsidir</strong>. İkinci hissə hazırlanır.
+  </p>
+  <p class="lang en course-status">
+    📚 This is the <strong>first part</strong> of the course. A second part is on the way.
+  </p>
+
   <!-- ===== Facts ===== -->
   <ul class="course-facts">
     <li>
@@ -52,6 +59,16 @@ toc: false
     <li>
       <span class="lang az"><strong>Həcm:</strong> Bir semestr</span>
       <span class="lang en"><strong>Scope:</strong> One semester</span>
+    </li>
+    <li>
+      <span class="lang az"><strong>Hissə:</strong> 1-ci hissə (2-ci hissə hazırlanır)</span>
+      <span class="lang en"><strong>Part:</strong> Part 1 (Part 2 in preparation)</span>
+    </li>
+    <li>
+      <span class="lang az"><strong>Lisenziya:</strong>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.az" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></span>
+      <span class="lang en"><strong>License:</strong>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></span>
     </li>
   </ul>
 
@@ -163,6 +180,25 @@ toc: false
     needed). The source files (PDF, TeX,
     Jupyter) are kept openly in the project's
     <a href="https://github.com/alov-ai/alov-ai.github.io" target="_blank" rel="noopener">GitHub repository</a>.</p>
+  </div>
+
+  <!-- ===== License ===== -->
+  <div class="lang az course-note course-license">
+    <p><strong>Lisenziya.</strong>
+    Bu kurs
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.az" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+    lisenziyası altında yayımlanır. İstənilən şəxs ondan sərbəst istifadə edə,
+    nüsxələyə, paylaşa və dəyişdirə bilər — bir şərtlə ki, <strong>müəllifliyi
+    göstərsin</strong>, <strong>kommersiya məqsədilə istifadə etməsin</strong>
+    (yəni satmasın) və törəmə işləri eyni lisenziya altında yaysın.</p>
+  </div>
+  <div class="lang en course-note course-license">
+    <p><strong>License.</strong>
+    This course is released under
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>.
+    Anyone may freely use, copy, share, and adapt it — provided they
+    <strong>give attribution</strong>, do <strong>not use it commercially</strong>
+    (i.e. do not sell it), and release derivative works under the same license.</p>
   </div>
 
 </div>
