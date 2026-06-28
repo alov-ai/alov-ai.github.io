@@ -46,8 +46,8 @@ toc: false
       <span class="lang en"><strong>Language:</strong> Azerbaijani (materials)</span>
     </li>
     <li>
-      <span class="lang az"><strong>Format:</strong> 17 mövzu — mühazirə (PDF) və məşğələ (Jupyter)</span>
-      <span class="lang en"><strong>Format:</strong> 17 topics — lecture (PDF) and practical (Jupyter)</span>
+      <span class="lang az"><strong>Format:</strong> 15 mövzu — mühazirə (PDF) və məşğələ (Jupyter)</span>
+      <span class="lang en"><strong>Format:</strong> 15 topics — lecture (PDF) and practical (Jupyter)</span>
     </li>
     <li>
       <span class="lang az"><strong>Həcm:</strong> Bir semestr</span>
@@ -108,8 +108,8 @@ toc: false
           {% else %}—{% endif %}
         </td>
         <td class="course-nb">
-          {% if item.colab and item.colab != "" %}
-          <a href="{{ item.colab }}" target="_blank" rel="noopener">Colab</a>
+          {% if item.notebooks and item.notebooks.size > 0 %}
+          {% for nb in item.notebooks %}<a href="{{ nb.url }}" target="_blank" rel="noopener">Colab{% if nb.extra %} <span class="lang az">(əlavə)</span><span class="lang en">(extra)</span>{% endif %}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
           {% else %}—{% endif %}
         </td>
       </tr>

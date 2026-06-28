@@ -1,89 +1,102 @@
 # Auto-generated syllabus data for the Cryptography course page.
 # Lecture titles are taken from the lecture PDFs themselves.
 # Regenerate if files in assets/courses/cryptography change.
+#
+# 15 lectures (PDFs 1-15). Two former lectures were dropped (old #12 "CTR, GCM"
+# and old #17 "HMAC, Poly1305"); their practicals are kept and attached as a
+# second notebook to lectures 12 and 15 respectively (Məşğələ 12b / 15b).
 lectures:
   - n: 1
     az: "Kriptoqrafiyaya giriş"
     en: "Introduction to cryptography"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%201.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_1.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_1.ipynb"
   - n: 2
     az: "Klassik şifrələr"
     en: "Classical ciphers"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%202.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_2.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_2.ipynb"
   - n: 3
     az: "Polialfabetik şifrələr və Vijener şifrəsi"
     en: "Polyalphabetic ciphers and the Vigenere cipher"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%203.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_3.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_3.ipynb"
   - n: 4
     az: "Diskret ehtimal paylanmaları və ad günü paradoksu"
     en: "Discrete probability distributions and the birthday paradox"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%204.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_4.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_4.ipynb"
   - n: 5
     az: "Entropiya, mükəmməl konfidensiallıq və semantik təhlükəsizlik"
     en: "Entropy, perfect secrecy, and semantic security"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%205.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_5.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_5.ipynb"
   - n: 6
     az: "Axın şifrələri və LFSR"
     en: "Stream ciphers and LFSRs"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%206.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_6.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_6.ipynb"
   - n: 7
     az: "Müasir axın şifrələri"
     en: "Modern stream ciphers"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%207.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_7.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_7.ipynb"
   - n: 8
     az: "Blok şifrələrə giriş və Feystel şəbəkəsi"
     en: "Introduction to block ciphers and the Feistel network"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%208.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_8.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_8.ipynb"
   - n: 9
     az: "DES, 3DES və onların təhlükəsizliyi"
     en: "DES, 3DES, and their security"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%209.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_9.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_9.ipynb"
   - n: 10
     az: "AES (Advanced Encryption Standard)"
     en: "AES (Advanced Encryption Standard)"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2010.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_10.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_10.ipynb"
   - n: 11
     az: "Blok şifrələrin iş rejimləri"
     en: "Block cipher modes of operation"
     pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2011.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_11.ipynb"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_11.ipynb"
   - n: 12
-    az: "CTR, GCM və müasir rejimlər"
-    en: "CTR, GCM, and modern modes"
-    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2012.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_12.ipynb"
-  - n: 13
     az: "Heş funksiyalarına giriş və xüsusiyyətləri"
     en: "Introduction to hash functions and their properties"
-    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2013.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_13.ipynb"
-  - n: 14
+    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2012.pdf"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_12.ipynb"
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_12b.ipynb"
+        extra: true
+  - n: 13
     az: "MD5, SHA-1, SHA-2"
     en: "MD5, SHA-1, SHA-2"
-    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2014.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_14.ipynb"
-  - n: 15
+    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2013.pdf"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_13.ipynb"
+  - n: 14
     az: "SHA-3 (Keccak) və süngər quruluşu"
     en: "SHA-3 (Keccak) and the sponge construction"
-    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2015.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_15.ipynb"
-  - n: 16
+    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2014.pdf"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_14.ipynb"
+  - n: 15
     az: "MAK (Message Authentication Code)"
     en: "MAC (Message Authentication Code)"
-    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2016.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_16.ipynb"
-  - n: 17
-    az: "HMAC və Poly1305"
-    en: "HMAC and Poly1305"
-    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2017.pdf"
-    colab: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_17.ipynb"
+    pdf: "/assets/courses/cryptography/pdf/M%C3%BChazir%D3%99%2015.pdf"
+    notebooks:
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_15.ipynb"
+      - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_15b.ipynb"
+        extra: true
