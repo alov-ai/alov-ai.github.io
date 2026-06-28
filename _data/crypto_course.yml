@@ -100,3 +100,27 @@ lectures:
       - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_15.ipynb"
       - url: "https://colab.research.google.com/github/alov-ai/alov-ai.github.io/blob/main/assets/courses/cryptography/notebooks/M%C9%99%C5%9F%C4%9F%C9%99l%C9%99_15b.ipynb"
         extra: true
+
+# Supplementary, course-wide materials (not tied to a single lecture).
+extras:
+  - az: "Kriptoqrafiya terminlərinin izahlı lüğəti"
+    en: "Explanatory dictionary of cryptography terms"
+    versions:
+      - az: "qısa"
+        en: "short"
+        pdf: "/assets/courses/cryptography/pdf/Kriptoqrafiya%20terminl%C9%99rinin%20izahl%C4%B1%20l%C3%BC%C4%9F%C9%99ti%20%28q%C4%B1sa%29.pdf"
+      - az: "tam"
+        en: "full"
+        pdf: "/assets/courses/cryptography/pdf/Kriptoqrafiya%20terminl%C9%99rinin%20izahl%C4%B1%20l%C3%BC%C4%9F%C9%99ti%20%28tam%29.pdf"
+  - az: "Kriptoqrafiyanın qısa tarixi"
+    en: "A short history of cryptography"
+    pdf: "/assets/courses/cryptography/pdf/Kriptoqrafiyan%C4%B1n%20q%C4%B1sa%20tarixi.pdf"
+  - az: "Riyazi əsaslar — Qruplar, meydanlar və Qalua meydanları"
+    en: "Mathematical foundations — Groups, fields, and Galois fields"
+    pdf: "/assets/courses/cryptography/pdf/Riyazi%20%C9%99saslar%20-%20Qruplar%20v%C9%99%20Qalua%20meydanlar%C4%B1.pdf"
+  - az: "Riyazi əsaslar — Hesablama mürəkkəbliyi"
+    en: "Mathematical foundations — Computational complexity"
+    pdf: "/assets/courses/cryptography/pdf/Riyazi%20%C9%99saslar%20-%20Hesablama%20m%C3%BCr%C9%99kk%C9%99bliyi.pdf"
+  - az: "Riyazi əsaslar — Tam ədədlərin faktorizasiyası"
+    en: "Mathematical foundations — Integer factorization"
+    pdf: "/assets/courses/cryptography/pdf/Riyazi%20%C9%99saslar%20-%20Tam%20%C9%99d%C9%99dl%C9%99rin%20faktorizasiyas%C4%B1.pdf"

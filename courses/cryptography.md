@@ -117,6 +117,37 @@ toc: false
     </tbody>
   </table>
 
+  <!-- ===== Supplementary materials ===== -->
+  {% if site.data.crypto_course.extras and site.data.crypto_course.extras.size > 0 %}
+  <h2 class="lang az">Əlavə materiallar</h2>
+  <h2 class="lang en">Additional materials</h2>
+
+  <p class="lang az course-extras-intro">
+    Bütün proqrama aid köməkçi sənədlər — lüğətlər, tarixçə və kriptoqrafiyanın
+    riyazi əsasları.
+  </p>
+  <p class="lang en course-extras-intro">
+    Course-wide reference documents — glossaries, a history, and the mathematical
+    foundations of cryptography.
+  </p>
+
+  <ul class="course-extras">
+    {% for x in site.data.crypto_course.extras %}
+    <li>
+      {% if x.versions and x.versions.size > 0 %}
+      <span class="lang az">{{ x.az }}</span><span class="lang en">{{ x.en }}</span>
+      — {% for v in x.versions %}<a href="{{ v.pdf | relative_url }}" target="_blank" rel="noopener"><span class="lang az">{{ v.az }}</span><span class="lang en">{{ v.en }}</span></a>{% unless forloop.last %} · {% endunless %}{% endfor %}
+      {% else %}
+      <a href="{{ x.pdf | relative_url }}" target="_blank" rel="noopener">
+        <span class="lang az">{{ x.az }}</span>
+        <span class="lang en">{{ x.en }}</span>
+      </a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
   <!-- ===== Notebook help ===== -->
   <div class="lang az course-note">
     <p><strong>Məşğələləri necə işə salmaq olar?</strong>

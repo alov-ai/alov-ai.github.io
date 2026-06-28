@@ -106,3 +106,19 @@
   margin-top: 1.5rem;
   font-size: 0.9rem;
 }
+
+/* Supplementary materials */
+.course-extras-intro {
+  margin: 0.25rem 0 1rem;
+  opacity: 0.9;
+}
+
+.course-extras {
+  margin: 0 0 2rem;
+  padding-left: 1.2rem;
+}
+
+.course-extras li {
+  padding: 0.2rem 0;
+  line-height: 1.5;
+}
