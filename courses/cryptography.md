@@ -22,24 +22,25 @@ toc: false
 
   <!-- ===== Intro ===== -->
   <p class="lang az lead">
-    Müasir kriptoqrafiyaya bir semestrlik praktik giriş: XOR və klassik
-    şifrələrdən başlayaraq blok şifrələri, heş funksiyaları və mesaj
-    autentifikasiyasına qədər. Hər mövzu bir <strong>mühazirə</strong> (PDF) və
-    Python-da işlənən bir <strong>məşğələ</strong> (Jupyter dəftəri) ilə müşayiət
-    olunur.
+    Müasir kriptoqrafiyaya iki semestrlik praktik giriş: XOR və klassik
+    şifrələrdən başlayaraq blok şifrələri, heş funksiyaları, açıq açar
+    kriptoqrafiyası, TLS və post-kvant sxemlərinə qədər. Hər mövzu bir
+    <strong>mühazirə</strong> (PDF) və Python-da işlənən bir
+    <strong>məşğələ</strong> (Jupyter dəftəri) ilə müşayiət olunur.
   </p>
   <p class="lang en lead">
-    A one-semester, hands-on introduction to modern cryptography — from XOR and
-    classical ciphers through block ciphers, hash functions, and message
-    authentication. Each topic pairs a <strong>lecture</strong> (PDF) with a
-    worked <strong>practical</strong> (Jupyter notebook) in Python.
+    A two-semester, hands-on introduction to modern cryptography — from XOR and
+    classical ciphers through block ciphers, hash functions, public-key
+    cryptography, TLS, and post-quantum schemes. Each topic pairs a
+    <strong>lecture</strong> (PDF) with a worked <strong>practical</strong>
+    (Jupyter notebook) in Python.
   </p>
 
   <p class="lang az course-status">
-    📚 Bu kursun <strong>birinci hissəsidir</strong>. İkinci hissə hazırlanır.
+    📚 <strong>İki semestrlik</strong> tam kurs: 30 mühazirə və 33 məşğələ.
   </p>
   <p class="lang en course-status">
-    📚 This is the <strong>first part</strong> of the course. A second part is on the way.
+    📚 The <strong>complete two-semester</strong> course: 30 lectures and 33 practicals.
   </p>
 
   <!-- ===== Facts ===== -->
@@ -53,16 +54,16 @@ toc: false
       <span class="lang en"><strong>Language:</strong> Azerbaijani (materials)</span>
     </li>
     <li>
-      <span class="lang az"><strong>Format:</strong> 15 mövzu — mühazirə (PDF) və məşğələ (Jupyter)</span>
-      <span class="lang en"><strong>Format:</strong> 15 topics — lecture (PDF) and practical (Jupyter)</span>
+      <span class="lang az"><strong>Mühazirə:</strong> 30 mövzu (PDF)</span>
+      <span class="lang en"><strong>Lectures:</strong> 30 topics (PDF)</span>
     </li>
     <li>
-      <span class="lang az"><strong>Həcm:</strong> Bir semestr</span>
-      <span class="lang en"><strong>Scope:</strong> One semester</span>
+      <span class="lang az"><strong>Məşğələ:</strong> 33 Jupyter dəftəri (3-ü əlavə)</span>
+      <span class="lang en"><strong>Practicals:</strong> 33 Jupyter notebooks (3 supplementary)</span>
     </li>
     <li>
-      <span class="lang az"><strong>Hissə:</strong> 1-ci hissə (2-ci hissə hazırlanır)</span>
-      <span class="lang en"><strong>Part:</strong> Part 1 (Part 2 in preparation)</span>
+      <span class="lang az"><strong>Həcm:</strong> İki semestr</span>
+      <span class="lang en"><strong>Scope:</strong> Two semesters</span>
     </li>
     <li>
       <span class="lang az"><strong>Lisenziya:</strong>
@@ -112,7 +113,17 @@ toc: false
       </tr>
     </thead>
     <tbody>
+      {% assign shown_semester = 0 %}
       {% for item in site.data.crypto_course.lectures %}
+      {% if item.semester and item.semester != shown_semester %}
+      <tr class="course-sem">
+        <td colspan="4">
+          <span class="lang az">{{ item.semester }}-ci semestr</span>
+          <span class="lang en">Semester {{ item.semester }}</span>
+        </td>
+      </tr>
+      {% assign shown_semester = item.semester %}
+      {% endif %}
       <tr>
         <td class="course-num">{{ item.n }}</td>
         <td>
@@ -165,6 +176,44 @@ toc: false
   </ul>
   {% endif %}
 
+  <!-- ===== Authors ===== -->
+  <h2 class="lang az">Müəlliflər</h2>
+  <h2 class="lang en">Authors</h2>
+
+  <p class="lang az">Kursun materiallarını hazırlayanlar:</p>
+  <p class="lang en">The course materials were written by:</p>
+
+  <ul class="course-authors">
+    <li>
+      <span class="lang az">Kave Babai</span>
+      <span class="lang en">Kaveh Babai</span>
+    </li>
+    <li>
+      <span class="lang az">Lalə İbadullayeva</span>
+      <span class="lang en">Lala Ibadullayeva</span>
+    </li>
+    <li>
+      <span class="lang az">Güman Qarayev</span>
+      <span class="lang en">Guman Garayev</span>
+    </li>
+    <li>
+      <span class="lang az">Qərib Mürşüdov</span>
+      <span class="lang en">Garib Murshudov</span>
+    </li>
+  </ul>
+
+  <h3 class="lang az">Təşəkkür</h3>
+  <h3 class="lang en">Acknowledgements</h3>
+
+  <p class="lang az">
+    Saytın və kurs səhifəsinin hazırlanmasına görə <strong>Cavid Qafarzadəyə</strong>
+    və <strong>Kave Babaiyə</strong> təşəkkür edirik.
+  </p>
+  <p class="lang en">
+    Thanks to <strong>Javid Gafar-zada</strong> and <strong>Kaveh Babai</strong>
+    for building the website and this course page.
+  </p>
+
   <!-- ===== Feedback ===== -->
   <h2 class="lang az">Rəy</h2>
   <h2 class="lang en">Feedback</h2>
@@ -188,16 +237,15 @@ toc: false
   <div class="lang az course-note">
     <p><strong>Məşğələləri necə işə salmaq olar?</strong>
     <em>Colab</em> dəftəri brauzerdə birbaşa açıb işə salır (quraşdırma tələb
-    olunmur). Mənbə
-    faylları (PDF, TeX, Jupyter) layihənin
+    olunmur). Bütün fayllar — mühazirə PDF-ləri və Jupyter dəftərləri — layihənin
     <a href="https://github.com/alov-ai/alov-ai.github.io" target="_blank" rel="noopener">GitHub anbarında</a>
     açıq şəkildə saxlanılır.</p>
   </div>
   <div class="lang en course-note">
     <p><strong>How to run the practicals.</strong>
     <em>Colab</em> opens and runs a notebook right in your browser (no setup
-    needed). The source files (PDF, TeX,
-    Jupyter) are kept openly in the project's
+    needed). All the files — the lecture PDFs and the Jupyter notebooks — are kept
+    openly in the project's
     <a href="https://github.com/alov-ai/alov-ai.github.io" target="_blank" rel="noopener">GitHub repository</a>.</p>
   </div>
 
