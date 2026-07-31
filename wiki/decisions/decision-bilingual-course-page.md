@@ -3,7 +3,7 @@ title: Decision - Bilingual (Azerbaijani / English) Course Page
 type: decision
 tags: [website, course, i18n, bilingual, design]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-07-31
 sources: []
 ---
 
@@ -32,10 +32,22 @@ with an in-page **language switcher** (no separate per-language URLs).
   CSS that hides the inactive language. A small script
   (`assets/js/course-lang.js`) toggles `data-lang` and remembers the choice in
   `localStorage`. Default language: **Azerbaijani**.
-- **Syllabus as data:** the 17-row table is generated from
-  `_data/crypto_course.yml` (per lecture: `n`, `az`, `en`, `pdf`, `colab`), so
-  titles/links live in one place, not in markup. (The `nbviewer` field was dropped
-  on 2026-06-27 - see [[decision-course-file-hosting]].)
+- **Syllabus as data:** the table is generated from `_data/crypto_course.yml`
+  (per lecture: `n`, `semester`, `az`, `en`, `pdf`, and a `notebooks` list whose
+  entries may carry `extra: true`), so titles/links live in one place, not in
+  markup. (The `nbviewer` field was dropped on 2026-06-27 - see
+  [[decision-course-file-hosting]].) It held 17 rows at launch, 15 after the
+  2026-06-28 renumbering, and **30 rows since 2026-07-31**, when the second
+  semester was added.
+- **Semester dividers (2026-07-31):** with 30 rows the table needed structure, so
+  each lecture carries a `semester` field and the template emits a divider row
+  (`tr.course-sem`) whenever the value changes. Bilingual like everything else
+  ("1-ci semestr" / "Semester 1"). Adding a third grouping level later means one
+  more field, not a template rewrite.
+- **Credits block (2026-07-31):** the page carries an *Authors* list and an
+  *Acknowledgements* line, both bilingual through the same `.lang.az`/`.lang.en`
+  pattern - author names are written in Azerbaijani and English rather than
+  transliterated once. See [[cryptography-course]] -> Authorship and credits.
 - **Lecture titles** come from the **lecture PDFs themselves**, written in proper
   Azerbaijani Latin orthography, with English translations.
 - **File links** are pre-percent-encoded from the real filenames, which contain

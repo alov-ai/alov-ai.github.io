@@ -3,7 +3,7 @@ title: BSU Center for Digital Technologies and Applied Research
 type: entity
 tags: [partner, academia, university, azerbaijan, collaboration]
 created: 2026-06-26
-updated: 2026-06-26
+updated: 2026-07-31
 sources: []
 ---
 
@@ -22,7 +22,15 @@ collaborations** type of the partnerships pillar (see [[partnerships]]).
 - It is the **Center for Digital Technologies and Applied Research** at Baku
   State University.
 - It created a **cryptography course** in collaboration with / relevant to Alov
-  Intelligence - see [[cryptography-course]].
+  Intelligence - see [[cryptography-course]]. As of 2026-07-31 the course spans
+  **two semesters**: 30 lectures and 33 practicals.
+- **People behind the course** (recorded 2026-07-31): the materials were written
+  by **Kave Babai** (Kaveh Babai), **Lalə İbadullayeva** (Lala Ibadullayeva),
+  **Güman Qarayev** (Guman Garayev), and **Qərib Mürşüdov** (Garib Murshudov).
+  These are the first named individuals we have on the partner side; their exact
+  roles and affiliations within the Center are unconfirmed. Kaveh Babai is the
+  course's public feedback contact (`kaveh.babai@bsu.edu.az`) and also worked on
+  the website itself, alongside **Cavid Qafarzadə** (Javid Gafar-zada).
 
 ## Role in the strategy
 

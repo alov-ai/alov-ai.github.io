@@ -1,7 +1,7 @@
 ---
 title: Wiki Log
 type: log
-updated: 2026-06-26
+updated: 2026-07-31
 ---
 
 # Wiki Log
@@ -154,3 +154,70 @@ Fixed with a local `_layouts/home.html` override (verbatim card markup from
 Chirpy v7.6.0) that drops pagination and lists posts directly (pinned first, then
 normal). Pre-existing bug from the landing restructure, not the course/nav work.
 Updated [[decision-landing-page]] (correction + consequence).
+
+## [2026-07-31] build | Second semester of the cryptography course
+
+The human added **lectures 16-30** and their practicals, doubling the
+[[cryptography-course]] to **two semesters, 30 lectures + 33 practicals**.
+
+**Renamed the practicals.** They arrived under the author's numbering
+(**AS-18…AS-32**, two ahead of the lecture numbers) plus a supplementary
+**AS-18-1**. Per a mapping table from the human, all 16 notebooks were renamed to
+their lecture numbers (`Məşğələ_16` … `Məşğələ_30`), with AS-18-1 becoming
+`Məşğələ_23b` per the existing `12b`/`15b` convention. The numbers **inside** each
+notebook were renamed to match (76 replacements: title headings,
+`metadata.colab.name`, lab menu titles, closing blocks, and `AS-N` labels in code
+such as HKDF salts and signed test payloads); all 16 files were re-validated as
+JSON afterwards. The mapping was independently confirmed by the notebooks
+themselves - `Məşğələ_18` says "Mühazirə 18 üçün praktiki laboratoriya" and
+`Məşğələ_23b` says it follows lecture 23.
+
+**Unicode trap:** the incoming notebooks were **NFD**-named (`s`+U+0327,
+`g`+U+0306) while the repo and the percent-encoded URLs are **NFC** (`ş`, `ğ`).
+Visually identical, but every Colab link would have 404'd. Normalized on rename.
+Same normalization family as the 2026-06-27 nbviewer failure.
+
+**Site pages.** `courses/cryptography.md` and `_tabs/collaborations.md` now state
+**two semesters, 30 lectures, 33 practicals**; the "Part 1 / Part 2 in
+preparation" status was removed (both parts exist). Added an **Authors** section
+(Kave Babai, Lalə İbadullayeva, Güman Qarayev, Qərib Mürşüdov) and an
+**Acknowledgements** line for the site and course page (Cavid Qafarzadə, Kave
+Babai), bilingual like the rest of the page; same credits added to the
+Collaborations blurb.
+
+**Syllabus table.** `_data/crypto_course.yml` went from 15 to **30 rows**. Lecture
+titles were extracted from the PDFs with PyMuPDF (largest type size on the title
+page) - the method was validated against lectures 1-15, whose known titles it
+reproduced. Each row gained a `semester` field and the template now emits a
+bilingual divider row between semesters. All 69 links (PDF + Colab) were
+programmatically verified to resolve to files that exist; 33 notebooks in the
+table = 33 on disk.
+
+Updated [[cryptography-course]] (rewritten), [[bsu-digital-center]] (four named
+authors - the first named people on the partner side),
+[[decision-bilingual-course-page]] (30 rows, `semester` field, credits block),
+[[decision-course-file-hosting]] (size correction), [[index]].
+
+**Backfill:** the wiki had not been updated since 2026-06-27, so it still
+described 17 lectures + 17 practicals. Five human commits from **2026-06-28**
+were folded in while rewriting: the renumbering that **dropped old lectures 12
+and 17** (leaving 15, with their practicals re-attached as `12b`/`15b`), the
+**CC BY-NC-SA 4.0** license, the **supplementary materials** section (6
+course-wide PDFs), the **feedback** button, and the Collaborations blurb rewrite.
+
+**Open discrepancy** (resolved the same day, see the next entry): the course
+page's help note told readers the **TeX** sources are in the repo, but no `tex/`
+folder exists - only `pdf/` and `notebooks/`.
+Not built locally (no Ruby/Jekyll on this machine) - relies on the Pages CI build.
+
+## [2026-07-31] fix | Dropped the TeX promise from the course page
+
+The help note on `/courses/cryptography/` promised source files "(PDF, TeX,
+Jupyter)" in the repo, but the `tex/` folder from
+[[decision-course-file-hosting]] was never created. Asked whether to publish the
+sources or drop the claim, the human chose to **drop TeX**. Both language
+versions of the note now say the lecture PDFs and Jupyter notebooks are kept
+openly in the GitHub repository. Lectures are published as **PDF only**.
+Updated [[decision-course-file-hosting]] (TeX part of the decision withdrawn -
+the page is now *accepted, partly superseded*), [[cryptography-course]] (data gap
+closed), [[index]].

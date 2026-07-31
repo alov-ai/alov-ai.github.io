@@ -3,7 +3,7 @@ title: Decision - Course File Hosting in the Site Repo
 type: decision
 tags: [website, course, hosting, jupyter, assets]
 created: 2026-06-26
-updated: 2026-06-27
+updated: 2026-07-31
 sources: []
 ---
 
@@ -24,9 +24,25 @@ in the repo and the page is built, see [[decision-bilingual-course-page]]).
 > directly from GitHub without a listing-based name match. The human chose to
 > remove the nbviewer link rather than rename the files to ASCII. See [[log]].
 
+> **Correction (2026-07-31):** the size assumptions in this decision are out of
+> date twice over. The repo now holds **30 lectures and 33 practicals** across
+> **two semesters** (it was 17+17 at launch, then 15+17 after the 2026-06-28
+> renumbering). The "one-off, small collaboration" premise that justified hosting
+> inside the site repo still holds, but the "keep an eye on size" consequence
+> below is now worth acting on: `assets/courses/cryptography/` has roughly
+> doubled.
+>
+> **The TeX part of this decision is withdrawn.** The `tex/` folder never
+> materialized - only `pdf/` and `notebooks/` exist - and the human chose to
+> **drop TeX rather than publish the sources**. The course page's help note no
+> longer mentions TeX; it now says the lecture PDFs and Jupyter notebooks are in
+> the GitHub repository (AZ + EN). The "TeX kept as open source for transparency"
+> bullet under Decision below therefore no longer applies; PDF is the only form in
+> which lectures are published. See [[cryptography-course]].
+
 > **Correction (2026-06-26):** the Context below says "only about half of it goes
-> live at launch". In fact the repo now holds **all 17 lectures and 17
-> practicals** - the full course, not half. See [[cryptography-course]].
+> live at launch". In fact the repo holds the **full course**, not half. See
+> [[cryptography-course]].
 
 ## Context
 
