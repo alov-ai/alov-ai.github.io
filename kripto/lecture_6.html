@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_6</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 6: Axın Şifrələri və LFSR</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 6: Təsadüfilik və Axın Şifrələri</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Bu mühazirədə simmetrik kriptoqrafiyanın mühüm bir sinfi olan
+<strong>axın şifrələri</strong> ilə tanış olacağıq <span
+class="citation" data-cites="paar2010understanding"></span>. Axın
+şifrələri məlumatları bit və ya bayt səviyyəsində, fasiləsiz bir axın
+kimi şifrələyir. Onlar xüsusilə rabitə protokollarında və real-vaxt
+tətbiqlərində (məsələn, mobil rabitə və TLS) geniş istifadə olunur <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<p>Bu mühazirədə aşağıdakı mövzuları əhatə edəcəyik:</p>
+<ul>
+<li><p>Təsadüfilik anlayışı və təsadüfilik mənbələri <span
+class="citation" data-cites="knuth1997art"></span></p></li>
+<li><p>Psevdo-təsadüfi ədəd generatorları (PRG) <span class="citation"
+data-cites="menezes1996handbook"></span></p></li>
+<li><p>Axın şifrələrinin quruluşu və iş prinsipi <span class="citation"
+data-cites="stinson2018cryptography"></span></p></li>
+<li><p>LFSR (Xətti Tərs Əlaqəli Sürüşmə Registri) <span class="citation"
+data-cites="schneier1996applied"></span></p></li>
+<li><p>LFSR-lərin polinom təsviri və period xüsusiyyətləri <span
+class="citation" data-cites="ferguson2010cryptography"></span></p></li>
+<li><p>Berlekamp-Massey alqoritmi <span class="citation"
+data-cites="menezes1996handbook"></span></p></li>
+<li><p>LFSR əsaslı axın şifrələrinin zəiflikləri və müasir həllər <span
+class="citation" data-cites="stinson2018cryptography"></span></p></li>
+</ul>
+<div class="history">
+<p><span>Axın şifrələrinin tarixi</span> Axın şifrələrinin kökləri XX
+əsrin əvvəllərinə gedib çıxır. <strong>Vernam şifrəsi</strong> (1917)
+ilk axın şifrəsi hesab olunur <span class="citation"
+data-cites="vernam1926cipher"></span>. İkinci Dünya müharibəsi dövründə
+rotor maşınları (məsələn, <strong>Enigma</strong>) axın şifrələrinin
+mürəkkəb mexaniki tətbiqləri idi <span class="citation"
+data-cites="singh1999code"></span>. Müasir dövrdə rəqəmsal axın
+şifrələri RC4, ChaCha20 və Salsa20 kimi alqoritmlərlə təmsil olunur
+<span class="citation" data-cites="bernstein2008chacha"></span>.</p>
+</div>
+<div class="note">
+<p><span>Axın şifrələri və Blok şifrələrin müqayisəsi</span></p>
+<ul>
+<li><p><strong>Axın şifrələri</strong>: Məlumatı bit-bit və ya bayt-bayt
+şifrələyir. Aparat təminatı (<em>hardware</em>) resurslarına tələbatı
+azdır, çox sürətlidir və gecikməsi (<em>latency</em>)
+minimaldır.</p></li>
+<li><p><strong>Blok şifrələr</strong>: Məlumatı sabit ölçülü (məsələn,
+128 bit) bloklara bölərək şifrələyir. Daha mürəkkəb struktura malikdir
+və müasir proqram təminatında standart hesab olunur (AES) <span
+class="citation" data-cites="nist2001aes"></span>.</p></li>
+</ul>
+</div>
+<h1 id="təsadüfilik-və-psevdo-təsadüfi-generatorlar">Təsadüfilik və
+Psevdo-təsadüfi Generatorlar</h1>
+<h2 id="təsadüfilik-nədir">Təsadüfilik nədir?</h2>
+<p>Təsadüfilik — bir prosesin gedişatında hər hansı bir qanunauyğunluğun
+olmaması və nəticənin qabaqcadan proqnozlaşdırıla bilməməsidir <span
+class="citation" data-cites="knuth1997art"></span>. Kriptoqrafiyada
+təsadüfilik sistemin "proqnozlaşdırılmazlıq" (<em>unpredictability</em>)
+xüsusiyyətini təmin edir.</p>
+<div class="keyconcept">
+<p><span>Həqiqi təsadüfi ədəd generatorları (TRNG) və Psevdo-təsadüfi
+ədəd generatorları (PRNG)</span> Kriptoqrafiyada istifadə olunan
+generatorlar iki böyük qrupa bölünür:</p>
+<ul>
+<li><p><strong>TRNG (True Random Number Generator - Həqiqi təsadüfi ədəd
+generatoru):</strong> Fiziki proseslərdən (radioaktiv parçalanma, termal
+küy, kvant flüktüasiyaları) əldə edilir. Bu ardıcıllıqların
+<strong>entropiyası</strong> yüksəkdir və heç bir riyazi modellə tam
+ifadə edilə bilməz <span class="citation"
+data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>PRNG (Pseudo-Random Number Generator - Psevdo təsadüfi
+ədəd generatoru):</strong> Deterministik alqoritmdir. Qısa bir təsadüfi
+dəyərdən (<em>seed</em>) başlayaraq uzun, lakin riyazi olaraq
+təkrarlanan ardıcıllıq yaradır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+</ul>
+</div>
+<h2 id="təsadüfilik-mənbələri-entropiya-mənbələri">Təsadüfilik mənbələri
+(Entropiya mənbələri)</h2>
+<p>Kriptoqrafik sistemlər ətraf mühitdən gələn "xaos"u toplayaraq onları
+rəqəmsal təsadüfiliyə çevirir:</p>
+<ul>
+<li><p><strong>Aparat təminatı (Hardware) mənbələri</strong> <span
+class="citation" data-cites="ferguson2010cryptography"></span>:</p>
+<ul>
+<li><p><strong>Termal küy (yarımkeçiricilərdə):</strong> Yarımkeçirici
+cihazların (məsələn, tranzistor və ya zener diodu) daxilindəki
+elektronların istiliklə bağlı nizamsız flüktüasiyaları. Bu küy tamamilə
+proqnozlaşdırılmazdır.</p></li>
+<li><p><strong>Praktik nümunə - Intel Digital Random Number Generator
+(DRNG):</strong> Müasir Intel prosessorlarında (Ivy Bridge və sonrası)
+daxili avadanlıq TRNG mövcuddur. Bu sistem prosessor daxilindəki
+yarımkeçirici dövrələrdəki termal küyü yüksək sürətlə rəqəmsal bitlərə
+çevirir. Proqram təminatı bu təsadüfi ədədlərə <strong>RDRAND</strong>
+və <strong>RDSEED</strong> assembler təlimatları vasitəsilə müraciət
+edir.</p></li>
+</ul></li>
+<li><p><strong>Əməliyyat sistemi və İstifadəçi mənbələri</strong> <span
+class="citation" data-cites="knuth1997art"></span>:</p>
+<ul>
+<li><p><strong>İnsan faktoru:</strong> Klaviatura düymələrinin sıxılma
+vaxtları arasındakı mikrosaniyəlik fərqlər, siçanın hərəkət
+trayektoriyası və klikləmə tezliyi.</p></li>
+<li><p><strong>Sistem daxili:</strong> Diskin məlumatı oxuma/yazma
+müddətindəki dalğalanmalar, şəbəkə paketlərinin gəlmə intervalları
+(<em>jitter</em>).</p></li>
+<li><p><strong>Praktik nümunə - Linux <code>/dev/random</code> və
+<code>/dev/urandom</code>:</strong> Linux nüvəsi (<em>kernel</em>)
+yuxarıda sadalanan mənbələrdən gələn fiziki "xaos"u toplayaraq bir
+<strong>entropiya hovuzunda</strong> (<em>entropy pool</em>) cəmləyir.
+Sistemə yüksək keyfiyyətli təsadüfi ədəd lazım olduqda, o, bu hovuzdan
+istifadə edərək çıxış verir.</p></li>
+</ul></li>
+</ul>
+<div class="note">
+<p><span>Kriptoqrafik tələb: Növbəti bit testi</span> Hər hansı bir
+PRNG-nin təhlükəsiz olması üçün onun çıxışındakı növbəti biti (<span
+class="math inline">\(s_{n+1}\)</span>) əvvəlki bitləri (<span
+class="math inline">\(s_1, \dots, s_n\)</span>) bilməklə tapmaq ehtimalı
+<span class="math inline">\(1/2\)</span>-dən böyük olmamalıdır. Bu,
+<strong>növbəti bit testi</strong> (<em>Next-bit test</em>) adlanır.
+Əgər bir generator bu testi keçirsə, o, <strong>CSPRNG</strong>
+(<em>Cryptographically Secure PRNG</em>) adlanır.</p>
+</div>
+<h2 id="statistik-təsadüfilik-testləri">Statistik təsadüfilik
+testləri</h2>
+<p>Təsadüfi ədəd generatorlarının çıxışındakı qanunauyğunluqları aşkar
+etmək və onların keyfiyyətini yoxlamaq üçün müxtəlif statistik testlər
+tətbiq olunur <span class="citation"
+data-cites="knuth1997art"></span>:</p>
+<ul>
+<li><p><strong>Monobit testi:</strong> Ardıcıllıqdakı 0 və 1-lərin sayı
+təxminən bərabər olmalıdır (<span class="math inline">\(P(0) \approx
+P(1) \approx 0.5\)</span>).</p></li>
+<li><p><strong>Serial testi:</strong> Ardıcıl bit cütlərinin (00, 01,
+10, 11) paylanması bərabərehtimallı (<em>uniform</em>)
+olmalıdır.</p></li>
+<li><p><strong>Poker testi:</strong> Ardıcıllığı <span
+class="math inline">\(m\)</span>-bitlik bloklara böldükdə, hər bir
+mümkün kombinasiyanın rastgelmə tezliyi bərabər olmalıdır.</p></li>
+<li><p><strong>Seriyalar (Runs) testi:</strong> Ardıcıl gələn eyni
+bitlərin (məsələn, "1111") uzunluqlarının paylanması ehtimal
+nəzəriyyəsinin gözləntilərinə uyğun olmalıdır.</p></li>
+<li><p><strong>NIST STS (Statistical Test Suite):</strong> ABŞ Milli
+Standartlar və Texnologiya İnstitutu tərəfindən hazırlanmış, 15 mürəkkəb
+statistik testdən ibarət sənaye standartı <span class="citation"
+data-cites="nist2010sts"></span>.</p></li>
+<li><p><strong>Diehard tests:</strong> George Marsaglia tərəfindən
+hazırlanmış və daha sərt kriteriyalara malik testlər toplusu.</p></li>
+</ul>
+<div class="note">
+<p><span>Kriptoqrafik təhlükəsiz PRG-lər (CSPRNG)</span> Statistik
+testlərdən keçmək hələ generatorun kriptoqrafik cəhətdən təhlükəsiz
+olması demək deyil. CSPRNG-lər əlavə olaraq aşağıdakı xüsusiyyətlərə
+malik olmalıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<ol>
+<li><p><strong>Proqnozlaşdırılmazlıq:</strong> İlkin qiymət
+(<em>seed</em>) bilinmədikdə, çıxışı həqiqi təsadüfi ardıcıllıqdan
+fərqləndirmək hesablama mürəkkəbliyi baxımından praktiki olaraq mümkün
+olmayan (və ya icraedilməz).</p></li>
+<li><p><strong>Növbəti bit testi:</strong> Əvvəlki bütün çıxışlar
+bilinsə belə, növbəti bitin qiymətini <span
+class="math inline">\(1/2\)</span>-dən yüksək ehtimalla tapmaq mümkün
+olmamalıdır.</p></li>
+<li><p><strong>Daxili vəziyyətin qorunması:</strong> Generatorun daxili
+vəziyyəti (<em>state</em>) qismən sızsa belə, hücumçu əvvəlki bitləri
+(<em>backward security</em>) və ya gələcək bitləri (<em>forward
+security</em>) bərpa edə bilməməlidir.</p></li>
+</ol>
+</div>
+<h1 id="psevdo-təsadüfi-ədəd-generatorları-prg">Psevdo-təsadüfi ədəd
+generatorları (PRG)</h1>
+<h2 id="prg-nin-tərifi">PRG-nin tərifi</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Psevdo-təsadüfi ədəd generatoru). <em>PRG —
+qısa bir təsadüfi ilkin qiymətin (<em>seed</em>) daha uzun və təsadüfi
+görünən ardıcıllıq yaradan deterministik alqoritmdir <span
+class="citation" data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<p>PRG-lər riyazi olaraq aşağıdakı komponentlərdən ibarətdir:</p>
+<ul>
+<li><p><span class="math inline">\(s\)</span> — ilkin qiymət
+(<em>seed</em>), <span class="math inline">\(k\)</span> bit
+uzunluğunda.</p></li>
+<li><p><span class="math inline">\(G\)</span> — generasiya funksiyası,
+<span class="math inline">\(G: \{0,1\}^k \rightarrow \{0,1\}^n\)</span>,
+burada <span class="math inline">\(n \gg k\)</span> (çıxış girişdən
+qat-qat uzundur).</p></li>
+<li><p><span class="math inline">\(G(s)\)</span> — generatorun çıxış
+ardıcıllığı.</p></li>
+</ul>
+<h2 id="prg-lərin-təhlükəsizlik-tələbləri">PRG-lərin təhlükəsizlik
+tələbləri</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong>. <em><span>Kriptoqrafik təhlükəsiz PRG
+(CSPRNG).</span> PRG o vaxt kriptoqrafik cəhətdən təhlükəsiz sayılır ki,
+istənilən polinomial zamanlı (güclü hesablama imkanlarına malik) hücumçu
+(<span class="math inline">\(A\)</span>) onun yaratdığı nəticəni həqiqi
+təsadüfi ədədlərdən ayıra bilməsin <span class="citation"
+data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<p>Bu tələb fərqləndirilməzlik oyunu çərçivəsində aşağıdakı kimi ifadə
+olunur: <span class="math display">\[|\Pr[A(G(s)) = 1] - \Pr[A(r) = 1]|
+&lt; \varepsilon(k)\]</span> Burada:</p>
+<ul>
+<li><p><span class="math inline">\(r\)</span> — həqiqi təsadüfi
+ardıcıllıqdır (uzunluğu <span
+class="math inline">\(n\)</span>).</p></li>
+<li><p><span class="math inline">\(\varepsilon(k)\)</span> — cüzi
+(<em>negligible</em>) funksiyadır.</p></li>
+</ul>
+<h2 id="prg-lərin-qurulması-üsulları">PRG-lərin qurulması üsulları</h2>
+<p>Müasir kriptoqrafiyada təhlükəsiz PRG-lər yaratmaq üçün bir neçə
+yanaşma mövcuddur:</p>
+<ul>
+<li><p><strong>Blok şifr əsaslı:</strong> CTR (Sayğac) rejimində blok
+şifrdən istifadə etməklə <span class="citation"
+data-cites="lipmaa2000ctr"></span>.</p></li>
+<li><p><strong>Heş funksiyası əsaslı:</strong> HMAC_DRBG, Hash_DRBG kimi
+standartlar vasitəsilə <span class="citation"
+data-cites="nist2010drbg"></span>.</p></li>
+<li><p><strong>Xüsusi quruluşlar (Dedicated):</strong> LFSR, RC4,
+ChaCha20 və Salsa20 kimi sırf axın şifrələnməsi üçün dizayn edilmiş
+alqoritmlər <span class="citation"
+data-cites="bernstein2008chacha"></span>.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>CTR (Sayğac) rejimində PRG-nin
+qurulması.</span> AES blok şifrləmə alqoritmini CTR rejimində işlətməklə
+çox effektiv bir psevdo-təsadüfi generator yaratmaq mümkündür. Bu
+quruluşun mahiyyəti aşağıdakı düsturla ifadə olunur: <span
+class="math display">\[k_i = \text{AES}_K(\text{IV} \parallel
+i)\]</span></em></p>
+<p><em>Burada komponentlərin funksiyası aşağıdakı kimidir:</em></p>
+<ul>
+<li><p><em><strong><span class="math inline">\(K\)</span> (Gizli
+açar):</strong> Generatorun "ilkin qiyməti" (<em>seed</em>) rolunu
+oynayır və gizli saxlanılır.</em></p></li>
+<li><p><em><strong><span class="math inline">\(\text{IV} \parallel
+i\)</span>:</strong> Sabit başlanğıc vektoru (<em>IV</em>) ilə hər
+addımda bir vahid artan sayğacın (<span class="math inline">\(i = 1, 2,
+3, \dots\)</span>) birləşməsidir (katenasiyası). Bu, deterministik AES
+alqoritminə hər dəfə fərqli girişin verilməsini təmin
+edir.</em></p></li>
+<li><p><em><strong><span class="math inline">\(k_i\)</span>:</strong>
+Nəticədə əldə olunan təsadüfi görünən bitlər ardıcıllığıdır (açarlar
+bloku).</em></p></li>
+</ul>
+<p><em><strong>Nəticə:</strong> AES riyazi olaraq təhlükəsiz bir blok
+şifri olduğu üçün, sayğacın hər yeni qiymətində alınan çıxışlar (<span
+class="math inline">\(k_i\)</span>) bir-birindən asılı olmayan və
+tamamilə təsadüfi görünən bir axın yaradır.</em></p>
+</div>
+<h1 id="axın-şifrələrinin-quruluşu">Axın şifrələrinin quruluşu</h1>
+<h2 id="əsas-iş-prinsipi">Əsas iş prinsipi</h2>
+<p>Axın şifrələri <strong>açar axını</strong> (keystream) yaradaraq
+işləyir <span class="citation"
+data-cites="paar2010understanding"></span>. Açar axını psevdo-təsadüfi
+bitlər ardıcıllığıdır. Şifrləmə zamanı bu açar axını açıq mətnlə XOR
+edilir:</p>
+<div class="keyconcept">
+<p><span>Axın şifrləmə və deşifrləmə</span> <strong>Şifrləmə:</strong>
+<span class="math inline">\(c_i = m_i \oplus k_i\)</span><br />
+<strong>Deşifrləmə:</strong> <span class="math inline">\(m_i = c_i
+\oplus k_i\)</span></p>
+<p>Burada:</p>
+<ul>
+<li><p><span class="math inline">\(m_i\)</span> — açıq mətn
+biti</p></li>
+<li><p><span class="math inline">\(c_i\)</span> — şifrəli mətn
+biti</p></li>
+<li><p><span class="math inline">\(k_i\)</span> — açar axını
+biti</p></li>
+<li><p><span class="math inline">\(\oplus\)</span> — XOR (exclusive or)
+əməliyyatı</p></li>
+</ul>
+</div>
+<div class="center">
+<pre><code>Açar (K) + IV → Açar generatoru → Açar axını (k₁, k₂, k₃, ...)
+                                            ↓
+Açıq mətn (m₁, m₂, m₃, ...) →⊕→ Şifrəli mətn (c₁, c₂, c₃, ...)</code></pre>
+</div>
+<h2 id="axın-şifrələrinin-üstünlükləri">Axın şifrələrinin
+üstünlükləri</h2>
+<ul>
+<li><p><strong>Yüksək Sürət</strong>: Proses çox sürətlidir və aparat
+səviyyəsində (hardware) asanlıqla tətbiq olunur <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Minimal Gecikmə</strong>: Blok şifrlərdən fərqli olaraq,
+məlumatın blok şəklində yığılmasını gözləmədən dərhal emal
+edir.</p></li>
+<li><p><strong>Çeviklik</strong>: İstənilən uzunluqdakı mesajları əlavə
+doldurma (padding) tələb etmədən şifrləyə bilir.</p></li>
+<li><p><strong>Effektiv Resurs İstifadəsi</strong>: Çox az yaddaş (RAM)
+tələb etdiyinə görə resursları məhdud olan cihazlar üçün idealdır <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+<h2 id="axın-şifrələrinin-çatışmazlıqları">Axın şifrələrinin
+çatışmazlıqları</h2>
+<ul>
+<li><p><strong>Açar təkrarı (Key Reuse) problemi</strong>: Eyni açar və
+nonce (nonce) kombinasiyası təkrar istifadə olunarsa, sistemin
+təhlükəsizliyi tamamilə çökür <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Bütövlüyün (Integrity) qorunmaması</strong>: Axın
+şifrləri təkbaşına istifadə edildikdə məlumatın bütövlüyünü təmin etmir;
+hücumçu şifrəli mətndəki bitləri dəyişdirərək açıq mətni manipulyasiya
+edə bilər.</p></li>
+<li><p><strong>Sinxronizasiya zərurəti</strong>: Göndərən və qəbul edən
+tərəf açar axınında (keystream) mütləq sinxron olmalıdır; əks halda
+məlumatın deşifrlənməsi qeyri-mümkün olur.</p></li>
+</ul>
+<div class="warning">
+<p><span>Açar təkrarı (Two-Time Pad) təhlükəsi</span> Eyni açar axını
+(keystream) iki fərqli mesajın şifrlənməsi üçün istifadə olunarsa,
+sistemin məxfiliyi tamamilə pozulur: <span class="math display">\[c_1 =
+m_1 \oplus k, \quad c_2 = m_2 \oplus k\]</span> Bu halda hücumçu hər iki
+şifrəli mətni XOR əməliyyatına cəlb edərək açarı aradan qaldıra bilər:
+<span class="math display">\[c_1 \oplus c_2 = (m_1 \oplus k) \oplus (m_2
+\oplus k) = m_1 \oplus m_2\]</span></p>
+<p>Hücumçu əldə olunan <span class="math inline">\(m_1 \oplus
+m_2\)</span> nəticəsindən və istifadə olunan dilin (məsələn, Azərbaycan
+və ya İngilis dili) statistik artıqlığından istifadə edərək hər iki
+mesajı asanlıqla bərpa edə bilər <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu zəiflik mahiyyət
+etibarilə OTP-dəki (Birdəfəlik bloknot) açar təkrarı problemi ilə
+eynidir <span class="citation"
+data-cites="shannon1949communication"></span>.</p>
+</div>
+<h2 id="axın-şifrələrinin-növləri">Axın şifrələrinin növləri</h2>
+<p>Axın şifrələri açar axınının (<em>keystream</em>) necə hasil
+edilməsindən asılı olaraq iki əsas qrupa bölünür:</p>
+<ol>
+<li><p><strong>Sinxron axın şifrələri:</strong> Açar axını açıq mətndən
+və şifrəli mətndən tamamilə müstəqil şəkildə, yalnız gizli açardan (və
+IV-dən) asılı olaraq hasil edilir.</p>
+<ul>
+<li><p><strong>Xüsusiyyəti:</strong> Göndərən və qəbul edən tərəf eyni
+anda eyni daxili vəziyyətdə (<em>state</em>) olmalıdır.</p></li>
+<li><p><strong>Xəta yayılması:</strong> Kanalda bir bitin dəyişməsi
+yalnız həmin bitin səhv deşifrələnməsinə səbəb olur, növbəti bitlərə
+təsir etmir. Lakin bir bitin <strong>itməsi</strong> və ya <strong>əlavə
+olunması</strong> bütün sonrakı sinxronizasiyanı pozur.</p></li>
+</ul></li>
+<li><p><strong>Özünü-sinxronizasiya edən (Asinxron) axın
+şifrələri:</strong> Açar axınının hər bir biti əvvəlki <span
+class="math inline">\(n\)</span> sayda şifrəli mətn bitindən
+asılıdır.</p>
+<ul>
+<li><p><strong>Xüsusiyyəti:</strong> Əgər ötürmə zamanı sinxronizasiya
+pozularsa, sistem <span class="math inline">\(n\)</span> sayda düzgün
+şifrəli mətn biti qəbul etdikdən sonra avtomatik olaraq yenidən
+sinxronlaşır.</p></li>
+<li><p><strong>Xəta yayılması:</strong> Kanaldakı bir bitlik xəta
+növbəti <span class="math inline">\(n\)</span> sayda bitin
+deşifrələnməsinə təsir göstərir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+</ul></li>
+</ol>
+<h1 id="lfsr-xətti-əks-əlaqəli-sürüşdürmə-registri">LFSR (Xətti
+Əks-Əlaqəli Sürüşdürmə Registri)</h1>
+<div class="keyconcept">
+<p><span>LFSR (Linear Feedback Shift Register)</span> LFSR — xətti tərs
+əlaqə funksiyasına malik sürüşmə registridir <span class="citation"
+data-cites="schneier1996applied"></span>. Hər saat dövründə (<em>clock
+cycle</em>) registrdəki bitlər bir mövqe sağa sürüşdürülür və boş qalan
+ən soldakı xana tərs əlaqə funksiyasının (adətən XOR) nəticəsi ilə
+doldurulur.</p>
+</div>
+<p>LFSR-in əsas texniki komponentləri:</p>
+<ul>
+<li><p><strong><span class="math inline">\(n\)</span> (Dərəcə):</strong>
+Registrdəki yaddaş xanalarının (bitlərin) ümumi sayı.</p></li>
+<li><p><strong>Daxili vəziyyət (<em>State</em>):</strong> Müəyyən zaman
+anında registrdəki bitlərin vəziyyəti (<span class="math inline">\(s_0,
+s_1, \dots, s_{n-1}\)</span>). Başlanğıc vəziyyəti <strong>ilkin
+qiymət</strong> (<em>seed</em>) adlanır.</p></li>
+<li><p><strong>Tərs əlaqə əmsalları (<em>Tap
+coefficients</em>):</strong> <span class="math inline">\(c_0, c_1,
+\dots, c_{n-1} \in \{0,1\}\)</span> qiymətləri. Hansı bitlərin çıxışının
+XOR əməliyyatına daxil olacağını (<em>tap</em> ediləcəyini) müəyyən
+edir.</p></li>
+</ul>
+<h2 id="lfsr-in-riyazi-təsviri">LFSR-in riyazi təsviri</h2>
+<p>LFSR-in növbəti biti (<span class="math inline">\(s_{n+i}\)</span>)
+aşağıdakı xətti tənliklə hesablanır: <span
+class="math display">\[s_{n+i} = \sum_{j=0}^{n-1} c_j s_{i+j}
+\pmod{2}\]</span> Bu, praktiki olaraq seçilmiş xanaların XOR-lanması
+deməkdir: <span class="math display">\[s_{n+i} = (c_0 \cdot s_i) \oplus
+(c_1 \cdot s_{i+1}) \oplus \dots \oplus (c_{n-1} \cdot
+s_{i+n-1})\]</span></p>
+<div class="importantbox">
+<p><strong>Vacib qeyd:</strong> LFSR-in daxili vəziyyəti heç vaxt
+tamamilə sıfırlardan (<span class="math inline">\(0, 0, \dots,
+0\)</span>) ibarət olmamalıdır. Belə olan halda, bütün növbəti bitlər
+sıfır olacaq və registr "donacaq".</p>
+</div>
+<p>Bu TikZ kodu LFSR-in strukturunu vizuallaşdırmaq üçün yaxşı təməldir,
+lakin bağlantıları və xətti tərs əlaqənin "magistralını" daha anlaşıqlı
+etmək üçün bəzi düzəlişlərə ehtiyac var. Tərs əlaqə (feedback) xəttini
+adətən xanaların altından və ya birbaşa üstündən keçən vahid bir xətt
+kimi təsvir etmək tələbələr üçün daha asan olur.</p>
+<div class="center">
+
+</div>
+<p><strong>Şəkil 1:</strong> LFSR-də tərs əlaqə mexanizminin
+vizuallaşdırılması. Burada daxili vəziyyətin hər bir <span
+class="math inline">\(s_i\)</span> biti <span
+class="math inline">\(c_i\)</span> əmsalına vurulur və alınan nəticələr
+XOR edilir. Takt impulsu zamanı seçilmiş bitlərin XOR cəmi hesablanır,
+ardınca bütün bitlər sürüşdürülərək yeni bit registrin girişinə
+ötürülür.</p>
+<h2 id="xarakteristik-polinom-və-period">Xarakteristik Polinom və
+Period</h2>
+<p>LFSR-in strukturu riyazi olaraq sonlu sahələr (<em>Galois
+Fields</em>, <span class="math inline">\(GF(2)\)</span>) üzərində bir
+polinomla təsvir olunur:</p>
+<div class="definition">
+<p><strong>Tərif 2</strong>. <em><span>Xarakteristik polinom</span>
+<span class="math display">\[P(x) = x^n + c_{n-1}x^{n-1} +
+c_{n-2}x^{n-2} + \dots + c_1 x + c_0\]</span></em></p>
+</div>
+<p>Bu polinom LFSR-in çıxış ardıcıllığının <strong>periodunu</strong>
+(təkrarolunma tezliyini) və statistik xüsusiyyətlərini müəyyən edən əsas
+amildir.</p>
+<h2 id="praktiki-nümunə">Praktiki Nümunə</h2>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>4-bitlik LFSR analizi.</span>
+Fərz edək ki, <span class="math inline">\(n=4\)</span> olan bir LFSR-in
+tərs əlaqə polinomu <span class="math inline">\(P(x) = x^4 + x +
+1\)</span> kimidir. Bu o deməkdir ki, əks-əlaqə (feedback) üçün <span
+class="math inline">\(s_0\)</span> və <span
+class="math inline">\(s_1\)</span> bitlərindən istifadə olunur. İlkin
+vəziyyət (<em>seed</em>) <span class="math inline">\(1000\)</span>
+olarsa:</em></p>
+<p><em>Hər addımda yeni yaranan bit: <span class="math inline">\(s_{i+4}
+= s_i \oplus s_{i+1}\)</span> düsturu ilə hesablanır.</em></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Addım</strong></em></th>
+<th style="text-align: center;"><em><strong>Registrin vəziyyəti (<span
+class="math inline">\(s_3, s_2, s_1, s_0\)</span>)</strong></em></th>
+<th style="text-align: center;"><em><strong>Yeni bit (<span
+class="math inline">\(s_0 \oplus s_1\)</span>)</strong></em></th>
+<th style="text-align: center;"><em><strong>Çıxış</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: center;"><em>(1, 0, 0, 0)</em></td>
+<td style="text-align: center;"><em><span class="math inline">\(0 \oplus
+0 = 0\)</span></em></td>
+<td style="text-align: center;"><em>0</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>(0, 1, 0, 0)</em></td>
+<td style="text-align: center;"><em><span class="math inline">\(0 \oplus
+0 = 0\)</span></em></td>
+<td style="text-align: center;"><em>0</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>(0, 0, 1, 0)</em></td>
+<td style="text-align: center;"><em><span class="math inline">\(0 \oplus
+1 = 1\)</span></em></td>
+<td style="text-align: center;"><em>0</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>3</em></td>
+<td style="text-align: center;"><em>(1, 0, 0, 1)</em></td>
+<td style="text-align: center;"><em><span class="math inline">\(1 \oplus
+0 = 1\)</span></em></td>
+<td style="text-align: center;"><em>1</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>(1, 1, 0, 0)</em></td>
+<td style="text-align: center;"><em><span class="math inline">\(0 \oplus
+0 = 0\)</span></em></td>
+<td style="text-align: center;"><em>0</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>…</em></td>
+<td style="text-align: center;"><em>…</em></td>
+<td style="text-align: center;"><em>…</em></td>
+<td style="text-align: center;"><em>…</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="importantbox">
+<p><strong>Maksimal Period:</strong> <span
+class="math inline">\(n\)</span> dərəcəli bir LFSR üçün mümkün olan ən
+böyük period <span class="math inline">\(T = 2^n - 1\)</span> düsturu
+ilə tapılır. Bizim nümunədə <span class="math inline">\(2^4 - 1 =
+15\)</span>.</p>
+</div>
+<div class="note">
+<p><span>Primitiv Polinomlar</span> Maksimum periodu təmin etmək üçün
+seçilən polinom mütləq <strong>primitiv (sadələşdirilməyən)</strong>
+polinom olmalıdır. Əgər 4-bitlik bir LFSR-də çıxış ardıcıllığı 15
+addımdan tez təkrar olunursa, deməli seçilmiş polinom primitiv deyil
+<span class="citation" data-cites="paar2010understanding"></span>.</p>
+</div>
+<p>Bu bölmə LFSR-in riyazi "zirvəsidir". Primitiv polinomların siyahısı
+və periodun addım-addım hesablanması tələbələrə bu quruluşun niyə məhz
+2n−1 addımdan sonra təkrarlandığını riyazi olaraq sübut edir.</p>
+<p>Mətndə AES-lə bağlı verdiyiniz müqayisə çox yerindədir, lakin
+tələbələrin çaşmaması üçün bir incə detalı vurğulamaq lazımdır: AES-dəki
+polinom reduksiolunmazdır (irreducible), lakin primitiv deyil.</p>
+<p>LaTeX formatında bəzi vizual düzəlişlər və AES-lə bağlı qeydi daha
+aydın edən versiya: Code snippet</p>
+<h2 id="lfsr-in-period-xassələri">LFSR-in period xassələri</h2>
+<div class="keyconcept">
+<p><span>Maksimum uzunluqlu LFSR (m-sequence)</span> Bir LFSR-in mümkün
+olan maksimum periodu <span class="math inline">\(T = 2^n -
+1\)</span>-dir (burada <span class="math inline">\(n\)</span> —
+registrin dərəcəsidir). Bu perioda nail olmaq üçün əks-əlaqə polinomu
+mütləq <strong>primitiv</strong> olmalıdır <span class="citation"
+data-cites="schneier1996applied"></span>.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 3</strong>. <em><span>Primitiv polinom</span> <span
+class="math inline">\(GF(2)\)</span> (Qalua sahəsi) üzərində dərəcəsi
+<span class="math inline">\(n\)</span> olan polinom o vaxt primitivdir
+ki, aşağıdakı şərtləri ödəsin <span class="citation"
+data-cites="menezes1996handbook"></span>:</em></p>
+<ol>
+<li><p><em><strong>Reduksiolunmazdır:</strong> Onu daha aşağı dərəcəli
+polinomların hasili şəklində yazmaq mümkün deyil (faktorlara
+ayrılmır).</em></p></li>
+<li><p><em><strong>Minimal dövr:</strong> <span
+class="math inline">\(x^k - 1 \pmod{P(x)}\)</span> ifadəsinin sıfıra
+bərabər olduğu ən kiçik müsbət tam ədəd <span class="math inline">\(k =
+2^n - 1\)</span> olmalıdır.</em></p></li>
+</ol>
+</div>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Dərəcə (<span
+class="math inline">\(n\)</span>)</strong></th>
+<th style="text-align: left;"><strong>Bəzi primitiv polinomlar (<span
+class="math inline">\(P(x)\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><span class="math inline">\(x^2 + x +
+1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><span class="math inline">\(x^3 + x +
+1\)</span>, <span class="math inline">\(x^3 + x^2 + 1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><span class="math inline">\(x^4 + x +
+1\)</span>, <span class="math inline">\(x^4 + x^3 + 1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><span class="math inline">\(x^5 + x^2 +
+1\)</span>, <span class="math inline">\(x^5 + x^4 + x^3 + x^2 +
+1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><span class="math inline">\(x^8 + x^4 +
+x^3 + x^2 + 1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;"><span class="math inline">\(x^{16} +
+x^{14} + x^{13} + x^{11} + 1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="importantbox">
+<p><strong>AES və LFSR fərqi:</strong> AES alqoritmində <span
+class="math inline">\(GF(2^8)\)</span> sahəsi üçün istifadə olunan <span
+class="math inline">\(m(x) = x^8 + x^4 + x^3 + x + 1\)</span> polinomu
+reduksiolunmazdır, lakin <strong>primitiv deyil</strong> <span
+class="citation" data-cites="nist2001aes"></span>. Bu o deməkdir ki, o,
+AES-də sahə əməliyyatları üçün yararlıdır, lakin LFSR-də maksimum period
+(255) yarada bilməz.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong>. <em><span>Maksimum periodlu LFSR (<span
+class="math inline">\(n=3\)</span>)</span> <span
+class="math inline">\(P(x) = x^3 + x + 1\)</span> (primitiv). İlkin
+vəziyyət (seed) <span class="math inline">\(001\)</span> olsun. Tərs
+əlaqə funksiyası: <span class="math inline">\(s_{i+3} = s_i \oplus
+s_{i+1}\)</span> (çünki polinomda <span
+class="math inline">\(x^0\)</span> və <span
+class="math inline">\(x^1\)</span> hədləri var).</em></p>
+<p><em>Sürüşmə ardıcıllığı (vəziyyət → çıxış):</em></p>
+<ol>
+<li><p><em><span class="math inline">\(001 \rightarrow\)</span> çıxış
+<strong>1</strong>, yeni bit: <span class="math inline">\(1 \oplus 0 = 1
+\rightarrow 100\)</span></em></p></li>
+<li><p><em><span class="math inline">\(100 \rightarrow\)</span> çıxış
+<strong>0</strong>, yeni bit: <span class="math inline">\(0 \oplus 0 = 0
+\rightarrow 010\)</span></em></p></li>
+<li><p><em><span class="math inline">\(010 \rightarrow\)</span> çıxış
+<strong>0</strong>, yeni bit: <span class="math inline">\(0 \oplus 1 = 1
+\rightarrow 101\)</span></em></p></li>
+<li><p><em><span class="math inline">\(101 \rightarrow\)</span> çıxış
+<strong>1</strong>, yeni bit: <span class="math inline">\(1 \oplus 0 = 1
+\rightarrow 110\)</span></em></p></li>
+<li><p><em><span class="math inline">\(110 \rightarrow\)</span> çıxış
+<strong>0</strong>, yeni bit: <span class="math inline">\(0 \oplus 1 = 1
+\rightarrow 111\)</span></em></p></li>
+<li><p><em><span class="math inline">\(111 \rightarrow\)</span> çıxış
+<strong>1</strong>, yeni bit: <span class="math inline">\(1 \oplus 1 = 0
+\rightarrow 011\)</span></em></p></li>
+<li><p><em><span class="math inline">\(011 \rightarrow\)</span> çıxış
+<strong>1</strong>, yeni bit: <span class="math inline">\(1 \oplus 1 = 0
+\rightarrow 001\)</span> (<em>Dövr tamamlandı!</em>)</em></p></li>
+</ol>
+<p><em><strong>Nəticə:</strong> Period <span class="math inline">\(T = 7
+= 2^3 - 1\)</span>.</em></p>
+</div>
+<h2 id="lfsr-in-xüsusiyyətləri">LFSR-in xüsusiyyətləri</h2>
+<p>LFSR-lərin kriptoqrafik və texniki tətbiqlərdə geniş yayılmasının
+səbəbi aşağıdakı xüsusiyyətlərdir:</p>
+<ul>
+<li><p><strong>Deterministik:</strong> Eyni ilkin vəziyyət
+(<em>seed</em>) və eyni əmsallar həmişə eyni bit ardıcıllığını yaradır.
+Bu, deşifrələmə prosesi üçün vacibdir <span class="citation"
+data-cites="schneier1996applied"></span>.</p></li>
+<li><p><strong>Periodik:</strong> Ardıcıllıq müəyyən bir nöqtədən sonra
+mütləq təkrar olunur. Maksimum period <span class="math inline">\(2^n -
+1\)</span> düsturu ilə müəyyən edilir <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Xətti:</strong> Ardıcıllıq xətti təkrarlanma tənliyinə
+tabe olur. Bu xüsusiyyət aparat təminatında sürətli implementasiyaya
+imkan versə də, kriptoanaliz üçün zəif nöqtədir <span class="citation"
+data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>Statistik xüsusiyyətləri (Psevdo-təsadüfilik):</strong>
+Maksimum periodlu LFSR-in çıxışı (<em>m-sequence</em>) Qolombun (Golomb)
+təsadüfilik postulatlarını ödəyir. 0 və 1-lərin sayı təxminən bərabərdir
+və ardıcıllıq statistik testlərdən uğurla keçir <span class="citation"
+data-cites="knuth1997art"></span>.</p></li>
+</ul>
+<div class="note">
+<p><span>Niyə <span class="math inline">\(2^n - 1\)</span>, bəs <span
+class="math inline">\(2^n\)</span> haradadır?</span> LFSR-in daxili
+vəziyyəti (state) <span class="math inline">\(n\)</span> bitdən ibarət
+olduğu üçün cəmi <span class="math inline">\(2^n\)</span> mümkün
+vəziyyət mövcuddur. Lakin <strong>sıfır vəziyyəti</strong> (bütün
+bitlərin 0 olması) LFSR üçün "tələdir" (<em>dead state</em>).</p>
+<p>Əgər registr sıfır vəziyyətinə düşərsə, xətti əks-əlaqə funksiyasının
+(<span class="math inline">\(0 \oplus 0 = 0\)</span>) nəticəsi həmişə 0
+olacaq və registr sonsuz olaraq 0 istehsal edəcək <span class="citation"
+data-cites="schneier1996applied"></span>. Bu səbəbdən, işlək bir LFSR
+üçün mümkün vəziyyətlərin sayı <span class="math inline">\(2^n -
+1\)</span> kimi götürülür.</p>
+</div>
+<h1 id="lfsr-lərin-polinom-təsviri">LFSR-lərin polinom təsviri</h1>
+<h2 id="generasiya-edən-funksiya">Generasiya edən funksiya</h2>
+<p>LFSR-in çıxış ardıcıllığını <span class="math inline">\(a_0, a_1,
+a_2, \ldots\)</span> ilə işarə edək. Bu ardıcıllıq aşağıdakı xətti
+təkrarlanma tənliyinə tabe olur <span class="citation"
+data-cites="menezes1996handbook"></span>:</p>
+<p><span class="math display">\[a_{i+n} = \sum_{j=0}^{n-1} c_j a_{i+j}
+\pmod 2\]</span></p>
+<p>Bu tənliyə uyğun gələn və LFSR-in strukturunu müəyyən edən
+<strong>əlaqə polinomu</strong> (<em>connection polynomial</em>):</p>
+<p><span class="math display">\[C(x) = 1 + c_{n-1}x + c_{n-2}x^2 +
+\cdots + c_0x^n\]</span></p>
+<div class="theorem">
+<p><strong>Teorem 2</strong>. <em><span>Generasiya edən funksiya</span>
+LFSR-in çıxış ardıcıllığı üçün generasiya edən funksiya aşağıdakı
+rasional kəsr şəklində ifadə olunur <span class="citation"
+data-cites="menezes1996handbook"></span>: <span
+class="math display">\[A(x) = \sum_{i=0}^{\infty} a_i x^i =
+\frac{P(x)}{C(x)}\]</span> Burada <span
+class="math inline">\(P(x)\)</span>, dərəcəsi <span
+class="math inline">\(n\)</span>-dən kiçik olan və registrin ilkin
+vəziyyətindən (<em>seed</em>) asılı olan polinomdur.</em></p>
+</div>
+<p><span class="math inline">\(A(x)\)</span> polinomunun əmsalları
+LFSR-in verdiyi çıxış bitləridir.</p>
+<h2 id="polinomun-reduksiolunmazlığı-və-primitivliyi">Polinomun
+reduksiolunmazlığı və primitivliyi</h2>
+<div class="definition">
+<p><strong>Tərif 4</strong>. <em><span>Reduksiolunmaz polinom.</span>
+<span class="math inline">\(GF(2)\)</span> üzərində bir polinom o vaxt
+reduksiolunmaz (<em>irreducible</em>) adlanır ki, onu daha kiçik
+dərəcəli polinomların hasili şəklində yazmaq mümkün olmasın <span
+class="citation" data-cites="menezes1996handbook"></span>.</em></p>
+</div>
+<p>Reduksiolunmaz polinomlar LFSR-in çıxış ardıcıllığının bir neçə qısa
+dövrə parçalanmasının qarşısını alır. Lakin maksimum period üçün bu şərt
+kifayət deyil.</p>
+<div class="keyconcept">
+<p><span>Primitiv polinom</span> <span class="math inline">\(n\)</span>
+dərəcəli polinom o vaxt primitiv adlanır ki, əgər <span class="citation"
+data-cites="menezes1996handbook"></span>:</p>
+<ol>
+<li><p>Reduksiolunmazdır.</p></li>
+<li><p><span class="math inline">\(x^k \equiv 1 \pmod{C(x)}\)</span>
+şərtini ödəyən ən kiçik müsbət tam ədəd <span class="math inline">\(k =
+2^n - 1\)</span>-dir.</p></li>
+<li><p>Onun kökləri <span class="math inline">\(GF(2^n)\)</span>
+genişlənmiş meydanının (<em>field extension</em>) primitiv
+elementləridir (yəni sahənin bütün sıfırdan fərqli elementlərini
+generasiya edə bilir).</p></li>
+</ol>
+</div>
+<p><strong>Nəticə:</strong> Yalnız primitiv polinomlar LFSR-in bütün
+mümkün <span class="math inline">\(2^n - 1\)</span> vəziyyətdən
+keçməsini və maksimum periodlu çıxış (<em>m-sequence</em>) hasil
+etməsini təmin edir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<h1 id="berlekamp-massey-alqoritmi">Berlekamp-Massey alqoritmi</h1>
+<div class="history">
+<p><span>Tarixi arayış</span> Bu alqoritm 1960-cı illərin sonunda Elwyn
+Berlekamp və James Massey tərəfindən inkişaf etdirilmişdir <span
+class="citation" data-cites="menezes1996handbook"></span>. Maraqlıdır
+ki, Berlekamp bu metodu <strong>səhv-düzəldən kodlar</strong> (BCH
+kodları) üçün, Massey isə <strong>LFSR-lərin kriptoanalizi</strong> üçün
+təklif etmişdir.</p>
+</div>
+<p>Berlekamp-Massey (BM) alqoritmi verilmiş ixtiyari bit ardıcıllığını
+yarada bilən <strong>ən kiçik dərəcəli</strong> LFSR-i tapmaq üçün
+istifadə olunan sistematik metoddur <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<div class="keyconcept">
+<p><span>Xətti Mürəkkəblik (Linear Complexity)</span> Bir ardıcıllığı
+yarada bilən ən qısa LFSR-in uzunluğuna həmin ardıcıllığın <strong>xətti
+mürəkkəbliyi</strong> (<span class="math inline">\(L\)</span>) deyilir.
+Berlekamp-Massey alqoritmi <span class="math inline">\(N\)</span> bitlik
+ardıcıllıq üçün bu <span class="math inline">\(L\)</span> qiymətini
+<span class="math inline">\(O(N^2)\)</span> zaman mürəkkəbliyi ilə tapır
+<span class="citation" data-cites="menezes1996handbook"></span>.</p>
+</div>
+<p>Alqoritmin iş prinsipi iterativdir: ardıcıllığın ilk bitlərini yarada
+bilən müvəqqəti bir LFSR qurulur. Hər növbəti bitdə "uyğunsuzluq"
+(<em>discrepancy</em>) yaranarsa, alqoritm LFSR-in polinomunu və
+dərəcəsini yeniləyir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<div class="theorem">
+<p><strong>Teorem 3</strong>. <em><span>Berlekamp-Massey limiti</span>
+Dərəcəsi <span class="math inline">\(n\)</span> olan bir LFSR-in çıxış
+ardıcıllığından onun həm daxili quruluşunu (əmsallarını), həm də ilkin
+vəziyyətini bərpa etmək üçün cəmi <strong><span
+class="math inline">\(2n\)</span></strong> sayda ardıcıl bit kifayətdir
+<span class="citation"
+data-cites="menezes1996handbook"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong>. <em><span>Analitik nümunə</span> Tutaq ki,
+<span class="math inline">\(s = 1,0,1,1,0,1,0,0\)</span> ardıcıllığı
+müşahidə edilib. BM alqoritmi hər addımda xətti mürəkkəbliyi yoxlayır və
+nəticədə bu ardıcıllığı generasiya edən minimal polinomu (məsələn, <span
+class="math inline">\(C(x) = 1 + x + x^3\)</span>) hasil edir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<div class="warning">
+<p><span>Kriptoqrafik nəticə</span> LFSR-lər xətti riyazi struktura
+malik olduqları üçün sındırılmağa meyillidirlər. Əgər bir sistem <span
+class="math inline">\(n=128\)</span> bitlik LFSR istifadə edirsə,
+hücumçunun cəmi 256 bit (32 bayt) çıxış əldə etməsi kifayətdir ki, bütün
+gələcək bitləri proqnozlaşdırsın. Buna görə müasir axın şifrələrində
+(məsələn, <strong>ChaCha20</strong> və ya <strong>AES-CTR</strong>)
+LFSR-lər təkbaşına deyil, mütləq qeyri-xətti komponentlərlə (S-box,
+qeyri-xətti filtr) birlikdə istifadə olunur <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<h1 id="lfsr-əsaslı-müasir-axın-şifrələri">LFSR əsaslı müasir axın
+şifrələri</h1>
+<h2 id="lfsr-lərin-qeyri-xətti-birləşdirilməsi">LFSR-lərin qeyri-xətti
+birləşdirilməsi</h2>
+<p>Berlekamp-Massey hücumundan qorunmaq üçün LFSR-lərin xəttiliyini
+aradan qaldırmaq lazımdır. Bunun üçün üç əsas arxitekturadan istifadə
+olunur:</p>
+<h3 id="qeyri-xətti-kombinasiya-generatoru">1. Qeyri-xətti kombinasiya
+generatoru</h3>
+<p>Bir neçə müstəqil LFSR-in çıxışı bir qeyri-xətti Bul funksiyası
+(<span class="math inline">\(f\)</span>) vasitəsilə birləşdirilir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 5</strong>. <em><span>Geffe generatoru.</span> Üç LFSR
+(<span class="math inline">\(x, y, z\)</span>) istifadə edilir.
+Funksiya: <span class="math display">\[f(x,y,z) = (x \land y) \oplus
+(\neg x \land z)\]</span> Burada <span class="math inline">\(x\)</span>
+bir növ "selektor" rolunu oynayır: əgər <span
+class="math inline">\(x=1\)</span> olarsa, çıxış <span
+class="math inline">\(y\)</span> olur; <span
+class="math inline">\(x=0\)</span> olarsa, çıxış <span
+class="math inline">\(z\)</span> olur.</em></p>
+</div>
+<h3 id="qeyri-xətti-filtr-generatoru">2. Qeyri-xətti filtr
+generatoru</h3>
+<p>Yalnız bir LFSR istifadə olunur, lakin çıxış biti registrin müxtəlif
+xanalarından (<em>taps</em>) gələn bitlərin qeyri-xətti kombinasiyasıdır
+<span class="citation" data-cites="menezes1996handbook"></span>.</p>
+<h3 id="saatla-idarə-olunan-clock-controlled-generatorlar">3. Saatla
+idarə olunan (Clock-controlled) generatorlar</h3>
+<p>Bu sistemlərdə bir LFSR-in çıxışı digərinin sürüşmə sürətini (saat
+impulsunu) tənzimləyir. Bu, çıxışın xətti mürəkkəbliyini kəskin
+artırır.</p>
+<div class="example">
+<p><strong>Nümunə 6</strong>. <em><span>Dəyişən Addımlı Generator
+(Alternating Step Generator – ASG).</span> Sistem üç LFSR-dən ibarətdir:
+<span class="math inline">\(R_1\)</span> (idarəedici), <span
+class="math inline">\(R_2\)</span> və <span
+class="math inline">\(R_3\)</span>.</em></p>
+<ul>
+<li><p><em>Əgər <span class="math inline">\(R_1\)</span>-in çıxışı
+<strong>1</strong>-dirsə: <span class="math inline">\(R_2\)</span>
+sürüşür, <span class="math inline">\(R_3\)</span> isə donur (vəziyyəti
+dəyişmir).</em></p></li>
+<li><p><em>Əgər <span class="math inline">\(R_1\)</span>-in çıxışı
+<strong>0</strong>-dırsa: <span class="math inline">\(R_3\)</span>
+sürüşür, <span class="math inline">\(R_2\)</span> isə
+donur.</em></p></li>
+</ul>
+<p><em>Yekun çıxış <span class="math inline">\(R_2 \oplus R_3\)</span>
+əməliyyatından alınır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<h2 id="praktik-tətbiqlər-və-tarixi-kontekst">Praktik Tətbiqlər və
+Tarixi Kontekst</h2>
+<p>Aşağıdakı cədvəldə LFSR əsaslı ən məşhur şifrələr
+ümumiləşdirilmişdir:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Şifrə</strong></th>
+<th style="text-align: left;"><strong>Tətbiq sahəsi</strong></th>
+<th style="text-align: left;"><strong>Quruluşu</strong></th>
+<th style="text-align: left;"><strong>Statusu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>A5/1</strong></td>
+<td style="text-align: left;">GSM (2G) Mobil rabitə</td>
+<td style="text-align: left;">3 LFSR (Gecikdirilmiş sürüşmə)</td>
+<td style="text-align: left;">Sındırılıb</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>E0</strong></td>
+<td style="text-align: left;">Bluetooth</td>
+<td style="text-align: left;">4 LFSR (Kombinasiya)</td>
+<td style="text-align: left;">Zəif sayılır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SNOW 3G</strong></td>
+<td style="text-align: left;">3G/4G (LTE) rabitəsi</td>
+<td style="text-align: left;">LFSR + FSM (Sonlu Avtomat)</td>
+<td style="text-align: left;">Təhlükəsiz</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ZUC</strong></td>
+<td style="text-align: left;">4G/5G rabitəsi</td>
+<td style="text-align: left;">128-bit LFSR + Qeyri-xətti filtr</td>
+<td style="text-align: left;">Təhlükəsiz</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="history">
+<p><span>A5/1 şifrəsinin dramatik taleyi</span> A5/1 1987-ci ildə gizli
+saxlanılmaq şərtilə yaradılmışdı. Lakin 1994-cü ildə onun daxili sxemi
+əks-mühəndislik (<em>reverse engineering</em>) vasitəsilə sızdırıldı.
+2000-ci illərin əvvəllərində <strong>"Rainbow Tables"</strong>
+(Göyqurşağı cədvəlləri) üsulunun tətbiqi ilə real zaman rejimində bir
+neçə saniyəyə sındırılmağa başlandı <span class="citation"
+data-cites="biryukov2000cryptanalysis"></span>. Bu, kriptoqrafiyada
+gizliliyə güvənməyin (<em>security by obscurity</em>) nə qədər yanlış
+olduğunu sübut etdi.</p>
+</div>
+<h1
+id="lfsr-lərin-zəiflikləri-və-hücum-metodları-lfsr-vulnerabilities-and-attacks">LFSR-lərin
+Zəiflikləri və Hücum Metodları (<em>LFSR Vulnerabilities and
+Attacks</em>)</h1>
+<h2 id="xətti-yaxınlaşma-hücumu-linear-approximation-attack">Xətti
+Yaxınlaşma Hücumu (<em>Linear Approximation Attack</em>)</h2>
+<p>LFSR-lərin çıxışları qeyri-xətti kombinasiyalar vasitəsilə
+birləşdirilsə belə, çıxış ardıcıllığı ilə daxili xətti komponentlər
+arasında müəyyən xətti korrelyasiyalar (linear correlations) qala bilər
+<span class="citation" data-cites="matsui1993linear"></span>. Hücumçu bu
+statistik asılılıqlardan istifadə edərək daxili vəziyyəti bərpa edə və
+gizli açarları tapa bilər <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<h2 id="korrelyasiya-hücumu-correlation-attack">Korrelyasiya Hücumu
+(<em>Correlation Attack</em>)</h2>
+<p>Bu hücum növü sistemin "parçala və hökm sür" (divide and conquer)
+prinsipi ilə sındırılmasına əsaslanır. Məsələn, Geffe generatorunda
+çıxış ardıcıllığı ilə fərdi LFSR-lərin çıxışları arasında güclü
+statistik asılılıq mövcuddur <span class="citation"
+data-cites="stinson2018cryptography"></span>: <span
+class="math display">\[P(f = x) = 0.75, \quad P(f = y) = 0.5, \quad P(f
+= z) = 0.75\]</span></p>
+<p>Hücumçu bu korrelyasiya əmsallarından yararlanaraq bütün sistemi eyni
+anda sındırmaq əvəzinə, hər bir LFSR-i fərdi şəkildə analiz edərək bərpa
+edə bilər <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<h2
+id="sürətli-korrelyasiya-hücumu-fast-correlation-attack---fca">Sürətli
+Korrelyasiya Hücumu (<em>Fast Correlation Attack - FCA</em>)</h2>
+<p>Korrelyasiya hücumunun daha da təkmilləşdirilmiş və
+optimallaşdırılmış versiyasıdır. Bu metod xətti tənliklər sistemini
+səhv-düzəldən kodların (error-correcting codes) alqoritmləri ilə
+birləşdirərək sındırma prosesini daha sürətli həyata keçirir <span
+class="citation" data-cites="meier1989fast"></span>.</p>
+<h2
+id="berlekamp-massey-hücumu-berlekamp-massey-attack">Berlekamp-Massey
+Hücumu (<em>Berlekamp-Massey Attack</em>)</h2>
+<p>Əgər LFSR-in çıxışı heç bir qeyri-xətti filtrdən keçmədən birbaşa
+açar axını (keystream) kimi istifadə olunursa, Berlekamp-Massey
+alqoritmi vasitəsilə cəmi <span class="math inline">\(2n\)</span> bitlik
+çıxış əldə etməklə LFSR-in strukturunu tam bərpa etmək mümkündür <span
+class="citation" data-cites="menezes1996handbook"></span>.</p>
+<div class="note">
+<p><span>Təhlükəsiz LFSR əsaslı sistemlər</span><span>Təhlükəsizlik
+Meyarları</span> Təhlükəsiz bir LFSR əsaslı sistem aşağıdakı
+xüsusiyyətlərə və parametrlərə malik olmalıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<ul>
+<li><p><strong>Qeyri-xəttilik:</strong> Yüksək dərəcəli qeyri-xətti
+kombinasiya funksiyaları (nonlinear combination functions) istifadə
+olunmalıdır.</p></li>
+<li><p><strong>Böyük dərəcə:</strong> LFSR-lərin uzunluğu kifayət qədər
+böyük seçilməlidir (<span class="math inline">\(n \geq 128\)</span>
+bit).</p></li>
+<li><p><strong>Komponent sayı:</strong> Sistemdə istifadə olunan
+LFSR-lərin sayı kifayət qədər çox olmalıdır.</p></li>
+<li><p><strong>Korrelyasiya toxunulmazlığı:</strong> İstifadə olunan
+funksiyaların korrelyasiya əmsalları mümkün qədər kiçik olmalıdır ki,
+sistem korrelyasiyaya davamlı (correlation-immune) hesab
+edilsin.</p></li>
+</ul>
+</div>
+<h1 id="müasir-axın-şifrələri-modern-stream-ciphers">Müasir Axın
+Şifrələri (<em>Modern Stream Ciphers</em>)</h1>
+<p>LFSR əsaslı klassik sistemlərin zəiflikləri aşkarlandıqdan sonra, həm
+proqram təminatı (software), həm də aparat təminatı (hardware) üçün daha
+davamlı və sürətli alqoritmlər hazırlanmışdır.</p>
+<h2 id="chacha20">ChaCha20</h2>
+<p>ChaCha20 <strong>Daniel J. Bernstein</strong> tərəfindən 2008-ci ildə
+təqdim edilmiş yüksək sürətli axın şifrəsidir <span class="citation"
+data-cites="bernstein2008chacha"></span>. Bu şifrə Salsa20 alqoritminin
+təkmilləşdirilmiş versiyasıdır.</p>
+<ul>
+<li><p><strong>Parametrlər:</strong> 256-bit açar (key) və 96-bit
+birdəfəlik qiymət (nonce) istifadə edir.</p></li>
+<li><p><strong>Konstruksiya:</strong> ARX
+(<em>Addition-Rotation-XOR</em>) arxitekturasına əsaslanır. Bu metod
+xətti olmayan toplama, dövri sürüşdürmə və XOR əməliyyatlarının
+kombinasiyasından ibarətdir <span class="citation"
+data-cites="bernstein2008chacha"></span>.</p></li>
+<li><p><strong>Performans:</strong> Proqram təminatında (CPU-larda)
+olduqca sürətli işləyir və yan kanal hücumlarına (side-channel attacks)
+qarşı daxili müqavimətə malikdir.</p></li>
+<li><p><strong>Tətbiq:</strong> TLS 1.3 protokolunda əsas şifrə kimi
+dəstəklənir və Google xidmətləri tərəfindən geniş tətbiq olunur <span
+class="citation" data-cites="rescorla2018rfc8446"></span>.</p></li>
+</ul>
+<h2
+id="estream-portfelinin-yüngül-şifrələri-lightweight-ciphers">eSTREAM
+Portfelinin Yüngül Şifrələri (<em>Lightweight Ciphers</em>)</h2>
+<p><strong>eSTREAM</strong> layihəsi müasir axın şifrələrini müəyyən
+etmək üçün keçirilmiş beynəlxalq müsabiqədir.</p>
+<h3 id="trivium">Trivium</h3>
+<p>Trivium aparat təminatı üçün optimallaşdırılmış yüngül axın
+şifrəsidir <span class="citation"
+data-cites="canniere2008trivium"></span>.</p>
+<ul>
+<li><p>80-bit açar və 80-bit başlanğıc vektoru (<em>Initial Vector -
+IV</em>) istifadə edir.</p></li>
+<li><p><strong>Mexanizm:</strong> Bir-birinə qeyri-xətti şəkildə
+bağlanmış 3 sürüşmə registrindən (93, 84 və 111 bit) ibarətdir.</p></li>
+<li><p>Çox kiçik tranzistor sahəsi tələb etdiyi üçün IoT (Əşyaların
+İnterneti) cihazları üçün idealdır.</p></li>
+</ul>
+<h3 id="grain">Grain</h3>
+<p>Grain ailəsi həm qeyri-xətti (NFSR), həm də xətti (LFSR) sürüşmə
+registrlərini birləşdirən səmərəli yüngül axın şifrəsidir <span
+class="citation" data-cites="hell2007grain"></span>. Kiçik yaddaş
+resursları olan qurğular üçün nəzərdə tutulub.</p>
+<h2 id="zuc-və-mobil-rabitə-şifrələri">ZUC və Mobil Rabitə
+Şifrələri</h2>
+<p>ZUC Çinin milli şifrələmə standartıdır və beynəlxalq mobil rabitə
+təhlükəsizliyində mühüm yer tutur <span class="citation"
+data-cites="3gpp2011zuc"></span>.</p>
+<ul>
+<li><p><strong>Parametrlər:</strong> 128-bit açar və 128-bit IV istifadə
+edir.</p></li>
+<li><p><strong>Hibrid Struktur:</strong> 16 mərhələli LFSR və ondan
+gələn məlumatları qeyri-xətti şəkildə emal edən FSM (<em>Finite State
+Machine</em> - Sonlu Avtomat) qatından ibarətdir.</p></li>
+<li><p>3GPP standartının bir hissəsi olaraq 4G LTE və 5G şəbəkələrində
+məlumatların məxfiliyini təmin edir.</p></li>
+</ul>
+<h1 id="praktiki-tapşırıqlar">Praktiki tapşırıqlar</h1>
+<h2 id="tapşırıq-1-lfsr-simulyasiyası">Tapşırıq 1: LFSR
+simulyasiyası</h2>
+<p><span class="math inline">\(P(x) = x^4 + x + 1\)</span> polinomlu
+4-bit LFSR üçün ilkin vəziyyət <span class="math inline">\(1000\)</span>
+olduqda ilk 10 çıxış bitini hesablayın. Hər addımda registrin daxili
+vəziyyətini qeyd edin.</p>
+<h2 id="tapşırıq-2-maksimum-periodun-təyini">Tapşırıq 2: Maksimum
+periodun təyini</h2>
+<p><span class="math inline">\(P(x) = x^3 + x^2 + 1\)</span> polinomu
+primitivdirmi? İlkin vəziyyəti <span class="math inline">\(001\)</span>
+götürərək LFSR-in periodunu (təkrarlanana qədər keçən addım sayını)
+tapın.</p>
+<h2 id="tapşırıq-3-lfsr-in-polinom-təsviri">Tapşırıq 3: LFSR-in polinom
+təsviri</h2>
+<p>Aşağıdakı təkrarlanma tənliyi ilə təyin olunan LFSR dövrəsinin
+əks-əlaqə polinomunu yazın: <span class="math display">\[s_{i+4} = s_i
+\oplus s_{i+1}\]</span> Bu polinomun primitiv olub-olmadığını
+araşdırın.</p>
+<h2 id="tapşırıq-4-berlekamp-massey-analizi">Tapşırıq 4:
+Berlekamp-Massey analizi</h2>
+<p>Aşağıdakı ardıcıllıq 4-bit LFSR tərəfindən yaradılıb: <span
+class="math display">\[1,0,1,1,0,1,0,0,1,0,1,1,0,1,0,0\]</span>
+Ardıcıllığın daxilində təkrarlanan hissəni tapın və periodu müəyyən
+edin.</p>
+<h2 id="tapşırıq-5-axın-şifrləmə-əməliyyatı">Tapşırıq 5: Axın şifrləmə
+əməliyyatı</h2>
+<p>Açar axını <span class="math inline">\(k = 10101010\)</span> olarsa,
+XOR əməliyyatından istifadə edərək <span class="math inline">\(m =
+11001100\)</span> mesajını şifrləyin. Alınan nəticəni yenidən eyni
+açarla XOR edərək deşifrləyin.</p>
+<h2 id="tapşırıq-6-açar-təkrarı-two-time-pad-problemi">Tapşırıq 6: Açar
+təkrarı (Two-Time Pad) problemi</h2>
+<p>Eyni açar axını iki fərqli mesaj üçün istifadə olunub: <span
+class="math display">\[c_1 = 10101100, \quad c_2 = 11010010\]</span>
+<span class="math inline">\(c_1 \oplus c_2\)</span> əməliyyatını yerinə
+yetirin. Bu nəticənin hücumçuya orijinal mesajlar (<span
+class="math inline">\(m_1 \oplus m_2\)</span>) haqqında hansı məlumatı
+verdiyini izah edin.</p>
+<h2 id="tapşırıq-7-tədqiqat-sualları">Tapşırıq 7: Tədqiqat sualları</h2>
+<ol>
+<li><p>LFSR-lərin çıxış ardıcıllığı statistik olaraq təsadüfi
+görünməsinə baxmayaraq, niyə kriptoqrafik cəhətdən təhlükəsiz
+deyil?</p></li>
+<li><p>Berlekamp-Massey alqoritmi məlum açıq mətn hücumlarında
+(<em>Known Plaintext Attack</em>) necə tətbiq olunur?</p></li>
+<li><p>Müasir axın şifrələri (məsələn, Trivium və ya ZUC) LFSR-lərin
+xəttilik problemini hansı metodlarla həll edir?</p></li>
+</ol>
+<h1 id="tapşırıqların-həlli">Tapşırıqların həlli</h1>
+<ul>
+<li><p><strong>LFSR simulyasiyası:</strong> <span
+class="math inline">\(P(x) = x^4 + x + 1\)</span> polinomu üçün
+əks-əlaqə xanaları (taps) <span class="math inline">\(s_0\)</span> və
+<span class="math inline">\(s_1\)</span> bitləridir.</p>
+<ul>
+<li><p>İlkin vəziyyət: <span
+class="math inline">\(1000\)</span></p></li>
+<li><p>Addım 1: <span class="math inline">\(0001\)</span> (çıxış: <span
+class="math inline">\(1\)</span>, yeni bit: <span
+class="math inline">\(1 \oplus 0 = 1\)</span>)</p></li>
+<li><p>Addım 2: <span class="math inline">\(0011\)</span> (çıxış: <span
+class="math inline">\(0\)</span>, yeni bit: <span
+class="math inline">\(0 \oplus 0 = 0\)</span>)</p></li>
+<li><p>Addım 3: <span class="math inline">\(0110\)</span> (çıxış: <span
+class="math inline">\(0\)</span>, yeni bit: <span
+class="math inline">\(0 \oplus 0 = 0\)</span>)</p></li>
+<li><p>Addım 4: <span class="math inline">\(1101\)</span> (çıxış: <span
+class="math inline">\(1\)</span>, yeni bit: <span
+class="math inline">\(1 \oplus 1 = 0\)</span>)</p></li>
+</ul>
+<p><em>Qeyd: Tapşırıq 1-dəki çıxış ardıcıllığı seçilmiş polinomun
+primitivlik xassəsinə və sürüşmə istiqamətinə görə
+hesablanır.</em></p></li>
+<li><p><strong>Maksimum period:</strong> <span
+class="math inline">\(P(x) = x^3 + x^2 + 1\)</span> polinomu <span
+class="math inline">\(GF(2)\)</span> üzərində primitivdir. Primitiv
+polinomlar üçün maksimum period aşağıdakı düsturla hesablanır: <span
+class="math display">\[T = 2^n - 1 = 2^3 - 1 = 7\]</span> Buna görə də,
+sıfırdan fərqli istənilən ilkin vəziyyət (məsələn, <span
+class="math inline">\(001\)</span>) üçün period 7-dir.</p></li>
+<li><p><strong>LFSR-in polinom təsviri:</strong> <span
+class="math inline">\(s_{i+4} = s_i \oplus s_{i+1}\)</span> tənliyində
+<span class="math inline">\(s_i\)</span> və <span
+class="math inline">\(s_{i+1}\)</span> xanalarından əks-əlaqə götürülür.
+Bu tənliyə uyğun gələn əlaqə polinomu: <span class="math display">\[C(x)
+= x^4 + x + 1\]</span></p></li>
+<li><p><strong>Berlekamp-Massey analizi:</strong> Verilmiş ardıcıllıq:
+<span class="math inline">\(1,0,1,1,0,1,0,0, \dots\)</span> 8 bitdən
+sonra ardıcıllıq təkrarlandığı üçün period <span class="math inline">\(T
+= 8\)</span>-dir. Təkrarlanan baza hissə: <span
+class="math inline">\(1,0,1,1,0,1,0,0\)</span>.</p></li>
+<li><p><strong>Axın şifrləmə:</strong> Açıq mətn (<span
+class="math inline">\(m\)</span>), açar axını (<span
+class="math inline">\(k\)</span>) və şifrəli mətn (<span
+class="math inline">\(c\)</span>) arasında XOR əlaqəsi:</p>
+<ul>
+<li><p><span class="math inline">\(m = 11001100\)</span></p></li>
+<li><p><span class="math inline">\(k = 10101010\)</span></p></li>
+<li><p><span class="math inline">\(c = m \oplus k =
+01100110\)</span></p></li>
+</ul></li>
+<li><p><strong>Açar təkrarı problemi:</strong> Şifrəli mətnlərin XOR-u:
+<span class="math display">\[c_1 \oplus c_2 = (m_1 \oplus k) \oplus (m_2
+\oplus k) = m_1 \oplus m_2\]</span> Hesablama: <span
+class="math inline">\(10101100 \oplus 11010010 = 01111110\)</span>. Bu
+nəticə açar axını sistemdən çıxardığı üçün hücumçuya mesajların
+statistik analizi üçün imkan yaradır.</p></li>
+<li><p><strong>Proqramlaşdırma məşğələsi üçün qeyd:</strong> Python
+funksiyalarının məntiqi XOR əməliyyatına və massivlərin sürüşdürülməsinə
+(*shift*) əsaslanır. Şifrləmə və deşifrləmə eyni funksiya (XOR)
+vasitəsilə yerinə yetirilir, çünki <span class="math inline">\(x \oplus
+y \oplus y = x\)</span>.</p></li>
+<li><p><strong>Tədqiqat suallarının cavabları:</strong></p>
+<ol>
+<li><p>LFSR-lər xətti strukturda olduğu üçün çıxış bitləri arasında
+riyazi asılılıq asanlıqla tapılır.</p></li>
+<li><p>Berlekamp-Massey alqoritmi cəmi <span
+class="math inline">\(2n\)</span> bit müşahidə etməklə <span
+class="math inline">\(n\)</span> dərəcəli LFSR-in bütün gizli
+parametrlərini bərpa edə bilir.</p></li>
+</ol></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirə çərçivəsində axın şifrələrinin quruluşu, LFSR-lərin
+riyazi prinsipləri və müasir kriptoqrafik tətbiqləri ətraflı şəkildə
+araşdırılmışdır <span class="citation"
+data-cites="paar2010understanding stinson2018cryptography"></span>:</p>
+<ul>
+<li><p><strong>Təsadüfilik:</strong> Kriptoqrafik təhlükəsizliyin
+təməlində duran həqiqi təsadüfi ədəd generatorları (TRNG) və
+deterministik psevdo-təsadüfi ədəd generatorları (PRNG) arasındakı
+fərqlər müəyyən edilmişdir <span class="citation"
+data-cites="knuth1997art"></span>.</p></li>
+<li><p><strong>Axın şifrələri:</strong> Açıq mətnin hər bir bitinin
+simmetrik açar axını (<em>keystream</em>) ilə XOR əməliyyatı vasitəsilə
+şifrlənmə mexanizmi öyrənilmişdir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>LFSR (Linear Feedback Shift Register):</strong> Aparat
+təminatında sürətli və səmərəli olan xətti tərs əlaqəli sürüşdürmə
+registrlərinin daxili arxitekturası təhlil edilmişdir <span
+class="citation" data-cites="schneier1996applied"></span>.</p></li>
+<li><p><strong>Polinom təsviri:</strong> LFSR-lərin generasiya edən
+funksiyalar və sonlu sahələr (<em>Galois Fields</em>) üzərindəki riyazi
+təsviri dərk edilmişdir <span class="citation"
+data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>Maksimum period:</strong> Registrin maksimum perioduna
+(<span class="math inline">\(2^n - 1\)</span>) nail olmaq üçün istifadə
+olunan primitiv polinomların xüsusiyyətləri vurğulanmışdır <span
+class="citation" data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Berlekamp-Massey alqoritmi:</strong> Xətti sistemlərin
+zəifliyini sübut edən və <span class="math inline">\(2n\)</span> sayda
+bitdən istifadə edərək registri bərpa edən klassik kriptoanaliz metodu
+araşdırılmışdır <span class="citation"
+data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>LFSR əsaslı müasir sistemlər:</strong> Xəttiliyi aradan
+qaldırmaq üçün qeyri-xətti kombinasiyalar və ChaCha20, Trivium, ZUC kimi
+müasir alqoritmlərin tətbiq sahələri göstərilmişdir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p></li>
+</ul>
+<h1 id="nəticə-və-gələcək-mövzular">Nəticə və Gələcək Mövzular</h1>
+<p>Axın şifrələri, yüksək sürət tələb edən və resursları məhdud olan
+mühitlərdə (mobil rabitə, IoT cihazları, real-vaxt tətbiqləri)
+əvəzolunmazdır <span class="citation"
+data-cites="paar2010understanding"></span>. Bu mühazirədə öyrəndiyimiz
+LFSR prinsipləri, klassik dizaynların həm güclü, həm də zəif tərəflərini
+(xəttilik problemi) anlamaq üçün təməl rolunu oynayır.</p>
+<p>Növbəti mühazirədə biz artıq LFSR-lərin riyazi xüsusiyyətlərindən
+kənara çıxaraq, müasir sənaye standartlarına çevrilmiş daha mürəkkəb
+alqoritmləri araşdıracağıq <span class="citation"
+data-cites="bernstein2008chacha"></span>.</p>
+<div class="note">
+<p><span>Növbəti mühazirə: Həftə 7</span> <strong>Mövzu: Müasir Axın
+Şifrələri</strong></p>
+<ul>
+<li><p><strong>Proqram yönümlü şifrələr:</strong> ChaCha20 və Salsa20
+(ARX konstruksiyası)</p></li>
+<li><p><strong>Aparat yönümlü (yüngül) şifrələr:</strong> Trivium və
+Grain</p></li>
+<li><p><strong>Mobil standartlar:</strong> ZUC alqoritminin daxili
+arxitekturası</p></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (22)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Knuth, 1997</span>
+                        <small class="text-muted">Addison-Wesley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Art of Computer Programming</h6>
+                    <p class="small text-secondary mb-0">Donald E. Knuth (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Schneier, 1996</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Applied Cryptography: Protocols, Algorithms, and Source Code in C</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Vernam, 1919</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secret Signaling System</h6>
+                    <p class="small text-secondary mb-0">Gilbert S. Vernam (1919)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Singh, 1999</span>
+                        <small class="text-muted">Doubleday</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Simon Singh (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Bernstein, 2008</span>
+                        <small class="text-muted">University of Illinois at Chicago</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">ChaCha, a variant of Salsa20</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] NIST, 2001</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Rukhin et al., 2010</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications</h6>
+                    <p class="small text-secondary mb-0">Andrew Rukhin and Juan Soto and James Nechvatal and Miles Smid and Elaine Barker and Stefan Leigh and Mark Levenson and Mark Vangel and David Banks and Alan Heckert and James Dray (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Lipmaa et al., 2000</span>
+                        <small class="text-muted">First NIST Workshop on Modes of Operation</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Comments to NIST concerning AES Modes of Operations: CTR-Mode Encryption</h6>
+                    <p class="small text-secondary mb-0">Helger Lipmaa and David Wagner and Phillip Rogaway (2000)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Barker &amp; Kelsey, 2015</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Random Number Generation Using Deterministic Random Bit Generators</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker and John Kelsey (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Shannon, 1949</span>
+                        <small class="text-muted">Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Communication Theory of Secrecy Systems</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1949)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Biryukov et al., 2001</span>
+                        <small class="text-muted">Fast Software Encryption (FSE 2000)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Real Time Cryptanalysis of A5/1 on a PC</h6>
+                    <p class="small text-secondary mb-0">Alex Biryukov and Adi Shamir and David Wagner (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[17] Matsui, 1994</span>
+                        <small class="text-muted">Advances in Cryptology — EUROCRYPT &#x27;93</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Linear Cryptanalysis Method for DES Cipher</h6>
+                    <p class="small text-secondary mb-0">Mitsuru Matsui (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[18] Meier &amp; Staffelbach, 1988</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT &#x27;88</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Fast Correlation Attacks on Certain Stream Ciphers</h6>
+                    <p class="small text-secondary mb-0">Willi Meier and Othmar Staffelbach (1988)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[19] Rescorla, 2018</span>
+                        <small class="text-muted">RFC 8446</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[20] Cannière &amp; Preneel, 2008</span>
+                        <small class="text-muted">New Stream Cipher Designs</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Trivium</h6>
+                    <p class="small text-secondary mb-0">Christophe De Cannière and Bart Preneel (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[21] Hell et al., 2008</span>
+                        <small class="text-muted">New Stream Cipher Designs</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Grain: A Stream Cipher for Constrained Environments</h6>
+                    <p class="small text-secondary mb-0">Martin Hell and Thomas Johansson and Willi Meier (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[22] 3GPP, 2011</span>
+                        <small class="text-muted">3rd Generation Partnership Project</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">3GPP TS 35.221: Specification of the 3GPP Confidentiality and Integrity Algorithms EEA3 &amp; EIA3; Document 1: EEA3 and EIA3 Specifications</h6>
+                    <p class="small text-secondary mb-0">3GPP (2011)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

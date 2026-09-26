@@ -43,6 +43,19 @@ toc: false
     📚 The <strong>complete two-semester</strong> course: 30 lectures and 33 practicals.
   </p>
 
+  <!-- Web version of the lectures: static copy of the Kripto-Kurs SPA in /kripto/,
+       synced with tools/sync-kripto.sh. -->
+  <p class="lang az course-web">
+    🌐 Mühazirələri brauzerdə oxuyun:
+    <a href="{{ '/kripto/' | relative_url }}" target="_blank" rel="noopener"><strong>veb versiya</strong></a>
+    — axtarış, lüğət və əlavələrlə.
+  </p>
+  <p class="lang en course-web">
+    🌐 Read the lectures in your browser:
+    <a href="{{ '/kripto/' | relative_url }}" target="_blank" rel="noopener"><strong>web version</strong></a>
+    — with search, a glossary, and supplements (in Azerbaijani).
+  </p>
+
   <!-- ===== Facts ===== -->
   <ul class="course-facts">
     <li>
@@ -132,8 +145,9 @@ toc: false
         </td>
         <td>
           {% if item.pdf and item.pdf != "" %}
-          <a href="{{ item.pdf | relative_url }}" target="_blank" rel="noopener">PDF</a>
-          {% else %}—{% endif %}
+          <a href="{{ item.pdf | relative_url }}" target="_blank" rel="noopener">PDF</a> ·
+          {% endif %}
+          <a href="{{ '/kripto/' | relative_url }}#lecture-{{ item.n }}" target="_blank" rel="noopener">HTML</a>
         </td>
         <td class="course-nb">
           {% if item.notebooks and item.notebooks.size > 0 %}
@@ -207,11 +221,20 @@ toc: false
 
   <p class="lang az">
     Saytın və kurs səhifəsinin hazırlanmasına görə <strong>Cavid Qafarzadəyə</strong>
-    və <strong>Kave Babaiyə</strong> təşəkkür edirik.
+    təşəkkür edirik.
   </p>
   <p class="lang en">
-    Thanks to <strong>Javid Gafar-zada</strong> and <strong>Kaveh Babai</strong>
-    for building the website and this course page.
+    Thanks to <strong>Javid Gafar-zada</strong> for building the website and this
+    course page.
+  </p>
+  <p class="lang az">
+    Mühazirələrin <a href="{{ '/kripto/' | relative_url }}" target="_blank" rel="noopener">veb versiyasının</a>
+    hazırlanmasına görə <strong>Süleyman Hacızadəyə</strong> təşəkkür edirik.
+  </p>
+  <p class="lang en">
+    Thanks to <strong>Suleiman Hajizadeh</strong> for preparing the
+    <a href="{{ '/kripto/' | relative_url }}" target="_blank" rel="noopener">web version</a>
+    of the lectures.
   </p>
 
   <!-- ===== Feedback ===== -->

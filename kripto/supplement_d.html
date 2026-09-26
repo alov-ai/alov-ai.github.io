@@ -1,0 +1,837 @@
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>TAM ƏDƏDLƏRİN FAKTORİZASİYASI</strong></p>
+<p><strong>Kriptoqrafiyanın Riyazi Əsasları</strong></p>
+</div>
+<h1 id="giriş-tam-ədədlərin-faktorizasiyası">Giriş: Tam Ədədlərin
+Faktorizasiyası</h1>
+<p>Tam ədədlərin faktorizasiyası (mürəkkəb ədədlərin sadə vuruqlara
+ayrılması) həm saf ədədlər nəzəriyyəsinin ən qədim, həm də müasir
+asimmetrik kriptoqrafiyanın nəzəri prinsiplərini formalaşdıran ən
+fundamental problemlərindən biridir. İxtiyari mürəkkəb ədədin unikal
+sadə vuruqların hasili şəklində göstərilə biləcəyi faktı
+<strong>Arifmetikanın Əsas Teoremi</strong> (<em>Fundamental Theorem of
+Arithmetic</em>) ilə təmin olunur <span class="citation"
+data-cites="bressoud1989"></span>. Lakin pedaqoji və mühəndislik
+nöqteyi-nəzərindən mühüm bir fərqi vurğulamaq lazımdır:</p>
+<blockquote>
+<p><strong>Konseptual Sərhəd (Arifmetikanın Əsas Teoremi vs
+Hesablama):</strong> Arifmetikanın Əsas Teoremi birdən böyük hər bir tam
+ədədin sadə ədədlərin hasili kimi yazıla biləcəyini və bu ayrılışın
+vuruqların sırasına görə yeganə olduğunu sübut edir. Lakin bu teorem
+tamamilə <strong>mövcudluq</strong> (<em>existential</em>) — yəni sadə
+vuruqların sadəcə "mövcud olduğunu" və vahidliyini söyləyir, lakin həmin
+vuruqların hansı effektiv (polinomial zamanlı) alqoritmlə
+<strong>tapmağı</strong> (<em>constructive computation</em>) demir. Bu
+səbəbdən arifmetikanın bu təməl qanunu bizə mürəkkəb bir ədədin
+daxilindəki gizli sadə vuruqları hesablamaq və praktikada üzə çıxarmaq
+üçün heç bir səmərəli alqoritm vermir.</p>
+</blockquote>
+<p>Məhz bu alqoritmik çətinlik, yəni vuruqların mövcudluğunun riyazi
+olaraq qəti bilinməsi, lakin böyük ədədlər üçün tapılmasının asimptotik
+olaraq nəhəng hesablama gücü tələb etməsi, müasir asimmetrik
+kriptoqrafiyanın təməlini qoymuşdur <span class="citation"
+data-cites="crandall2005"></span>.</p>
+<h2 id="eyler-funksiyasının-riyazi-strukturu">Eyler Funksiyasının Riyazi
+Strukturu</h2>
+<p>Alqoritmin nüvəsini təşkil edən gizli açarların generasiyası və
+modulyar cəbr prinsipləri birbaşa Eyler funksiyası ilə bağlıdır <span
+class="citation" data-cites="koblitz1994course"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 1</strong>. <em><span>Eyler funksiyası (<span
+class="math inline">\(\phi\)</span>).</span> İxtiyari <span
+class="math inline">\(n\)</span> müsbət tam ədədi üçün Eyler funksiyası
+<span class="math inline">\(\phi(n)\)</span>, <span
+class="math inline">\(1\)</span>-dən <span
+class="math inline">\(n\)</span>-ə qədər olan ədədlər çoxluğunda <span
+class="math inline">\(n\)</span> ilə qarşılıqlı sadə (yəni <span
+class="math inline">\(\gcd(k, n) = 1\)</span>) olan tam ədədlərin sayını
+ifadə edir.</em></p>
+<p><em>Kanonik (sadə faktorlara) ayrılışı <span class="math inline">\(n
+= p_1^{a_1} p_2^{a_2} \dots p_k^{a_k}\)</span> olan ixtiyari ədəd üçün
+ümumi formula aşağıdakı kimidir: <span
+class="math display">\[\begin{equation}
+    \phi(n) = n \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right)
+\end{equation}\]</span></em></p>
+<p><em>Eyler funksiyası multiplikativ xassəyə malikdir; yəni əgər <span
+class="math inline">\(\gcd(A, B) = 1\)</span> olarsa, <span
+class="math inline">\(\phi(A \cdot B) = \phi(A) \cdot \phi(B)\)</span>
+şərti ödənilir. Əgər <span class="math inline">\(p\)</span> bir sadə
+ədəddirsə, özündən kiçik bütün müsbət tam ədədlərlə qarşılıqlı sadə
+olduğu üçün xüsusi halda <span class="math inline">\(\phi(p) = p -
+1\)</span> olur. Buradan başlayaraq iki fərqli sadə ədədin hasili olan
+<span class="math inline">\(n = p \cdot q\)</span> modulu üçün xüsusi
+formula aşağıdakı kimi alınır: <span
+class="math display">\[\begin{equation}
+    \phi(n) = \phi(p) \cdot \phi(q) = (p - 1)(q - 1)
+\end{equation}\]</span></em></p>
+</div>
+<h2 id="rsa-kriptosisteminin-struktur-mexanizmi">RSA Kriptosisteminin
+Struktur Mexanizmi</h2>
+<p>1978-ci ildə <em>Rivest, Shamir</em> və <em>Adleman</em> tərəfindən
+təklif edilmiş RSA alqoritmi üç fundamental mərhələdən ibarətdir: Açar
+generasiyası, şifrələmə və deşifrəetmə <span class="citation"
+data-cites="rivest1978method"></span>.</p>
+<ol>
+<li><p><strong>Açar Generasiyası (Key Generation):</strong></p>
+<ul>
+<li><p>İki nəhəng və təsadüfi sadə ədəd seçilir: <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span>.</p></li>
+<li><p>Onların hasili (RSA modulu) hesablanır: <span
+class="math inline">\(n = p \cdot q\)</span>.</p></li>
+<li><p>Modulun Eyler funksiyası təyin edilir: <span
+class="math inline">\(\phi(n) = (p - 1)(q - 1)\)</span>.</p></li>
+<li><p><span class="math inline">\(1 &lt; e &lt; \phi(n)\)</span>
+şərtini ödəyən və <span class="math inline">\(\gcd(e, \phi(n)) =
+1\)</span> olan bir açıq ədəd (<span class="math inline">\(e\)</span>)
+seçilir.</p></li>
+<li><p>Genişləndirilmiş Evklid alqoritmi vasitəsilə <span
+class="math inline">\(e\)</span> ədədinin <span
+class="math inline">\(\pmod{\phi(n)}\)</span> əsasına görə multiplikativ
+tərsi olan gizli ədəd (<span class="math inline">\(d\)</span>)
+hesablanır:</p>
+
+<div class="math-display">\[\begin{equation}
+            d \cdot e \equiv 1 \pmod{\phi(n)}
+\end{equation}\]</div>
+</li>
+<li><p><strong>Açıq açar</strong> <span class="math inline">\((e,
+n)\)</span> cütlüyü elan edilir, <strong>gizli açar</strong> <span
+class="math inline">\((d, n)\)</span> isə ciddi şəkildə gizli
+saxlanılır. <span class="math inline">\(p, q\)</span> və <span
+class="math inline">\(\phi(n)\)</span> qiymətləri isə təhlükəsizlik üçün
+sistemdən silinir.</p></li>
+</ul></li>
+<li><p><strong>Şifrələmə (Encryption):</strong> Hər hansı bir <span
+class="math inline">\(M\)</span> mesajı (<span class="math inline">\(0
+\le M &lt; n\)</span>) açıq açardan istifadə edilməklə aşağıdakı
+modulyar qüvvətə yüksəltmə əməliyyatı ilə şifrəli mətnə (<span
+class="math inline">\(C\)</span>) çevrilir: <span
+class="math display">\[\begin{equation}
+        C = M^e \pmod n
+\end{equation}\]</span></p></li>
+<li><p><strong>Deşifrəetmə (Decryption):</strong> Şifrəli mətni (<span
+class="math inline">\(C\)</span>) yalnız gizli açara (<span
+class="math inline">\(d\)</span>) sahib olan tərəf bərpa edə bilər.
+Eyler teoreminə <a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> əsaslanan bu bərpa prosesi aşağıdakı
+şəkildə baş verir:</p>
+
+<div class="math-display">\[\begin{equation}
+        C^d \pmod n = M^{d e} \pmod n = M^{k \phi(n)+1} = M
+\end{equation}\]</div>
+
+<p>burad <span class="math inline">\(k\)</span>
+hansı bir natural ədəddir.</p></li>
+</ol>
+<h2 id="faktorizasiya-problemi-və-rsa-nın-çöküş-ssenarisi">Faktorizasiya
+Problemi və RSA-nın Çöküş Ssenarisi</h2>
+<p>Hücumçunun əlində yalnız hər kəsə açıq olan <span
+class="math inline">\(n\)</span> və <span
+class="math inline">\(e\)</span> qiymətləri var. Mesajı deşifrə etmək
+üçün hücumçu mütləq gizli olan <span class="math inline">\(d\)</span>-ni
+tapmalıdır. <span class="math inline">\(d\)</span>-nin hesablanması isə
+<span class="math inline">\(d \cdot e \equiv 1 \pmod{\phi(n)}\)</span>
+şərtindən göründüyü kimi mütləq <span
+class="math inline">\(\phi(n)\)</span>-in bilinməsini tələb edir.</p>
+<p><span class="math inline">\(n\)</span> məlum olduqda <span
+class="math inline">\(\phi(n) = (p-1)(q-1)\)</span> qiymətini
+hesablamağın yeganə fundamental riyazi yolu <span
+class="math inline">\(n\)</span> ədədini <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə vuruqlarına ayırmaqdır.</p>
+<div class="importantbox">
+<p><span>Kriptoqrafik Risklər</span> Əgər tam ədədlərin faktorizasiyası
+problemini polinomial zamanda həll edən effektiv bir alqoritm kəşf
+edilərsə, <span class="math inline">\(n \to (p, q)\)</span> keçidi
+sürətlə baş verər, dərhal <span class="math inline">\(\phi(n)\)</span>
+çıxarılar və gizli açar <span class="math inline">\(d\)</span> tapılaraq
+bütün sistem çökər <span class="citation"
+data-cites="rivest1978method"></span>. Baxmayaraq ki, RSA probleminin
+tam sındırılması ilə faktorizasiya probleminin riyazi ekvivalentliyi
+(yəni <span class="math inline">\(n\)</span>-i vuruqlara ayırmadan da
+<span class="math inline">\(e\)</span>-inci dərəcədən modul kökü almağın
+qeyri-mümkünlüyü) hələ nəzəri olaraq tam sübut olunmayıb, praktiki
+olaraq bu sistemin yeganə ciddi təhlükəsi faktorizasiya alqoritmlərinin
+inkişaf sürətidir. Bu səbəbdən, faktorizasiya alqoritmlərinin asimptotik
+gücünü analiz etmək müasir rəqəmsal təhlükəsizlik marjalarını təyin
+etmək üçün kritik vacibliyə malikdir.</p>
+</div>
+<h2 id="alqoritmlərin-işləmə-prinsiplərinə-görə-təsnifatı">Alqoritmlərin
+İşləmə Prinsiplərinə Görə Təsnifatı</h2>
+<p>Tam ədədləri faktorizasiya etmək üçün tarixdən bu günə qədər inkişaf
+etdirilmiş alqoritmlər riyazi strukturlarına, asimptotik
+mürəkkəbliklərinə və hesablama xüsusiyyətlərinə görə üç əsas makro-sinfə
+bölünür <span class="citation" data-cites="dlmf2025"></span>:</p>
+<ol>
+<li><p><strong>Deterministik Alqoritmlər:</strong> Bu metodlar təsadüfi
+ehtimallara əsaslanmır və müəyyən edilmiş sonlu zaman çərçivəsində
+faktorları tapmağa mütləq riyazi zəmanət verir (məsələn, <em>Sınaq
+bömlməsi - Trial Division</em> və ya <em>Eratesfen Ələyi - Sieve of
+Eratosthenes</em>). Lakin onların zaman mürəkkəbliyi birbaşa ədədin bit
+ölçüsü ilə tam eksponensial olaraq artdığı üçün kriptoqrafik ölçülü
+(1024-bit və yuxarı) ədədlərin analizində praktiki olaraq tamamilə
+yararsızdır.</p></li>
+<li><p><strong>Xüsusi Məqsədli (Special-Purpose) Alqoritmlər:</strong>
+Bu sinfə aid alqoritmlərin ən böyük xüsusiyyəti odur ki, onların işləmə
+müddəti və hesablama mürəkkəbliyi faktorizasiya edilən <span
+class="math inline">\(n\)</span> ədədinin ümumi böyüklüyündən deyil,
+onun daxilində gizlənən <strong>ən kiçik sadə bölənin (<span
+class="math inline">\(p\)</span>)</strong> ölçüsündən və ya spesifik
+riyazi xassələrindən asılıdır (məsələn, <em>Pollard <span
+class="math inline">\(\rho\)</span>, Pollard <span
+class="math inline">\(p-1\)</span>, Lenstra Elliptik Əyri Metodu -
+ECM</em>). Əgər modul ümumi halda çox böyük olsa belə, daxilində
+nisbətən kiçik bir sadə vuruq saxlayırsa, bu alqoritmlər şifrəni sürətlə
+sındırır.</p></li>
+<li><p><strong>Ümumi Məqsədli (General-Purpose) Alqoritmlər:</strong> Bu
+alqoritmlər ədədin daxilindəki vuruqların heç bir xüsusi riyazi
+asılılığından, asanlığından və ya kiçik olmasından asılı olmayaraq eyni
+tempdə işləyir. Onların işləmə müddəti və resurs tələbi birbaşa
+faktorizasiya ediləcək <strong>ədədin ümumi bit sayından (<span
+class="math inline">\(n\)</span>)</strong> asılıdır (məsələn, Kvadratik
+Ələk - <em>QS</em> və Ümumi Ədəd Sahəsi Ələyi - <em>GNFS</em>). Bu
+alqoritmlər polinomial zaman daxilində işləməsə də, eksponensialdan
+qat-qat sürətli olan <strong>sub-eksponensial</strong>
+(<em>subexponential</em>) zaman mürəkkəbliyinə malikdirlər. Müasir
+kriptoanalizdə və RSA sındırma rekordlarında məhz bu sinif alqoritmlər
+əsas zərbə qüvvəsi rolunu oynayır.</p></li>
+</ol>
+<h1 id="deterministik-alqoritmlər">Deterministik Alqoritmlər</h1>
+<p>Tam ədədlərin faktorizasiyasında deterministik yanaşmalar, heç bir
+ehtimal və ya təsadüfi seçim mexanizmindən istifadə etmədən, riyazi
+olaraq müəyyən edilmiş sonlu addımlar çərçivəsində dəqiq nəticəni
+tapmağa zəmanət verir. Bu sinif alqoritmlər kiçik ölçülü ədədlər üçün
+fundamental baza rolunu oynayır.</p>
+<h2 id="sınaq-bölmə-üsulu-trial-division">Sınaq Bölmə Üsulu (Trial
+Division)</h2>
+<p>Bu, faktorizasiyanın həm ən qədim, həm daxili məntiqinə görə ən sadə
+üsuludur <span class="citation"
+data-cites="crandall2005 cpalg2025"></span>. Proses, verilmiş <span
+class="math inline">\(n\)</span> ədədinin ardıcıl olaraq mümkün
+bölənlərə bölünməsinin yoxlanılmasından ibarətdir.</p>
+<div class="personbox">
+<p><span>Riyazi Teoremlə Əsaslandırma</span> Əgər <span
+class="math inline">\(n\)</span> müsbət tam ədədi mürəkkəb ədəddirsə,
+onun daxilində <span class="math inline">\(\gcd(p, n) = p\)</span>
+şərtini ödəyən və <span class="math inline">\(1 &lt; p \le
+\sqrt{n}\)</span> aralığına düşən ən azı bir sadə <span
+class="math inline">\(p\)</span> böləni mövcud olmalıdır. Əgər ədəd
+<span class="math inline">\(\sqrt{n}\)</span> qiymətinə qədər heç bir
+tam ədədə bölünmürsə, onun özü mütləq sadə ədəddir. Buna görə də,
+yoxlama dairəsini yalnız <span class="math inline">\(2 \le d \le
+\sqrt{n}\)</span> intervalı ilə məhdudlaşdırmaq kifayətdir <span
+class="citation" data-cites="cpalg2025"></span>.</p>
+</div>
+<p><strong>Zaman Mürəkkəbliyi:</strong> Alqoritmin ən pis halda
+(<em>worst-case</em>) yerinə yetirdiyi bölmə əməliyyatlarının sayı <span
+class="math inline">\(O(\sqrt{n})\)</span> təşkil edir. Bu mürəkkəblik
+ədədin öz qiymətinə görə polinomial olsa da, hesablama nəzəriyyəsində
+əsas götürülən giriş parametrinə — yəni ədədin bit uzunluğuna (<span
+class="math inline">\(k = \log_2 n\)</span>) görə tamamilə
+eksponensialdır:</p>
+
+<div class="math-display">\[\begin{equation}
+    O(\sqrt{n}) = O(2^{k/2})
+\end{equation}\]</div>
+
+<p>Hər bir modulyar bölmə əməliyyatının bit
+mürəkkəbliyini də (<span class="math inline">\(O(k^2)\)</span>) nəzərə
+alsaq, ümumi asimptotik bit mürəkkəbliyi <span
+class="math inline">\(O(2^{k/2} \cdot k^2)\)</span> kimi ifadə olunur
+ki, bu da böyük kriptoqrafik modullar üçün praktiki hesablama
+imkanlarından kənardır.</p>
+<p><strong>Optimallaşdırma Yolları:</strong></p>
+<ul>
+<li><p><strong>Təkər Faktorizasiyası (Wheel Factorization):</strong> İlk
+bir neçə kiçik sadə ədəd (məsələn, 2, 3 və 5) üzrə bölünmə ilkin olaraq
+yoxlanılır. Daha sonra, bu ədədlərin hasili olan modul daxilində
+(məsələn, <span class="math inline">\(\pmod{30}\)</span>) yalnız bu
+ədədlərlə qarşılıqlı sadə olan qalıq mövqeləri yoxlanılır. Bu üsul,
+lazımsız cüt və mürəkkəb ədədləri filtrdən keçirərək axtarış fəzasını
+təxminən 73.3% azaldır <span class="citation"
+data-cites="cpalg2025"></span>.</p></li>
+<li><p><strong>Sadə Ədədlər Cədvəlinin Yaradılması:</strong> Yoxlama
+prosesini daha da sürətləndirmək üçün <span
+class="math inline">\(\sqrt{n}\)</span>-ə qədər olan bütün sadə ədədlər
+ilkin mərhələdə <strong>Eratosfen Ələyi</strong> (<em>Sieve of
+Eratosthenes</em>) vasitəsilə filtrasiya edilir. Alqoritm bütün ardıcıl
+ədədləri yoxlamaq əvəzinə, yalnız bu dinamik cədvəldəki hazır sadə
+ədədləri sınaqdan keçirir <span class="citation"
+data-cites="cpalg2025"></span>.</p></li>
+</ul>
+<h2 id="ferma-faktorizasiya-üsulu">Ferma Faktorizasiya Üsulu</h2>
+<p>Pyer Ferma tərəfindən 1643-cü ildə təklif edilmiş bu üsul, hər bir
+tək mürəkkəb ədədin iki kvadratın fərqi kimi ifadə oluna bilməsi
+xassəsinə əsaslanır <span class="citation"
+data-cites="cpalg2025"></span>: <span class="math display">\[n = a^2 - b^2 = (a - b)(a + b)\]</span> Burada <span class="math inline">\(n = p \cdot q\)</span> (və şərti olaraq <span class="math inline">\(p \le q\)</span>) olduqda, axtarılan cəbri parametrlər vuruqların cəmi və fərqi vasitəsilə aşağıdakı konfiqurasiyada təyin olunur: <span class="math display">\[a = \frac{q + p}{2}, \quad b = \frac{q - p}{2}\]</span></p>
+<div class="personbox">
+<p><span>Pyer Ferma (1607–1665)</span> Fransız riyaziyyatçısı, müasir
+ədədlər nəzəriyyəsinin banilərindən biridir. Onun təklif etdiyi bu cəbri
+kvadratlar fərqi yanaşması, əsrlər sonra inkişaf etdiriləcək Kvadratik
+Ələk (QS) və Ədəd Sahəsi Ələyi (NFS) kimi müasir sub-eksponensial
+alqoritmlərin konseptual fundamentini qoymuşdur.</p>
+</div>
+<h3 id="alqoritmin-mexaniki-işləmə-prinsipi">Alqoritmin Mexaniki İşləmə
+Prinsipi</h3>
+<p>Ferma üsulu verilmiş modulun kvadrat kökündən başlayaraq addım-addım
+irəliləyən sistematik bir axtarış prosesidir. Alqoritm aşağıdakı ardıcıl
+addımlarla icra olunur:</p>
+<ol>
+<li><p><strong>Başlanğıc Nöqtəsinin Təyini (<span
+class="math inline">\(a\)</span> parametrinin
+inisializasiyası):</strong> Hesablama prosesi üçün <span
+class="math inline">\(a\)</span> dəyişəninə <span
+class="math inline">\(n\)</span> ədədinin kvadrat kökündən yuxarı
+yuvarlaqlaşdırılmış tam hissəsi mənimsədilir: <span
+class="math display">\[\begin{equation}
+        a = \lceil\sqrt{n}\rceil
+\end{equation}\]</span></p></li>
+<li><p><strong>Fərq İfadəsini Qiymətləndirmə (Kvadratik qalıq
+analizi):</strong> Cəbri olaraq kvadratik fərq fəzasını analiz etmək
+üçün aşağıdakı qiymət hesablanır: <span
+class="math display">\[\begin{equation}
+        D = a^2 - n
+\end{equation}\]</span></p></li>
+<li><p><strong>Tam Kvadrat Şərtinin Yoxlanılması (Dövr
+mexanizmi):</strong> Əgər əldə edilən <span
+class="math inline">\(D\)</span> qiyməti riyazi olaraq tam bir
+kvadratdırsa (<span class="math inline">\(D = b^2\)</span>), dövr
+dayandırılır və birbaşa <strong>Addım 4</strong>-ə keçid edilir. Əgər
+tam kvadrat deyilsə, <span class="math inline">\(a\)</span> parametri
+bir vahid artırılır (<span class="math inline">\(a = a + 1\)</span>) və
+proses yenidən <strong>Addım 2</strong>-yə qaytarılır.</p></li>
+<li><p><strong>Vuruqların Bərpası (Son çıxış):</strong> Tapılmış optimal
+<span class="math inline">\(a\)</span> və <span class="math inline">\(b
+= \sqrt{a^2 - n}\)</span> qiymətlərindən istifadə edilərək, <span
+class="math inline">\(n\)</span> ədədinin sadə vuruqları bərpa olunur və
+çıxışa verilir:</p>
+
+<div class="math-display">\[\begin{equation}
+        p = a - b, \quad q = a + b
+\end{equation}\]</div>
+</li>
+</ol>
+<p><strong>Mürəkkəblik və Kriptoqrafik Zəiflik:</strong> Üsulun zaman
+mürəkkəbliyi birbaşa dövrlərin sayından, yəni <span
+class="math inline">\(a\)</span> parametrinin başlanğıc qiyməti ilə
+optimal qiyməti arasındakı məsafədən asılıdır və asimptotik olaraq <span
+class="math inline">\(O(|p - q|)\)</span> ilə ifadə olunur <span
+class="citation" data-cites="cpalg2025"></span>.</p>
+<h1 id="xüsusi-məqsədli-special-purpose-alqoritmlər">Xüsusi Məqsədli
+(Special-Purpose) Alqoritmlər</h1>
+<p>Xüsusi məqsədli alqoritmlərin hesablama mürəkkəbliyi və işləmə
+müddəti faktorizasiya ediləcək <span class="math inline">\(n\)</span>
+ədədinin ümumi böyüklüyündən deyil, onun daxilində gizlənən ən kiçik
+sadə vuruğun (<span class="math inline">\(p\)</span>) ölçüsündən və ya
+onun spesifik arifmetik xassələrindən asılıdır. Bu xüsusiyyət, böyük
+modullarda kiçik və ya zəif xassəli vuruqların mövcudluğunu yoxlamaq
+üçün onları ideal alətə çevirir.</p>
+<h2 id="pollard-rho-ro-faktorizasiya-üsulu">Pollard <span
+class="math inline">\(\rho\)</span> (Ro) Faktorizasiya Üsulu</h2>
+<p>Cohn Pollard tərəfindən 1975-ci ildə təklif edilmiş bu üsul,
+ehtimallı bir faktorizasiya yanaşmasıdır <span class="citation"
+data-cites="pollard1975 crandall2005"></span>. Alqoritm öz adını,
+daxilində generasiya olunan ardıcıllıqların qrafik təsvirinin yunan
+əlifbasındakı <span class="math inline">\(\rho\)</span> (ro) hərfinə
+bənzəyən dövri strukturundan almışdır.</p>
+<p><strong>Riyazi Prinsiplər və İş Mexanizmi:</strong> Üsulun mahiyyəti
+ehtimal nəzəriyyəsindəki məşhur <em>"Ad Günü Paradoksu"</em> prinsipinin
+modulyar ardıcıllıqlara tətbiqinə əsaslanır. Tutaq ki, <span
+class="math inline">\(n\)</span> ədədinin naməlum bir <span
+class="math inline">\(p\)</span> sadə böləni var. Aşağıdakı rekurent
+funksiya vasitəsilə çoxluq daxilində psevdotəsadüfi (təsadüfi bənzəri)
+bir ardıcıllıq yaradılır:</p>
+
+<div class="math-display">\[\begin{equation}
+    f(x) = (x^2 + c) \pmod n, \quad c \neq 0, -2
+\end{equation}\]</div>
+
+<p>Bu funksiya ilə generasiya edilən elementlər
+<span class="math inline">\(\pmod n\)</span> əsasına görə təsadüfi
+paylansa da, eyni ardıcıllıq gizli <span
+class="math inline">\(p\)</span> modulu daxilində (<span
+class="math inline">\(\pmod p\)</span>) dərhal qapalı bir dövrə (tsikl)
+daxil olur. Ad günü paradoksuna görə, bu qapalı dövrün yaranması
+təxminən <span class="math inline">\(O(\sqrt{p})\)</span> addımdan sonra
+qaçılmaz hala gəlir. Bu riyazi dövrü aşkar etmək və iki fərqli
+göstəricinin üst-üstə düşdüyü anı tapmaq üçün Floydun <em>"Tısbağa və
+Dovşan"</em> alqoritmindən (<em>Floyd’s cycle-finding algorithm</em>)
+istifadə olunur <span class="citation"
+data-cites="floyd1967"></span>.</p>
+<p>Alqoritm hər addımda sürətli (<span class="math inline">\(x_2 =
+f(f(x_2))\)</span>) və yavaş (<span class="math inline">\(x_1 =
+f(x_1)\)</span>) dəyişənləri müqayisə edir və onların fərqinin <span
+class="math inline">\(n\)</span> ilə olan ortaq bölənini araşdırır:</p>
+
+<div class="math-display">\[\begin{equation}
+    g = \gcd(|x_2 - x_1|, n)
+\end{equation}\]</div>
+
+<p>Əgər <span class="math inline">\(1 &lt; g &lt;
+n\)</span> şərti ödənilərsə, <span class="math inline">\(g\)</span>
+ədədi <span class="math inline">\(n\)</span>-in axtarılan sadə vuruğu
+(<span class="math inline">\(p\)</span>) kimi çıxışa verilir.</p>
+<p><strong>Zaman Mürəkkəbliyi və Rekordlar:</strong> Üsulun asimptotik
+zaman mürəkkəbliyi orta hesabla <span
+class="math inline">\(O(\sqrt{p})\)</span> təşkil edir <span
+class="citation" data-cites="pollard1975"></span>. Bu xüsusiyyətinə görə
+o, tamamilə <span class="math inline">\(n\)</span>-dən asılı olan sınaq
+bölmə üsulunu qat-qat üstələyir. Pollard <span
+class="math inline">\(\rho\)</span> üsulu ilə bu günə qədər tapılmış ən
+böyük sadə bölən 20 rəqəmli (təxminən 66-bit) olmuşdur <span
+class="citation" data-cites="dlmf2025"></span>.</p>
+<h2 id="pollard-p-1-üsulu">Pollard <span
+class="math inline">\(p-1\)</span> Üsulu</h2>
+<p>Con Pollard (<em>John Pollard</em>) tərəfindən 1974-cü ildə irəli
+sürülmüş bu üsul, Fermanın kiçik teoreminin modulyar xassələrinə
+əsaslanır <span class="citation"
+data-cites="pollard1974 crandall2005"></span>.</p>
+<p><strong>Riyazi Əsaslandırma və Alqoritmik Məntiq:</strong> Fərz edək
+ki, parçalanması hədəflənən mürəkkəb ədəd <span class="math inline">\(n
+= pq\)</span>-dür və onun gizli sadə vuruqlarından biri <span
+class="math inline">\(p\)</span>-dir. Təsadüfi seçilmiş bir <span
+class="math inline">\(a\)</span> əsası (təməli) üçün <span
+class="math inline">\(\gcd(a, p) = 1\)</span> şərti ödənirsə, Fermanın
+kiçik teoreminə görə aşağıdakı konqruensiya mütləq doğrudur: <span
+class="math display">\[\begin{equation}
+    a^{p-1} \equiv 1 \pmod p \implies p \mid (a^{p-1} - 1)
+\end{equation}\]</span></p>
+<p>Bu alqoritmin effektivliyi <span class="math inline">\(p-1\)</span>
+ədədinin strukturundan asılıdır. Əgər <span
+class="math inline">\(p-1\)</span> ədədinin bütün sadə vuruqları təyin
+olunmuş müəyyən bir <span class="math inline">\(B\)</span> sərhədindən
+(barierindən) kiçik və ya ona bərabərdirsə, belə ədədə riyaziyyatda
+<em><span class="math inline">\(B\)</span>-hamar</em> (smooth) ədəd
+deyilir. Bu halda, <span class="math inline">\(1\)</span>-dən <span
+class="math inline">\(B\)</span>-yə qədər olan bütün tam ədədlərin ən
+kiçik ortaq bölünəni (ƏKOB) kimi hesablanan böyük bir <span
+class="math inline">\(M\)</span> qüvvəti təyin edilir: <span
+class="math display">\[\begin{equation}
+    M = \mathrm{lcm}(1, 2, 3, \dots, B)
+\end{equation}\]</span></p>
+<p><span class="math inline">\(p-1\)</span> ədədi yalnız <span
+class="math inline">\(B\)</span>-dən kiçik sadə vuruqlardan təşkil
+olunduğu üçün, bu quruluş avtomatik olaraq <span
+class="math inline">\(p-1\)</span> ədədinin <span
+class="math inline">\(M\)</span> qüvvətini tam bölməsini, yəni <span
+class="math inline">\((p-1) \mid M\)</span> şərtini təmin edir. Əgər
+<span class="math inline">\((p-1)\)</span> ədədi <span
+class="math inline">\(M\)</span>-in bir bölənidirsə (<span
+class="math inline">\(M = k \cdot (p-1)\)</span>), onda Fermanın kiçik
+teoreminin nəticəsi olaraq yaza bilərik: <span class="math display">\[a^M = a^{k(p-1)} = (a^{p-1})^k \equiv 1^k \equiv 1 \pmod p\]</span></p>
+<p>Bu düstur göstərir ki,
+<span class="math inline">\(a^M - 1\)</span> fərqi <span
+class="math inline">\(p\)</span> sadə ədədinə tam bölünür (<span
+class="math inline">\(p \mid (a^M - 1)\)</span>). Eyni zamanda biz ilkin
+şərtdən bilirik ki, <span class="math inline">\(p\)</span> ədədi həm də
+<span class="math inline">\(n\)</span>-in bölənidir (<span
+class="math inline">\(p \mid n\)</span>). Deməli, <span
+class="math inline">\(p\)</span> ədədi həm <span
+class="math inline">\((a^M - 1)\)</span>-in, həm də <span
+class="math inline">\(n\)</span>-in ortaq bölənidir.</p>
+<p>Bu nöqtədə ƏBOB (<em>gcd</em>) funksiyasını tətbiq etməklə gizli
+<span class="math inline">\(p\)</span> vuruğunu ümumi moduldan ayırmaq
+(təcrid etmək) mümkün olur: <span
+class="math display">\[\begin{equation}
+    g = \gcd(a^M - 1, n)
+\end{equation}\]</span></p>
+<p>Əgər hesablanmış <span class="math inline">\(g\)</span> qiyməti <span
+class="math inline">\(1 &lt; g &lt; n\)</span> şərtini ödəyərsə, <span
+class="math inline">\(n\)</span> ədədinin aşkar olunmayan gizli <span
+class="math inline">\(p\)</span> sadə vuruğu müvəffəqiyyətlə tapılmış
+olur <span class="citation"
+data-cites="pollard1974 cpalg2025"></span>.</p>
+<p><strong>Zaman Mürəkkəbliyi və Limitləri:</strong> Üsulun hesablama
+mürəkkəbliyi <span class="math inline">\(O(B \log B)\)</span> hesablama
+addımı və <span class="math inline">\(O(B)\)</span> yaddaş resursu tələb
+edir <span class="citation" data-cites="crandall2005"></span>. Bu üsulla
+indiyə qədər müvəffəqiyyətlə tapılmış ən böyük sadə vuruq 58 rəqəmlidir
+<span class="citation" data-cites="dlmf2025"></span>. Alqoritmin zəif
+tərəfi odur ki, əgər <span class="math inline">\(p-1\)</span> ədədinin
+tərkibində böyük bir sadə vuruq varsa, alqoritm effektivliyini tamamilə
+itirir.</p>
+<h2 id="vilyams-p1-üsulu">Vilyams <span
+class="math inline">\(p+1\)</span> Üsulu</h2>
+<p>Hüq K. Vilyams (<em>H. C. Williams</em>) tərəfindən 1982-ci ildə
+təklif edilmiş bu yanaşma, konseptual olaraq Pollard <span
+class="math inline">\(p-1\)</span> üsulunun riyazi simmetriyasıdır <span
+class="citation" data-cites="williams1982"></span>. Pollard üsulu <span
+class="math inline">\(p-1\)</span> qrupunun multiplikativ xassələrindən
+istifadə etdiyi halda, Vilyams üsulu <span
+class="math inline">\(p+1\)</span> ədədinin xüsusiyyətlərinə yönəlir. Bu
+məqsədlə alqoritm xətti rekurent ardıcıllıqlar olan <strong>Luka
+ardıcıllıqlarından</strong><a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a> (<em>Lucas
+sequences</em>) istifadə edərək, <span
+class="math inline">\(p+1\)</span> qiyməti <span
+class="math inline">\(B\)</span>-smooth olan modulları sürətlə
+parçalayır <span class="citation" data-cites="crandall2005"></span>.</p>
+<p><strong>Hesablama Mürəkkəbliyi:</strong> Vilyams <span
+class="math inline">\(p+1\)</span> alqoritmi vuruqlara ayırmanın xüsusi
+məqsədli (<em>special-purpose</em>) sinfinə aid olduğu üçün onun
+effektivliyi parçalanacaq <span class="math inline">\(n\)</span>
+ədədinin ümumi ölçüsündən deyil, onun gizli <span
+class="math inline">\(p\)</span> sadə vuruğunun strukturundan
+asılıdır.</p>
+<p>Alqoritmin zaman mürəkkəbliyi əsasən iki mərhələ üzrə təyin olunur:
+1. <strong>I Mərhələ (Stage 1):</strong> Burada seçilmiş <span
+class="math inline">\(B\)</span> hamarlıq sərhədinə (<em>smoothness
+bound</em>) qədər olan ədədlərin ƏKOB-u (<span
+class="math inline">\(M\)</span>) üçün Luka ardıcıllığının <span
+class="math inline">\(V_M \pmod n\)</span> elementi hesablanır. Bu
+mərhələnin zaman mürəkkəbliyi <span class="math inline">\(B\)</span>
+parametri ilə xətti mütənasibdir: <span
+class="math display">\[\begin{equation}
+       \mathcal{O}(B \cdot \log B \cdot \log^2 n)
+\end{equation}\]</span> Burada <span class="math inline">\(\log^2
+n\)</span> həddi <span class="math inline">\(n\)</span> modulu üzərində
+aparılan böyük ədədlərin vurulması və modulyar reduksiya
+əməliyyatlarının mürəkkəbliyini ifadə edir.</p>
+<p>2. <strong>II Mərhələ (Stage 2 ):</strong> Əgər <span
+class="math inline">\(p+1\)</span> ədədinin daxilində <span
+class="math inline">\(B\)</span>-dən böyük, lakin müəyyən bir <span
+class="math inline">\(B_2\)</span> sərhədindən kiçik yeganə bir nəhəng
+sadə vuruq varsa, ikinci mərhələ dövrəyə girir. Bu mərhələnin tətbiqi
+ilə zaman mürəkkəbliyi <span class="math inline">\(\mathcal{O}(B_2 \cdot
+\log^2 n)\)</span> səviyyəsinə qədər optimallaşdırıla bilər.</p>
+<p>Əgər <span class="math inline">\(p+1\)</span> ədədi tamamilə <span
+class="math inline">\(B\)</span>-smooth olarsa, alqoritmin ümumi
+asimptotik zaman mürəkkəbliyi səmərəli şəkildə <span
+class="math inline">\(\mathcal{O}(B \log n)\)</span> kimi
+qiymətləndirilir.</p>
+<p>Yaddaş mürəkkəbliyi baxımından Williams <span
+class="math inline">\(p+1\)</span> üsulu olduqca əlverişlidir. Alqoritm
+icra olunarkən yalnız Luka ardıcıllığının bir neçə cari elementini
+(<span class="math inline">\(V_k\)</span> və <span
+class="math inline">\(V_{k-1}\)</span>) yaddaşda saxladığı üçün tələb
+olunan yer mürəkkəbliyi <strong>stataikdir</strong> və ya tam olaraq
+modulun bit uzunluğu ilə düz mütənasibdir: <span
+class="math display">\[\begin{equation}
+    \mathcal{O}(\log n)
+\end{equation}\]</span> Bu xüsusiyyət, metodu yaddaş resursları məhdud
+olan hesablama mühitləri üçün son dərəcə əlverişli edir.</p>
+<h2 id="lenstra-elliptik-əyri-üsulu-ecm">Lenstra Elliptik Əyri Üsulu
+(ECM)</h2>
+<p>Hendrik Lenstra tərəfindən 1987-ci ildə kəşf edilmiş Elliptik Əyri
+Üsulu (<em>Elliptic Curve Method - ECM</em>), xüsusi məqsədli alqoritm
+sinfinin bu günə qədərki ən güclü və təkamül etmiş zirvəsidir <span
+class="citation" data-cites="lenstra1987 crandall2005"></span>. Bu
+alqoritm, Pollard <span class="math inline">\(p-1\)</span> üsulunun
+sonlu sahələr üzərindəki elliptik əyrilərin qrup strukturuna
+ümumiləşdirilməsidir.</p>
+<div class="personbox">
+<p><span>Hendrik Lenstra (1949-)</span> Holland riyaziyyatçısı, müasir
+hesablama ədədlər nəzəriyyəsinin ən nüfuzlu simalarından biridir. Onun
+elliptik əyriləri faktorizasiya elminə gətirməsi bu sahədə inqilab
+etmişdir <span class="citation" data-cites="lenstra1987"></span>. O,
+həmçinin qardaşı Arjen Lenstra ilə birlikdə müasir RSA-nı hədəf alan
+Ədəd Sahəsi Ələyi (NFS) alqoritminin qurulmasında mühüm rol oynamışdır
+<span class="citation" data-cites="lenstra1993"></span>.</p>
+</div>
+<p><strong>İş Prinsipi və Üstünlüyü:</strong> Pollard <span
+class="math inline">\(p-1\)</span> üsulunda əgər <span
+class="math inline">\(p-1\)</span> ədədi hamar (<span
+class="math inline">\(B\)</span>-smooth) deyilsə, alqoritm
+effektivliyini itirir və eyni modul üçün alternativ hesablama
+trayektoriyası təklif edə bilmir. Lenstra ECM-də isə uğursuzluq
+yarandıqda, sadəcə başqa bir təsadüfi elliptik əyri seçilməklə proses
+yenidən başladılır.</p>
+<p>Alqoritm <span class="math inline">\(\mathbb{Z}_n\)</span> halqası
+üzərində təsadüfi bir <span class="math inline">\(E\)</span> elliptik
+əyrisi və onun üzərində yerləşən bir <span
+class="math inline">\(P\)</span> nöqtəsi təyin edir. Daha sonra, böyük
+bir <span class="math inline">\(k\)</span> skalyarına görə <span
+class="math inline">\(kP\)</span> nöqtəsinin modulyar koordinatları
+hesablanır. Bu həndəsi toplama və skalyar vurma əməliyyatları zamanı,
+modulyar kəsrlərin məxrəcinin modula görə tərsini tapmaq üçün
+genişləndirilmiş Evklid alqoritmi icra edilir. Əgər hər hansı bir
+addımda kəsr xəttinin məxrəci <span class="math inline">\(n\)</span>
+modulu ilə vahiddən fərqli ortaq bölənə malik olarsa, modula görə tərs
+elementin tapılması prosesi dayanır. Bu riyazi qeyri-mümkünlük (tərs
+elementin mövcud olmaması) bizə dərhal <span
+class="math inline">\(n\)</span> ədədinin gizli vuruğunu verir: <span
+class="math display">\[\begin{equation}
+    g = \gcd(\text{məxrəc}, n) &gt; 1
+\end{equation}\]</span></p>
+<p><strong>Effektivlik və Müasir Rekordlar:</strong> ECM, xüsusilə ümumi
+ölçüsü nəhəng olan, lakin daxilində orta ölçülü (20 ilə 80 rəqəm arası)
+sadə vuruqlar gizlədən modulların parçalanmasında misilsizdir <span
+class="citation" data-cites="gap2000"></span>. GNFS alqoritmindən fərqli
+olaraq, ECM-in hesablama mürəkkəbliyi bütöv ədədin yox, məhz tapılacaq
+sadə vuruğun ölçüsündən asılıdır. Bu xassəsinə görə ECM vasitəsilə bu
+günə qədər bir ədədin daxilindən tapılıb çıxarılmış <strong>ən böyük tək
+sadə vuruq rəsmi olaraq 83 rəqəmlidir</strong> (təxminən 276-bit).</p>
+<blockquote>
+<p><em>ECM-in praktiki gücü: Müasir hesablama klasterlərində 20 rəqəmli
+bir vuruğu bir neçə dəqiqə daxilində, 35 rəqəmli sadə komponentləri bir
+neçə saata, rəqəmsal təhlükəsizlik sərhədində dayanan 60–70 rəqəmli
+nəhəng faktorları isə paralel hesablama mühitində bir neçə günə tamamilə
+parçalamaq mümkündür</em> <span class="citation"
+data-cites="gap2000"></span>.</p>
+</blockquote>
+<h1 id="ümumi-məqsədli-general-purpose-alqoritmlər">Ümumi Məqsədli
+(General-Purpose) Alqoritmlər</h1>
+<p>Ümumi məqsədli alqoritmlərin hesablama mürəkkəbliyi, parçalanacaq
+<span class="math inline">\(n\)</span> ədədinin sadə vuruqlarının xüsusi
+arifmetik xassələrindən və ya ölçülərindən asılı olmayaraq, birbaşa
+<span class="math inline">\(n\)</span> modulunun ümumi rəqəm (bit)
+uzunluğu ilə təyin olunur. Bu sinif alqoritmlər müasir asimptotik
+analizdə sub-eksponensial zaman mürəkkəbliyinə malik olub, böyük
+kriptoqrafik açarların analizi üçün əsas tətbiq sahəsidir.</p>
+<p>Bu üsulların hamısı Pyer Fermanın kvadratlar fərqi ideyasına
+əsaslanan <strong>Konqruensiya Kvadratları</strong> konseptinə söykənir.
+Əsas hədəf aşağıdakı şərti ödəyən qeyri-trivial <span
+class="math inline">\((x, y)\)</span> cütlərini tapmaqdır <span
+class="citation" data-cites="crandall2005 dlmf2025"></span>: <span
+class="math display">\[\begin{equation}
+    x^2 \equiv y^2 \pmod n \implies x^2 - y^2 \equiv 0 \pmod n
+\end{equation}\]</span> Buradan <span class="math inline">\((x-y)(x+y)
+\equiv 0 \pmod n\)</span> hasilini əldə etdikdən sonra, əgər <span
+class="math inline">\(x \not\equiv \pm y \pmod n\)</span> şərti
+ödənərsə, <span class="math inline">\(n\)</span> ədədinin gizli sadə
+vuruqları asanlıqla aşağıdakı modulyar əbob əməliyyatı ilə alınır: <span
+class="math display">\[\begin{equation}
+    g = \gcd(x - y, n) \quad \text{və ya} \quad g = \gcd(x + y, n)
+\end{equation}\]</span></p>
+<h2 id="davamlı-kəsrlər-üsulu-cfrac">Davamlı Kəsrlər Üsulu (CFRAC)</h2>
+<p>Maykl Morrison və Con Brilhart tərəfindən 1975-ci ildə təklif edilmiş
+bu yanaşma, konqruensiya kvadratlarının sistematik generasiyası üçün
+qurulmuş ilk mühüm sub-eksponensial alqoritmdir <span class="citation"
+data-cites="morrison1975"></span>.</p>
+<p>Alqoritm <span class="math inline">\(\sqrt{n}\)</span> irrasional
+ədədinin <strong>davamlı kəsrlərə</strong> (<em>continued
+fractions</em>) ayrılmasından alınan yaxınlaşan kəsrlərin (<span
+class="math inline">\(p_k / q_k\)</span>) xassələrindən istifadə edir.
+Bu kəsrlərin surətləri üçün <span class="math inline">\(p_k^2 \pmod
+n\)</span> qiymətləri riyazi olaraq kiçik qalıqlar (<span
+class="math inline">\(Q_k\)</span>) verdiyindən, həmin qalıqların
+tərkibindən tam kvadrat kombinasiyaları yaratmaq xeyli asanlaşır <span
+class="citation" data-cites="crandall2005"></span>.</p>
+<p><strong>Tarixi Önəmi və Limitləri:</strong> CFRAC üsulu, müasir
+Kvadratik Ələk (QS) alqoritminin birbaşa konseptual sələfidir <span
+class="citation" data-cites="gap2000"></span>. Bu üsulla uğurla
+faktorizasiya edilmiş ən böyük ədəd 63 rəqəmli olmuşdur <span
+class="citation" data-cites="dlmf2025"></span>. Daha sonra onun yerini
+sürət və səmərəlilik baxımından daha optimallaşdırılmış mexanizmlər
+tutmuşdur.</p>
+<h2 id="kvadratik-ələk-üsulu-quadratic-sieve---qs">Kvadratik Ələk Üsulu
+(Quadratic Sieve - QS)</h2>
+<p>Karl Pomerans tərəfindən 1982-ci ildə irəli sürülmüş Kvadratik Ələk
+üsulu, xüsusilə 100 rəqəmə qədər olan mürəkkəb ədədlərin parçalanmasında
+hələ də dünyada ən effektiv alqoritm hesab olunur <span class="citation"
+data-cites="pomerance1982 crandall2005 sagemath2010"></span>.</p>
+<div class="personbox">
+<p><span>Karl Pomerans (1944-)</span> Amerikalı riyaziyyatçı, hesablama
+ədədlər nəzəriyyəsi üzrə görkəmli alim. Kvadratik Ələk üsulunun
+ixtiraçısı olmaqla yanaşı, sadə ədədlərin testi və sadəlik analizləri
+(məsələn, Pomerance-Selfridge-Wagstaff teoremi) sahəsində fundamental
+kəşflərin müəllifidir <span class="citation"
+data-cites="pomerance1982"></span>.</p>
+</div>
+<p><strong>İş Prinsipi və Çoxhədli Optimallaşdırması:</strong> QS
+alqoritmi fundamental olaraq iki əsas mərhələdən ibarətdir:</p>
+<ol>
+<li><p><strong>Əlaqələrin Toplanması Mərhələsi (Sieving Stage):</strong>
+Əvvəlcədən təyin olunmuş kiçik sadə ədədlərdən ibarət <em>Faktor
+Bazasının</em> (<span class="math inline">\(F\)</span>) köməyi ilə <span
+class="math inline">\(y(x) = x^2 - n\)</span> çoxhədlisinin qiymətləri
+üzərində xətti ələkdən keçirmə əməliyyatı icra olunur. Bu zaman
+qalıqları tamamilə <span class="math inline">\(F\)</span> bazasında
+vuruqlara ayrılan (yəni <em>smooth</em> olan) əlaqələr
+toplanır.</p></li>
+<li><p><strong>Xətti Cəbr Mərhələsi (Linear Algebra Stage):</strong>
+Toplanmış əlaqələrin vuruq qüvvətlərinin cüt-tək vəziyyətləri nəhəng bir
+binar matrisə (0 və 1-lər matrisi) köçürülür. <strong>Qauss
+eliminasiyası</strong> və ya <strong>Blok Lantsos</strong> (<em>Block
+Lanczos</em>) üsulları vasitəsilə matrisin nüvəsi (<span
+class="math inline">\(\mathrm{ker}(M)\)</span>) hesablanır və beləliklə,
+axtarılan <span class="math inline">\(x^2 \equiv y^2 \pmod n\)</span>
+konqruensiyası qurulur <span class="citation"
+data-cites="crandall2005"></span>.</p></li>
+</ol>
+<p>Alqoritmin daha da təkmilləşdirilmiş və paralel hesablamalara
+uyğunlaşdırılmış versiyası olan <strong>Çoxhədlili Kvadratik
+Ələk</strong> (<em>Multiple Polynomial Quadratic Sieve - MPQS</em>)
+axtarış fəzasını fərqli kvadratik tənliklər üzrə paylayaraq performansı
+dramatik şəkildə artırır <span class="citation"
+data-cites="crandall2005"></span>.</p>
+<p><strong>MPQS-in Hesablama Performansı <span class="citation"
+data-cites="gap2000"></span>:</strong></p>
+<ul>
+<li><p>40 rəqəmli modul: təxminən 2 dəqiqə</p></li>
+<li><p>50 rəqəmli modul: təxminən 20 dəqiqə</p></li>
+<li><p>60 rəqmli modul: təxminən 3 saat</p></li>
+<li><p>70 rəqəmli modul: təxminən 30 saat</p></li>
+</ul>
+<p>MPQS üsulu ilə bu günə qədər tamamilə parçalanmış ən böyük ədəd 135
+rəqəmli olmuşdur <span class="citation"
+data-cites="dlmf2025"></span>.</p>
+<h2 id="ədəd-sahəsi-ələyi-üsulu-number-field-sieve---nfs">Ədəd Sahəsi
+Ələyi Üsulu (Number Field Sieve - NFS)</h2>
+<p>Con Pollard, Hendrik Lenstra, Arjen Lenstra və Mark Manasse
+tərəfindən 1990-cı illərin əvvəllərində inkişaf ettirilmiş Ədəd Sahəsi
+Ələyi, 100 rəqəmdən (təxminən 332 bit) böyük olan ixtiyari tam ədədlər
+üçün indiyə qədər mövcud olan ən sürətli və ən güclü faktorizasiya
+üsuludur <span class="citation"
+data-cites="pollard1993 lenstra1993 crandall2005"></span>.</p>
+<p>Alqoritm adi tam ədədlər halqasından çıxaraq, cəbri ədədlər sahəsinin
+(<span class="math inline">\(\mathbb{Q}[\alpha]\)</span>) halqa
+strukturları və idealları üzərində paralel ələkləmə aparır. Bu üsulun
+iki əsas modifikasiyası mövcuddur:</p>
+<ul>
+<li><p><strong>Xüsusi NFS (Special NFS - SNFS):</strong> <span
+class="math inline">\(n = r^e \pm s\)</span> kimi xüsusi cəbri formaya
+malik olan ədədlər (məsələn, Mersenn ədədləri və ya Fermat ədədləri)
+üçün tətbiq edilir və inanılmaz dərəcədə sürətlidir.</p></li>
+<li><p><strong>Ümumi NFS (General NFS - GNFS):</strong> RSA modulları da
+daxil olmaqla, heç bir xüsusi forması olmayan tamamilə ixtiyari
+ədədlərin parçalanması üçün istifadə olunur.</p></li>
+</ul>
+<p><strong>GNFS Asimptotik Zaman Mürəkkəbliyi:</strong> GNFS
+alqoritminin hesablama mürəkkəbliyi sub-eksponensial <span
+class="math inline">\(L\)</span>-notasiyası ilə aşağıdakı formada ifadə
+olunur:</p>
+
+<div class="math-display">\[\begin{equation}
+    L_n\left[\frac{1}{3}, \sqrt[3]{\frac{64}{9}}\right] =
+e^{\left(\sqrt[3]{\frac{64}{9}} + o(1)\right) (\ln n)^{1/3} (\ln \ln
+n)^{2/3}}
+\end{equation}\]</div>
+
+<p>Bu tənlikdəki qüvvət indeksinin <span
+class="math inline">\(1/3\)</span> olması, GNFS-i kvadratik ələkdən
+(<span class="math inline">\(1/2\)</span> indeksinə malikdir) böyük
+ölçülərdə qat-qat üstün edir və onu RSA şifrələrinin qənimi halına
+gətirir.</p>
+<div class="factbox">
+<p><span>Tarixi və Müasir RSA Rekordları</span> Müasir hesablama
+güclərinin və GNFS alqoritminin paralelləşdirilməsinin gəldiyi son
+nöqtəni göstərən rəsmi rekordlar aşağıdakı kimidir:</p>
+<ul>
+<li><p><strong>RSA-129 (1994):</strong> 426 bit (129 rəqəm) – İnternet
+üzərindən könüllü paylanmış hesablama ilə 8 aya tamamlandı <span
+class="citation" data-cites="rsa129"></span>.</p></li>
+<li><p><strong>RSA-200 (2005):</strong> 663 bit (200 rəqəm) – GNFS ilə
+təxminən 1.5 il çəkdi <span class="citation"
+data-cites="rsa200"></span>.</p></li>
+<li><p><strong>RSA-768 (2009):</strong> 768 bit (232 rəqəm) – Akademik
+klasterlərdə 2 illik gərgin hesablama ilə darmadağın edildi <span
+class="citation" data-cites="rsa768"></span>.</p></li>
+<li><p><strong>RSA-250 (2020):</strong> 829 bit (250 rəqəm) – GNFS
+alqoritminin modern modifikasiyaları ilə 2.5 ilə faktorizasiya olundu
+<span class="citation" data-cites="rsa250"></span>.</p></li>
+<li><p><strong>RSA-1024 / Süni İntellekt və Superkompüter
+Dövri:</strong> Müasir kvant öncəsi dövrdə (2024–2026) sənaye
+klasterləri və qəfəs süzgəclərinin optimallaşdırılması ilə 896-bitlik
+hədəflər keçilmiş, fərdi laboratoriyalar böyük miqyaslı paylanmış
+şəbəkələrlə RSA-1024-ün sərhədlərini daraltmaqdadır.</p></li>
+</ul>
+<p><em>Qeyd:</em> Xüsusi formalı ədədlər üçün nəzərdə tutulan
+<strong>SNFS</strong> alqoritmi isə hələ 2020-ci illərin əvvəllərində
+500 rəqəmli (1662 bit) xüsusi quruluşlu ədədləri asanlıqla parçalayaraq
+öz sahəsində mütləq rekordu əldə etmişdir <span class="citation"
+data-cites="dlmf2025"></span>.</p>
+</div>
+<h1 id="müasir-tədqiqatlar-və-perspektiv-yanaşmalar">Müasir Tədqiqatlar
+və Perspektiv Yanaşmalar</h1>
+<p>Faktorizasiya statik bir sahə deyil, həm cəbri ədədlər
+nəzəriyyəsinin, həm də hesablama arifmetikasının inkişafı ilə paralel
+olaraq hər il yeni riyazi paradiqmalarla zənginləşir. Bu sahədəki ən son
+aktual sıçrayışlardan biri də klassik sistemlərin rəqəmsal təsvir
+formatlarına fərqli baxış bucağı gətirən yeni yanaşmalardır.</p>
+<h2 id="friedlander-ikilik-konstruksiya-üsulu">Friedlander İkilik
+Konstruksiya Üsulu</h2>
+<p>Ceyms Fridlander (<em>John Friedlander</em>) tərəfindən 2025-ci ildə
+tamamilə fərqli bir riyazi aparat üzərindən yeni bir faktorizasiya
+alqoritmi təklif edilmişdir <span class="citation"
+data-cites="friedlander2025"></span>.</p>
+<p><strong>Alqoritmik Struktur və Riyazi Mahiyyət:</strong> Bu alqoritm
+ənənəvi modulyar ələkləmə və ya cəbri qruplar nəzəriyyəsindən fərqli
+olaraq, parçalanacaq <span class="math inline">\(n\)</span> tam ədədinin
+mövqeli say sistemlərindəki həndəsi və rəqəmsal quruluşunu hədəf alır.
+Alqoritm hər hansı bir <span class="math inline">\(n\)</span> ədədini
+ikilik (<span class="math inline">\(2\)</span>-lik) sistemdə binar bit
+cəmlərinə parçalayır:</p>
+
+<div class="math-display">\[\begin{equation}
+    n = \sum_{i=0}^{k} b_i 2^i
+\end{equation}\]</div>
+
+<p>Daha sonra, ədədin onluq (<em>decimal</em>) və
+ikilik (<em>binary</em>) təsvir matrislərini xüsusi bir kombinatorik
+funksiya vasitəsilə vahid müstəvidə birləşdirir. Alqoritm bitlər
+arasındakı asılılıqları və binar keçid simmetriyalarını analiz edərək,
+<span class="math inline">\(n\)</span> ədədini xətti zaman çərçivəsində
+iki fərqli komponentin hasilinə çevirən yeni bir cəbri model
+formalaşdırır.</p>
+<p><strong>Zaman Mürəkkəbliyi və Əhəmiyyəti:</strong> Təklif olunan bu
+yeni yanaşmanın asimptotik zaman mürəkkəbliyi deterministik olaraq <span
+class="math inline">\(O(\sqrt{n})\)</span> təşkil edir <span
+class="citation" data-cites="friedlander2025"></span>. Hərçənd ki, bu
+mürəkkəblik dərəcəsi nəhəng kriptoqrafik RSA modulları üçün
+sub-eksponensial NFS (Ədəd Sahəsi Ələyi) alqoritmi ilə rəqabət apara
+bilməsə də, alqoritmin bit səviyyəsində işləməsi və hər hansı bir ağır
+modulyar inversiya (tərs elementin tapılması) əməliyyatına ehtiyac
+duymaması, onun gələcəkdə paralel hesablama arxitekturalarında (GPU və
+FPGA-larda) çox sürətli işləyə biləcək xüsusi prosessor komponentlərinin
+(hardware accelerators) qurulmasında tətbiq perspektivini artırır.</p>
+<h1 id="nəticə">Nəticə</h1>
+<p>Tam ədədlərin sadə vuruqlara ayrılması (faktorizasiya) problemi,
+əsrlər boyu saf riyaziyyatın fundamental bir mövzusu olaraq qalsa da, bu
+gün müasir rəqəmsal dünyanın təhlükəsizlik sütunlarını formalaşdıran
+asimmetrik kriptoqrafiyanın, xüsusilə də RSA şifrələmə sisteminin əsas
+nüvəsini təşkil edir.</p>
+<p>1970-ci illərdən etibarən hesablama ədədlər nəzəriyyəsində əldə
+edilən nəhəng irəliləyişlər, faktorizasiya texnologiyalarını
+eksponensial asimptotik zaman mürəkkəbliyinə malik primitiv üsullardan
+sub-eksponensial mürəkkəblik dərəcəsinə malik güclü ələk alqoritmlərinə
+(QS və NFS) qədər təkamül etdirmişdir <span class="citation"
+data-cites="crandall2005 dlmf2025"></span>. Bu təkamül, bir tərəfdən
+riyazi analiz üsullarını və cəbri strukturların (məsələn, elliptik
+əyrilərin, cəbri ədəd sahələrinin) tətbiq fəzasını genişləndirmiş, digər
+tərəfdən isə qlobal kibertəhlükəsizlik standartlarında istifadə olunan
+açar uzunluqlarının mütəmadi olaraq artırılmasını (məsələn, RSA-2048 və
+RSA-4096-ya keçidi) məcburi hala gətirmişdir.</p>
+<p>Bununla belə, faktorizasiya problemi yaxın gələcəkdə tamamilə fərqli
+bir paradiqmanın – kvant hesablamalarının birbaşa təhdidi altındadır.
+Piter Şor tərəfindən 1994-cü ildə təklif edilmiş kvant dövr təyini
+mexanizminə əsaslanan Şor alqoritmi (<em>Shor’s algorithm</em>), klassik
+kompüterlərin sub-eksponensial zamanda çətinliklə icra etdiyi bu
+problemi kvant superpozisiya və müdaxilə xassələri sayəsində tamamilə
+polinomial zamanda (<span class="math inline">\(O((\log n)^3)\)</span>)
+həll etməyə qadirdir <span class="citation"
+data-cites="shor1994"></span>.</p>
+<p>Kvant superkompüterlərinin fiziki olaraq lazımi kubit (qbit) sayına
+və xəta korreksiyası (<em>error correction</em>) səviyyəsinə çatması ilə
+müasir asimmetrik kriptosistemlərin effektivliyini tamamilə itirəcəyi
+qaçılmazdır. Məhz bu səbəbdən, bu gün faktorizasiya alqoritmlərinin
+limitlərinin araşdırılması, həm də bəşəriyyətin Post-Kvant
+Kriptoqrafiyasına (<em>Post-Quantum Cryptography - PQC</em>) – qəfəs
+əsaslı (<em>lattice-based</em>) və çoxdəyişənli cəbri sistemlərə
+keçidini sürətləndirən ən böyük elmi katalizator rolunu oynayır.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Əgər <span class="math inline">\(n = pq\)</span> (<span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> fərqli sadə ədədlər) və <span
+class="math inline">\(ed \equiv 1 \pmod{\phi(n)}\)</span> olarsa, onda
+ixtiyari <span class="math inline">\(M\)</span> üçün <span
+class="math inline">\(M^{ed} \equiv M \pmod{n}\)</span>. Əgər <span
+class="math inline">\(\gcd(M,n)=1\)</span> olsa, bu birbaşa Eyler
+teoremindən alınır; əks halda Çin Qalıq Teoremi və Eyler teoremindən
+alınır.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Luka ardıcıllıqları, <span class="math inline">\(V_{k+1}
+= P \cdot V_k - Q \cdot V_{k-1}\)</span> (<span
+class="math inline">\(V_0=2, V_1=P\)</span>) şəklində təyin olunan xətti
+rekurent ardıcıllıqlardır (Fibonaççi ardıcıllığının ümumiləşdirilmiş
+formasıdır). Bu ardıcıllıqların modulyar xassələri sonlu sahələrdə
+kvadratik genişlənmələrin (<span class="math inline">\(p+1\)</span>
+nizamlı qrupların) elementlərini effektiv hesablamağa imkan verir.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

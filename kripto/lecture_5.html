@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_5</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 5: Entropiya, Mükəmməl Məxfilik və Semantik
+Təhlükəsizlik</strong></p>
+<p>Bu mühazirə informasiya nəzəriyyəsinin əsas anlayışlarını -
+entropiya, qarşılıqlı informasiya, şərti entropiya və onların
+kriptoqrafiyada tətbiqini, o cümlədən mükəmməl məxfilik və semantik
+təhlükəsizlik anlayışlarını əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<h1 id="mühazirənin-öyrənmə-nəticələri">Mühazirənin Öyrənmə
+Nəticələri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbə aşağıdakı bacarıqlara
+yiyələnəcək:</p>
+<ul>
+<li><p><strong>Entropiya:</strong> Entropiya anlayışını və onun
+informasiya nəzəriyyəsindəki rolunu izah edə biləcək <span
+class="citation" data-cites="shannon1948mathematical"></span>;</p></li>
+<li><p><strong>İnformasiya Ölçüləri:</strong> Birgə entropiya, şərti
+entropiya və qarşılıqlı informasiyanı hesablaya biləcək <span
+class="citation" data-cites="cover2012elements"></span>;</p></li>
+<li><p><strong>Mükəmməl Məxfilik:</strong> Şannonun <strong>mükəmməl
+məxfilik</strong> tərifini başa düşəcək <span class="citation"
+data-cites="shannon1949communication"></span>;</p></li>
+<li><p><strong>Bir-dəfəlik Bloknot:</strong> Bir-dəfəlik bloknotun
+(one-time pad) <strong>mükəmməl məxfiliyini</strong> izah edə biləcək
+<span class="citation" data-cites="vernam1926cipher"></span>;</p></li>
+<li><p><strong>Məhdudiyyətlər:</strong> <strong>Mükəmməl
+məxfiliyin</strong> praktiki məhdudiyyətlərini (açar uzunluğu,
+idarəetmə) anlayacaq <span class="citation"
+data-cites="katz2020introduction"></span>;</p></li>
+<li><p><strong>Semantik Təhlükəsizlik:</strong> Semantik təhlükəsizlik
+anlayışını və onun formal tərifini izah edə biləcək <span
+class="citation"
+data-cites="goldwasser1982probabilistic"></span>;</p></li>
+<li><p><strong>Müqayisə:</strong> <strong>Mükəmməl məxfilik</strong> və
+semantik təhlükəsizlik arasındakı fərqləri sadalaya biləcək <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+<h1 id="giriş-informasiya-nəzəriyyəsi-və-kriptoqrafiya">Giriş:
+İnformasiya nəzəriyyəsi və kriptoqrafiya</h1>
+<p>İnformasiya nəzəriyyəsi 1948-ci ildə Klod Şannonun "A Mathematical
+Theory of Communication" əsəri ilə əsası qoyulmuş riyazi bir sahədir
+<span class="citation" data-cites="shannon1948mathematical"></span>. Bu
+nəzəriyyə informasiyanın kəmiyyət ölçüsünü, saxlanmasını və ötürülməsini
+öyrənir. Kriptoqrafiya isə informasiyanın qorunması ilə məşğul olur - bu
+iki sahə təbii olaraq sıx əlaqəlidir.</p>
+<p>Klod Şannon 1949-cu ildə yazdığı "Communication Theory of Secrecy
+Systems" əsərində informasiya nəzəriyyəsini kriptoqrafiyaya tətbiq
+edərək, müasir kriptoqrafiyanın nəzəri əsaslarını yaratdı <span
+class="citation" data-cites="shannon1949communication"></span>. Bu
+mühazirədə biz Şannonun bu fundamental işini və onun müasir davamı olan
+semantik təhlükəsizlik anlayışını öyrənəcəyik.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>İnformasiyanı necə ölçmək olar?</p></li>
+<li><p>Təsadüfilik və qeyri-müəyyənlik necə ifadə olunur?</p></li>
+<li><p>Bir şifrələmə sisteminin "mükəmməl" olması nə deməkdir?</p></li>
+<li><p>Mükəmməl təhlükəsizlik praktikada mümkündürmü?</p></li>
+<li><p>Müasir kriptoqrafiyada "təhlükəsizlik" necə təyin
+olunur?</p></li>
+</ul>
+</div>
+<div class="history">
+<p><span>Gilbert Vernam (1890-1960)</span> Amerikalı mühəndis,
+AT&amp;T-də çalışmışdır. "Secret Signaling System" üçün patent müraciəti
+13 sentyabr 1918-ci ildə verilmiş, patent isə 22 iyul 1919-cu ildə dərc
+edilmişdir <span class="citation" data-cites="vernam1926cipher"></span>.
+Vernamın ideyası sonradan Şannon tərəfindən mükəmməl məxfilik anlayışı
+ilə əlaqələndirilmişdir. Maraqlıdır ki, Vernam öz sisteminin mükəmməl
+təhlükəsiz olduğunu bilmirdi - bu, Şannonun işlərindən sonra məlum
+oldu.</p>
+</div>
+<div class="history">
+<p><span>Robert Fano (1917-2016)</span> İtalyan-amerikalı kompüter
+alimi, MİT professoru. Şannonla birlikdə informasiya nəzəriyyəsinin
+inkişafında mühüm rol oynamışdır. Fano, Şannon-Fano kodlaşdırmasının
+(sonradan Huffman kodlaşdırması ilə əvəz olundu) yaradıcılarından
+biridir <span class="citation"
+data-cites="fano1949transmission"></span>. Onun tələbələrindən biri də
+məşhur kriptoqraf Ronald Rivestdir (RSA-nın "R" hissəsi).</p>
+</div>
+<h1 id="entropiya-anlayışı">Entropiya anlayışı</h1>
+<h2 id="informasiyanın-ölçülməsi">İnformasiyanın ölçülməsi</h2>
+<p>Tutaq ki, bir hadisənin baş vermə ehtimalı <span
+class="math inline">\(p\)</span>-dir. Bu hadisənin baş verməsi bizə nə
+qədər informasiya verir? İntuitiv olaraq, az ehtimallı hadisələr daha
+çox informasiya daşıyır. Məsələn, "günəş sabah doğacaq" hadisəsi
+(ehtimalı təqribən 1) heç bir informasiya daşımır, amma "sabah qar
+yağacaq" hadisəsi (az ehtimallı) çox informasiya daşıyır.</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Xüsusi informasiya (Self-information)).
+Ehtimalı <span class="math inline">\(p\)</span> olan hadisənin xüsusi
+informasiyası <span class="citation"
+data-cites="shannon1948mathematical"></span>: <span
+class="math display">\[I(x) = -\log_2 p(x) \text{ bit}\]</span>
+Loqarifmin 2 əsasında olması informasiyanı bitlərlə ölçməyə imkan
+verir.</p>
+</div>
+<p><strong>Nümunələr:</strong></p>
+<ul>
+<li><p>Yazı-tura atarkən yazı gəlməsi (<span
+class="math inline">\(p=0.5\)</span>): <span class="math inline">\(I =
+-\log_2(0.5) = 1\)</span> bit</p></li>
+<li><p>Saxta sikkə (<span class="math inline">\(p=0.9\)</span>): <span
+class="math inline">\(I = -\log_2(0.9) \approx 0.15\)</span>
+bit</p></li>
+<li><p>Saxta sikkə (<span class="math inline">\(p=0.1\)</span>): <span
+class="math inline">\(I = -\log_2(0.1) \approx 3.32\)</span>
+bit</p></li>
+</ul>
+<h2 id="entropiyanın-tərifi">Entropiyanın tərifi</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Entropiya). Diskret təsadüfi dəyişən <span
+class="math inline">\(X\)</span> üçün entropiya <span
+class="math inline">\(H(X)\)</span>, onun ortalama informasiya miqdarını
+(və ya qeyri-müəyyənliyini) ifadə edir <span class="citation"
+data-cites="shannon1948mathematical"></span>: <span
+class="math display">\[\begin{equation}
+H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
+\end{equation}\]</span> burada <span
+class="math inline">\(\mathcal{X}\)</span> təsadüfi dəyişənin mümkün
+qiymətlər çoxluğudur. Ölçü vahidi olaraq <strong>bit</strong> istifadə
+olunur.</p>
+</div>
+<p>Entropiya təsadüfi dəyişənin qeyri-müəyyənliyinin riyazi ölçüsüdür.
+Müşahidə edilən hadisə nə qədər gözlənilməzdirsə, ondan alınan
+informasiya və entropiya bir o qədər böyük olur.</p>
+<p><strong>Entropiyanın xüsusiyyətləri:</strong></p>
+<ol>
+<li><p><strong>Qeyri-mənfilik:</strong> <span class="math inline">\(H(X)
+\geq 0\)</span>. Ehtimal nəzəriyyəsində mənfi informasiya anlayışı
+mövcud deyil <span class="citation"
+data-cites="cover2012elements"></span>.</p></li>
+<li><p><strong>Sıfır entropiya:</strong> <span
+class="math inline">\(H(X) = 0\)</span> yalnız və yalnız <span
+class="math inline">\(X\)</span> deterministik olduqda (yəni bir
+nəticənin ehtimalı 1, digərləri 0 olduqda) mümkündür. Bu halda heç bir
+qeyri-müəyyənlik yoxdur.</p></li>
+<li><p><strong>Maksimum entropiya:</strong> <span
+class="math inline">\(|\mathcal{X}| = n\)</span> üçün maksimum entropiya
+<span class="math inline">\(\log_2 n\)</span>-ə bərabərdir. Bu vəziyyət
+yalnız <span class="math inline">\(X\)</span> <strong>bərabərehtimallı
+(uniform) paylanmaya</strong> malik olduqda baş verir <span
+class="citation" data-cites="feller1968introduction"></span>.</p></li>
+<li><p><strong>Çöküklük (Concavity):</strong> Entropiya <span
+class="math inline">\(p\)</span> ehtimal paylanmasının çökük
+funksiyasıdır. Bu o deməkdir ki, iki fərqli paylanmanın qarışığı
+(mixture) fərdi paylanmalardan daha yüksək entropiyaya malikdir <span
+class="citation" data-cites="cover2012elements"></span>.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Sikkə atma). Əgər bir sikkə həm yazı, həm
+tura üçün <span class="math inline">\(0.5\)</span> ehtimalla atılırsa
+(ədalətli sikkə), onun entropiyası: <span class="math display">\[H(X) =
+-(0.5 \log_2 0.5 + 0.5 \log_2 0.5) = -(-0.5 - 0.5) = 1 \text{
+bit.}\]</span> Bu, informasiya nəzəriyyəsində ən yüksək qeyri-müəyyənlik
+halıdır. Əgər sikkənin hər iki üzü tura olsa (<span
+class="math inline">\(p=1\)</span>), onda <span
+class="math inline">\(H(X) = 0\)</span> olar.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (İkili entropiya funksiyası). İkili
+təsadüfi dəyişən <span class="math inline">\(X \in \{0,1\}\)</span> üçün
+<span class="math inline">\(P(X=1)=p\)</span> və <span
+class="math inline">\(P(X=0)=1-p\)</span> olsun. Bu halda entropiya
+funksiyası <span class="math inline">\(H(p)\)</span> kimi işarə olunur:
+<span class="math display">\[\begin{equation}
+H(p) = -p \log_2 p - (1-p) \log_2 (1-p)
+\end{equation}\]</span></p>
+<p><strong>Xüsusi hallar:</strong></p>
+<ul>
+<li><p><span class="math inline">\(p=0\)</span> və ya <span
+class="math inline">\(p=1\)</span>: <span
+class="math inline">\(H(p)=0\)</span> bit. Hadisə tamamilə müəyyəndir,
+heç bir informasiya daşımır.</p></li>
+<li><p><span class="math inline">\(p=0.5\)</span>: <span
+class="math inline">\(H(p)=1\)</span> bit. Maksimum qeyri-müəyyənlik
+(məsələn, ədalətli sikkə atışı).</p></li>
+<li><p><span class="math inline">\(p=0.11\)</span>: <span
+class="math inline">\(H(p) \approx 0.5\)</span> bit. Hadisə daha çox
+meylli (biased) olduğu üçün qeyri-müəyyənlik azalır.</p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Entropiyanın hesablanması: Top nümunəsi).
+Bir qabda 4 qırmızı, 3 mavi və 3 yaşıl top var (cəmi 10 top). Təsadüfi
+seçilən topun rənginin entropiyasını hesablayaq.</p>
+<p><strong>Həll:</strong> Ehtimallar: <span class="math inline">\(p_q =
+0.4\)</span>, <span class="math inline">\(p_m = 0.3\)</span>, <span
+class="math inline">\(p_y = 0.3\)</span>. <span
+class="math display">\[\begin{align*}
+H(X) &amp;= -\sum p_i \log_2 p_i \\
+     &amp;= -(0.4\log_2 0.4 + 0.3\log_2 0.3 + 0.3\log_2 0.3) \\
+     &amp;\approx -(0.4 \cdot (-1.322) + 0.3 \cdot (-1.737) + 0.3 \cdot
+(-1.737)) \\
+     &amp;= 0.529 + 0.521 + 0.521 = \mathbf{1.571 \text{ bit}}
+\end{align*}\]</span> <em>Nəticə:</em> Bu sistemdən bir top seçildikdə
+orta hesabla <span class="math inline">\(1.571\)</span> bit informasiya
+əldə edilir.</p>
+</div>
+<h2 id="birgə-entropiya-və-şərti-entropiya">Birgə entropiya və şərti
+entropiya</h2>
+<p>Çox vaxt biz birdən çox təsadüfi dəyişənlə işləyirik. Məsələn,
+kriptoqrafiyada düz mətn (<span class="math inline">\(M\)</span>), açar
+(<span class="math inline">\(K\)</span>) və şifrəli mətn (<span
+class="math inline">\(C\)</span>) arasındakı əlaqələri öyrənirik.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Birgə entropiya). İki diskret təsadüfi
+dəyişən <span class="math inline">\(X\)</span> və <span
+class="math inline">\(Y\)</span> üçün birgə entropiya <span
+class="citation" data-cites="cover2012elements"></span>: <span
+class="math display">\[H(X,Y) = -\sum_{x \in \mathcal{X}} \sum_{y \in
+\mathcal{Y}} p(x,y) \log_2 p(x,y)\]</span> Bu, <span
+class="math inline">\((X,Y)\)</span> cütünün ümumi qeyri-müəyyənliyini
+ölçür.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Şərti entropiya). <span
+class="math inline">\(Y\)</span> məlum olduqda <span
+class="math inline">\(X\)</span>-in qalan qeyri-müəyyənliyi <span
+class="citation" data-cites="shannon1948mathematical"></span>: <span
+class="math display">\[H(X|Y) = -\sum_{x \in \mathcal{X}} \sum_{y \in
+\mathcal{Y}} p(x,y) \log_2 p(x|y)\]</span></p>
+</div>
+<p><strong>Zəncir qaydası:</strong> Birgə entropiya ilə şərti entropiya
+arasında əlaqə <span class="citation"
+data-cites="cover2012elements"></span>: <span
+class="math display">\[H(X,Y) = H(X) + H(Y|X) = H(Y) +
+H(X|Y)\]</span></p>
+<p>Bu düstur intuitiv olaraq aydındır: <span
+class="math inline">\(X\)</span> və <span
+class="math inline">\(Y\)</span>-nin birgə qeyri-müəyyənliyi, <span
+class="math inline">\(X\)</span>-in qeyri-müəyyənliyi üstəgəl <span
+class="math inline">\(X\)</span> məlum olduqda <span
+class="math inline">\(Y\)</span>-nin qeyri-müəyyənliyinə bərabərdir.</p>
+<p>Əgər <span class="math inline">\(X\)</span> və <span
+class="math inline">\(Y\)</span> müstəqildirsə (bir birindən asılı
+deyil) onda: <span class="math display">\[H(X,Y) = H(X) +
+H(Y)\]</span></p>
+<div class="example">
+<p><strong>Nümunə 4</strong> (Şərti entropiya). İki sikkə atılır. <span
+class="math inline">\(X\)</span> birinci sikkənin nəticəsi, <span
+class="math inline">\(Y\)</span> ikinci sikkənin nəticəsi olsun.
+Sikkələr düzgün və müstəqildir. <span
+class="math inline">\(H(X|Y)\)</span>-ni hesablayın.</p>
+<p><strong>Həll:</strong> Sikkələr müstəqil olduğu üçün <span
+class="math inline">\(p(x|y) = p(x)\)</span>. Onda: <span
+class="math display">\[\begin{align*}
+H(X|Y) &amp;= -\sum_{x} \sum_{y} p(x,y) \log_2 p(x|y)\\
+       &amp;= -\sum_{y} p(y) \sum_{x} p(x|y) \log_2 p(x|y) \\
+       &amp;= -\sum_{y} p(y) \sum_{x} p(x) \log_2 p(x) \\
+       &amp;= -\sum_{y} p(y) \cdot (-H(X)) = H(X) = 1 \text{ bit}
+\end{align*}\]</span> Yəni, <span class="math inline">\(Y\)</span> məlum
+olsa da, <span class="math inline">\(X\)</span>-in qeyri-müəyyənliyi
+dəyişmir (müstəqillik səbəbindən).</p>
+</div>
+<h2 id="qarşılıqlı-informasiya">Qarşılıqlı informasiya</h2>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Qarşılıqlı informasiya). <span
+class="math inline">\(X\)</span> və <span
+class="math inline">\(Y\)</span> arasındakı qarşılıqlı informasiya <span
+class="citation" data-cites="shannon1948mathematical"></span>: <span
+class="math display">\[I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X) = H(X) +
+H(Y) - H(X,Y)\]</span></p>
+</div>
+<p>Qarşılıqlı informasiya, <span class="math inline">\(X\)</span>
+haqqında məlumatın <span class="math inline">\(Y\)</span>-ni müşahidə
+etməklə nə qədər azaldığını ölçür. Başqa sözlə, <span
+class="math inline">\(Y\)</span> <span class="math inline">\(X\)</span>
+haqqında nə qədər informasiya verir.</p>
+<p><strong>Xüsusiyyətləri:</strong></p>
+<ol>
+<li><p>Simmetriklik: <span class="math inline">\(I(X;Y) =
+I(Y;X)\)</span></p></li>
+<li><p>Qeyri-mənfilik: <span class="math inline">\(I(X;Y) \geq
+0\)</span>, bərabərlik yalnız <span class="math inline">\(X\)</span> və
+<span class="math inline">\(Y\)</span> müstəqil olduqda olur <span
+class="citation" data-cites="cover2012elements"></span></p></li>
+<li><p><span class="math inline">\(I(X;X) = H(X)\)</span> (öz-özü ilə
+qarşılıqlı informasiya entropiyaya bərabərdir)</p></li>
+</ol>
+<h1 id="mükəmməl-məxfilik">Mükəmməl məxfilik</h1>
+<h2 id="kerckhoffs-prinsipi-və-mükəmməl-məxfilik">Kerckhoffs prinsipi və
+Mükəmməl Məxfilik</h2>
+<p>Birinci mühazirədə öyrəndiyimiz Kerckhoffs prinsipi mükəmməl
+məxfiliklə sıx bağlıdır. Şannon bu prinsipi
+riyazi olaraq sübut etmişdir.</p>
+<div class="keyconcept">
+<p><span>Kerckhoffs prinsipi entropiya dilində</span> Kerckhoffs
+prinsipinə görə, kriptosistemin təhlükəsizliyi alqoritmin gizliliyinə
+deyil, yalnız açarın gizliliyinə əsaslanmalıdır. Entropiya baxımından
+bu, aşağıdakı kimi ifadə olunur:</p>
+<ul>
+<li><p><strong>Açıq alqoritm:</strong> Alqoritm ictimai məlum olduğu
+üçün onun qeyri-müəyyənliyi sıfırdır: <span
+class="math inline">\(H(\text{Alqoritm}) = 0\)</span>.</p></li>
+<li><p><strong>Maksimum açar entropiyası:</strong> Açar (<span
+class="math inline">\(K\)</span>) tamamilə təsadüfi seçilməli və gizli
+saxlanmalıdır: <span class="math inline">\(H(K) = \log_2
+|\mathcal{K}|\)</span>.</p></li>
+<li><p><strong>Şannonun əsas şərti:</strong> Mükəmməl məxfilik (perfect
+secrecy) əldə etmək üçün açarın entropiyası mesajın (<span
+class="math inline">\(M\)</span>) entropiyasından az olmamalıdır <span
+class="citation" data-cites="shannon1949communication"></span>: <span
+class="math display">\[\begin{equation}
+    H(K) \geq H(M)
+\end{equation}\]</span></p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong>. <span>Kerckhoffs prinsipi və OTP
+tətbiqi.</span> Bir-dəfəlik bloknot (OTP) sistemində bu prinsiplər tam
+şəkildə reallaşır:</p>
+<ul>
+<li><p><strong>Alqoritm:</strong> XOR əməliyyatı hər kəsə məlumdur və
+sadədir (<span class="math inline">\(H(\text{XOR}) =
+0\)</span>).</p></li>
+<li><p><strong>Açar qeyri-müəyyənliyi:</strong> Açar hər mesaj üçün bir
+dəfə və tam təsadüfi seçilir. Əgər mesaj <span
+class="math inline">\(n\)</span> bitdirsə, açarın entropiyası da
+maksimumdur: <span class="math inline">\(H(K) = n\)</span> bit.</p></li>
+<li><p><strong>Məxfilik balansı:</strong> Mükəmməl məxfilik şərti
+ödənilir (<span class="math inline">\(H(K) = H(M)\)</span>), buna görə
+də şifrəli mətni ələ keçirən hücumçu mesaj haqqında heç bir əlavə
+informasiya əldə edə bilmir.</p></li>
+</ul>
+</div>
+<div class="importantbox">
+<p><strong>Nəticə:</strong> Əgər açarın entropiyası mesajın
+entropiyasından kiçikdirsə (<span class="math inline">\(H(K) &lt;
+H(M)\)</span>), nəzəri olaraq şifrəni sındırmaq mümkündür. Müasir
+kriptoqrafiya bu "çatışmazlığı" aradan qaldırmaq üçün hesablama
+mürəkkəbliyinə (computational security) əsaslanır.</p>
+</div>
+<h2 id="şannonun-mükəmməl-məxfilik-tərifi">Şannonun Mükəmməl Məxfilik
+Tərifi</h2>
+<p>Klod Şannon 1949-cu ildə <strong>mükəmməl məxfilik</strong> (perfect
+secrecy) anlayışını formal olaraq ehtimal nəzəriyyəsi dilində təyin
+etmişdir <span class="citation"
+data-cites="shannon1949communication"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Mükəmməl məxfilik). Əgər ixtiyari düz mətn
+<span class="math inline">\(m \in \mathcal{M}\)</span> və şifrəli mətn
+<span class="math inline">\(c \in \mathcal{C}\)</span> üçün aşağıdakı
+şərt ödənərsə, sistem mükəmməl məxfiliyə malikdir: <span
+class="math display">\[\begin{equation}
+P(M = m | C = c) = P(M = m)
+\end{equation}\]</span> Burada <span
+class="math inline">\(\mathcal{M}\)</span> mümkün düz mətnlər çoxluğu,
+<span class="math inline">\(\mathcal{C}\)</span> isə mümkün şifrəli
+mətnlər çoxluğudur.</p>
+</div>
+<p>Bu tərifin mahiyyəti ondan ibarətdir ki, şifrəli mətn düz mətn
+haqqında hücumçuya heç bir əlavə informasiya vermir. Hücumçu şifrəli
+mətni ələ keçirsə belə, onun düz mətn haqqındakı <strong>aprior</strong>
+(əvvəlki) inancı ilə <strong>aposterior</strong> (sonrakı) inancı eyni
+qalır.</p>
+<p><strong>Entropiya dilində alternativ təriflər:</strong> Eyni anlayış
+informasiya nəzəriyyəsi terminləri ilə belə ifadə oluna bilər:</p>
+<ol>
+<li><p><strong>İnformasiya müstəqilliyi:</strong> <span
+class="math inline">\(M\)</span> və <span
+class="math inline">\(C\)</span> təsadüfi dəyişənləri müstəqildir, yəni
+onların qarşılıqlı informasiyası sıfırdır: <span
+class="math inline">\(I(M;C) = 0\)</span> <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Şərti entropiya:</strong> Şifrəli mətni bilmək düz mətnin
+qeyri-müəyyənliyini azaltmır: <span class="math inline">\(H(M|C) =
+H(M)\)</span> <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+</ol>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Mükəmməl məxfilik üçün zəruri şərt).
+Mükəmməl məxfiliyə malik hər bir sistemdə mümkün açarların sayı ən azı
+mümkün düz mətnlərin sayı qədər olmalıdır <span class="citation"
+data-cites="shannon1949communication"></span>: <span
+class="math display">\[\begin{equation}
+|\mathcal{K}| \geq |\mathcal{M}|
+\end{equation}\]</span> burada <span
+class="math inline">\(\mathcal{K}\)</span> mümkün açarlar
+çoxluğudur.</p>
+</div>
+<div class="importantbox">
+<p><strong>Praktiki Nəticə:</strong> Şannonun bu teoremi göstərir ki,
+mükəmməl təhlükəsizlik üçün açarın uzunluğu mesajın uzunluğundan az ola
+bilməz. Məhz bu "sərt" şərt səbəbindən mükəmməl məxfilik (məsələn, OTP)
+praktikada geniş istifadə olunmur və biz hesablama mürəkkəbliyinə
+əsaslanan sistemlərə keçirik.</p>
+</div>
+<h2 id="bir-dəfəlik-bloknot-one-time-pad">Bir dəfəlik bloknot (One-Time
+Pad)</h2>
+<p>Bir dəfəlik bloknot (OTP) mükəmməl məxfiliyə malik olan yeganə
+şifrləmə sistemidir <span class="citation"
+data-cites="vernam1926cipher"></span>. Bu sistem 1917-ci ildə Gilbert
+Vernam tərəfindən patentləşdirilmişdir.</p>
+<div class="definition">
+<p><strong>Tərif 7</strong> (Bir-dəfəlik bloknot - OTP). OTP sistemi
+aşağıdakı qaydalarla işləyən simmetrik şifrələmə üsuludur:</p>
+<ul>
+<li><p><strong>Düz mətn:</strong> <span class="math inline">\(M = m_1
+m_2 \dots m_n\)</span> (bitlər ardıcıllığı).</p></li>
+<li><p><strong>Açar:</strong> <span class="math inline">\(K = k_1 k_2
+\dots k_n\)</span> (tam təsadüfi seçilmiş bitlər).</p></li>
+<li><p><strong>Şifrələmə:</strong> <span class="math inline">\(c_i = m_i
+\oplus k_i\)</span> (<span class="math inline">\(i\)</span>-ci bitlərin
+XOR-lanması) <span class="citation"
+data-cites="vernam1926cipher"></span>.</p></li>
+<li><p><strong>Deşifrələmə:</strong> <span class="math inline">\(m_i =
+c_i \oplus k_i\)</span>.</p></li>
+</ul>
+</div>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (OTP-nin mükəmməl məxfiliyi). Əgər açar
+<span class="math inline">\(K\)</span> həqiqətən təsadüfi
+(bərabərehtimallı) seçilirsə, hər bir istifadə üçün unikaldırsa və heç
+vaxt təkrar istifadə edilmirsə, OTP sistemi <strong>mükəmməl
+məxfiliyə</strong> malikdir <span class="citation"
+data-cites="shannon1949communication"></span>.</p>
+</div>
+<p><strong>İsbat:</strong></p>
+<div class="theorem">
+<p><strong>Teorem 3</strong> (OTP-nin mükəmməl məxfiliyinin isbatı).
+Əgər açar <span class="math inline">\(K\)</span> bərabərehtimallı
+(uniform) paylanıbsa (<span class="math inline">\(P(K=k) =
+1/2^n\)</span>), onda ixtiyari <span class="math inline">\(m \in
+\mathcal{M}\)</span> və <span class="math inline">\(c \in
+\mathcal{C}\)</span> üçün <span class="math inline">\(P(M=m|C=c) =
+P(M=m)\)</span> şərti ödənir.</p>
+</div>
+<p><strong>İsbat:</strong> İsbatı üç mərhələdə həyata keçiririk:</p>
+<ol>
+<li><p><strong>Şərti ehtimalın müəyyən edilməsi:</strong> Əvvəlcə <span
+class="math inline">\(P(C=c|M=m)\)</span> ehtimalını hesablayaq. Bu,
+"mesaj <span class="math inline">\(m\)</span> olarsa, şifrəli mətnin
+<span class="math inline">\(c\)</span> olması ehtimalı nədir?" sualıdır.
+OTP-də <span class="math inline">\(C = M \oplus K\)</span> olduğu üçün,
+verilmiş <span class="math inline">\(m\)</span> və <span
+class="math inline">\(c\)</span> üçün bu bərabərliyi ödəyən yeganə bir
+açar mövcuddur: <span class="math inline">\(k = m \oplus c\)</span>.
+<span class="math display">\[\begin{equation}
+    P(C=c|M=m) = P(K = m \oplus c) = \frac{1}{2^n}
+\end{equation}\]</span> <em>İzah:</em> Açar tam təsadüfi
+(bərabərehtimallı) seçildiyi üçün, hər hansı bir konkret açarın (o
+cümlədən <span class="math inline">\(m \oplus c\)</span> açarının)
+seçilmə ehtimalı tam olaraq <span
+class="math inline">\(1/2^n\)</span>-dir.</p></li>
+<li><p><strong>Şifrəli mətnin tam ehtimalının hesablanması:</strong>
+İndi isə hücumçunun gördüyü <span class="math inline">\(c\)</span>
+şifrəli mətninin ümumi (marjinal) ehtimalını <strong>Tam Ehtimal
+Düsturu</strong> ilə tapaq: <span
+class="math display">\[\begin{equation}
+    P(C=c) = \sum_{m&#39; \in \mathcal{M}} P(C=c|M=m&#39;)P(M=m&#39;)
+\end{equation}\]</span> 1-ci addımdakı nəticəni (<span
+class="math inline">\(1/2^n\)</span>) yerinə qoysaq: <span
+class="math display">\[\begin{equation}
+    P(C=c) = \sum_{m&#39; \in \mathcal{M}} \left(\frac{1}{2^n}\right)
+P(M=m&#39;) = \frac{1}{2^n} \sum_{m&#39; \in \mathcal{M}} P(M=m&#39;) =
+\frac{1}{2^n} \cdot 1 = \frac{1}{2^n}
+\end{equation}\]</span> <em>İzah:</em> Bütün mümkün mesajların
+ehtimalları cəmi 1-ə bərabər olduğu üçün (<span
+class="math inline">\(\sum P(m&#39;) = 1\)</span>), şifrəli mətnin də
+hər bir dəyəri alma ehtimalı bərabərehtimallı (<span
+class="math inline">\(1/2^n\)</span>) olur.</p></li>
+<li><p><strong>Bayes teoremi ilə aposterior ehtimalın
+tapılması:</strong> Nəhayət, şifrəli mətn müşahidə edildikdən sonra
+mesajın ehtimalını (aposterior) hesablayaq: <span
+class="math display">\[\begin{equation}
+    P(M=m|C=c) = \frac{P(C=c|M=m)P(M=m)}{P(C=c)}
+\end{equation}\]</span> Əldə etdiyimiz nəticələri yerinə qoyaq: <span
+class="math display">\[\begin{equation}
+    P(M=m|C=c) = \frac{(1/2^n) \cdot P(M=m)}{1/2^n} = P(M=m)
+\end{equation}\]</span></p></li>
+</ol>
+<p><strong>Nəticə:</strong> Gördüyümüz kimi, şifrəli mətni müşahidə
+etmək mesajın ehtimal paylanmasını dəyişmədi. Bu, OTP-nin
+<strong>mükəmməl məxfiliyini</strong> riyazi olaraq sübut edir. Şərti
+ehtimal qeyri-şərtsiz ehtimala bərabər olduğu üçün (<span
+class="math inline">\(P(M|C) = P(M)\)</span>), OTP mükəmməl
+məxfidir.</p>
+<div class="example">
+<p><strong>Nümunə 6</strong> (OTP əməliyyatı). Tutaq ki, <span
+class="math inline">\(M=1010\)</span> mesajını <span
+class="math inline">\(K=1101\)</span> (təsadüfi açar) ilə
+şifrələyirik:</p>
+<ul>
+<li><p><strong>Şifrələmə:</strong> <span class="math inline">\(C = 1010
+\oplus 1101 = 0111\)</span></p></li>
+<li><p><strong>Deşifrələmə:</strong> <span class="math inline">\(M =
+0111 \oplus 1101 = 1010\)</span></p></li>
+</ul>
+<p>Diqqət yetirin ki, <span class="math inline">\(C=0111\)</span>
+şifrəli mətni təkbaşına mesajın nə olduğu barədə (məsələn, 0000, 1111 və
+ya 1010) hücumçuya heç bir məlumat vermir.</p>
+</div>
+<h2 id="otp-nin-praktiki-məhdudiyyətləri">OTP-nin praktiki
+məhdudiyyətləri</h2>
+<p>OTP mükəmməl təhlükəsiz olsa da, praktikada bir sıra problemlərə görə
+geniş istifadə olunmur <span class="citation"
+data-cites="katz2020introduction"></span>:</p>
+<ol>
+<li><p><strong>Açar uzunluğu:</strong> Açar düz mətnlə eyni uzunluqda
+olmalıdır. Böyük həcmli məlumatlar üçün bu qeyri-praktikdir.</p></li>
+<li><p><strong>Açar paylanması:</strong> Açar təhlükəsiz şəkildə alıcıya
+çatdırılmalıdır. Bu, simmetrik kriptoqrafiyanın əsas
+problemidir.</p></li>
+<li><p><strong>Açar təkrarı qadağandır:</strong> Eyni açar iki dəfə
+istifadə edilərsə, sistem sındırıla bilər. Tutaq ki, <span
+class="math inline">\(C_1 = M_1 \oplus K\)</span> və <span
+class="math inline">\(C_2 = M_2 \oplus K\)</span>. Onda: <span
+class="math display">\[C_1 \oplus C_2 = (M_1 \oplus K) \oplus (M_2
+\oplus K) = M_1 \oplus M_2\]</span> Hücumçu iki şifrəli mətnin XOR-nu
+hesablaya bilər ki, bu da düz mətnlər haqqında informasiya
+verir.</p></li>
+<li><p><strong>Həqiqi təsadüfilik:</strong> Açar həqiqətən təsadüfi
+olmalıdır. Psevdo-təsadüfi generatorlar OTP üçün uyğun deyil <span
+class="citation" data-cites="knuth1997art"></span>.</p></li>
+</ol>
+<h2 id="mükəmməl-məxfilik-və-entropiya">Mükəmməl məxfilik və
+entropiya</h2>
+<p>Şannon informasiya nəzəriyyəsi baxımından mükəmməl məxfilik (perfect
+secrecy), sistemin komponentləri arasındakı qeyri-müəyyənlik balansına
+əsaslanır <span class="citation"
+data-cites="shannon1949communication"></span>:</p>
+<div class="theorem">
+<p><strong>Teorem 4</strong> (Mükəmməl məxfilik üçün entropiya şərti).
+Şifrələmə sisteminin mükəmməl məxfiliyə malik olması üçün <strong>zəruri
+və kafi şərt</strong> aşağıdakı bərabərliyin ödənilməsidir: <span
+class="math display">\[\begin{equation}
+H(M|C) = H(M)
+\end{equation}\]</span> <strong>Mahiyyəti:</strong> Şifrəli mətni (<span
+class="math inline">\(C\)</span>) əldə etmək düz mətn (<span
+class="math inline">\(M\)</span>) haqqındakı qeyri-müəyyənliyi
+(entropiyanı) dəyişmir. Yəni, şifrəli mətn düz mətn haqqında heç bir
+informasiya sızdırmır.</p>
+</div>
+<p>Bu şərt, <strong>qarşılıqlı informasiya</strong> (mutual information)
+anlayışı ilə də eyni şəkildə ifadə oluna bilər: <span
+class="math display">\[\begin{equation}
+I(M;C) = H(M) - H(M|C) = 0
+\end{equation}\]</span> Bu o deməkdir ki, <span
+class="math inline">\(M\)</span> və <span
+class="math inline">\(C\)</span> statistik olaraq tamamilə müstəqildir;
+bir dəyişən digəri haqqında sıfır bit məlumat daşıyır.</p>
+<div class="definition">
+<p><strong>Tərif 8</strong> (Mükəmməl məxfilik üçün açar entropiyası).
+Mükəmməl məxfilik əldə etmək üçün sistemin açar fəzasındakı
+qeyri-müəyyənlik (entropiya), ötürülən mesajın entropiyasından az ola
+bilməz <span class="citation"
+data-cites="shannon1949communication"></span>: <span
+class="math display">\[\begin{equation}
+H(K) \geq H(M)
+\end{equation}\]</span></p>
+</div>
+<p><strong>Nəticə:</strong> Bu bərabərsizlik sübut edir ki, əgər biz
+mesajı tam gizli saxlamaq istəyiriksə, ən azı mesajın özü qədər
+"təsadüfi" olan bir açara ehtiyacımız var. Məhz bu səbəbdən, açarı
+mesajdan qısa olan sistemlər (məsələn, 256-bitlik AES açarı ilə
+gigabaytlarla məlumatın şifrələnməsi) nəzəri olaraq mükəmməl məxfi
+deyil, yalnız <strong>hesablama cəhətdən təhlükəsizdir</strong>.</p>
+<h1 id="semantik-təhlükəsizlik-semantic-security">Semantik Təhlükəsizlik
+(Semantic Security)</h1>
+<p>Mükəmməl məxfilik nəzəri cəhətdən sarsılmaz olsa da, açar uzunluğu
+ilə bağlı praktik məhdudiyyətlər (Şannon teoremi: <span
+class="math inline">\(|\mathcal{K}| \geq |\mathcal{M}|\)</span>) onun
+geniş tətbiqini çətinləşdirir. Müasir kriptoqrafiya bunun əvəzinə
+<strong>hesablama baxımından təhlükəsizlik</strong> (computationally
+secure) modelinə əsaslanır. Bu modelin təməl daşı <strong>semantik
+təhlükəsizlik</strong> anlayışıdır.</p>
+<div class="history">
+<p><span>Şafi Qoldvasser və Silvio Mikali</span> Şafi Qoldvasser (1958–)
+və Silvio Mikali (1954–) müasir kriptoqrafiyanın banilərindən hesab
+olunurlar. Onlar 1982-ci ildə semantik təhlükəsizlik anlayışını təqdim
+edərək ehtimal əsaslı şifrələmənin (<em>probabilistic encryption</em>)
+əsasını qoymuşlar <span class="citation"
+data-cites="goldwasser1982probabilistic"></span>. Bu nailiyyətlərinə
+görə 2012-ci ildə Turinq (<em>Turing</em>) mükafatına layiq
+görülmüşlər.</p>
+</div>
+<h2 id="semantik-təhlükəsizliyin-mahiyyəti">Semantik təhlükəsizliyin
+mahiyyəti</h2>
+<p>Semantik təhlükəsizlik, mükəmməl məxfiliyin hesablama baxımından
+məhdudlaşdırılmış versiyasıdır. Onun əsas ideyası belədir:</p>
+<blockquote>
+<p><em>"Şifrəli mətni görən hücumçu, düz mətn haqqında polinomial vaxt
+daxilində (yəni real hesablama gücü ilə) heç bir faydalı informasiya
+əldə edə bilməməlidir."</em></p>
+</blockquote>
+<p><strong>Əsas fərqlər:</strong></p>
+<ul>
+<li><p><strong>Mükəmməl məxfilik (İnformasiya-nəzəri
+təhlükəsizlik):</strong> Hücumçunun sonsuz hesablama gücü və zamanı olsa
+belə, şifrəni sındırması riyazi olaraq mümkün deyil. Bu, statistika və
+ehtimal nəzəriyyəsinə əsaslanır.</p></li>
+<li><p><strong>Semantik təhlükəsizlik (Hesablama-nəzəri
+təhlükəsizlik):</strong> Təhlükəsizlik hücumçunun resurslarının məhdud
+olmasına (polinomial zaman) və bəzi riyazi problemlərin (məsələn,
+vuruqlara ayırma) həllinin çətinliyinə əsaslanır.</p></li>
+</ul>
+<p><strong>Nəticə:</strong> Semantik təhlükəsiz şifrələmə mütləq
+<strong>ehtimal əsaslı</strong> (<em>probabilistic</em>) olmalıdır.
+Yəni, eyni düz mətn eyni açarla şifrələndikdə, hər dəfə fərqli şifrəli
+mətnlərin alınması təmin edilməlidir.</p>
+<p><strong>Niyə?</strong> Əgər şifrələmə deterministik olarsa (yəni eyni
+mesaj hər dəfə eyni şifrəli mətni verərsə), hücumçu ən azı şifrəli
+mətnləri bir-biri ilə müqayisə edərək hansı mesajların eyni olduğunu
+anlaya bilər. Bu isə düz mətn haqqında məlumatın (semantikanın) sızması
+deməkdir.</p>
+<h2 id="semantik-təhlükəsizlik-anlayışı">Semantik təhlükəsizlik
+anlayışı</h2>
+<p>Semantik təhlükəsizlik ilk dəfə 1982-ci ildə <strong>Şafi
+Qoldvasser</strong> və <strong>Silvio Mikali</strong> tərəfindən təklif
+edilmişdir <span class="citation"
+data-cites="goldwasser1982probabilistic"></span>. Bu anlayış müasir
+kriptoqrafiyanın təməl daşlarından biridir.</p>
+<div class="definition">
+<p><strong>Tərif 9</strong> (Semantik təhlükəsizlik). İxtiyari ehtimallı
+polinomial zamanlı (PPT – <em>probabilistic polynomial time</em>)
+hücumçu <span class="math inline">\(\mathcal{A}\)</span> üçün aşağıdakı
+oyundakı uğur ehtimalı <span class="math inline">\(0.5\)</span>-dən
+nəzərəçarpacaq dərəcədə fərqlənmirsə, şifrələmə sxemi <strong>semantik
+təhlükəsizliyə</strong> malik hesab olunur:</p>
+<ul>
+<li><p>Hücumçu eyni uzunluqlu iki mesaj seçir: <span
+class="math inline">\(m_0\)</span> və <span
+class="math inline">\(m_1\)</span>.</p></li>
+<li><p>Sistem təsadüfi olaraq bir bit <span class="math inline">\(b \in
+\{0,1\}\)</span> seçir və müvafiq <span
+class="math inline">\(m_b\)</span> mesajını şifrələyir.</p></li>
+<li><p>Hücumçu <span class="math inline">\(c\)</span> şifrəli mətnini
+müşahidə edir.</p></li>
+<li><p>Hücumçu <span class="math inline">\(b\)</span> bitini təxmin
+etməyə çalışır.</p></li>
+</ul>
+</div>
+<p>Başqa sözlə, hücumçu şifrəli mətni görsə də, onun <span
+class="math inline">\(m_0\)</span> və ya <span
+class="math inline">\(m_1\)</span> mesajlarından hansına aid olduğunu
+təxmin etmək şansı təsadüfi təxmindən (<span
+class="math inline">\(1/2\)</span>) yaxşı deyil.</p>
+<h2 id="formal-tərif">Formal tərif</h2>
+<h2
+id="semantik-təhlükəsizliyin-formal-tərifi-fərqləndirilməzlik-oyunu">Semantik
+təhlükəsizliyin formal tərifi: Fərqləndirilməzlik Oyunu</h2>
+<p>Semantik təhlükəsizlik müasir kriptoqrafiyada
+<strong>fərqləndirilməzlik</strong> (<em>indistinguishability</em>)
+oyunu vasitəsilə təyin edilir <span class="citation"
+data-cites="katz2020introduction"></span>:</p>
+<div class="keyconcept">
+<p><span>Semantik təhlükəsizlik oyunu</span> <strong>Oyun <span
+class="math inline">\(\mathsf{PrivK}_{\mathcal{A},\Pi}^{\mathsf{ind}}(n)\)</span>:</strong></p>
+<ol>
+<li><p><strong>Mesajların seçilməsi:</strong> Hücumçu <span
+class="math inline">\(\mathcal{A}\)</span> öz istəyi ilə iki eyni
+uzunluqlu mesaj seçir: <span class="math inline">\(m_0,
+m_1\)</span>.</p></li>
+<li><p><strong>Sınaq (Challenge):</strong> Təsadüfi bir bit <span
+class="math inline">\(b \in \{0,1\}\)</span> seçilir. Sistem <span
+class="math inline">\(m_b\)</span> mesajını şifrələyir (<span
+class="math inline">\(c = \mathsf{Enc}_{k}(m_b)\)</span>) və <span
+class="math inline">\(c\)</span> şifrəli mətnini hücumçuya təqdim
+edir.</p></li>
+<li><p><strong>Təxmin:</strong> Hücumçu <span
+class="math inline">\(c\)</span> şifrəli mətnini təhlil edir və hansı
+mesajın şifrələndiyinə dair bir təxmin (<span
+class="math inline">\(b&#39;\)</span>) çıxarır.</p></li>
+<li><p><strong>Nəticə:</strong> Əgər <span class="math inline">\(b&#39;
+= b\)</span> olarsa, hücumçu qalib gəlir (<span
+class="math inline">\(\mathsf{Output} = 1\)</span>).</p></li>
+</ol>
+</div>
+<div class="definition">
+<p><strong>Tərif 10</strong> (Semantik təhlükəsizlik (IND-CPA)).
+Şifrələmə sxemi <span class="math inline">\(\Pi\)</span> semantik
+təhlükəsizdir (və ya IND-CPA təhlükəsiz), əgər bütün PPT (polinomial
+zamanlı) <span class="math inline">\(\mathcal{A}\)</span> hücumçuları
+üçün aşağıdakı şərt ödənərsə: <span
+class="math display">\[\begin{equation}
+\Pr[\mathsf{PrivK}_{\mathcal{A},\Pi}^{\mathsf{ind}}(n) = 1] \leq
+\frac{1}{2} + \mathsf{negl}(n)
+\end{equation}\]</span> Burada <span
+class="math inline">\(\mathsf{negl}(n)\)</span> <strong>nəzərə
+alınmayacaq dərəcədə kiçik</strong> (<em>negligible</em>) funksiyadır
+<span class="citation" data-cites="katz2020introduction"></span>.</p>
+</div>
+<div class="note">
+<p><span>IND-CPA nə deməkdir?</span> <strong>IND-CPA</strong>
+(<em>Indistinguishability under Chosen Plaintext Attack</em>) —
+Azərbaycan dilində <strong>"Seçilmiş açıq mətn hücumu altında
+fərqləndirilməzlik"</strong> mənasını verir.</p>
+<ul>
+<li><p><strong>Fərqləndirilməzlik (IND):</strong> Şifrəli mətnin açıq
+mətn haqqında heç bir məlumat sızdırmaması və ya hücumçunun iki müxtəlif
+açıq mətni onların şifrəli formalarına əsasən bir-birindən ayıra
+bilməməsidir.</p></li>
+<li><p><strong>Seçilmiş açıq mətn hücumu (CPA):</strong> Hücumçunun
+sınaq mərhələsindən əvvəl və sonra istənilən mesajı şifrələtmək imkanına
+(məsələn, şifrələmə orakuluna müraciət hüququna) malik
+olmasıdır.</p></li>
+</ul>
+</div>
+<p><strong>Mahiyyəti:</strong> Bu tərif göstərir ki, heç bir real (PPT)
+hücumçu şifrəli mətndən düz mətn haqqında, hətta 50/50 şansından daha
+yaxşı bir təxmin yürüdəcək qədər informasiya əldə edə bilməz.</p>
+<h2 id="mükəmməl-məxfilik-və-semantik-təhlükəsizlik-müqayisəsi">Mükəmməl
+məxfilik və semantik təhlükəsizlik müqayisəsi</h2>
+<p>Bu iki təhlükəsizlik modeli arasındakı fundamental fərqlər aşağıdakı
+cədvəldə ümumiləşdirilmişdir:</p>
+<table>
+<caption>Mükəmməl məxfilik və semantik təhlükəsizlik arasındakı
+fərqlər</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: center;"><strong>Mükəmməl məxfilik</strong></th>
+<th style="text-align: center;"><strong>Semantik
+təhlükəsizlik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hücumçu modeli</strong></td>
+<td style="text-align: center;">Sonsuz hesablama gücü</td>
+<td style="text-align: center;">Polinomial zamanla məhdud (PPT)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ehtimal şərti</strong></td>
+<td style="text-align: center;"><span class="math inline">\(P(M|C) =
+P(M)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(|\Pr[b&#39;=b] - 1/2| \leq
+\mathsf{negl}(n)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Açar uzunluğu</strong></td>
+<td style="text-align: center;">Mesajdan uzun və ya bərabər</td>
+<td style="text-align: center;">Sabit (məsələn, 128, 256 bit)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Şifrləmə metodu</strong></td>
+<td style="text-align: center;">Deterministik ola bilər (OTP)</td>
+<td style="text-align: center;"><strong>Ehtimal əsaslı</strong>
+olmalıdır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Praktik tətbiqlər</strong></td>
+<td style="text-align: center;">Çox nadir (məsələn, OTP)</td>
+<td style="text-align: center;">Müasir şifrələr (AES, RSA, ECC)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\mathsf{negl}(n)\)</span> cüzi
+funksiyadır.</p>
+<div class="example">
+<p><strong>Nümunə 7</strong> (Cüzi funksiya nümunəsi). Kriptoqrafik
+təhlükəsizlikdə ən çox istifadə olunan cüzi funksiya <span
+class="math inline">\(f(n) = 2^{-n}\)</span> funksiyasıdır.</p>
+<ul>
+<li><p><span class="math inline">\(n=40\)</span> olduqda, <span
+class="math inline">\(f(n) \approx 10^{-12}\)</span> (çox
+kiçik)</p></li>
+<li><p><span class="math inline">\(n=128\)</span> olduqda, <span
+class="math inline">\(f(n) \approx 10^{-38}\)</span> (praktiki olaraq
+qeyri-mümkün)</p></li>
+</ul>
+<p>Bu o deməkdir ki, hücumçunun uğur qazanma ehtimalı <span
+class="math inline">\(1/2 + 2^{-128}\)</span> olarsa, əlavə qazanc
+(<span class="math inline">\(2^{-128}\)</span>) o qədər kiçikdir ki, onu
+nəzərə almamaq olar.</p>
+</div>
+<h2 id="semantik-təhlükəsizlik-və-ehtimal">Semantik təhlükəsizlik və
+ehtimal</h2>
+<p>Semantik təhlükəsizlik şifrəli mətnin düz mətn haqqında heç bir
+"praktik" informasiya verməməsini tələb edir. Bu, entropiya ilə
+aşağıdakı kimi ifadə oluna bilər <span class="citation"
+data-cites="goldwasser1982probabilistic"></span>:</p>
+<div class="theorem">
+<p><strong>Teorem 5</strong> (Semantik təhlükəsizlik: Simulyasiya əsaslı
+tərif). Şifrələmə sxeminin semantik təhlükəsiz olması üçün zəruri və
+kafi şərt, ixtiyari PPT (polinomial zamanlı) hücumçusu <span
+class="math inline">\(\mathcal{A}\)</span> üçün aşağıdakı şərtin
+ödənilməsidir: <span class="math display">\[\begin{equation}
+\Pr[\mathcal{A}(C) = f(M)] \leq \Pr[\mathcal{A}&#39;() = f(M)] +
+\mathsf{negl}(n)
+\end{equation}\]</span> Burada:</p>
+<ul>
+<li><p><span class="math inline">\(f(M)\)</span> - mesaj haqqında hər
+hansı bir informasiya (məsələn, mesajın ilk biti, mesajın cüt və ya tək
+olması və s.).</p></li>
+<li><p><span class="math inline">\(\mathcal{A}(C)\)</span> - şifrəli
+mətni (<span class="math inline">\(C\)</span>) görən "real"
+hücumçu.</p></li>
+<li><p><span class="math inline">\(\mathcal{A}&#39;()\)</span> - şifrəli
+mətni görməyən (yalnız mesajın paylanmasını və uzunluğunu bilən) "ideal"
+hücumçu (simulyator).</p></li>
+</ul>
+</div>
+<p><strong>Mahiyyəti:</strong> Bu tərif deyir ki, şifrəli mətni görmək
+hücumçuya mesaj haqqında hər hansı bir funksiyanı (<span
+class="math inline">\(f\)</span>) təxmin etməkdə <strong>nəzərəçarpacaq
+dərəcədə əlavə üstünlük</strong> vermir. Əgər şifrəli mətni görən
+hücumçu ilə görməyən hücumçunun uğur şansı demək olar ki, eynidirsə,
+sistem semantik təhlükəsizdir.</p>
+<div class="example">
+<p><strong>Nümunə 8</strong> (OTP və semantik təhlükəsizlik). OTP
+sistemi mükəmməl məxfi olduğu üçün eyni zamanda semantik təhlükəsizdir
+(burada <span class="math inline">\(\mathsf{negl}(n) = 0\)</span>).
+Lakin OTP-dən fərqli olaraq, semantik təhlükəsizlik tərifi sabit
+uzunluqlu açarlarla (məsələn, 256-bit AES açarı) böyük həcmli mesajların
+təhlükəsiz şifrələnməsinə riyazi olaraq icazə verir. Bu, nəzəriyyənin
+praktik tətbiqini mümkün edən əsas məqamdır.</p>
+</div>
+<h2 id="ind-cpa-və-daha-güclü-təhlükəsizlik-modelləri">IND-CPA və daha
+güclü təhlükəsizlik modelləri</h2>
+<p>Semantik təhlükəsizlik müasir kriptoqrafiyada iyerarxik təhlükəsizlik
+modellərinin təməlini təşkil edir <span class="citation"
+data-cites="katz2020introduction"></span>:</p>
+<ul>
+<li><p><strong>IND-CPA (Indistinguishability under Chosen Plaintext
+Attack - Seçilmiş düz mətn hücumu altında fərqləndirilməzlik):</strong>
+Hücumçu istədiyi düz mətnləri şifrələtdirə bilər. Bu model simmetrik
+şifrələmədə semantik təhlükəsizliyə ekvivalentdir.</p></li>
+<li><p><strong>IND-CCA (Chosen Ciphertext Attack - Qeyri-adaptiv
+seçilmiş şifrəli mətn hücumu altında fərqləndirilməzlik):</strong>
+Hücumçu həm də müəyyən şifrəli mətnlərin deşifrələnmiş qarşılığını əldə
+edə bilir. Bu model "malliability" (şifrəli mətnin manipulyasiyası)
+hücumlarına qarşı dayanıqlığı ölçür.</p></li>
+<li><p><strong>IND-CCA2 (Adaptive Chosen Ciphertext Attack - Adaptiv
+seçilmiş şifrəli mətn hücumu altında fərqləndirilməzlik):</strong>
+Hücumçunun ən güclü formasıdır. Hücumçu sınaq şifrəli mətnini (<span
+class="math inline">\(c\)</span>) gördükdən sonra belə (yalnız <span
+class="math inline">\(c\)</span>-nin özü olmamaq şərtilə) digər mətnləri
+deşifrələtdirə bilər.</p></li>
+</ul>
+<div class="note">
+<p><span>Praktik əhəmiyyət</span> Müasir sənaye standartları (məsələn,
+<strong>AES-GCM</strong> autentifikasiyalı şifrələmə rejimi və
+<strong>RSA-OAEP</strong>) IND-CCA2 təhlükəsizliyini təmin edir. Bu,
+yalnız məxfiliyi deyil, həm də şifrəli mətnin bütövlüyünü (integrity)
+qoruyur.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 9</strong>. <span>Ehtimal əsaslı, vəziyyətli
+(stateful) və nonse-əsaslı şifrələmə</span> Standart IND-CPA modelində
+deterministik şifrələmə təhlükəsiz hesab edilə bilməz. Praktikada
+semantik təhlükəsizliyi təmin etmək üçün üç əsas üsuldan istifadə
+olunur:</p>
+<ol>
+<li><p><strong>Ehtimal əsaslı (Probabilistic):</strong> Şifrələmə zamanı
+alqoritm daxili təsadüfi bitlərdən istifadə edir.</p></li>
+<li><p><strong>Vəziyyətli (Stateful):</strong> Sistem neçə mesaj
+göndərildiyini yadda saxlayır (məsələn, sayğac istifadəsi).</p></li>
+<li><p><strong>Nonse-əsaslı (Nonce-based):</strong> Hər şifrələmə üçün
+unikal, təkrar olunmayan bir qiymət (<em>nonce</em> və ya <em>IV</em>)
+qəbul edilir.</p></li>
+</ol>
+<p>Əsas məqsəd eyni düz mətnin eyni açarla şifrələndikdə hər dəfə fərqli
+şifrəli mətn yaratmasını təmin etməkdir.</p>
+</div>
+<p>Bu bölmə bütün təhlükəsizlik xidmətlərini vahid bir riyazi çərçivədə
+(entropiya) cəmləşdirir. Terminlərdə vahidlik yaratmaq üçün
+"Konfidensiallıq" sözünü "Məxfilik" ilə əvəz edib, cədvəli daha axıcı
+hala salaq: Code snippet</p>
+<h1 id="entropiya-və-təhlükəsizlik-xidmətləri">Entropiya və
+Təhlükəsizlik Xidmətləri</h1>
+<p>Dörd əsas təhlükəsizlik xidmətinin informasiya nəzəriyyəsi
+(entropiya) baxımından ifadəsi aşağıdakı kimidir <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xidmət</strong></th>
+<th style="text-align: center;"><strong>Entropiya şərti</strong></th>
+<th style="text-align: left;"><strong>Mahiyyəti</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Məxfilik</strong></td>
+<td style="text-align: center;"><span class="math inline">\(H(M|C) =
+H(M)\)</span></td>
+<td style="text-align: left;">Şifrəli mətn (<span
+class="math inline">\(C\)</span>) düz mətn (<span
+class="math inline">\(M\)</span>) haqqında heç bir informasiya
+vermir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tamlıq</strong></td>
+<td style="text-align: center;"><span class="math inline">\(H(M|MAC) =
+H(M)\)</span></td>
+<td style="text-align: left;">Mesajın autentifikasiya kodu (<span
+class="math inline">\(MAC\)</span>) mesajın məzmunu haqqında informasiya
+sızdırmır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Autentikasiya</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(P(\text{saxta}) \leq 2^{-H(K)}\)</span></td>
+<td style="text-align: left;">Saxta mesajın qəbul edilmə ehtimalı açarın
+entropiyası ilə tərs mütənasibdir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>İnkar edilməzlik</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(H(\text{İmza}|\text{Açar}) = 0\)</span></td>
+<td style="text-align: left;">Rəqəmsal imza şəxsi açar tərəfindən
+deterministik və unikal şəkildə təyin olunur.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Təhlükəsizlik xidmətləri və entropiya balansı</span> Mükəmməl
+məxfilik <span class="math inline">\(H(M|C) = H(M)\)</span> şərti ilə
+ifadə olunduğu kimi, mükəmməl tamlıq üçün də <span
+class="math inline">\(H(M|MAC) = H(M)\)</span> tələb olunur. Bu o
+deməkdir ki, MAC kodu mesajın məzmunu haqqında heç bir ipucu
+verməməlidir. Lakin real dünya tətbiqlərində (məsələn, HMAC və ya CMAC)
+bu şərt tam ödənilmir; biz burada da <strong>hesablama baxımından
+təhlükəsizliyə</strong> (computationally secure) güvənirik <span
+class="citation" data-cites="katz2020introduction"></span>.</p>
+</div>
+<h1 id="ad-günü-paradoksu-və-entropiya">Ad günü paradoksu və
+entropiya</h1>
+<p>Əvvəlki mühazirələrdə öyrəndiyimiz ad günü paradoksu informasiya
+nəzəriyyəsi baxımından entropiya ilə sıx bağlıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu əlaqə heş
+funksiyalarının toqquşmaya qarşı dayanıqlığını müəyyən edir.</p>
+<div class="keyconcept">
+<p><span>Toqquşma ehtimalı və entropiya əlaqəsi</span> <span
+class="math inline">\(N\)</span> mümkün qiyməti olan və bərabərehtimallı
+(uniform) paylanmış təsadüfi dəyişən üçün aşağıdakı qanunauyğunluqlar
+mövcuddur:</p>
+<ul>
+<li><p><strong>Maksimum entropiya:</strong> <span
+class="math inline">\(H = \log_2 N\)</span> bit.</p></li>
+<li><p><strong>Toqquşma mürəkkəbliyi:</strong> Toqquşma tapmaq üçün
+tələb olunan nümunə sayı (<span class="math inline">\(q\)</span>) ad
+günü paradoksu düsturu ilə hesablanır: <span
+class="math display">\[\begin{equation}
+    q \approx \sqrt{2N \ln(2)} \approx 1.177\sqrt{N}
+\end{equation}\]</span></p></li>
+<li><p><strong>Entropiya ilə ifadəsi:</strong> <span
+class="math inline">\(N = 2^H\)</span> olduğunu nəzərə alsaq: <span
+class="math display">\[\begin{equation}
+    q \approx 1.177 \cdot 2^{H/2}
+\end{equation}\]</span></p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 10</strong>. <span>Heş funksiyalarında entropiya və
+toqquşma</span> SHA-256 heş funksiyasını nümunə götürək:</p>
+<ul>
+<li><p><strong>Çıxış fəzası:</strong> <span class="math inline">\(N =
+2^{256}\)</span>.</p></li>
+<li><p><strong>Entropiya (ideal halda):</strong> <span
+class="math inline">\(H = 256\)</span> bit.</p></li>
+<li><p><strong>Toqquşma tapmaq mürəkkəbliyi (Birthday Attack):</strong>
+<span class="math inline">\(2^{128}\)</span> əməliyyat.</p></li>
+<li><p><strong>Nəticə:</strong> Riyazi olaraq bu, <span
+class="math inline">\(2^{H/2}\)</span> düsturuna uyğun gəlir.</p></li>
+</ul>
+<p>Məhz bu səbəbdən heş funksiyalarının toqquşmaya qarşı təhlükəsizlik
+səviyyəsi onların nominal entropiyasının (çıxış bitinin) yarısı qədərdir
+<span class="citation" data-cites="katz2020introduction"></span>.</p>
+</div>
+<div class="importantbox">
+<p><strong>Mühüm nəticə:</strong> Əgər bir sistemin entropiyası <span
+class="math inline">\(H\)</span> bitdirsə, ad günü hücumu (birthday
+attack) vasitəsilə toqquşma tapmaq üçün cəmi <span
+class="math inline">\(2^{H/2}\)</span> cəhd kifayətdir. Bu, kriptoqrafik
+sistemlərin parametrlərini seçərkən nəzərə alınmalı olan ən kritik
+amillərdən biridir.</p>
+</div>
+<h1 id="müasir-kriptoqrafiyada-entropiyanın-rolu">Müasir Kriptoqrafiyada
+Entropiyanın Rolu</h1>
+<h2 id="blokçeyn-və-kriptovalyutalar">Blokçeyn və Kriptovalyutalar</h2>
+<p>Blokçeyn texnologiyalarında entropiya həm təhlükəsizliyin, həm də
+mərkəzsizləşdirmənin təməlidir <span class="citation"
+data-cites="nakamoto2008bitcoin"></span>:</p>
+<ul>
+<li><p><strong>Şəxsi açarlar:</strong> Yüksək entropiyalı təsadüfi
+ədədlərdən (adətən 256 bit) yaradılır. Bu açarların təxmin edilməsi
+riyazi olaraq qeyri-mümkündür.</p></li>
+<li><p><strong>Mnemonik ifadələr:</strong> Cüzdanlar üçün istifadə
+olunan 12 və ya 24 sözlük ifadələr (<em>seed phrase</em>), əslində 128
+və ya 256 bitlik entropiyanın insan tərəfindən oxuna bilən
+formasıdır.</p></li>
+<li><p><strong>Əməliyyat unikallığı:</strong> Hər bir blok və əməliyyat
+özündə unikal entropiya daşıyır ki, bu da şəbəkənin manipulyasiyaya
+qarşı davamlılığını təmin edir.</p></li>
+</ul>
+<h2 id="parol-menecerləri-və-təhlükəsizlik">Parol Menecerləri və
+Təhlükəsizlik</h2>
+<p>Müasir parol menecerləri insanların yarada biləcəyi zəif parolları
+yüksək entropiyalı kombinasiyalarla əvəz edir <span class="citation"
+data-cites="ferguson2010cryptography"></span>:</p>
+<ul>
+<li><p><strong>Hesablama:</strong> Məsələn, 72 fərqli simvoldan ibarət
+12 simvolluq təsadüfi parolun entropiyası: <span
+class="math display">\[\begin{equation}
+    H = 12 \cdot \log_2 72 \approx 74 \text{ bit}
+\end{equation}\]</span></p></li>
+<li><p><strong>Sındırma mürəkkəbliyi:</strong> Bu parolu tapmaq üçün
+<span class="math inline">\(2^{74}\)</span> sınaq tələb olunur. Müasir
+hesablama gücü ilə bu, praktik olaraq mümkün deyil.</p></li>
+<li><p><strong>Əhəmiyyəti:</strong> Parolun uzunluğundan daha çox, onun
+daxilindəki simvolların <strong>qeyri-müəyyənliyi</strong> (entropiyası)
+təhlükəsizliyi təyin edir.</p></li>
+</ul>
+<h2 id="kvant-kriptoqrafiyası-və-gələcək">Kvant Kriptoqrafiyası və
+Gələcək</h2>
+<p>Kvant dünyasında entropiya klassik ehtimal anlayışından kənara çıxır
+<span class="citation" data-cites="renner2005security"></span>:</p>
+<ul>
+<li><p><strong>Kvant açar paylanması (QKD):</strong> Fotonların kvant
+vəziyyətlərindən istifadə edərək tərəflər arasında "mükəmməl məxfiliyə"
+yaxın təhlükəsizlik səviyyəsi təmin edilir.</p></li>
+<li><p><strong>Qeyri-müəyyənlik prinsipi:</strong> Heisenberg prinsipi
+fiziki səviyyədə entropiya mənbəyi kimi çıxış edir; kvant vəziyyətini
+ölçmək cəhdi sistemi dəyişir və bu, informasiya sızmasının qarşısını
+alır.</p></li>
+<li><p><strong>Kvant entropiyası:</strong> Kvant vəziyyətləri klassik
+bitlərlə müqayisədə daha zəngin informasiya daşıma potensialına
+malikdir.</p></li>
+</ul>
+<div class="importantbox">
+<p><strong>Yekun:</strong> Bu mühazirə boyu gördüyümüz kimi,
+kriptoqrafiya yalnız alqoritmlər deyil, həm də <strong>informasiyanın
+gizlədilməsi elmidir</strong>. Entropiya bizə bu gizliliyin miqdarını
+ölçmək üçün yeganə fundamental riyazi aləti təqdim edir.</p>
+</div>
+<h1 id="çalışmalar">Çalışmalar</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). Bir qabda 2 ağ, 3 qara və 5 qırmızı
+top var. Təsadüfi bir top seçilir. Seçilən topun rənginin entropiyasını
+(bitlərlə) hesablayın.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). İki düzgün zər eyni anda atılır.
+Zərlərin üst üzünə düşən xalların <strong>cəminin</strong> entropiyasını
+hesablayın.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <span
+class="math inline">\(X\)</span> və <span
+class="math inline">\(Y\)</span> müstəqil təsadüfi dəyişənlərdir: <span
+class="math inline">\(H(X)=2\)</span> bit, <span
+class="math inline">\(H(Y)=3\)</span> bit. Aşağıdakıları tapın:</p>
+<ul>
+<li><p>Birgə entropiya: <span
+class="math inline">\(H(X,Y)\)</span></p></li>
+<li><p>Şərti entropiya: <span
+class="math inline">\(H(X|Y)\)</span></p></li>
+<li><p>Qarşılıqlı informasiya: <span
+class="math inline">\(I(X;Y)\)</span></p></li>
+</ul>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). Bir OTP sistemində 3-bitlik mesajlar
+göndərilir. Açar təsadüfi seçilir. Şifrəli mətn <span
+class="math inline">\(C=110\)</span> müşahidə edilib. Əgər düz mətn
+(<span class="math inline">\(M\)</span>) bərabərehtimallı (uniform)
+paylanıbsa, <span class="math inline">\(M=001\)</span> olma ehtimalı
+nədir? Cavabınızı mükəmməl məxfilik prinsipi ilə əsaslandırın.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). İki fərqli mesaj eyni açardan
+istifadə edilərək OTP ilə şifrələnib: <span
+class="math inline">\(C_1=0110\)</span> və <span
+class="math inline">\(C_2=1010\)</span>. Bu iki şifrəli mətnə əsasən
+<span class="math inline">\(M_1\)</span> və <span
+class="math inline">\(M_2\)</span> düz mətnləri arasında hansı əlaqəni
+(məsələn, XOR fərqi) müəyyən etmək olar?</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). İngilis dilində hərflərin paylanma
+ehtimalları verilib: ’e’ (0.127), ’t’ (0.091), ’a’ (0.082) və s. Əgər
+bütün hərflər eyni ehtimallı (bərabərehtimallı) olsaydı, entropiya neçə
+olardı? Verilən qeyri-bərabərehtimallı paylanma üçün entropiyanın
+azalacağını necə izah edərdiniz?</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). 10 simvoldan ibarət, yalnız rəqəmlər
+(0-9) və kiçik ingilis hərflərindən (a-z) təşkil olunmuş təsadüfi
+parolun entropiyasını hesablayın. Bu parolu "brute-force" ilə tapmaq
+üçün orta hesabla neçə sınaq lazımdır?</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). Şannonun mükəmməl məxfilik teoremini
+izah edin. Riyazi olaraq sübut edin ki, əgər <span
+class="math inline">\(|K| &lt; |M|\)</span> olarsa, sistem mükəmməl
+məxfi ola bilməz.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 9</strong> (9). Semantik təhlükəsizlik (IND-CPA)
+oyununu təsvir edin. Bu modelin mükəmməl məxfilikdən əsas fərqini
+hücumçunun resursları (hesablama gücü) baxımından izah edin.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 10</strong> (10). Niyə semantik təhlükəsiz sxemlər
+mütləq <strong>ehtimal əsaslı</strong> (probabilistic) olmalıdır?
+Deterministik şifrələmənin IND-CPA oyununda niyə həmişə uduzduğunu
+nümayiş etdirin.</p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların həlli</h1>
+<ul>
+<li><p><strong>Top rənglərinin entropiyası:</strong> Ümumi top sayı 10.
+<span class="math inline">\(p(\text{ağ})=0.2\)</span>, <span
+class="math inline">\(p(\text{qara})=0.3\)</span>, <span
+class="math inline">\(p(\text{qırmızı})=0.5\)</span>: <span
+class="math display">\[H = -(0.2\log_2 0.2 + 0.3\log_2 0.3 + 0.5\log_2
+0.5) \approx 1.485 \text{ bit.}\]</span></p></li>
+<li><p><strong>Zərlərin cəmi:</strong> <span class="math inline">\(H =
+-\sum_{i=2}^{12} p(i) \log_2 p(i) \approx 3.27 \text{ bit.}\)</span>
+<em>Qeyd:</em> Cəmin ehtimal paylanması bərabərehtimallı olmadığı üçün
+(ən yüksək ehtimal 7-dir) entropiya maksimum mümkün dəyərdən (<span
+class="math inline">\(\log_2 11 \approx 3.46\)</span>) azdır.</p></li>
+<li><p><strong>Müstəqil dəyişənlər:</strong> <span
+class="math inline">\(H(X,Y) = 2 + 3 = 5\)</span> bit; <span
+class="math inline">\(H(X|Y) = H(X) = 2\)</span> bit; <span
+class="math inline">\(I(X;Y) = 0\)</span> bit.</p></li>
+<li><p><strong>OTP-də ehtimal sarsılmazlığı:</strong> OTP mükəmməl məxfi
+olduğu üçün şifrəli mətn (<span class="math inline">\(C\)</span>) düz
+mətn (<span class="math inline">\(M\)</span>) haqqında heç bir
+informasiya vermir: <span class="math display">\[P(M=001|C=110) =
+P(M=001) = 1/2^3 = 0.125.\]</span></p></li>
+<li><p><strong>Açardan asılılığın ləğvi:</strong> Eyni açardan istifadə
+(Two-time pad) fəlakətlidir: <span class="math inline">\(C_1 \oplus C_2
+= (M_1 \oplus K) \oplus (M_2 \oplus K) = M_1 \oplus M_2 = 1100\)</span>.
+Hücumçu artıq iki mesajın bir-birinə nə dərəcədə bənzədiyini
+bilir.</p></li>
+<li><p><strong>Dilin entropiyası:</strong> Hərflərin paylanması
+bərabərehtimallı olmadığından entropiya (<span
+class="math inline">\(\approx 4.21\)</span> bit) hər bir hərfin bərabər
+ehtimallı olduğu haldan (<span class="math inline">\(\log_2 26 \approx
+4.7\)</span> bit) daha aşağıdır.</p></li>
+<li><p><strong>Parol mürəkkəbliyi:</strong> Simvol fəzası <span
+class="math inline">\(36^{10}\)</span> olduğundan, entropiya <span
+class="math inline">\(H \approx 51.7\)</span> bit təşkil edir. Orta
+brute-force cəhdi <span class="math inline">\(1.83 \times
+10^{15}\)</span> sınaqdır.</p></li>
+<li><p><strong>Şannon teoremi:</strong> Əgər <span
+class="math inline">\(|K| &lt; |M|\)</span> olarsa, bəzi mesajlar üçün
+heç bir açar uyğun gəlməyəcək və hücumçu bəzi variantları dərhal istisna
+edə biləcək (<span class="math inline">\(P(M|C)=0\)</span>), bu isə
+məxfiliyi pozur.</p></li>
+<li><p><strong>Semantik təhlükəsizlik vs Mükəmməl məxfilik:</strong>
+<strong>Əsas fərq:</strong> Mükəmməl məxfilik "riyazi sındırıla
+bilməzlik", semantik təhlükəsizlik isə "hesablama baxımından sındırıla
+bilməzlik" (müasir dünyada real olanı) deməkdir.</p></li>
+<li><p><strong>Niyə ehtimal əsaslı?</strong> Deterministik sistemdə
+hücumçu <span class="math inline">\(m_0\)</span> və <span
+class="math inline">\(m_1\)</span>-i özü şifrələyib hədəflə müqayisə edə
+bilər. Təsadüfi element (IV/nonce) əlavə edildikdə isə eyni mesaj hər
+dəfə fərqli görünür və müqayisə qeyri-mümkün olur.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə kriptoqrafiyanın informasiya nəzəriyyəsi ilə
+kəsişməsində yer alan aşağıdakı əsas anlayışları öyrəndik:</p>
+<ul>
+<li><p><strong>Entropiya:</strong> Təsadüfi dəyişənin
+qeyri-müəyyənliyinin ölçüsü <span class="math inline">\(H(X) = -\sum
+p(x) \log_2 p(x)\)</span>. Bu ölçü sistemin daşıdığı informasiya
+miqdarını təyin edir <span class="citation"
+data-cites="shannon1948mathematical"></span>.</p></li>
+<li><p><strong>Şərti entropiya və qarşılıqlı informasiya:</strong>
+Dəyişənlər arasındakı asılılığın və informasiya sızmasının ölçüləri.
+Mükəmməl sistemdə <span class="math inline">\(I(M;C) = 0\)</span>
+olmalıdır <span class="citation"
+data-cites="cover2012elements"></span>.</p></li>
+<li><p><strong>Mükəmməl məxfilik:</strong> Şifrəli mətnin düz mətn
+haqqında sıfır informasiya verməsi (<span class="math inline">\(P(M|C) =
+P(M)\)</span>) prinsipi <span class="citation"
+data-cites="shannon1949communication"></span>.</p></li>
+<li><p><strong>Bir dəfəlik bloknot (OTP):</strong> Mükəmməl məxfiliyi
+təmin edən yeganə klassik sistem. Lakin açarın mesajla eyni uzunluqda
+olması onun praktik tətbiqini məhdudlaşdırır <span class="citation"
+data-cites="vernam1926cipher"></span>.</p></li>
+<li><p><strong>Semantik təhlükəsizlik:</strong> Müasir kriptoqrafiyanın
+təməli olan hesablama baxımından təhlükəsizlik anlayışı. IND-CPA oyunu
+vasitəsilə təyin olunur <span class="citation"
+data-cites="goldwasser1982probabilistic"></span>.</p></li>
+<li><p><strong>IND-CCA və IND-CCA2:</strong> Hücumçunun deşifrələmə
+imkanına malik olduğu daha mürəkkəb və güclü təhlükəsizlik modelləri
+<span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Şannon prinsipləri:</strong> Müasir blok şifrələrin
+(məsələn, AES) əsasını təşkil edən <strong>qarışdırma</strong>
+(<em>confusion</em>) və <strong>yayılma</strong> (<em>diffusion</em>)
+texnikaları <span class="citation"
+data-cites="shannon1949communication"></span>.</p></li>
+</ul>
+<p><strong>Əsas nəticə:</strong> Mükəmməl təhlükəsizlik (OTP) nəzəri bir
+etalondur. Praktikada isə biz <strong>hesablama baxımından
+təhlükəsiz</strong> (<em>computationally secure</em>) sistemlərdən
+istifadə edirik. Bu sistemlər entropiya və ehtimal nəzəriyyəsi
+prinsiplərini elə tətbiq edir ki, şifrəni sındırmaq üçün tələb olunan
+resurslar istənilən hücumçunun (hətta superkompüterlərin) imkanlarını
+aşır.</p>
+<blockquote>
+<p><em>"Kriptoqrafiya — asimmetrik bir döyüşdür; dürüst tərəf üçün
+şifrələmə asan, hücumçu üçün isə sındırma (riyazi olaraq) qeyri-mümkün
+olmalıdır."</em></p>
+</blockquote>
+<div class="nextlecture">
+<p><span>Növbəti mühazirə: Axın Şifrələri və LFSR</span> Bu mühazirədə
+biz entropiya və mükəmməl məxfilik nəzəriyyəsini öyrəndik. Növbəti
+mühazirəmizdə isə bu nəzəriyyənin praktikada necə tətbiq olunduğunu
+görəcəyik:</p>
+<ul>
+<li><p><strong>Axın şifrələri (Stream Ciphers):</strong> OTP-nin praktik
+(hesablama baxımından təhlükəsiz) analoqu necə işləyir?</p></li>
+<li><p><strong>LFSR (Linear Feedback Shift Registers):</strong> Xətti
+tərs əlaqəli sürüşmə reqistrləri və onların riyazi
+xüsusiyyətləri.</p></li>
+<li><p><strong>Psevdo təsadüfi ardıcıllıqlar (PRNG):</strong> Kiçik bir
+açardan (<em>seed</em>) necə böyük həcmli "təsadüfi" axın yaratmaq
+olar?</p></li>
+<li><p><strong>Hücumlar:</strong> Berlekamp-Massey alqoritmi və axın
+şifrələrinin zəif tərəfləri.</p></li>
+</ul>
+</div>
+<h1 id="əlavə-oxu-üçün-materiallar">Əlavə oxu üçün materiallar</h1>
+<ol>
+<li><p>Shannon, C.E. (1948). "A Mathematical Theory of Communication" -
+İnformasiya nəzəriyyəsinin əsasını qoyan məqalə <span class="citation"
+data-cites="shannon1948mathematical"></span></p></li>
+<li><p>Shannon, C.E. (1949). "Communication Theory of Secrecy Systems" -
+Kriptoqrafiyaya informasiya nəzəriyyəsinin tətbiqi <span
+class="citation" data-cites="shannon1949communication"></span></p></li>
+<li><p>Cover, T.M. &amp; Thomas, J.A. (2012). "Elements of Information
+Theory" - Müasir informasiya nəzəriyyəsi dərsliyi <span class="citation"
+data-cites="cover2012elements"></span></p></li>
+<li><p>Goldwasser, S. &amp; Micali, S. (1982). "Probabilistic
+Encryption" - Semantik təhlükəsizliyin əsasını qoyan məqalə <span
+class="citation"
+data-cites="goldwasser1982probabilistic"></span></p></li>
+<li><p>Katz, J. &amp; Lindell, Y. (2020). "Introduction to Modern
+Cryptography" - Müasir kriptoqrafiyada entropiya və təhlükəsizlik
+modelləri <span class="citation"
+data-cites="katz2020introduction"></span></p></li>
+<li><p>Stinson, D. (2018). "Cryptography: Theory and Practice" -
+Kriptoqrafiyada ehtimal və entropiya tətbiqləri <span class="citation"
+data-cites="stinson2018cryptography"></span></p></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (13)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Shannon, 1948</span>
+                        <small class="text-muted">The Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Mathematical Theory of Communication</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1948)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Cover &amp; Thomas, 2012</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Elements of Information Theory</h6>
+                    <p class="small text-secondary mb-0">Thomas M. Cover and Joy A. Thomas (2012)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Shannon, 1949</span>
+                        <small class="text-muted">Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Communication Theory of Secrecy Systems</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1949)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Vernam, 1919</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secret Signaling System</h6>
+                    <p class="small text-secondary mb-0">Gilbert S. Vernam (1919)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Goldwasser &amp; Micali, 1982</span>
+                        <small class="text-muted">Proceedings of the fourteenth annual ACM symposium on Theory of computing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Probabilistic encryption &amp; how to play mental poker keeping secret all partial information</h6>
+                    <p class="small text-secondary mb-0">Goldwasser, Shafi and Micali, Silvio (1982)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Fano, 1949</span>
+                        <small class="text-muted">Research Laboratory of Electronics, Massachusetts Institute of Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The transmission of information</h6>
+                    <p class="small text-secondary mb-0">Fano, Robert M (1949)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Feller, 1968</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Introduction to Probability Theory and Its Applications</h6>
+                    <p class="small text-secondary mb-0">William Feller (1968)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Knuth, 1997</span>
+                        <small class="text-muted">Addison-Wesley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Art of Computer Programming</h6>
+                    <p class="small text-secondary mb-0">Donald E. Knuth (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Nakamoto, 2008</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Bitcoin: A Peer-to-Peer Electronic Cash System</h6>
+                    <p class="small text-secondary mb-0">Satoshi Nakamoto (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Renner, 2005</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Security of Quantum Key Distribution</h6>
+                    <p class="small text-secondary mb-0">Renner, Renato (2005)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

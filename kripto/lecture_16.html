@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_16</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 16</strong></p>
+<p><strong>Asimmetrik Kriptoqrafiyaya Giriş</strong></p>
+<p>Bu mühazirə asimmetrik kriptoqrafiyanın əsas anlayışlarını, açıq açar
+və gizli açar sistemlərini, birtərəfli funksiyaları, tələ qapısı
+funksiyalarını və əsas mürəkkəblik siniflərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbə:</p>
+<ul>
+<li><p>simmetrik şifrələmə, açıq açarlı şifrələmə/KEM, rəqəmsal imza və
+açar razılaşdırılmasının funksiyalarını fərqləndirir <span
+class="citation" data-cites="stinson2018cryptography"></span>;</p></li>
+<li><p>açıq və gizli açarın rolunu verilmiş istifadə ssenarisində düzgün
+təyin edir <span class="citation"
+data-cites="katz2020introduction"></span>;</p></li>
+<li><p>birtərəfli və tələ qapısı funksiyanı təhlükəsizlik parametri və
+hücumçu modeli ilə izah edir <span class="citation"
+data-cites="diffie1976new"></span>;</p></li>
+<li><p>faktorizasiya, DLP və ECDLP fərziyyələrini uyğun kriptoqrafik
+konstruksiya ilə əlaqələndirir <span class="citation"
+data-cites="paar2024understanding"></span>;</p></li>
+<li><p>verilmiş sistem üçün hibrid şifrələmə və açar autentifikasiyası
+tələbini əsaslandırır <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 15-ci mühazirədə simmetrik autentifikasiya və
+MAK öyrənildi. <strong>İndi:</strong> açıq açarlı primitivlərin fərqli
+rollarını ayırırıq. <strong>Sonra:</strong> 17-ci mühazirədə bu
+primitivlərin istifadə etdiyi modul arifmetikasını quracağıq. ECC/ECDH,
+PKI, TLS və PQC burada yalnız kurs xəritəsi kimi göstərilir; tam
+tərifləri müvafiq 21–30-cu mühazirələrdə verilir.</p>
+<p><strong>Kanon:</strong> <em>tələ qapısı funksiya</em>; <em>açar
+razılaşdırılması</em>; <em>sessiya açarı</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>İndiyə qədər öyrəndiyimiz bütün kriptoqrafik üsullar — blok şifrlər,
+axın şifrlər, MAK-lar — <strong>simmetrik kriptoqrafiya</strong> sinfinə
+aid idi. Simmetrik kriptoqrafiyada şifrələmə və deşifrələmə üçün
+<strong>eyni gizli açar</strong> istifadə olunur. Bu yanaşmanın ən böyük
+problemi <strong>açar paylanması</strong> problemidir: İki tərəf
+arasında təhlükəsiz rabitə qurmaq üçün əvvəlcə gizli açarı təhlükəsiz
+şəkildə paylaşmaq lazımdır.</p>
+<p>1976-cı ildə <strong>Vitfild Diffi</strong> və <strong>Martin
+Hellman</strong> əvvəlcədən ortaq gizli açar paylaşmadan açıq kanal
+üzərindən açar materialı razılaşdırmaq və rəqəmsal imza qurmaq ideyasını
+sistemləşdirən <strong>açıq açarlı kriptoqrafiyanı</strong> təklif
+etdilər <span class="citation" data-cites="diffie1976new"></span>. Bu,
+vahid bir əməliyyat deyil: açıq açarlı şifrələmə/KEM, rəqəmsal imza və
+açar razılaşdırılması ayrı primitivlərdir; onların açar rolları və
+təhlükəsizlik məqsədləri istifadə olunan sxemlə müəyyən edilir.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>Simmetrik kriptoqrafiyanın əsas problemi nədir və asimmetrik
+kriptoqrafiya bu problemi necə həll edir?</p></li>
+<li><p>Açıq açar və gizli açar arasında hansı riyazi əlaqə var?</p></li>
+<li><p>Birtərəfli funksiya nədir və niyə asimmetrik kriptoqrafiya üçün
+vacibdir?</p></li>
+<li><p>Tələ qapısı funksiyası birtərəfli funksiyadan nə ilə
+fərqlənir?</p></li>
+<li><p>Faktorizasiya və diskret loqarifm problemləri nədir və niyə
+"çətin" hesab olunurlar?</p></li>
+<li><p>P, NP, NP-tam sinifləri nə deməkdir və kriptoqrafiya ilə əlaqəsi
+nədir?</p></li>
+</ul>
+</div>
+<h1 id="simmetrik-və-asimmetrik-kriptoqrafiya">Simmetrik və Asimmetrik
+Kriptoqrafiya</h1>
+<h2 id="simmetrik-kriptoqrafiyanın-fundamental-problemi">Simmetrik
+Kriptoqrafiyanın Fundamental Problemi</h2>
+<p>Simmetrik kriptoqrafik sistemlərin əsasını şifrələmə və deşifrələmə
+proseslərində eyni gizli açardan istifadə edilməsi təşkil edir. Bu
+yanaşma hesablama sürəti baxımından yüksək effektivliyə malik olsa da,
+genişmiqyaslı paylanmış şəbəkələrdə iki kritik məhdudiyyət yaradır:
+<em>açar paylanması</em> və <em>miqyaslanma</em> problemi.</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Açar Paylanması Problemi). <em>İki
+transaksiyalı tərəfin (<span class="math inline">\(A\)</span> və <span
+class="math inline">\(B\)</span>) simmetrik kriptosistem vasitəsilə
+konfidensial əlaqə qura bilməsi üçün əvvəlcədən <strong>eyni gizli
+açarı</strong> təhlükəsiz şəkildə paylaşması zəruridir. Lakin bu ilkin
+gizli açarı ötürmək üçün təhlükəsiz kanal lazımdır; belə bir təhlükəsiz
+kanalı proqram səviyyəsində qurmaq üçün isə artıq paylaşılmış bir açar
+olmalıdır. Bu qapalı dövr (məntiqi ziddiyyət) kriptoqrafiyada
+<strong>açar paylanması problemi</strong> adlanır.</em></p>
+</div>
+<p>Hətta açar paylanma problemi həll olunsa belə hər bir cüt istifadəçi
+üçün bir unikal açar tələb olunduğu üçün, <span
+class="math inline">\(n\)</span> sayda aktiv istifadəçidən ibarət olan
+şəbəkədə lazım olan açarların sayı <strong>kvadratik olaraq</strong>
+artır:</p>
+<ul>
+<li><p>Şəbəkədəki hər bir unikal istifadəçi cütü (<span
+class="math inline">\(A_i, A_j\)</span>) arasında digər istifadəçilərdən
+izolyasiya olunmuş gizli kanalın qurulması üçün fərqli bir simmetrik
+açar generasiya edilməlidir.</p></li>
+<li><p><span class="math inline">\(n\)</span> istifadəçisi olan tam
+əlaqəli şəbəkədə tələb olunan ümumi unikal açar sayı kombinatorikanın
+<span class="math inline">\(C_n^2\)</span> düsturu ilə müəyyən edilir:
+<span class="math display">\[N = C_n^2 =  \frac{n(n-1)}{2} =
+O(n^2)\]</span></p></li>
+<li><p>Riyazi mürəkkəblik <span class="math inline">\(O(n^2)\)</span>
+tərtibində olduğundan istifadəçi sayı artdıqca açarların paylanması,
+saxlanması və həyat dövrü üzrə yenilənməsi infrastruktur baxımından
+idarəolunmaz dərəcədə mürəkkəbləşir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Simmetrik və Asimmetrik Miqyaslanmanın
+Müqayisəsi). <em>Şəbəkə daxili qovşaqların sayından asılı olaraq tələb
+olunan infrastruktur fərqini vizuallaşdırmaq üçün kiçik və böyük şəbəkə
+ssenarilərini müqayisə edək:</em></p>
+<p><em><strong>Ssenari 1: Kiçik miqyaslı şəbəkə (<span
+class="math inline">\(n=3\)</span>)</strong><br />
+Tutaq ki, şəbəkədə yalnız Alis, Bob və Çarli fəaliyyət
+göstərir.</em></p>
+<ul>
+<li><p><em><strong>Simmetrik arxitekturada:</strong> Hər bir cütlük üçün
+fərqli bir açar (<span class="math inline">\(K_{AB}, K_{AC},
+K_{BC}\)</span>) olmaqla cəmi <strong>3 unikal açar</strong> kifayət
+edir.</em></p></li>
+<li><p><em><strong>Asimmetrik arxitekturada:</strong> Hər bir
+istifadəçinin özünə məxsus açıq-gizli açar cütü (<span
+class="math inline">\((pk_i, sk_i)\)</span>) generasiya olunur. Şəbəkədə
+cəmi <strong>3 cüt (6 fərqli açar)</strong> mövcud olur. Bu miqyasda
+simmetrik sistem daha az açar tələb edir.</em></p></li>
+</ul>
+<p><em><strong>Ssenari 2: Orta miqyaslı şəbəkə (<span
+class="math inline">\(n=1000\)</span>)</strong><br />
+Şəbəkədəki istifadəçi sayı <span class="math inline">\(1000\)</span>-ə
+çatdıqda mürəkkəblik kəskin şəkildə dəyişir:</em></p>
+<ul>
+<li><p><em><strong>Simmetrik arxitekturada:</strong> Kvadratik asılılıq
+səbəbindən sistemdə: <span class="math display">\[N = \frac{1000 \times
+999}{2} = 499,500\]</span> yəni təxminən <strong>yarım milyon unikal
+açarın</strong> yaradılması və hər bir istifadəçinin digər 999 şəxslə
+paylaşdığı fərqli açarları öz tərəfində tam məxfi saxlaması tələb
+olunur.</em></p></li>
+<li><p><em><strong>Sadələşdirilmiş açıq açarlı modeldə:</strong> Xətti
+miqyaslanma (<span class="math inline">\(O(n)\)</span>) sayəsində 1000
+istifadəçi üçün bir təyinat üzrə <strong>1000 açar cütü</strong> kifayət
+edir. Hər istifadəçi öz gizli açarını qoruyur; digər istifadəçilərin
+açıq açarları isə kimliklə əlaqəsi autentifikasiya olunan ictimai
+reyestrdə saxlanıla bilər. Real sistemdə şifrələmə, imza və açar
+razılaşdırılması kimi fərqli təyinatlar üçün ayrıca açarlar tələb oluna
+bilər.</em></p></li>
+</ul>
+</div>
+<h2 id="asimmetrik-kriptoqrafiyanın-əsas-ideyası">Asimmetrik
+Kriptoqrafiyanın Əsas İdeyası</h2>
+<p>1976-cı ildə Diffi və Hellman tərəfindən təklif edilən açıq açarlı
+yanaşma əvvəlcədən ortaq gizli açar paylaşmaq tələbini əhəmiyyətli
+dərəcədə azaldır <span class="citation"
+data-cites="diffie1976new"></span>. Bunun əvəzində açıq açarın kimə
+məxsusluğunu etibarlı təsdiqləmək problemi yaranır:</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Açıq açarlı kriptoqrafiya). <em>Açıq açarlı
+kriptoqrafiya müxtəlif məqsədlər üçün qurulan primitivlər ailəsidir.
+Açarların rolu sxemdən asılıdır:</em></p>
+<ul>
+<li><p><em><strong>Açıq açarlı şifrələmə və KEM<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>:</strong> qəbul edənin açıq açarı
+ilə məlumat şifrələnir və ya ortaq sirr enkapsulyasiya edilir; uyğun
+gizli açar ilə məlumat deşifrə və ya sirr dekapsulyasiya
+edilir.</em></p></li>
+<li><p><em><strong>Rəqəmsal imza:</strong> imza açarı ilə <span
+class="math inline">\(\operatorname{Sign}(sk,m)\to\sigma\)</span>
+hesablanır, yoxlama açarı ilə <span
+class="math inline">\(\operatorname{Verify}(pk,m,\sigma)\)</span> icra
+edilir. İmza şifrələmənin “əks istiqaməti” deyil.</em></p></li>
+<li><p><em><strong>Açar razılaşdırılması:</strong> məsələn, DH/ECDH<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> alqoritmlərində tərəflərin təqdim
+etdiyi açarlardan (və ya açıq paylardan) ortaq sirr alınır və bu sirrdən
+KDF<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> vasitəsilə kontekstlə bağlı açarlar
+törədilir.</em></p></li>
+</ul>
+<p><em>Açıq açar məxfi saxlanılmır, lakin onun kimə məxsusluğu və
+dəyişdirilmədiyi autentifikasiya olunmalıdır. Müxtəlif təyinatlar üçün
+eyni açar cütünün təkrar istifadəsi yalnız konkret standart buna icazə
+verdikdə mümkündür; ümumi qayda açarların təyinat üzrə
+ayrılmasıdır.</em></p>
+</div>
+<figure data-latex-placement="h">
+
+<figcaption>Simmetrik şifrələmədə eyni gizli açardan həm şifrələmə, həm
+də deşifrələmə zamanı tərəflər arasında birgə istifadə olunur. Açıq
+açarlı şifrələmədə isə göndərən tərəf qəbul edənin autentifikasiya
+olunmuş açıq açarından, qəbul edən tərəf isə özünə məxsus gizli (məxfi)
+açardan istifadə edir. Rəqəmsal imza və açar razılaşdırılması
+protokolları isə bu sxemdən fərqli iş prinsipinə və tətbiq mexanizminə
+malikdir.</figcaption>
+</figure>
+<h2 id="simmetrik-və-asimmetrik-kriptoqrafiyanın-müqayisəsi">Simmetrik
+və Asimmetrik Kriptoqrafiyanın Müqayisəsi</h2>
+<table>
+<caption>Simmetrik və asimmetrik yanaşmaların funksional
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Simmetrik
+Kriptoqrafiya</strong></th>
+<th style="text-align: left;"><strong>Asimmetrik
+Kriptoqrafiya</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açar strukturu</td>
+<td style="text-align: left;">Hər əlaqə qrupu və ya cüt üçün paylaşılmış
+gizli açar</td>
+<td style="text-align: left;">Hər primitiv və təyinat üçün uyğun
+açıq/gizli açar materialı</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar uzunluğu</td>
+<td style="text-align: left;">Təhlükəsizlik səviyyəsinə görə, məsələn
+AES-128/192/256</td>
+<td style="text-align: left;">Alqoritm və təhlükəsizlik səviyyəsinə
+görə; məsələn RSA-3072 və ECC-256 təxminən 128-bit səviyyə verir</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hesablama sürəti</td>
+<td style="text-align: left;">Çox sürətli (Gbit/s səviyyəsində)</td>
+<td style="text-align: left;">Nisbətən yavaş (Mbit/s səviyyəsində)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Riyazi əsası</td>
+<td style="text-align: left;">Qarışdırma və permutasiya (SPN)</td>
+<td style="text-align: left;">Hesablama mürəkkəbliyi (Ədədlər
+nəzəriyyəsi)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar paylanması</td>
+<td style="text-align: left;">Əvvəlcədən paylaşılmış sirr və ya etibarlı
+açar-paylama xidməti tələb edir</td>
+<td style="text-align: left;">Açıq material sərbəst ötürülə bilər, lakin
+onun sahibə bağlılığı autentifikasiya edilməlidir</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rəqəmsal imza</td>
+<td style="text-align: left;">Açıq yoxlanılan imza vermir; MAK/AEAD
+ortaq açarla autentiklik və tamlıq verir</td>
+<td style="text-align: left;">Xüsusi imza sxemləri açıq yoxlamanı təmin
+edir</td>
+</tr>
+<tr>
+<td style="text-align: left;">İnkaredilməzlik</td>
+<td style="text-align: left;">Təkbaşına təmin etmir</td>
+<td style="text-align: left;">Kimlik, açarın etibarlılığı, vaxt və
+siyasət sübutları ilə birlikdə dəstəkləyə bilər</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunələr</td>
+<td style="text-align: left;">AES-GCM, ChaCha20-Poly1305, CMAC</td>
+<td style="text-align: left;">RSAES-OAEP, ECDH, ECDSA, Ed25519</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hibrid-yanaşma">Hibrid Yanaşma</h2>
+<p>Praktiki tətbiqlərdə hər iki sistemin zəif tərəflərini kompensasiya
+etmək üçün onlar birlikdə, yəni hibrid şəkildə istifadə olunur:</p>
+<div class="definition">
+<p><strong>Tərif 3</strong>. <em><strong>Hibrid Şifrələmə</strong>
+Asimmetrik və simmetrik kriptoqrafiyanın üstünlüklərini birləşdirən
+ikimərhələli prosesdir:</em></p>
+<ol>
+<li><p><em><strong>Açar materialının yaradılması:</strong> KEM/açar
+köçürülməsi və ya DH/ECDH açar razılaşdırılması ilə ortaq sirr əldə
+edilir; həmin sirrdən KDF vasitəsilə konkret protokol və sessiya
+kontekstinə bağlı simmetrik açarlar törədilir.</em></p></li>
+<li><p><em><strong>Məlumatın qorunması:</strong> Böyük həcmli məlumat
+törədilmiş açarlarla autentifikasiyalı simmetrik şifrləmə (məsələn,
+AES-GCM və ya ChaCha20-Poly1305) vasitəsilə qorunur.</em></p></li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (TLS Protokolunda Hibrid Yanaşma).
+<em>Müasir HTTPS (TLS) rabitəsində hibrid model tətbiq olunur:</em></p>
+<ol>
+<li><p><em>Brauzer və server, məsələn, ECDHE ilə ortaq sirr hesablayır;
+sertifikat imzası və əl sıxma transkripti tərəfin autentifikasiyasını və
+mübadilənin kontekstini bağlayır.</em></p></li>
+<li><p><em>TLS açar cədvəli HKDF vasitəsilə ortaq sirrdən ayrıca əl
+sıxma və trafik açarları törədir; trafik AES-GCM və ya ChaCha20-Poly1305
+ilə qorunur.</em></p></li>
+</ol>
+<p><em>TLS 1.3-ün aktual təsviri və açar cədvəli RFC 9846-da verilir.<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a></em></p>
+</div>
+<p>Hibrid yanaşma açıq açarlı mexanizmlərin açar paylama imkanını
+simmetrik kriptoqrafiyanın sürəti ilə birləşdirir. Lakin hər sessiyada
+fərqli açarın istifadə olunması <strong>irəli məxfilik</strong>
+(<em>Forward Security / Perfect Forward Secrecy</em> – FS/PFS) üçün
+təkbaşına kifayət deyil. Bu xassə, məsələn, hər sessiya üçün təzə
+DHE/ECDHE gizli qiymətləri istifadə edildikdə, onlar təhlükəsiz şəkildə
+silindikdə və trafik açarları KDF ilə törədildikdə əldə edilir. Statik
+RSA açar köçürülməsi və ya yalnız uzunmüddətli PSK<a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> ilə
+qurulan sessiyalar fərqli sessiya açarları yaratsa da, avtomatik olaraq
+irəli məxfilik vermir.</p>
+<h1 id="açıq-açar-və-gizli-açar-anlayışları">Açıq Açar və Gizli Açar
+Anlayışları</h1>
+<h2 id="açar-cütünün-yaradılması">Açar Cütünün Yaradılması</h2>
+<p>Asimmetrik kriptoqrafiyada hər bir istifadəçi üçün riyazi olaraq
+bir-birinə bağlı olan <span class="math inline">\((pk, sk)\)</span> açar
+cütü yaradılır.</p>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Açıq və gizli açarların rolları). <em>Bir
+açıq açarlı sxemin <span
+class="math inline">\(\operatorname{KeyGen}\)</span> alqoritmi əlaqəli
+açıq və gizli açar materialı yaradır, lakin həmin materialın istifadəsi
+primitivin interfeysi ilə məhdudlaşır:</em></p>
+<ol>
+<li><p><em><strong>Şifrələmə/KEM açarları:</strong> açıq açar şifrələmə
+və ya enkapsulyasiya, gizli açar isə deşifrələmə və ya dekapsulyasiya
+üçün istifadə edilir.</em></p></li>
+<li><p><em><strong>İmza açarları:</strong> gizli imza açarı imza
+yaradır, açıq yoxlama açarı isə imzanı yoxlayır. Bu proses məlumatı
+şifrələmir və məxfiliyi təmin etmir.</em></p></li>
+<li><p><em><strong>Açar razılaşdırılması:</strong> DH/ECDH
+alqoritmlərində hər tərəf öz gizli qiyməti və qarşı tərəfin
+autentifikasiya olunmuş açıq açarı (və ya açıq parametri) vasitəsilə
+ortaq sirri hesablayır; hazır trafik açarları birbaşa açıq açarlardan
+deyil, bu ortaq sirrdən törədilir.</em></p></li>
+<li><p><em><strong>Açarların təcrid olunması (ayrılması):</strong>
+xüsusi alqoritm və ya təhlükəsizlik siyasəti açıq şəkildə tələb etmədiyi
+halda, şifrələmə, rəqəmsal imza və açar razılaşdırılması üçün istifadə
+olunan açarlar bir-birindən ayrı tutulmalıdır.</em></p></li>
+</ol>
+<p><em>Təhlükəsizlik yalnız açıq açardan gizli açarın çətin
+hesablanmasına deyil, həm də parametrlərin yoxlanmasına, uyğun
+təhlükəsizlik tərifinə və açıq açarın düzgün sahibə etibarlı şəkildə
+bağlanmasına əsaslanır.</em></p>
+</div>
+<h2 id="açıq-açarın-funksiyaları">Açıq Açarın Funksiyaları</h2>
+<p>Açıq açar (<span class="math inline">\(pk\)</span>) məxfi deyil,
+lakin autentifikasiya olunmuş şəkildə əldə edilməlidir. Konkret sxemdən
+asılı olaraq aşağıdakı məqsədlər üçün istifadə olunur:</p>
+<ol>
+<li><p><strong>Şifrələmə:</strong> Hər hansı bir istifadəçi Alisə gizli
+mesaj göndərmək istədikdə, Alisin hər kəsə açıq olan <span
+class="math inline">\(pk_{Alis}\)</span> açarından istifadə edərək
+məlumatı şifrələyir.</p></li>
+<li><p><strong>İmza yoxlama:</strong> Alisin imza yoxlama açarı mesajın
+və imzanın riyazi uyğunluğunu yoxlayır. Nəticəni Alisin kimliyi ilə
+əlaqələndirmək üçün açarın ona məxsusluğu ayrıca
+təsdiqlənməlidir.</p></li>
+</ol>
+<h2 id="gizli-açarın-funksiyaları">Gizli Açarın Funksiyaları</h2>
+<p>Gizli açar (<span class="math inline">\(sk\)</span>) icazəsiz
+açıqlanmadan və dəyişiklikdən qorunmalıdır. Konkret sxemdən asılı
+olaraq:</p>
+<ol>
+<li><p><strong>Deşifrələmə:</strong> Alisin açıq açarı ilə şifrələnmiş
+mesajları yalnız Alis öz gizli açarı (<span
+class="math inline">\(sk_{Alis}\)</span>) ilə açıb oxuya bilər.</p></li>
+<li><p><strong>İmzalama:</strong> Alis ayrıca imza açarı ilə mesaj üçün
+rəqəmsal imza yaradır; yoxlayan tərəf imza ilə yanaşı açarın
+etibarlılığını və sahibə bağlılığını da yoxlayır.</p></li>
+</ol>
+<blockquote>
+<p><strong>Kritik Qeyd (Açar Təhlükəsizliyi):</strong> Açıq açarın hamı
+tərəfindən bilinməsi sistemin təhlükəsizliyinə heç bir xələl gətirmir.
+Lakin gizli açar (<span class="math inline">\(sk\)</span>) hər hansı bir
+şəkildə sızarsa və ya ələ keçirilərsə:</p>
+<ul>
+<li><p>Şifrələmə açarı ələ keçirilərsə, həmin açara şifrələnmiş məlumat
+açıla bilər; əvvəlki sessiyaların təsiri protokolun irəli məxfilik
+xassəsindən asılıdır.</p></li>
+<li><p>İmza açarı ələ keçirilərsə, hücumçu yeni saxta imzalar yarada
+bilər. Açar dərhal ləğv edilməli, komprometasiya vaxtı və əvvəlki
+imzaların sübutları ayrıca araşdırılmalıdır.</p></li>
+</ul>
+</blockquote>
+<h2 id="açıq-açar-infrastrukturu-pki">Açıq Açar İnfrastrukturu
+(PKI)</h2>
+<p>Asimmetrik kriptoqrafiyada ən böyük risklərdən biri "ortadakı adam"
+hücumudur; yəni kənar bir hücumçunun özünü Alis kimi təqdim edib digər
+tərəflərə saxta açıq açar ötürməsi təhlükəsidir. Açıq açarların
+həqiqətən iddia edilən şəxsə məxsus olduğunu təsdiqləmək və
+saxtakarlığın qarşısını almaq üçün <strong>açıq açar
+infrastrukturu</strong> (Public Key İnfrastructure - PKI) istifadə
+edilir.</p>
+<div class="definition">
+<p><strong>Tərif 5</strong> (PKI). <em>Açıq açarların yaradılması, idarə
+edilməsi, paylanması, imzalanması və ləğv edilməsi üçün istifadə olunan
+rəqəmsal sertifikatlar, aparat-proqram vasitələri, təhlükəsizlik
+siyasətləri və tənzimləyici qaydalar <strong>kompleksidir
+(sistemidir)</strong>. PKI aşağıdakı əsas komponentlərdən
+ibarətdir:</em></p>
+<ul>
+<li><p><em><strong>Sertifikat Mərkəzləri (Certificate Authority -
+CA):</strong> İstifadəçilərin rəqəmsal kimliklərini yoxlayan və onların
+açıq açarlarını öz gizli açarı ilə imzalayaraq etibarlılığına zəmanət
+verən müstəqil, güvənilən qurumlar.</em></p></li>
+<li><p><em><strong>Rəqəmsal Sertifikatlar (məsələn, X.509
+standartı):</strong> Müvafiq açıq açarı və onun real sahibinin kimlik
+məlumatlarını bir-birinə bağlayan, CA tərəfindən kriptoqrafik olaraq
+möhürlənmiş rəqəmsal sənədlər.</em></p></li>
+<li><p><em><strong>Ləğv mexanizmləri:</strong> gizli açarı sızmış,
+etibarlılığını itirmiş və ya vaxtından əvvəl ləğv edilmiş
+sertifikatların siyahısını saxlamaq və <strong>real vaxt rejimində
+statusunu yoxlamaq</strong> üçün istifadə olunan CRL<a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> və
+sorğu əsaslı OCSP<a href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a> sistemləri.</em></p></li>
+</ul>
+</div>
+<h1 id="diffi-hellman-inqilabı">Diffi-Hellman İnqilabı</h1>
+<h2 id="kriptoqrafiyada-yeni-istiqamətlər-məqaləsi">Kriptoqrafiyada yeni
+istiqamətlər məqaləsi</h2>
+<p>1976-cı ildə <strong>Vitfild Diffi</strong> və <strong>Martin
+Hellman</strong> kriptoqrafiya tarixində dönüm nöqtəsi sayılan
+“Kriptoqrafiyada yeni istiqamətlər” <span class="citation"
+data-cites="diffie1976new"></span> adlı əsas məqalələrini nəşr
+etdilər.</p>
+<p>Bu tarixi məqalə ilə kriptoqrafiya elmində aşağıdakı inqilabi
+addımlar atıldı:</p>
+<ul>
+<li><p>Simmetrik kriptoqrafiyanın ən zəif bəndi olan açar paylanması
+problemi ilk dəfə sistemli şəkildə təsvir edildi.</p></li>
+<li><p>Açıq açar kriptoqrafiyası konsepsiyası nəzəri olaraq təklif
+olundu.</p></li>
+<li><p>İki tərəfə açıq kanal üzərindən ortaq gizli açar formalaşdırmağa
+imkan verən <strong>Diffi-Hellman açar razılaşdırılması
+protokolu</strong> təqdim edildi.</p></li>
+<li><p>İnkaredilməzlik və müəllifliyin təsdiqi üçün <strong>rəqəmsal
+imza</strong> anlayışı ilk dəfə təsvir olundu.</p></li>
+</ul>
+<blockquote>
+<p>Müasir informasiya təhlükəsizliyinin əsasını qoyan bu qeyri-adi
+işlərinə görə Diffi və Hellman 2015-ci ildə nüfuzlu <strong>Türinq
+mükafatı</strong>na layiq görülmüşdür.</p>
+</blockquote>
+<h2 id="gizli-tarix-gchq-nin-kəşfi">Gizli Tarix: GCHQ-nin Kəşfi</h2>
+<p>Kriptoqrafiya tarixinin maraqlı tərəfi budur ki, bu inqilabi ideyalar
+akademik mühitdən xəbərsiz şəkildə daha əvvəl məxfi xidmətlər tərəfindən
+təklif edilmişdi. 1997-ci ildə məxfiliyin götürülməsi ilə məlum oldu ki,
+Diffi və Hellmandan bir neçə il əvvəl Böyük Britaniyanın <strong>Hökumət
+Rabitə Qərargahı (GCHQ)</strong><a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a> daxilində eyni
+kriptoqrafik metodlar artıq mövcud idi:</p>
+<ul>
+<li><p><strong>1969-cu il:</strong> Ceyms Ellis açıq açar
+kriptoqrafiyası (həmin dövrdə “məxfi olmayan şifrələmə” adlandırılırdı)
+konsepsiyasını nəzəri olaraq kəşf etdi.</p></li>
+<li><p><strong>1973-cü il:</strong> Klifford Koks riyazi olaraq bugünkü
+RSA alqoritminə tam ekvivalent olan bir şifrələmə üsulu işləyib
+hazırladı (bu, RSA-nın rəsmi kəşfindən 4 il əvvəl idi).</p></li>
+<li><p><strong>1974-cü il:</strong> Malkolm Vilyamson Diffi-Hellman açar
+razılaşdırılmasına tam ekvivalent olan bir protokolu müstəqil şəkildə
+tapdı.</p></li>
+</ul>
+<p>Lakin dövlət tərəfindən bu kəşflər <strong>ciddi şəkildə gizli
+saxlanıldığı</strong> üçün dünya elmi ictimaiyyətinə və kriptoqrafiyanın
+inkişafına heç bir təsir göstərmədi. Nəticədə, Diffi və Hellman bu
+ideyaları tamamilə müstəqil şəkildə yenidən kəşf edərək dünyaya
+tanıtdılar.</p>
+<h1 id="birtərəfli-və-tələ-qapısı-funksiyalar">Birtərəfli və Tələ Qapısı
+Funksiyalar</h1>
+<h2 id="birtərəfli-funksiya-anlayışı">Birtərəfli Funksiya Anlayışı</h2>
+<p>Asimmetrik kriptoqrafiyanın riyazi əsasını hesablamada asimmetriya
+yaradan <strong>birtərəfli funksiyalar</strong> təşkil edir.</p>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Birtərəfli funksiyalar ailəsi).
+<em>Təhlükəsizlik parametri <span class="math inline">\(\lambda\)</span>
+ilə indekslənən <span class="math inline">\(\{f_\lambda\}\)</span>
+funksiyalar ailəsi aşağıdakı şərtləri ödədikdə
+<strong>birtərəfli</strong> adlanır:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(f_\lambda(x)\)</span> qiymətini
+hesablamaq <span class="math inline">\(\lambda\)</span> və giriş
+uzunluğuna görə polinomial zamanda mümkündür.</em></p></li>
+<li><p><em>Hər bir ehtimallı polinomial-zamanlı (Probabilistic
+Polynomial Time - PPT) <span class="math inline">\(A\)</span> alqoritmi
+üçün <span class="math inline">\(f_\lambda(x)\)</span> qiymətinə əsasən
+hər hansı bir ilkin obrazı (<span class="math inline">\(x&#39;\)</span>)
+tapmaq ehtimalı təhlükəsizlik parametri <span
+class="math inline">\(\lambda\)</span>-ya nəzərən ihmal edilə bilən
+(<em>negligible</em>) dərəcədə kiçik olmalıdır: <span
+class="math display">\[\Pr_{x \gets \{0,1\}^{\lambda},\, r}
+    \left[ f_\lambda \!\left( A(1^\lambda, f_\lambda(x); r) \right) =
+f_\lambda(x) \right]
+    \le \operatorname{negl}(\lambda).\]</span></em></p></li>
+</ol>
+<p><em>Burada ehtimal həm <span class="math inline">\(x\)</span>
+girişinin, həm də <span class="math inline">\(A\)</span> alqoritminin
+təsadüfi bitlərinin (<span class="math inline">\(r\)</span>) seçilməsi
+üzərində hesablanır. Deməli, tərsinə çevirmənin hər bir ayrıca giriş
+üçün mütləq qeyri-mümkün olması deyil, seçilmiş giriş paylanması üzrə
+bütün PPT rəqiblərin uğur ehtimalının cüzi qalması tələb olunur <span
+class="citation"
+data-cites="katz2020introduction goldreich2001foundations"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Birtərəfli Funksiya Nümunələri).
+<em>Praktiki kriptoqrafiyada aşağıdakı konstruksiyalar birtərəflilik
+üçün <strong>namizəd</strong> və ya ayrıca hesablama fərziyyəsi kimi
+istifadə olunur; onların formal birtərəfliliyi hələ sübut
+edilməyib:</em></p>
+<ol>
+<li><p><em><strong>Kriptoqrafik heş funksiyaları:</strong> SHA-256 və
+SHA-3 üçün ilkin obrazı tapmağın (<em>pre-image resistance</em>)
+praktiki baxımdan mümkünsüz olduğu qəbul edilir. Bu, standartlaşdırılmış
+təhlükəsizlik hədəfidir, riyazi OWF<a href="#fn9" class="footnote-ref"
+id="fnref9" role="doc-noteref"><sup>9</sup></a> isbatı deyildir. MD5-in
+kolliziya davamlılığı (<em>collision resistance</em>) sındırıldığı üçün
+o, müasir təhlükəsizlik sistemlərində istifadə
+edilməməlidir.</em></p></li>
+<li><p><em><strong>Faktorizasiya əsaslı namizədlər:</strong> kifayət
+qədər böyük və təsadüfi seçilmiş <span class="math inline">\(p,
+q\)</span> sadə ədədləri üçün <span class="math inline">\(n =
+pq\)</span> hasilini hesablamaq asandır, lakin yalnız <span
+class="math inline">\(n\)</span> moduluna əsasən onun vuruqlarını (<span
+class="math inline">\(p, q\)</span>) bərpa etməyin hesablama baxımından
+çətin olduğu fərz edilir. RSA sxemlərinin təhlükəsizliyi məhz
+faktorizasiya probleminə dayanır; lakin tam şifrələmə sxeminin
+təhlükəsizliyi üçün əlavə olaraq müvafiq doldurma mexanizmi (<em>padding
+scheme</em>) və adekvat hücum modeli tələb olunur.</em></p></li>
+<li><p><em><strong>Diskret loqarifm əsaslı namizədlər:</strong> Düzgün
+seçilmiş sonlu qrupda <span class="math inline">\(y=g^x\)</span>
+hesablamaq sürətli, <span class="math inline">\(g\)</span> və <span
+class="math inline">\(y\)</span>-dən <span
+class="math inline">\(x\)</span>-i tapmaq isə çətin hesab olunur.
+Fərziyyə qrupun və parametr generasiyasının konkret seçiminə
+bağlıdır.</em></p></li>
+</ol>
+</div>
+<h2 id="tələ-qapısı-birtərəfli-funksiyalar">Tələ Qapısı Birtərəfli
+Funksiyalar</h2>
+<p>Sadə birtərəfli funksiyalar (məsələn, heş funksiyaları) məlumatın
+konfidensiallığını təmin edən asimmetrik şifrələmə üçün kifayət etmir.
+Çünki şifrələnmiş mesajı qanuni alıcının effektiv şəkildə aça bilməsi
+üçün funksiyanın tərsini asanlaşdıran xüsusi bir "ipucu" olmalıdır.
+Kriptoqrafiyada bu mexanizmə <strong>tələ qapısı funksiyalar</strong>
+deyilir.</p>
+<div class="definition">
+<p><strong>Tərif 7</strong> (Tələ Qapısı Funksiya). <em><span
+class="math inline">\(f: X \rightarrow Y\)</span> funksiyası aşağıdakı
+şərtləri ödədikdə <strong>tələ qapısı funksiya</strong>
+adlanır:</em></p>
+<ol>
+<li><p><em>Müvafiq açıq parametrlərin paylanmasında, tələ qapısı
+(<em>trapdoor</em>) məlumatı olmadan istənilən ehtimallı
+polinomial-zamanlı (PPT) rəqibin funksiyanın təsadüfi çıxışını tərsinə
+çevirmək (ilkin obrazı tapmaq) ehtimalı cüzidir
+(<em>negligible</em>).</em></p></li>
+<li><p><em><strong>Əlavə gizli məlumat</strong> (tələ qapısı) məlum
+olduqda, funksiyanın tərsini polinomial zamanda hesablamaq
+mümkündür.</em></p></li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong>. <em><span>Tələ Qapısı Funksiya
+Nümunələri</span></em></p>
+<ol>
+<li><p><em><strong>RSA Funksiyası:</strong> İki böyük sadə ədədin hasili
+olan <span class="math inline">\(n = p \cdot q\)</span> və bir <span
+class="math inline">\(e\)</span> açıq eksponenti verildikdə, <span
+class="math inline">\(c = m^e \pmod n\)</span> funksiyasını hesablamaq
+asandır. RSA fərziyyəsinə görə uyğun paylanmadan seçilən <span
+class="math inline">\(n\)</span> və <span
+class="math inline">\(e\)</span> üçün <span
+class="math inline">\(m\)</span>-i bərpa etmək gizli məlumat olmadan
+çətindir. Burada <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə vuruqları (və ya onlardan alınan
+<span class="math inline">\(\varphi(n)\)</span> dəyəri) funksiyanın
+tərsini (<span class="math inline">\(m = c^d \pmod n\)</span>) tapmağı
+təmin edən <strong>tələ qapısıdır</strong>.</em></p></li>
+<li><p><em><strong>Rabin Funksiyası:</strong> Verilmiş <span
+class="math inline">\(n = p \cdot q\)</span> moduluna görə <span
+class="math inline">\(c = x^2 \pmod n\)</span> kvadratik qalığı
+hesablamaq asandır, lakin modulun sadə vuruqları bilinmədən kvadrat kök
+almaq (tərsini tapmaq) çətindir. Burada da <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> ədədləri <strong>tələ qapısı</strong>
+rolunu oynayır.</em></p></li>
+</ol>
+</div>
+<h2 id="tələ-qapısı-funksiyaların-kriptoqrafiyada-rolu">Tələ Qapısı
+Funksiyaların Kriptoqrafiyada Rolu</h2>
+<p>Gizli qapılı funksiyalar RSA kimi bəzi açıq açarlı konstruksiyaları
+izah edir, lakin bütün açıq açarlı primitivlər üçün universal model
+deyil:</p>
+<ul>
+<li><p><strong>RSA açar cütü:</strong> <span
+class="math inline">\(p,q\)</span> və ya onlardan alınan gizli eksponent
+<span class="math inline">\(d\)</span> tələ qapısı məlumatıdır; <span
+class="math inline">\((n= p \cdot q,e)\)</span> açıq
+parametrdir.</p></li>
+<li><p><strong>RSA şifrələmə sxemi:</strong> təhlükəsiz RSAES-OAEP-də
+açıq açar kodlaşdırılmış mesajı emal edir, gizli açar isə deşifrələməyə
+imkan verir. Təhlükəsizlik yalnız xam <span
+class="math inline">\(m^e\bmod n\)</span> funksiyasından ibarət
+deyil.</p></li>
+<li><p><strong>Sərhəd:</strong> ECDSA, EdDSA və ML-DSA imzaları “gizli
+açarla şifrələmə” və ya sadə tərs-funksiya əməliyyatı kimi qurulmur;
+onların ayrıca <span class="math inline">\(\operatorname{Sign}\)</span>
+və <span class="math inline">\(\operatorname{Verify}\)</span>
+alqoritmləri və təhlükəsizlik tərifləri var.</p></li>
+</ul>
+<blockquote>
+<p><strong>Nə üçün "Tələ Qapısı"?</strong> Bu funksiyalar metaforik
+olaraq döşəmədəki gizli bir qapıya bənzəyir. Seçilmiş təhlükəsizlik
+parametrində qapının yerini bilməyən səmərəli rəqib üçün onu tapıb açmaq
+hesablamada əlçatmazdır (birtərəflilik xassəsi). Lakin tələ qapısını
+yerini bilən tərəf qapını effektiv şəkildə tapıb aça bilir.</p>
+</blockquote>
+<h1 id="mürəkkəblik-sinifləri-və-kriptoqrafik-problemlər">Mürəkkəblik
+Sinifləri və Kriptoqrafik Problemlər</h1>
+<h2 id="p-və-np-sinifləri">P və NP Sinifləri</h2>
+<p>Kriptoqrafik təhlükəsizlik müəyyən hesablama məsələlərinin seçilmiş
+giriş paylanmasında ehtimallı rəqiblər üçün orta halda çətin olması
+fərziyyələrinə əsaslanır. P və NP isə ilk növbədə <strong>qərar
+problemlərinin ən pis hal mürəkkəbliyini</strong> təsnif edir. Buna görə
+P/NP terminləri faydalıdır, lakin təkbaşına kriptoqrafik təhlükəsizlik
+zəmanəti vermir <span class="citation"
+data-cites="arora2009computational katz2020introduction"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 8</strong> (P Sinfi). <em>P sinfi — deterministik
+Turinq maşınında giriş verilənlərinin uzunluğundan asılı olaraq
+<strong>polinomial zamanda</strong> həll edilə bilən qərar
+problemlərinin çoxluğudur.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 9</strong> (NP Sinifi). <em>NP sinfi — təklif olunan
+hər hansı bir həll şahidinin doğru olub-olmadığını polinomial zamanda
+<strong>yoxlamaq</strong> mümkün olan qərar problemlərinin
+çoxluğudur.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong>. <em><span>P və NP
+Nümunələri</span></em></p>
+<ul>
+<li><p><em><strong>P sinfi problemləri:</strong> İki ədədin vurulması,
+massivin nizamlanması, verilmiş ədədin sadə olub-olmadığının
+yoxlanılması (AKS testi).</em></p></li>
+<li><p><em><strong>NP sinfinə aid məsələlər:</strong> Sudoku
+tapmacasının həlli və qrafın rənglənməsi kimi məsələlərin müvafiq qərar
+(<em>decision</em>) formaları. Ədədin vuruqlara ayrılmasının
+(<em>integer factorization</em>) adətən istifadə olunan “<span
+class="math inline">\(n\)</span>-in vuruqlarını tap” forması isə
+axtarış/funksiya (<em>search/function</em>) məsələsidir. Bu məsələ üçün
+düzgün qərar forması qurmaq məqsədilə, məsələn, “<span
+class="math inline">\(n\)</span> ədədinin <span class="math inline">\(2
+\le d \le B\)</span> şərtini ödəyən qeyri-trivial böləni varmı?” sualı
+qoyulmalıdır; çünki sadəcə “mürəkkəb <span
+class="math inline">\(n\)</span> ədədinin sadə böləni varmı?” sualının
+cavabı ixtiyari mürəkkəb ədəd üçün trivial olaraq həmişə
+müsbətdir.</em></p></li>
+</ul>
+</div>
+<h2 id="np-tam-problemlər-və-kriptoqrafiya">NP-tam Problemlər və
+Kriptoqrafiya</h2>
+<p>Bəzi NP problemləri struktur baxımından o qədər mürəkkəbdir ki, onlar
+bütöv bir sinfin çətinlik zirvəsini təşkil edir <span class="citation"
+data-cites="arora2009computational"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 10</strong> (NP-tam). <em>NP-tam problemlər NP sinfinin
+ən çətin problemləridir və aşağıdakı iki şərti eyni vaxtda
+ödəyir:</em></p>
+<ol>
+<li><p><em>Özü NP sinfinə daxildir.</em></p></li>
+<li><p><em>NP sinfindəki istənilən digər problem polinomial zamanda bu
+problemə gətirilə bilər.</em></p></li>
+</ol>
+</div>
+<h2 id="p-vs-np-problemi-və-kriptoqrafik-fərziyyə">P vs NP Problemi və
+Kriptoqrafik Fərziyyə</h2>
+<p><span class="math inline">\(\text{P} = \text{NP}?\)</span> sualı
+müasir riyaziyyat və kompüter elmlərinin həll olunmamış ən böyük açıq
+problemidir.</p>
+<p>Əgər <span class="math inline">\(\text{P}=\text{NP}\)</span> olduğu
+sübut edilərsə, NP-dəki qərar problemləri üçün polinomial-zamanlı
+alqoritmlər mövcud olar və klassik tərifdə birtərəfli funksiyalar mövcud
+ola bilməzdi. Bu nəticə mürəkkəbliyə əsaslanan kriptoqrafiyanın
+asimptotik təməlini sarsıdardı. Bununla belə, bərabərliyin abstrakt
+sübutu konkret alqoritmin dərəcəsini və sabitlərini göstərmədən bütün
+real açar ölçülərinin həmin gün praktik sındırılması demək deyil.</p>
+<p>Kriptoqrafiya üçün <span class="math inline">\(\mathbf{P} \neq
+\mathbf{NP}\)</span> şərti yalnız <strong>zəruridir</strong>, lakin
+<strong>kafi (kifayət) deyildir</strong>: biristiqamətli funksiyaların
+mövcudluğu <span class="math inline">\(\mathbf{P} \neq
+\mathbf{NP}\)</span> nəticəsini doğursa da, bunun əks istiqaməti (yəni
+<span class="math inline">\(\mathbf{P} \neq \mathbf{NP}\)</span>
+olmasından biristiqamətli funksiyaların varlığı) məlum deyildir.
+Praktiki sxemlər əlavə olaraq konkret parametr paylanmaları üzrə ədədin
+vuruqlara ayrılması (<em>factorization</em>), diskret loqarifm və ya
+digər orta hal mürəkkəbliyi (<em>average-case hardness</em>)
+fərziyyələrinə söykənir <span class="citation"
+data-cites="goldreich2001foundations katz2020introduction"></span>.</p>
+<blockquote>
+<p><strong>Kritik Qeyd: Kriptoqrafiya və NP-tam Problemlərin
+Əlaqəsi</strong><br />
+Faktorizasiya və diskret loqarifmin adi formaları axtarış/funksiya
+problemləridir; buna görə onlara birbaşa “NP-tam” və ya “NP-aralıq”
+etiketi yapışdırmaq düzgün deyil. Hər hansı mürəkkəblik-sinfi iddiası
+üçün əvvəlcə konkret qərar variantı və reduksiya anlayışı
+göstərilməlidir. Bundan əlavə, NP-tamlığın ən pis-hal çətinliyi öz-özünə
+kriptoqrafiya üçün lazım olan orta-hal çətinliyini vermir.</p>
+</blockquote>
+<h2 id="faktorizasiya-problemi">Faktorizasiya Problemi</h2>
+<div class="definition">
+<p><strong>Tərif 11</strong> (Faktorizasiya Problemi). <em>Verilmiş
+<span class="math inline">\(n\)</span> mürəkkəb ədədini onu təşkil edən
+sadə vuruqlarının hasili şəklində göstərmək problemidir: <span
+class="math display">\[n = p_1^{a_1} \cdot p_2^{a_2} \cdots p_k^{a_k} =
+\prod_{i=1}^{k} p_i^{a_i}\]</span> Kriptoqrafik tətbiqlərdə (RSA)
+təhlükəsizliyi təmin etmək üçün bu problemin xüsusi bir halından — iki
+çox böyük sadə ədədin hasilindən (<span class="math inline">\(n = p
+\cdot q\)</span>) istifadə olunur.</em></p>
+</div>
+<p><strong>Hesablama Mürəkkəbliyi:</strong></p>
+<ul>
+<li><p><strong>Klassik mühitdə:</strong> Böyük ədədlərin vuruqlara
+ayrılması üçün məlum olan ən güclü klassik üsul GNFS alqoritmidir. Onun
+hesablama mürəkkəbliyi subeksponensial zaman aparır və xüsusi <span
+class="math inline">\(L\)</span>-notasiyası ilə aşağıdakı kimi ifadə
+olunur: <span class="math display">\[L_n\left[\frac{1}{3}, c\right] =
+e^{(c + o(1))(\ln n)^{1/3}(\ln \ln n)^{2/3}}\]</span> Burada:</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> — vuruqlara ayrılacaq
+ədədi təmsil edir.</p></li>
+<li><p><span class="math inline">\(c\)</span> — alqoritmin
+optimallaşdırılmasından asılı olan və GNFS üçün spesifik olaraq <span
+class="math inline">\(c \approx \left(\frac{64}{9}\right)^{1/3} \approx
+1.923\)</span> qiymətinə bərabər olan <strong>müsbət real
+sabitdir</strong>.</p></li>
+<li><p><span class="math inline">\(o(1)\)</span> — asimptotik olaraq
+<span class="math inline">\(n \to \infty\)</span> şərtində sıfıra
+yaxınlaşan funksiyanı ifadə edir.</p></li>
+</ul>
+<p>Bu mürəkkəblik polinomial zamandan çox yavaş (çətin), lakin tam
+eksponensial zamandan (<span class="math inline">\(O(2^b)\)</span>) çox
+sürətlidir (asan).</p></li>
+<li><p><strong>Kvant mühitində:</strong> Şor alqoritmi faktorizasiyanı
+ideal kvant hesablama modelində polinomial zamanda həll edir. Kifayət
+qədər böyük, xətaya davamlı kvant kompüteri qurularsa, faktorizasiyaya
+əsaslanan cari açıq açarlı sxemlərin təhlükəsizlik fərziyyəsi
+pozular.</p></li>
+</ul>
+<p><strong>Tövsiyə olunan RSA Açar Uzunluqları (Klassik
+Dayanıqlıq):</strong></p>
+<ul>
+<li><p><strong>1024-bit:</strong> NIST keçid cədvəllərində yalnız
+təxminən 80-bit dayanıqlığa uyğun gəlir və yeni qoruma tətbiqləri üçün
+icazəli deyil.</p></li>
+<li><p><strong>2048-bit:</strong> Təxminən 112-bit maksimum dayanıqlıq
+verir; konkret istifadənin müddəti və icazəsi tətbiq profilindən
+asılıdır.</p></li>
+<li><p><strong>3072-bit:</strong> Təxminən 128-bit simmetrik
+təhlükəsizlik səviyyəsinə uyğundur.</p></li>
+<li><p><strong>4096-bit:</strong> NIST SP 800-56B Rev. 2 cədvəlinə görə
+təxminən <strong>152-bit</strong> maksimum dayanıqlıq verir; 256-bit
+ekvivalent deyil.</p></li>
+<li><p><strong>7680 və 15360 bit:</strong> NIST SP 800-57 Part 1 Rev.
+5-də müvafiq olaraq təxminən 192 və 256-bit səviyyələrə
+uyğunlaşdırılır.</p></li>
+</ul>
+<p>Parametr seçimi “kritik məlumat” kimi ümumi etiketlə deyil, tələb
+olunan təhlükəsizlik səviyyəsi, qoruma müddəti, alqoritm profili və
+performans məhdudiyyətləri ilə əsaslandırılmalıdır <span
+class="citation" data-cites="nist2020keymanagement"></span>. RSA-4096
+üçün 152-bit qiymət NIST SP 800-56B Rev. 2, Cədvəl 2-də verilir.<a
+href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a></p>
+<div class="example">
+<p><strong>Nümunə 6</strong> (Faktorizasiya Nümunəsi). <em>Kiçik ölçülü
+ədədlər üçün faktorizasiya dərhal yerinə yetirilir: <span
+class="math inline">\(15 = 3 \times 5\)</span>, <span
+class="math inline">\(35 = 5 \times 7\)</span>. 2048-bitlik RSA modulu
+isə təxminən 617 onluq rəqəmdən ibarətdir və düzgün yaradılmış parametr
+üçün açıq şəkildə məlum klassik üsullarla faktorizasiyası praktik hesab
+edilmir. Konkret vaxt qiyməti avadanlıqdan, alqoritmdən və resurs
+modelindən asılı olduğu üçün sabit “milyard il” zəmanəti kimi təqdim
+edilmir.</em></p>
+</div>
+<h2 id="diskret-loqarifm-problemi-dlp">Diskret Loqarifm Problemi
+(DLP)</h2>
+<div class="definition">
+<p><strong>Tərif 12</strong> (Diskret Loqarifm Problemi). <em>Verilmiş
+<span class="math inline">\(g\)</span> generatoru, <span
+class="math inline">\(h\)</span> elementi və böyük <span
+class="math inline">\(p\)</span> sadə ədədi üçün modulyar qrup daxilində
+aşağıdakı tənliyi ödəyən naməlum <span class="math inline">\(x\)</span>
+tam ədədinin tapılması problemidir: <span class="math display">\[g^x
+\equiv h \pmod{p}\]</span></em></p>
+</div>
+<p><strong>Hesablama Mürəkkəbliyi və Parametrlər:</strong></p>
+<ul>
+<li><p><strong>Klassik alqoritmlər:</strong> Sonlu meydanlardakı DLP
+üçün indeks-hesablama və <strong>NFS-DL</strong> ailəsi subeksponensial
+hücumlar verir. FFC/DH parametr ölçüləri yalnız RSA modul ölçüsü ilə
+mexaniki eyniləşdirilmir: sahə modulu, altqrupun tərtibi və tələb olunan
+dayanıqlıq birlikdə seçilir.</p></li>
+<li><p><strong>Kvant alqoritmləri:</strong> Şor alqoritminin
+modifikasiya olunmuş variantı diskret loqarifmi polinomial zamanda həll
+etmək qabiliyyətinə malikdir.</p></li>
+</ul>
+<h2 id="elliptik-əyri-diskret-loqarifm-problemi-ecdlp">Elliptik Əyri
+Diskret Loqarifm Problemi (ECDLP)</h2>
+<p>Elliptik əyri kriptoqrafiyası (ECC) sonlu meydanlar üzərində qurulan
+klassik diskret loqarifm probleminin daha çətin bir strukturuna
+əsaslanır <span class="citation"
+data-cites="paar2024understanding"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 13</strong> (Elliptik Əyri Diskret Loqarifm Problemi).
+<em>Verilmiş bir elliptik əyri qrupu üzərində <span
+class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələri məlum olduqda, aşağıdakı
+skalyar vurma əməliyyatını ödəyən <span class="math inline">\(k\)</span>
+tam ədədinin tapılması problemidir: <span class="math display">\[Q =
+[k]P = \underbrace{P + P + \cdots + P}_{k \text{
+dəfə}}\]</span></em></p>
+</div>
+<p><strong>Struktur Üstünlüyü:</strong> Uyğun seçilmiş ümumi elliptik
+əyri qruplarında ECDLP üçün sonlu meydan DLP-sindəki NFS-DL kimi
+subeksponensial klassik alqoritm məlum deyil. Ümumi qrup hücumlarından
+Pollard rho, qrupun tərtibi <span class="math inline">\(n\)</span>
+olduqda <span class="math inline">\(O(\sqrt{n})\)</span> əməliyyat tələb
+edir; bu, <span class="math inline">\(\log_2 n\)</span> giriş uzunluğuna
+görə eksponensialdır. Bu xassə ECC-yə parametr ölçüsü baxımından
+üstünlük verir:</p>
+<ul>
+<li><p><strong>Daha qısa parametr ölçüləri:</strong> NIST müqayisəsində
+256-bitlik ECC parametri və 3072-bitlik RSA modulu təxminən 128-bit
+klassik təhlükəsizlik səviyyəsinə uyğunlaşdırılır.</p></li>
+<li><p><strong>Resurs effektivliyi:</strong> ECC açıq açarları adətən
+daha kiçik olur; yaddaş, enerji və sürət üstünlüyü isə konkret sxemə və
+reallaşdırmaya görə ölçülməlidir.</p></li>
+</ul>
+<h2 id="rsa-fərziyyəsi">RSA Fərziyyəsi</h2>
+<p>RSA kriptosisteminin riyazi təhlükəsizliyi birbaşa faktorizasiya ilə
+əlaqəli olsa da, onun əsasında daha spesifik bir fərziyyə dayanır <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 14</strong> (RSA Fərziyyəsi). <em>Aşağıdakı parametrlər
+hər kəsə məlum olduqda:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(n = p \cdot q\)</span> — RSA
+modulu,</em></p></li>
+<li><p><em><span class="math inline">\(e\)</span> — açıq
+eksponent,</em></p></li>
+<li><p><em><span class="math inline">\(c \equiv m^e \pmod{n}\)</span> —
+RSA funksiyasının çıxışı.</em></p></li>
+</ul>
+<p><em><span class="math inline">\(n\)</span> ədədini sadə vuruqlarına
+(<span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span>) ayırmadan, birbaşa <span
+class="math inline">\(m\)</span> ilkin obrazını (yəni <span
+class="math inline">\(e\)</span>-ci dərəcədən modulyar kökü) hesablamaq
+çətin sayılır. Bu, xam RSA əməliyyatının təhlükəsiz şifrələmə sxemi
+olduğu iddiası deyil.</em></p>
+</div>
+<p><strong>Qeyd:</strong> Faktorizasiya probleminin həlli RSA
+funksiyasını tərsinə çevirməyə imkan verir (çünki <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> tapılarsa, gizli eksponent <span
+class="math inline">\(d\)</span> asanlıqla hesablanır). Lakin əks
+istiqamət sübut olunmayıb: RSA funksiyasını ümumi halda tərsinə
+çevirmənin faktorizasiyanı həll etməyə ekvivalent olub-olmadığı açıq
+qalır.</p>
+<h2 id="problemlərin-mürəkkəblik-müqayisəsi">Problemlərin Mürəkkəblik
+Müqayisəsi</h2>
+<p>Aşağıdakı cədvəldə asimmetrik kriptoqrafiyanın əsasını təşkil edən
+riyazi problemlərin hesablama mürəkkəbliyi və cari statusları
+ümumiləşdirilmişdir:</p>
+<table>
+<caption>Kriptoqrafik Problemlərin Mürəkkəblik Analizi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Problem</strong></th>
+<th style="text-align: left;"><strong>Klassik Alqoritm</strong></th>
+<th style="text-align: left;"><strong>Kvant Alqoritm</strong></th>
+<th style="text-align: left;"><strong>Mürəkkəblik Statusu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Faktorizasiya</td>
+<td style="text-align: left;">GNFS (subeksponensial)</td>
+<td style="text-align: left;">Şor (polinomial)</td>
+<td style="text-align: left;">Axtarış problemidir; P-də olduğu məlum
+deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sonlu meydan DLP</td>
+<td style="text-align: left;">NFS-DL (subeksponensial)</td>
+<td style="text-align: left;">Şor (polinomial)</td>
+<td style="text-align: left;">Axtarış problemidir; P-də olduğu məlum
+deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;">ECDLP</td>
+<td style="text-align: left;">Pollard rho (<span
+class="math inline">\(O(\sqrt n)\)</span>)</td>
+<td style="text-align: left;">Şor (polinomial)</td>
+<td style="text-align: left;">Axtarış problemidir; uyğun əyridə
+subeksponensial klassik üsul məlum deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;">RSA fərziyyəsi</td>
+<td style="text-align: left;">Birbaşa polinomial üsul məlum deyil</td>
+<td style="text-align: left;">Şor faktorizasiya ilə sındırır</td>
+<td style="text-align: left;">Faktorizasiya RSA-nı sındırır; əks
+reduksiya sübut edilməyib</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tövsiyələr">Praktik Tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>RSA:</strong></p>
+<ul>
+<li><p><em>Üstünlüyü:</em> Geniş infrastruktur dəstəyi və köhnə
+sistemlərlə tam geriyə uyğunluq.</p></li>
+<li><p><em>Mənfi cəhəti:</em> Hesablama baxımından yavaşdır və böyük
+açar ölçüləri tələb edir.</p></li>
+<li><p><em>Tətbiqi:</em> Standartlaşdırılmış RSA-PSS imzası və uyğun
+profildə RSAES-OAEP açar köçürülməsi kimi sxemlərdə istifadə olunur; xam
+RSA əməliyyatı təhlükəsiz sxem deyil.</p></li>
+<li><p><em>Parametr seçimi:</em> RSA-2048/3072/4096 müvafiq olaraq
+təxminən 112/128/152-bit maksimum klassik dayanıqlıq verir; tələb olunan
+səviyyə və istifadə müddəti siyasətlə seçilir.</p></li>
+</ul></li>
+<li><p><strong>ECC:</strong></p>
+<ul>
+<li><p><em>Üstünlüyü:</em> Eyni təhlükəsizlik səviyyəsi üçün əhəmiyyətli
+dərəcədə daha qısa açar ölçüləri təqdim edir.</p></li>
+<li><p><em>Mənfi cəhəti:</em> Riyazi strukturu və proqram təminatı
+reallaşdırılması RSA-ya nisbətən daha mürəkkəbdir.</p></li>
+<li><p><em>Tətbiqi:</em> Mobil və resursları məhdud sistemlərdə
+faydalıdır, lakin konkret standart əyri, altqrup, nöqtə yoxlaması və
+yan-kanal davamlı reallaşdırma seçilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Sonlu meydan Diffi–Hellman (FFC/DH):</strong></p>
+<ul>
+<li><p><em>Tətbiqi:</em> Autentifikasiya və KDF ilə birlikdə təhlükəsiz
+açar razılaşdırılması protokollarının qurulması üçün istifadə
+olunur.</p></li>
+<li><p><em>Müasir statusu:</em> Onun elliptik əyrilər üzərindəki
+variantı (ECDH) resurs səmərəliliyinə görə daha çox üstünlük təşkil
+edir.</p></li>
+<li><p><em>Xassəsi:</em> Təzə efemer gizli qiymətlər, düzgün parametr
+yoxlaması və sirlərin silinməsi ilə DHE/ECDHE irəli məxfilik təmin edə
+bilər.</p></li>
+</ul></li>
+<li><p><strong>Post-Kvant Təhlükəsizliyi:</strong></p>
+<ul>
+<li><p><em>Tətbiqi:</em> Kriptoqrafik inventar, risk və qoruma müddətinə
+əsaslanan mərhələli PQC miqrasiyası planlaşdırılmalıdır.</p></li>
+<li><p><em>Tövsiyə:</em> NIST-in 2024-cü ildə nəşr etdiyi <strong>ML-KEM
+(FIPS 203)</strong> açar inkapsulyasiya mexanizmi və <strong>ML-DSA
+(FIPS 204)</strong> rəqəmsal imza standartları nəzərə alınmalıdır.<a
+href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a> ML-KEM, CRYSTALS-Kyber əsasında
+qurulan KEM-dir; autentifikasiya olunmuş açar razılaşdırılması protokolu
+deyil. ML-DSA isə CRYSTALS-Dilithium əsasında qurulan imza
+standartıdır.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Tapşırıqları əvvəlcə qeydsiz yerinə yetirin və hər cavab üçün bir
+əsaslandırma yazın. Müəllim üçün cavab açarı yalnız ilkin cəhddən sonra
+açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em>Simmetrik və asimmetrik kriptoqrafiya
+prinsipləri arasında mövcud olan 3 əsas konseptual fərqi
+sadalayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Kriptoqrafiyada “açar paylanması
+problemi” nədir? Asimmetrik kriptoqrafiya strukturu bu problemi hansı
+mexanizmlə həll edir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em>Riyazi olaraq birtərəfli funksiya ilə
+tələ qapısı funksiya arasında hansı prinsipial fərq var? Hər birinə
+kriptoqrafik tətbiq kontekstində bir nümunə göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Diffi və Hellman tərəfindən 1976-cı
+ildə dərc olunmuş məqalənin kriptoqrafiya tarixindəki əsas əhəmiyyəti
+nədir? Böyük Britaniyanın dövlət rabitə qərargahının (GCHQ) bu sahədəki
+gizli kəşfləri haqqında nə bilirsiniz?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>Faktorizasiya problemi ilə diskret
+loqarifm problemi (DLP) arasında hesablama mürəkkəbliyi baxımından hansı
+oxşarlıqlar və fərqlər mövcuddur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>P, NP və NP-tam mürəkkəblik
+siniflərini qısaca izah edin. Kriptoqrafik təhlükəsizlik baxımından
+<span class="math inline">\(\text{P} = \text{NP}\)</span> fərziyyəsinin
+doğru çıxması nə dərəcədə təhlükəlidir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>Elliptik əyri kriptoqrafiyasının
+(ECC) riyazi struktur cəhətdən RSA alqoritminə nisbətən nümayiş
+etdirdiyi əsas üstünlüklər nələrdir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>NIST müqayisəsinə əsasən, 3072-bitlik
+RSA modulu ilə 256-bitlik ECC parametri təxminən eyni 128-bit
+təhlükəsizlik səviyyəsinə uyğunlaşdırılır. Bu uyğunluq hesablama
+mürəkkəbliyi baxımından nəyi ifadə edir və praktik tətbiqdə hansı
+üstünlükləri yarada bilər?</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ol>
+<li><p>Simmetrik və asimmetrik kriptoqrafiya arasında üç fundamental
+fərq aşağıdakılardır:</p>
+<ol>
+<li><p><strong>Açar arxitekturası:</strong> Simmetrik sistemlərdə
+şifrələmə və deşifrələmə üçün eyni gizli açardan, asimmetrik sistemlərdə
+isə riyazi əlaqəli fərqli açar cütlərindən (açıq və gizli açar) istifadə
+olunur.</p></li>
+<li><p><strong>Hesablama sürəti:</strong> Simmetrik alqoritmlər bit
+səviyyəsində sürətli məntiqi əməliyyatlara əsaslandığı üçün yüksək
+sürətlidir. Asimmetrik alqoritmlər isə böyük ədədlər üzərində modulyar
+riyazi hesablamalar tələb etdiyindən xeyli yavaşdır.</p></li>
+<li><p><strong>Açar idarəedilməsi:</strong> Simmetrik kriptoqrafiyada
+genişlənən şəbəkələrdə paylaşılmış açarların təhlükəsiz yaradılması və
+ötürülməsi problemi mövcuddur. Açıq açarlı kriptoqrafiya əvvəlcədən
+ortaq sirr tələbini azaldır, lakin açıq açarın düzgün sahibə
+məxsusluğunun autentifikasiyasını zəruri edir.</p></li>
+</ol></li>
+<li><p><strong>Açar paylanması problemi:</strong> İki tərəfin simmetrik
+qoruma qurmazdan əvvəl ortaq gizli açarı təhlükəsiz əldə etməsi
+zərurətidir. Açıq açarlı şifrələmə/KEM və ya DH/ECDH razılaşdırılması bu
+ilkin ortaq-sirr tələbini azaldır: tərəflər açıq material ötürür və
+ortaq açar materialı yaradırlar. Lakin hücumçunun açıq açarı
+dəyişdirməsinin qarşısını almaq üçün sertifikat, əvvəlcədən etibar
+edilmiş açar və ya başqa autentifikasiya mexanizmi yenə tələb
+olunur.</p></li>
+<li><p><strong>Prinsipial fərq:</strong> Birtərəfli funksiyalar ailəsi
+düz istiqamətdə polinomial zamanda hesablanır, lakin təsadüfi çıxışı
+tərsinə çevirməyə çalışan hər bir PPT alqoritmin uğur ehtimalı
+təhlükəsizlik parametrinə görə cüzidir. Tələ qapısı funksiyasında əlavə
+gizli məlumat olduqda tərsinə çevirmə effektiv olur. Bu xassələr mütləq
+“heç bir alqoritm yoxdur” iddiası deyil, parametr və giriş paylanması
+üzrə ehtimallı təhlükəsizlik tərifidir.</p>
+<ul>
+<li><p><em>Birtərəfli funksiya namizədi:</em> Düzgün seçilmiş sonlu
+qrupda modulyar üstüqüvvətə yüksəltmə: <span class="math inline">\(f(x)
+= g^x \pmod p\)</span>; birtərəflilik diskret loqarifm fərziyyəsinə
+bağlıdır.</p></li>
+<li><p><em>Tələ qapısı funksiya namizədi:</em> RSA funksiyası: <span
+class="math inline">\(f(m) = m^e \pmod{n}\)</span>. Burada <span
+class="math inline">\(n\)</span>-in sadə vuruqları (<span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span>) məlum olduqda gizli eksponent <span
+class="math inline">\(d\)</span> hesablanır və funksiya effektiv şəkildə
+tərsinə çevrilir.</p></li>
+</ul></li>
+<li><p>Diffi və Hellman tərəfindən yazılmış “Kriptoqrafiyada yeni
+istiqamətlər” (1976) məqaləsi, minilliklər boyu yalnız simmetrik
+prinsiplərə bağlı qalan kriptoqrafiya elmində ilk dəfə asimmetrik (açıq
+açarlı) arxitekturanın konseptual təməlini qoymuşdur <span
+class="citation" data-cites="diffie1976new"></span>. Tarixi faktlar
+göstərir ki, Böyük Britaniyanın kəşfiyyat agentliyi GCHQ daxilində
+çalışan tədqiqatçılar Ceyms Ellis, Klifford Koks və Malkolm Uilyamsonun
+bu ideyaları daha əvvəl kəşf etdiyini göstərir; Uilyamson 1974-cü ildə
+Diffi-Hellman-a ekvivalent protokol qurmuşdu. Lakin bu kəşflər dövlət
+tərəfindən məxfi saxlanıldığı üçün dünya elminin inkişafına birbaşa
+təsir göstərə bilməmişdir <span class="citation"
+data-cites="singh1999code"></span>.</p></li>
+<li><p>Faktorizasiya və diskret loqarifm problemlərinin müqayisəsi:</p>
+<ul>
+<li><p><strong>Oxşarlıqlar:</strong> Hər ikisi adi formada
+axtarış/funksiya problemidir; seçilmiş böyük parametrlər üçün klassik
+polinomial-zamanlı həlləri məlum deyil və kvant mühitində Şor alqoritmi
+ilə polinomial zamanda həll oluna bilirlər.</p></li>
+<li><p><strong>Fərqlər:</strong> Faktorizasiyada verilmiş mürəkkəb <span
+class="math inline">\(n=pq\)</span> ədədinin vuruqları axtarılır və ən
+yaxşı ümumi klassik üsul GNFS-dir. Sonlu meydan DLP-sində <span
+class="math inline">\(g^x=h\)</span> şərtini ödəyən <span
+class="math inline">\(x\)</span> axtarılır və NFS-DL kimi üsullar tətbiq
+olunur. Hücumların dəqiq dəyəri parametr generasiyasından və qrupun
+strukturundan asılıdır; bu axtarış formalarına birbaşa “NP-aralıq”
+statusu verilmir.</p></li>
+</ul></li>
+<li><p><strong>P sinfi:</strong> Deterministik alqoritmlə polinomial
+zamanda həll edilən qərar problemləridir. <strong>NP sinfi:</strong>
+“bəli” cavabının şahidini polinomial zamanda yoxlamaq mümkün olan qərar
+problemləridir. <strong>NP-tam:</strong> NP-də olub NP-dəki hər
+problemin polinomial reduksiya edildiyi problemlərdir. <span
+class="math inline">\(\text{P}=\text{NP}\)</span> olarsa, klassik
+birtərəfli funksiyalar mövcud ola bilməz və mürəkkəbliyə əsaslanan
+kriptoqrafiyanın asimptotik təməli itər. Lakin <span
+class="math inline">\(\text{P}\neq\text{NP}\)</span> təkbaşına
+birtərəfli funksiyaların mövcudluğunu sübut etmir; kriptoqrafiya əlavə
+orta-hal fərziyyələri tələb edir.</p></li>
+<li><p>ECC-nin RSA üzərindəki əsas riyazi və praktiki üstünlükləri:</p>
+<ul>
+<li><p><strong>Məlum hücumların strukturu:</strong> Düzgün seçilmiş
+ümumi elliptik əyri qruplarında ECDLP üçün NFS-DL analoqu olan
+subeksponensial klassik alqoritm məlum deyil; Pollard rho kimi ümumi
+hücumlar qrup tərtibinin kvadrat kökü miqyasında işləyir.</p></li>
+<li><p><strong>Açar ölçüsü səmərəliliyi:</strong> NIST müqayisəsində
+256-bitlik ECC parametri və 3072-bitlik RSA modulu təxminən 128-bit
+təhlükəsizlik səviyyəsinə uyğun gəlir; bu qiymət konkret təsdiqlənmiş
+əyri və sxem seçimini əvəz etmir.</p></li>
+<li><p><strong>Resurs qənaəti:</strong> Daha kiçik açarlar şəbəkə
+paketlərinin ölçüsünü azaldır, əməliyyat sürətini artırır və mobil/bort
+sistemlərdə batareya və yaddaş sərfiyyatına ciddi qənaət edir.</p></li>
+</ul></li>
+<li><p>256-bitlik ECC parametri ilə 3072-bitlik RSA modulunun NIST
+cədvəlində eyni səviyyədə göstərilməsi, məlum ən yaxşı klassik
+hücumların təxmini iş əmsalının 128-bit təhlükəsizlik hədəfinə
+uyğunlaşdırılması deməkdir. ECC-nin açıq açarları adətən daha kiçikdir,
+lakin real sürət, imza/şifrəli mətn ölçüsü və bant genişliyi konkret
+sxemə, kodlaşdırmaya və reallaşdırmaya görə ölçülməlidir; təkcə <span
+class="math inline">\(3072/256=12\)</span> nisbəti bütün sistem
+məhsuldarlığını ifadə etmir.</p></li>
+</ol>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə asimmetrik kriptoqrafiya nəzəriyyəsinin təməllərini
+təşkil edən aşağıdakı konseptual anlayışlar və mexanizmlər təhlil
+olunmuşdur:</p>
+<ul>
+<li><p><strong>Açıq açarlı primitivlər:</strong> Açıq açarlı
+şifrələmə/KEM, rəqəmsal imza və açar razılaşdırılmasının fərqli
+interfeysləri və açar rolları öyrənilmişdir; imzanın “gizli açarla
+şifrələmə” olmadığı vurğulanmışdır.</p></li>
+<li><p><strong>Açar idarəedilməsi:</strong> Açıq açarlı metodlar
+əvvəlcədən ortaq gizli açar paylaşmaq tələbini azaldır, lakin açıq
+açarın sahibə bağlılığının autentifikasiyası və açarların təyinat üzrə
+ayrılması tələbini aradan qaldırmır.</p></li>
+<li><p><strong>Riyazi təməllər:</strong> Birtərəfli funksiyalar PPT
+rəqib, təhlükəsizlik parametri, giriş paylanması və cüzi uğur ehtimalı
+ilə tərif edilmiş; tələ qapısı funksiyaların yalnız bəzi konstruksiyalar
+üçün model olduğu göstərilmişdir.</p></li>
+<li><p><strong>Hesablama mürəkkəbliyi:</strong> P, NP və NP-tam
+siniflərinin qərar problemlərinə və ən pis hala aid olduğu,
+kriptoqrafiya üçün isə əlavə orta-hal çətinliyinin lazım gəldiyi izah
+edilmişdir. OWF mövcudluğu <span
+class="math inline">\(\text{P}\neq\text{NP}\)</span> nəticəsini verir,
+əks istiqamət məlum deyil.</p></li>
+<li><p><strong>Fundamental riyazi problemlər:</strong> Müasir asimmetrik
+sistemlərin (RSA, DH, ECC) əsasını təşkil edən böyük ədədlərin
+faktorizasiyası, sonlu meydanlar üzərində diskret loqarifm (DLP) və
+elliptik əyrilər üzərində diskret loqarifm (ECDLP) problemlərinin
+çətinlik xüsusiyyətləri müqayisəli şəkildə analiz edilmişdir.</p></li>
+<li><p><strong>Kvant təhdidi və gələcək trendlər:</strong> Şor
+alqoritminin asimmetrik strukturları (faktorizasiya və DLP) polinomial
+zamanda həll etmə potensialı öyrənilmiş və bu təhlükəyə qarşı alternativ
+olaraq yaradılan post-kvant kriptoqrafiyası (NIST PQC standartları) üzrə
+praktik tövsiyələr verilmişdir.</p></li>
+</ul>
+<p><strong>Əsas Nəticə:</strong> Açıq açarlı kriptoqrafiya əvvəlcədən
+ortaq sirr paylaşmaq problemini azaldır, rəqəmsal imza ilə açıq yoxlama
+imkanı verir və autentifikasiya olunmuş açar razılaşdırılmasını
+dəstəkləyir. Simmetrik MAK və AEAD də məlumatın tamlığını və ortaq-açar
+autentikliyini təmin edir; rəqəmsal imzanın fərqi açıq yoxlama və uyğun
+kimlik, açar-validasiya, vaxt və siyasət sübutları olduqda
+inkaredilməzliyi dəstəkləməsidir. Klassik açıq açarlı sistemlər kvant
+hücumlarına həssas olduğuna görə miqrasiya qərarları kriptoqrafik
+inventar, risk, standartlar və hibrid keçid planı əsasında
+verilməlidir.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>KEM - Açar enkapsulyasiya mexanizmi - Key
+Encapsulation Mechanizm</em><a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><em>DH – Diffi-Hellman (<em>Diffie-Hellman</em>); ECDH –
+Elliptik Əyri Diffi-Hellman (<em>Elliptic Curve Diffie-Hellman</em>).
+Bunları gələcək mühazirələrdə öyrənəcəyik.</em><a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><em>KDF – Açar Törətmə Funksiyası (<em>Key Derivation
+Function</em>).</em><a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><em>RFC 9846, <a
+href="https://www.rfc-editor.org/info/rfc9846/"
+class="uri">https://www.rfc-editor.org/info/rfc9846/</a>.</em><a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>PSK – Əvvəlcədən Paylaşılmış Açar (<em>Pre-Shared
+Key</em>). Kommunikasiyadan öncə tərəflər arasında təhlükəsiz kanalla
+əvvəlcədən razılaşdırılmış simmetrik gizli açardır.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><em>CRL – Sertifikatların Ləğv Siyahısı (<em>Certificate
+Revocation List</em>). Sertifikat Mərkəzi (CA) tərəfindən dövri olaraq
+dərc edilən və ləğv olunmuş sertifikatların seriya nömrələrini özündə
+saxlayan rəqəmsal imzalılı siyahıdır.</em><a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><em>OCSP – Onlayn Sertifikat Statusu Protokolu
+(<em>Online Certificate Status Protocol</em>). Bütün ləğv siyahısını
+yükləmədən, konkret bir sertifikatın etibarlılıq statusunu real vaxt
+rejimində sorğulamağa imkan verən interaktiv şəbəkə protokoludur.</em><a
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>GCHQ – Hökumət Rabitə Qərargahı (<em>Government
+Communications Headquarters</em>). Böyük Britaniyanın siqnal kəşfiyyatı,
+kibertəhlükəsizlik və informasiya mühafizəsindən cavabdeh olan dövlət
+kəşfiyyat agentliyidir.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><em>OWF – Biristiqamətli Funksiya (<em>One-Way
+Function</em>). Düzünə hesablanması asan, lakin tərsinə çevrilməsi
+(ilkin obrazının tapılması) hesablama baxımından çətin olan
+nəzəri-kriptoqrafik funksiyadır.</em><a href="#fnref9"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>NIST SP 800-56B Rev. 2, <a
+href="https://doi.org/10.6028/NIST.SP.800-56Br2"
+class="uri">https://doi.org/10.6028/NIST.SP.800-56Br2</a>.<a
+href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>NIST FIPS 203, <a
+href="https://doi.org/10.6028/NIST.FIPS.203"
+class="uri">https://doi.org/10.6028/NIST.FIPS.203</a>; NIST FIPS 204, <a
+href="https://doi.org/10.6028/NIST.FIPS.204"
+class="uri">https://doi.org/10.6028/NIST.FIPS.204</a>.<a href="#fnref11"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (9)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Diffie &amp; Hellman, 1976</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">New Directions in Cryptography</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Martin E. Hellman (1976)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Goldreich, 2001</span>
+                        <small class="text-muted">Cambridge University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Foundations of Cryptography: Volume 1, Basic Tools</h6>
+                    <p class="small text-secondary mb-0">Goldreich, Oded (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Arora &amp; Barak, 2009</span>
+                        <small class="text-muted">Cambridge University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Computational Complexity: A Modern Approach</h6>
+                    <p class="small text-secondary mb-0">Sanjeev Arora and Boaz Barak (2009)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Barker, 2020</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Key Management: Part 1 – General</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Singh, 1999</span>
+                        <small class="text-muted">Doubleday</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Simon Singh (1999)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

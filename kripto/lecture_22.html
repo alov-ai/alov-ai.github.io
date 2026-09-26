@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_22</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 22</strong></p>
+<p><strong>Elliptik Əyrilər - II Hissə</strong></p>
+<p>ECC Protokolları və Standart Əyrilər</p>
+<p>Bu mühazirə ECDH/ECDHE açar razılaşdırılmasını, standart əyriləri
+(NIST, Curve25519, secp256k1) və təhlükəsiz parametr seçimini əhatə
+edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>ECDH açar razılaşdırılması alqoritminin addımlarını seçilmiş
+altqrupda hesablamağı və açıq açarın doğrulanması (<em>public key
+validation</em>) prosedurlarını göstərməyi <span class="citation"
+data-cites="hankerson2004guide"></span>;</p></li>
+<li><p>İlkin ECDH ortaq sirr qiyməti (törədilməmiş sirr), KDF çıxışı və
+autentifikasiya olunmuş sessiya açarı anlayışlarını fərqləndirməyi <span
+class="citation" data-cites="katz2020introduction"></span>;</p></li>
+<li><p>Statik ECDH ilə efemer ECDHE sxemlərini irəli məxfilik
+(<em>forward secrecy</em>) və açarların ömür dövrü üzrə müqayisə etməyi
+<span class="citation"
+data-cites="paar2024understanding"></span>;</p></li>
+<li><p>NIST, Curve25519, secp256k1, Brainpool və SM2 əyrilərini parametr
+şəffaflığı, proqram/aparat reallaşdırması və protokol uyğunluğu üzrə
+qiymətləndirməyi <span class="citation"
+data-cites="nist2016sp800186 bernstein2006curve25519 certicom2000sec2"></span>;</p></li>
+<li><p>Verilmiş tətbiq profili üçün uyğun əyri və açar razılaşdırılması
+protokolunu əsaslandırmağı bacaracaqlar <span class="citation"
+data-cites="shen-sm2-ecdsa-02"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 21-ci mühazirədə elliptik əyri qrup
+əməliyyatları və ECDLP fərziyyəsi öyrənildi.</p>
+<p><strong>İndi:</strong> ECDH/ECDHE açar razılaşdırılması protokolları
+və təhlükəsiz əyri seçimi meyarları tətbiq edilir.</p>
+<p><strong>Sonra:</strong> 23-cü mühazirədə ECDSA və Ed25519 rəqəmsal
+imza alqoritmlərinin tam strukturu, təhlükəsizlik modeli və müqayisəli
+analizi aparılacaq.</p>
+<p><strong>Kanon:</strong> <em>ECDH açar razılaşdırılması</em>;
+<em>sessiya açarı</em>; <em>sonlu meydan</em>; <em>Veyerştras
+(<em>Veyerştras</em>)</em> və <em>Montqomeri (<em>Montgomery</em>)</em>
+formaları.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirədə elliptik əyrilərin riyazi əsaslarını, Veyerştras
+tənliyini, nöqtələrin toplanması əməliyyatını və <strong>ECDLP</strong>
+problemini öyrəndik. Müvafiq şəkildə seçilmiş təhlükəsiz elliptik əyri
+qrupları üçün klassik sonlu meydan DLP-sində olduğu kimi səmərəli ümumi
+indeks hesabı (<em>index calculus</em>) alqoritmləri məlum deyildir. Bu
+mühazirədə həmin nəzəri bilikləri praktiki protokollara tətbiq
+edəcəyik.</p>
+<p>Elliptik əyri kriptoqrafiyası (ECC) müasir kibertəhlükəsizlik
+infrastrukturunun və qlobal şəbəkə protokollarının ayrılmaz hissəsinə
+çevrilmişdir. Bu gün internet trafikini qoruyan TLS/HTTPS, uzaqdan
+təhlükəsiz bağlantı təmin edən SSH, şəbəkə səviyyəsində şifrələmə aparan
+IPsec, həmçinin Bitcoin, Ethereum və WireGuard kimi sistemlər məhz
+elliptik əyrilərin təqdim etdiyi kriptoqrafik imkanlara əsaslanır.</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>ECDH</strong> açar razılaşdırılması klassik Diffi–Hellman
+(<strong>DH</strong>) protokolundan riyazi struktur və performans
+baxımından nə ilə fərqlənir?</p></li>
+<li><p>ECDH alqoritmindən əldə edilən ilkin məxfi qiymət (ortaq nöqtə)
+hansı yoxlamalardan və KDF mərhələsindən keçərək sessiya açarına
+çevrilir?</p></li>
+<li><p>Statik ECDH ilə efemer ECDHE sxemləri arasında açarların ömür
+dövrü və irəli məxfilik (<em>forward secrecy</em>) baxımından hansı
+fundamental fərqlər var?</p></li>
+<li><p><strong>NIST</strong> əyrilərinin parametrləri necə seçilib və nə
+üçün qlobal kriptoqrafiya ictimaiyyəti bəzi dövlət standartlarına
+(<em>backdoor</em> şübhələrinə görə) ehtiyatla yanaşır?</p></li>
+<li><p>Kriptovalyutaların nüvəsini təşkil edən <code>secp256k1</code>
+əyrisi ilə internet infrastrukturunu qoruyan <code>Curve25519</code>
+əyrisinin daxili strukturları hansı üstünlüklərə malikdir?</p></li>
+<li><p>Bir müəssisə və ya dövlət öz sistemləri üçün elliptik əyri
+seçərkən hansı riyazi və praktiki təhlükəsizlik meyarlarını nəzərə
+almalıdır?</p></li>
+</ul>
+</div>
+<p>Mühazirəmizin növbəti hissəsində ilk olaraq simmetrik sessiya
+açarlarının qeyri-təhlükəsiz rabitə kanalları vasitəsilə təhlükəsiz
+paylanmasını təmin edən <strong>ECDH</strong> protokolunun riyazi
+mexanizmini və addımlarını nəzərdən keçirəcəyik.</p>
+<h1 id="elliptik-əyri-diffi-hellman-razılaşdırılması-ecdh">Elliptik əyri
+Diffi-Hellman razılaşdırılması (ECDH)</h1>
+<h2 id="protokolun-təsviri">Protokolun təsviri</h2>
+<p><strong>ECDH</strong>, klassik Diffi-Hellman açar razılaşdırılmasının
+elliptik əyri qruplarına uyğunlaşdırılmış formasıdır. Bəsit ECDH iki
+tərəfə ortaq sirr hesablamağa imkan verir, lakin özü-özlüyündə
+autentifikasiya, hazır sessiya açarı və MITM müdafiəsi vermir; bunlar
+protokolun əlavə qatlarında təmin olunur <span class="citation"
+data-cites="hankerson2004guide"></span>.</p>
+<p>Protokolun addım-addım icra alqoritmi aşağıdakı kimidir:</p>
+<ol>
+<li><p><strong>Qlobal parametrlərin təyini:</strong> Tərəflər
+standartlaşdırılmış əyri <span
+class="math inline">\(E(\mathbb{F}_p)\)</span> və böyük sadə tərtibli
+altqrupun baza nöqtəsi <span class="math inline">\(G\)</span> üzərində
+razılaşır. Burada <span
+class="math inline">\(n=\operatorname{ord}(G)\)</span> baza nöqtəsinin
+tərtibidir; bu, ümumi <span
+class="math inline">\(\#E(\mathbb{F}_p)\)</span> nöqtə sayı ilə eyni
+olmaq məcburiyyətində deyil.</p></li>
+<li><p><strong>Asimmetrik Açar Cütlərinin Generasiyası:</strong></p>
+<ul>
+<li><p><strong>Alis</strong> <span class="math inline">\([1,
+n-1]\)</span> intervalından təsadüfi bir <span
+class="math inline">\(a\)</span> tam ədədini seçir. Bu ədəd Alisin
+<em>gizli açarı</em> olur. Daha sonra o, skalyar vurma ilə öz <em>açıq
+açarını</em> hesablayır: <span class="math display">\[\begin{equation}
+            A = a \cdot G
+\end{equation}\]</span></p></li>
+<li><p><strong>Bob</strong> eyni qayda ilə təsadüfi bir <span
+class="math inline">\(b \in [1, n-1]\)</span> tam ədədini gizli açar
+kimi seçir və öz açıq açarını generasiya edir: <span
+class="math display">\[\begin{equation}
+            B = b \cdot G
+\end{equation}\]</span></p></li>
+</ul></li>
+<li><p><strong>Açıq açarların mübadiləsi və doğrulanması:</strong> Alis
+özünün <span class="math inline">\(A\)</span> açıq açarını Boba, Bob isə
+özünün <span class="math inline">\(B\)</span> açıq açarını Alisə
+göndərir. Qəbul edən tərəf seçilmiş standartın tələblərinə uyğun olaraq
+koordinat kodlaşdırması, nöqtənin əyriyə mənsubiyyəti, Sonsuzluq nöqtəsi
+(qrupun neytral elementi <span
+class="math inline">\(\mathcal{O}\)</span>), altqrup və kofaktor
+doğrulamalarını (<em>public key validation</em>) icra edir. X25519 kimi
+müasir profillərdə isə RFC 7748 standartının sanitasiya qaydaları tətbiq
+olunur və hesablanmış, bütünlüklə sıfırlardan ibarət ilkin ortaq sirr
+(<em>all-zero shared secret</em>) rədd edilir <span class="citation"
+data-cites="rfc7748"></span>.</p></li>
+<li><p><strong>Ortaq Gizli Sirrin Hesablanması:</strong> Açıq açarları
+qəbul etdikdən sonra hər iki tərəf öz gizli açarını qarşı tərəfin açıq
+açarına skalyar olaraq vurur:</p>
+<ul>
+<li><p><strong>Alis</strong> öz sistemində aşağıdakı <span
+class="math inline">\(S\)</span> nöqtəsini hesablayır: <span
+class="math display">\[\begin{equation}
+            S = a \cdot B = a \cdot (b \cdot G) = (ab) \cdot G
+\end{equation}\]</span></p></li>
+<li><p><strong>Bob</strong> öz sistemində analoji olaraq aşağıdakı <span
+class="math inline">\(S\)</span> nöqtəsini hesablayır: <span
+class="math display">\[\begin{equation}
+            S = b \cdot A = b \cdot (a \cdot G) = (ba) \cdot G
+\end{equation}\]</span></p></li>
+</ul></li>
+<li><p><strong>Açar törədilməsi (<em>Key Derivation</em>):</strong> Hər
+iki tərəf eyni <span class="math inline">\(S=(ab)G\)</span> nöqtəsini
+əldə edir. İlkin <span class="math inline">\(x_S\)</span> koordinatı
+birbaşa AES şifrələmə açarı kimi istifadə edilmir: seçilmiş standartın
+KDF (Açar Törətmə Funksiyası) proseduru <span
+class="math inline">\(x_S\)</span> qiymətindən, protokol kontekstindən,
+alqoritm və tərəflərin identifikatorlarından tələb olunan uzunluqda
+təhlükəsiz açar materialı törədir. Autentifikasiya olunmuş protokol bu
+materialı konkret tərəflərə və sessiyanın əl sıxma (<em>handshake</em>)
+transkriptinə bağlayır <span class="citation"
+data-cites="hankerson2004guide"></span>.</p></li>
+</ol>
+<div class="note">
+<p><span>Təhlükəsizlik əsası</span> ECDH alqoritminin passiv hücumçuya
+qarşı təhlükəsizliyi seçilmiş qrupda <strong>Hesablama Diffi–Hellman
+(CDH)</strong> probleminin mürəkkəbliyinə əsaslanır: verilməmiş <span
+class="math inline">\(a, b \in \mathbb{Z}_n\)</span> məchulları üçün
+<span class="math inline">\(G\)</span>, <span
+class="math inline">\(A=aG\)</span> və <span
+class="math inline">\(B=bG\)</span> məlum olduqda <span
+class="math inline">\(S=abG\)</span> nöqtəsini hesablamaq praktiki
+olaraq mümkünsüz sayılır.</p>
+<p><span class="math inline">\(A=aG\)</span> açıq açarından <span
+class="math inline">\(a\)</span> gizli skalyarını tapmaq isə ayrıca
+<strong>ECDLP</strong> (Elliptik Əyrilərdə Diskret Loqarifm)
+problemidir. Bu problemlər bir-biri ilə sıx bağlı olsa da, eyni
+anlayışlar deyildir. Həmçinin hər iki problem məntiqi və ya riyazi
+"imkansızlıq" deyil, mövcud hesablama resursları çərçivəsində
+<strong>hesablama çətinliyinə (mürəkkəbliyinə)</strong> əsaslanan
+fərziyyələrdir <span class="citation"
+data-cites="hankerson2004guide"></span>.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 1</strong> (ECDH-nin kiçik parametrlərlə riyazi
+modeli). <em>Fərz edək ki, tərəflər <span
+class="math inline">\(p=13\)</span> moduluna görə <span
+class="math inline">\(\mathbb{F}_{13}\)</span> meydanında <span
+class="math inline">\(E: y^2 \equiv x^3 + 3x + 8 \pmod{13}\)</span>
+əyrisini və generator nöqtə kimi <span class="math inline">\(G =
+(1,5)\)</span> nöqtəsini seçiblər.</em></p>
+<p><em><em>(Xatırlatma: İki fərqli <span class="math inline">\(P_1,
+P_2\)</span> nöqtəsinin toplanmasında bucaq əmsalı <span
+class="math inline">\(\lambda = \frac{y_2 - y_1}{x_2 - x_1} \pmod
+p\)</span>, yeni koordinatlar isə <span class="math inline">\(x_3 =
+\lambda^2 - x_1 - x_2 \pmod p\)</span>, <span class="math inline">\(y_3
+= \lambda(x_1 - x_3) - y_1 \pmod p\)</span> formulu ilə
+tapılır).</em></em></p>
+<ol>
+<li><p><em><strong>Alisin hesablamaları (Gizli açar <span
+class="math inline">\(a = 3\)</span>):</strong> Alis öz açıq açarını
+<span class="math inline">\(A = 3 \cdot G = 2G + G\)</span> kimi
+hesablayır:</em></p>
+<ul>
+<li><p><em>Əvvəlcə <span class="math inline">\(2G = G + G =
+(2,10)\)</span> tapılır (nöqtənin ikiqat artırılması düsturu
+ilə).</em></p></li>
+<li><p><em>Sonra <span class="math inline">\(3G = 2G + G = (2,10) +
+(1,5)\)</span> hesablanır: <span class="math display">\[\lambda =
+\frac{5 - 10}{1 - 2} = \frac{-5}{-1} \equiv 5 \pmod{13}\]</span> <span
+class="math display">\[x_A = 5^2 - 2 - 1 = 22 \equiv 9 \pmod{13}, \quad
+y_A = 5(2 - 9) - 10 = -45 \equiv 7 \pmod{13}\]</span></em></p></li>
+</ul>
+<p><em>Alis kanala öz açıq açarını göndərir: <strong><span
+class="math inline">\(A = (9,7)\)</span></strong>.</em></p></li>
+<li><p><em><strong>Bobun hesablamaları (Gizli açar <span
+class="math inline">\(b = 5\)</span>):</strong> Bob öz açıq açarını
+<span class="math inline">\(B = 5 \cdot G\)</span> kimi
+hesablayır:</em></p>
+<ul>
+<li><p><em>Analoji toplama addımları ilə <span class="math inline">\(4G
+= (12,2)\)</span> və <span class="math inline">\(5G = 4G + G = (12,2) +
+(1,5)\)</span> alınır: <span class="math display">\[\lambda = \frac{5 -
+2}{1 - 12} = \frac{3}{-11} \equiv \frac{3}{2} \equiv 3 \cdot 7 = 21
+\equiv 8 \pmod{13}\]</span> <span class="math display">\[x_B = 8^2 - 12
+- 1 = 51 \equiv 12 \pmod{13}, \quad y_B = 8(12 - 12) - 2 = -2 \equiv 11
+\pmod{13}\]</span></em></p></li>
+</ul>
+<p><em>Bob kanala öz açıq açarını göndərir: <strong><span
+class="math inline">\(B = (12,11)\)</span></strong>.</em></p></li>
+<li><p><em><strong>Ortaq sirrin hesablannması (<span
+class="math inline">\(S = aB = bA\)</span>):</strong></em></p>
+<ul>
+<li><p><em><strong>Alis</strong> Bobdan gələn <span
+class="math inline">\(B=(12,11)\)</span> nöqtəsini öz gizli <span
+class="math inline">\(a=3\)</span> skalyarına vurur: <span
+class="math display">\[S = 3 \cdot (12,11) =
+(9,6)\]</span></em></p></li>
+<li><p><em><strong>Bob</strong> Alisdən gələn <span
+class="math inline">\(A=(9,7)\)</span> nöqtəsini öz gizli <span
+class="math inline">\(b=5\)</span> skalyarına vurur: <span
+class="math display">\[S = 5 \cdot (9,7) = (9,6)\]</span></em></p></li>
+</ul></li>
+</ol>
+<p><em><strong>Nəticə:</strong> Hər iki tərəf şəbəkə üzərindən gizli
+açarlarını öyrənmədən eyni <span class="math inline">\(S=(9,6)\)</span>
+nöqtəsini əldə etdi. Bu tətbiqi nümunədə alınan <span
+class="math inline">\(x = 9\)</span> absisi KDF (Açar Törətmə
+Funksiyası) üçün ilkin məxfi giriş materialı (<em>raw shared
+secret</em>) rolunu oynayır.</em></p>
+</div>
+<h2
+id="müvəqqəti-elliptik-əyri-diffi-hellman-razılaşdırılması-ecdhe">Müvəqqəti
+elliptik əyri Diffi-Hellman razılaşdırılması (ECDHE)</h2>
+<p>ECDH həm statik, həm də efemer açarlarla protokola daxil edilə bilər.
+Yalnız statik DH sirrinə söykənən uyğun bir protokolda uzunmüddətli
+gizli açarın sonra ələ keçirilməsi qeydə alınmış keçmiş sessiyaların
+açılmasına səbəb ola bilər.</p>
+<p>Bu riski aradan qaldırmaq üçün müasir şəbəkə təhlükəsizliyində
+(məsələn, TLS 1.3 protokolunda) <strong>müvəqqəti ECDH (ECDHE)</strong>
+variantından istifadə olunur. ECDHE-nin əsas xüsusiyyətləri
+bunlardır:</p>
+<ul>
+<li><p>Hər yeni şəbəkə seansı (bağlantı sorğusu) üçün tərəflər tamamilə
+yeni və müvəqqəti gizli-açıq açar cütləri yaradırlar.</p></li>
+<li><p>Seans başa çatdıqdan və ya müəyyən zaman keçdikdən sonra bu
+müvəqqəti açarlar yaddaşdan (RAM) tamamilə silinir.</p></li>
+<li><p><strong>İrəli məxfilik (FS):</strong> Efemer sirlər təhlükəsiz
+yaradılıb silindikdə və əl sıxma düzgün autentifikasiya edildikdə,
+uzunmüddətli autentifikasiya açarının sonrakı komprometi əvvəlki sessiya
+sirlərini avtomatik açmır. Xassə protokolun tam konfiqurasiyasına, o
+cümlədən PSK rejiminə bağlıdır <span class="citation"
+data-cites="rescorla2026rfc9846"></span>.</p></li>
+</ul>
+<h1 id="rəqəmsal-imza-sxemlərinə-icmalı">Rəqəmsal İmza Sxemlərinə
+İcmalı</h1>
+<p>ECDH açar razılaşdırılması ilə rəqəmsal imza eyni elliptik əyri qrup
+əməliyyatlarından istifadə edə bilər, lakin onların məqsədi və açar
+istifadəsi fərqlidir. Bu mühazirədə yalnız ümumi ideyaları izah
+edirik:</p>
+<ul>
+<li><p><strong>ECDSA</strong> mesaj üçün imza yaradır; təhlükəsizliyi
+birdəfəlik dəyərin düzgün generasiyası, kodlaşdırma və yoxlama
+qaydalarından asılıdır.</p></li>
+<li><p><strong>Ed25519</strong> ayrı imza sxemidir; Curve25519/X25519
+açar razılaşdırılması ilə eyni funksiya deyil və açar materialı tərəflər
+arasında təkrar istifadə edilməməlidir.</p></li>
+</ul>
+<p>Tam ECDSA və Ed25519 alqoritmləri, EUF-CMA modeli, birdəfəlik dəyər
+nasazlıqları və imza formatları 23-cü mühazirədə addım-addım
+öyrəniləcək. Burada adlar yalnız əyri, funksiya və sxem seçimini səhv
+salmamaq üçün verilir.</p>
+<div class="tcolorbox">
+<p>Tələbə bu nöqtədə üç ayrı nəticəni izah etməyi bacarmalıdır: ECDH
+ilkin ortaq sirr yaradır, KDF sessiya açarı törədir, rəqəmsal imza isə
+mesajı açıq doğrulama açarına bağlayır. Bu üç nəticədən heç biri
+digərini avtomatik təmin etmir.</p>
+</div>
+<h1 id="nist-əyriləri">NIST əyriləri</h1>
+<h2 id="təsvir-və-xüsusiyyətlər">Təsvir və xüsusiyyətlər</h2>
+<p>ABŞ Milli Standartlar və Texnologiya İnstitutu (NIST) P-256, P-384 və
+P-521 kimi əyriləri aktual SP 800-186-da müəyyən edir; rəqəmsal imza
+istifadəsi FIPS 186-5 ilə tənzimlənir <span class="citation"
+data-cites="nist2016sp800186 nist2019fips1865"></span>. Bu əyrilər qısa
+Veyerştras forması əsasında qurulub: <span
+class="math display">\[\begin{equation}
+    y^2 \equiv x^3 - 3x + b \pmod p
+\end{equation}\]</span> Diqqətçəkən cəbri xüsusiyyətlərdən biri odur ki,
+hesablama sürətini artırmaq üçün <span class="math inline">\(a\)</span>
+əmsalı mütləq şəkildə <span class="math inline">\(-3\)</span> olaraq
+sabitləndirilmişdir. Ən geniş istifadə olunan NIST əyriləri
+aşağıdakılardır:</p>
+<ul>
+<li><p><strong>P-256 (<code>secp256r1</code>):</strong> <span
+class="math inline">\(p = 2^{256} - 2^{224} + 2^{192} + 2^{96} -
+1\)</span> xüsusi Solinas sadə ədədi (ümumiləşdirilmiş Mersen sadə
+ədədi)<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> modulu üzərində qurulub. 256-bitlik
+açar ölçüsünə və təxminən 128-bitlik simmetrik təhlükəsizlik səviyyəsinə
+malikdir.</p></li>
+<li><p><strong>P-384 (<code>secp384r1</code>):</strong> 384-bitlik əyri
+olub, 192-bitlik simmetrik təhlükəsizlik qarantiyası verir. Yüksək
+səviyyəli dövlət sənədlərinin qorunmasında istifadə olunur.</p></li>
+<li><p><strong>P-521 (<code>secp521r1</code>):</strong> <span
+class="math inline">\(p = 2^{521} - 1\)</span> Mersen sadə ədədi modulu
+üzərində işləyir və təxminən 256-bitlik klassik təhlükəsizlik
+səviyyəsinə hədəflənir.</p></li>
+</ul>
+<p>Əyrilərin xüsusi strukturda seçilmiş sadə modulları sürətli modul
+reduksiyasını təmin edir. Əvvəlki standartlaşdırma proseslərində ilkin
+parametrlərin şəffaflığı tənqid edilsə də, bu ehtiyatlılıq
+müzakirələrini əyrinin kriptoqrafik baxımdan sındırılması kimi
+qiymətləndirmək doğru deyildir.</p>
+<h2 id="parametr-şəffaflığı-və-dual_ec_drbg-mübahisəsi">Parametr
+şəffaflığı və Dual_EC_DRBG mübahisəsi</h2>
+<p>Standart əyri seçərkən riyazi dayanıqlıq, parametrlərin
+generasiyasının şəffaflığı (<em>reproducibility</em>) və proqram
+təminatında reallaşdırma xüsusiyyətləri ayrı-ayrılıqda
+qiymətləndirilməlidir <span class="citation"
+data-cites="bernstein2013safe"></span>. Əsas fərqlər bunlardır:</p>
+<ul>
+<li><p><strong>Parametrlərin seçilmə şəffaflığı:</strong> Bəzi NIST
+əyrilərinin tarixi ilkin qiymətləri (<em>seeds</em>) və seçim fəzası tam
+sərt, gizli qərarlara yer qoymayan müasir prosedurlar qədər asan audit
+olunmur. Bu, etimad və təkraristehsal (<em>reproducibility</em>)
+meyarıdır; lakin hazırda P-256 üçün məlum praktiki ECDLP arxa qapısının
+mövcudluğuna dair heç bir sübut yoxdur.</p></li>
+<li><p><strong>Dual_EC_DRBG məsələsi:</strong> Bu təhlükəsizlik problemi
+birbaşa P-256 əyrisinin <span class="math inline">\(b\)</span>
+əmsalından ayrı məsələdir. Həmin təsadüfi ədəd generatorunun daxilində
+xüsusi olaraq seçilmiş <span class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələri istifadə olunurdu və onların
+arasında gizli riyazi əlaqənin olması ciddi, ictimaiyyət tərəfindən
+əsaslandırılmış arxa qapı narahatlığı yaratdı; nəticədə NIST sonradan
+Dual_EC_DRBG standartını rəsmi olaraq ləğv etdi. Lakin bu hadisə bütün
+P-256 əməliyyatlarının riyazi cəhətdən sındırıldığını
+göstərmir.</p></li>
+<li><p><strong>Reallaşdırma (<em>Implementation</em>):</strong> Ənənəvi
+Qısa Veyerştras forması üçün proqramlaşdırma zamanı yol verilən səhvlər
+və ya istisna emalları zaman sızmasına (<em>timing attack</em>) səbəb
+ola bilər; lakin P-256 düzgün mühəndislik yanaşması ilə sabit-zamanlı
+(<em>constant-time</em>) və təhlükəsiz şəkildə reallaşdırıla bilər.
+X25519 isə təhlükəsiz reallaşdırma seçimlərini xeyli sadələşdirsə də,
+fiziki hücumlardan (enerji analizi və ya xəta inyeksiyası) və yaddaş
+sızmalarından avtomatik olaraq tam sığortalanmayıb.</p></li>
+</ul>
+<div class="note">
+<p><span>Akademik Nəticə</span> NIST P-əyriləri ABŞ-ın rəsmi SP 800-186
+standartında tövsiyə olunmağa davam edir və TLS daxil olmaqla bir çox
+qlobal ekosistemdə geniş istifadə edilir. Eyni zamanda
+Curve25519/Ed25519 ailəsi də sənayedə mövqeyini möhkəmlətmişdir; əyri
+seçimi normativ uyğunluq profilindən, tətbiq olunan protokoldan,
+istifadə edilən kitabxananın keyfiyyətindən və layihənin təhlükəsizlik
+məqsədlərindən asılı olaraq əsaslandırılmalıdır.</p>
+</div>
+<h1 id="curve25519-müasir-sənaye-standartı-kimi">Curve25519 müasir
+sənaye standartı kimi</h1>
+<h2 id="təsvir-və-cəbri-xüsusiyyətlər">Təsvir və cəbri
+xüsusiyyətlər</h2>
+<p><strong>Curve25519</strong>, Daniel J. Bernstein tərəfindən yüksək
+performanslı və audit oluna bilən elliptik-əyri hesablamaları üçün
+layihələndirilmiş Montqomeri əyrisidir <span class="citation"
+data-cites="bernstein2006curve25519"></span>. Açar razılaşdırılmasında
+onun standartlaşdırılmış <span
+class="math inline">\(u\)</span>-koordinat funksiyası X25519 istifadə
+olunur.</p>
+<p>Klassik Veyerştras əyrilərindən fərqli olaraq, Curve25519
+<strong>Montqomeri</strong><a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a> cəbri formasında təyin
+olunmuşdur. Əyrinin kanonik tənliyi aşağıdakı kimidir: <span
+class="math display">\[\begin{equation}
+    y^2 = x^3 + 486662x^2 + x \pmod p
+\end{equation}\]</span> Əyri <span class="math inline">\(p = 2^{255} -
+19\)</span> mütləq sadə ədədi ilə təyin olunan <span
+class="math inline">\(\mathbb{F}_p\)</span> sonlu meydanı üzərində
+işləyir. Bu meydanın seçilməsi təsadüfi deyil; <span
+class="math inline">\(2^{255}-19\)</span> ölçüsü 32-bitlik və 64-bitlik
+müasir prosessor arxitekturalarında modulyar toplama və vurma
+əməliyyatlarının bit səviyyəsində səmərəli icrasına imkan verir.
+Protokolun əsas parametrləri:</p>
+<ul>
+<li><p><strong>Təhlükəsizlik Səviyyəsi:</strong> Təxminən 128-bitlik
+klassik simmetrik təhlükəsizlik qarantiyası (hücumçunun ECDLP-ni
+sındırmaq üçün <span class="math inline">\(2^{128}\)</span> sayda
+əməliyyat etməsi lazımdır).</p></li>
+<li><p><strong>Açar və Nöqtə Ölçüsü:</strong> Həm gizli açar, həm də
+sıxışdırılmış açıq açar cəmi 32 bayt (256 bit) həcmindədir.</p></li>
+</ul>
+<h2 id="struktur-üstünlükləri-və-alqoritmik-xüsusiyyətləri">Struktur
+üstünlükləri və alqoritmik xüsusiyyətləri</h2>
+<p>X25519 OpenSSH, Signal, TLS 1.3 və WireGuard kimi sistemlərdə geniş
+istifadə olunur, amma NIST əyrilərini bütün profillərdən çıxarmayıb.
+Onun əsas mühəndislik xüsusiyyətləri bunlardır:</p>
+<ul>
+<li><p><strong>Yalnız <span class="math inline">\(x\)</span>-Koordinatı
+ilə Hesablama:</strong> Montqomeri formasının ən böyük cəbri üstünlüyü
+odur ki, nöqtələrin skalyar vurulması zamanı (<span
+class="math inline">\(k \cdot G\)</span>) nöqtənin <span
+class="math inline">\(y\)</span> koordinatına ehtiyac qalmır. Bütün
+alqoritm yalnız <span class="math inline">\(x\)</span> koordinatının
+kəsrləri və modulyar hasilləri üzərində qurulur. Bu xüsusiyyət tələb
+olunan riyazi əməliyyatların sayını kəskin şəkildə azaldır.</p></li>
+<li><p><strong>Montqomeri pilləkəni:</strong> Hər skalyar bit üçün eyni
+yüksək səviyyəli əməliyyat ardıcıllığı sabit-zamanlı reallaşdırmanı
+asanlaşdırır. Gizlidən asılı şərti yerdəyişmə, yaddaş girişi və meydan
+arifmetikası da sabit-zamanlı olmalı; ayrıca enerji və xəta inyeksiyası
+müdafiələri nəzərdə tutulmalıdır.</p></li>
+<li><p><strong>Şəffaf seçim:</strong> <span
+class="math inline">\(486662\)</span> əmsalı əvvəlcədən elan olunmuş
+kriptoqrafik meyarlara cavab verən kiçik parametr kimi seçilib. Bu
+prosedur parametr yoxlamasını asanlaşdırır, lakin hər cür protokol və
+reallaşdırma arxa qapısının mümkünsüzlüyünə ümumi sübut deyil.</p></li>
+<li><p><strong>Girişlərin emalı:</strong> Əyrinin kvadratik burulma
+təhlükəsizliyi (<em>twist-security</em>) nöqtənin əyriyə mənsubiyyətinin
+tam yoxlanılması yükünü azaldır, lakin protokol səviyyəsindəki
+təhlükəsizlik qaydalarını ləğv etmir. RFC 7748 standartı giriş
+məlumatlarının dekodlaşdırılmasını müəyyən edir; reallaşdırma zamanı
+sistem tam sıfırlardan ibarət ortaq sirri (<em>all-zero shared
+secret</em>) yoxlamalı, KDF kontekstini və qarşı tərəfin
+autentifikasiyasını ayrıca təmin etməlidir.</p></li>
+</ul>
+<h2
+id="curve25519-x25519-və-ed25519-anlayışlarının-fərqləndirilməsi">Curve25519,
+X25519 və Ed25519 Anlayışlarının Fərqləndirilməsi</h2>
+<p><strong>Curve25519</strong> bazada duran Montqomeri əyrisini,
+<strong>X25519</strong> həmin əyri üzərində açar mübadiləsi
+(razılaşdırılması) funksiyasını, <strong>Ed25519</strong> isə ekvivalent
+Edvards qrupu üzərində qurulmuş ayrıca rəqəmsal imza sxemini ifadə
+edir.</p>
+<p>Bu strukturların eyni sonlu meydan arifmetikasından istifadə etməsi
+onların tətbiq rollarını eyniləşdirmir: açar formatı və açar materialı
+bu funksiyalar arasında kortəbii (düşünülmədən) təkrar istifadə
+olunmamalıdır. Ed25519 sxeminin daxili quruluşu və təhlükəsizlik modeli
+23-cü mühazirədə ətraflı təhlil ediləcəkdir.</p>
+<div class="note">
+<p><span>Kvant təhlükəsizliyi haqqında mühüm qeyd</span> Curve25519-un
+yüksək bit dayanıqlığı onun kvant kompüterlərinə qarşı davamlı olması
+demək deyildir. <strong>Şor alqoritmini (<em>Shor’s
+algorithm</em>)</strong> icra edə bilən kifayət qədər güclü kvant
+kompüterləri qarşısında həm NIST P-256, həm də Curve25519/Ed25519
+əyriləri müdafiəsizdir. Kvant davamlılığını təmin etmək üçün post-kvant
+kriptoqrafiyasına (məsələn, qəfəs əsaslı — <em>lattice-based</em>
+sxemlərə) keçid planlaşdırılmalıdır.</p>
+</div>
+<h1
+id="secp256k1-kriptovalyuta-və-blokçeyn-sistemlərində-istifadə"><code>secp256k1</code>:
+kriptovalyuta və blokçeyn sistemlərində istifadə</h1>
+<h2 id="təsvir-və-cəbri-infrastrukturu">Təsvir və cəbri
+infrastrukturu</h2>
+<p><strong><code>secp256k1</code></strong> <a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+SECG konsorsiumu tərəfindən təsvir edilmiş xüsusi elliptik əyridir <span
+class="citation" data-cites="certicom2000sec2"></span>. Bu əyri Bitcoin
+və Ethereum daxil olmaqla bir sıra blokçeyn sistemlərində rəqəmsal imza
+üçün istifadə olunur.</p>
+<p><code>secp256k1</code> əyrisi qısa Veyerştras (Weierstrass)
+formasındadır və onun daxili cəbri tənliyi olduqca sadə və yığcamdır:
+<span class="math display">\[\begin{equation}
+    y^2 \equiv x^3 + 7 \pmod p
+\end{equation}\]</span> Burada <span class="math inline">\(a=0\)</span>
+və <span class="math inline">\(b=7\)</span> olaraq təyin edilmişdir.
+Əyri <span class="math inline">\(p=2^{256}-2^{32}-977\)</span> sadə
+ədədi ilə verilən <span class="math inline">\(\mathbb{F}_p\)</span>
+meydanında işləyir. Bu pseudo-Mersenne tipli modul səmərəli reduksiyaya
+imkan verir və qrup təxminən 128-bitlik klassik təhlükəsizlik
+səviyyəsinə hədəflənir.</p>
+<h2
+id="secp256k1-seçimi-və-məlum-mühəndislik-xüsusiyyətləri"><code>secp256k1</code>
+seçimi və məlum mühəndislik xüsusiyyətləri</h2>
+<p>Bitcoin <code>secp256k1</code> əyrisini protokol parametri kimi
+seçdi, lakin Satoşi Nakamoto bu seçimin motivlərini etibarlı texniki
+sənəddə açıqlamayıb. Buna görə aşağıdakılar əyrinin obyektiv
+xüsusiyyətləridir, müəllif niyyəti barədə sübut deyil:</p>
+<ul>
+<li><p><strong>Səmərəli endomorfizm:</strong> <code>secp256k1</code>
+sadə meydan üzərində qısa Veyerştras əyrisidir və effektiv GLV<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a> endomorfizminə malikdir; onu ikili
+meydanlar üçün klassik Koblitz əyriləri ilə eyniləşdirmək düzgün
+deyil.</p>
+<p>GLV metodu skalyarı daha kiçik komponentlərə ayıraraq optimallaşdırma
+verə bilər. Konkret sürət artımı kitabxana, platforma, sabit-zaman
+tələbləri və müqayisə bazasından asılıdır; universal 30–50% rəqəmi
+yoxdur.</p></li>
+<li><p><strong>Sadə parametrlər:</strong> <span
+class="math inline">\(a=0, b=7\)</span> seçimləri kiçikdir və asan
+yoxlanır. Bu şəffaflıq müsbət meyardır, lakin hər cür reallaşdırma
+zəifliyinin və gələcək riyazi hücumun mümkünsüzlüyünü sübut
+etmir.</p></li>
+<li><p><strong>Patent məhdudiyyətlərinin olmaması:</strong> Protokolun
+yaradıldığı dövrdə elliptik əyrilərin bir çox səmərəli reallaşdırması
+(məsələn, bəzi sıxışdırma alqoritmləri) böyük korporasiyaların (məsələn,
+BlackBerry/Certicom) patentləri altında idi. <code>secp256k1</code>
+təsvirləri isə açıq və azad elan olunduğu üçün açıq mənbəli layihə üçün
+əlverişli hüquqi zəmin yaradırdı.</p></li>
+</ul>
+<div class="note">
+<p><span>İmza Formatının Təhlükəsizliyi</span> Bitcoin və Ethereum
+ekosistemlərində <code>secp256k1</code> üzərində ECDSA istifadə olunur;
+konkret müştəri təhlükəsiz CSPRNG və ya RFC 6979 kimi deterministik
+birdəfəlik dəyər proseduru seçməlidir. Bitcoin-in Taproot yeniləməsi
+eyni əyri üzərində Schnorr imzalarını ayrıca protokol qaydası ilə
+aktivləşdirib; bunu ümumi imzaların birləşdirilməsi zəmanəti kimi təqdim
+etmək olmaz.</p>
+</div>
+<h1 id="brainpool-əyriləri-avropa-regional-standartı">Brainpool
+əyriləri: Avropa regional standartı</h1>
+<h2 id="təsvir-cəbri-quruluşu-və-generasiya-metodologiyası">Təsvir,
+cəbri quruluşu və generasiya metodologiyası</h2>
+<p><strong>Brainpool əyriləri</strong>, Almaniya Federal İnformasiya
+Təhlükəsizliyi Ofisi (<strong>BSI - Bundesamt für Sicherheit in
+Informationstechnik</strong>) tərəfindən rəsmi olaraq irəli sürülmüş və
+Avropa rəqəmsal infrastrukturu üçün optimallaşdırılmış elliptik əyri
+ailəsidir <span class="citation"
+data-cites="merkle2010brainpool"></span>. Bu standart, NIST əyrilərinə
+qarşı əsas regional alternativ və etibarlılıq təminatı kimi
+layihələndirilmişdir.</p>
+<p>Brainpool əyriləri klassik qısa Veyerştras (Veyerştras) formasından
+istifadə edir: <span class="math display">\[\begin{equation}
+    y^2 \equiv x^3 + a \cdot x + b \pmod p
+\end{equation}\]</span> Bu əyriləri NIST-dən fərqləndirən əsas elmi
+xüsusiyyət, onların parametrlərinin (<span class="math inline">\(a,
+b\)</span> əmsallarının və sonlu meydanın <span
+class="math inline">\(p\)</span> modulunun) yaradılma mexanizmidir. NIST
+əyrilərində modul və əmsallar hesablama sürətini artırmaq üçün xüsusi
+seçildiyi halda, Brainpool bu yanaşmanı qəbul etmir. Çünki xüsusi
+struktura malik modul və əmsallar (məsələn, <span
+class="math inline">\(a=-3\)</span> şərti) gələcəkdə yalnız həmin
+struktura yönəlmiş gizli riyazi hücum metodlarının kəşf olunma riskini
+artırır.</p>
+<p>Parametr seçimini təkrar istehsal edilən etmək üçün Brainpool
+<strong>gizli seçimə yer qoymama</strong> prinsipinə əsaslanan
+psevdotəsadüfi generasiya üsulundan istifadə etmişdir:</p>
+<ol>
+<li><p>Universal riyazi sabitlərin (<span
+class="math inline">\(\pi\)</span> və <span
+class="math inline">\(e\)</span> ədədlərinin) rəqəmsal kəsr hissələri
+əsas ilkin toxum dəyərləri kimi qəbul edilmişdir.</p></li>
+<li><p>Bu dəyərlər <strong>SHA-1</strong> kriptoqrafik heş funksiyası
+vasitəsilə deterministik şəkildə emal olunaraq mütləq sadə ədəd
+modulları (<span class="math inline">\(p\)</span>) və əyrinin cəbri
+əmsalları (<span class="math inline">\(a, b\)</span>)
+törədilmişdir.</p></li>
+</ol>
+<p>Bu prosedur seçim izini audit etməyə imkan verir, lakin “risk
+sıfırdır” zəmanəti vermir. Əyrilər Informational statuslu <em>RFC
+5639</em>-da <code>brainpoolP256r1</code>, <code>brainpoolP384r1</code>
+və <code>brainpoolP512r1</code> variantları ilə təsvir olunur.</p>
+<h2 id="nist-və-brainpool-əyrilərinin-müqayisəli-təhlili">NIST və
+Brainpool əyrilərinin müqayisəli təhlili</h2>
+<p>Tələbələrin hər iki regional və siyasi cəhətdən rəqib olan standartın
+fərqlərini vizual dərk etməsi üçün əsas meyarlar Cədvəl 1-də
+göstərilmişdir.</p>
+<table>
+<caption>NIST və Brainpool əyri ailələrinin struktur və praktiki
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Meyar / Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>NIST Əyriləri</strong></th>
+<th style="text-align: left;"><strong>Brainpool Əyriləri</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Parametr seçimi</strong></td>
+<td style="text-align: left;">Tarixi ilkin qiymət (<em>seed</em>)
+proseduru; şəffaflıq tənqidi var</td>
+<td style="text-align: left;"><span class="math inline">\(\pi\)</span>
+və <span class="math inline">\(e\)</span> əsaslı təkrar istehsal olunan
+prosedur</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Məlum ECDLP arxa
+qapısı</strong></td>
+<td style="text-align: left;">Sübut edilməyib</td>
+<td style="text-align: left;">Sübut edilməyib</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sonlu Meydan Modulu (<span
+class="math inline">\(p\)</span>)</strong></td>
+<td style="text-align: left;">Xüsusi struktur (Mersen oxşarı)</td>
+<td style="text-align: left;">Tamamilə psevdotəsadüfi sadə ədəd</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hesablama Sürəti</strong></td>
+<td style="text-align: left;">Yüksək (Xüsusi modul hesabına)</td>
+<td style="text-align: left;">Orta (Təsadüfi modul hesabına)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rəsmi sənəd</strong></td>
+<td style="text-align: left;">SP 800-186 / FIPS 186-5</td>
+<td style="text-align: left;">RFC 5639 (Informational)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Əsas Tətbiq Arealı</strong></td>
+<td style="text-align: left;">TLS, IPsec, Qlobal sənaye, ABŞ</td>
+<td style="text-align: left;">Avropa İttifaqı dövlət layihələri,
+e-ID</td>
+</tr>
+</tbody>
+</table>
+<h1 id="çinin-sm2-milli-kriptoqrafiya-standartı">Çinin SM2 milli
+kriptoqrafiya standartı</h1>
+<h2 id="təsvir-və-cəbri-infrastrukturu-1">Təsvir və cəbri
+infrastrukturu</h2>
+<p><strong>SM2</strong>, Çin Xalq Respublikasının Dövlət Kriptoqrafiya
+Administrasiyası (<strong>SCA - State Cryptography
+Administration</strong>) tərəfindən hazırlanmış və milli təhlükəsizlik
+strategiyasının bir hissəsi olaraq qanuniləşdirilmiş elliptik əyri
+kriptoqrafiya standartıdır <span class="citation"
+data-cites="shen-sm2-ecdsa-02"></span>. Çin hökuməti beynəlxalq (əsasən
+ABŞ mənşəli) kriptoqrafik alqoritmlərdən tamamilə müstəqil olmaq üçün öz
+daxili "Commercial Cryptography" (Kommersiya Kriptoqrafiyası)
+alqoritmlər qrupunu (SM2, SM3, SM4) yaratmışdır.</p>
+<p>SM2 əyrisi riyazi olaraq qısa Veyerştras formasında dizayn
+edilmişdir: <span class="math display">\[\begin{equation}
+    y^2 \equiv x^3 + a \cdot x + b \pmod p
+\end{equation}\]</span> Bu əyri, 256-bitlik xüsusi olaraq təyin olunmuş
+sonlu meydan modulu üzərində fəaliyyət göstərir: <span
+class="math display">\[\begin{equation}
+    p = 2^{256} - 2^{224} - 2^{96} + 2^{64} - 1
+\end{equation}\]</span> Bu modulun spesifik cəbri quruluşu prosessor
+səviyyəsində modulyar reduksiya əməliyyatlarının sürətini
+maksimallaşdırır. SM2-nin riyazi təhlükəsizlik səviyyəsi klassik
+128-bitlik simmetrik şifrələməyə ekvivalentdir.</p>
+<h2 id="funksional-genişliyi-və-tətbiq-sahələri">Funksional genişliyi və
+tətbiq sahələri</h2>
+<p>Dərs boyu keçdiyimiz digər birfunksiyalı əyrilərdən fərqli olaraq,
+SM2 standartı vahid bir riyazi arxitektura daxilində kriptoqrafiyanın üç
+fərqli istiqamətini eyni anda rəsmi olaraq həll edir:</p>
+<ul>
+<li><p><strong>SM2-1 (Rəqəmsal İmza):</strong> ECDSA-ya bənzəyən, lakin
+daxili mesaj blokunun hazırlanmasında əlavə identifikasiya məlumatlarını
+(ID) və milli <strong>SM3</strong> heş funksiyasını tələb edən rəqəmsal
+imza alqoritmidir.</p></li>
+<li><p><strong>SM2-2 (Açar Razılaşdırılması):</strong> Diffi-Hellman
+(ECDH) protokolunun modifikasiya olunmuş formasıdır. Tərəflərin
+bir-birini qarşılıqlı autentifikasiya etməsinə şərait yaradır.</p></li>
+<li><p><strong>SM2-3 (Asimmetrik Şifrələmə):</strong> Birbaşa asimmetrik
+verilənlər şifrələnməsini təmin edir. Şifrələmə zamanı həm elliptik əyri
+nöqtələri, həm də xüsusi KDF (Açar Törətmə Funksiyası) inteqrasiya
+olunmuş şəkildə çalışır.</p></li>
+</ul>
+<div class="note">
+<p><span>Siyasi və Sənaye Müstəqilliyi</span> SM2 Çinin bir sıra dövlət
+şəbəkələrində, milli VPN tunellərində, bank sistemlərində və rəqəmsal
+sertifikat profillərində tələb olunan standartdır. O, həmçinin ISO/IEC
+14888 standartına daxil edilib.</p>
+</div>
+<h1
+id="təhlükəsiz-əyri-seçiminin-riyazi-və-praktiki-meyarları">Təhlükəsiz
+Əyri Seçiminin Riyazi və Praktiki Meyarları</h1>
+<h2
+id="safecurves-layihəsi-və-fundamental-qiymətləndirmə"><code>SafeCurves</code>
+Layihəsi və Fundamental Qiymətləndirmə</h2>
+<p>Daniel J. Bernstein və Tanja Lange tərəfindən başladılan
+<strong><code>SafeCurves</code></strong> layihəsi seçilmiş əyriləri öz
+açıq meyarları ilə müqayisə edir <span class="citation"
+data-cites="bernstein2013safe"></span>. Bu, bütün protokol və
+reallaşdırmalar üçün universal sertifikat deyil; qiymətləndirmə riyazi,
+reallaşdırma və parametr seçimi meyarlarını ayırır:</p>
+<ol>
+<li><p><strong>ECDLP (Elliptik Əyri Diskret Loqarifm Problemi) Riyazi
+Təhlükəsizliyi:</strong></p>
+<ul>
+<li><p><strong>Pollard-rho Hücumlarına Müqavimət:</strong> Əyrinin nöqtə
+qrupunun tərtibi (<span class="math inline">\(n\)</span>) elə böyük bir
+sadə bölənə malik olmalıdır ki, universal diskret loqarifm sındırma
+alqoritmlərinin mürəkkəbliyi <span
+class="math inline">\(\sqrt{n}\)</span> səviyyəsindən aşağı
+düşməsin.</p></li>
+<li><p><strong>Veyl və Teyt cütləşdirmə hücumlarına davamlılıq:</strong>
+Əyrinin yerləşdirmə dərəcəsi kifayət qədər böyük olmalıdır. Əks halda,
+əyri üzərindəki çətin ECDLP problemi xüsusi cütləşdirmələr vasitəsilə
+sonlu meydanlar üzərindəki daha asan həll olunan klassik diskret
+loqarifm probleminə (DLP) köçürülə və sistem sındırıla bilər.</p></li>
+<li><p><strong>Kompleks Çoğaltma Diskriminantının Məhdudluğu:</strong>
+Əyrinin daxili həndəsi strukturunun anomal asanlıqla sındırılmaması üçün
+onun endomorfizm halqasının diskriminantı mütləq böyük ədəd
+olmalıdır.</p></li>
+</ul></li>
+<li><p><strong>Reallaşdırma və Yan Kanal Təhlükəsizliyi:</strong></p>
+<ul>
+<li><p><strong>Montqomeri Pilləkəni Dəstəyi:</strong> Əyrinin cəbri
+forması, əməliyyatların sabit zamanlı icrasına şərait yaradan xüsusi
+sürətli skalyar vurma alqoritmini birbaşa dəstəkləməlidir.</p></li>
+<li><p><strong>Toplama düsturlarının tamlığı:</strong> Əyri üzərində iki
+nöqtəni toplayan düstur bütün giriş hallarını əhatə etməlidir. Sonsuzluq
+nöqtəsi ilə toplama və nöqtənin ikiqatlanması kimi halları ayırmaq üçün
+gizli veriləndən asılı <code>if-else</code> şərtləri vaxt fərqi yarada
+və yan kanal hücumlarına yol aça bilər.</p></li>
+<li><p><strong>Burulma təhlükəsizliyi:</strong> Hücumçu əyri üzərində
+olmayan saxta nöqtə göndərdikdə hesablama əyrinin kvadratik burulmasına
+keçə bilər. SafeCurves meyarlarına görə, əyrinin özü ilə yanaşı onun
+burulmuş variantı da ECDLP baxımından güclü olmalıdır.</p></li>
+</ul></li>
+<li><p><strong>Şəffaflıq və parametr sərtliyi:</strong></p>
+<ul>
+<li><p><strong>Parametr sərtliyi:</strong> Əyrinin parametrləri
+seçilərkən gizli manipulyasiya imkanını azaltmaq üçün seçim meyarları
+əvvəlcədən müəyyən edilməli və təkrar istehsal oluna
+bilməlidir.</p></li>
+<li><p><strong>Gizli seçimə yer qoymama sübutu:</strong> Yaradıcı qrup
+əmsalları seçərkən riyazi sabitlərdən (məsələn, <span
+class="math inline">\(\pi, e\)</span>) başqa heç bir kənar təsadüfi
+ilkin toxumdan istifadə etmədiyini riyazi olaraq sübut
+etməlidir.</p></li>
+</ul></li>
+</ol>
+<h2
+id="safecurves-süzgəcindən-keçən-və-keçməyən-əyrilər"><code>SafeCurves</code>
+Süzgəcindən Keçən və Keçməyən Əyrilər</h2>
+<p>Dünya miqyasında istifadə olunan əsas sənaye əyrilərinin bu meyarlara
+cavab vermə dərəcəsi aşağıdakı kimidir:</p>
+<ul>
+<li><p><strong>Curve25519 ailəsi:</strong> Layihənin bir çox meyarını
+ödəmək üçün xüsusi layihələndirilib; X25519 və Ed25519 yenə də ayrı
+protokollar və düzgün reallaşdırma tələb edir.</p></li>
+<li><p><strong><code>secp256k1</code>:</strong> Böyük sadə altqrupa və
+səmərəli endomorfizmə malikdir, amma SafeCurves-in bütün burulma,
+nərdivan və parametr sərtliyi meyarlarını ödəmir.</p></li>
+<li><p><strong>Brainpool əyriləri:</strong> Təkrar istehsal olunan
+parametr proseduruna malikdir; konkret modeldə düstur, burulma, protokol
+və reallaşdırma ayrıca yoxlanmalıdır.</p></li>
+<li><p><strong>NIST P-əyriləri:</strong> SafeCurves-in parametr sərtliyi
+və bəzi reallaşdırma meyarlarında mənfi qiymət ala bilər, lakin bundan
+“riyazi cəhətdən etibarsızdır” nəticəsi çıxmır; SP 800-186 onları hələ
+də standartlaşdırır.</p></li>
+</ul>
+<h1 id="müasir-şəbəkə-protokollarında-ecc-nin-rolu">Müasir Şəbəkə
+Protokollarında ECC-nin Rolu</h1>
+<h2 id="tls-1.3-protokolunda-elliptik-əyrilərin-tətbiqi">TLS 1.3
+Protokolunda Elliptik Əyrilərin Tətbiqi</h2>
+<p><strong>TLS 1.3</strong> açar razılaşdırmasını, autentifikasiya
+imzalarını və qeyd qoruma dəstlərini ayrı seçir <span class="citation"
+data-cites="rescorla2026rfc9846"></span>. Dəstək səviyyəsi RFC və IANA
+reyestrində məcburi, tövsiyə olunan və yalnız sertifikat üçün kimi
+fərqli statuslarla verilir.</p>
+<ol>
+<li><p><strong>ECDHE vasitəsilə açar razılaşdırılması:</strong> Efemer
+açar paylarından əl sıxma sirri və sonra trafik açarları HKDF açar
+cədvəli ilə törədilir; hazır şifrələmə açarı şəbəkədə
+ötürülmür.</p></li>
+<li><p><strong>Rəqəmsal İmza ilə Autentifikasiya:</strong> Serverin və
+ya müştərinin həqiqiliyinin yoxlanılması.</p></li>
+</ol>
+<p>TLS 1.3 spesifikasiyalarında səmərəli icra üçün rəsmi dəstəklənən
+əyri qrupları və onun xüsusi funksional təyinatları aşağıdakı
+kimidir:</p>
+<ul>
+<li><p><strong><code>x25519</code> və <code>x448</code>:</strong>
+Montqomeri <span class="math inline">\(u\)</span>-koordinat
+funksiyalarıdır; təhlükəsizlik real sabit-zamanlı reallaşdırmadan və
+protokol yoxlamalarından asılıdır.</p></li>
+<li><p><strong><code>secp256r1</code> (P-256) və <code>secp384r1</code>
+(P-384):</strong> Geriyə uyğunluq və dövlət standartlarına riayət etmək
+məqsədilə həm ECDHE açar razılaşdırılmasında, həm də
+<code>ecdsa_secp256r1_sha256</code> imza formatında geniş istifadə
+olunur.</p></li>
+<li><p><strong><code>ed25519</code> və <code>ed448</code>:</strong>
+Server autentifikasiyası zamanı çox sürətli imza generasiyası və
+yoxlanılması təmin edən Edvards əsaslı rəqəmsal imza
+alqoritmlədir.</p></li>
+</ul>
+<h2 id="wireguard-vpn-protokolu">WireGuard VPN Protokolu</h2>
+<p><strong>WireGuard</strong> kiçik və sabit kriptoqrafik alqoritm dəsti
+seçən VPN protokoludur <span class="citation"
+data-cites="donenfeld2017wireguard"></span>. Onun autentifikasiya
+edilmiş əl sıxması Noise_IK modelinə əsaslanır.</p>
+<p>Protokol daxilində elliptik əyri mexanizmləri aşağıdakı şəkildə
+bölüşdürülmüşdür:</p>
+<ul>
+<li><p><strong>Noise_IK açar razılaşdırılması:</strong> Statik və efemer
+Curve25519 DH nəticələri HKDF/BLAKE2s ilə əl sıxma açarlarına
+bağlanır.</p></li>
+<li><p><strong>Qarşı tərəfin autentifikasiyası və trafik:</strong> Qarşı
+tərəfin identifikasiyası əvvəlcədən paylaşılan statik Curve25519 açıq
+açarları ilə aparılır; WireGuard protokolunda Ed25519 imzası yoxdur.
+Alqoritm dəsti həmçinin ChaCha20–Poly1305, BLAKE2s, SipHash24 və HKDF
+istifadə edir.</p></li>
+</ul>
+<p>Bu yanaşma sayəsində WireGuard məlumat paketlərini yüksək sürətlə
+şifrələyə bilir və Linux nüvəsində bir neçə min sətirlik əsas kodla
+işləyərək hücum səthini kiçik saxlayır.</p>
+<h2 id="kriptovalyutalar-və-blokçeyn-ekosistemi">Kriptovalyutalar və
+Blokçeyn Ekosistemi</h2>
+<p>Mərkəzləşdirilməmiş rəqəmsal aktivlər və blokçeyn şəbəkələri
+tranzaksiyaların mülkiyyət hüququnu və asimmetrik təhlükəsizliyini
+tamamilə elliptik əyrilərin daxili nöqtə strukturları üzərində qurur.
+Fərqli şəbəkələr öz memarlıq ehtiyaclarına uyğun olaraq müxtəlif
+əyrilərə üstünlük verirlər:</p>
+<ul>
+<li><p><strong>Bitcoin və Ethereum (<code>secp256k1</code>):</strong> Bu
+şəbəkələr sadə meydan üzərində qısa Veyerştras əyrisi olan
+<code>secp256k1</code>-dən istifadə edir. Konkret imza sxemi və
+optimallaşdırmalar protokol və proqram versiyasına bağlıdır.</p></li>
+<li><p><strong>Monero:</strong> Monero edwards25519 qrupunda CryptoNote
+ailəli protokollar, o cümlədən CLSAG tipli həlqəvi imza, gizli ünvan və
+öhdəlik mexanizmləri istifadə edir. Bunları standart Ed25519 imzası və
+ya “tam anonimlik” zəmanəti ilə eyniləşdirmək olmaz.</p></li>
+<li><p><strong>Cardano (<code>Ed25519-Ed25519-BIP32</code>):</strong>
+Müasir blokçeyn platformalarından olan Cardano, xüsusilə deterministik
+iyerarxik pul kisələrinin layihələndirilməsi, həmçinin yan kanal
+hücumlarına qarşı dözümlülük üçün <strong><code>Ed25519</code></strong>
+rəqəmsal imza alqoritmini və onun törəmələrini öz konsensus mexanizminə
+(<em>Ouroboros</em>) inteqrasiya etmişdir.</p></li>
+</ul>
+<h2 id="çip-kartları-və-əşyaların-interneti-iot">Çip kartları və
+əşyaların interneti (IoT)</h2>
+<p>Resursları kəskin şəkildə məhdud olan aparat təminatlarında —
+mikroprosessorlar, <strong>IoT sensorları</strong>, RFID etiketləri və
+<strong>çip kartları</strong> (məsələn, biometrik pasportlar, bank
+kartları) mühitində ənənəvi asimmetrik kriptoqrafiyanın (RSA) tətbiqi
+qeyri-mümkündür. Çünki 2048 və ya 4096 bitlik RSA açarları ilə aparılan
+modulyar dərəcəyə yüksəltmə əməliyyatları bu cihazların RAM, keş
+yaddaşını və batareya enerjisini anında tükədir.</p>
+<p>ECC bu sahədə inqilabi keçid təmin etmişdir:</p>
+<ul>
+<li><p><strong>Enerji və sahə səmərəliliyi:</strong> Cəmi 256-bitlik bir
+ECC açarı (məsələn, <code>x25519</code>), 3072-bitlik RSA ilə eyni gücdə
+(128-bit) təhlükəsizlik verir. Lakin riyazi əməliyyatların tələb etdiyi
+mikrovat-saat (<span class="math inline">\(\mu Wh\)</span>)
+səviyyəsindəki enerji sərfiyyatı və silisium çip üzərində tutduğu fiziki
+sahə (məntiq qapılarının sayı) RSA-dan qat-qat kiçikdir.</p></li>
+<li><p><strong>Yan kanal müdafiəsi:</strong> Fiziki əlçatan IoT
+cihazlarında vaxt, enerji və xəta inyeksiyası hücumları nəzərə
+alınmalıdır. X25519 və Ed25519 sabit-zamanlı reallaşdırmanı asanlaşdıra
+bilər, lakin DPA müdafiəsi ayrıca maskalama/korlaşdırma, yaddaş
+intizamı, xəta aşkarlanması və aparat tədbirləri tələb edir.</p></li>
+</ul>
+<div class="note">
+<p><span>Mühazirə xülasəsi</span> Elliptik Əyri Kriptoqrafiyası
+müqayisəli klassik təhlükəsizlik səviyyəsində RSA-dan kiçik açarlar verə
+bilər; məsələn, təxminən 128-bit səviyyə üçün 256-bit ECC və 3072-bit
+RSA parametrləri müqayisə olunur. Real təhlükəsizlik əyri, protokol,
+yoxlama/KDF, kitabxana və yan kanal müdafiələrinin birlikdə düzgün
+seçilməsindən asılıdır.</p>
+</div>
+<h1 id="praktik-tövsiyələr">Praktik Tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Yeni Layihələndirilən Sistemlər üçün:</strong></p>
+<ul>
+<li><p>Uyğun protokol və uyğunluq profilində X25519-i yoxlanmış,
+sabit-zamanlı kitabxana ilə tətbiq edin; tam sıfır nəticəni, KDF
+kontekstini və qarşı tərəfin autentifikasiyasını yoxlayın.</p></li>
+<li><p>Curve25519, X25519 və Ed25519 adlarını əyri, açar razılaşdırma
+funksiyası və imza sxemi kimi ayrı saxlayın; imza seçimini 23-cü
+mühazirədə əsaslandırın.</p></li>
+</ul></li>
+<li><p><strong>Mövcud Geriyə Uyğun Sistemlər üçün:</strong></p>
+<ul>
+<li><p>Dövlət standartları və ya korporativ tələblər çərçivəsində NIST
+əyrilərindən istifadə mütləqdirsə, <strong>P-256</strong> minimum
+təhlükəsizlik həddi kimi qəbul edilməlidir.</p></li>
+<li><p>Kompromissiz uzunmüddətli məlumat gizliliyi tələb olunan
+mühitlərdə daha yüksək bit dayanıqlığına malik <strong>P-384</strong> və
+<strong>P-521</strong> əyrilərinə keçid təmin edilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Blokçeyn və Kriptovalyuta Tətbiqləri üçün:</strong></p>
+<ul>
+<li><p><strong>secp256k1</strong> əyrisi konsensus protokollarının
+daxili konvensiyası tərəfindən standartlaşdırıldığı üçün struktur
+dəyişikliyi edilməməli, lakin GLV (Gallant-Lambert-Vanstone) endomorfizm
+optimallaşdırmalarından tam istifadə olunmalıdır.</p></li>
+</ul></li>
+<li><p><strong>Yan kanal hücumlarından qorunma:</strong></p>
+<ul>
+<li><p>Skalyar vurma (<span class="math inline">\(k \cdot G\)</span>)
+əməliyyatlarının icra müddətinin gizli açarın bit dəyərlərindən asılı
+olmaması üçün mütləq <strong>sabit-zamanlı</strong> alqoritmlər
+seçilməlidir.</p></li>
+<li><p>Hesablama zamanı gizli veriləndən asılı şərti keçidləri
+kənarlaşdıran <strong>Montqomeri nərdivanı</strong> və ya xüsusi pəncərə
+üsullarından istifadə edilməlidir.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Hər tapşırıqda əvvəlcə girişləri, çıxışları və yoxlama şərtini yazın.
+İmza alqoritmlərinin hesablanması 23-cü mühazirəyə saxlanılır. Müəllim
+üçün cavab açarı yalnız ilkin cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>ECDH protokolunda Alis <span
+class="math inline">\(a=3\)</span>, Bob isə <span
+class="math inline">\(b=5\)</span> gizli skalyarlarını seçir. Generator
+<span class="math inline">\(G\)</span>, açıq nöqtələr <span
+class="math inline">\(A=3G\)</span> və <span
+class="math inline">\(B=5G\)</span> olduqda hər tərəfin hesabladığı
+ortaq nöqtəni iki bərabər ifadə ilə göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>Server naməlum mənbədən <span
+class="math inline">\((x,y)\)</span> açıq nöqtəsi alır. Bu nöqtəni
+dərhal gizli skalyara vurmaq əvəzinə hansı əyri, altqrup və xüsusi-dəyər
+yoxlamalarını aparmaq lazımdır? Yoxlamalardan biri uğursuz olduqda
+protokolun davranışını yazın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>Statik ECDH və ECDHE profillərini
+açar komprometi ssenarisində müqayisə edin. Hansı profil keçmiş
+sessiyaların sirrini daha yaxşı qoruyur və bunun üçün hansı əlavə
+autentifikasiya şərti qalır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>Eyni təhlükəsizlik səviyyəsini
+hədəfləyən iki sistem verilib: biri geniş standart uyğunluğu üçün P-256,
+digəri sadə və sabit-zamanlı açar razılaşdırılması üçün X25519 təklif
+edir. Seçimi protokol uyğunluğu, açıq açar yoxlaması, reallaşdırma və
+qarşılıqlı işləmə meyarları üzrə əsaslandırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>TLS 1.3 izində
+<code>supported_groups</code>, <code>key_share</code> və
+<code>signature_algorithms</code> sahələrini tapın. Hansının ECDHE
+qrupu, hansının imza profili seçdiyini göstərin və “X25519 seçilibsə
+Ed25519 də avtomatik seçilir” hökmünü qiymətləndirin.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p>Alis <span class="math inline">\(S_A=aB=3(5G)\)</span>, Bob isə
+<span class="math inline">\(S_B=bA=5(3G)\)</span> hesablayır. Hər iki
+nəticə <span class="math inline">\(S_A=S_B=15G\)</span> olur. Bu nöqtə
+birbaşa trafik açarı deyil: koordinatın kodlaşdırılması KDF-ə protokol
+konteksti ilə birlikdə verilməlidir.</p></li>
+<li><p>Qəbul edən tərəf kodlaşdırmanın kanonikliyini, nöqtənin seçilmiş
+əyri üzərində olmasını, tələb olunan altqrupa aidliyini və profilin
+qadağan etdiyi neytral/kiçik-altqrup nəticələrini yoxlamalıdır.
+Uğursuzluq halında vahid xəta davranışı ilə razılaşdırma dayandırılır;
+gizli skalyarla əməliyyat və açar törətmə aparılmır.</p></li>
+<li><p>Statik gizli açarın sonradan komprometi statik ECDH ilə qorunmuş
+köhnə yazıları riskə ata bilər. Hər sessiyada yeni efemer açar istifadə
+edən ECDHE isə efemer sirrlər silindiyi halda irəli məxfilik verir. Bu
+xassə tərəfin kimliyini təsdiqləmir: sertifikat/imza və ya əvvəlcədən
+paylaşılan autentifikasiya mexanizmi ayrıca lazımdır.</p></li>
+<li><p>Universal qalib yoxdur. P-256 normativ və köhnə ekosistem
+uyğunluğunda üstün ola bilər; X25519 sadə interfeys və sabit-zamanlı
+reallaşdırmanı asanlaşdırır. Qərar qarşı tərəfin dəstəyi, təsdiqlənmiş
+kitabxana, açar kodlaşdırması, yoxlama qaydası və protokol profili ilə
+sənədləşdirilməlidir.</p></li>
+<li><p><code>supported_groups</code> və <code>key_share</code> ECDHE
+üçün qrup və açıq payı bildirir; <code>signature_algorithms</code> isə
+autentifikasiya imzasının ayrıca seçim fəzasıdır. Buna görə X25519
+seçimi Ed25519 seçimini məcbur etmir: məsələn, X25519 açar
+razılaşdırılması RSA-PSS və ya uyğun ECDSA sertifikatı ilə birlikdə
+işləyə bilər.</p></li>
+</ul>
+<h1 id="mühazirənin-xülasəsi">Mühazirənin Xülasəsi</h1>
+<p>Bu genişləndirilmiş mühazirə kursu çərçivəsində müasir tətbiqi
+kriptoqrafiyanın ən fundamental sütunlarından biri olan <strong>Elliptik
+Əyri Kriptoqrafiyası (ECC)</strong> mövzusunu həm nəzəri-riyazi, həm də
+şəbəkə protokolları səviyyəsində təhlil etdik. Öyrənilən əsas elmi
+tezislər aşağıdakılardan ibarətdir:</p>
+<ul>
+<li><p><strong>Asimmetrik Üstünlük:</strong> ECC, klassik RSA
+kriptosistemindən fərqli olaraq, sub-eksponensial deyil, tam
+eksponensial mürəkkəbliyə malik ECDLP probleminə əsaslanır (RSA-nın
+vuruqlara ayırma problemi üçün sub-eksponensial GNFS hücumu mövcud
+olduğu halda, ECDLP üçün belə hücum yoxdur). Bu riyazi asılılıq cəmi 256
+bitlik açar uzunluğu ilə 3072 bitlik RSA sisteminə ekvivalent
+kriptoqrafik dayanıqlıq təmin edərək şəbəkə trafikini və aparat
+resurslarını kəskin şəkildə optimallaşdırır.</p></li>
+<li><p><strong>Həndəsi formaların seçimi:</strong> Veyerştras,
+Montqomeri və Burulmuş Edvards formaları müxtəlif səmərəli düsturlar
+verir. Heç bir forma təkbaşına yan kanal təhlükəsizliyi yaratmır;
+sabit-zamanlı arifmetika, yaddaş girişləri və fiziki hücum tədbirləri
+reallaşdırmada təmin edilir.</p></li>
+<li><p><strong>Açar razılaşdırılması və imza:</strong> ECDH xam ortaq
+sirr verir; təhlükəsiz tətbiq yoxlama, KDF, kontekst və autentifikasiya
+tələb edir. Efemer açarların düzgün idarəsi irəli məxfilik verə bilər.
+ECDSA və Ed25519 açıq açara görə yoxlanılan imza yaradır; hüquqi
+inkaredilməzlik ayrıca əməliyyat və hüquq qatlarından asılıdır.</p></li>
+<li><p><strong>Standart seçimi:</strong> Parametr sərtliyi, protokol
+uyğunluğu, standart profili və yoxlanmış reallaşdırma birlikdə
+qiymətləndirilir. NIST P-əyriləri, X25519/Ed25519, Brainpool və
+<code>secp256k1</code> fərqli ekosistemlərdə istifadə olunur;
+Dual_EC_DRBG mübahisəsi onların hamısını bir cümlə ilə etibarlı və ya
+etibarsız etmir.</p></li>
+</ul>
+<p><strong>Yekun Elmi Nəticə:</strong> Müasir proqram və aparat
+mühəndisliyində ECC-nin tətbiqi sadəcə təhlükəsizlik deyil, həm də
+energetik və hesablama səmərəliliyi tələbidir. Yeni nəsil sistemlərin
+layihələndirilməsində deterministik strukturlara (Ed25519) və sürətli
+sadə modullara (Curve25519) üstünlük verilməsi, gələcəyin yüksək sürətli
+şəbəkə protokollarının əsas zəmanətidir.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Mersen sadə ədədi <span class="math inline">\(M_p = 2^p
+- 1\)</span> şəklində ifadə olunan və sadə olan ədədlər Mersen sadə
+ədədləridir (burada <span class="math inline">\(p\)</span>-nin özü də
+sadə ədəddir. Kriptoqrafiyada Mersen və ya ona bənzər strukturda olan
+sadə ədədlərin modul kimi seçilməsi bölmə əməliyyatını əvəz edən sürətli
+modul reduksiyasına (<em>fast modular reduction</em>) şərait yaradır.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Montqomeri cəbri forması (<span
+class="math inline">\(By^2 = x^3 + Ax^2 + x\)</span>) ilk dəfə 1987-ci
+ildə Piter Montqomeri (<em>Peter L. Montgomery</em>) tərəfindən təklif
+edilmişdir. Bu formalı əyrilərin əsas üstünlüyü yalnız <span
+class="math inline">\(x\)</span>-koordinatı üzərində əməliyyat aparmağa
+imkan verən <em>Montqomeri nərdivanı</em> alqoritmidir. Bu alqoritm
+skalyar vurmanı sabit zamandə (<em>constant-time</em>) icra edərək kənar
+kanal hücumlarına (<em>side-channel attacks</em>, xüsusilə zamanlama
+analizinə) qarşı avadanlıq və proqram səviyyəsində təbii müdafiə yaradır
+<span class="citation" data-cites="montgomery1987speeding"></span>.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Bu hissənin tam izahı elliptik əyri və kriptovalyuta
+sənədlərindədir<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>GLV (Gallant–Lambert–Vanstone) metodu 2001-ci ildə
+təklif edilmişdir <span class="citation"
+data-cites="gallant2001fast"></span>. Bu alqoritm xüsusi endomorfizmə
+(məsələn, <span class="math inline">\(j\)</span>-invariantı 0 olan
+əyrilərdə <span class="math inline">\((x,y) \mapsto (\zeta x,
+y)\)</span> inikasina) malik əyrilərdə skalyar vurma əməliyyatını (<span
+class="math inline">\(k P\)</span>) daha kiçik ölçülü iki skalyar
+vurmaya (<span class="math inline">\(k_1 P + k_2 \phi(P)\)</span>)
+parçalayır. <span class="math inline">\(k_1, k_2 \approx
+\sqrt{k}\)</span> olduğu üçün nöqtənin ikiqat artırılması
+(<em>doubling</em>) addımlarının sayı yarıbayarı azalır və bu da
+hesablamaları sürətləndirir.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (15)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Hankerson et al., 2004</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Guide to Elliptic Curve Cryptography</h6>
+                    <p class="small text-secondary mb-0">Darrel Hankerson and Alfred J. Menezes and Scott A. Vanstone (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Barker et al., 2016</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Pair-Wise Key-Establishment Schemes Using Discrete Logarithm Cryptography</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker and Lily Chen and Dustin Moody (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Bernstein, 2006</span>
+                        <small class="text-muted">Public Key Cryptography - PKC 2006</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Curve25519: New Diffie-Hellman Speed Records</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein (2006)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Brown, 2000</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SEC 2: Recommended Elliptic Curve Domain Parameters</h6>
+                    <p class="small text-secondary mb-0">Daniel R. L. Brown (2000)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Shen et al., 2014</span>
+                        <small class="text-muted">Internet Engineering Task Force</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SM2 Digital Signature Algorithm</h6>
+                    <p class="small text-secondary mb-0">Sean Shen and Sean Shen and XiaoDong Lee (2014)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Langley et al., 2016</span>
+                        <small class="text-muted">RFC Editor</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Elliptic Curves for Security</h6>
+                    <p class="small text-secondary mb-0">Adam Langley and Mike Hamburg and Sean Turner (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Rescorla, 2026</span>
+                        <small class="text-muted">RFC Editor</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] NIST, 2019</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Digital Signature Standard (DSS)</h6>
+                    <p class="small text-secondary mb-0">NIST (2019)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Bernstein &amp; Lange, 2013</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SafeCurves: Choosing Safe Curves for Elliptic-Curve Cryptography</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein and Tanja Lange (2013)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Merkle &amp; Lochter, 2010</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Elliptic Curve Cryptography (ECC) Brainpool Standard Curves and Curve Generation</h6>
+                    <p class="small text-secondary mb-0">Johannes Merkle and Manfred Lochter (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Donenfeld, 2017</span>
+                        <small class="text-muted">Network and Distributed System Security Symposium (NDSS)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">WireGuard: Next Generation Kernel Network Tunnel</h6>
+                    <p class="small text-secondary mb-0">Jason A. Donenfeld (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Montgomery, 1987</span>
+                        <small class="text-muted">Mathematics of Computation</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Speeding the Pollard and Elliptic Curve Methods of Factorization</h6>
+                    <p class="small text-secondary mb-0">Peter L. Montgomery (1987)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Gallant et al., 2001</span>
+                        <small class="text-muted">Advances in Cryptology --- CRYPTO 2001</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Faster Point Multiplication on Elliptic Curves with Efficient Endomorphisms</h6>
+                    <p class="small text-secondary mb-0">Robert P. Gallant and Robert J. Lambert and Scott A. Vanstone (2001)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

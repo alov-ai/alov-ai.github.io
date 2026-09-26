@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_11</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 11: Blok Şifrələrin İş Rejimləri</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 11: ECB, CBC, CFB, OFB, CTR, GCM, CCM, XTS</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirələrdə blok şifrələrin özlərini öyrəndik — AES, DES
+kimi alqoritmlər tək bir bloku (128-bit və ya 64-bit) şifrləyir. Lakin
+real dünyada mesajlar ixtiyari uzunluqda olur. Blok şifrələri ixtiyari
+uzunluqlu mesajlara tətbiq etmək üçün <strong>iş rejimləri</strong>
+(modes of operation) istifadə olunur <span class="citation"
+data-cites="nist2001modes bellare1997xor"></span>.</p>
+<p>Bu mühazirədə aşağıdakı iş rejimlərini ətraflı öyrənəcəyik:</p>
+<ul>
+<li><p><strong>ECB (Electronic Codebook)</strong> — Elektron Kod
+Kitabı</p></li>
+<li><p><strong>CBC (Cipher Block Chaining)</strong> — Şifrə Bloklarının
+Zəncirlənməsi</p></li>
+<li><p><strong>CFB (Cipher Feedback)</strong> — Şifrə
+Əks-Əlaqəsi</p></li>
+<li><p><strong>OFB (Output Feedback)</strong> — Çıxış
+Əks-Əlaqəsi</p></li>
+<li><p><strong>CTR (Counter)</strong> — Sayğac Rejimi</p></li>
+<li><p><strong>GCM (Galois/Counter Mode)</strong> — Qalua/Sayğac Rejimi
+(AEAD)</p></li>
+<li><p><strong>CCM (Counter with CBC-MAC)</strong> — Sayğac + CBC-MAC
+(AEAD)</p></li>
+<li><p><strong>XTS (XEX-based Tweaked CodeBook)</strong> — Disk
+şifrələməsi üçün</p></li>
+</ul>
+<div class="keyconcept">
+<p><span>Niyə iş rejimləri lazımdır?</span> Blok şifrələr tək bir bloku
+şifrləyir. Uzun mesajlar üçün:</p>
+<ol>
+<li><p>Mesaj bloklara bölünməlidir;</p></li>
+<li><p>Hər blok şifrlənməlidir;</p></li>
+<li><p>Eyni açıq mətn blokları eyni şifrəli mətn blokları verməməlidir
+(<em>Naxış gizlədilməsi (Pattern Hiding)</em>);</p></li>
+<li><p>Şifrləmə eyni açarla eyni mesajda təhlükəsiz olmalıdır.</p></li>
+</ol>
+<p>İş rejimləri bu problemləri həll edir <span class="citation"
+data-cites="rogaway2011evaluation"></span>.</p>
+</div>
+<h1 id="məlumatın-doldurulması-padding">Məlumatın Doldurulması
+(Padding)</h1>
+<p>Blok şifrələr (məsələn, AES) sabit blok ölçüsü (<span
+class="math inline">\(L=16\)</span> bayt) ilə işləyir. Lakin real
+mesajların uzunluğu həmişə blok ölçüsünün tam mislləri olmur. Bu halda
+sonuncu bloku tamamlamaq üçün <strong>Doldurma</strong> metodlarından
+istifadə olunur <span class="citation"
+data-cites="nist2001modes"></span>.</p>
+<h2 id="pkcs7-standartı">PKCS#7 Standartı</h2>
+<p>Ən geniş yayılmış doldurma üsulu PKCS#7-dir. Bu metodda çatışmayan
+baytların sayı qədər bayt əlavə edilir və hər bir əlavə edilən baytın
+dəyəri məhz həmin saya bərabər olur.</p>
+<div class="keyconcept">
+<p><span>PKCS#7 Hesablanması</span> Əgər blokun dolması üçün <span
+class="math inline">\(N\)</span> sayda bayt çatışmırsa, blokun sonuna
+<span class="math inline">\(N\)</span> dəfə <span
+class="math inline">\(0xN\)</span> dəyəri əlavə edilir.</p>
+<ul>
+<li><p>1 bayt çatışmırsa: <code>... | 01</code></p></li>
+<li><p>3 bayt çatışmırsa: <code>... | 03 03 03</code></p></li>
+<li><p>Blok tamdırsa: Bu halda <strong>tam bir blok</strong> (<span
+class="math inline">\(16\)</span> bayt) əlavə edilir
+(<code>10 10 ... 10</code>), beləliklə deşifrələmə zamanı sonun harada
+bitdiyi qarışdırılmır.</p></li>
+</ul>
+</div>
+<h2 id="doldurma-orakl-hücumu">Doldurma Orakl Hücumu</h2>
+<p>Doldurmanın düzgün tətbiqi həm də təhlükəsizlik məsələsidir.</p>
+<div class="warning">
+<p><span>Doldurma Orakl Hücumu</span> Əgər server deşifrələmə zamanı
+doldurmanın səhv olub-olmaması barədə xəta mesajı qaytararsa (məsələn,
+"Invalid Padding"), hücumçu bu məlumatdan istifadə edərək şifrəli mətni
+blok-blok deşifrləyə bilər <span class="citation"
+data-cites="vanden2011breaking"></span>. Bu səbəbdən müasir sistemlərdə
+doldurmanı yoxlamazdan əvvəl mesajın tamlığı (MAC vasitəsilə)
+yoxlanmalıdır.</p>
+</div>
+<h1 id="ecb-rejimi-electronic-codebook">ECB Rejimi (Electronic
+Codebook)</h1>
+<p>ECB ən sadə iş rejimidir. Mesaj bloklara bölünür və hər blok
+digərlərindən tamamilə müstəqil şəkildə şifrlənir <span class="citation"
+data-cites="nist2001modes"></span>.</p>
+<div class="keyconcept">
+<p><span>ECB Şifrləmə</span> Şifrləmə tənliyi: <span
+class="math display">\[C_i = E_K(P_i)\]</span> Deşifrələmə tənliyi:
+<span class="math display">\[P_i = D_K(C_i)\]</span> burada <span
+class="math inline">\(P_i\)</span> açıq mətn bloku, <span
+class="math inline">\(C_i\)</span> şifrəli mətn bloku, <span
+class="math inline">\(E_K\)</span> isə açarla idarə olunan blok şifrə
+funksiyasıdır.</p>
+</div>
+<h2 id="ecb-rejiminin-xüsusiyyətləri">ECB Rejiminin Xüsusiyyətləri</h2>
+<ul>
+<li><p><strong>Sadəlik:</strong> Rejimin tətbiqi və başa düşülməsi çox
+asandır.</p></li>
+<li><p><strong>Paralelləşdirmə:</strong> Hər bir blok müstəqil olduğu
+üçün şifrləmə və deşifrələmə eyni anda bir neçə prosessor nüvəsində
+(<em>multithreading</em>) həyata keçirilə bilər.</p></li>
+<li><p><strong>Təsadüfi Giriş (<em>Təsadüfi müraciət</em>):</strong>
+Mesajın ortasındakı bir bloku oxumaq üçün əvvəlki blokları deşifrələməyə
+ehtiyac yoxdur.</p></li>
+</ul>
+<h2 id="ecb-rejiminin-problemləri">ECB Rejiminin Problemləri</h2>
+<div class="warning">
+<p><span>ECB-nin Əsas Zəifliyi</span> Eyni açıq mətn blokları eyni
+açarla həmişə eyni şifrəli mətn bloklarını yaradır. Bu, şifrəli mətndə
+daxili statistik quruluşun (<em>pattern</em>) qalmasına və məlumat
+sızmasına səbəb olur <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+</div>
+<div class="examplebox">
+<p><span>ECB Nümunəsi — "Linux" Pinqvini</span> Linux maskotu olan Tux
+şəkli ECB rejimində şifrləndikdə, rəng dəyərləri dəyişsə də, eyni rəngli
+piksellər eyni şifrəli dəyərləri verdiyi üçün orijinal şəklin konturları
+aydın şəkildə görünməyə davam edir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<figure id="fig:test" data-latex-placement="h">
+<img src="aes_penguin.png" style="width:80.0%" />
+<figcaption>ECB və digər təhlükəsiz rejimlərin müqayisəsi: ECB rejimində
+şifrlənmiş şəkildə statistik naxışların sızması aydın görünür (pinqvinin
+forması tanınır), CBC rejimində isə məlumat tamamilə randomizə
+olunub.</figcaption>
+</figure>
+<div class="note">
+<p><span>ECB Nə Vaxt İstifadə Oluna Bilər?</span> ECB müasir
+təhlükəsizlik tələblərinə cavab vermir və ümumiyyətlə istifadəsi tövsiyə
+edilmir <span class="citation" data-cites="nist2001modes"></span>.
+Yalnız tamamilə təsadüfi paylanmış kiçik məlumatların (məsələn, digər
+şifrələmə açarlarının) şifrlənməsi üçün tətbiq oluna bilər.</p>
+</div>
+<h1 id="cbc-rejimi-cipher-block-chaining">CBC Rejimi (Cipher Block
+Chaining)</h1>
+<p>CBC rejimində hər bir açıq mətn bloku şifrlənmədən əvvəl əvvəlki
+şifrəli mətn bloku ilə XOR əməliyyatına məruz qalır <span
+class="citation" data-cites="nist2001modes"></span>. Bu zəncirvari
+struktur eyni açıq mətn bloklarının fərqli şifrəli bloklara çevrilməsini
+təmin edərək naxış sızıntısını (pattern leakage) aradan qaldırır.</p>
+<div class="keyconcept">
+<p><span>CBC Riyazi Mexanizmi</span> <strong>Şifrləmə:</strong> <span
+class="math display">\[C_i = E_K(P_i \oplus C_{i-1})\]</span> Burada
+<span class="math inline">\(C_0 = IV\)</span> (İlkin Vektor).</p>
+<p><strong>Deşifrələmə:</strong> <span class="math display">\[P_i =
+D_K(C_i) \oplus C_{i-1}\]</span> Burada <span class="math inline">\(P_1
+= D_K(C_1) \oplus IV\)</span>.</p>
+</div>
+<h2 id="iv-ilkin-vektor-və-təhlükəsizlik">IV (İlkin Vektor) və
+Təhlükəsizlik</h2>
+<p>IV şifrləmənin deterministik olmamasını təmin edir. Əsas
+tələblər:</p>
+<ul>
+<li><p><strong>Unikallıq:</strong> Eyni açarla eyni IV heç vaxt təkrar
+istifadə edilməməlidir.</p></li>
+<li><p><strong>Təsadüfilik:</strong> IV təxmin edilə bilməz olmalıdır.
+Proqnozlaşdırıla bilən IV-lər (məsələn, ardıcıl saylar)
+<em>chosen-plaintext</em> hücumlarına yol açır.</p></li>
+</ul>
+<div class="warning">
+<p><span>IV Təkrarı və Hücumlar</span> IV-nin təkrarı və ya zəif
+seçilməsi <span class="citation"
+data-cites="rogaway2011evaluation"></span> nəticəsində hücumçu
+mesajların prefikslərinin eyni olub-olmadığını öyrənə bilər. CBC rejimi
+həmçinin <strong>Doldurma Oraklı</strong> hücumuna qarşı həssasdır <span
+class="citation"
+data-cites="vanden2011breaking rogaway2001efficient"></span>, burada
+hücumçu dodlurma xətalarından istifadə edərək mesajı bayt-bayt bərpa
+edir.</p>
+</div>
+<h2 id="məlumatın-doldurulması-padding-1">Məlumatın Doldurulması
+(Padding)</h2>
+<p>CBC blok-əsaslı rejim olduğu üçün mesajın uzunluğu blok ölçüsünün
+(<span class="math inline">\(L=16\)</span> bayt) misli olmalıdır.</p>
+<ul>
+<li><p><strong>PKCS#7:</strong> Ən çox istifadə olunan doldurma
+metodudur. Çatışmayan <span class="math inline">\(N\)</span> bayt qədər
+<span class="math inline">\(N\)</span> dəyəri əlavə edilir.</p></li>
+<li><p><strong>Tam blok halı:</strong> Əgər mesaj tamdırsa, əlavə bir
+tam blok (16 baytlıq <code>0x10</code>) əlavə edilir ki, deşifrələmə
+zamanı qarışıqlıq yaranmasın.</p></li>
+</ul>
+<h2 id="xüsusiyyətlər-paralelləşdirmə-və-xəta">Xüsusiyyətlər:
+Paralelləşdirmə və Xəta</h2>
+<ul>
+<li><p><strong>Şifrləmə:</strong> Paralelləşdirilə bilməz (<span
+class="math inline">\(C_i\)</span> üçün <span
+class="math inline">\(C_{i-1}\)</span> lazımdır).</p></li>
+<li><p><strong>Deşifrələmə:</strong> Tamamilə paralelləşdirilə bilər,
+çünki bütün <span class="math inline">\(C\)</span> blokları öncədən
+məlumdur.</p></li>
+<li><p><strong>Xəta Yayılması:</strong> <span
+class="math inline">\(C_i\)</span> blokundakı 1 bitlik xəta <span
+class="math inline">\(P_i\)</span>-ni tamamilə korlayır, lakin <span
+class="math inline">\(P_{i+1}\)</span>-də yalnız müvafiq 1 bitlik xətaya
+səbəb olur (XOR xüsusiyyəti).</p></li>
+</ul>
+<div class="examplebox">
+<p><span>CBC Hesablanması (8-bit Sadələşmiş)</span> Açar <span
+class="math inline">\(K\)</span> və <span class="math inline">\(IV =
+0x12\)</span> verilib. <span class="math inline">\(P_1 = 0x53\)</span>
+(’S’) şifrləyək:</p>
+<ol>
+<li><p>XOR mərhələsi: <span class="math inline">\(P_1 \oplus IV = 0x53
+\oplus 0x12 = 0x41\)</span></p></li>
+<li><p>Şifrləmə: <span class="math inline">\(C_1 =
+E_K(0x41)\)</span></p></li>
+<li><p>Növbəti blok üçün <span class="math inline">\(C_1\)</span> yeni
+"zəncir" halqası olur.</p></li>
+</ol>
+</div>
+<h1 id="cfb-rejimi-cipher-feedback">CFB Rejimi (Cipher Feedback)</h1>
+<p>CFB rejimi blok şifrəni effektiv şəkildə <strong>axın şifrəsinə
+(stream cipher)</strong> çevirir. Bu rejimdə açıq mətn birbaşa blok
+şifrə alqoritminə (məs. AES) daxil olmur. Bunun əvəzinə, blok şifrə
+unikal bir <strong>açar axını (keystream)</strong> yaradır və bu axın
+açıq mətnlə XOR edilir <span class="citation"
+data-cites="nist2001modes"></span>.</p>
+<div class="keyconcept">
+<p><span>CFB Riyazi Mexanizmi</span> CFB rejimi <span
+class="math inline">\(s\)</span>-bitlik seqmentlərlə işləyir. Hər
+addımda <span class="math inline">\(b\)</span>-bitlik sürüşmə reqistri
+(<span class="math inline">\(I\)</span>) istifadə olunur: <span
+class="math display">\[\begin{align*}
+I_1 &amp;= IV \\
+O_j &amp;= E_K(I_j) \\
+C_j &amp;= P_j \oplus \text{MSB}_s(O_j) \\
+I_{j+1} &amp;= \text{LSB}_{b-s}(I_j) \parallel C_j
+\end{align*}\]</span> Burada <span
+class="math inline">\(\text{MSB}_s\)</span> çıxışın ilk <span
+class="math inline">\(s\)</span> bitini, <span
+class="math inline">\(\text{LSB}_{b-s}\)</span> isə sürüşmə reqistrinin
+son <span class="math inline">\(b-s\)</span> bitini ifadə edir. <span
+class="math inline">\(\parallel\)</span> işarəsi isə bitlərin
+zəncirlənməsini (concatenation) göstərir.</p>
+</div>
+<h2 id="deşifrələmənin-xüsusiyyəti">Deşifrələmənin Xüsusiyyəti</h2>
+<p>CFB-nin ən maraqlı cəhəti odur ki, deşifrələmə zamanı da blok
+şifrənin <strong>şifrləmə (Encryption)</strong> funksiyası istifadə
+olunur: <span class="math display">\[P_j = C_j \oplus
+\text{MSB}_s(E_K(I_j))\]</span> Bunun səbəbi şifrləmə zamanı istifadə
+olunan "açar axınını" eynilə bərpa etmək zərurətidir.</p>
+<h2 id="cfb-rejiminin-xüsusiyyətləri">CFB Rejiminin Xüsusiyyətləri</h2>
+<ul>
+<li><p><strong>Doldurma (Padding) Tələb Etmir:</strong> Mesajın uzunluğu
+blok ölçüsünün misli olmaq məcburiyyətində deyil. İxtiyari bit
+uzunluğunda mesajlar şifrlənə bilər.</p></li>
+<li><p><strong>Sinxronizasiya:</strong> CFB-nin özünübərpa xüsusiyyəti
+var. Əgər ötürmə zamanı bəzi bitlər itərsə və ya əlavə olunarsa, sürüşmə
+reqistri tam dolduqdan sonra sistem yenidən düzgün deşifrələməyə
+başlayır.</p></li>
+<li><p><strong>Paralelləşdirmə:</strong> Şifrləmə ardıcıl (sequential)
+aparılmalıdır, lakin deşifrələmə paralelləşdirilə bilər (çünki <span
+class="math inline">\(C_j\)</span> blokları artıq əlimizdədir).</p></li>
+</ul>
+<h2 id="s-parametrinin-seçimi"><span class="math inline">\(s\)</span>
+Parametrinin Seçimi</h2>
+<p>CFB rejimi <span class="math inline">\(s\)</span> parametrindən asılı
+olaraq çevikdir:</p>
+<table>
+<caption>CFB-də <span class="math inline">\(s\)</span> parametrinin
+müxtəlif dəyərləri.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Rejim</strong></th>
+<th style="text-align: left;"><strong>Tətbiq Sahəsi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">CFB-1</td>
+<td style="text-align: left;">Bit səviyyəli ötürmə (hər bit üçün bir AES
+əməliyyatı - çox yavaş)</td>
+</tr>
+<tr>
+<td style="text-align: left;">CFB-8</td>
+<td style="text-align: left;">Simvol səviyyəli ötürmə (Terminal
+emulyasiyaları)</td>
+</tr>
+<tr>
+<td style="text-align: left;">CFB-128</td>
+<td style="text-align: left;">Tam blok səviyyəli (AES üçün maksimum
+səmərəlilik)</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><span>CFB və Xəta Yayılması</span> Şifrəli mətndəki (<span
+class="math inline">\(C_j\)</span>) bir bitlik xəta həm cari <span
+class="math inline">\(P_j\)</span> blokunu korlayır, həm də sürüşmə
+reqistri vasitəsilə növbəti bloklara təsir edir. Sürüşmə reqistrindən
+həmin xətalı bit çıxdıqdan sonra deşifrələmə avtomatik düzəlir <span
+class="citation" data-cites="stallings2017cryptography"></span>.</p>
+</div>
+<h1 id="ofb-rejimi-output-feedback">OFB Rejimi (Output Feedback)</h1>
+<p>OFB rejimi də blok şifrəni axın şifrəsinə çevirir. CFB-dən əsas fərqi
+ondan ibarətdir ki, burada geri-əlaqə (feedback) şifrəli mətndən deyil,
+birbaşa blok şifrənin öz çıxışından (output) götürülür <span
+class="citation" data-cites="nist2001modes"></span>. Bu o deməkdir ki,
+açar axını (keystream) açıq mətndən tamamilə müstəqil şəkildə
+formalaşır.</p>
+<div class="keyconcept">
+<p><span>OFB Şifrləmə və Deşifrələmə</span> Şifrləmə prosesi unikal bir
+açar axını (<span class="math inline">\(O_i\)</span>) yaradılmasına
+əsaslanır: <span class="math display">\[\begin{align*}
+O_0 &amp;= IV \\
+O_i &amp;= E_K(O_{i-1}) \quad (\text{Açar axını}) \\
+C_i &amp;= P_i \oplus O_i \quad (\text{Şifrləmə}) \\
+P_i &amp;= C_i \oplus O_i \quad (\text{Deşifrələmə})
+\end{align*}\]</span> Burada <span class="math inline">\(E_K\)</span>
+yalnız şifrləmə rejimində istifadə olunur (həm şifrləmə, həm də
+deşifrələmə zamanı).</p>
+</div>
+<h2 id="ofb-rejiminin-xüsusiyyətləri">OFB Rejiminin Xüsusiyyətləri</h2>
+<ul>
+<li><p><strong>Axın Şifrəsi Mexanizmi:</strong> Məlumat blok ölçüsündən
+asılı olmayaraq bit-bit və ya bayt-bayt şifrlənə bilər, buna görə də
+<em>padding</em> <strong>doldurma</strong> (<em>padding</em>) tələb
+olunmur.</p></li>
+<li><p><strong>Əvvəlcədən Hesablama (Offline Processing):</strong> Açar
+axını (<span class="math inline">\(O_i\)</span>) açıq mətn hələ hazır
+olmadan belə əvvəlcədən hesablana bilər. Bu, real zamanlı sistemlərdə
+yüksək sürət təmin edir.</p></li>
+<li><p><strong>Xəta Yayılmasının Olmaması:</strong> Şifrəli mətndəki
+(<span class="math inline">\(C_i\)</span>) bir bitlik xəta deşifrələmə
+zamanı yalnız müvafiq açıq mətn bitini (<span
+class="math inline">\(P_i\)</span>) korlayır. Bu, səs və video
+ötürülməsi kimi xətalara qarşı dözümlü sistemlər üçün idealdır.</p></li>
+<li><p><strong>Sinxronizasiya Həssaslığı:</strong> Əgər ötürmə zamanı
+bir bit itərsə və ya əlavə olunarsa, bütün növbəti bloklar yanlış
+deşifrlənəcək (sinxronizasiya itir).</p></li>
+</ul>
+<div class="warning">
+<p><span>Açar Axınının Təkrarı Təhlükəsi</span> Əgər eyni <span
+class="math inline">\((K, IV)\)</span> cütlüyü iki fərqli mesaj üçün
+istifadə olunarsa, eyni açar axını yaranacaq. Hücumçu iki şifrəli mətni
+XOR edərək açıq mətnlər haqqında məlumat əldə edə bilər (<span
+class="math inline">\(C_1 \oplus C_2 = P_1 \oplus P_2\)</span>) <span
+class="citation" data-cites="paar2010understanding"></span>.</p>
+</div>
+<h2 id="cfb-və-ofb-müqayisəsi">CFB və OFB Müqayisəsi</h2>
+<table id="tab:cfb_ofb_comp">
+<caption>CFB və OFB rejimlərinin müqayisəli təhlili</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: center;"><strong>CFB</strong></th>
+<th style="text-align: center;"><strong>OFB</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Geri-əlaqə mənbəyi</strong></td>
+<td style="text-align: center;">Şifrəli mətn (<span
+class="math inline">\(C_i\)</span>)</td>
+<td style="text-align: center;">Çıxış (<span
+class="math inline">\(O_i\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Xəta yayılması</strong></td>
+<td style="text-align: center;">Cari blok + Növbəti blok</td>
+<td style="text-align: center;">Yalnız cari bit</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Özünü-sinxronizasiya</strong></td>
+<td style="text-align: center;">Məhdud (Bəli)</td>
+<td style="text-align: center;">Xeyr</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Offline hesablama</strong></td>
+<td style="text-align: center;">Mümkün deyil</td>
+<td style="text-align: center;">Mümkündür</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tip</strong></td>
+<td style="text-align: center;">Blok şifrə əsaslı axın</td>
+<td style="text-align: center;">Təmiz axın şifrəsi</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ctr-rejimi-sayğac-rejimi-counter-mode">CTR Rejimi (Sayğac
+rejimi, Counter Mode)</h1>
+<p>CTR rejimi blok şifrəni yüksək performanslı axın şifrəsinə çevirir.
+Bu rejimdə şifrləmə alqoritmi birbaşa açıq mətn bloklarını deyil, unikal
+bir <strong>sayğac (counter)</strong> dəyərlərini şifrləyir. Yaranan
+açar axını (keystream) daha sonra açıq mətnlə XOR edilir <span
+class="citation" data-cites="nist2001modes"></span>.</p>
+<div class="keyconcept">
+<p><span>CTR Riyazi Mexanizmi</span> Hər bir blok üçün müstəqil olaraq
+aşağıdakı əməliyyat yerinə yetirilir: <span
+class="math display">\[\begin{align*}
+O_i &amp;= E_K(\text{CTR}_i) \quad (\text{Açar axını}) \\
+C_i &amp;= P_i \oplus O_i \quad (\text{Şifrləmə}) \\
+P_i &amp;= C_i \oplus O_i \quad (\text{Deşifrələmə})
+\end{align*}\]</span> Burada <span
+class="math inline">\(\text{CTR}_i\)</span> unikal blokdur. Adətən <span
+class="math inline">\(\text{CTR}_i = \text{Nonce} \parallel
+\text{Sayğac}\)</span> formatında təşkil olunur.</p>
+</div>
+<h2 id="ctr-rejiminin-üstünlükləri">CTR Rejiminin Üstünlükləri</h2>
+<p>CTR rejimi OFB-nin bütün üstünlüklərini saxlayır, lakin onun əsas
+çatışmazlığını (paralelləşdirmə problemini) həll edir:</p>
+<ul>
+<li><p><strong>Tam Paralelləşdirmə:</strong> Hər bir blokun şifrlənməsi
+və deşifrlənməsi digərindən tamamilə müstəqildir. Bu, müasir çoxnüvəli
+prosessorlarda maksimum sürət deməkdir.</p></li>
+<li><p><strong>Təsadüfi Müraciət (Random Access):</strong> Böyük bir
+faylın ortasındakı məlumatı deşifrələmək üçün əvvəlki blokları
+deşifrələməyə ehtiyac yoxdur.</p></li>
+<li><p><strong>Doldurma (Padding) Tələb Etmir:</strong> Mesajın uzunluğu
+blok ölçüsünə uyğun gəlməyə bilər, çünki o, axın şifrəsi kimi
+davranır.</p></li>
+<li><p><strong>Aparat Səviyyəsində Səmərəlilik:</strong> Şifrləmə və
+deşifrələmə eyni <span class="math inline">\(E_K\)</span> dövrəsindən
+istifadə edir ki, bu da çiplərin sahəsinə qənaət edir.</p></li>
+</ul>
+<h2 id="sayğacın-dizaynı-counter-structure">Sayğacın Dizaynı (Counter
+Structure)</h2>
+<p>Sayğac bloku adətən 128 bit (AES üçün) olur və iki hissəyə
+bölünür:</p>
+<ol>
+<li><p><strong>Nonce (64-bit):</strong> Hər mesaj üçün unikal olan
+təsadüfi ədəd.</p></li>
+<li><p><strong>Counter (64-bit):</strong> Hər blokda bir vahid artırılan
+hissə.</p></li>
+</ol>
+<div class="warning">
+<p><span>Sayğacın Təkrarı (Catastrophic Failure)</span> Əgər eyni <span
+class="math inline">\((K, \text{CTR})\)</span> cütlüyü fərqli mesajlar
+üçün təkrar istifadə olunarsa (məsələn, sistem yenidən başladıqda eyni
+sayğacdan başlayarsa), iki şifrəli mətnin XOR-u açıq mətnlərin XOR-una
+bərabər olur (<span class="math inline">\(C_1 \oplus C_2 = P_1 \oplus
+P_2\)</span>). Bu, İki dəfə istifadə olunan blok hücumuna yol açır.</p>
+</div>
+<h2 id="performans-intel-aes-ni-və-paralelləşmə">Performans: Intel
+AES-NI və Paralelləşmə</h2>
+<p>Müasir CPU-larda mövcud olan <strong>AES-NI</strong> (Advanced
+Encryption Standard New Instructions) təlimatları eyni anda bir neçə AES
+əməliyyatını emal edə bilir. CTR rejimi bloklar arasında asılılıq
+yaratmadığı üçün AES-NI ilə birlikdə istifadə edildikdə saniyədə bir
+neçə qiqabit (Gbps) sürətlə şifrləmə təmin edir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<h1
+id="aead-rejimləri-əlavə-məlumatlı-avtentikləşdirilmiş-şifrələmə---authenticated-encryption-with-associated-data">AEAD
+Rejimləri (Əlavə Məlumatlı Avtenti̇kləşdi̇ri̇lmi̇ş Şifrələmə - Authenticated
+Encryption with Associated Data)</h1>
+<p>AEAD rejimləri müasir kriptoqrafiyanın "qızıl standartı" hesab
+olunur, çünki onlar eyni zamanda həm məxfiliyi (şifrləmə), həm də
+tamlığı və autentifikasiyanı (etiket) təmin edir <span class="citation"
+data-cites="rogaway2001efficient"></span>.</p>
+<div class="keyconcept">
+<p><span>AEAD-in Komponentləri</span> AEAD rejimi üç giriş məlumatı
+əsasında işləyir:</p>
+<ul>
+<li><p><strong>Açıq mətn (P):</strong> Şifrlənəcək əsas gizli
+məlumat.</p></li>
+<li><p><strong>Əlavə Məlumat - Associated Data (AD):</strong>
+Şifrlənməyən (məsələn, IP paket başlığı), lakin tamlığı qorunmalı olan
+məlumatlar.</p></li>
+<li><p><strong>Açar (K) və Nonce (N):</strong> Unikallığı təmin edən
+parametrlər.</p></li>
+</ul>
+<p>Çıxış: Şifrəli mətn (<strong>C</strong>) + Autentifikasiya etiketi
+(<strong>T</strong>).</p>
+</div>
+<h2 id="gcm-qaluasayğac-rejimi---galoiscounter-mode">GCM (Qalua/Sayğac
+rejimi - Galois/Counter Mode)</h2>
+<p>GCM hazırda müasir kriptoqrafiyanın "qızıl standartı" və dünyada ən
+çox istifadə olunan AEAD rejimidir. O, məlumatın məxfiliyini təmin etmək
+üçün <strong>CTR</strong> rejimini, tamlığını və həqiqiliyini yoxlamaq
+üçün isə Qalua meydanında (<span
+class="math inline">\(GF(2^{128})\)</span>) hesablanan
+<strong>GHASH</strong> funksiyasını birləşdirir <span class="citation"
+data-cites="nist2007modes"></span>.</p>
+<div class="keyconcept">
+<p><span>GCM-in İş Prinsipi: Şifrləmə və Autentifikasiya</span> GCM eyni
+vaxtda iki növ məlumatı emal edir:</p>
+<ul>
+<li><p><strong>Açıq mətn - Plain text (P):</strong> Həm şifrlənir, həm
+də autentifikasiya olunur (məsələn, mesajın mətni).</p></li>
+<li><p><strong>Əlaqəli data - Associated Data (AD):</strong> Şifrlənmir
+(açıq qalır), lakin <strong>autentifikasiya olunur</strong>. Bu, şəbəkə
+protokollarında (məs. IP başlıqları) IP ünvanların və ya portların yolda
+dəyişdirilməsinin qarşısını almaq üçün kritikdir.</p></li>
+</ul>
+</div>
+<ul>
+<li><p><strong>Effektivlik:</strong> GCM tam paralelləşdirilə bilən bir
+struktura malikdir. Həm CTR şifrləməsi, həm də GHASH hesabatı
+bir-birindən asılı olmadan aparıla bildiyi üçün çox yüksək ötürmə sürəti
+(Gbps+) təmin edir.</p></li>
+<li><p><strong>Təhlükəsizlik:</strong> Əgər haker şifrəli mətni (C) və
+ya açıq qalan AD hissəsini bircə bit belə dəyişdirsə, hesablanan
+autentifikasiya etiketi (<span class="math inline">\(T\)</span>)
+orijinal etiketlə uyğun gəlməyəcək və sistem paketi saxta hesab edərək
+dərhal rədd edəcək.</p></li>
+</ul>
+<div class="examplebox">
+<p><span>GCM-in Real Dünyada Tətbiqi</span> Müasir internet
+təhlükəsizliyi demək olar ki, tamamilə GCM üzərində qurulub:</p>
+<ul>
+<li><p><strong>TLS 1.3:</strong> HTTPS bağlantılarında ən təhlükəsiz və
+sürətli seçim olaraq <code>AES_128_GCM</code> istifadə edir.</p></li>
+<li><p><strong>VPN və IPsec:</strong> Şəbəkə paketlərinin başlıqlarını
+(AD olaraq) qorumaq və məzmununu şifrləmək üçün ən ideal
+rejimdir.</p></li>
+</ul>
+</div>
+<div class="warning">
+<p><span>Kritik Qeyd: Nonce Təkrarı</span> GCM rejimində eyni açar ilə
+eyni Nonce-un (IV) təkrar istifadəsi fəlakətlə nəticələnir. Bu halda
+hücumçu həm açar axınını, həm də GHASH autentifikasiya açarını əldə edə
+bilər ki, bu da sistemin tamamilə çökməsi deməkdir.</p>
+</div>
+<h2 id="ccm-cbc-mac-ilə-sayğac---counter-with-cbc-mac">CCM (CBC-MAC ilə
+Sayğac - Counter with CBC-MAC)</h2>
+<p>CCM rejimi adından da göründüyü kimi, məxfiliyi təmin etmək üçün
+<strong>CTR</strong> rejimini, tamlığı yoxlamaq üçün isə
+<strong>CBC-MAC</strong> metodunu birləşdirir <span class="citation"
+data-cites="nist2005modes"></span>. GCM-dən əsas fərqi, onun
+"iki-keçidli" (two-pass) bir alqoritm olmasıdır.</p>
+<ul>
+<li><p><strong>Üstünlüyü:</strong> Riyazi strukturu GCM-ə nisbətən daha
+sadədir və mürəkkəb Qalua meydanı hesablamaları tələb etmir. Həmçinin,
+heç bir patent məhdudiyyəti olmadan sərbəst istifadə edilə
+bilər.</p></li>
+<li><p><strong>Çatışmazlığı:</strong> Şifrləmə başlamazdan əvvəl mesajın
+tam uzunluğu məlum olmalıdır (bu, axınlı videolar üçün problem yarada
+bilər). Bundan əlavə, ardıcıl (sequential) işlədiyi üçün GCM qədər
+sürətli deyil.</p></li>
+<li><p><strong>Tətbiq sahələri:</strong> Hesablama gücü məhdud olan
+cihazlarda və simsiz şəbəkə standartlarında geniş istifadə olunur:</p>
+<ul>
+<li><p><strong>IEEE 802.11i (WPA2):</strong> Wi-Fi təhlükəsizliyinin
+əsasını təşkil edir.</p></li>
+<li><p><strong>Bluetooth:</strong> Məlumatların qorunması üçün istifadə
+edilir.</p></li>
+<li><p><strong>ZigBee (IoT):</strong> Enerji qənaətli sensor
+şəbəkələrində tətbiq olunur.</p></li>
+</ul></li>
+</ul>
+<div class="note">
+<p><span>CCM vs GCM Seçimi</span> Əgər sisteminizdə aparat
+sürətləndiricisi (məsələn, Intel AES-NI) varsa və yüksək sürət
+lazımdırsa, <strong>GCM</strong> seçilməlidir. Əgər resurslar
+məhduddursa və ya patentlərdən qaçmaq istəyirsinizsə,
+<strong>CCM</strong> daha etibarlı seçimdir.</p>
+</div>
+<h2
+id="gcm-siv-nonce-düzgün-istifadə-edilməməsinə-müqavimət---nonce-misuse-resistance">GCM-SIV:
+Nonce düzgün istifadə edilməməsinə müqavimət - Nonce-Misuse
+Resistance</h2>
+<p>GCM-in (və ümumiyyətlə CTR əsaslı rejimlərin) ən böyük zəifliyi eyni
+Nonce-un təkrarlanmasıdır (<em>Nonce-misuse</em>). Bu baş verdikdə açar
+axını (keystream) açılır və bütün məxfilik itir. RFC 8452 ilə təsvir
+olunan <strong>GCM-SIV</strong> (Sintetik başlanğıc qiyməti vektoru -
+Synthetic Initialization Vector) bu problemi riyazi üsulla həll
+edir.</p>
+<ul>
+<li><p><strong>Dayanıqlıq:</strong> Nonce təkrarlansa belə, hücumçu açar
+axınını və ya GHASH açarını bərpa edə bilmir. Ən pis halda hücumçu
+yalnız iki eyni mesajın eyni olduğunu öyrənə bilər (deterministik
+şifrləmə kimi), lakin mesajın içini oxuya bilməz.</p></li>
+<li><p><strong>İş prinsipi:</strong> SIV (Sintetik IV) birbaşa mesajın
+özündən və nonce-dan törədilir. Yəni mesaj dəyişdikdə IV də avtomatik
+dəyişir, bu da sistemi proqramlaşdırma səhvlərinə qarşı müstəsna
+dərəcədə dayanıqlı edir.</p></li>
+</ul>
+<h2 id="gcm-və-ccm-müqayisəli-analizi">GCM və CCM Müqayisəli
+Analizi</h2>
+<p>Bu iki AEAD rejimi müasir şəbəkə protokollarının sütunlarıdır, lakin
+fərqli ehtiyaclara xidmət edirlər.</p>
+<table id="tab:gcm_ccm_comp">
+<caption>GCM və CCM rejimlərinin texniki müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>GCM (Qalua/Sayğac)</strong></th>
+<th style="text-align: left;"><strong>CCM (Sayğac və
+CBC-MAC)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sürət</strong></td>
+<td style="text-align: left;">Çox yüksək (Paralel emal)</td>
+<td style="text-align: left;">Orta (Ardıcıl emal)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hesablama Metodu</strong></td>
+<td style="text-align: left;">Konveyerləşdirməyə uyğun / Aparat
+səviyyəsində optimallaşdırılmış</td>
+<td style="text-align: left;">İki-keçidli (Məlumat üzərindən iki dəfə
+keçilir)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nonce Həssaslığı</strong></td>
+<td style="text-align: left;">Çox yüksək (Kritik dərəcədə həssas)</td>
+<td style="text-align: left;">Yüksək</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tətbiq Sahəsi</strong></td>
+<td style="text-align: left;">TLS 1.3, Google/Meta serverləri, VPN</td>
+<td style="text-align: left;">WPA2, Bluetooth, ZigBee (IoT - Əşyaların
+İnterneti)</td>
+</tr>
+</tbody>
+</table>
+<div class="tip">
+<p><span>Hansını seçməli?</span> Əgər aparat səviyyəsində AES
+sürətləndirməsi (AES-NI) mövcuddursa və saniyədə qiqabitlərlə məlumat
+ötürülürsə, <strong>GCM</strong> mütləq seçimdir. Lakin çox kiçik
+mikrokontrollerlərdə və ya patentlərdən tam sığortalanmaq lazım gəldikdə
+<strong>CCM</strong> daha çox üstünlük təşkil edir.</p>
+</div>
+<h1 id="xts-rejimi-xex-based-tweaked-codebook">XTS Rejimi (XEX-based
+Tweaked CodeBook)</h1>
+<p>XTS rejimi fərdi kompüterlərin və serverlərin yaddaş qurğularında
+(HDD/SSD) saxlanılan məlumatların şifrlənməsi üçün xüsusi olaraq dizayn
+edilmişdir. Bu rejim IEEE 1619 standartı olaraq qəbul edilmişdir <span
+class="citation" data-cites="nist2010xts"></span>.</p>
+<div class="keyconcept">
+<p><span>XTS Riyazi Mexanizmi</span> XTS iki fərqli açar (<span
+class="math inline">\(K_1, K_2\)</span>) istifadə edir. Hər bir blok
+üçün unikal "tweak" (dəyişdirici) dəyəri hesablanır: <span
+class="math display">\[\begin{align*}
+T_i &amp;= E_{K_2}(S) \otimes \alpha^{i-1} \\
+C_i &amp;= E_{K_1}(P_i \oplus T_i) \oplus T_i
+\end{align*}\]</span> Burada <span class="math inline">\(S\)</span>
+məlumat vahidinin (məsələn, sektorun) nömrəsini, <span
+class="math inline">\(\alpha\)</span> isə sonlu meydanda (<span
+class="math inline">\(GF(2^{128})\)</span>) primitiv (generator)
+elementi ifadə edir.</p>
+</div>
+<h2 id="xts-rejiminin-xüsusiyyətləri">XTS Rejiminin Xüsusiyyətləri</h2>
+<ul>
+<li><p><strong>Tweak (Dəyişdirici):</strong> Hər blok üçün sektor
+nömrəsinə əsaslanan fərqli "tweak" istifadə olunur. Bu, eyni açıq mətnin
+müxtəlif sektorlarda fərqli şifrələnməsini təmin edir.</p></li>
+<li><p><strong>Təsadüfi Müraciət (Random Access):</strong> İstənilən
+sektoru digərlərindən asılı olmadan, sürətli şəkildə şifrləmək və ya
+deşifrələmək mümkündür.</p></li>
+<li><p><strong>Məlumat Yayılması (Data Expansion):</strong> XTS şifrləmə
+zamanı məlumatın ölçüsünü artırmır, bu da disk sektorlarının sabit
+ölçüsü üçün kritikdir.</p></li>
+</ul>
+<div class="examplebox">
+<p><span>XTS-in Praktiki Tətbiqləri</span> XTS hazırda disk şifrləmə
+proqram təminatlarında standartdır:</p>
+<ul>
+<li><p><strong>BitLocker</strong> (Windows), <strong>FileVault</strong>
+(macOS)</p></li>
+<li><p><strong>LUKS</strong> (Linux Disk Encryption)</p></li>
+<li><p><strong>VeraCrypt</strong> (Açıq mənbəli şifrləmə aləti)</p></li>
+</ul>
+</div>
+<h2 id="iş-rejimlərinin-xülasə-müqayisəsi">İş Rejimlərinin Xülasə
+Müqayisəsi</h2>
+<table id="tab:all_modes_comp">
+<caption>Bütün əsas iş rejimlərinin texniki müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: center;"><strong>ECB</strong></th>
+<th style="text-align: center;"><strong>CBC</strong></th>
+<th style="text-align: center;"><strong>CFB</strong></th>
+<th style="text-align: center;"><strong>OFB</strong></th>
+<th style="text-align: center;"><strong>CTR</strong></th>
+<th style="text-align: center;"><strong>GCM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Paralel Şifr.</strong></td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Bəli</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paralel Deşifr.</strong></td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Bəli</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Təsadüfi Giriş</strong></td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Bəli</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Doldurma (Padding)</strong></td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Bəli</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Xəta Yayılması</strong></td>
+<td style="text-align: center;">Yox</td>
+<td style="text-align: center;">Blok+1</td>
+<td style="text-align: center;">Blok+1</td>
+<td style="text-align: center;">Yox</td>
+<td style="text-align: center;">Yox</td>
+<td style="text-align: center;">Yox</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tamlıq (AEAD)</strong></td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;"><strong>Bəli</strong></td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktiki-tövsiyələr">Praktiki Tövsiyələr</h1>
+<h2 id="hansı-rejimi-seçməli">Hansı Rejimi Seçməli?</h2>
+<p>Tətbiq sahəsindən asılı olaraq doğru rejimin seçilməsi sistemin
+təhlükəsizliyi üçün həlledicidir:</p>
+<ul>
+<li><p><strong>Ümumi məqsədli şifrləmə:</strong> Əgər yalnız məxfilik
+kifayətdirsə, <strong>CBC</strong> və ya <strong>CTR</strong> istifadə
+oluna bilər.</p></li>
+<li><p><strong>Autentifikasiyalı Şifrləmə (AEAD):</strong> Müasir
+sistemlər üçün <strong>GCM</strong> (yüksək performanslı) və ya
+<strong>CCM</strong> (resursları məhdud və ya patentsiz sistemlər üçün)
+tövsiyə olunur.</p></li>
+<li><p><strong>Disk Şifrləməsi:</strong> Yaddaş qurğularının (HDD/SSD)
+qorunması üçün IEEE 1619 standartı olan <strong>XTS</strong> rejimi
+seçilməlidir.</p></li>
+<li><p><strong>Rabitə Protokolları:</strong> TLS 1.3 və IPsec kimi
+müasir protokollarda standart olaraq <strong>GCM</strong> istifadə
+edilir.</p></li>
+</ul>
+<div class="warning">
+<p><span>ECB-dən Qətiyyən Çəkinin!</span> <strong>ECB</strong> rejimi
+heç vaxt real sistemlərdə istifadə edilməməlidir. O, məlumatdakı
+statistik naxışları gizlətmir və bu, şifrəli mətndən açıq mətn haqqında
+ciddi məlumatların sızmasına səbəb olur.</p>
+</div>
+<h2 id="iv-və-nonce-idarəedilməsi">IV və Nonce İdarəedilməsi</h2>
+<p>İlkin vektor (IV) və ya <em>nonce</em> (bir dəfə istifadə olunan
+ədəd) rejimlərin təhlükəsizlik zəmanəti üçün kritikdir:</p>
+<ul>
+<li><p><strong>CBC, CFB, OFB:</strong> IV mütləq təsadüfi olmalı və eyni
+açarla heç vaxt təkrar istifadə edilməməlidir.</p></li>
+<li><p><strong>CTR və GCM:</strong> Nonce-un bir dəfə də olsa təkrar
+istifadəsi <strong>"İki dəfə istifadə olunan blok"</strong> hücumuna yol
+açır və bütün məxfiliyi dərhal yox edir.</p></li>
+<li><p><strong>GCM-SIV:</strong> Nonce-un yanlış istifadəsinə
+(<em>nonce-misuse</em>) qarşı davamlıdır, lakin adi GCM-dən daha yavaş
+işləyir.</p></li>
+</ul>
+<div class="keyconcept">
+<p><span>Nonce-un Təkrarı Fəsadları</span> Nonce (Bir dəfə istifadə
+edilən ədəd - Number used ONCE) — yalnız bir dəfə istifadə edilməlidir.
+Təkrar halında:</p>
+<ul>
+<li><p><strong>CTR və GCM-də:</strong> Eyni açar axını (keystream)
+yaranır, bu isə hücumçuya şifrəli mətnləri XOR edərək açıq mətnləri
+bərpa etməyə imkan verir.</p></li>
+<li><p><strong>CBC-də:</strong> Eyni IV və eyni başlanğıc blokları
+məlumatın prefiksləri haqqında sızıntı yaradır.</p></li>
+</ul>
+</div>
+<h1 id="praktiki-tapşırıqlar">Praktiki Tapşırıqlar</h1>
+<h2 id="tapşırıq-1-ecb-problemi-vizual-analiz">Tapşırıq 1: ECB Problemi
+(Vizual Analiz)</h2>
+<p>Verilmiş bir təsviri (məsələn, .bmp formatında) ECB rejimində
+şifrləyin.</p>
+<ul>
+<li><p><strong>Sual:</strong> Şifrlənmiş şəkildə orijinal təsvirin
+konturları niyə hələ də görünür?</p></li>
+<li><p><strong>Müşahidə:</strong> ECB eyni açıq mətn bloklarını eyni
+şifrəli bloklara çevirdiyi üçün məlumatın statistik naxışlarını gizlədə
+bilmir <span class="citation"
+data-cites="nist2001modes paar2010understanding"></span>.</p></li>
+</ul>
+<h2 id="tapşırıq-2-cbc-şifrləmənin-addımları">Tapşırıq 2: CBC
+Şifrləmənin Addımları</h2>
+<p><span class="math inline">\(P = [0x53, 0x41, 0x4C, 0x41,
+0x4D]\)</span> mesajını aşağıdakı parametrlərlə CBC rejimində
+şifrləyin:</p>
+<ul>
+<li><p><strong>Blok şifrə funksiyası:</strong> <span
+class="math inline">\(E_K(X) = X \oplus K\)</span></p></li>
+<li><p><strong>İlkin Vektor (IV):</strong> <span
+class="math inline">\(0x12\)</span></p></li>
+<li><p><strong>Açar (<span class="math inline">\(K\)</span>):</strong>
+<span class="math inline">\(0x34\)</span></p></li>
+<li><p><strong>Tapşırıq:</strong> İlk iki blok (<span
+class="math inline">\(C_1\)</span> və <span
+class="math inline">\(C_2\)</span>) üçün şifrləmə prosesini düsturla
+(<span class="math inline">\(C_i = E_K(P_i \oplus C_{i-1})\)</span>)
+göstərin.</p></li>
+</ul>
+<h2 id="tapşırıq-3-ctr-rejimində-sayğacın-generasiyası">Tapşırıq 3: CTR
+Rejimində Sayğacın Generasiyası</h2>
+<p>CTR rejimində sayğac dəyərlərinin təkrarlanmaması kritikdir <span
+class="citation" data-cites="nist2001modes"></span>.</p>
+<ul>
+<li><p><strong>IV (96-bit Nonce):</strong> <span
+class="math inline">\(0x0123456789ABCDEF01234567\)</span></p></li>
+<li><p><strong>Tapşırıq:</strong> İlk 5 blok üçün 128-bitlik sayğac
+dəyərlərini (<span class="math inline">\(\text{CTR}_1, \dots,
+\text{CTR}_5\)</span>) artan sıra ilə yazın.</p></li>
+</ul>
+<h2 id="tapşırıq-4-gcm-və-əlaqəli-verilənlər-ad">Tapşırıq 4: GCM və
+Əlaqəli Verilənlər (AD)</h2>
+<p>GCM rejimində <strong>Associated Data (AD)</strong> şifrlənmir, lakin
+autentifikasiya olunur <span class="citation"
+data-cites="nist2007modes"></span>.</p>
+<ul>
+<li><p><strong>Nümunə:</strong> Bir HTTP paketi düşünün. Paket başlığı
+(Header) açıq qalmalıdır ki, marşrutlayıcılar onu oxuya bilsin, lakin
+başlıq dəyişdirilməməlidir.</p></li>
+<li><p><strong>Sual:</strong> Niyə biz AD-ni şifrləmirik, lakin etiket
+hesablamasına (GHASH) daxil edirik?</p></li>
+</ul>
+<h2 id="tapşırıq-5-xts-tweak-hesablanması">Tapşırıq 5: XTS Tweak
+Hesablanması</h2>
+<p>Sektor nömrəsi <span class="math inline">\(S = 42\)</span> olan disk
+sektoru üçün XTS tweak dəyərini analiz edin <span class="citation"
+data-cites="nist2010xts"></span>.</p>
+<ul>
+<li><p><strong>Düstur:</strong> <span class="math inline">\(T_i =
+E_{K_2}(S) \otimes \alpha^{i-1}\)</span></p></li>
+<li><p><strong>Sual:</strong> Əgər eyni sektor daxilində 10-cu bloku
+şifrləyirsinizsə, generator elementin (<span
+class="math inline">\(\alpha\)</span>) hansı qüvvətindən istifadə
+edəcəksiniz?</p></li>
+</ul>
+<h2 id="tapşırıq-6-python-da-rejimlərin-implementasiyası">Tapşırıq 6:
+Python-da Rejimlərin Implementasiyası</h2>
+<div class="sourceCode" id="cb1" data-language="Python"
+data-caption="Blok şifrə rejimlərinin şablonu"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sadə xor_cipher funksiyasını block_cipher kimi istifadə edə bilərsiniz</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cbc_encrypt(plaintext, iv, key):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    cipher_text <span class="op">=</span> []</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    prev_cipher <span class="op">=</span> iv</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> block <span class="kw">in</span> plaintext:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># P_i XOR C_{i-1}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        mixed <span class="op">=</span> block <span class="op">^</span> prev_cipher</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># E_K(mixed)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        encrypted <span class="op">=</span> mixed <span class="op">^</span> key </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        cipher_text.append(encrypted)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        prev_cipher <span class="op">=</span> encrypted</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cipher_text</span></code></pre></div>
+<h2 id="tapşırıq-7-doldurma-oraklı-hücumu-simulyasiyası">Tapşırıq 7:
+Doldurma Oraklı Hücumu Simulyasiyası</h2>
+<p>Doldurma oraklı hücumu deşifrələmə zamanı yaranan dodlurma
+xətalarından istifadə edir <span class="citation"
+data-cites="vanden2011breaking rogaway2011evaluation"></span>.</p>
+<ul>
+<li><p><strong>Ssenari:</strong> Bir server "Valid Padding" üçün HTTP
+200, "Invalid Padding" üçün HTTP 500 qaytarır.</p></li>
+<li><p><strong>Tapşırıq:</strong> Hücumçunun bu məlumatdan istifadə
+edərək sonuncu baytı necə bərpa edə biləcəyini addım-addım təsvir
+edin.</p></li>
+</ul>
+<div class="tip">
+<p><span>Əlavə Oxu Materialları</span> Mövzunu daha dərindən araşdırmaq
+üçün bu rəsmi standartlara müraciət edin:</p>
+<ul>
+<li><p><strong>NIST SP 800-38A:</strong> CBC, CTR, ECB, CFB, OFB
+standartları.</p></li>
+<li><p><strong>NIST SP 800-38D:</strong> GCM rejimi haqqında
+ətraflı.</p></li>
+<li><p><strong>NIST SP 800-38E:</strong> XTS disk şifrləmə
+standartı.</p></li>
+<li><p><strong>Phillip Rogaway (2011):</strong> Blok şifrlərin müasir
+qiymətləndirilməsi.</p></li>
+<li><p><strong>Paar &amp; Pelzl (2010):</strong> "Understanding
+Cryptography" kitabının 4-cü fəsli.</p></li>
+</ul>
+</div>
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu mühazirədə blok şifrələrin müxtəlif iş rejimlərini və onların
+tətbiq sahələrini öyrəndik:</p>
+<ul>
+<li><p><strong>ECB</strong>: Ən sadə rejimdir, lakin eyni bloklar üçün
+eyni şifrəli mətn yaratdığına görə təhlükəsiz hesab edilmir.</p></li>
+<li><p><strong>CBC</strong>: Ən geniş yayılmış rejimlərdən biridir; hər
+blokun şifrlənməsi əvvəlki blokdan asılıdır və IV tələb edir.</p></li>
+<li><p><strong>CFB</strong>: Blok şifrəni axın şifrəsi kimi istifadə
+etməyə imkan verir və özünü məhdud səviyyədə sinxronizasiya edə
+bilir.</p></li>
+<li><p><strong>OFB</strong>: Axın şifrəsi mexanizmi ilə işləyir; xəta
+yayılmır, lakin dəqiq sinxronizasiya tələb edir.</p></li>
+<li><p><strong>CTR</strong>: Blokları tam paralel şəkildə emal edir,
+təsadüfi giriş imkanı verir və çox yüksək sürət təmin edir.</p></li>
+<li><p><strong>GCM</strong>: Həm məxfiliyi, həm də autentifikasiyanı
+təmin edən (AEAD) rejimdir və TLS 1.3-də standart kimi qəbul
+olunub.</p></li>
+<li><p><strong>CCM</strong>: AEAD rejiminin digər bir növüdür və əsasən
+WPA2 (Wi-Fi) təhlükəsizlik standartında istifadə olunur.</p></li>
+<li><p><strong>XTS</strong>: Saxlama qurğularının (disk) şifrlənməsi
+üçün nəzərdə tutulmuş IEEE standartıdır.</p></li>
+</ul>
+<p>İş rejimlərinin seçimi konkret tətbiq sahəsindən və təhlükəsizlik
+tələblərindən asılıdır:</p>
+<ul>
+<li><p>Ümumi məqsədli şifrləmə və proqram təminatı üçün
+<strong>CBC</strong> və ya <strong>CTR</strong> rejimləri üstünlük
+təşkil edir.</p></li>
+<li><p>Verilənlərin həm gizliliyi, həm də tamlığı (autentifikasiyası)
+tələb olunduqda <strong>GCM</strong> və ya <strong>CCM</strong>
+rejimləri seçilməlidir.</p></li>
+<li><p>Disk və yaddaş qurğularının şifrlənməsi üçün <strong>XTS</strong>
+rejimi ən optimal seçimdir.</p></li>
+</ul>
+<div class="note">
+<p><span>Növbəti mühazirə</span> Həftə 12: Heş funksiyalarına giriş,
+xassələri və kriptoqrafik tətbiqləri.</p>
+</div>
+<h1 id="praktiki-tapşırıqlar-model-cavablar">Praktiki Tapşırıqlar: Model
+Cavablar</h1>
+<h2 id="cavab-1-ecb-problemi">Cavab 1: ECB Problemi</h2>
+<p>ECB rejimində şifrlənmiş şəkildə konturların görünməsi aşağıdakı
+səbəblərlə izah olunur:</p>
+<ul>
+<li><p>ECB eyni açıq mətn bloklarını eyni şifrəli mətn bloklarına
+çevirir.</p></li>
+<li><p>Şəkildəki eyni rəngli sahələr (məsələn, fon və ya geniş rəng
+blokları) eyni bayt ardıcıllıqlarından ibarətdir.</p></li>
+<li><p>Şifrləmədən sonra da bu bloklar öz aralarındakı naxışları qoruyub
+saxladığı üçün məlumatın statistik strukturu gizlədilmir.</p></li>
+</ul>
+<h2 id="cavab-2-cbc-şifrləmə-prosesi">Cavab 2: CBC Şifrləmə Prosesi</h2>
+<p>Verilənlər: <span class="math inline">\(P_1 = 0x53, P_2 = 0x41, IV =
+0x12, K = 0x34, E_K(X) = X \oplus K\)</span>.</p>
+<ol>
+<li><p><strong>Blok 1:</strong></p>
+<ul>
+<li><p>Giriş: <span class="math inline">\(X_1 = P_1 \oplus IV = 0x53
+\oplus 0x12 = 0x41\)</span>.</p></li>
+<li><p>Çıxış: <span class="math inline">\(C_1 = E_K(0x41) = 0x41 \oplus
+0x34 = \mathbf{0x75}\)</span>.</p></li>
+</ul></li>
+<li><p><strong>Blok 2:</strong></p>
+<ul>
+<li><p>Giriş: <span class="math inline">\(X_2 = P_2 \oplus C_1 = 0x41
+\oplus 0x75 = 0x34\)</span>.</p></li>
+<li><p>Çıxış: <span class="math inline">\(C_2 = E_K(0x34) = 0x34 \oplus
+0x34 = \mathbf{0x00}\)</span>.</p></li>
+</ul></li>
+</ol>
+<h2 id="cavab-3-ctr-sayğac-dəyərləri">Cavab 3: CTR Sayğac Dəyərləri</h2>
+<p>Sayğac blokları adətən Nonce (IV) və artan sayğac hissəsinin
+birləşməsindən (konkatenasiya) ibarətdir. 5 blok üçün 128-bitlik
+dəyərlər:</p>
+<ul>
+<li><p><span class="math inline">\(\text{CTR}_1\)</span>:
+<code>0123456789ABCDEF0000000000000001</code></p></li>
+<li><p><span class="math inline">\(\text{CTR}_2\)</span>:
+<code>0123456789ABCDEF0000000000000002</code></p></li>
+<li><p><span class="math inline">\(\text{CTR}_3\)</span>:
+<code>0123456789ABCDEF0000000000000003</code></p></li>
+<li><p><span class="math inline">\(\text{CTR}_4\)</span>:
+<code>0123456789ABCDEF0000000000000004</code></p></li>
+<li><p><span class="math inline">\(\text{CTR}_5\)</span>:
+<code>0123456789ABCDEF0000000000000005</code></p></li>
+</ul>
+<h2 id="cavab-4-gcm-də-ad-nin-əlaqəli-verilənlər-rolu">Cavab 4: GCM-də
+AD-nin (Əlaqəli Verilənlər) Rolu</h2>
+<p>GCM-də Associated Data (AD) şifrlənmir, lakin tamlığı qorunur.</p>
+<ul>
+<li><p><strong>Nümunə:</strong> Şəbəkə paketinin başlığı (Header)
+marşrutlaşdırma üçün açıq qalmalıdır.</p></li>
+<li><p><strong>Rolu:</strong> AD verilənləri GHASH funksiyasına daxil
+edilərək autentifikasiya etiketinə (<span
+class="math inline">\(T\)</span>) təsir edir. Əgər hücumçu başlığı
+dəyişdirsə, deşifrələmə zamanı eitket uyğun gəlməyəcək və mesaj rədd
+ediləcək.</p></li>
+</ul>
+<h2 id="cavab-5-xts-tweak-hesablanması">Cavab 5: XTS Tweak
+Hesablanması</h2>
+<p>XTS rejimində hər blok üçün tweak aşağıdakı qaydada hesablanır:</p>
+<ul>
+<li><p>Düstur: <span class="math inline">\(T_i = E_{K_2}(S) \otimes
+\alpha^{i-1}\)</span>.</p></li>
+<li><p>Sektor daxilində 10-cu blok üçün <span
+class="math inline">\(i=10\)</span> olduğu üçün, generator elementin
+<strong>9-cu qüvvəti</strong> (<span
+class="math inline">\(\alpha^9\)</span>) istifadə edilir.</p></li>
+</ul>
+<h2 id="cavab-7-doldurma-oraklı-hücumu">Cavab 7: Doldurma Oraklı
+Hücumu</h2>
+<p>Hücumun iş prinsipi serverin qaytardığı doldurma xətalarına
+əsaslanır:</p>
+<ol>
+<li><p>Hücumçu şifrəli blokun son baytlarını dəyişdirərək serverə
+göndərir.</p></li>
+<li><p>Serverin cavabına əsasən (200 OK və ya 500 Error), doldurmanın
+düzgün olub-olmadığını müəyyən edir.</p></li>
+<li><p>Məlum dodlurma standartı (məs. PKCS#7) və XOR əməliyyatı
+vasitəsilə açıq mətnin orijinal baytlarını bir-bir bərpa edir.</p></li>
+</ol>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (10)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Dworkin, 2001</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Bellare et al., 1997</span>
+                        <small class="text-muted">Proceedings of the 38th Annual Symposium on Foundations of Computer Science</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Concrete Security Treatment of Symmetric Encryption: Analysis of the DES Modes of Operation</h6>
+                    <p class="small text-secondary mb-0">Mihir Bellare and Anand Desai and E. Jokipii and Phillip Rogaway (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Rogaway, 2011</span>
+                        <small class="text-muted">Cryptography Research Group Report</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Evaluation of Some Blockcipher Modes of Operation</h6>
+                    <p class="small text-secondary mb-0">Phillip Rogaway (2011)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Jager &amp; Somorovsky, 2011</span>
+                        <small class="text-muted">Proceedings of the 18th ACM conference on Computer and communications security</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Breaking XML encryption: typically with XML schemas</h6>
+                    <p class="small text-secondary mb-0">Jager, Tibor and Somorovsky, Juraj (2011)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Rogaway et al., 2001</span>
+                        <small class="text-muted">Advances in Cryptology — CRYPTO 2001</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">OCB: A Block-Cipher Mode of Operation for Efficient Authenticated Encryption</h6>
+                    <p class="small text-secondary mb-0">Phillip Rogaway and Mihir Bellare and John Black (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Dworkin, 2007</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2007)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Dworkin, 2004</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation: The CCM Mode for Authentication and Confidentiality</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Dworkin, 2010</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation: The XTS-AES Mode for Confidentiality on Storage Devices</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2010)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

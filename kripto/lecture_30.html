@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_30</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 30</strong></p>
+<p><strong>Müasir Məxfilik Texnologiyaları və Gələcək
+Trendlər</strong></p>
+<p>Bu mühazirə sıfır bilik sübutlarını, homomorf şifrələməni, blokçeyn
+texnologiyasını, kvant kriptoqrafiyasını və kriptoqrafiyada gələcək
+trendləri əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbə:</p>
+<ul>
+<li><p>sıfır bilik sübutunun<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a> tamlıq, etibarlılıq və
+sıfır bilik xassələrini verilmiş protokol nümunəsində yoxlayır <span
+class="citation"
+data-cites="goldwasser1985knowledge benasson2014snarks"></span>;</p></li>
+<li><p>qismən və tam homomorf şifrələməni<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+dəstəklənən əməl, küy<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> və hesablama xərci üzrə müqayisə
+edir <span class="citation"
+data-cites="gentry2009fully"></span>;</p></li>
+<li><p>blokçeyn sistemində heş, imza və konsensusun ayrı təminatlarını
+təhdid modeli üzrə qiymətləndirir <span class="citation"
+data-cites="nakamoto2008bitcoin wood2014ethereum"></span>;</p></li>
+<li><p>BB84<a href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a> protokolunda ələmə, QBER<a
+href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a> qiymətləndirilməsi, xətaların
+razılaşdırılması, məxfiliyin gücləndirilməsi və açarın təsdiqi
+mərhələlərini təhlil edir <span class="citation"
+data-cites="bennett1984bb84"></span>;</p></li>
+<li><p>verilmiş təşkilat ssenarisi üçün ZKP/FHE, blokçeyn, QKD<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> və PQC arasında əsaslandırılmış
+arxitektura və kriptoqrafik çeviklik planı seçir <span class="citation"
+data-cites="bernstein2017pqc"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 28–29-cu mühazirələr PQC standartlarını və
+alternativ ailələri tamamladı.</p>
+<p><strong>İndi:</strong> yeni primitivləri təkrar sadalamaq əvəzinə
+məxfilik, paylanmış etibar və kvant rabitəsi üçün texnologiya seçimi
+aparırıq.</p>
+<p><strong>Yekun:</strong> son bölmədə 1–30-cu mühazirələrin xəritəsi
+“məqsəd → primitiv → protokol → hücum → miqrasiya” ardıcıllığı ilə
+bağlanır.</p>
+<p><strong>Kanon:</strong> <em>sıfır bilik sübutu (ZKP)</em>; <em>sübut
+edən</em> / <em>yoxlayan</em>; <em>heş dəyəri</em>; <em>məxfilik</em>;
+<em>Alis, Bob, Çarli, Malori</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Müasir informasiya təhlükəsizliyi paradiqmasında kriptoqrafiya artıq
+yalnız ötürülən məlumatların şifrələnməsi ilə məhdudlaşmır. Böyük
+verilənlərin emalı, bulud hesablamaları və mərkəzsizləşdirilmiş
+şəbəkələrin sürətli inkişafı kriptoqrafiya qarşısında yeni və əsaslı
+tələblər qoymuşdur. Müasir dövrdə istifadəçilərin məxfiliyini qorumaqla
+məlumatlar üzərində təhlükəsiz hesablamalar aparmaq, heç bir mərkəzi
+səlahiyyətə güvənməyən şəffaf sistemlər qurmaq və kvant kompüterlərinin
+yaradacağı qlobal təhdidlərə qarşı dayanıqlı infrastrukturlar
+formalaşdırmaq kriptoqrafik tədqiqatların əsas hədəfinə
+çevrilmişdir.</p>
+<div class="tcolorbox">
+<p>Müasir məxfilik arxitekturasının formalaşması bir neçə fundamental
+elmi kəşfə söykənir:</p>
+<dl>
+<dt><span class="math inline">\(1984\)</span>:</dt>
+<dd>
+<p>Çarlz Bennet və Jil Brassard kvant mexanikasının prinsiplərinə
+(fotonların polyarizasiyasına) əsaslanan ilk kvant açar paylanması
+protokolu olan <strong>BB84</strong>-ü təqdim etdilər <span
+class="citation" data-cites="bennett1984bb84"></span>.</p>
+</dd>
+<dt><span class="math inline">\(1985\)</span>:</dt>
+<dd>
+<p>Şafi Qoldvasser, Silvio Mikali və Çarlz Rakoff tərəfindən
+informasiyanın özünü ifşa etmədən doğruluğunu sübut etməyə imkan verən
+<strong>Sıfır Bilik Sübutları (ZKP)</strong> nəzəriyyəsi irəli sürüldü
+<span class="citation" data-cites="goldwasser1985knowledge"></span>.</p>
+</dd>
+<dt><span class="math inline">\(2008\)</span>:</dt>
+<dd>
+<p>Satoşi Nakamoto təxəllüslü müəllif tərəfindən kriptoqrafik heş
+funksiyaları və rəqəmsal imzaların sintezinə əsaslanan
+mərkəzsizləşdirilmiş ilk uğurlu paylanmış reyestr mühiti –
+<strong>Bitcoin (Blokçeyn)</strong> təqdim olundu <span class="citation"
+data-cites="nakamoto2008bitcoin"></span>.</p>
+</dd>
+<dt><span class="math inline">\(2009\)</span>:</dt>
+<dd>
+<p>Kreyq Centri şifrəli məlumatlar üzərində heç bir deşifrələmə
+əməliyyatı aparmadan ixtiyari riyazi hesablamaları icra etməyə imkan
+verən ilk <strong>Tam Homomorf Şifrələmə (FHE)</strong> modelini kəşf
+etdi <span class="citation" data-cites="gentry2009fully"></span>.</p>
+</dd>
+</dl>
+</div>
+<div class="tcolorbox">
+<ul>
+<li><p>Sıfır bilik sübutları hansı riyazi prinsiplərə əsaslanır və
+rəqəmsal şəxsiyyətin təsdiqində hansı problemləri həll edir?</p></li>
+<li><p>Homomorf şifrələmə şifrəli mətndən açıq mətnə keçmədən hesablama
+aparmağı necə bacarır və MPC<a href="#fn7" class="footnote-ref"
+id="fnref7" role="doc-noteref"><sup>7</sup></a>, TEE<a href="#fn8"
+class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> və
+differensial məxfilik<a href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a> kimi alternativlərlə hansı
+kompromislərə malikdir?</p></li>
+<li><p>Blokçeyn arxitekturasını manipulyasiyalara qarşı dayanıqlı edən
+daxili kriptoqrafik primitivlər və konsensus mexanizmləri
+hansılardır?</p></li>
+<li><p>QKD-nin nəzəri təhlükəsizlik modeli klassik alqoritmlərdən necə
+fərqlənir və real cihazlar hansı əlavə fərziyyələri yaradır?</p></li>
+<li><p>Post-kvant dövrünə keçid fonunda yaxın onillikdə qlobal
+kriptoqrafik infrastruktur hansı istiqamətdə təkamül edəcəkdir?</p></li>
+</ul>
+</div>
+<h1 class="unnumbered" id="i-hissə-məxfilik-qoruyan-hesablama">I hissə:
+Məxfilik qoruyan hesablama</h1>
+<h1 id="sıfır-bilik-sübutları-zkp">Sıfır bilik sübutları (ZKP)</h1>
+<h2 id="əsas-anlayışlar-və-riyazi-xassələr">Əsas Anlayışlar və Riyazi
+Xassələr</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Sıfır Bilik Sübutu). <em>Sıfır bilik sübutu
+— sübut edən tərəfin yoxlayan tərəfə təqdim edilən riyazi ifadənin doğru
+olduğundan başqa <strong>heç bir əlavə gizli məlumatı
+açıqlamadan</strong> həmin ifadənin doğruluğunu isbat etməsinə imkan
+verən kriptoqrafik protokoldur <span class="citation"
+data-cites="goldwasser1985knowledge"></span>.</em></p>
+</div>
+<p>Sıfır bilik sübutu tərifinə daxil olan üç əsas xassə aşağıdakılardır;
+onların dəqiq və ya ehtimallı forması konkret modeldən asılıdır:</p>
+<ol>
+<li><p><strong>Tamlıq:</strong> Əgər ifadə doğrudursa, sübut edən uyğun
+şahidə malikdirsə və tərəflər protokola əməl edirsə, dürüst yoxlayan
+sübutu tələb olunan yüksək ehtimalla qəbul edir.</p></li>
+<li><p><strong>Etibarlılıq:</strong> Əgər ifadə yalandırsa, pis niyyətli
+sübut edən yüksək ehtimalla dürüst yoxlayanı ifadənin doğru olduğuna
+inandıra bilməz. Yalan iddianın qəbul edilmə ehtimalı kriptoqrafik
+olaraq sıfıra yaxın olmalıdır.</p></li>
+<li><p><strong>Sıfır bilik:</strong> Əgər ifadə doğrudursa, yoxlayan
+protokolun icrası prosesindən ifadənin doğru olduğu faktından başqa heç
+bir kənar və ya əlavə məlumat (gizli açar, şifrə və s.) əldə edə
+bilməz.</p></li>
+</ol>
+<h2 id="konseptual-və-praktik-modellər">Konseptual və Praktik
+Modellər</h2>
+<p>Sıfır bilik sübutlarının iş prinsipini vizuallaşdırmaq üçün
+kriptoqrafiya ədəbiyyatında bir neçə klassik paradiqmadan istifadə
+olunur:</p>
+<h4 id="rəng-koru-paradiqması-vizual-model">Rəng koru paradiqması
+(Vizual model):</h4>
+<p>Sübut edənin əlində tamamilə eyni formalı və ölçülü iki top (biri
+qırmızı, biri yaşıl) var. Yoxlayan isə rəng korudur və topları
+bir-birindən ayıra bilmir. Sübut edən topların fərqli rəngdə olduğunu,
+lakin hansının yaşıl və ya qırmızı olduğunu bildirmədən sübut etmək üçün
+növbəti interaktiv addımları icra edir: Yoxlayan topları arxasında
+gizlədir, təsadüfi olaraq onların yerini dəyişdirir və ya dəyişdirmədən
+sübut edənə göstərir. Sübut edən hər raundda topların yerinin
+dəyişdirilib-dəyişdirilmədiyini dərhal təyin edir. Əgər toplar eyni
+rəngdə olsaydı, sübut edənin düzgün cavab vermə ehtimalı hər raundda
+<span class="math inline">\(1/2\)</span> olardı. Proses <span
+class="math inline">\(n\)</span> dəfə təkrarlandıqdan sonra saxtakarlıq
+ehtimalı <span class="math inline">\((1/2)^n\)</span> dərəcəsinə düşür
+və yoxlayan topların fərqli olduğuna əmin olur, lakin onların rənglərini
+öyrənmir.</p>
+<h4
+id="əli-baba-mağarası-paradoksu-strukturlaşdırılmış-interaktiv-model">Əli
+Baba mağarası paradoksu (Strukturlaşdırılmış interaktiv model):</h4>
+<p>Mağara <span class="math inline">\(A\)</span> və <span
+class="math inline">\(B\)</span> adlanan iki fərqli girişə malikdir və
+mərkəzdə yalnız xüsusi gizli parolla açılan gizli qapı vasitəsilə
+birləşir. Sübut edən parolu açmadan ona sahib olduğunu sübut etmək üçün
+mağaraya daxil olur. Yoxlayan kənardan təsadüfi olaraq “<span
+class="math inline">\(A\)</span> girişindən çıx!” və ya “<span
+class="math inline">\(B\)</span> girişindən çıx!” əmrini verir. Sübut
+edən gizli sözü bilirsə, hər iki halda tələb olunan qapıdan çıxa bilir.
+Prosesin çoxraundlu təkrarı interaktiv sübut strukturunu
+formalaşdırır.</p>
+<h4 id="rəqəmsal-şəxsiyyət-və-yaş-təsdiqi-praktik-model">Rəqəmsal
+şəxsiyyət və yaş təsdiqi (Praktik model):</h4>
+<p>Klassik sistemlərdə istifadəçi yetkinlik yaşını (<span
+class="math inline">\(ya\c{s} \ge 18\)</span>) sübut etmək üçün fiziki
+şəxsiyyət vəsiqəsini təqdim edir; nəticədə ad, soyad və dəqiq doğum
+tarixi kimi tələb olunmayan fərdi məlumatlar qarşı tərəfə açıqlanır. ZKP
+əsaslı rəqəmsal identifikatorlarda isə istifadəçinin cihazındakı sübut
+edən komponent doğum tarixini qarşı tərəfə göstərmədən, yalnız yaş
+meyarının bərabərsizliyi ödədiyinə dair rəqəmsal sübut formalaşdırır.
+Apple Identity, rəqəmsal pul kisələri və müasir rəqəmsal dövlət
+sistemləri <strong>fərdi məlumatların minimum həddə endirilməsi və artıq
+məlumatın açıqlanmasının qarşısının alınması</strong> üçün bu modelə
+keçid edir.</p>
+<h2 id="interaktivlik-və-qeyri-interaktiv-keçid-nizk">İnteraktivlik və
+Qeyri-İnteraktiv Keçid (NIZK)</h2>
+<ul>
+<li><p><strong>İnteraktiv Sübut Sistemləri:</strong> Sübut edən və
+yoxlayan arasında davamlı çağırış-cavab sessiyaları tələb edir. Bu model
+asinxron şəbəkələr və blokçeyn platformaları üçün
+əlverişsizdir.</p></li>
+<li><p><strong>Qeyri-İnteraktiv Sıfır Bilik Sübutları (NIZK):</strong>
+Sübut edən tərəfindən birtərəfli qaydada hazırlanan və yoxlayana
+göndərilən tək bir rəqəmsal mesajdan ibarətdir. İnteraktiv protokollar
+<strong>Fiat-Şamir transformasiyası</strong> vasitəsilə təsadüfi sorğu
+funksiyasını kriptoqrafik heş funksiyası ilə əvəz etməklə
+qeyri-interaktiv formaya gətirilir.</p></li>
+</ul>
+<h2
+id="zk-snarks-zk-starks-və-bulletproofs-protokollarının-analizi">zk-SNARKs,
+zk-STARKs və Bulletproofs Protokollarının Analizi</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (zk-SNARK). <em><strong>zk-SNARK</strong> –
+sıfır biliklə yığcam, qeyri-interaktiv bilik arqumentləri<a href="#fn10"
+class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
+sinfidir. Bəzi geniş yayılmış nümunələr elliptik əyri cütləşmələrinə və
+strukturlaşdırılmış istinad sətirinə (SRS) söykənir <span
+class="citation" data-cites="benasson2014snarks"></span>; bütün SNARK
+konstruksiyaları bu dizaynla məhdudlaşmır.</em></p>
+</div>
+<div class="tcolorbox">
+<p>Bəzi cütləşmə əsaslı zk-SNARK-lar SRS<a href="#fn11"
+class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>
+generasiyası üçün etibarlı quraşdırma (trusted setup) tələb edir. Bu
+prosesdəki gizli “toksik tullantı” (toxic waste) saxlanarsa, konkret
+sxemdə saxta sübut riski yarana bilər. Çoxtərəfli Hesablama<a
+href="#fn12" class="footnote-ref" id="fnref12"
+role="doc-noteref"><sup>12</sup></a> (Multi-Party Computation — MPC) bu
+riski bölüşdürür, universal SRS (məs., PLONK<a href="#fn13"
+class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>)
+və şəffaf SNARK konstruksiyaları (məs., Halo2<a href="#fn14"
+class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>)
+isə fərqli etibar modelləri verir; tələb konkret sübut sistemi üzrə
+yoxlanmalıdır.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 3</strong> (zk-STARK). <em><strong>zk-STARK</strong> –
+sıfır biliklə şəffaf quruluşu və heş əsaslı öhdəlikləri olan miqyaslana
+bilən arqument<a href="#fn15" class="footnote-ref" id="fnref15"
+role="doc-noteref"><sup>15</sup></a> ailəsidir <span class="citation"
+data-cites="benasson2018starks"></span>. Post-kvant iddiası bütün
+komponentlərin və seçilmiş heş parametrlərinin kvant hücum modelində
+(Grover və BHT alqoritmləri) analizinə bağlıdır.</em></p>
+</div>
+<p>Post-kvant dövründə tətbiq imkanlarına görə aparıcı ZKP
+protokollarının müqayisəli texniki xüsusiyyətləri Cədvəl <a
+href="#tab:zkp_comparison" data-reference-type="ref"
+data-reference="tab:zkp_comparison">1</a>-də strukturlaşdırılmışdır.</p>
+<table id="tab:zkp_comparison">
+<caption>zk-SNARKs, zk-STARKs və Bulletproofs protokollarının müqayisəli
+arxitektura analizi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texniki Meyar</strong></th>
+<th style="text-align: left;"><strong>Cütləşmə əsaslı zk-SNARK (məs.,
+Groth16)</strong></th>
+<th style="text-align: left;"><strong>Heş əsaslı zk-STARK</strong></th>
+<th style="text-align: left;"><strong>Bulletproofs</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sübut Ölçüsü</strong></td>
+<td style="text-align: left;">Sabit və çox kiçik (<span
+class="math inline">\(\sim 128 - 288\)</span> B, <span
+class="math inline">\(\mathcal{O}(1)\)</span>)</td>
+<td style="text-align: left;">Nisbətən böyük (<span
+class="math inline">\(\sim 10 - 100\)</span> KB, <span
+class="math inline">\(\mathcal{O}(\log^2 n)\)</span>)</td>
+<td style="text-align: left;">Logarifmik (<span
+class="math inline">\(\sim 1 - 2\)</span> KB, <span
+class="math inline">\(\mathcal{O}(\log n)\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Yoxlama Sürəti</strong></td>
+<td style="text-align: left;">Çox sürətli (<span
+class="math inline">\(\sim 1-5\)</span> ms, <span
+class="math inline">\(\mathcal{O}(1)\)</span>)</td>
+<td style="text-align: left;">Çox sürətli (<span
+class="math inline">\(\mathcal{O}(\log^2 n)\)</span>)</td>
+<td style="text-align: left;">Xətti (böyük ifadələrdə yavaş, <span
+class="math inline">\(\mathcal{O}(n)\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Etibarlı Quraşdırma</strong></td>
+<td style="text-align: left;">Tələb olunur (Devrəyə xüsusi və ya
+Universal SRS)</td>
+<td style="text-align: left;">Tələb olunmur (Şəffaf / Public
+Randomness)</td>
+<td style="text-align: left;">Tələb olunmur (Şəffaf)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Post-Kvant
+Davamlılığı</strong></td>
+<td style="text-align: left;">Zəif (Elliptik əyrilər Shor alqoritminə
+qarşı həssasdır)</td>
+<td style="text-align: left;">Yüksək (Kvant müqavimətli heş
+funksiyalarına əsaslanır)</td>
+<td style="text-align: left;">Zəif (Diskret loqarifm problemindən
+asılıdır)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Riyazi Fundament</strong></td>
+<td style="text-align: left;">Elliptik Əyrilər, İkiləti Xətti
+Cütləşmələr</td>
+<td style="text-align: left;">Heş Funksiyaları, FRI<a href="#fn16"
+class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a>
+Protokolu</td>
+<td style="text-align: left;">Elliptik Əyrilər, Daxili Hasilat (Inner
+Product)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Əsas Tətbiqlər</strong></td>
+<td style="text-align: left;">Zcash, Mina Protocol, Scroll,
+Loopring</td>
+<td style="text-align: left;">Starknet, dYdX, ImmutableX</td>
+<td style="text-align: left;">Monero (diapazon sübutları — range
+proofs)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2
+id="sıfır-bilik-sübutlarının-blokçeyn-və-ikinci-təbəqə-sistemlərində-rolu">Sıfır
+bilik sübutlarının blokçeyn və ikinci təbəqə sistemlərində rolu</h2>
+<p>ZKP texnologiyaları müasir mərkəzsizləşdirilmiş şəbəkələrin iki əsas
+problemini həll edir: <strong>Məxfilik</strong> və <strong>Miqyaslana
+bilmə</strong>. <code>zk-rollup</code> arxitekturasında ikinci təbəqədə
+icra edilən minlərlə tranzaksiya əsas zəncirdən kənarda emal olunur,
+riyazi olaraq sıxışdırılır və onların doğruluğunu təsdiq edən tək
+rəqəmsal sübut ana zəncirə göndərilir. Bu model əsas şəbəkənin hesablama
+yükünü azalda bilər.</p>
+<h1 id="homomorf-şifrələmə">Homomorf şifrələmə</h1>
+<h2 id="fundamental-tərif-və-riyazi-xassələr">Fundamental Tərif və
+Riyazi Xassələr</h2>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Homomorf Şifrələmə). <em>Homomorf şifrələmə
+— şifrəli mətnlər üzərində <strong>heç bir deşifrələmə əməliyyatı
+aparmadan</strong> ixtiyari hesablama və manipulyasiyaların icrasına
+imkan verən şifrələmə paradiqmasıdır <span class="citation"
+data-cites="gentry2009fully"></span>. Bu metodla emal edilmiş şifrəli
+nəticə deşifrə edildikdə, ilkin açıq mətnlər üzərində birbaşa aparılmış
+eyni riyazi əməliyyatların nəticəsini verir.</em></p>
+</div>
+<div class="tcolorbox">
+<p>Riyazi olaraq, əgər <span class="math inline">\(E\)</span> şifrələmə
+alqoritmidirsə, <span class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> açıq mətnlər çoxluğunun
+elementləridirsə, elə bir şifrəli mətn əməliyyatı (<span
+class="math inline">\(\oplus\)</span>) mövcuddur ki, açıq mətnlər
+üzərindəki müvafiq (<span class="math inline">\(\circ\)</span>) cəbri
+əməliyyatı ilə struktur uyğunluğu, yəni cəbri homomorfizm təşkil edir:
+<span class="math display">\[E(a) \oplus E(b) = E(a \circ b)\]</span> Bu
+xassə şifrələmə funksiyasının məlumat qrupları arasındakı cəbri
+strukturu qoruduğunu göstərir və verilənlərin gizliliyini pozmadan
+onların funksionallığının saxlanılmasını şərtləndirir.</p>
+<p><strong>Nəzəri Qeyd (Universal Hesablama):</strong> Əgər şifrələmə
+sxemi şifrəli mətnlər daxilində eyni zamanda həm toplama (<span
+class="math inline">\(+\)</span>), həm də vurma (<span
+class="math inline">\(\cdot\)</span>) əməliyyatlarını dəstəkləyirsə (Tam
+Homomorf Şifrələmə — FHE<a href="#fn17" class="footnote-ref"
+id="fnref17" role="doc-noteref"><sup>17</sup></a>), bu iki təməl əməl
+vasitəsilə istənilən mürəkkəb funksiyanı və ya məntiqi sxemi (Boole
+qapılarını) şifrəli halda hesablamaq mümkündür.</p>
+</div>
+<h2 id="konseptual-model-məxfi-hesablama-analogiyası">Konseptual Model:
+Məxfi Hesablama Analogiyası</h2>
+<p>Homomorf şifrələmənin mahiyyətini başa düşmək üçün növbəti ssenarini
+nəzərdən keçirək: Alis, Bob və Çarli öz aylıq gəlirlərinin ümumi cəmini
+hesablamaq istəyirlər, lakin heç bir tərəf öz fərdi maaşının miqdarını
+digərlərinə açıqlamaq istəmir.</p>
+<ul>
+<li><p><strong>Klassik yanaşma:</strong> Məlumatların mərkəzi verilənlər
+bazasına göndərilməsi və orada açılması tələb olunur ki, bu da birbaşa
+fərdi məlumatların məxfiliyinin pozulmasına gətirib çıxarır.</p></li>
+<li><p><strong>Homomorf yanaşma:</strong> Hər bir şəxs öz gəlirini
+riyazi olaraq şifrələyir (<span class="math inline">\(E(m_1), E(m_2),
+E(m_3)\)</span>) və kənar serverə (bulud provayderinə) ötürür. Server bu
+şifrəli verilənləri açmadan, homomorf toplama operatoru vasitəsilə
+birbaşa sintez edir: <span class="math display">\[E(m_1) \oplus E(m_2)
+\oplus E(m_3) = E(m_1 + m_2 + m_3)\]</span> Nəticədə server yalnız
+şifrələnmiş yekun cəmi əldə edir. Bu şifrəli mətn tərəflərə geri
+göndərildikdə deşifrə olunur və heç kim bir-birinin fərdi gəlirini
+öyrənmədən ümumi nəticə təyin edilir.</p></li>
+</ul>
+<h2 id="təkamül-mərhələləri-və-təsnifat">Təkamül Mərhələləri və
+Təsnifat</h2>
+<p>Hesablama mühitində dəstəklənən əməliyyatların növünə və sayına görə
+homomorf şifrələmə sistemləri üç əsas sinfə bölünür:</p>
+<ol>
+<li><p><strong>Qismən homomorf şifrələmə (PHE):</strong> Şifrəli mətnlər
+üzərində yalnız bir növ riyazi əməliyyatı (yalnız toplama, və ya yalnız
+vurma) qeyri-məhdud sayda icra etməyə imkan verir.</p></li>
+<li><p><strong>Müəyyən dərəcədə homomorf şifrələmə (SHE):</strong> Həm
+toplama, həm də vurma əməliyyatlarını dəstəkləyir, lakin icra edilə
+biləcək əməliyyatların ardıcıllığı və sayı məhduddur.</p></li>
+<li><p><strong>Tam homomorf şifrələmə (FHE):</strong> İstənilən riyazi
+funksiyanı və ya məntiqi sxemi şifrəli verilənlər üzərində icra etməyə
+imkan verən ən ümumi modeldir.</p></li>
+</ol>
+<h2 id="qismən-homomorf-sistemlərin-riyazi-modeli">Qismən Homomorf
+Sistemlərin Riyazi Modeli</h2>
+<h4 id="multiplikativ-homomorfizm-klassik-rsa">Multiplikativ Homomorfizm
+(Klassik RSA):</h4>
+<p>Klassik RSA alqoritmində açıq mətnlərin şifrələnməsi <span
+class="math inline">\(E(a) = a^e \pmod n\)</span> və <span
+class="math inline">\(E(b) = b^e \pmod n\)</span> funksiyaları ilə
+həyata keçirilir. Bu şifrəli mətnlərin modulyar hasili növbəti
+bərabərliyi verir: <span class="math display">\[E(a) \cdot E(b) \equiv
+(a^e \cdot b^e) \equiv (a \cdot b)^e \equiv E(a \cdot b) \pmod
+n\]</span> Göründüyü kimi, iki şifrəli mətnin hasili, onların ilkin
+variantlarının hasilinin şifrələnmiş formasına bərabərdir.</p>
+<h4 id="additiv-homomorfizm-paillier-kriptosistemi">Additiv Homomorfizm
+(Paillier Kriptosistemi):</h4>
+<p>Paillier sxemində iki fərqli mesajın şifrəli mətnlərinin modulyar
+hasili, həmin mesajların cəminin şifrəli formasına ekvivalentdir <span
+class="citation" data-cites="paillier1999public"></span>: <span
+class="math display">\[E(a) \cdot E(b) \equiv E(a + b)
+\pmod{n^2}\]</span> Buradan yekun nəticəyə deşifrələmə alqoritmini
+tətbiq etməklə birbaşa açıq mətnlərin cəmini əldə etmək mümkündür: <span
+class="math display">\[D\big(E(a) \cdot E(b)\big) = D\big(E(a + b)\big)
+= a + b\]</span></p>
+<h2 id="tam-homomorf-şifrələmə-fhe-və-səs-küy-problemi">Tam Homomorf
+Şifrələmə (FHE) və Səs-küy Problemi</h2>
+<div class="tcolorbox">
+<p>Uzun illər boyu eyni kriptosistemdə həm toplama, həm də vurmanı
+qeyri-məhdud icra etmək qeyri-mümkün hesab olunurdu. <span
+class="math inline">\(2009\)</span>-cu ildə <strong>Kreyq
+Centri</strong> qəfəs əsaslı kriptoqrafiyaya söykənən ilk tam homomorf
+şifrələmə (FHE) arxitekturasını təklif edərək bu problemi həll etdi
+<span class="citation" data-cites="gentry2009fully"></span>.</p>
+</div>
+<div class="tcolorbox">
+<p>Qəfəs əsaslı FHE sxemlərində şifrəli mətn deşifrələmə düzgünlüyü üçün
+məhdud səs-küy büdcəsinə malikdir. Toplama və xüsusilə vurma bu büdcəni
+sxem və parametrlərdən asılı qaydada sərf edir; artımı bütün sxemlər
+üçün sadəcə “xətti” və ya “eksponensial” adlandırmaq düzgün deyil.
+Səs-küy icazə verilən həddi aşarsa deşifrələmə səhv nəticə verə bilər.
+<strong>Bootstrapping</strong> deşifrələmə dövrəsini homomorf şəkildə
+qiymətləndirərək eyni mesajı daha təzə şifrəli mətndə təqdim edir və
+növbəti hesablamalar üçün büdcə yaradır. O, səs-küyü sözün həqiqi
+mənasında sıfırlamır; dəyəri və tezliyi konkret BFV/BGV/CKKS/TFHE
+konstruksiyasından asılıdır.</p>
+</div>
+<h2 id="sənaye-resursları-və-kitabxanalar">Sənaye Resursları və
+Kitabxanalar</h2>
+<p>Müasir FHE protokollarının (BFV, BGV, CKKS, TFHE) tətbiqi üçün
+istifadə olunan əsas proqram təminatı kitabxanaları Cədvəl <a
+href="#tab:fhe_libraries" data-reference-type="ref"
+data-reference="tab:fhe_libraries">2</a>-də ümumiləşdirilmişdir.</p>
+<table id="tab:fhe_libraries">
+<caption>Sənayedə tətbiq olunan aparıcı FHE kitabxanaları</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Kitabxana</strong></th>
+<th style="text-align: left;"><strong>Dəstəklənən Sxemlər</strong></th>
+<th style="text-align: left;"><strong>Əsas Tərtibatçı /
+Sponsor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Microsoft SEAL</td>
+<td style="text-align: left;">BFV, CKKS</td>
+<td style="text-align: left;">Microsoft Research</td>
+</tr>
+<tr>
+<td style="text-align: left;">HElib</td>
+<td style="text-align: left;">BGV, CKKS</td>
+<td style="text-align: left;">IBM Research</td>
+</tr>
+<tr>
+<td style="text-align: left;">OpenFHE</td>
+<td style="text-align: left;">BFV, BGV, CKKS, FHEW, TFHE</td>
+<td style="text-align: left;">PALISADE / Sənaye Konsorsiumu</td>
+</tr>
+<tr>
+<td style="text-align: left;">TFHE</td>
+<td style="text-align: left;">TFHE (Məntiqi sxemlər üçün optimal)</td>
+<td style="text-align: left;">Zama</td>
+</tr>
+</tbody>
+</table>
+<h2 id="praktik-tətbiq-sahələri-və-performans-problemləri">Praktik
+Tətbiq Sahələri və Performans Problemləri</h2>
+<ul>
+<li><p><strong>Məxfi Tibbi Analitika:</strong> Xəstələrin fərdi və
+genetik qeydlərini bulud mühitində açmadan, onların üzərində statistik
+analizlər və diaqnostik maşın öyrənməsi modelləri icra etmək.</p></li>
+<li><p><strong>Təhlükəsiz FinTech İnfrastrukturu:</strong> Kredit
+qiymətləndirilməsi və risk analizləri zamanı müştərinin maliyyə
+tarixçəsini bank daxilində açıqlamadan kənar serverlərdə emal
+etmək.</p></li>
+<li><p><strong>Məxfiliyi qoruyan maşın öyrənməsi:</strong> Neyron
+şəbəkələrinin şifrəli verilənlər üzərində öyrədilməsi və ya şifrəli
+sorğular vasitəsilə proqnozların alınması.</p></li>
+<li><p><strong>Kör Axtarış Sistemləri:</strong> Bulud anbarlarında
+saxlanılan sənədlərin məzmununu xidmət provayderinə bildirmədən açar
+sözlər vasitəsilə daxili təhlükəsiz axtarışını<a href="#fn18"
+class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a>
+təşkil etmək.</p></li>
+</ul>
+<div class="tcolorbox">
+<p>FHE ciddi hesablama və yaddaş yükü daşıya bilər, lakin vahid <span
+class="math inline">\(10^5\)</span>–<span
+class="math inline">\(10^6\)</span> ləngimə əmsalı bütün sxem, əməliyyat
+və platformalara aid deyil. Qiymətləndirmə iş yükünü, dəqiqliyi,
+təhlükəsizlik parametrlərini, paketləməni<a href="#fn19"
+class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a>,
+şifrəli mətnin yenilənmə<a href="#fn20" class="footnote-ref"
+id="fnref20" role="doc-noteref"><sup>20</sup></a> tezliyini və
+CPU/GPU/FPGA/ASIC profilini ayrıca göstərməlidir. Buna görə prototip
+seçimi təmsilçi müqayisəli ölçmə və təhlükə modeli ilə aparılır.</p>
+</div>
+<div class="tcolorbox">
+<p>Tələbə ZKP-nin ifadəni şahidi açıqlamadan sübut etdiyini, homomorf
+şifrələmənin isə şifrəli verilən üzərində məhdud və ya ümumi hesablamanı
+dəstəklədiyini izah etməlidir. Bu iki texnologiya eyni məqsədə xidmət
+etmir.</p>
+</div>
+<h1 class="unnumbered"
+id="ii-hissə-paylanmış-reyestrdə-təminatların-ayrılması">II hissə:
+Paylanmış reyestrdə təminatların ayrılması</h1>
+<h1 id="blokçeyn-texnologiyası-və-kriptovalyutalar">Blokçeyn
+Texnologiyası və Kriptovalyutalar</h1>
+<h2 id="blokçeyn-arxitekturasının-fundamental-prinsipləri">Blokçeyn
+Arxitekturasının Fundamental Prinsipləri</h2>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Blokçeyn). <em>Blokçeyn — qeydlərin
+bloklarda təşkil olunduğu və blokların kriptoqrafik heş dəyərləri ilə
+əvvəlki vəziyyətə bağlandığı paylanmış reyestr ailəsidir <span
+class="citation" data-cites="nakamoto2008bitcoin"></span>. İctimai
+şəbəkələr icazəsiz və yüksək dərəcədə mərkəzsiz, korporativ şəbəkələr
+isə üzvlük və giriş nəzarətli ola bilər.</em></p>
+</div>
+<p>Blokçeyn arxitekturasının dayanıqlılığını və təhlükəsizliyini təmin
+edən dörd fundamental xassə mövcuddur:</p>
+<ul>
+<li><p><strong>Paylanmış reyestr:</strong> Vəziyyət bir neçə qovşaqda
+təkrarlanır; bütün qovşaqların bütün məlumatı saxlaması və eyni anda
+sinxronlaşması məcburi deyil.</p></li>
+<li><p><strong>Dəyişikliklərin aşkarlanması və yekunluq:</strong> Heş
+zənciri keçmiş qeydlərə müdaxiləni bəlli edir, konsensus isə qəbul
+edilmiş tarixçəni müəyyənləşdirir. Keçmişi dəyişməyin çətinliyi
+konsensus, iqtisadiyyat, idarəetmə və yekunlaşma fərziyyələrindən
+asılıdır.</p></li>
+<li><p><strong>Audit və giriş modeli:</strong> İctimai reyestrdə məlumat
+geniş görünə bilər; icazəli şəbəkədə oxuma və yazma hüquqları
+məhdudlaşdırıla bilər.</p></li>
+<li><p><strong>İdarəetmə modeli:</strong> Mərkəzsizləşmə dərəcəsi
+təsdiqləyici qovşaqların, proqram yeniləməsi, üzvlük və fövqəladə qərar
+səlahiyyətlərinin paylanmasından asılıdır.</p></li>
+</ul>
+<h2 id="blokçeynin-kriptoqrafik-alətləri">Blokçeynin Kriptoqrafik
+Alətləri</h2>
+<p>Blokçeyn şəbəkələrinin təhlükəsizliyi üç əsas kriptoqrafik primitiv
+üzərində qurulur:</p>
+<ol>
+<li><p><strong>Kriptoqrafik Heş Funksiyaları:</strong> Giriş
+verilənlərini sabit uzunluqlu rəqəmsal izə çevirir.</p>
+<ul>
+<li><p>Bitcoin şəbəkəsində: <strong>SHA-256</strong> alqoritminin
+ardıcıl ikiqat tətbiqi istifadə olunur.</p></li>
+<li><p>Ethereum şəbəkəsində: <strong>Keccak-256</strong> (SHA-3
+standartının ilkin variantı) tətbiq edilir.</p></li>
+</ul></li>
+<li><p><strong>Asimmetrik Şifrələmə və Rəqəmsal İmzalar:</strong>
+Tranzaksiyaların sahibliyini və həqiqiliyini təsdiq edir.</p>
+<ul>
+<li><p>Bitcoin və Ethereum: <strong>ECDSA</strong> (Elliptik Əyri
+Kriptoqrafiyası, xüsusilə <em>secp256k1</em> parametri) əsasında
+işləyir.</p></li>
+<li><p>Solana və Cardano: Daha sürətli və müasir olan
+<strong>Ed25519</strong> (EdDSA) imza sxemindən istifadə edir.</p></li>
+</ul></li>
+<li><p><strong>Merkl Ağacları:</strong> Blok daxilindəki çoxsaylı
+tranzaksiyaların vahid kök heşdə (<em>Merkl kökü</em>) iyerarxik
+strukturlaşdırılmasıdır. Bu model, hər hansı bir tranzaksiyanın blokda
+mövcudluğunu tam blok verilənlərini yükləmədən, cəmi <span
+class="math inline">\(\mathcal{O}(\log n)\)</span> mürəkkəbliklə sübut
+etməyə (<em>Merkl sübutu</em>) imkan verir.</p></li>
+</ol>
+<figure id="fig:merkle_tree" data-latex-placement="h">
+
+<figcaption>Merkl ağacı daxilində tranzaksiyaların iyerarxik heşlənmə
+strukturu</figcaption>
+</figure>
+<h2 id="utxo-xərclənməmiş-tranzaksiya-çıxışı-modeli">UTXO (Xərclənməmiş
+Tranzaksiya Çıxışı) Modeli</h2>
+<div class="tcolorbox">
+<p>Bitcoin və bir çox digər kriptovalyutalar tranzaksiya balansını
+izləmək üçün <strong>xərclənməmiş tranzaksiya çıxışı (UTXO)</strong><a
+href="#fn21" class="footnote-ref" id="fnref21"
+role="doc-noteref"><sup>21</sup></a> modelindən istifadə edir <span
+class="citation" data-cites="nakamoto2008bitcoin"></span>. Bu modeldə
+istifadəçinin qalıq balansı vahid rəqəm kimi deyil, onun ünvanına gələn
+və hələ xərclənməmiş tranzaksiya çıxışlarının məcmusu kimi hesablanır.
+Hər bir UTXO ayrıdır və yalnız bütöv şəkildə bir dəfə xərclənə
+bilər.</p>
+</div>
+<figure id="fig:utxo_schema" data-latex-placement="h">
+
+<figcaption>Bitcoin UTXO modelinin struktur sxemi</figcaption>
+</figure>
+<div class="example">
+<p><strong>Nümunə 1</strong> (UTXO Tranzaksiyasının Anatomiyası).
+<em>Alis Boba 1 BTC göndərmək istədikdə proses növbəti mərhələlərlə icra
+olunur:</em></p>
+<ul>
+<li><p><em><strong>Giriş parametrləri:</strong> Alisin cüzdanı əvvəlki
+əməliyyatlardan qalan və cəmi 2.5 BTC edən aktiv UTXO-ları
+seçir.</em></p></li>
+<li><p><em><strong>Çıxış strukturu:</strong> Məsələn, 1 BTC Bobun
+ünvanına, 1.4999 BTC qaytarılan qalıq (<em>change</em>) kimi Alisə
+yönləndirilə və 0.0001 BTC şəbəkə komissiyası (<em>miner fee</em>) kimi
+saxlanıla bilər.</em></p></li>
+<li><p><em><strong>Kriptoqrafik təsdiq:</strong> Alis xərcləmə şərtini
+uyğun rəqəmsal imza<a href="#fn22" class="footnote-ref" id="fnref22"
+role="doc-noteref"><sup>22</sup></a> ilə təmin edir. Qovşaqlar
+tranzaksiyanı yoxlayır, köhnə çıxışları cari UTXO çoxluğundan çıxarır və
+yenilərini əlavə edir; xərclənmiş çıxışlar blok tarixçəsindən
+silinmir.</em></p></li>
+</ul>
+</div>
+<h2 id="konsensus-mexanizmləri">Konsensus Mexanizmləri</h2>
+<p>Mərkəzsizləşdirilmiş şəbəkədə bütün qovşaqların vahid reyestr
+vəziyyəti üzərində razılığa gəlməsini təmin edən alqoritmlər növbəti
+qruplara bölünür:</p>
+<ol>
+<li><p><strong>İş sübutu (Proof of Work — PoW):</strong> Yeni blokların
+zəncirə əlavə edilməsi üçün uyğun birdəfəlik təsadüfi ədədin
+(<em>nonce</em><a href="#fn23" class="footnote-ref" id="fnref23"
+role="doc-noteref"><sup>23</sup></a>) tapılması kimi hesablama
+tapşırığını tələb edən konsensus növüdür <span class="citation"
+data-cites="nakamoto2008bitcoin"></span>.</p>
+<ul>
+<li><p><em>Təhlükəsizlik:</em> Dürüst madənçilərin böyük həş gücü
+şəbəkəni qoruyur; hücumçunun daxil etdiyi dominant həş gücü isə keçmişi
+yenidən təşkil etmək, senzura və ikiqat xərcləmə kimi risklər yaradır.
+Lakin bu, etibarsız imzanı və ya konsensus qaydalarına zidd bloku
+etibarlı etmir. “51%” göstəricisi mütləq təhlükəsizlik sərhədi deyil,
+hücum modeli üçün təxmini çoxluq (<em>majority</em>) ssenarisidir<a
+href="#fn24" class="footnote-ref" id="fnref24"
+role="doc-noteref"><sup>24</sup></a>.</p></li>
+<li><p><em>Mənfi cəhətləri:</em> Yüksək elektrik enerjisi istehlakı və
+miqyaslana bilməmə problemi (tranzaksiyaların emal sürətinin aşağı
+olması).</p></li>
+</ul></li>
+<li><p><strong>Pay Sübutu (Proof of Stake — PoS):</strong> Blok yaratmaq
+və tranzaksiyaları təsdiqləmək hüququnun hesablama gücünə deyil,
+şəbəkədə daxili olaraq kilidlənmiş kriptovalyuta payının
+(<em>stake</em>) miqdarına mütənasib olaraq təyin edildiyi modeldir
+<span class="citation" data-cites="kiayias2017ouroboros"></span>.</p>
+<ul>
+<li><p><em>Üstünlükləri:</em> Enerji səmərəliliyi yüksəkdir,
+əməliyyatların emal sürəti xeyli sürətlidir.</p></li>
+<li><p><em>Nümunələr:</em> Ethereum (keçid sonrası), Cardano,
+Solana.</p></li>
+</ul></li>
+<li><p><strong>Nümayəndəli Pay Sübutu (Delegated Proof of Stake —
+DPoS):</strong> Pay sahiblərinin səsvermə yolu ilə məhdud sayda
+nümayəndə seçdiyi və blokların generasiyasını birbaşa həmin
+nümayəndələrə həvalə etdiyi daha mərkəzləşmiş, lakin yüksək sürətli PoS
+variantıdır (məsələn, EOS və Tron).</p></li>
+<li><p><strong>Bizans-səhv-davamlı konsensus ailəsi:</strong> Kimliyi
+məlum təsdiqləyicilərin mesajlaşma və səsvermə ilə qərara gəldiyi
+icazəli (<em>permissioned</em>) protokollar PBFT<a href="#fn25"
+class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a>
+ideyalarından istifadə edə bilər. Hyperledger Fabric<a href="#fn26"
+class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a>
+isə versiya və yerləşdirmə profilinə görə ayrıca sıralama xidməti və
+təsdiqləmə siyasətləri qurur; onu dəyişməz şəkildə yalnız “PBFT
+alqoritmi” adlandırmaq olmaz.</p></li>
+</ol>
+<h2 id="ethereum-və-ağıllı-kontraktlar">Ethereum və ağıllı
+kontraktlar</h2>
+<div class="tcolorbox">
+<p><span class="math inline">\(2014\)</span>-cü ildə <strong>Vitalik
+Buterin</strong> tərəfindən təklif edilən və <span
+class="math inline">\(2015\)</span>-ci ildə tam işə salınan Ethereum
+şəbəkəsi, blokçeyn texnologiyasını sadəcə bir pul köçürmə sistemi
+olmaqdan çıxararaq onu qlobal, proqramlaşdırıla bilən bir kompüter
+mühitinə çevirdi <span class="citation"
+data-cites="wood2014ethereum"></span>.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Ağıllı Kontrakt). <em>Ağıllı kontrakt —
+blokçeyn üzərində yerləşdirilən, daxili məntiqi kod strukturu ilə idarə
+olunan və əvvəlcədən müəyyən edilmiş şərtlər yerinə yetirildikdə üçüncü
+tərəfin (vasitəçinin) iştirakı olmadan avtomatik olaraq icra edilən
+proqram təminatıdır <span class="citation"
+data-cites="wood2014ethereum"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (Ağıllı Kontraktın tətbiq ssenarisi).
+<em>Şərti sığorta müqaviləsini nəzərdən keçirək: Sərnişin təyyarə
+reysinin gecikməsinə qarşı sığorta əldə edir.</em></p>
+<ol>
+<li><p><em>Müqavilə şərtləri və sığorta məbləği ağıllı kontrakta
+yüklənir.</em></p></li>
+<li><p><em>Xarici məlumat xidməti bir və ya bir neçə mənbədən reys
+statusunu götürür və imzalı, izlənə bilən nəticəni kontrakta təqdim
+edir. Məlumatın həqiqiliyi, gecikməsi və mübahisə qaydası ayrıca etibar
+modelidir.</em></p></li>
+<li><p><em>Kontrakt qəbul edilmiş xarici məlumat və əvvəlcədən
+kodlaşdırılmış şərtlər əsasında ödənişi başladır; yanlış mənbə, kod
+xətası və idarəetmə qərarı avtomatlaşdırma ilə yox olmur.</em></p></li>
+</ol>
+</div>
+<h2 id="ethereum-virtual-maşını-evm-və-standartlar">Ethereum Virtual
+Maşını (EVM) və Standartlar</h2>
+<p>Ağıllı kontraktların icrası və şəbəkə daxili əməliyyatların
+tənzimlənməsi növbəti alt-sistemlərlə idarə olunur:</p>
+<ul>
+<li><p><strong>EVM (Ethereum virtual maşını):</strong> Ethereum
+şəbəkəsindəki bütün ağıllı müqavilələrin bayt-kodunu icra edən,
+mərkəzsizləşdirilmiş təcrid olunmuş mühitdir.</p></li>
+<li><p><strong>Hesablama haqqı (<code>gas</code>):</strong> EVM üzərində
+icra olunan hər bir hesablama əməliyyatının (məlumat yazma, toplama,
+dövr əməliyyatları) daxili resurs dəyəridir. Bu mexanizm şəbəkənin
+sonsuz dövrlərlə bloklanması riskini məhdudlaşdırır.</p></li>
+<li><p><strong>ERC-20 Standartı:</strong> Şəbəkə daxilində qarşılıqlı
+əvəzlənə bilən eynitipli nişanların yaradılması üçün istifadə olunan
+universal texniki standartdır.</p></li>
+<li><p><strong>ERC-721 Standartı:</strong> Hər biri unikal rəqəmsal
+mülkiyyəti təmsil edən, qarşılıqlı əvəzlənə bilməyən nişanların (NFT)
+yaradılmasını tənzimləyən protokoldur.</p></li>
+</ul>
+<h2 id="blokçeyn-texnologiyasının-praktik-tətbiq-sahələri">Blokçeyn
+Texnologiyasının Praktik Tətbiq Sahələri</h2>
+<ul>
+<li><p><strong>Mərkəzsizləşdirilmiş Maliyyə (DeFi):</strong> Ənənəvi
+bankçılıq alətlərinin (kreditləşmə, depozit, birja) vasitəçilər olmadan,
+birbaşa ağıllı kontraktlar (Məsələn: Uniswap, Aave) üzərindən
+aparılması.</p></li>
+<li><p><strong>Təchizat zəncirinin idarə edilməsi:</strong> İstehsal
+olunan məhsulların xammal mərhələsindən son istehlakçıya qədər olan
+bütün logistik yolunun şəffaf və dəyişdirilməz şəkildə
+izlənməsi.</p></li>
+<li><p><strong>Mərkəzsiz muxtar təşkilatlar (DAO):</strong> Şirkət və ya
+fondların idarə heyəti olmadan, birbaşa rəqəmsal nişan sahiblərinin
+səsvermə kodları və ağıllı müqavilələr vasitəsilə idarə edildiyi
+təşkilat strukturları.</p></li>
+<li><p><strong>Rəqəmsal Notariat və Seçki Tədqiqatları:</strong> Reyestr
+qeydin zamanını və dəyişiklik izini dəstəkləyə bilər. Elektron seçki isə
+bülleten məxfiliyi, məcburetməyə davamlılıq, seçicinin yoxlanması,
+əlçatanlıq, audit və idarəetməni birlikdə həll etməlidir; blokçeyn
+təkbaşına manipulyasiyanı və ya anonimliyi zəmanət etmir.</p></li>
+</ul>
+<div class="tcolorbox">
+<p>Tələbə heşin dəyişiklik aşkarlamasını, imzanın səlahiyyət yoxlamasını
+və konsensusun qəbul edilən tarixçəni seçməsini ayrı təminatlar kimi
+göstərməlidir. Blokçeyn bu təminatlardan heç birini təkbaşına
+yaratmır.</p>
+</div>
+<h1 class="unnumbered" id="iii-hissə-kvant-açar-paylanması">III hissə:
+Kvant açar paylanması</h1>
+<h1 id="kvant-kriptoqrafiyası">Kvant Kriptoqrafiyası</h1>
+<h2 id="fundamental-prinsiplər">Fundamental Prinsiplər</h2>
+<div class="definition">
+<p><strong>Tərif 7</strong> (Kvant Kriptoqrafiyası). <em>Kvant
+kriptoqrafiyası — informasiyanın təhlükəsizliyini təmin etmək üçün
+riyazi mürəkkəbliyə deyil, <strong>kvant mexanikasının</strong>
+fundamental fiziki qanunlarına əsaslanan kriptoqrafiya sahəsidir <span
+class="citation" data-cites="bennett1984bb84"></span>.</em></p>
+</div>
+<p>Ənənəvi asimmetrik kriptosistemlər (məsələn, RSA və ya ECC) böyük
+ədədlərin vuruqlara ayrılması və ya diskret loqarifmləmə kimi riyazi
+problemlərin hesablama çətinliyinə söykənir. QKD təhlükəsizlik sübutunda
+kvant ölçmə statistikalarından istifadə edir, lakin real sistemlərin
+təhlükəsizlik zəmanəti eyni zamanda autentifikasiya, cihaz modeli,
+sonlu-açar analizi (<em>finite-key analysis</em>) və praktiki
+reallaşdırma fərziyyələrini də əhatə edir <span class="citation"
+data-cites="ncsc2026quantum"></span>.</p>
+<p><strong>Fundamental fərqləndirici xüsusiyyət:</strong> Kvant kanalına
+müdaxilə müşahidə olunan statistikanı dəyişdirir. Tərəflər sonlu seçmə
+nümunəsində parametrləri qiymətləndirir və yalnız təhlükəsizlik
+sübutundakı hədlər ödənildikdə yekun açarı çıxarırlar; kanalda
+müdaxilənin aşkarlanması ani və mütləq (<em>deterministik</em>) deyil,
+mühitdəki küy və DoS<a href="#fn27" class="footnote-ref" id="fnref27"
+role="doc-noteref"><sup>27</sup></a> hücumları kanalın dinlənilməsi ilə
+qarışıq salına bilər.</p>
+<h2 id="kvant-mexanikasının-postulatları">Kvant Mexanikasının
+Postulatları</h2>
+<p>Kvant informasiya sistemlərinin riyazi modelinə keçməzdən əvvəl
+aşağıdakı dörd fundamental anlayışı bir-birindən fərqləndirək:</p>
+<ul>
+<li><p><strong>Kubit (Kvant biti):</strong> Klassik informatikanın
+diskret <span class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span> vəziyyətlərindən fərqli olaraq, eyni
+anda hər iki vəziyyətin xətti kombinasiyasında mövcud ola bilən
+informasiyanın ən kiçik kvant vahididir.</p></li>
+<li><p><strong>Superpozisiya:</strong> Kubitin eyni zamanda həm <span
+class="math inline">\(\left| 0 \right\rangle\)</span>, həm də <span
+class="math inline">\(\left| 1 \right\rangle\)</span> bazis
+vəziyyətlərində ola bilmə xassəsidir. Kubit üzərində ölçmə aparılana
+qədər o, ehtimallar fəzasında dalğa funksiyası şəklində
+mövcuddur.</p></li>
+<li><p><strong>Ölçmə (Measurement):</strong> Verilmiş bazisdə ölçmənin
+nəticəsi Born qaydasının ehtimalları ilə alınır; nəticə əvvəlcədən
+deterministik deyil. Ölçmədən sonrakı vəziyyət nəticə və istifadə olunan
+ölçmə bazisindən asılıdır.</p></li>
+<li><p><strong>Klonlaşdırmanın qeyri-mümkünlüyü teoremi:</strong>
+Naməlum ixtiyari bir kvant vəziyyətinin əslini pozmadan onun eyni
+nüsxəsini yaratmağın fiziki olaraq qeyri-mümkün olduğunu sübut edən
+kvant mexanikası qaydasıdır.</p></li>
+</ul>
+<h2 id="bb84-protokolu-1984">BB84 Protokolu (1984)</h2>
+<div class="tcolorbox">
+<p><span class="math inline">\(1984\)</span>-cü ildə <strong>Çarlz
+Bennet</strong> və <strong>Jil Brassar</strong> tərəfindən təklif
+edilmiş bu protokol, tarixdə ilk kvant açar paylanması (QKD) metodudur
+<span class="citation" data-cites="bennett1984bb84"></span>.</p>
+</div>
+<div class="tcolorbox">
+<p>Sadələşdirilmiş analogiyada kvant vəziyyəti müdaxilə izini statistik
+olaraq göstərə bilən möhürə bənzəyir. Fərq ondadır ki, real BB84-də
+ayrı-ayrı foton üzrə “dinlənildi” hökmü verilmir; tərəflər nümunə üzrə
+xəta və təhlükəsizlik hədlərini qiymətləndirirlər.</p>
+</div>
+<h4 id="protokolun-icra-mərhələləri">Protokolun İcra Mərhələləri:</h4>
+<ol>
+<li><p><strong>Generasiya:</strong> Alis təsadüfi bitlər zənciri (<span
+class="math inline">\(0\)</span> və <span
+class="math inline">\(1\)</span>) və bu bitləri kodlaşdırmaq üçün iki
+təsadüfi polyarizasiya əsası (bazis) seçir:</p>
+<ul>
+<li><p>Düzbucaqlı bazis (<span class="math inline">\(+\)</span>): <span
+class="math inline">\(\uparrow\)</span> (0 bitini təmsil edir) və <span
+class="math inline">\(\rightarrow\)</span> (1 bitini təmsil
+edir).</p></li>
+<li><p>Diaqonal bazis (<span class="math inline">\(\times\)</span>):
+<span class="math inline">\(\nearrow\)</span> (0 bitini təmsil edir) və
+<span class="math inline">\(\searrow\)</span> (1 bitini təmsil
+edir).</p></li>
+</ul></li>
+<li><p><strong>Ötürmə:</strong> Alis hər bir biti müvafiq polyarizasiya
+bucağına uyğun tək bir foton vasitəsilə kvant kanalı (məsələn,
+fiber-optik xətt) ilə Boba göndərir.</p></li>
+<li><p><strong>Ölçmə mərhələsi:</strong> Bob gələn fotonların hansı
+bazisdə kodlaşdırıldığını bilmədiyi üçün hər foton üçün təsadüfi olaraq
+<span class="math inline">\(+\)</span> və ya <span
+class="math inline">\(\times\)</span> bazislərindən birini seçərək ölçmə
+aparır.</p></li>
+<li><p><strong>Autentifikasiya və ələmə (Sifting):</strong> Alis və Bob
+ortadakı-adam hücumunun (<em>MITM</em>) qarşısını alan autentifikasiya
+olunmuş klassik kanalda bazisləri müqayisə edir və uyğun mövqeləri
+saxlayırlar (fərqli bazisdə ölçülən bitlər ələnir/atılır).
+Autentifikasiya əvvəlcədən paylaşılmış açar və ya rəqəmsal imza ilə
+qurulur.</p></li>
+<li><p><strong>Parametr qiymətləndirilməsi:</strong> Tərəflər seçilmiş
+bitlərin müəyyən hissəsini açıqlayıb QBER<a href="#fn28"
+class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a>
+və digər parametrləri sonlu-açar təhlükəsizlik sübutuna görə
+qiymətləndirirlər. Təxminən 11% xəta dərəcəsi yalnız müəyyən ideal,
+asimptotik BB84 modeli üçün tanınmış nəzəri həddir; universal cihaz
+parametri deyil.</p></li>
+<li><p><strong>Məlumatın razılaşdırılması (Information
+Reconciliation):</strong> Ələmə mərhələsindən sonra qalan <strong>ilkin
+açardakı</strong> (<em>raw key</em>) fərqlər autentifikasiya olunmuş
+klassik kanal üzrə xəta-düzəlişi alqoritmləri (məsələn, CASCADE və ya
+LDPC) ilə aradan qaldırılır.</p></li>
+<li><p><strong>Məxfiliyin gücləndirilməsi (Privacy Amplification) və
+təsdiq:</strong> Dinləyiciyə ehtimal olunan sızma və sonlu nümunə həddi
+nəzərə alınaraq heş funksiyaları vasitəsilə məxfiliyin gücləndirilməsi
+tətbiq edilir, sonra tərəflər yekun açarın eyniliyini təsdiqləyirlər.
+Yalnız bundan sonra istifadə oluna bilən tam gizli açar əldə
+edilir.</p></li>
+</ol>
+<figure id="fig:bb84_qubit" data-latex-placement="h">
+
+<figcaption>BB84 protokolunda gizli dinləmə (İv) səbəbindən kvant
+vəziyyətinin pozulma mexanizmi</figcaption>
+</figure>
+<h2 id="e91-protokolu-1991">E91 Protokolu (1991)</h2>
+<p>Kvant açar paylanmasının digər fundamental istiqaməti <span
+class="math inline">\(1991\)</span>-ci ildə Oksford Universitetinin
+tədqiqatçısı <strong>Artur Ekert</strong> tərəfindən irəli sürülmüş
+<strong>E91 protokoludur</strong> <span class="citation"
+data-cites="ekert1991quantum"></span>:</p>
+<ul>
+<li><p>Protokol tək fotonların polyarizasiyasına deyil, <strong>kvant
+dolaşıqlığına</strong> və EPR cütlərinə<a href="#fn29"
+class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a>
+əsaslanır.</p></li>
+<li><p>Alis və Boba mərkəzi mənbədən bir-biri ilə dolaşıq vəziyyətdə
+olan foton cütləri göndərilir. Tərəflər müxtəlif bucaqlarda ölçmə
+aparırlar; eyni bazisdə ölçülən bitlər ilkin açarı
+formalaşdırır.</p></li>
+<li><p>Kanalda gizli dinləmənin olub-olmadığını yoxlamaq üçün kvant
+sistemlərinin qeyri-lokallıq xassəsini ifadə edən <strong>Bell
+bərabərsizliyinin</strong><a href="#fn30" class="footnote-ref"
+id="fnref30" role="doc-noteref"><sup>30</sup></a> pozulması təhlil
+edilir.</p></li>
+<li><p>Bell-test yanaşmaları cihazdan asılı olmayan QKD (DI-QKD<a
+href="#fn31" class="footnote-ref" id="fnref31"
+role="doc-noteref"><sup>31</sup></a>) üçün nəzəri əsas verir, lakin
+praktiki zəmanət aşkarlama səmərəliliyi, mənbənin etibarlılığı, sonlu
+statistikalar və protokol fərziyyələrindən asılıdır.</p></li>
+</ul>
+<h2 id="praktik-qkd-layihələri-və-tətbiqləri">Praktik QKD Layihələri və
+Tətbiqləri</h2>
+<p>Kvant açar paylanması laboratoriya mühitindən çıxaraq magistral fiber
+və kosmik rabitə infrastrukturunda tətbiq edilməkdədir:</p>
+<table>
+<caption>Qlobal miqyasda həyata keçirilən praktik QKD
+tətbiqləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Layihə / Qurum</strong></th>
+<th style="text-align: left;"><strong>Texnologiya</strong></th>
+<th style="text-align: left;"><strong>Əldə Olunan Elmi
+Nəticə</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>"Mi-tsı" (<em>Micius</em>)
+Peyki</strong></td>
+<td style="text-align: left;">Kosmik QKD</td>
+<td style="text-align: left;">Çin tərəfindən 2016-cı ildə buraxılan peyk
+vasitəsilə 1200 km məsafədə peyk-yer stansiyası arasında kvant açarı
+paylanmışdır <span class="citation"
+data-cites="liao2017satellite yin2017satellite"></span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vyana QKD şəbəkəsi</strong></td>
+<td style="text-align: left;">Regional fiber-optik şəbəkə</td>
+<td style="text-align: left;">Şəhər daxili kritik dövlət rabitəsinin
+qorunması üçün fiber-optik magistrallar üzərində qurulmuş kvant şəbəkəsi
+<span class="citation" data-cites="poppe2008outline"></span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ID Quantique</strong></td>
+<td style="text-align: left;">Kommersiya</td>
+<td style="text-align: left;">İsveçrə mənşəli şirkət tərəfindən bank və
+dövlət xidmətləri üçün sənaye tipli QKD generatorlarının istehsalı <span
+class="citation"
+data-cites="stucki2011long gisin2002quantum"></span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Toshiba QKD Ar-Ge</strong></td>
+<td style="text-align: left;">Yüksək Sürət</td>
+<td style="text-align: left;">Adi fiber xətləri ilə eyni vaxtda
+(multipleksləşdirilmiş) 100-150 km məsafədə stabil kvant açar
+generasiyası <span class="citation"
+data-cites="patel2012coexistence dynes2019cambridge"></span>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="qkd-və-post-kvant-kriptoqrafiyasının-pqc-müqayisəli-analizi">QKD
+və Post-Kvant Kriptoqrafiyasının (PQC) Müqayisəli Analizi</h2>
+<p>Kvant kompüterlərinin yaratdığı təhlükəyə qarşı iki fərqli müdafiə
+fəlsəfəsi mövcuddur. Onların struktur müqayisəsi növbəti cədvəldə
+verilmişdir:</p>
+<table>
+<caption>QKD və PQC texnologiyalarının müqayisəli
+xarakteristikası</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Kvant Kriptoqrafiyası
+(QKD)</strong></th>
+<th style="text-align: left;"><strong>Post-Kvant Kriptoqrafiyası
+(PQC)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Nəzəri Əsası</strong></td>
+<td style="text-align: left;">Fizika qanunları (Kvant mexanikası)</td>
+<td style="text-align: left;">Riyazi problemlər (Qəfəslər, kodlar)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Təhlükəsizlik Həddi</strong></td>
+<td style="text-align: left;">Müəyyən model və autentifikasiya
+fərziyyələri daxilində informasiya-nəzəri açar məxfiliyi mümkündür</td>
+<td style="text-align: left;">Hesablama mürəkkəbliyinə əsaslanan</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>İnfrastruktur</strong></td>
+<td style="text-align: left;">Xüsusi aparat təminatı (Foton
+qəbuledicilər)</td>
+<td style="text-align: left;">Mövcud klassik kompüterlər və
+proqramlar</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Məsafə və Miqyas</strong></td>
+<td style="text-align: left;">Kanal, itki büdcəsi, etibarlı
+düyün/peyk/repeater modelindən asılıdır</td>
+<td style="text-align: left;">Şəbəkə məsafəsindən asılı deyil, lakin
+mesaj və sertifikat ölçüləri protokola təsir edir</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maliyyə Dəyəri</strong></td>
+<td style="text-align: left;">Xüsusi cihaz, xətt və əməliyyat təminatı
+tələb edir</td>
+<td style="text-align: left;">Proqram, aparat sürətləndirilməsi,
+sertifikat və miqrasiya xərcləri yaradır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Standartlaşdırma</strong></td>
+<td style="text-align: left;">Müxtəlif ETSI/ISO profilləri mövcuddur;
+yerləşdirmə siyasəti quruma görə dəyişir</td>
+<td style="text-align: left;">ML-KEM, ML-DSA və SLH-DSA FIPS
+standartlarıdır; digər alqoritmlərin statusu ayrıca yoxlanır</td>
+</tr>
+</tbody>
+</table>
+<div class="tcolorbox">
+<p>PQC mövcud rəqəmsal protokolların əsas miqrasiya yoludur, lakin
+inteqrasiya yenə inventar, protokol profili, sertifikat və performans
+işi tələb edir. QKD xüsusi avadanlıq, autentifikasiya, etibarlı düyün və
+DoS/yan-kanal modeli olan məhdud ssenaridə əlavə vasitə kimi
+qiymətləndirilə bilər. NCSC və NSA onu dövlət sistemlərində PQC-yə
+universal əvəz kimi tövsiyə etmir <span class="citation"
+data-cites="ncsc2026quantum"></span>.</p>
+</div>
+<div class="tcolorbox">
+<p>Tələbə QKD ilə PQC-ni fiziki kanal, klassik protokol,
+autentifikasiya, avadanlıq və miqrasiya meyarları üzrə müqayisə
+etməlidir. QKD mövcud şəbəkələrdə PQC-nin ümumi əvəzi deyil.</p>
+</div>
+<h1 class="unnumbered"
+id="iv-hissə-kursun-inteqrasiyası-və-texnologiya-seçimi">IV hissə:
+Kursun inteqrasiyası və texnologiya seçimi</h1>
+<h1 id="gələcək-trendlər-və-müasir-istiqamətlər">Gələcək Trendlər və
+Müasir İstiqamətlər</h1>
+<h2 id="kriptoqrafik-texnologiyaların-informativ-izahı">Kriptoqrafik
+Texnologiyaların İnformativ İzahı</h2>
+<p>Mürəkkəb kriptoqrafik protokolların və riyazi konseptlərin
+fundamental mahiyyətini anlamaq üçün gündəlik həyat ssenarilərinə
+əsaslanan analoqlar Cədvəl <a href="#tab:daily_analogies"
+data-reference-type="ref" data-reference="tab:daily_analogies">3</a>-də
+ümumiləşdirilmişdir.</p>
+<table id="tab:daily_analogies">
+<caption>Müasir kriptoqrafik texnologiyaların gündəlik həyat ssenariləri
+ilə konseptual müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texnologiya</strong></th>
+<th style="text-align: left;"><strong>Gündəlik Həyat Analoqu
+(Model)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sıfır Bilik Sübutları
+(ZKP)</strong></td>
+<td style="text-align: left;">Müəssisəyə daxil olmaq istəyən şəxsin
+doğum tarixini və fərdi məlumatlarını açıqlamadan, sadəcə yetkinlik
+yaşında olduğunu (məsələn, xüsusi bir yaş həddini keçdiyini) sübut
+etməsi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Homomorf Şifrələmə</strong></td>
+<td style="text-align: left;">Müəssisə rəhbərinin maaş cədvəlini qapalı
+seyfdə mühasibə göndərməsi; mühasib seyfi açmadan (fərdi maaşları
+görmədən) kənardan xüsusi mexanizmlə ümumi cəmi və vergini hesablaya
+bilir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Blokçeyn
+Texnologiyası</strong></td>
+<td style="text-align: left;">Replikasiya olunan və səhifələri
+bir-birinin heş dəyərinə bağlanan dəftər; keçmiş dəyişiklik bəlli olur,
+hansı tarixçənin qəbul ediləcəyini isə konsensus və idarəetmə
+müəyyənləşdirir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kvant Kriptoqrafiyası
+(QKD)</strong></td>
+<td style="text-align: left;">Müdaxilənin ayrıca fotonda deyil, çoxlu
+ölçmənin statistikasında iz buraxa bildiyi möhür; təhlükəsiz açar üçün
+autentifikasiya, xəta düzəlişi və məxfiliyin gücləndirilməsi də tələb
+olunur.</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="inkişaf-etməkdə-olan-kriptosistemlərin-müqayisəli-təhlili">İnkişaf
+Etməkdə Olan Kriptosistemlərin Müqayisəli Təhlili</h2>
+<p>Gələcək rəqəmsal infrastrukturun təhlükəsizliyini formalaşdıracaq
+əsas alqoritm və mexanizmlərin müqayisəli xarakteristikası növbəti
+cədvəldə sistemləşdirilmişdir:</p>
+<table id="tab:crypto_comparison">
+<caption>Müasir kriptoqrafik və paylanmış sistemlərin müqayisəli
+analizi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texnologiya</strong></th>
+<th style="text-align: left;"><strong>Üstünlükləri</strong></th>
+<th style="text-align: left;"><strong>Çatışmazlıqları</strong></th>
+<th style="text-align: left;"><strong>Optimal Tətbiq
+Sahələri</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>zk-SNARK ailələri</strong></td>
+<td style="text-align: left;">Bəzi sxemlər kiçik sübut və sürətli
+yoxlama verir.</td>
+<td style="text-align: left;">Quraşdırma və kvant modeli konkret
+quruluşdan asılıdır.</td>
+<td style="text-align: left;">Profilə uyğun məxfilik və ikinci təbəqə
+sistemləri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>zk-STARK ailələri</strong></td>
+<td style="text-align: left;">Şəffaf, heş əsaslı konstruksiyalar
+mümkündür.</td>
+<td style="text-align: left;">Sübut və hesablama xərci parametrdən
+asılıdır.</td>
+<td style="text-align: left;">Şəffaflıq və miqyas tələbi olan sübut
+sistemləri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Paillier (PHE)</strong></td>
+<td style="text-align: left;">Sadə riyazi struktur, toplama əməliyyatı
+üçün effektivdir.</td>
+<td style="text-align: left;">Yalnız additiv (toplama) homomorfluğu
+dəstəkləyir.</td>
+<td style="text-align: left;">Elektron səsvermə sistemləri, statistik
+hesabatlar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FHE (Tam Homomorf)</strong></td>
+<td style="text-align: left;">Şifrəli məlumat üzərində ixtiyari
+əməliyyat imkanı.</td>
+<td style="text-align: left;">Hesablama baxımından çox yavaşdır (böyük
+gecikmələr).</td>
+<td style="text-align: left;">Tibbi verilənlərin analizi, məxfi bulud
+hesablamaları.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bitcoin (PoW)</strong></td>
+<td style="text-align: left;">Açıq iştirak və iqtisadi yenidən-təşkil
+müqaviməti.</td>
+<td style="text-align: left;">Ehtimallı yekunlaşma, enerji və ötürmə
+qabiliyyəti kompromisləri.</td>
+<td style="text-align: left;">Bitcoin protokolunun risk modelinə uyğun
+rəqəmsal aktiv ötürməsi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ethereum (PoS)</strong></td>
+<td style="text-align: left;">Çevik ağıllı kontraktlar, yüksək əməliyyat
+sürəti.</td>
+<td style="text-align: left;">Protokol və idarəetmə mürəkkəbliyi.</td>
+<td style="text-align: left;">Desentralizasiya olunmuş maliyyə (DeFi),
+Web3, dApps.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>QKD</strong></td>
+<td style="text-align: left;">Model daxilində informasiya-nəzəri açar
+məxfiliyi mümkündür.</td>
+<td style="text-align: left;">Xüsusi cihaz, autentifikasiya, məsafə,
+etibarlı düyün və DoS məhdudiyyətləri.</td>
+<td style="text-align: left;">Yalnız siyasət və risk qiymətləndirilməsi
+ilə əsaslandırılmış xüsusi bağlantılar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PQC</strong></td>
+<td style="text-align: left;">Klassik hesablama və geniş şəbəkələrdə
+yerləşdirilə bilir.</td>
+<td style="text-align: left;">Protokol, sertifikat, performans və
+qarşılıqlı işləmə miqrasiyası tələb edir.</td>
+<td style="text-align: left;">Standartlaşdırılmış profil üzrə TLS, VPN,
+SSH və tətbiq protokolları.</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="kriptoqrafiyada-perspektiv-inkişaf-istiqamətləri">Kriptoqrafiyada
+Perspektiv İnkişaf İstiqamətləri</h2>
+<p>Yaxın onillikdə kriptoqrafiya elminin inkişaf ssenarisi növbəti beş
+magistral istiqamət üzrə qruplaşdırılır:</p>
+<ol>
+<li><p><strong>Post-Kvant Kriptoqrafiyasının Miqrasiyası və
+Standartlaşması:</strong></p>
+<ul>
+<li><p>ABŞ-ın NIST agentliyi tərəfindən qəbul edilmiş FIPS 203, 204 və
+205 (ML-KEM, ML-DSA, SLH-DSA) standartlarının qlobal sistemlərdə
+tətbiqi.</p></li>
+<li><p>TLS 1.3 və İPsec protokollarına klassik və post-kvant
+alqoritmlərini birləşdirən hibrid şifrələmə rejimlərinin
+inteqrasiyası.</p></li>
+<li><p><strong>Kriptoqrafik çeviklik</strong> konsepsiyasının proqram
+təminatının memarlıq standartına çevrilməsi.</p></li>
+</ul></li>
+<li><p><strong>Tam Homomorf Şifrələmənin (FHE)
+Sənayeləşməsi:</strong></p>
+<ul>
+<li><p>ASIC və FPGA əsaslı xüsusi aparat sürətləndiricilərinin köməyi
+ilə FHE əməliyyatlarının riyazi gecikmələrinin minimuma
+endirilməsi.</p></li>
+<li><p>Bulud texnologiyalarında istifadəçi məlumatlarının deşifrə
+edilmədən emal olunması arxitekturasının qurulması.</p></li>
+<li><p>Məxfiliyi qoruyan süni intellekt modellərinin (şifrəli sorğularla
+işləyən neyron şəbəkələrin) yaradılması.</p></li>
+</ul></li>
+<li><p><strong>Sıfır Bilik Sübutlarıın Genişmiqyaslı
+İnteqrasiyası:</strong></p>
+<ul>
+<li><p>Blokçeyn şəbəkələrinin miqyaslanma problemini həll edən ikinci
+təbəqə texnologiyalarının standartlaşması.</p></li>
+<li><p>İstifadəçinin özünə məxsus rəqəmsal şəxsiyyətini qoruyan, minimum
+məlumat açıqlayan dövlət xidmətlərinin qurulması.</p></li>
+</ul></li>
+<li><p><strong>Qvant İnternet və QKD Şəbəkələrinin Qlobal
+İnkişafı:</strong></p>
+<ul>
+<li><p>Yerüstü fiber xətlərin məsafə maneəsini aşmaq üçün magistral
+xətlərə kvant təkrarlayıcıların qoşulması.</p></li>
+</ul></li>
+<li><p><strong>Mərkəzləşdirilməmiş Web3 Arxitekturası:</strong></p>
+<ul>
+<li><p>Mərkəzləşdirilməmiş İdentifikasiya (DID) protokollarının qlobal
+identifikasiya sistemlərinə daxil edilməsi.</p></li>
+<li><p>İnstitusional DeFi (mərkəzsiz maliyyə) alətlərinin tənzimləyici
+qaydalara uyğun şəkildə şifrələnməsi.</p></li>
+</ul></li>
+</ol>
+<h2 id="kriptoqrafik-çeviklik">Kriptoqrafik Çeviklik</h2>
+<div class="definition">
+<p><strong>Tərif 8</strong> (Kriptoqrafik Çeviklik). <em>Kriptoqrafik
+çeviklik — kriptoqrafik primitiv və protokolları inventarlaşdırmaq,
+siyasətlə idarə etmək, təhlükəsiz şəkildə dəyişdirmək, sınaqdan keçirmək
+və köhnə variantları mərhələli dayandırmaq qabiliyyətidir <span
+class="citation" data-cites="nist2026cryptoagility"></span>. Bu, yalnız
+konfiqurasiyada alqoritm adının dəyişdirilməsi deyil.</em></p>
+</div>
+<p>Ənənəvi sistemlərdə istifadə olunan alqoritmin dəyişdirilməsi
+(məsələn, MD5-dən SHA-2-yə və ya RSA-dan ECC-yə keçid) illərlə vaxt
+aparan və ciddi maliyyə tələb edən proses idi. Müasir dünyada isə kvant
+təhdidinin yaxınlaşması və kiberhücumların sürətlənməsi sistemlərin
+dizayn mərhələsindəcə çevik (modul) qurulmasını zəruri edir.</p>
+<h2 id="kursun-yekunu-30-mühazirənin-xronologiyası">Kursun Yekunu: 30
+Mühazirənin Xronologiyası</h2>
+<p>Kursun faktiki 30 mühazirəlik strukturu aşağıdakı kimidir:</p>
+<ol>
+<li><p><strong>Giriş, klassik kriptoqrafiya və informasiya nəzəriyyəsi
+(1–5)</strong>.</p></li>
+<li><p><strong>Axın şifrləri (6–7)</strong>.</p></li>
+<li><p><strong>Blok şifrləri, DES/AES və iş rejimləri
+(8–11)</strong>.</p></li>
+<li><p><strong>Heş funksiyaları və MAC (12–15)</strong>.</p></li>
+<li><p><strong>Asimmetrik kriptoqrafiyaya giriş və ədədlər nəzəriyyəsi
+(16–18)</strong>.</p></li>
+<li><p><strong>RSA, Diffi–Hellman və ElGamal (19–20)</strong>.</p></li>
+<li><p><strong>Elliptik əyrilər və ECC protokolları
+(21–22)</strong>.</p></li>
+<li><p><strong>Rəqəmsal imzalar, açar idarəetməsi və PKI
+(23–24)</strong>.</p></li>
+<li><p><strong>TLS, IPsec və VPN (25–26)</strong>.</p></li>
+<li><p><strong>Kriptoanaliz və yan kanal hücumları
+(27)</strong>.</p></li>
+<li><p><strong>Post-kvant kriptoqrafiyası və müasir məxfilik
+texnologiyaları (28–30)</strong>.</p></li>
+</ol>
+<div class="tcolorbox">
+<p>Bu kursu uğurla tamamlayan tələbə növbəti peşəkar kompetensiyalara
+sahib olur:</p>
+<ul>
+<li><p>Kriptoqrafiyanın fundamental riyazi və fiziki nəzəriyyəsini
+dərindən dərk edir;</p></li>
+<li><p>Müasir simmetrik və asimmetrik alqoritmlərin daxili
+mexanizmlərini sərbəst şəkildə izah və analiz edə bilir;</p></li>
+<li><p>Qlobal şəbəkə təhlükəsizliyi protokollarının (TLS, IPsec,
+WireGuard) təhlükəsizlik səviyyəsini qiymətləndirməyi bacarır;</p></li>
+<li><p>Sənaye standartlarına uyğun təhlükəsiz kriptoqrafik arxitektura
+layihələndirir;</p></li>
+<li><p>Yan kanal hücumlarının iş prinsipini və onlara qarşı
+proqram/aparat səviyyəsində müdafiə metodlarını tətbiq edir;</p></li>
+<li><p>Post-kvant dövrünün çağırışlarına hazırdır və müasir ZKP, FHE,
+QKD sistemləri haqqında elmi baxışa malikdir;</p></li>
+<li><p>Ən əsası, <strong>Azərbaycan dilində beynəlxalq kriptoqrafiya
+terminologiyasını və elmi üslubunu akademik səviyyədə düzgün tətbiq
+edir</strong>.</p></li>
+</ul>
+</div>
+<h1
+id="müasir-məxfilik-texnologiyalarının-tətbiqi-üzrə-praktik-tövsiyələr">Müasir
+Məxfilik Texnologiyalarının Tətbiqi Üzrə Praktik Tövsiyələr</h1>
+<p>Müasir kriptoqrafik arxitekturaların, sıfır bilik sübutlarıın,
+homomorf sistemlərin və kvant təhlükəsizliyi həllərinin real layihələrdə
+layihələndirilməsi və inteqrasiyası zamanı mühəndis və tədqiqatçılar
+üçün növbəti sistemli tövsiyələr nəzərə alınmalıdır:</p>
+<ul>
+<li><p><strong>Sıfır Bilik Sübutlarıın (ZKP) İnteqrasiyası:</strong></p>
+<ul>
+<li><p>Sübut sistemi konkret dövrə, sübut/yoxlama xərci, quraşdırma
+modeli, post-kvant fərziyyələri və kitabxana yetkinliyi üzrə
+seçilməlidir; “SNARK” və “STARK” adları təkbaşına qərar meyarı
+deyil.</p></li>
+<li><p>Məxfiliyi qoruyan protokolların praktiki iş prinsipini anlamaq
+üçün <em>Zcash</em> və ya <em>Mina Protocol</em> kimi sənaye miqyaslı
+açıq mənbəli kriptoqrafik layihələrin mənbə kodları tədqiq
+edilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Homomorf Şifrələmə Sistemlərinin Seçilməsi:</strong></p>
+<ul>
+<li><p>Tam Homomorf Şifrələmə (<em>FHE</em>) tətbiqlərinin yaradılması
+üçün sənayədə riyazi olaraq sınaqdan keçmiş <em>Microsoft SEAL</em>,
+<em>OpenFHE</em> və ya xüsusi idarəolunan dövrələr üçün <em>TFHE</em>
+kitabxanalarından istifadə edilməlidir.</p></li>
+<li><p>Sadə riyazi əməliyyatların (məsələn, yalnız toplama
+relyasiyaları) kifayət etdiyi bulud hesablamalarında və ya elektron
+səsvermə modullarında sistemi FHE ilə yükləmək əvəzinə, daha sürətli
+işləyən <em>Paillier</em> qismən homomorf kriptosistemi (<em>PHE</em>)
+tətbiq olunmalıdır.</p></li>
+<li><p>Cari FHE alqoritmlərinin hesablama gecikmələri yüksək olduğu üçün
+real zamanlı əməliyyatlar əvəzinə, böyük verilənlərin uzunmüddətli və
+məxfi saxlanılması, asinxron statistik təhlillərin aparılması üçün
+tətbiqi məqsədəuyğundur.</p></li>
+</ul></li>
+<li><p><strong>Blokçeyn və Mərkəzləşdirilməmiş Sistemlərin
+Arxitekturasi:</strong></p>
+<ul>
+<li><p>İctimai və korporativ şəbəkələrin idarə edilməsi üçün
+<em>Ethereum</em>, <em>Hyperledger Fabric</em> və yüksək transaksiyalı
+sistemlər üçün <em>Solana</em> platformalarının daxili konsensus
+mexanizmləri analiz edilməlidir.</p></li>
+<li><p>Ağıllı kontraktların proqramlaşdırılması zamanı Solidity və ya
+Rust dillərinin yaddaş təhlükəsizliyi qaydalarına ciddi riayət olunmalı,
+təkrar giriş hücumlarının qarşısını almaq üçün formal yoxlama
+alətlərindən istifadə edilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Kvant Kriptoqrafiyası və Infrastruktur:</strong></p>
+<ul>
+<li><p>QKD yalnız səlahiyyətli qurumun siyasəti və təhlükə modeli tələb
+etdikdə, autentifikasiya, etibarlı düyün, cihaz təminatı, məsafə və DoS
+riskləri sənədləşdirildikdən sonra xüsusi əlavə kimi nəzərdən
+keçirilməlidir <span class="citation"
+data-cites="ncsc2026quantum"></span>.</p></li>
+<li><p>Kvant kanallarında baş verən fiziki çöküş və vəziyyət
+dəyişmələrini simulyasiya etmək üçün laboratoriya mühitində
+<em>BB84</em> protokolunun proqram simulyasiyası (məsələn, Python və ya
+xüsusi kvant emulyatorları ilə) qurulmalıdır.</p></li>
+</ul></li>
+<li><p><strong>Gələcək Təhdidlərə Qarşı Strateji Hazırlıq:</strong></p>
+<ul>
+<li><p><strong>Kriptoqrafik Çeviklik:</strong> Sistem kriptoqrafik
+inventar, siyasət, alqoritm abstraksiyası, protokol danışıqlarında zəif
+profilə endirmədən müdafiə, açar/sertifikat formatları, telemetriya,
+qarşılıqlı işləmə sınağı, əvvəlki versiyaya qayıdış və istifadədən
+çıxarma planını əhatə etməlidir. Funksiyalar uyğun funksiyalarla
+dəyişdirilir: KEM/açar razılaşdırması imza alqoritmi ilə qarışdırılmır
+<span class="citation"
+data-cites="nist2026cryptoagility"></span>.</p></li>
+<li><p><strong>"İndi saxla, sonra deşifrə et"</strong> hücum növünə
+qarşı (hücumçuların şifrəli trafikləri indi toplayıb gələcəkdə güclü
+kvant kompüteri ilə açması təhlükəsi) kritik və uzunmüddətli
+dövlət/korporativ sirlərinin qorunmasında dərhal post-kvant
+kriptoqrafiyası (PQC) keçid planları tətbiq olunmalıdır.</p></li>
+</ul></li>
+</ul>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Bu yekun inteqrasiya tapşırıqlarında əvvəlcə təhdid modelini və uğur
+meyarını yazın, sonra texnologiyanı seçin. Müəllim üçün cavab açarı
+yalnız ilkin cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em>Sıfır bilik sübutlarının (ZKP) malik
+olmalı olduğu üç əsas xassəni sadalayın və hər birini qısaca izah
+edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Müasir kriptoqrafiyada geniş tətbiq
+olunan <em>zk-SNARKs</em> və <em>zk-STARKs</em> protokolları arasında
+mövcud olan 3 əsas memarlıq və funksional fərqi göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em>Paillier kriptosisteminin additiv
+homomorf şifrələmə xassəsinin riyazi prinsipini izah edin və konkret
+ədədi nümunə üzərində göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Blokçeyn arxitekturasında (məsələn,
+Bitcoin şəbəkəsində) Merkl ağacının rolu nədir? Tranzaksiyaların
+bütövlüyünün yoxlanmasında bu struktur hansı hesablama üstünlüyünü təmin
+edir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>Kvant açar paylanmasında istifadə
+olunan <em>BB84</em> protokolunun mərhələlərini ardıcıl təsvir edin.
+Kanala edilən casusluq (dinləmə) cəhdi hansı mexanizmlə
+aşkarlanır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>Kvant təhdidinə qarşı müdafiə
+üsulları olan Kvant Açar Paylanması (<em>QKD</em>) ilə Post-Kvant
+Kriptoqrafiyası (<em>PQC</em>) arasındakı fundamental fərqlər nələrdir?
+Sistem dizaynında hansı kriteriyalara əsasən seçim edilməlidir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>İnformasiya təhlükəsizliyində
+kriptoqrafik çeviklik nəyi ifadə edir? Müasir sistemlərin
+layihələndirilməsində bu xüsusiyyətin nəzərə alınmasının səbəblərini
+əsaslandırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>Dövlət xidmətləri platforması
+istifadəçinin doğum tarixini saxlamadan yaş həddini yoxlamalı, üç
+qurumun şifrəli statistikalarından cəm hesablamalı, dəyişiklikləri audit
+etməli və uzunömürlü məxfi məlumatı kvant riskinə qarşı miqrasiya
+etməlidir. Təhdid modelini, ölçülə bilən uğur meyarlarını və
+qeyri-məqsədləri yazın; sonra ZKP, homomorf şifrələmə, adi əlavə-yalnız
+jurnal və ya blokçeyn, PQC və kriptoqrafik çeviklik komponentlərindən
+əsaslandırılmış arxitektura qurun.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<dl>
+<dt><strong>Çalışma 1-in həlli:</strong></dt>
+<dd>
+<p>Sıfır bilik sübutlarının üç əsas xassəsi aşağıdakılardır:</p>
+<ol>
+<li><p><strong>Tamlıq:</strong> Əgər iddia doğrudursa və tərəflər
+protokola dürüst əməl edirsə, yoxlayan sübutu tərifdəki tələb olunan
+yüksək ehtimalla qəbul edir.</p></li>
+<li><p><strong>Etibarlılıq:</strong> Əgər iddia yalandırsa, bədxah sübut
+edən şəxs çox kiçik bir riyazi ehtimal (xəta həddi) istisna olmaqla,
+yoxlayanı iddianın doğru olduğuna inandıra bilməz.</p></li>
+<li><p><strong>Sıfır bilik:</strong> İddia doğru olduğu halda, yoxlayan
+şəxs sübut prosesindən iddianın doğru olması faktından başqa heç bir
+əlavə gizli məlumat (məsələn, istifadəçinin gizli açarı və ya parolu)
+əldə edə bilməz.</p></li>
+</ol>
+</dd>
+<dt><strong>Çalışma 2-in həlli:</strong></dt>
+<dd>
+<p><em>zk-SNARKs</em> və <em>zk-STARKs</em> sistemlərinin müqayisəli
+fərqləri:</p>
+<ol>
+<li><p><strong>Sübut ölçüsü və hesablama mürəkkəbliyi:</strong> Cütləşmə
+əsaslı bəzi zk-SNARK-lar kiçik sübut verir; heş əsaslı zk-STARK
+nümunələrində sübut adətən böyükdür. Dəqiq ölçü və sürət sxem, dövrə və
+parametrdən asılıdır.</p></li>
+<li><p><strong>Quraşdırma:</strong> Bəzi zk-SNARK-lar xüsusi və ya
+universal SRS tələb edir, şəffaf SNARK-lar da mövcuddur. zk-STARK
+ailəsinin əsas fərqlərindən biri şəffaf quruluş imkanıdır.</p></li>
+<li><p><strong>Post-kvant modeli:</strong> Cütləşmə əsaslı sxemlər böyük
+kvant kompüterinə qarşı uyğun deyil; heş əsaslı konstruksiyalar
+post-kvant namizədidir, lakin bütün komponentlər və parametrlər ayrıca
+qiymətləndirilməlidir.</p></li>
+</ol>
+</dd>
+<dt><strong>Çalışma 3-ün həlli:</strong></dt>
+<dd>
+<p>Paillier kriptosistemi additiv homomorf xassəyə malikdir. İki fərqli
+<span class="math inline">\(m_1\)</span> və <span
+class="math inline">\(m_2\)</span> açıq mətninin şifrəli formalarının
+(<span class="math inline">\(c_1\)</span> və <span
+class="math inline">\(c_2\)</span>) hasili, bu mətnlərin cəminin (<span
+class="math inline">\(m_1 + m_2\)</span>) şifrələnmiş variantına
+ekvivalentdir: <span class="math display">\[c_1 = E(m_1) = g^{m_1} \cdot
+r_1^n \pmod{n^2}\]</span> <span class="math display">\[c_2 = E(m_2) =
+g^{m_2} \cdot r_2^n \pmod{n^2}\]</span> Şifrəli mətnləri vurduqda: <span
+class="math display">\[c_1 \cdot c_2 \equiv (g^{m_1} \cdot r_1^n) \cdot
+(g^{m_2} \cdot r_2^n) \equiv g^{m_1 + m_2} \cdot (r_1 r_2)^n \equiv
+E((m_1 + m_2) \bmod n) \pmod{n^2}\]</span> Deşifrələmə əməliyyatı
+nəticədə <span class="math inline">\(m_1 + m_2 \pmod n\)</span>
+qiymətini qaytarır.<br />
+<strong>Kiçik ədədi nümunə:</strong> <span
+class="math inline">\(p=3\)</span>, <span
+class="math inline">\(q=5\)</span>, <span
+class="math inline">\(n=15\)</span>, <span
+class="math inline">\(g=n+1=16\)</span>, <span
+class="math inline">\(\lambda=4\)</span> və <span
+class="math inline">\(\mu=4\)</span> götürək. <span
+class="math inline">\(m_1=4,r_1=2\)</span> üçün <span
+class="math inline">\(c_1=173\)</span>, <span
+class="math inline">\(m_2=5,r_2=7\)</span> üçün <span
+class="math inline">\(c_2=193\)</span> alınır (mod <span
+class="math inline">\(225\)</span>). <span
+class="math inline">\(c=c_1c_2\bmod225=89\)</span> və <span
+class="math display">\[D(c)=L(c^\lambda\bmod n^2)\mu\bmod
+n=L(91)\cdot4\bmod15=4\cdot4\bmod15=9,\]</span> yəni <span
+class="math inline">\(D(c)=m_1+m_2\bmod15=9\)</span>.</p>
+</dd>
+<dt><strong>Çalışma 4-ün həlli:</strong></dt>
+<dd>
+<p>Merkl ağacı blok daxilindəki minlərlə tranzaksiyanı tək bir
+kriptoqrafik kök heşdə birləşdirir. Bu kök heş blokun başlığına yazılır.
+Ağacın əsas üstünlüyü ondan ibarətdir ki, hər hansı bir fərdi
+tranzaksiyanın blok daxilində mövcudluğunu və dəyişdirilmədiyini sübut
+etmək üçün bütün blok verilənlərini yükləməyə ehtiyac qalmır. Yalnız
+<span class="math inline">\(O(\log n)\)</span> mürəkkəbliyində məlumat
+daşıyan Merkl yolu kifayət edir. Bu, xüsusilə resursları az olan mobil
+rəqəmsal pul kisələri (SPV müştərilər) üçün şəbəkə yükünü minimuma
+endirir.</p>
+</dd>
+<dt><strong>Çalışma 5-in həlli:</strong></dt>
+<dd>
+<p><em>BB84</em> protokolunun əsas mərhələləri: 1. Alis təsadüfi bitlər
+generasiya edir və onları təsadüfi seçdiyi bazislərlə (<span
+class="math inline">\(+\)</span> və ya <span
+class="math inline">\(\times\)</span>) fotonların polyarizasiya
+vəziyyətinə köçürür. 2. Fotonlar kvant kanalı ilə Boba ötürülür. 3. Bob
+gələn fotonları təsadüfi olaraq seçdiyi <span
+class="math inline">\(+\)</span> və ya <span
+class="math inline">\(\times\)</span> bazislərində ölçür. 4. Alis və Bob
+açıq klassik kanalda yalnız istifadə etdikləri bazislərin ardıcıllığını
+müqayisə edirlər. Bazislərin üst-üst düşmədiyi mövqelərdəki bitlər
+silinir. 5. Klassik kanal ortadakı-adam hücumuna qarşı autentifikasiya
+olunur; seçilmiş bitlər üzrə QBER və sonlu-açar parametrləri
+qiymətləndirilir. Təxminən 11% yalnız müəyyən ideal asimptotik model
+üçün tanınmış həddir, universal parametr deyil. 6. Sessiya qəbul
+edilərsə məlumatın razılaşdırılması, məxfiliyin gücləndirilməsi və açar
+təsdiqi aparılır.<br />
+<strong>Dinləmənin aşkarlanması:</strong> Müdaxilə statistik xətanı
+artıra bilər, lakin qərar nümunə, küy və cihaz modelindən asılıdır.
+Yüksək QBER dinləmə ilə yanaşı nasazlıq və DoS-dan da yarana bilər.</p>
+</dd>
+<dt><strong>Çalışma 6-nın həlli:</strong></dt>
+<dd>
+<p><em>QKD</em> kvant kanalından iki son nöqtə arasında açar yaratmaq
+üçün istifadə edir və xüsusi cihaz, autentifikasiya olunmuş klassik
+kanal, sonlu-açar analizi və çoxdüyünlü şəbəkədə etibar modeli tələb
+edir. <em>PQC</em> klassik avadanlıqda işləyən KEM və imza
+alqoritmləridir, lakin protokol, sertifikat, performans və açar
+idarəetməsi miqrasiyası tələb edir. Əsas yol standartlaşdırılmış PQC
+profilidir; QKD yalnız siyasət və risk qiymətləndirilməsi ilə
+əsaslandırılmış xüsusi əlavə ola bilər <span class="citation"
+data-cites="ncsc2026quantum"></span>.</p>
+</dd>
+<dt><strong>Çalışma 7-nin həlli:</strong></dt>
+<dd>
+<p>Kriptoqrafik çeviklik inventar, siyasət, abstraksiya, protokol
+danışıqları və zəif alqoritmə endirmədən müdafiə, açar/sertifikat
+formatları, qarşılıqlı işləmə sınağı, telemetriya, əvvəlki versiyaya
+qayıdış və istifadədən çıxarma proseslərini əhatə edir <span
+class="citation" data-cites="nist2026cryptoagility"></span>. Alqoritm
+dəyişikliyi bəzən kod və arxitektura dəyişikliyi tələb edir; məqsəd bunu
+görünən, idarə olunan və sınaqdan keçirilmiş miqrasiyaya
+çevirməkdir.</p>
+</dd>
+<dt><strong>Çalışma 8-in həlli:</strong></dt>
+<dd>
+<p>Nümunə arxitektura əvvəlcə sərhədləri yazır:</p>
+<ul>
+<li><p><strong>Təhdid modeli:</strong> Platforma operatoru artıq fərdi
+məlumatı görməməli; statistikaya qatılan qurumlardan ən azı biri dürüst
+qalmalı; jurnal yazıları sonradan səssiz dəyişdirilməməli; qeydə alınmış
+uzunömürlü trafik gələcək kvant hücumuna hazır olmalıdır. Son nöqtənin
+tam komprometi və yanlış ilkin məlumatın doğruluğu
+qeyri-məqsəddir.</p></li>
+<li><p><strong>Uğur meyarları:</strong> Yaş yoxlaması doğum tarixini
+açıqlamır; yekun cəm düzgün sınaq vektorları ilə uyğun gəlir; jurnal
+dəyişiklik sübutu verir; ML-KEM/ML-DSA profili qarşılıqlı işləmə
+sınağından keçir; alqoritm dəyişməsi telemetriyada görünür və zəif
+profilə səssiz qayıtmır.</p></li>
+<li><p><strong>Komponent seçimi:</strong> Yaş həddi üçün ZKP,
+qurumlararası cəm üçün dəstəklənən əmələ uyğun homomorf şifrələmə, tək
+inzibatçı etimadında imzalanmış əlavə-yalnız jurnal seçilir. Yalnız
+bir-birinə etibar etməyən çoxsaylı yazanlar və konsensus tələbi varsa
+blokçeyn əsaslandırılır. Uzunömürlü rabitə üçün standartlaşdırılmış PQC
+profili və bütün seçimlər üçün kriptoqrafik inventar, versiyalama, sınaq
+və istifadədən çıxarma planı qurulur.</p></li>
+</ul>
+</dd>
+</dl>
+<h1 id="mühazirənin-yekun-xülasəsi">Mühazirənin Yekun Xülasəsi</h1>
+<p>Bu mühazirə çərçivəsində müasir və post-kvant kriptoqrafiyasının
+əsasını təşkil edən növbəti fundamental elmi konseptlər, protokollar və
+texnoloji trendlər tədqiq edilmişdir:</p>
+<dl>
+<dt><strong>Sıfır Bilik Sübutları (ZKP):</strong></dt>
+<dd>
+<p>Sübut edən tərəfin şahidi açıqlamadan ifadənin doğruluğunu nümayiş
+etdirməsinə imkan verir. Sübut ölçüsü, quraşdırma modeli və post-kvant
+xüsusiyyəti “SNARK/STARK” adından deyil, konkret konstruksiya və
+parametrlərdən asılıdır <span class="citation"
+data-cites="goldwasser1985knowledge benasson2014snarks benasson2018starks"></span>.</p>
+</dd>
+<dt><strong>Homomorf Şifrələmə Sistemləri:</strong></dt>
+<dd>
+<p>Şifrələnmiş verilənlər üzərində əvvəlcədən deşifrələmə aparmadan
+hesablamanı dəstəkləyir. Paillier, RSA-nın doldurulmamış dərslik
+variantı və FHE müxtəlif funksiya/təhlükəsizlik modelləri verir; real
+məxfilik arxitekturasında FHE, MPC, TEE və differensial məxfilik təhlükə
+modelinə görə müqayisə edilir <span class="citation"
+data-cites="gentry2009fully"></span>.</p>
+</dd>
+<dt><strong>Blokçeyn və Paylanmış Reyestr:</strong></dt>
+<dd>
+<p>Heş zənciri və Merkl strukturları dəyişiklikləri aşkarlamağa, imzalar
+səlahiyyəti yoxlamağa, konsensus isə qəbul edilmiş tarixçəni seçməyə
+kömək edir. Məxfilik, yekunlaşma, giriş və idarəetmə xüsusiyyətləri
+konkret ictimai və ya icazəli sistemdən asılıdır <span class="citation"
+data-cites="nakamoto2008bitcoin wood2014ethereum"></span>.</p>
+</dd>
+<dt><strong>Kvant Kriptoqrafiyası və QKD:</strong></dt>
+<dd>
+<p>BB84 və E91 kvant ölçmə statistikalarından açar təhlükəsizliyi üçün
+istifadə edir. Praktik zəmanət autentifikasiya, cihaz modeli, sonlu-açar
+analizi, xəta razılaşdırması və məxfiliyin gücləndirilməsini də tələb
+edir; hər dinləmə ayrıca və dərhal aşkarlanmır <span class="citation"
+data-cites="bennett1984bb84 ekert1991quantum ncsc2026quantum"></span>.</p>
+</dd>
+<dt><strong>Perspektiv Elmi Trendlər:</strong></dt>
+<dd>
+<p>Yaxın gələcəyin əsas elmi inkişaf istiqamətlərini Post-Kvant
+Kriptoqrafiyasının (PQC) qlobal standartlaşması, homomorf sistemlərin
+hesablama optimizasiyası, sıfır bilik sübutlarının mərkəzsiz tətbiq
+ekosisteminə inteqrasiyası və <strong>kriptoqrafik çeviklik</strong>
+prinsiplərinin proqram təminatının mühəndisliyində məcburi hala gəlməsi
+təşkil edir.</p>
+</dd>
+</dl>
+<p><strong>Əsas nəticə:</strong> Müasir məxfilik və bütövlük bir
+primitivlə deyil, təhlükə modelinə uyğun kriptoqrafiya, protokol,
+realizasiya, açar idarəetməsi və əməliyyat nəzarətlərinin birgə
+layihələndirilməsi ilə əldə olunur. Kvant riskinə hazırlıq üçün
+standartlaşdırılmış PQC profillərinə mərhələli keçid və NIST-in
+inventar, sınaq, telemetriya və istifadədən çıxarma tələblərini əhatə
+edən kriptoqrafik çeviklik yanaşması əsasdır <span class="citation"
+data-cites="nist2026cryptoagility"></span>.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><strong>Sıfır bilik sübutu (Zero-Knowledge Proof —
+ZKP):</strong> Sübut edənin yoxlayana hər hansı bir məfhumun doğru
+olduğunu, həmin məfhumun məzmunu (sirri) haqqında heç bir əlavə məlumat
+vermədən isbat etməsinə imkan verən kriptoqrafik protokol.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>Tam Homomorf Şifrələmə (Fully Homomorphic
+Encryption — FHE):</strong> Şifrələnmiş verilənlər üzərində onları
+deşifrə etmədən ixtiyari riyazi və məntiqi əməliyyatların aparılmasına
+imkan verən şifrələmə texnologiyası.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><strong>Küy (Noise):</strong> Homomorf şifrələmədə hər
+bir əməliyyat aparıldıqca şifrəli mətnin tərkibində artan süni xəta
+dəyəri. Küy müəyyən həddi keçdikdə deşifrələmə mümkün olmur.<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><strong>BB84 protokolu:</strong> 1984-cü ildə Çarlz
+Bennet və Jil Brassar tərəfindən təklif edilmiş, tək fotonların
+polyarizasiya vəziyyətlərinə əsaslanan ilk kvant açar paylanması (QKD)
+sxemi.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><strong>QBER (Quantum Bit Error Rate):</strong> Kvant
+rabitə kanalında ötürülən fotonlarda baş verən xətaların faiz nisbəti;
+kanalın təhlükəsizliyini və Dinləyicinin (Malori) müdaxiləsini təyin
+edən əsas göstərici.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><strong>QKD (Quantum Key Distribution):</strong> Kvant
+mexanikası prinsiplərindən (tək fotonlar, qeyri-müəyyənlik prinsipi)
+istifadə edərək tərəflər arasında məxfiliklə təhlükəsiz simmetrik açar
+mübadiləsini təmin edən rabitə texnologiyası.<a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><strong>Çoxtərəfli Təhlükəsiz Hesablama (Multi-Party
+Computation — MPC):</strong> Bir neçə tərəfin öz gizli məlumatlarını
+bir-birinə açıqlamadan ortaq bir funksiyanı birgə hesablamasına imkan
+verən kriptoqrafik protokol.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><strong>Etimadlı İcra Mühiti (Trusted Execution
+Environment — TEE):</strong> Prosessor səviyyəsində təcrid olunmuş, əsas
+əməliyyat sisteminin belə müdaxilə edə bilmədiyi təhlükəsiz aparat
+sahəsi (məsələn, Intel SGX, ARM TrustZone).<a href="#fnref8"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><strong>Differensial Məxfilik (Differential
+Privacy):</strong> Məlumat bazasından statistik sorğular
+cavablandırılarkən fərdi şəxslərin kimliyini gizli saxlamaq üçün
+verilənlərə tənzimlənən riyazi küy əlavə edilməsi üsulu.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><em><strong>SNARK (Succinct Non-Interactive Argument of
+Knowledge):</strong> Sübutun ölçüsü kiçik olan (bir neçə yüz bayt) və
+yoxlayan tərəf vasitəsilə millisaniyələr ərzində doğrulana bilən,
+interaktiv olmayan sıfır bilik sübutu.</em><a href="#fnref10"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><strong>SRS (Structured Reference String —
+Strukturlaşdırılmış İstinad Sətiri):</strong> Sıfır bilik sübutlarında
+sübut edən və yoxlayan tərəflərin istifadə etdiyi, əvvəlcədən təhlükəsiz
+şəkildə generasiya olunmuş riyazi parametrlər toplusu.<a href="#fnref11"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><strong>MPC (Multi-Party Computation — Çoxtərəfli
+Məxfil Hesablama):</strong> SRS parametrlərini generasiya edərkən gizli
+açarları bölüşdürən və ən azı bir iştirakçı dürüst qaldıqda sistemin
+təhlükəsizliyini təmin edən protokol.<a href="#fnref12"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><strong>PLONK (Permutations over Lagrange-bases for
+Oecumenical Non-interactive arguments of Knowledge):</strong> Bütün
+mürəkkəb sxemlər üçün tək bir etibarlı quraşdırmanın (universal SRS)
+kifayət etdiyi müasir SNARK konstruksiyası.<a href="#fnref13"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><strong>Halo2:</strong> Etibarlı quraşdırma (trusted
+setup) tələb etməyən, Zcash və digər müasir L2 blokçeyn şəbəkələrində
+istifadə olunan şəffaf SNARK arxitekturası.<a href="#fnref14"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><em><strong>STARK (Scalable Transparent ARgument of
+Knowledge):</strong> Etibarlı quraşdırma (trusted setup) tələb etməyən
+(şəffaf) və post-kvant dövrü üçün təhlükəsiz hesab edilən miqyaslana
+bilən sübut sistemi.</em><a href="#fnref15" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><strong>FRI (Fast Reed-Solomon Interactive Oracle Proof
+of Proximity):</strong> STARK-larda polimomial dərəcələrin kiçikliyini
+heş funksiyaları vasitəsilə yoxlamağa imkan verən kvant-davamlı
+protokol.<a href="#fnref16" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><strong>FHE (Fully Homomorphic Encryption):</strong>
+Şifrəli mətnlər üzərində məhdudiyyətsiz sayda hem toplama, həm də vurma
+əməliyyatı aparmağa imkan verən universal şifrələmə sxemi.<a
+href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><strong>Şifrəli axtarış (Searchable
+Encryption):</strong> Bulud serverinə saxladığı sənədlərin açıq mətnini
+deşifrə etmədən, şifrəli indekslər və tərəfimizdən göndərilən şifrəli
+sorğu tokenləri üzərindən axtarış aparmağa imkan verən texnologiya.<a
+href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p><strong>Paketləmə (SIMD Packing / Batching):</strong>
+Çoxlu sayda vektor elementini tək bir şifrəli mətnin daxilinə
+sıxışdıraraq paralel hesablama aparmaqla FHE-nin hesablama xərclərini
+kəskin azaltmaq üsulu.<a href="#fnref19" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p><strong>Şifrəli mətnin yenilənməsi
+(Bootstrapping):</strong> FHE əməliyyatları zamanı yığılan küyləri
+(noise) şifrəli mətni deşifrə etmədən təmizləyən və sonsuz sayda
+vurma/toplama əməliyyatına şərait yaradan, lakin yüksək hesablama tələb
+edən prosedur.<a href="#fnref20" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p><strong>UTXO (Unspent Transaction Output):</strong>
+Əvvəlki tranzaksiyaların çıxışı olan və hələ xərclənməmiş kriptoqrafik
+məbləğ vahidləri. Ethereum-un hesab əsaslı (<em>account-based</em>)
+modelindən fərqli olaraq, UTXO modelində mərkəzi balans hesabı yoxdur;
+balans müştərinin sahib olduğu bütöv UTXO-ların cəmindən ibarətdir.<a
+href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p><em><strong>ScriptSig və ScriptPubKey:</strong>
+Bitcoin-də hər bir UTXO müəyyən bir script kilidi (P2PKH və ya P2WPKH)
+ilə qorunur. İstifadəçi yalnız öz xüsusi açarı (private key) vasitəsilə
+uyğun rəqəmsal imza generasiya edərək bu kilidi aça bilər.</em><a
+href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p><strong>Nonce (Number used ONCE):</strong> Blok
+başlığında yerləşən və blok heş dəyərinin şəbəkə tərəfindən təyin olunan
+çətinlik hədəfindən (difficulty target) kiçik olmasını təmin etmək üçün
+madənçilər tərəfindən fasiləsiz dəyişdirilən 32-bitlik təsadüfi
+qiymət.<a href="#fnref23" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p><strong>51% Hücumu:</strong> Hücumçunun şəbəkədəki
+ümumi hesablama gücünün (və ya payının) 50%-dən çoxuna nəzarət edərək
+tranzaksiyaları geri çevirməsi və ya bloka alınmasını engəlləməsi
+ssenarisi.<a href="#fnref24" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p><strong>PBFT (Practical Byzantine Fault
+Tolerance):</strong> Şəbəkə qovşaqlarının maksimum <span
+class="math inline">\(1/3\)</span>-nin xain (səhv və ya zərərli) olduğu
+halda belə dürüst qovşaqların vahid qərara gəlməsini təmin edən klassik
+mesajlaşma əsaslı konsensus alqoritmi.<a href="#fnref25"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p><strong>Hyperledger Fabric:</strong> Müəssisələr üçün
+nəzərdə tutulmuş icazəli blokçeyn platforması; burada konsensus sırf
+blok yaratmaqla məhdudlaşmır, sorğu, sıralama (<em>ordering
+service</em>) və təsdiqləmə (<em>validation</em>) mərhələlərinə
+bölünür.<a href="#fnref26" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p><strong>DoS (Xidmətdən İmtina Hücumu):</strong> Kvant
+kanalında məqsədli şəkildə küy yaradaraq və ya fotonları bloklayaraq
+təhlükəsiz açar generasiyasının qarşısını almaq hücumu.<a
+href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p><strong>QBER (Quantum Bit Error Rate):</strong> Kvant
+kanalı üzərindən qəbul edilən bitlər daxilindəki xətaların ümumi bit
+sayına nisbətini göstərən faiz göstəricisi.<a href="#fnref28"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p><strong>EPR Cütləri (Einstein-Podolsky-Rosen):</strong>
+Bir-birindən nə qədər uzaqda olmasından asılı olmayaraq, birinin kvant
+vəziyyəti ölçüldükdə digərinin vəziyyəti anında müəyyən olunan
+qarşılıqlı dolaşıq zərrəciklər cütü.<a href="#fnref29"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p><strong>Bell Bərabərsizliyi:</strong> Kvant
+mexanikasındakı dolaşıqlığın klassik fizika və yerli gizli dəyişənlər
+nəzəriyyəsi ilə izah oluna bilməyəcəyini isbat edən riyazi
+bərabərsizlik. Bərabərsizliyin pozulması sistemin tamamilə kvant xassəli
+olduğunu zəmanət altına alır.<a href="#fnref30" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p><strong>DI-QKD (Device-Independent Quantum Key
+Distribution):</strong> İstifadə olunan kvant cihazlarının daxili
+quruluşuna və ya istehsalçısına etibar etmədən, sırf alınan ölçmə
+nəticələrinin Bell bərabərsizliyini pozmasına əsaslanaraq təhlükəsizliyi
+təmin edən qabaqcıl QKD modeli.<a href="#fnref31" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (20)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Goldwasser et al., 1985</span>
+                        <small class="text-muted">Proceedings of the 17th Annual ACM Symposium on Theory of Computing (STOC &#x27;85)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Knowledge Complexity of Interactive Proof Systems</h6>
+                    <p class="small text-secondary mb-0">Shafi Goldwasser and Silvio Micali and Charles Rackoff (1985)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Ben-Sasson et al., 2014</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO 2014</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Scalable Zero Knowledge via Cycles of Elliptic Curves</h6>
+                    <p class="small text-secondary mb-0">Eli Ben-Sasson and Alessandro Chiesa and Eran Tromer and Madars Virza (2014)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Gentry, 2009</span>
+                        <small class="text-muted">Proceedings of the 41st Annual ACM Symposium on Theory of Computing (STOC)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Fully Homomorphic Encryption Using Ideal Lattices</h6>
+                    <p class="small text-secondary mb-0">Craig Gentry (2009)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Nakamoto, 2008</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Bitcoin: A Peer-to-Peer Electronic Cash System</h6>
+                    <p class="small text-secondary mb-0">Satoshi Nakamoto (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Wood, 2014</span>
+                        <small class="text-muted">Ethereum Project Yellow Paper</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Ethereum: A Secure Decentralised Generalised Transaction Ledger</h6>
+                    <p class="small text-secondary mb-0">Gavin Wood (2014)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Bennett &amp; Brassard, 1984</span>
+                        <small class="text-muted">Proceedings of IEEE International Conference on Computers, Systems and Signal Processing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Quantum Cryptography: Public Key Distribution and Coin Tossing</h6>
+                    <p class="small text-secondary mb-0">Charles H. Bennett and Gilles Brassard (1984)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Bernstein et al., 2017</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Post-Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein and Johannes Buchmann and Erik Dahmen (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Ben-Sasson et al., 2018</span>
+                        <small class="text-muted">IACR Cryptology ePrint Archive</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Scalable, Transparent, and Post-Quantum Secure Computational Integrity</h6>
+                    <p class="small text-secondary mb-0">Eli Ben-Sasson and Iddo Bentov and Yinon Horesh and Michael Riabzev (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Paillier, 1999</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT &#x27;99</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Public-Key Cryptosystems Based on Composite Degree Residuosity Classes</h6>
+                    <p class="small text-secondary mb-0">Pascal Paillier (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Kiayias et al., 2017</span>
+                        <small class="text-muted">Advances in Cryptology -- CRYPTO 2017</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol</h6>
+                    <p class="small text-secondary mb-0">Aggelos Kiayias and Alexander Russell and Bernardo David and Roman Oliynykov (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Centre, 2026</span>
+                        <small class="text-muted">NCSC UK</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Next Steps in Preparing for Post-Quantum Cryptography and Migration Guidance</h6>
+                    <p class="small text-secondary mb-0">National Cyber Security Centre (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Ekert, 1991</span>
+                        <small class="text-muted">Physical Review Letters</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Quantum Cryptography Based on Bell&#x27;s Theorem</h6>
+                    <p class="small text-secondary mb-0">Artur K. Ekert (1991)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Liao et al., 2017</span>
+                        <small class="text-muted">Nature</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Satellite-to-ground quantum key distribution</h6>
+                    <p class="small text-secondary mb-0">Liao, Sheng-Kai and Cai, Wen-Qi and Liu, Wei-Yue and Zhang, Liang and Li, Yang and Ren, Ji-Gang and Yin, Juan and Shen, Qi and Cao, Yuan and Li, Yu-Huai and Feng, Feng and Jia, Qiang and Yang, Xiao-Xing and Wu, Zhong-Ping and Zhou, Xiao-Li and Guo, Xiao-Xiong and Jin, Ge and Peng, Cheng-Zhi and Zhang, Qiang and Yu, Tao and Pan, Jian-Wei (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Yin et al., 2017</span>
+                        <small class="text-muted">Science</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Satellite-based entanglement distribution over 1200 kilometers</h6>
+                    <p class="small text-secondary mb-0">Yin, Juan and Cao, Yuan and Li, Yu-Huai and Liao, Sheng-Kai and Zhang, Liang and Ren, Ji-Gang and Cai, Wen-Qi and Liu, Wei-Yue and Li, Yang and Dai, Hui and Li, Ming-Bo and Lu, Qi-Ming and Gong, Shu-Hua and Xu, Yu and Li, Shuang-Lin and Li, Feng-Zhi and Yin, Ya-Yun and Jiang, Zhi-Ping and Li, Ming and Jia, Jian-Jun and Ren, Gong-Wei and He, Dong and Zhou, Yi-Lin and Zhang, Xiao-Xiang and Wang, Na and Chang, Xiang and Zhu, Zhen-Cai and Liu, Nai-Le and Chen, Yu-Ao and Lu, Chao-Yang and Shu, Rong and Peng, Cheng-Zhi and Wang, Jian-Yu and Zhang, Qiang and Wang, Xiang-Bin and Pan, Jian-Wei (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Poppe et al., 2008</span>
+                        <small class="text-muted">International Journal of Quantum Information</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Outline of the SECOQC Quantum-Key-Distribution Network in Vienna</h6>
+                    <p class="small text-secondary mb-0">Poppe, Andreas and Peev, Momtchil and Maurhart, Oliver (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Stucki &amp; Legr\&#x27;e, 2011</span>
+                        <small class="text-muted">New Journal of Physics</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Long-term performance of the SwissQuantum quantum key distribution network in a field environment</h6>
+                    <p class="small text-secondary mb-0">Stucki, Damien and Legr\&#x27;e (2011)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[17] Gisin et al., 2002</span>
+                        <small class="text-muted">Reviews of Modern Physics</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Nicolas Gisin and Grégoire Ribordy and Wolfgang Tittel and Hugo Zbinden (2002)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[18] Patel et al., 2012</span>
+                        <small class="text-muted">Physical Review X</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Coexistence of continuous wave QKD with 10 Gbit/s classical channels in optical fibre</h6>
+                    <p class="small text-secondary mb-0">Patel, K. A. and Dynes, J. F. and Choi, I. and Sharpe, A. W. and Lucamarini, M. and Yuan, Z. L. and Penty, R. V. and Shields, A. J. (2012)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[19] Dynes et al., 2019</span>
+                        <small class="text-muted">npj Quantum Information</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cambridge quantum network</h6>
+                    <p class="small text-secondary mb-0">Dynes, J. F. and Wonfor, A. and Tam, W.-W. and Sharpe, A. W. and Takahashi, R. and Lucamarini, M. and Plews, A. and Shields, A. J. and Penty, R. V. and White, I. H. (2019)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[20] NIST, 2026</span>
+                        <small class="text-muted">NIST Special Publication</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Crypto-Agility and Quantum-Resilience Framework for Enterprise Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">National Institute of Standards and Technology (2026)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

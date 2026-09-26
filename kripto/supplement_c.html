@@ -1,0 +1,1338 @@
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Hesablama Mürəkkəbliyi Anlayışları</strong></p>
+<p><strong>Kriptoqrafiyanın Riyazi Əsasları</strong></p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Müasir kriptoqrafiyanın gücü yalnız fundamental cəbri strukturların
+varlığına deyil, həm də bu strukturlar üzərində təyin olunmuş riyazi
+əməliyyatların hesablama baxımından nə dərəcədə çətin olmasına
+əsaslanır. Bu asılılıq və alqoritmik sərhədlər <strong>hesablama
+mürəkkəbliyi nəzəriyyəsi</strong> çərçivəsində formal olaraq təsnif
+edilir <span class="citation"
+data-cites="sipser2012introduction arora2009computational"></span>.</p>
+<p>Kriptoqrafik təhlükəsizliyin fundamental sualı subyektiv mülahizələrə
+deyil, obyektiv zaman analizinə söykənir:</p>
+<blockquote>
+<p><em>“Verilmiş problemi həll etmək üçün tələb olunan resurslar (zaman
+və yaddaş) kainatın mövcudluq müddəti və fiziki məhdudiyyətlər daxilində
+praktiki olaraq əlçatandırmı?”</em></p>
+</blockquote>
+<p>Asimmetrik kriptoqrafiya rəqəmsal dünyanın asimmetriyasını təmin edən
+təkyönlü funksiyalara (<em>one-way functions</em>) əsaslanır. Əgər bir
+problemin düzgün istiqamətdə (məsələn, şifrələmə) hesablanması
+polinomial zamanda (<span class="math inline">\(O(n^c)\)</span>) baş
+verirsə, lakin onun tərsini tapmaq (məsələn, şifrəni qırmaq) üçün tələb
+olunan əməliyyatların sayı giriş ölçüsü artdıqca eksponensial şəkildə
+(<span class="math inline">\(O(2^n)\)</span>) böyüyürsə, bu problem
+<strong>hesablama baxımından çətin</strong> (computationally hard) və
+praktiki olaraq həllolunmaz hesab edilir.</p>
+<h4 id="mür-qanunu-və-dinamik-təhlükəsizlik-həddi">Mür Qanunu və Dinamik
+Təhlükəsizlik Həddi:</h4>
+<p>Lakin bu riyazi uçurumun dərinliyi zaman keçdikcə sabit qalmır.
+<strong>Mür qanununa</strong> (Moore’s Law) əsasən, hesablama gücünün
+təxminən hər 18 ayda iki dəfə artması (və ya eyni hesablama həcmi üçün
+tələb olunan maliyyə və resursların iki dəfə azalması) kriptoqrafik
+sistemlərin təhlükəsizlik marjasını birbaşa təhdid edir<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Bu
+o deməkdir ki, bu gün <strong>tam axtarış</strong> (brute-force)
+hücumlarına qarşı tamamilə təhlükəsiz sayılan bir açar uzunluğu,
+gələcəkdə yalnız texnoloji tərəqqi hesabına öz təhlükəsizliyini itirə
+bilər.</p>
+<div class="history">
+<p><span><strong>Tarixi Nümunələr: DES və SHA-1-in Sıradan
+Çıxması</strong></span> Mür qanununun və alqoritmik inkişafın
+kriptoqrafik təhlükəsizliyə təsirini göstərən iki klassik tarixi nümunə
+mövcuddur:</p>
+<ul>
+<li><p><strong>DES (Data Encryption Standard) və Tam Axtarışın
+Gücü:</strong> 1977-ci ildə standart qəbul edilən DES alqoritmi 56
+bitlik açar uzunluğuna malik idi və o dövrün hesablama imkanları ilə
+<span class="math inline">\(2^{56}\)</span> kombinasiyanı yoxlamaq
+qeyri-mümkün hesab olunurdu. Lakin Mür qanununa uyğun olaraq
+prosessorların sürətlənməsi bu mənzərəni tamamilə dəyişdi. 1997-ci ildə
+<em>DES Challenge I</em> layihəsi çərçivəsində paylanmış hesablama
+şəbəkəsi vasitəsilə DES ilk dəfə 140 günə sındırıldı. 1998-ci ildə EFF
+(Electronic Frontier Foundation) tərəfindən cəmi 250,000 dollara
+hazırlanan "DES Cracker" adlı xüsusi superkompüter bu müddəti 56 saata,
+1999-cu ildə isə şəbəkə dəstəyi ilə birlikdə cəmi <strong>22 saat 15
+dəqiqəyə</strong> endirdi. Bu hadisə 56 bitlik mürəkkəbliyin tam axtarış
+qarşısında artıq tab gətirə bilmədiyini sübut etdi və AES-ə keçidi
+sürətləndirdi <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>SHA-1 və Toqquşma Baryerinin Aşılması:</strong> 160
+bitlik çıxışa malik olan SHA-1 funksiyasında ad günü paradoksuna görə
+nəzəri toqquşma mürəkkəbliyi <span class="math inline">\(2^{80}\)</span>
+əməliyyat idi və uzun illər bu hədd əlçatmaz sayıldı. Lakin 2005-ci ildə
+Wang və digərləri tərəfindən tapılan riyazi zəifliklər bu mürəkkəbliyi
+asimptotik olaraq <span class="math inline">\(2^{63}\)</span>
+səviyyəsinə endirdi. Praktiki son nöqtə isə 2017-ci ildə Google və CWI
+Amsterdam tərəfindən həyata keçirilən <strong>"SHAttered"</strong>
+layihəsi ilə qoyuldu. Tədqiqatçılar bulud hesablama infrastrukturundan
+(GPU-lar vasitəsilə) istifadə edərək eyni SHA-1 heş dəyərinə malik iki
+fərqli PDF sənədi yaratmağı, yəni ilk real <strong>toqquşmanı</strong>
+qeydə almağı bacardılar. Bu hücum ümumilikdə təxminən <span
+class="math inline">\(2^{63.1}\)</span> SHA-1 əməliyyatı tələb etdi ki,
+bu da bir GPU ilə 110 illik hesablama gücünə bərabər idi. Bu hadisə
+SHA-1-in rəsmi olaraq təhlükəsizliyini itirdiyini elan etdi və sənayeni
+SHA-256/SHA-3 standartlarına keçməyə məcbur etdi <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+</div>
+<p>Buna görə də, kriptoqrafik təhlükəsizlik dizayn edilərkən sistemlər
+yalnız cari dövrün deyil, Mür qanununun gələcək proqnozlarını nəzərə
+alaraq (məsələn, simmetrik açarlar üçün minimum 128-bit, ECC üçün
+256-bit standartı) formalaşdırılır. Riyazi dillə desək, alqoritmin
+eksponensial mürəkkəbliyi (<span class="math inline">\(O(2^n)\)</span>),
+aparat təminatının (hardware) eksponensial böyümə sürətini (<span
+class="math inline">\(2^{t/1.5}\)</span>) hər zaman qabaqlamalıdır.</p>
+<h4 id="kvant-təhdidi-və-kvant-alqoritmləri-post-kvant-dövrü">Kvant
+Təhdidi və Kvant Alqoritmləri (Post-Kvant Dövrü):</h4>
+<p>Texnoloji təkamül yalnız Mür qanununun diktə etdiyi klassik hesablama
+gücünün artması ilə məhdudlaşmır; üfüqdə dayanan ən böyük asimmetrik
+təhdid <strong>kvant kompüterləridir</strong>. Kvant mexanikasının
+superpozisiya və dolaşıqlıq (entanglement) kimi prinsiplərinə əsaslanan
+bu sistemlər, klassik kompüterlər üçün eksponensial mürəkkəbliyə (<span
+class="math inline">\(O(2^n)\)</span>) malik olan problemləri tamamilə
+fərqli alqoritmlərlə həll edir.</p>
+<p>Müasir kriptoqrafiyanın (həm asimmetrik faktorizasiya və diskret
+loqarifm, həm də simmetrik tam axtarış mürəkkəbliyinin) taleyi bu
+kontekstdə fundamental iki kvant alqoritminin sınağı ilə üz-üzədir:</p>
+<ul>
+<li><p><strong>Şor Alqoritmi (Asimmetrik Çöküş):</strong> Peter Şor
+tərəfindən 1994-cü ildə təklif edilmiş kvant alqoritmi, həm tam
+ədədlərin vuruqlara ayrılmasını (faktorizasiyanı), həm də diskret
+loqarifm problemini polinomial zaman daxilində (<span
+class="math inline">\(O(n^3)\)</span>) həll etməyə qadirdir <span
+class="citation" data-cites="shor1994algorithms"></span>. Bu alqoritm
+universal kvant kompüterləri real tətbiqə keçdiyi gün mövcud açıq açarlı
+infrastrukturu (RSA və ECC) birbaşa yararsız hala salacaqdır.</p></li>
+<li><p><strong>ECC-nin Zəifliyi:</strong> Geniş yayılan yanlış
+təsəvvürlərin əksinə, açar ölçüsü daha kiçik olduğu üçün ECC sistemləri
+kvant hücumlarına qarşı RSA-dan daha tez təsirə məruz qalır. Riyazi
+hesablamalar göstərir ki, RSA-2048 alqoritmini sındırmaq üçün təxminən
+4000 stabil kubit (qubit) tələb olunduğu halda, eyni təhlükəsizlik
+səviyyəli ECDLP P-256 əyrisini cəmi <span
+class="math inline">\(\approx\)</span> 1300–1500 kubitlə sındırmaq
+mümkündür.</p></li>
+<li><p><strong>Qrover Alqoritmi (Simmetrik Zəifləmə):</strong> Lov
+Qrover tərəfindən 1996-cı ildə kəşf edilən bu alqoritm,
+strukturlaşdırılmamış verilənlər bazasında axtarış problemini asimptotik
+olaraq kvadrat kök dərəcəsində sürətləndirir <span class="citation"
+data-cites="grover1996fast"></span>. Bu alqoritmin kriptoqrafiyaya
+praktiki təsiri simmetrik şifrələrdə (AES) və heş funksiyalarında icra
+olunan <strong>tam axtarış</strong> (brute-force) hücumlarının
+mürəkkəbliyini <span class="math inline">\(O(2^n)\)</span>-dən <span
+class="math inline">\(O(2^{n/2})\)</span> səviyyəsinə endirməsidir. Şor
+alqoritmindən fərqli olaraq, Qrover simmetrik sistemləri tam çökdürmür,
+sadəcə onların effektiv təhlükəsizlik bitini yarıbayarı
+azaldır.</p></li>
+</ul>
+<p>Bu reallıq onu göstərir ki, kifayət qədər böyük ölçülü və xətalara
+dözümlü (<em>fault-tolerant</em>) bir kvant kompüteri yaradıldığı gün,
+mövcud olan bütün ECC və RSA infrastrukturu tamamilə <strong>yararsız
+hala gələcəkdir</strong>. Məhz bu səbəbdən, müasir hesablama
+mürəkkəbliyi nəzəriyyəsi yalnız klassik mürəkkəblik siniflərini (<span
+class="math inline">\(P\)</span> və <span
+class="math inline">\(NP\)</span>) deyil, həm də kvant kompüterlərinin
+effektiv həll edə bildiyi problemləri əhatə edən və Azərbaycan dilində
+<strong>məhdud xətalı kvant polinomial zaman</strong> sinfi kimi qəbul
+edilən <strong>BQP</strong> (<em>Bounded-error Quantum
+Polynomial-time</em>) mürəkkəblik qrupunu nəzərə alır. Bu təhdid
+rəqəmsal dünyanı riyazi əsasları tam fərqli olan (məsələn, qəfəs əsaslı
+— <em>lattice-based</em>) <strong>Post-Kvant Kriptoqrafiyasına</strong>
+(PQC) keçməyə məcbur edir <span class="citation"
+data-cites="nistpqc2022"></span>.</p>
+<h2
+id="mürəkkəblik-nəzəriyyəsinin-kriptoqrafik-primitivlərdəki-rolu">Mürəkkəblik
+Nəzəriyyəsinin Kriptoqrafik Primitivlərdəki Rolu</h2>
+<p>Kriptoqrafik primitivlərin asimmetrik təhlükəsizlik marjası, seçilmiş
+riyazi strukturların hesablama asimmetriyasına əsaslanır. Bu asılılıq
+aşağıdakı fundamental prinsiplərlə xarakterizə olunur:</p>
+<ul>
+<li><p><strong>RSA Kriptosistemi:</strong> Bu sistemin təhlükəsizlik
+sütunu iki böyük sadə ədədin hasilini tapmağın (düzünə əməliyyat)
+polinomial zamanda olduqca asan (<span
+class="math inline">\(O(n^2)\)</span>), lakin verilmiş mürəkkəb ədədi
+yenidən öz <strong>faktorlarına (vuruqlarına) ayırmağın</strong> (tərs
+əməliyyat) klassik kompüterlərdə sub-eksponensial zamanda son dərəcə
+çətin olmasına əsaslanır <span class="citation"
+data-cites="rivest1978method"></span>.</p></li>
+<li><p><strong>Diffie–Hellman və ECC:</strong> Bu sistemlərin
+toxunulmazlığı, sonlu qruplarda qüvvətə yüksəltmənin və ya elliptik
+əyrilər üzərində skalyar nöqtə vurulmasının (düzünə əməliyyat)
+polinomial zamanda sürətli, lakin verilən nəticəyə əsasən gizli
+eksponenti və ya skalyar vuruğu tapmağı tələb edən <strong>diskret
+loqarifm</strong> probleminin (tərs əməliyyat - DLA/ECDLP) tam
+eksponensial zaman mürəkkəbliyinə əsaslanır <span class="citation"
+data-cites="koblitz1994course"></span>.</p></li>
+<li><p><strong>Kriptoqrafik Heş Funksiyaları:</strong> Bu primitivlərin
+təhlükəsizliyi <strong>toqquşmaya qarşı dayanıqlıq</strong>
+(<em>collision resistance</em>) prinsiplərinə əsaslanır. Yəni ixtiyari
+sənədin heş dəyərini hesablamaq (düzünə əməliyyat) cəmi saniyələr
+çəkdiyi halda, eyni heş çıxışını verən iki fərqli girişi (tərs
+əməliyyat) tapmağın hesablama mürəkkəbliyi ad günü paradoksuna görə
+eksponensial xarakter daşıyır <span class="citation"
+data-cites="rogaway2004cryptographic"></span>.</p></li>
+</ul>
+<p>Mürəkkəblik nəzəriyyəsi baxımından bu xüsusi riyazi problemlərin heç
+biri rəsmi olaraq <span class="math inline">\(NP\)</span>-tam (<span
+class="math inline">\(NP\)</span>-complete) sinfinə aid deyil. Lakin
+kriptoqrafiyanın əsas fəlsəfəsi ondan ibarətdir ki, bu problemlər
+<strong>orta halda</strong> (<em>average-case complexity</em>) hesablama
+baxımından dözümlü və keçilməz qəbul edilir. Bu paradiqma müasir
+rəqəmsal təhlükəsizliyin fundamental qanununu formalaşdırır:</p>
+
+
+<div class="math-display">\[\begin{equation}
+    \text{Təhlükəsizlik} \equiv \text{Hesablama Çətinliyi}
+\end{equation}\]</div>
+
+<h2 id="müasir-motivasiya-real-sistemlərdə-mürəkkəblik">Müasir
+Motivasiya: Real Sistemlərdə Mürəkkəblik</h2>
+<p>Hesablama mürəkkəbliyi nəzəriyyəsi sadəcə <strong>nəzəri</strong>
+riyazi mülahizələrdən ibarət deyil; o, real dünya təhlükəsizlik
+sistemlərinin praktiki sərhədlərini müəyyən edir:</p>
+<ul>
+<li><p><strong>AES-128 Standartı:</strong> Bu simmetrik şifrənin tam
+axtarış (<em>brute-force</em>) üsulu ilə qırılması üçün <span
+class="math inline">\(2^{128}\)</span> əməliyyat tələb olunur. Mövcud
+klassik hesablama texnologiyaları ilə bu sayda əməliyyatın icrası
+kainatın yaşından daha uzun bir zamana bərabərdir.</p></li>
+<li><p><strong>SHA-256 Alqoritmi:</strong> "Ad günü paradoksu"
+(<em>Birthday Paradox</em>) prinsipinə əsasən, bu funksiyada toqquşma
+(eyni heş dəyərinə malik iki fərqli giriş) tapmaq üçün tələb olunan
+hesablama mürəkkəbliyi <span class="math inline">\(2^{128}\)</span>
+əməliyyat səviyyəsindədir.</p></li>
+<li><p><strong>Bitcoin Mayninqi (<em>Mining</em>):</strong> Blokçeyn
+şəbəkəsinin təhlükəsizliyi və yeni blokların tapılması birbaşa SHA-256
+heş funksiyasının <strong>iş sübutu</strong> (<em>Proof-of-Work</em>)
+mürəkkəbliyinə əsaslanır. Şəbəkə, tələb olunan hesablama mürəkkəbliyini
+riyazi olaraq dinamik şəkildə tənzimləyir.</p></li>
+<li><p><strong>Parol Təhlükəsizliyi:</strong> Simvollar kombinasiyasının
+qırılma mürəkkəbliyi, parolun uzunluğundan (<span
+class="math inline">\(L\)</span>) və istifadə olunan simvol çoxluğunun
+ölçüsündən (<span class="math inline">\(N\)</span>) asılı olaraq
+eksponensial şəkildə (<span class="math inline">\(O(N^L)\)</span>)
+artır.</p></li>
+</ul>
+<p>Bu səbəbdən hesablama mürəkkəbliyi müasir kriptoqrafiyanın həm nəzəri
+sütununu, həm də praktik tətbiq təməllərini təşkil edir.</p>
+<h2 id="sənədin-strukturu-və-məqsədi">Sənədin Strukturu və Məqsədi</h2>
+<p>Bu sənəd kriptoqrafiya və informasiya təhlükəsizliyi sahəsini
+öyrənənlər üçün hesablama mürəkkəbliyi nəzəriyyəsinə sadə, aydın və
+müasir bir baxış təqdim edir. Sənəd daxilində aşağıdakı mövzular
+ardıcıllıqla təhlil olunur:</p>
+<ul>
+<li><p>Fundamental mürəkkəblik sinifləri (<span
+class="math inline">\(P\)</span>, <span
+class="math inline">\(NP\)</span>, <span
+class="math inline">\(NP\)</span>-tam),</p></li>
+<li><p>Kriptoqrafik çətinlik fərziyyələri (<em>hardness
+assumptions</em>),</p></li>
+<li><p>Sub-eksponensial (<em>sub-exponential</em>) zamanlı
+alqoritmlər,</p></li>
+<li><p>Kvant hesablama mürəkkəbliyi (<span
+class="math inline">\(BQP\)</span> sinfi),</p></li>
+<li><p>Real təhlükəsizlik sistemlərindən götürülmüş müasir
+nümunələr.</p></li>
+</ul>
+<h2 id="mövzunun-müasir-aktuallığı-və-post-kvant-keçidi">Mövzunun Müasir
+Aktuallığı və Post-Kvant Keçidi</h2>
+<p>Müasir rəqəmsal dünyanın təhlükəsizlik infrastrukturu hazırda tarixi
+bir transformasiya — Post-Kvant Kriptoqrafiyasına (<em>Post-Quantum
+Cryptography — PQC</em>) keçid dövrünü yaşayır. Klassik superkompüterlər
+üçün sub-eksponensial çətinlikdə olan riyazi problemlərin (məsələn,
+RSA-nın əsasındakı tam ədədlərin faktorizasiyası) kvant hesablama
+modellərində polinomial zamanda necə çökdüyünü anlamaq, yalnız
+asimptotik mürəkkəblik siniflərinin dərk edilməsi ilə mümkündür.
+İnteqrasiya olunmuş rəqəmsal sistemlərin suverenliyi və kiber-müdafiə
+arxitekturası məhz bu mürəkkəblik siniflərinin kəsişmə nöqtələrində
+təyin olunur. Bu vəsait, tələbələrə nəzəri "Böyük-O" notasiyasının real
+kiber-təhlükəsizlikdə milyardlarla dolları və dövlət sirlərini necə
+qoruduğunu canlı şəkildə göstərmək üçün nəzərdə tutulmuşdur.</p>
+<h1 id="problemlər-və-alqoritmlər">Problemlər və Alqoritmlər</h1>
+<p>Hər bir asimmetrik kriptoqrafik sistem və təhlükəsizlik protokolu,
+birtərəfli hesablama asimmetriyasına malik olan, yəni düzünə
+hesablanması asan (polinomial), tərsini tapmaq isə klassik mühitdə
+praktiki olaraq qeyri-mümkün dərəcədə çətin olan konkret bir riyazi
+problemin üzərində qurulur. Bu funksiyalar çox vaxt <strong>təkyönlü
+funksiyalar</strong> (<em>one-way functions</em>) adlanır və onların
+asimptotik mürəkkəblik fərqi aşağıdakı fundamental prinsiplərlə
+xarakterizə olunur:</p>
+<ul>
+<li><p><strong>RSA — Tam Ədədlərin Faktorizasiyası:</strong> İki böyük
+gizli sadə ədədin (<span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span>) verilərək hasilinin (<span
+class="math inline">\(n = p \cdot q\)</span>) hesablanması modulyar
+vurma əməliyyatı vasitəsilə cəmi <span class="math inline">\(O(\log^2
+n)\)</span> zaman mürəkkəbliyi ilə asanlıqla yerinə yetirilir. Lakin
+yalnız <span class="math inline">\(n\)</span> mürəkkəb ədədi daxil
+edildikdə, onun orijinal <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə vuruqlarını tapmaq problemi riyazi
+olaraq sub-eksponensial xarakter daşıyır <span class="citation"
+data-cites="rivest1978method"></span>.</p>
+<p><strong>Ən sürətli alqoritm:</strong> Bu problemin həlli üçün indiyə
+qədər məlum olan ən sürətli ümumi təyinatlı klassik alqoritm
+<strong>Ümumi Ədəd Sahəsi Ələyidir</strong> (GNFS — <em>General Number
+Field Sieve</em>) <span class="citation"
+data-cites="lenstra1993number"></span>. GNFS alqoritminin asimptotik
+zaman mürəkkəbliyi aşağıdakı sub-eksponensial funksiya ilə ifadə olunur:</p>
+
+<div class="math-display">\[\begin{equation}
+    T(n) = L_n\left[\frac{1}{3}, c\right] = \exp\left( (c + o(1)) (\ln
+n)^{\frac{1}{3}} (\ln \ln n)^{\frac{2}{3}} \right)
+\end{equation}\]</div>
+
+<p>Burada <span class="math inline">\(n\)</span> faktorizasiya ediləcək
+ədədin bit uzunluğudur və <span class="math inline">\(c \approx
+\left(\frac{64}{9}\right)^{1/3} \approx 1.923\)</span>-ə bərabərdir.
+Əgər eksponen daxilində <span class="math inline">\(\ln n\)</span>
+əvəzinə <span class="math inline">\(n\)</span> olsa idi onda mürəkkəblik
+xalis eksponent olardı.</p></li>
+<li><p><strong>Diffie–Hellman — Multiplikativ Diskret Loqarifm Problemi
+(DLP):</strong> Sonlu bir <span
+class="math inline">\(\mathbb{F}_p^*\)</span> multiplikativ qrupunda
+verilmiş <span class="math inline">\(g\)</span> generatoru və <span
+class="math inline">\(x\)</span> gizli skalyarı üçün <span
+class="math inline">\(y = g^x \pmod p\)</span> ifadəsini hesablamaq,
+<em>kvadrat yüksəltmə və vurma</em> (<em>square-and-multiply</em>)
+alqoritmi ilə polinomial zamanda (<span class="math inline">\(O(\log x
+\cdot \log^2 p)\)</span>) olduqca sürətlidir. Lakin verilmiş <span
+class="math inline">\(g\)</span>, <span class="math inline">\(y\)</span>
+və <span class="math inline">\(p\)</span> parametrlərinə əsasən <span
+class="math inline">\(x = \log_g y \pmod p\)</span> şərtini ödəyən gizli
+<span class="math inline">\(x\)</span> dəyərinin tapılması klassik
+olaraq dözümlü bir problemdir <span class="citation"
+data-cites="diffie1976new"></span>.</p>
+<p><strong>Ən sürətli alqoritm:</strong> Ümumi sonlu meydanlar <span
+class="math inline">\(\mathbb{F}_p^*\)</span> üzərində diskret loqarifmi
+hesablamaq üçün indiyə qədər mövcud olan ən sürətli klassik üsul, tam
+ədədlərin faktorizasiyasında olduğu kimi, yenə <strong>Ümumi Ədəd Sahəsi
+Ələyi (GNFS)</strong> alqoritminin xüsusi modifikasiyasıdır və RSA ilə
+eyni sub-eksponensial mürəkkəblik qrupuna (<span
+class="math inline">\(L_p[1/3, c]\)</span>) malikdir. Əgər meydanın
+xarakteristikası kiçikdirsə (məsələn, <span
+class="math inline">\(\mathbb{F}_{2^m}\)</span>), ən sürətli alqoritm
+<strong>Kvazi-Polinomial Zamanlı Alqoritmdir</strong>
+(<em>Quasi-Polynomial Time Algorithm</em>), lakin kriptoqrafik
+standartlarda əsasən GNFS baryerinə söykənən böyük sadə əsaslı (<span
+class="math inline">\(p\)</span>) meydanlardan istifadə olunur.</p></li>
+<li><p><strong>ECC — Elliptik Əyri Diskret Loqarifm Problemi
+(ECDLP):</strong> Sonlu meydan üzərində təyin olunmuş bir elliptik
+əyrinin nöqtələr qrupu <span
+class="math inline">\(E(\mathbb{F}_p)\)</span> daxilində <span
+class="math inline">\(P\)</span> nöqtəsi və <span
+class="math inline">\(k\)</span> gizli skalyarı verildikdə, <span
+class="math inline">\(Q = kP\)</span> (nöqtə vurulması — <em>scalar
+multiplication</em>) əməliyyatını ikili vurma üsulu ilə polinomial
+zamanda hesablamaq asandır. Lakin əyri üzərindəki <span
+class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələri məlum olduqda, <span
+class="math inline">\(Q = kP\)</span> şərtini ödəyən <span
+class="math inline">\(k\)</span> tam ədədinin tapılması (ECDLP) tam
+<strong>eksponensial</strong> mürəkkəbliyə malikdir <span
+class="citation"
+data-cites="koblitz1987elliptic miller1985use"></span>.</p>
+<p><strong>Ən sürətli alqoritm:</strong> Kriptoqrafiyada istifadə olunan
+strukturlaşdırılmış xüsusi əyrilər istisna olmaqla, ümumi elliptik
+əyrilər üzərində ECDLP-ni həll edən ən sürətli klassik üsullar
+<strong>Pollard-ın Rho alqoritmi</strong> (<em>Pollard’s rho for
+logarithms</em>) və <strong>Körpə addımı, Nəhəng addım</strong>
+(<em>Baby-step Giant-step</em>) alqoritmləridir. Bu alqoritmlərin
+asimptotik zaman mürəkkəbliyi xalis eksponensial xarakter daşıyır: <span
+class="math display">\[\begin{equation}
+        O(\sqrt{n}) \approx O\left(2^{m/2}\right)
+\end{equation}\]</span> Burada <span class="math inline">\(n\)</span>
+elliptik əyri qrupunun tərtibi, <span class="math inline">\(m\)</span>
+ise bit uzunluğudur. Bu xalis eksponensial maneə sayəsində ECC,
+sub-eksponensial mürəkkəbliyə malik RSA ilə müqayisədə xeyli kiçik açar
+ölçüləri ilə (məsələn, RSA-3072-yə qarşı cəmi ECC-256 bit) eyni
+təhlükəsizlik səviyyəsini təmin edir.</p></li>
+<li><p><strong>Kriptoqrafik Heş Funksiyaları — Kolliziyanın
+Tapılması:</strong> İxtiyari uzunluqlu giriş məlumatını sabit uzunluqlu
+bir çıxış silsiləsinə (heş dəyərinə) inikas etdirən təkyönlü
+funksiyalarda, <span class="math inline">\(h(x_1) = h(x_2)\)</span>
+şərtini ödəyən iki fərqli <span class="math inline">\(x_1 \neq
+x_2\)</span> giriş cütünü tapmaq problemidir <span class="citation"
+data-cites="rogaway2004cryptographic"></span>.</p>
+<p><strong>Ən sürətli alqoritm:</strong> Hər hansı daxili riyazi
+zəifliyi və ya struktur qüsuru olmayan ideal bir heş funksiyasında
+(məsələn, SHA-256) kolliziya tapmaq üçün ən effektiv ümumi yanaşma
+ehtimal nəzəriyyəsindəki ad günü paradoksuna əsaslanan <strong>Ad Günü
+Hücumudur</strong> (<em>Birthday Attack</em>). Bu hücumun ən optimal
+yaddaş və zaman effektivliyinə malik olan realizasiyası yenə
+<strong>Pollard-ın Rho alqoritminin kolliziya tapma</strong> variantıdır
+və asimptotik olaraq kvadrat kök dərəcəsindən asılı olan eksponensial
+mürəkkəblik tələb edir:</p>
+
+<div class="math-display">\[\begin{equation}
+        O\left(2^{n/2}\right)
+\end{equation}\]</div>
+
+<p>Burada <span class="math inline">\(n\)</span>
+funksiyanın çıxış bit ölçüsüdür. Bu səbəbdən SHA-256 funksiyası
+kolliziya hücumlarına qarşı <span class="math inline">\(2^{128}\)</span>
+əməliyyatlıq real klassik təhlükəsizlik marjası təqdim edir.</p></li>
+</ul>
+<p>Bu fundamental riyazi problemlərin orta hal mürəkkəbliyi
+(<em>average-case complexity</em>) və hesablama asimmetriyası, müasir
+şifrələmə alqoritmlərinin, rəqəmsal imzaların və kriptoqrafik
+kiber-müdafiə infrastructures-ın əsas keçilməz qalxanıdır.</p>
+<h1 id="asimptotik-mürəkkəblik-və-formal-təriflər">Asimptotik
+Mürəkkəblik və Formal Təriflər</h1>
+<p>Bir alqoritmin hesablama mürəkkəbliyi, daxil edilən giriş məlumatının
+ölçüsündən (<span class="math inline">\(n\)</span>) asılı olaraq tələb
+olunan resursların (əsasən zaman və yaddaş) artım tempini ifadə edir.
+Alqoritmin dəqiq işləmə vaxtı aparat təminatından və mühitdən asılı
+olaraq dəyişdiyi üçün hesablama mürəkkəbliyi nəzəriyyəsində abstrakt
+<span class="math inline">\(T(n)\)</span> funksiyasının artım sürəti
+asimptotik analiz metodları ilə qiymətləndirilir <span class="citation"
+data-cites="cormen2022introduction"></span>. Bu analizdə istifadə olunan
+əsas riyazi notasiyaların formal tərifləri və kriptoqrafik mənaları
+aşağıdakı kimidir:</p>
+<h2 id="formal-notasiyalar-və-riyazi-mənaları">Formal Notasiyalar və
+Riyazi Mənaları</h2>
+<ol>
+<li><p><strong>Böyük-O Notasiyası (<span
+class="math inline">\(O(f(n))\)</span>) — Asimptotik Yuxarı
+Sərhəd:</strong> Alqoritmin işləmə müddətinin asimptotik yuxarı
+sərhədini (mümkün ən pis hal ssenarisini) təyin edir. <span
+class="math display">\[\begin{equation}
+        O(f(n)) = \{ T(n) : \exists c &gt; 0, n_0 &gt; 0 \text{ elədir
+ki, } \forall n \ge n_0 \text{ üçün } 0 \le T(n) \le c \cdot f(n) \}
+\end{equation}\]</span> <em>Kriptoqrafik mənası:</em> Müəyyən bir hücum
+alqoritminin effektivliyinin üst sərhədini göstərir. Kriptoqrafiyada
+dürüst tərəfin şifrələmə/deşifrələmə alqoritmlərinin polinomial zamanda
+(<span class="math inline">\(O(n^d)\)</span>) sürətli işləməsini təmin
+etmək üçün istifadə olunur <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Böyük-Omega Notasiyası (<span
+class="math inline">\(\Omega(f(n))\)</span>) — Asimptotik Aşağı
+Sərhəd:</strong> Alqoritmin işləmə müddətinin asimptotik aşağı sərhədini
+müəyyən edir.</p>
+
+<div class="math-display">\[\begin{equation}
+        \Omega(f(n)) = \{ T(n) : \exists c &gt; 0, n_0 &gt; 0 \text{
+elədir ki, } \forall n \ge n_0 \text{ üçün } 0 \le c \cdot f(n) \le T(n)
+\}
+\end{equation}\]</div>
+
+<p>Kriptoqrafik mənası:</em> Kriptoqrafik
+təhlükəsizlik marjasının ən fundamental riyazi ifadəsidir. Bir problemi
+həll etmək və ya şifrəni sındırmaq üçün dizayn edilə biləcək hər hansı
+bir hücumçunun (hətta ən optimal şəraitdə belə) <strong>ən azı</strong>
+nə qədər hesablama yükünə məruz qalacağını qəti olaraq müəyyən edir
+<span class="citation"
+data-cites="goldreich2001foundations"></span>.</p></li>
+<li><p><strong>Böyük-Theta Notasiyası (<span
+class="math inline">\(\Theta(f(n))\)</span>) — Sıx Sərhəd (Orta
+Hal):</strong> Alqoritmin funksional artımının həm aşağı, həm də yuxarı
+sərhədlərinin eyni dərəcəli (<span class="math inline">\(f(n)\)</span>
+funksiyası ilə hər iki tərəfdən məhdudlaşdırıldığını) olduğunu ifadə
+edir.</p>
+
+<div class="math-display">\[\begin{equation}
+        \Theta(f(n)) = \{ T(n) : \exists c_1, c_2 &gt; 0, n_0 &gt; 0
+\text{ elədir ki, } \forall n \ge n_0 \text{ üçün } 0 \le c_1 \cdot f(n)
+\le T(n) \le c_2 \cdot f(n) \}
+\end{equation}\]</div>
+
+<p>Kriptoqrafik mənası:</em> Alqoritmin əksər
+hallarda (orta şəraitdə — <em>average-case complexity</em>) nümayiş
+etdirdiyi real hesablama mürəkkəbliyini dəqiq xarakterizə edir <span
+class="citation" data-cites="sipser2012introduction"></span>.</p></li>
+<li><p><strong>Kiçik-o Notasiyası (<span
+class="math inline">\(o(f(n))\)</span>) — Qəti Kiçik Sərhəd:</strong>
+<span class="math inline">\(T(n)\)</span> funksiyasının <span
+class="math inline">\(f(n)\)</span> ilə müqayisədə asimptotik olaraq
+tamamilə əhəmiyyətsiz dərəcədə kiçik artım tempine malik olduğunu
+göstərir.</p>
+
+<div class="math-display">\[\begin{equation}
+        o(f(n)) = \left\{ T(n) : \forall c &gt; 0, \exists n_0 &gt; 0
+\text{ elədir ki, } \forall n \ge n_0 \text{ üçün } 0 \le T(n) &lt; c
+\cdot f(n) \right\}
+\end{equation}\]</div>
+
+<p>Formal olaraq <span
+class="math inline">\(\lim_{n \to \infty} \frac{T(n)}{f(n)} = 0\)</span>
+şərtini ifadə edir. <em>Kriptoqrafik mənası:</em> Sub-eksponensial
+alqoritmlərin (məsələn, GNFS) sürət əmsallarındakı <span
+class="math inline">\(o(1)\)</span> payını hesablamaq və hücumçunun uğur
+qazanma ehtimalının sıfıra yaxınlaşan <strong>səhlənkar
+funksiya</strong> (<em>negligible function</em>) olduğunu riyazi olaraq
+sübut etmək üçün kritik rol oynayır.</p></li>
+</ol>
+<h2
+id="kriptoqrafiyada-ən-çox-rast-gəlinən-mürəkkəblik-sinifləri">Kriptoqrafiyada
+Ən Çox Rast Gəlinən Mürəkkəblik Sinifləri</h2>
+<p>Giriş ölçüsü <span class="math inline">\(n\)</span> (məsələn, bit
+sayı) artdıqca alqoritmlərin zaman mürəkkəbliyi üç əsas qrupda təsnif
+edilir:</p>
+<ul>
+<li><p><strong>Polinomial Zaman (<span
+class="math inline">\(O(n^k)\)</span>, burada <span
+class="math inline">\(k\)</span> sabitdir):</strong> Giriş ölçüsü
+artdıqca hesablama müddəti idarəolunan sürətlə böyüyür. Kriptoqrafiyada
+qanuni istifadəçilərin icra etdiyi əməliyyatlar (şifrələmə, deşifrələmə,
+imzalama) mütləq polinomial zamanda işləməlidir (<span
+class="math inline">\(k\)</span> adətən 1, 2 və ya 3 olur) <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Eksponensial Zaman (<span
+class="math inline">\(O(c^n)\)</span>, burada <span
+class="math inline">\(c &gt; 1\)</span>):</strong> Giriş ölçüsünün kiçik
+bir artımı hesablama müddətinin astronomik şəkildə böyüməsinə səbəb
+olur. Kriptoqrafik hücum alqoritmlərinin (məsələn, simmetrik şifrələrin
+tam axtarış — <em>brute-force</em> ilə qırılması) bu sinfə aid olması
+tələb olunur ki, sistem təhlükəsiz qəbul edilsin <span class="citation"
+data-cites="goldreich2001foundations"></span>.</p></li>
+<li><p><strong>Sub-eksponensial Zaman:</strong> Polinomial zamandan daha
+yavaş, lakin xalis eksponensial zamandan xeyli sürətli olan "keçid"
+sinfidir. Bu sinif formal olaraq aşağıdakı <span
+class="math inline">\(L\)</span>-notasiyası ile ifadə olunur <span
+class="citation" data-cites="menezes2018handbook"></span>: <span
+class="math display">\[\begin{equation}
+        L_n[\alpha, c] = \exp \left( (c + o(1)) (\ln n)^\alpha (\ln \ln
+n)^{1-\alpha} \right)
+\end{equation}\]</span> Burada <span class="math inline">\(\alpha \in
+[0, 1]\)</span> parametrinin qiymətinə əsasən asimptotik artım tempinin
+xarakteri müəyyən olunur:</p>
+<ul>
+<li><p><span class="math inline">\(\alpha = 0\)</span> olduqda ifadə
+polinomial zaman mürəkkəbliyinə (<span class="math inline">\(\exp(c \ln
+\ln n) = (\ln n)^c\)</span>) çevrilir.</p></li>
+<li><p><span class="math inline">\(\alpha = 1\)</span> olduqda ifadə
+daxili <span class="math inline">\(n\)</span> ölçüsünə görə xalis
+eksponensial funksiyaya bərabər olur.</p></li>
+<li><p><span class="math inline">\(\alpha = 1/2\)</span> olduqda
+funksiya RSA-nı sındıran bəzi klassik faktorizasiya metodlarının
+(məsələn, Kvadratik Ələk) mürəkkəbliyini göstərir: <span
+class="math display">\[\begin{equation}
+            L_n\left[1/2, c\right] = \exp \left( (c + o(1)) \sqrt{\ln n
+\ln \ln n} \right)
+\end{equation}\]</span></p></li>
+<li><p>Hazırda ən güclü ümumi təyinatlı faktorizasiya alqoritmi olan
+GNFS isə daha sürətli işləyən və asimptotik maneəni daha da azaldan
+<span class="math inline">\(L_n[1/3, c]\)</span> mürəkkəbliyinə malikdir
+<span class="citation" data-cites="lenstra1993number"></span>. Məhz bu
+sub-eksponensial zəifliyə görə RSA açarları (məsələn, RSA-2048) tam
+eksponensial çətinliyə malik ECC açarlarından (məsələn, ECC-256) xeyli
+böyük seçilməlidir.</p></li>
+</ul></li>
+</ul>
+<h2
+id="asimptotik-notasiyalar-üçün-konkret-və-praktiki-misallar">Asimptotik
+Notasiyalar üçün Konkret və Praktiki Misallar</h2>
+<p>Asimptotik notasiyaların riyazi mahiyyətini və "yuxarı/aşağı/sıx
+sərhəd" anlayışlarını daha yaxşı anlamaq üçün real alqoritmik və
+kriptoqrafik ssenarilərdən götürülmüş aşağıdakı konkret misallara nəzər
+salaq:</p>
+<ol>
+<li><p><strong>Böyük-O Notasiyası (<span
+class="math inline">\(O(f(n))\)</span>) üçün Misallar:</strong></p>
+<ul>
+<li><p><em>Riyazi Misal:</em> <span class="math inline">\(f(n) = 3n^2 +
+5n + 8\)</span> funksiyası verilmişdir. Burada <span
+class="math inline">\(n\)</span> sonsuza doğru artdıqca, <span
+class="math inline">\(n^2\)</span> həddi artım sürətinə görə digər
+hədləri tamamilə üstələyir. Sabit əmsalı nəzərə almasaq, bu funksiyanın
+asimptotik yuxarı sərhədi <span class="math inline">\(O(n^2)\)</span>
+olur. Çünki kifayət qədər böyük <span class="math inline">\(n\)</span>
+dəyərlərindən başlayaraq (<span class="math inline">\(n \ge
+n_0\)</span>), bu funksiya həmişə <span class="math inline">\(c \cdot
+n^2\)</span> funksiyasından kiçik və ya ona bərabər qalacaqdır <span
+class="citation" data-cites="sipser2012introduction"></span>.</p></li>
+<li><p><em>Kriptoqrafik Misal (Tam Axtarış):</em> Bir hücumçunun <span
+class="math inline">\(n\)</span> bit uzunluğunda gizli açarı tapmaq üçün
+bütün mümkün variantları tək-tək yoxladığını (tam axtarış) fərz edək.
+Əgər onun bəxti ən pis halda gətirərsə, o, bütün <span
+class="math inline">\(2^n\)</span> variantın hamısını yoxlamalı olacaq.
+Bu halda hücum alqoritminin maksimium işləmə müddəti (yuxarı sərhədi)
+<span class="math inline">\(O(2^n)\)</span> eksponensial mürəkkəbliyi
+ilə ifadə olunur <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ul></li>
+<li><p><strong>Böyük-Omega Notasiyası (<span
+class="math inline">\(\Omega(f(n))\)</span>) üçün Misallar:</strong></p>
+<ul>
+<li><p><em>Riyazi Misal:</em> <span class="math inline">\(f(n) = 5n^3 +
+100n\)</span> funksiyasını götürək. Bu funksiyanın artım sürəti ən azı
+<span class="math inline">\(n^3\)</span> dərəcəsindədir. Sabitləri və
+kiçik hədləri atsaq, deyə bilərik ki, bu funksiya <span
+class="math inline">\(\Omega(n^3)\)</span>-dür. Çünki elə bir <span
+class="math inline">\(c &gt; 0\)</span> seçə bilərik ki, müəyyən bir
+nöqtədən sonra <span class="math inline">\(5n^3 + 100n \ge 1 \cdot
+n^3\)</span> şərti həmişə ödənilsin.</p></li>
+<li><p><em>Kriptoqrafik Misal (Minimum Şərt):</em> Qiyməti <span
+class="math inline">\(N\)</span> (və bit uzunluğu <span
+class="math inline">\(n = \log_2 N\)</span>) olan böyük bir RSA modulunu
+sadə vuruqlarına ayırmaq istəyən bir alqoritm təsəvvür edək. Bu problemi
+həll etmək üçün dizayn ediləcək ən sadə bölmə üsulu (<em>trial
+division</em>) belə, bizdən ən optimal halda belə <span
+class="math inline">\(\Omega(\sqrt{N}) \approx \Omega(2^{n/2})\)</span>
+qədər əməliyyat tələb edir. Bu, problemin həlli üçün hücumçudan tələb
+olunan <strong>minimum</strong> asimptotik resurs həddini göstərir <span
+class="citation" data-cites="sipser2012introduction"></span>.</p></li>
+</ul></li>
+<li><p><strong>Böyük-Theta Notasiyası (<span
+class="math inline">\(\Theta(f(n))\)</span>) üçün Misallar:</strong></p>
+<ul>
+<li><p><em>Riyazi Misal:</em> <span class="math inline">\(f(n) = 7n^2 -
+3n\)</span> funksiyası verilmişdir. Bu funksiya həm <span
+class="math inline">\(O(n^2)\)</span> şərtini, həm də <span
+class="math inline">\(\Omega(n^2)\)</span> şərtini eyni anda ödəyir.
+Çünki funksiyanın real artım tempi dəqiq olaraq <span
+class="math inline">\(n^2\)</span> ilə mütənasibdir. Deməli, bu funksiya
+üçün sıx sərhəd <span class="math inline">\(\Theta(n^2)\)</span>-dir
+<span class="citation"
+data-cites="sipser2012introduction"></span>.</p></li>
+<li><p><em>Kriptoqrafik Misal (Modulyar Multiplikasiya):</em>
+Diffie–Hellman və RSA-nın əsasını təşkil edən iki <span
+class="math inline">\(n\)</span> bitlik ədədin modulyar vurulması
+alqoritmini (məsələn, Montgomery vurulması) nəzərdən keçirək. Bu
+alqoritm giriş elementlərinin qiymətindən asılı olmayaraq bitlərin
+çarpaz vurulması prinsiplərinə görə hər iki sərhəddə oxşar davranış
+nümayiş etdirir. İşləmə vaxtı həmişə kvadratik şəkildə dəyişdiyindən, bu
+əməliyyatın daxili asimptotik mürəkkəbliyi sıx sərhədlə — <span
+class="math inline">\(\Theta(n^2)\)</span> olaraq təyin olunur <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+</ul></li>
+</ol>
+<h2 id="asimptotik-sərhədlərin-formal-riyazi-tərifləri">Asimptotik
+Sərhədlərin Formal Riyazi Tərifləri</h2>
+<p>Kriptoqrafik alqoritmlərin həm dürüst tərəflər üçün effektivliyini,
+həm də hücumçular üçün keçilməzliyini analiz etmək üçün istifadə olunan
+dörd fundamental asimptotik notasiyanın formal riyazi tərifləri
+aşağıdakı kimidir:</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Böyük-<span
+class="math inline">\(O\)</span> Notasiyası (Asimptotik Yuxarı Sərhəd)).
+<em><span class="math inline">\(f(n) = O(g(n))\)</span> olması üçün elə
+müsbət <span class="math inline">\(c\)</span> və <span
+class="math inline">\(n_0\)</span> sabitləri mövcud olmalıdır ki, hər
+<span class="math inline">\(n \ge n_0\)</span> üçün aşağıdakı şərt
+ödənilsin:</p>
+
+<div class="math-display">\[\begin{equation}
+    0 \le f(n) \le c \cdot g(n)
+\end{equation}\]</div>
+
+<p>Kriptoqrafiyada bu notasiya dürüst tərəflərin
+(şifrələmə və deşifrələmə) istifadə etdiyi alqoritmlərin maksimal iş
+zamanını sərhədləmək üçün istifadə olunur.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Böyük-<span
+class="math inline">\(\Omega\)</span> Notasiyası (Asimptotik Aşağı
+Sərhəd)). <em><span class="math inline">\(f(n) = \Omega(g(n))\)</span>
+olması üçün elə müsbət <span class="math inline">\(c\)</span> və <span
+class="math inline">\(n_0\)</span> sabitləri mövcud olmalıdır ki, hər
+<span class="math inline">\(n \ge n_0\)</span> üçün aşağıdakı şərt
+ödənilsin:</p>
+
+<div class="math-display">\[\begin{equation}
+    0 \le c \cdot g(n) \le f(n)
+\end{equation}\]</div>
+
+<p><strong>Kriptoqrafik Əhəmiyyəti:</strong>
+Hücumçunun bir şifrəni sındırmaq üçün sərf etməli olduğu minimum resursu
+ifadə edir. Biz istəyirik ki, hücum alqoritmlərinin mürəkkəbliyi hər
+zaman <span class="math inline">\(\Omega(2^{n/2})\)</span> və ya <span
+class="math inline">\(\Omega(2^n)\)</span> kimi alt sərhədlərdən aşağı
+düşməsin.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Böyük-<span
+class="math inline">\(\Theta\)</span> Notasiyası (Asimptotik Sıx
+Sərhəd)). <em><span class="math inline">\(f(n) = \Theta(g(n))\)</span>
+olması üçün elə müsbət <span class="math inline">\(c_1, c_2\)</span> və
+<span class="math inline">\(n_0\)</span> sabitləri mövcud olmalıdır ki,
+hər <span class="math inline">\(n \ge n_0\)</span> üçün aşağıdakı şərt
+ödənilsin:</p>
+
+<div class="math-display">\[\begin{equation}
+    0 \le c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n)
+\end{equation}\]</div>
+
+<p>Bu, <span class="math inline">\(f(n)\)</span>
+funksiyasının asimptotik olaraq <span
+class="math inline">\(g(n)\)</span> ilə eyni tempdə artdığını göstərir
+(<span class="math inline">\(f(n) = O(g(n))\)</span> və <span
+class="math inline">\(f(n) = \Omega(g(n))\)</span> şərtləri eyni anda
+ödənilir).</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Kiçik-<span
+class="math inline">\(o\)</span> Notasiyası (Asimptotik Qəti Kiçik)).
+<em><span class="math inline">\(f(n) = o(g(n))\)</span> olması üçün,
+funksiyaların limiti aşağıdakı şərti ödəməlidir: <span
+class="math display">\[\begin{equation}
+    \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0
+\end{equation}\]</span> Bu notasiya xüsusilə GNFS alqoritminin iş
+zamanındakı sub-eksponensial ifadələrdə (<span
+class="math inline">\(o(1)\)</span> kimi) və hücumçunun uğur qazanma
+ehtimalını təyin edən səhlənkar funksiyaların asimptotik analizində
+kritik rol oynayır.</em></p>
+</div>
+<h2
+id="müasir-misal-aes-128-standartının-tam-axtarış-mürəkkəbliyi">Müasir
+Misal: AES-128 Standartının Tam Axtarış Mürəkkəbliyi</h2>
+<p>AES-128 (<em>Advanced Encryption Standard</em>) simmetrik şifrələmə
+alqoritminin tam axtarış hücumlarına qarşı dayanıqlığı <span
+class="math inline">\(2^{128}\)</span> hesablama mürəkkəbliyinə
+əsaslanır. Bu riyazi miqyasın praktiki olaraq nə dərəcədə keçilməz
+olduğunu anlamaq üçün aşağıdakı astrofiziki və hesablama ssenarisini
+nəzərdən keçirək:</p>
+<ul>
+<li><p><strong>Hesablama Gücü:</strong> Dünyanın ən güclü
+superkompüterlərindən ibarət olan və saniyədə <span
+class="math inline">\(10^{15}\)</span> əməliyyat (1 <em>Petaflops</em>)
+icra edə bilən nəhəng bir infrastrukturun yalnız bu açarı tapmağa
+ayrıldığını fərz edək.</p></li>
+<li><p><strong>Zaman Mürəkkəbliyi:</strong> Bir ildə təxminən <span
+class="math inline">\(3.15 \times 10^7\)</span> saniyə olduğunu nəzərə
+alsaq, həmin superkompüter bir ildə maksimum <span
+class="math inline">\(3.15 \times 10^{22}\)</span> açar yoxlaya bilər.
+Bu sürətlə bütün açar fəzasını (<span class="math inline">\(2^{128}
+\approx 3.4 \times 10^{38}\)</span>) tamamilə daramaq üçün tələb olunan
+zaman aşağıdakı kimi hesablanır: <span
+class="math display">\[\begin{equation}
+        T = \frac{3.4 \times 10^{38}}{3.15 \times 10^{22}} \approx 1.08
+\times 10^{16} \text{ il}
+\end{equation}\]</span></p></li>
+<li><p><strong>Kosmoloji Müqayisə:</strong> Müasir astrofiziki
+tapıntılara görə kainatın təxmini yaşı <span
+class="math inline">\(\approx 1.38 \times 10^{10}\)</span> ildir
+(təxminən 13.8 milyard il). Bu isə o deməkdir ki, mövcud ən sürətli
+infrastrukturla belə AES-128-i sındırmaq üçün <strong>kainatın yaşından
+təxminən 780,000 dəfə daha uzun bir vaxt</strong> tələb olunur.</p></li>
+</ul>
+<p>Məhz bu kəskin eksponensial baryerə görə, hər hansı bir daxili riyazi
+zəiflik tapılmadığı müddətcə, AES-128 alqoritmi klassik hesablama
+mühitində praktik olaraq tamamilə qırıla bilməz və keçilməz qəbul edilir
+<span class="citation" data-cites="katz2020introduction"></span>.</p>
+<h1 id="mürəkkəblik-sinifləri">Mürəkkəblik Sinifləri</h1>
+<p>Hesablama mürəkkəbliyi nəzəriyyəsində qərar problemləri (<em>decision
+problems</em>) həlli üçün tələb olunan zaman və yaddaş resurslarına görə
+müəyyən struktur qruplarına — mürəkkəblik siniflərinə ayrılır.
+Kriptoqrafiyanın riyazi analizində aşağıdakı fundamental siniflərin
+tərifləri əsas gütürülür <span class="citation"
+data-cites="sipser2012introduction"></span>:</p>
+<div class="definition">
+<p><strong>Tərif 5</strong> (P Sinfi — Polynomial-time).
+<em>Deterministik Turinq maşınında (və ya klassik bir kompüterdə) giriş
+ölçüsü <span class="math inline">\(n\)</span> olmaqla, <span
+class="math inline">\(O(n^k)\)</span> (burada <span
+class="math inline">\(k\)</span> sabitdir) polinomial zamanda həll edilə
+bilən qərar problemlərinin çoxluğudur <span class="citation"
+data-cites="sipser2012introduction"></span>.</em></p>
+<p><em><em>Kriptoqrafik əhəmiyyəti:</em> Bu sinfə aid problemlər
+"effektiv şəkildə həll olunan" hesab edilir. Şifrələmə, deşifrələmə və
+rəqəmsal imza generasiyası/verifikasiyası kimi qanuni istifadəçi
+əməliyyatları mütləq <span class="math inline">\(P\)</span> sinfində
+olmalıdır <span class="citation"
+data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 6</strong> (NP Sinfi — Nondeterministic
+Polynomial-time). <em>Qeyri-deterministik Turinq maşınında polinomial
+zamanda həll edilə bilən və ya hər hansı bir deterministik alqoritmlə
+verilmiş həll namizədinin (sertifikatın) düzgünlüyü polinomial zamanda
+<strong>yoxlana (verifikasiya edilə)</strong> bilən problemlərin
+çoxluğudur <span class="citation"
+data-cites="sipser2012introduction"></span>.</em></p>
+<p><em><em>Kriptoqrafik əhəmiyyəti:</em> Kriptoqrafiyanın nəzəri
+mövcudluğu <span class="math inline">\(P \neq NP\)</span> fərziyyəsinə
+əsaslanır. Əgər bir şifrəni sındırmaq <span
+class="math inline">\(NP\)</span> sinfindədirsə, bu o deməkdir ki,
+düzgün açar (və ya gizli rəqəmsal imza) bizə verildikdə onun doğruluğunu
+tez (polinomial) yoxlaya bilərik, lakin həmin açarı sıfırdan tapmaq
+(həll etmək) asimptotik olaraq çox çətindir <span class="citation"
+data-cites="goldreich2001foundations"></span>.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 7</strong> (NP-tam və NP-çətin). <em>Bir problemin
+<strong><span class="math inline">\(NP\)</span>-tam</strong>
+(<em>NP-complete</em>) olması üçün o, həm <span
+class="math inline">\(NP\)</span> sinfinə aid olmalı, həm də <span
+class="math inline">\(NP\)</span>-dəki bütün digər problemlər polinomial
+zamanda həmin problemə polinomial zaman reduksiyası (Karp reduksiyası —
+<span class="math inline">\(\le_P\)</span>) edilə bilməlidir. Başqa
+sözlə, bunlar <span class="math inline">\(NP\)</span> sinfinin ən çətin
+problemlədir <span class="citation"
+data-cites="sipser2012introduction"></span>.</em></p>
+<p><em>Əgər bir problem <span class="math inline">\(NP\)</span>-dəki
+bütün problemlər qədər çətindirsə, lakin özünün <span
+class="math inline">\(NP\)</span> sinfində olması şərt deyil (məsələn,
+qərar problemi deyil, axtarış və ya optimallaşdırma problemidir), o,
+<strong><span class="math inline">\(NP\)</span>-çətin</strong>
+(<em>NP-hard</em>) adlanır <span class="citation"
+data-cites="sipser2012introduction"></span>.</em></p>
+<p><em><em>Kriptoqrafik əhəmiyyəti:</em> Geniş yayılan yanlış
+təsəvvürlərin əksinə, <span class="math inline">\(NP\)</span>-tam
+problemlər kriptoqrafik primitivlərin qurulması üçün birbaşa yararlı
+deyil. Çünki <span class="math inline">\(NP\)</span>-tamlıq problemin
+<strong>ən pis halda</strong> (<em>worst-case complexity</em>) çətin
+olduğunu zəmanət edir; lakin kriptoqrafiyaya təsadüfi seçilmiş
+parametrlərlə <strong>orta halda</strong> (<em>average-case
+complexity</em>) keçilməz olan və birtərəfli funksiya xüsusiyyəti
+göstərən xüsusi problemlər lazımdır <span class="citation"
+data-cites="goldreich2001foundations"></span>.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 8</strong> (BQP Sinfi — Bounded-error Quantum
+Polynomial-time). <em>Kvant Turing maşınında (və ya universal bir kvant
+kompüterində) giriş ölçüsü <span class="math inline">\(n\)</span>
+olmaqla, <span class="math inline">\(O(n^k)\)</span> (burada <span
+class="math inline">\(k\)</span> sabitdir) polinomial zamanda maksimum
+<span class="math inline">\(1/3\)</span> xəta ehtimalı (və ya ən azı
+<span class="math inline">\(2/3\)</span> doğru cavab ehtimalı) ilə həll
+edilə bilən qərar problemlərinin çoxluğudur <span class="citation"
+data-cites="sipser2012introduction"></span>.</em></p>
+<p><em><em>Kriptoqrafik əhəmiyyəti:</em> Bu sinif müasir asimmetrik
+kriptoqrafiyanın asimptotik təhlükəsizlik modelinə birbaşa fundamental
+təhdid yaradır. Şor alqoritmi sübut etdi ki, klassik kompüterlər üçün
+sub-eksponensial və ya eksponensial zaman tələb edən tam ədədlərin
+faktorizasiyası və diskret loqarifm (DLP/ECDLP) problemləri
+<strong>BQP</strong> sinfinə aiddir. Yəni kvant kompüterləri bu
+problemləri polinomial zamanda effektiv şəkildə həll edə bilir <span
+class="citation" data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<h2
+id="kriptoqrafiyanın-böyük-paradoksu-np-tamlıq-niyə-təhlükəsizliyə-zəmanət-vermir">Kriptoqrafiyanın
+Böyük Paradoksu: <span class="math inline">\(NP\)</span>-Tamlıq Niyə
+Təhlükəsizliyə Zəmanət Vermir?</h2>
+<p>Hesablama mürəkkəbliyi nəzəriyyəsinə giriş kurslarında <span
+class="math inline">\(NP\)</span>-tam (<em>NP-complete</em>) mürəkkəblik
+sinfi effektiv həlli olmayan "ən çətin" problemlərin zirvəsi kimi təqdim
+olunur. Lakin kriptoqrafiya elmində fundamental bir qayda var:
+<strong>Bir problemin <span class="math inline">\(NP\)</span>-tam
+olması, onun əsasında təhlükəsiz bir kriptosistem qurmaq üçün kifayət
+deyil və çox vaxt təhlükəlidir.</strong></p>
+<p>Bu paradoksal vəziyyətin kökündə mürəkkəblik nəzəriyyəsi ilə
+kriptoqrafiyanın hədəflərinin fərqli olması dayanır:</p>
+<ol>
+<li><p><strong>Klassik Mürəkkəblik Nəzəriyyəsi — Ən Pis Hal Mürəkkəbliyi
+(<em>Worst-Case Complexity</em>):</strong> Bir problemin <span
+class="math inline">\(NP\)</span>-tam sinfinə aid olması o deməkdir ki,
+həmin problemin daxilində sındırılması eksponensial zaman tələb edən
+<em>ən azı bir neçə</em> "həddindən artıq çətin" instansiya (nümunə)
+mövcuddur. Lakin bu, problemin bütün instansiyalarının çətin olduğu
+mənasına gəlmir.</p></li>
+<li><p><strong>Kriptoqrafiya — Orta Hal Mürəkkəbliyi (<em>Average-Case
+Complexity</em>):</strong> Kriptoqrafik alqoritmdə açarlar təsadüfi
+seçildiyi üçün, sistemin təhlükəsiz olması üçün təsadüfi seçilən
+<strong>demək olar ki, bütün instansiyaların</strong> (orta halın)
+sındırılması hücumçu üçün qeyri-mümkün olmalıdır.</p></li>
+</ol>
+<p>Əgər biz bir <span class="math inline">\(NP\)</span>-tam problemi
+(məsələn, <em>Knapsack</em> problemini) birbaşa şifrələmədə istifadə
+etsək, dürüst tərəflərin mesajı deşifrə edə bilməsi üçün alqoritmin
+daxilinə riyazi bir "gizli qapı" (<em>trapdoor</em>) yerləşdirməli
+oluruq. Bu gizli qapı, strukturu təsadüfilikdən uzaqlaşdırır və problemi
+<span class="math inline">\(NP\)</span>-tamlığın "ən pis hal"
+çətinliyindən çıxarıb, hücumçunun xətti cəbr üsulları ilə (məsələn, LLL
+latis reduksiya alqoritmi ilə) asanlıqla həll edə biləcəyi "asit hal"
+müstəvisinə salır.</p>
+<blockquote>
+<p><strong>Pedaqoji Fokus:</strong> Nəzərə alın ki, müasir post-kvant
+kriptoqrafiyasında (məsələn, <em>Lattice-based cryptography</em> - qəfəs
+əsaslı kriptoqrafiyada) istifadə olunan LWE (<em>Learning With
+Errors</em>) kimi problemlər həm <strong>ən pis hal</strong>, həm də
+<strong>orta hal</strong> mürəkkəblikləri arasında ciddi riyazi
+reduksiyaya malikdir. Yəni sübut olunmuşdur ki, orta halı sındırmaq ən
+pis halı sındırmaq qədər çətindir. Kriptoqrafiyada axtardığımız ideal
+riyazi zəmanət məhz budur.</p>
+</blockquote>
+<h2 id="müasir-misal-parol-qırılmasının-hesablama-mürəkkəbliyi">Müasir
+Misal: Parol Qırılmasının Hesablama Mürəkkəbliyi</h2>
+<p>Mürəkkəblik nəzəriyyəsinin praktikada necə işlədiyini görmək üçün tam
+axtarış üsulu ilə parolların sındırılması ssenarisinə baxaq. Fərz edək
+ki, hücumçu saniyədə <span class="math inline">\(10^9\)</span> (1
+milyard) heş yoxlaya bilən güclü bir hesablama infrastrukturuna
+malikdir. Sabit <span class="math inline">\(L=8\)</span> simvoldan
+ibarət parollarda istifadə olunan simvol çoxluğunun ölçüsü (<span
+class="math inline">\(N\)</span>) artdıqca, kombinasiya fəzasının
+astronomik miqyası aşağıdakı kimi dəyişir:</p>
+<ul>
+<li><p><strong>Yalnız kiçik ingilis hərfləri (<span
+class="math inline">\(N=26\)</span>):</strong> Mümkün kombinasiyaların
+sayı <span class="math inline">\(26^8 \approx 2.08 \times 10^{11}
+\approx 2^{38}\)</span> bərabərdir. Belə bir parolun tam sındırılması ən
+pis hal ssenarisində cəmi təxminən 3.5 dəqiqə çəkir.</p></li>
+<li><p><strong>Alfanumerik dəst (Kiçik hərflər + Rəqəmlər, <span
+class="math inline">\(N=36\)</span>):</strong> Kombinasiyaların sayı
+<span class="math inline">\(36^8 \approx 2.82 \times 10^{12} \approx
+2^{41}\)</span> səviyyəsinə yüksəlir. Bu halda maksimum sındırma müddəti
+təxminən 47 dəqiqəyə qədər artır.</p></li>
+<li><p><strong>Tam standart ASCII dəsti (<span
+class="math inline">\(N=95\)</span>):</strong> Böyük-kiçik hərflər,
+rəqəmlər və xüsusi simvollar daxil edildikdə kombinasiya fəzası <span
+class="math inline">\(95^8 \approx 6.63 \times 10^{15} \approx
+2^{52}\)</span> həddinə çatır. Eyni avadanlıqla bu parolun tam
+sındırılması üçün tələb olunan zaman artıq günlərlə ölçülür: <span
+class="math display">\[\begin{equation}
+        T = \frac{6.63 \times 10^{15}}{10^9 \times 86400} \approx 76.7
+\text{ gün}
+\end{equation}\]</span></p></li>
+</ul>
+<p><em>Mürəkkəblik nəzəriyyəsi baxımından mühüm qeyd:</em> Yuxarıdakı
+misallarda parolun uzunluğu (<span class="math inline">\(L=8\)</span>)
+sabit bir parametr olduğu üçün hər üç ssenarinin asimptotik mürəkkəbliyi
+riyazi olaraq <span class="math inline">\(O(1)\)</span> sabit zaman
+sinfinə aiddir. Burada <span class="math inline">\(O(1)\)</span>
+asimptotik olaraq zamanın giriş parametrindən (uzunluqdan) asılı
+olmayaraq sabit qaldığını göstərir, lakin bu sabitin daxili qiyməti
+(<span class="math inline">\(95^8\)</span> əməliyyat) praktiki olaraq
+hələ də böyük hesablama yükü tələb edir.</p>
+<p>Kriptoqrafik təhlükəsizliyi təmin edən həqiqi <strong>eksponensial
+zaman mürəkkəbliyi (<span
+class="math inline">\(O(N^L)\)</span>)</strong> simvol çoxluğunun (<span
+class="math inline">\(N\)</span>) deyil, məhz parolun uzunluğunun (<span
+class="math inline">\(L\)</span>) bir dəyişən (giriş ölçüsü) olaraq
+xətti şəkildə artması ilə formalaşır. Məsələn, tam ASCII dəstində (<span
+class="math inline">\(N=95\)</span>) parol uzunluğu <span
+class="math inline">\(L=8\)</span>-dən <span
+class="math inline">\(L=16\)</span>-ya qaldırıldıqda, kombinasiya fəzası
+<span class="math inline">\(95^{16} \approx 4.4 \times 10^{31}\)</span>
+səviyyəsinə çatır və eyni superkompüterlə sındırma müddəti <span
+class="math inline">\(1.39 \times 10^{15}\)</span> il olmaqla praktiki
+olaraq qeyri-mümkün hala gəlir <span class="citation"
+data-cites="katz2020introduction"></span>.</p>
+<h2 id="açar-uzadılması-və-müasir-parol-heş-funksiyaları">Açar
+Uzadılması və Müasir Parol Heş Funksiyaları</h2>
+<p>Yuxarıdakı misaldan göründüyü kimi, əgər istifadə olunan heş
+alqoritmi (məsələn, MD5 və ya SHA-256) daxili struktur baxımından çox
+sürətlidirsə, hücumçu paralel hesablama sistemləri (GPU və ya ASIC)
+vasitəsilə saniyədə milyardlarla parol sınağı həyata keçirə bilər <span
+class="citation" data-cites="katz2020introduction"></span>.</p>
+<p>Bu təhdidin qarşısını almaq üçün müasir sistemlər <strong>açar
+uzadılması</strong> (<em>key stretching</em>) üsullarına əsaslanan,
+qəsdən hesablama və yaddaş baxımından dözümlü (<em>slow-by-design</em>)
+dizayn edilmiş xüsusi parol heşləmə standartlarından istifadə edir:</p>
+<ul>
+<li><p><strong>PBKDF2 (<em>Password-Based Key Derivation Function
+2</em>):</strong> Giriş parametrinə əsasən daxili heş funksiyasını
+(məsələn, SHA-256) minlərlə dövr (<em>iteration</em>) ərzində
+təkrar-təkrar icra edərək bir parolun heşlənmə müddətini süni olaraq
+uzadır. Bu mexanizm, hücumçunun tam axtarış alqoritminin zaman
+mürəkkəbliyi xətti şəkildə artırır.</p></li>
+<li><p><strong>Bcrypt və Scrypt:</strong> PBKDF2-nin yalnız mərkəzi
+prosessor (CPU) zamanını artırmasına qarşı, hücumçuların paralel
+GPU/ASIC sistemlərindən istifadə etməsini çətinləşdirmək üçün yaddaş
+baryeri gətirən ilk funksiyalardır. Xüsusilə Scrypt, alqoritmi icra
+etmək üçün müəyyən miqdarda statik yaddaş tələb edərək aparat təminatı
+əsaslı hücumların iqtisadi səmərəliliyini azaldır.</p></li>
+<li><p><strong>Argon2 (<em>Password Hashing Competition</em>
+Qalibi):</strong> Müasir dövrün ən təhlükəsiz və rəsmi parol heşləmə
+funksiyası hesab olunur <span class="citation"
+data-cites="katz2020introduction"></span>. O, yalnız zaman
+mürəkkəbliyini deyil, həm də asimptotik olaraq <strong>yaddaş
+mürəkkəbliyi</strong> (<em>memory-hard</em>) dinamik şəkildə
+tənzimləməyə imkan verir. Argon2 heş dəyəri hesablanarkən kompüterin
+operativ yaddaşında (RAM) böyük massivlər doldurur və daxili bitləri
+qeyri-xətti ardıcıllıqla qarışdırır. Bu xüsusiyyət, hücumçuların xüsusi
+hazırlanmış avadanlıqlar (ASIC) vasitəsilə parolları paralel və ucuz
+şəkildə qırmasının qarşısını tamamilə alır.</p></li>
+</ul>
+<h1
+id="kriptoqrafiyada-çətinlik-fərziyyələri-hardness-assumptions">Kriptoqrafiyada
+Çətinlik Fərziyyələri (Hardness Assumptions)</h1>
+<p>Mürəkkəblik nəzəriyyəsində hələ də <span class="math inline">\(P \neq
+NP\)</span> hipotezi rəsmi olaraq sübut olunmadığı üçün müasir
+asimmetrik kriptoqrafiya xalis riyazi postulatlara, yəni konkret
+hesablama problemlərinin polinomial zamanda həll edilə bilməyəcəyini
+qəbul edən <strong>çətinlik fərziyyələrinə</strong> əsaslanır <span
+class="citation" data-cites="katz2020introduction"></span>. Bu
+fundamental fərziyyələrin asimptotik mahiyyəti aşağıdakı kimidir:</p>
+<ul>
+<li><p><strong>Faktorizasiya Fərziyyəsi (<em>Factoring
+Assumption</em>):</strong> Bu fərziyyəyə görə, elə bir polinomial
+zamanlı deterministik klassik alqoritm yoxdur ki, iki bərabər bit
+uzunluqlu təsadüfi sadə ədədin hasilindən ibarət olan <span
+class="math inline">\(N = p \cdot q\)</span> mürəkkəb ədədini giriş
+elementi kimi qəbul edib, onun <span class="math inline">\(p\)</span> və
+<span class="math inline">\(q\)</span> vuruqlarını asanlıqla tapsın
+<span class="citation" data-cites="sipser2012introduction"></span>.
+<em>RSA</em> kriptosisteminin bütün arxitekturası və təhlükəsizlik
+modeli bu fərziyyənin toxunulmazlığı üzərində qurulub.</p></li>
+<li><p><strong>Diskret Loqarifm Fərziyyəsi (<em>Discrete Logarithm
+Assumption — DLA</em>):</strong> Multiplikativ sonlu qruplarda (məsələn,
+<span class="math inline">\(\mathbb{F}_p^*\)</span> sonlu meydanının
+multiplikativ qrupunda), verilmiş <span class="math inline">\(g^x \pmod
+p\)</span> və <span class="math inline">\(g\)</span> dəyərlərinə əsasən
+gizli <span class="math inline">\(x\)</span> eksponentini polinomial
+zamanda hesablamağın qeyri-mümkün olduğunu fərz edir <span
+class="citation" data-cites="katz2020introduction"></span>.
+<em>Diffie–Hellman</em> açar mübadiləsi və <em>ElGamal</em> şifrələmə
+alqoritmi bu asimptotik təmələ söykənir.</p></li>
+<li><p><strong>ECDLP Fərziyyəsi (<em>Elliptic Curve Discrete Logarithm
+Assumption</em>):</strong> Sonlu meydan üzərində təyin olunmuş elliptik
+əyrilər qrupunda <span class="math inline">\(Q = kP\)</span> skalyar
+vurma əməliyyatının tərsini tapmağın — yəni <span
+class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələri məlum olduqda <span
+class="math inline">\(k\)</span> tam ədədinin hesablanmasının —
+sub-eksponensial zamanlı heç bir klassik həllinin olmadığını və ən
+optimal halda belə tam eksponensial zaman mürəkkəbliyi tələb etdiyini
+irəli sürür <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Kolliziyaya Qarşı Dayanıqlıq Fərziyyəsi (<em>Collision
+Resistance Assumption</em>):</strong> Kriptoqrafik heş funksiyaları üçün
+elə bir effektiv (polinomial) alqoritmin mövcud olmadığını fərz edir ki,
+o, <span class="math inline">\(h(x) = h(y)\)</span> şərtini ödəyən iki
+fərqli <span class="math inline">\(x \neq y\)</span> giriş mesajını tapa
+bilsin <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+<p><em>Asimptotik və Kvant Perspektivindən Analiz:</em> Bu
+fərziyyələrdən ilk üçü (<em>Faktorizasiya, DLA, ECDLP</em>) yalnız
+klassik hesablama modelləri üçün keçərlidir. Universal kvant
+kompüterlərinin (<strong>BQP</strong> sinfi) reallaşması və <em>Şor
+alqoritmi</em>-nin tətbiqi bu üç fərziyyəni polinomial zamana endirərək
+tamamilə qüvvədən salır. Kolliziyaya qarşı dayanıqlıq fərziyyəsi isə
+kvant dünyasında (<em>Qrover alqoritmi</em>-nin kvadratik
+sürətləndirməsinə baxmayaraq) asimptotik olaraq çətin qəbul edilir.</p>
+<h1 id="təhlükəsizlik-səviyyələri-və-hesablama-hədləri">Təhlükəsizlik
+Səviyyələri və Hesablama Hədləri</h1>
+<p>Kriptoqrafiyada bir sistemin praktiki təhlükəsizlik gücü, hücumçunun
+sistemi sındırmaq üçün icra etməli olduğu ən optimal alqoritmin
+<strong>minimum əməliyyat sayısı</strong> ilə ölçülür. Təhlükəsizlik
+səviyyəsi simmetrik olaraq <span class="math inline">\(k\)</span> bit
+ilə ifadə edilir və bu, hücumçunun sistemi sındırmaq üçün asimptotik
+olaraq <span class="math inline">\(2^k\)</span> qədər elementar
+hesablama addımı atmalı olduğunu göstərir <span class="citation"
+data-cites="katz2020introduction"></span>.</p>
+<p>Müasir beynəlxalq standartlar (NIST, ECRYPT) çərçivəsində hesablama
+mürəkkəbliyinin praktiki bölgüsü və fərqli primitivlərin ekvivalentliyi
+aşağıdakı cədvəldə tənzimlənmişdir:</p>
+<ul>
+<li><p><strong>AES-128 və AES-256 Qarşılaşdırılması:</strong> AES-128
+şifrəsinə qarşı məlum olan ən effektiv klassik hücum metodu tam axtarış
+olduğu üçün onun asimptotik mürəkkəbliyi xalis eksponensial <span
+class="math inline">\(O(2^{128})\)</span> addımdır. AES-256 is side
+<span class="math inline">\(O(2^{256})\)</span> əməliyyatlıq nəhəng bir
+kombinasiya fəzası təqdim edir. Bu miqyas sistemi həm klassik, həm də
+<em>Qrover alqoritmi</em>-nin kvadratik sürətləndirmə effektini (<span
+class="math inline">\(\sqrt{2^{256}} = 2^{128}\)</span>) nəzərə almaqla
+gələcək kvant hücumlarına qarşı tamamilə təhlükəsiz edir.</p></li>
+<li><p><strong>SHA-256 və Ad Günü Paradoksu:</strong> SHA-256 funksiyası
+256 bitlik sabit çıxış hasil etdiyi üçün onun ilkin obraza qarşı
+dayanıqlıq (<em>pre-image resistance</em>) mürəkkəbliyi <span
+class="math inline">\(O(2^{256})\)</span>-dır. Lakin <strong>kolliziya
+tapmaq</strong> problemi riyazi ehtimal nəzəriyyəsindəki ad günü
+paradoksuna əsaslandığı üçün asimptotik mürəkkəblik kəskin şəkildə
+azalaraq çıxış bit ölçüsünün kvadrat kökünə, yəni <span
+class="math inline">\(\sqrt{2^{256}} = 2^{128}\)</span> əməliyyata enir
+<span class="citation" data-cites="katz2020introduction"></span>. Buna
+görə də 256 bitlik bir heş funksiyası kolliziyaya qarşı ssenarilərdə
+yalnız 128 bitlik effektiv müdafiə marjası təmin edə bilir.</p></li>
+<li><p><strong>Asimmetrik Primitivlərin Kontrastı (RSA və ECC):</strong>
+Cədvəldən göründüyü kimi, RSA-nın əsasındakı tam ədədlərin
+faktorizasiyası problemi sub-eksponensial zaman mürəkkəbliyinə malikdir.
+Bu səbəbdən cəmi 112 bitlik effektiv təhlükəsizlik səviyyəsini qorumaq
+üçün belə astronomik ölçülü 2048 bitlik RSA açarlarından istifadə
+edilməlidir. Bunun əksinə olaraq, elliptik əyrilər (<em>ECDLP</em>)
+üzərindəki ən güclü klassik hücum (<em>Pollard’s rho</em> alqoritmi) tam
+eksponensial mürəkkəbliyə (<span class="math inline">\(\sqrt{2^n} =
+2^{n/2}\)</span>) malikdir <span class="citation"
+data-cites="katz2020introduction"></span>. Bu səbəbdən cəmi 256 bitlik
+bir ECC açarı, 2048 bitlik hantal bir RSA açarından asimptotik olaraq
+daha yüksək (128 bitlik) effektiv təhlükəsizlik və resurs səmərəliliyi
+təklif edir.</p></li>
+</ul>
+<h2 id="müasir-misal-ad-günü-paradoksu-və-kolliziya-mürəkkəbliyi">Müasir
+Misal: Ad Günü Paradoksu və Kolliziya Mürəkkəbliyi</h2>
+<p>Kriptoqrafik heş funksiyalarında ixtiyari uzunluqlu iki fərqli
+girişin eyni çıxış dəyərini verməsi hadisəsi <strong>kolliziya
+(collision)</strong> adlanır. Ehtimal nəzəriyyəsindəki "Ad günü
+paradoksu" prinsiplərinə əsasən, <span class="math inline">\(n\)</span>
+bitlik çıxış fəzasına malik olan bir heş funksiyasında təsadüfi
+seçimlərlə ilk kolliziyanı tapmaq üçün tələb olunan asimptotik əməliyyat
+sayı çıxış fəzasının tam kombinasiyası (<span
+class="math inline">\(2^n\)</span>) qədər deyil, onun kvadrat kökü
+qədərdir <span class="citation"
+data-cites="katz2020introduction"></span>: <span
+class="math display">\[\begin{equation}
+    O\left(\sqrt{2^n}\right) = O\left(2^{n/2}\right)
+\end{equation}\]</span></p>
+<ul>
+<li><p><strong>SHA-256 üçün Kolliziya Analizi:</strong> SHA-256
+funksiyasının çıxışı 256 bitdir (<span class="math inline">\(n =
+256\)</span>). Əgər hücumçu konkret bir sənədin heş dəyərinə bərabər
+olan başqa bir sənəd axtarsaydı (pre-image hücumu), ona <span
+class="math inline">\(2^{256}\)</span> əməliyyat lazım olardı. Lakin
+hücumçunun məqsədi sadəcə hər hansı iki fərqli sənədin eyni heşi
+verməsini (kolliziya) tapmaqdırsa, ad günü paradoksu sayəsində bu
+mürəkkəblik <span class="math inline">\(2^{256/2} = 2^{128}\)</span>
+əməliyyata enir <span class="citation"
+data-cites="katz2020introduction"></span>. Bu səbəbdən rəqəmsal
+imzalarda saxtakarlığın qarşısını almaq üçün heş funksiyasının bit
+ölçüsü simmetrik şifrələrdən ən azı iki dəfə böyük
+seçilməlidir.</p></li>
+</ul>
+<h2
+id="kolliziya-mürəkkəbliyi-ad-günü-paradoksu-və-qrover-hücumlarının-riyazi-təhlili">Kolliziya
+Mürəkkəbliyi: Ad Günü Paradoksu və Qrover Hücumlarının Riyazi
+Təhlili</h2>
+<p>Kriptoqrafik heş funksiyalarının təhlükəsizliyi birbaşa
+<strong>kolliziya dözümlülüyü</strong> (<em>collision resistance</em>)
+ilə ölçülür. Təbii olaraq elə təəssürat yarana bilər ki, <span
+class="math inline">\(n\)</span>-bit çıxış verən bir hash funksiyasında
+eyni çıxışı verən iki fərqli girişi (yəni <span
+class="math inline">\(h(x) = h(y)\)</span> şərtini ödəyən <span
+class="math inline">\(x \neq y\)</span> cütlüyünü) tapmaq üçün tam
+axtarış (<em>brute-force</em>) mürəkkəbliyi <span
+class="math inline">\(O(2^n)\)</span> olmalıdır. Lakin ehtimallar
+nəzəriyyəsindəki <strong>Ad Günü Paradoksu</strong> bu mürəkkəbliyi
+kəskin şəkildə aşağı salır.</p>
+<p>Asimptotik olaraq, eyni çıxışa sahib iki təsadüfi giriş tapmaq
+(kolliziya yaratmaq) üçün lazım olan cəhdlərin sayı aşağıdakı
+approximation (yaxınlaşma) ilə təyin olunur: <span
+class="math display">\[\begin{equation}
+    T_{coll}(n) \approx \sqrt{2^n} = 2^{\frac{n}{2}}
+\end{equation}\]</span></p>
+<p>Bu o deməkdir ki, SHA-256 funksiyası birdəfəlik şifrələr
+(<em>pre-image</em>) üçün 256-bit təhlükəsizlik marjası təqdim etdiyi
+halda, kolliziya tapmaq istəyən hücumçu üçün bu marja cəmi <span
+class="math inline">\(2^{128}\)</span> əməliyyata bərabərdir.</p>
+<h3 id="kvant-müstəvisində-qrover-alqoritminin-kolliziyaya-təsiri">Kvant
+Müstəvisində Qrover Alqoritminin Kolliziyaya Təsiri</h3>
+<p>Simmetrik kriptoqrafiyada digər bir kritik kiber-təhdid <em>Lov
+Grover</em> tərəfindən 1996-cı ildə irəli sürülmüş kvant axtarış
+alqoritmidir. Qrover alqoritmi nizamlanmamış verilənlər bazasında
+axtarışı <span class="math inline">\(O(N)\)</span> zamandan <span
+class="math inline">\(O(\sqrt{N})\)</span> zamana endirir.</p>
+<p>Kolliziya mürəkkəbliyi baxımından analiz etdikdə:</p>
+<ol>
+<li><p><strong>Klassik Kolliziya Hücumu:</strong> Ad günü paradoksu ilə
+<span class="math inline">\(O(2^{n/2})\)</span> mürəkkəblik tələb
+edir.</p></li>
+<li><p><strong>Kvant Kolliziya Hücumu:</strong> BHT alqoritmi
+(<em>Brassard-Høyer-Tapp</em>) və Qrover iterasiyalarının kombinasiyası
+ilə kolliziya tapma mürəkkəbliyi <strong>kubik kökə</strong> — yəni
+<span class="math inline">\(O(2^{n/3})\)</span> səviyyəsinə qədər
+sıxılır.</p></li>
+</ol>
+<table>
+<caption>Kolliziya Tapma Mürəkkəbliyinin Asimptotik Müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hücum Növü</strong></th>
+<th style="text-align: center;"><strong>Hesablama Modeli</strong></th>
+<th style="text-align: center;"><strong>Asimptotik
+Mürəkkəblik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Tam Axtarış (<em>Brute-force</em>)</td>
+<td style="text-align: center;">Klassik / İdeal</td>
+<td style="text-align: center;"><span
+class="math inline">\(O(2^n)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Ad Günü Hücumu (<em>Birthday
+Attack</em>)</td>
+<td style="text-align: center;">Klassik Kompüter</td>
+<td style="text-align: center;"><span
+class="math inline">\(O(2^{n/2})\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Kvant Kolliziya Hücumu (<em>BHT /
+Grover</em>)</td>
+<td style="text-align: center;">Kvant Kompüteri</td>
+<td style="text-align: center;"><span
+class="math inline">\(O(2^{n/3})\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nəticə və Dizayn Qərarı:</strong> Bu riyazi asimptotika bizə
+post-kvant erası üçün vacib bir dizayn dərsi verir. Əgər klassik dünyada
+128-bitlik kolliziya təhlükəsizliyi üçün SHA-256 (<span
+class="math inline">\(2^{256/2} = 2^{128}\)</span>) kifayət edirdisə,
+kvant kompüterlərinin <span class="math inline">\(2^{n/3}\)</span> hücum
+gücünə qarşı eyni 128-bitlik təhlükəsizlik səviyyəsini qorumaq üçün
+tələbələrə ən azı SHA-3-384 və ya SHA-512 (<span
+class="math inline">\(2^{512/3} \approx 2^{170} &gt; 2^{128}\)</span>)
+istifadə etməyin zəruriliyi aşılanmalıdır.</p>
+</blockquote>
+<h1 id="kvant-mürəkkəbliyi-və-post-kvant-dövrü">Kvant Mürəkkəbliyi və
+Post-Kvant Dövrü</h1>
+<p>Hesablama mürəkkəbliyi nəzəriyyəsi kvant kompüterlərinin meydana
+çıxması ilə yeni bir asimptotik mərhələyə qədəm qoymuşdur. Kvant
+hesablama modellərinin effektiv şəkildə həll edə bildiyi qərar
+problemləri <strong>BQP</strong> (<em>Bounded-error Quantum
+Polynomial-time</em>) mürəkkəblik sinfində qruplaşdırılır <span
+class="citation" data-cites="sipser2012introduction"></span>. Kvant
+fizikasının superpozisiya və dolaşıqlıq (<em>entanglement</em>)
+prinsiplərindən istifadə edən xüsusi kvant alqoritmləri, klassik
+hesablama mühitində eksponensial dərəcədə çətin qəbul edilən çətinlik
+fərziyyələrini polinomial zamanda həll etməyə imkan verir:</p>
+<ul>
+<li><p><strong>Şor Alqoritmi:</strong> <em>Peter Shor</em> tərəfindən
+irəli sürülən bu kvant alqoritmi, böyük mürəkkəb ədədlərin
+faktorizasiyasını və sonlu qruplarda diskret loqarifm problemini cəmi
+kubik polinomial zamanda həll edir. Sındırılacaq <span
+class="math inline">\(N\)</span> modulunun bit uzunluğu <span
+class="math inline">\(n = \lceil \log_2 N \rceil\)</span> olmaqla,
+alqoritmin zaman mürəkkəbliyi <span
+class="math inline">\(O(n^3)\)</span>-ə bərabərdir. Bu isə o deməkdir
+ki, kifayət qədər böyük fiziki kvant kompüterləri inşa edildiyi an,
+müasir asimmetrik kriptoqrafiyanın əsas sütunları olan <em>RSA</em>,
+<em>Diffie–Hellman</em> və <em>ECC</em> alqoritmləri asimptotik
+dayanıqlığını tamamilə itirərək yararsız hala gələcəkdir.</p></li>
+<li><p><strong>Qrover Alqoritmi:</strong> Strukturlaşdırılmamış axtarış
+fəzalarında və ya kriptoqrafik funksiyaların tərs obrazının sıfırdan
+tapılmasında tətbiq olunan bu kvant alqoritmi, tam axtarış hücumlarının
+mürəkkəbliyi kvadrat kök dərəcəsində azaldır. Əgər klassik mühitdə <span
+class="math inline">\(N\)</span> sayda variantı yoxlamaq üçün <span
+class="math inline">\(O(N)\)</span> elementar addım tələb olunursa,
+Qrover alqoritmi bu mürəkkəbliyi asimptotik olaraq <span
+class="math inline">\(O(\sqrt{N})\)</span> səviyyəsinə endirir.</p></li>
+</ul>
+<p>Şor və Qrover alqoritmlərinin yaratdığı bu asimptotik təhdidlər
+kiber-təhlükəsizlik dünyasını universal kvant kompüterlərinin belə
+sub-eksponensial və ya polinomial zamanda həll edə bilməyəcəyi, həm
+klassik həm də kvant dünyasında çətin qəbul edilən qəfəs əsaslı
+(<em>lattice-based</em>) problemlərə (məsələn, <em>SVP — Shortest Vector
+Problem</em> və <em>LWE — Learning With Errors</em>) söykənən
+<strong>Post-Kvant Kriptoqrafiyası</strong> (<em>Post-Quantum
+Cryptography — PQC</em>) standartlarına keçməyə məcbur edir.</p>
+<h2 id="kvant-sıçrayışı-şor-alqoritmi-və-bqp-sinfi">Kvant Sıçrayışı: Şor
+Alqoritmi və <span class="math inline">\(BQP\)</span> Sinfi</h2>
+<p>Kvant hesablamalarının klassik kriptoqrafiyaya vurduğu ən böyük zərbə
+<em>Peter Shor</em> tərəfindən 1994-cü ildə kəşf edilən kvant
+alqoritmidir. Şor alqoritmi sübut etdi ki, klassik kompüterlər üçün
+sub-eksponensial zaman tələb edən tam ədədlərin faktorizasiyası və
+diskret loqarifmləmə problemləri, kvant kompüterlərində
+<strong>Polinomial Zamanda</strong> — yəni <span
+class="math inline">\(O(n^3)\)</span> mürəkkəbliklə həll oluna
+bilər.</p>
+<p>Bu, mürəkkəblik nəzəriyyəsi dilində desək, faktorizasiya probleminin
+<strong><span class="math inline">\(BQP\)</span></strong>
+(<em>Bounded-Error Quantum Polynomial-Time</em>) sinfinə transfer olması
+deməkdir.</p>
+<table>
+<caption>Klassik və Kvant Modellərində Faktorizasiya Mürəkkəbliyinin
+Müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hesablama Modeli</strong></th>
+<th style="text-align: center;"><strong>Ən Güclü Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Asimptotik
+Mürəkkəblik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Klassik Kompüter</td>
+<td style="text-align: center;">GNFS (Alt-eksponensial)</td>
+<td style="text-align: center;"><span class="math inline">\(\exp\left(c
+(\ln n)^{1/3} (\ln \ln n)^{2/3}\right)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Kvant Kompüteri</td>
+<td style="text-align: center;">Şor Alqoritmi (Polinomial)</td>
+<td style="text-align: center;"><span
+class="math inline">\(O(n^3)\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tələbələr üçün:</strong> <span
+class="math inline">\(n=2048\)</span> bitlik bir açarı klassik
+superkompüterlərin milyardlarla ilə sındıra biləcəyi halda, Şor
+alqoritmi işləyən ideal bir kvant kompüteri bu əməliyyatı cəmi bir neçə
+dəqiqə ərzində (çünki <span class="math inline">\(2048^3\)</span>
+əməliyyat müasir prosessorlar üçün saniyənin kiçik hissələridir)
+tamamlayır. Bu səbəbdən, kvant kompüterləri kütləviləşdiyi gün RSA, DH
+və ECC (Elliptik Əyri Kriptoqrafiyası) tamamilə əhəmiyyətini
+itirəcək.</p>
+</blockquote>
+<h2
+id="müasir-misal-kvant-hesablamalarının-aes-alqoritminə-praktiki-təsiri">Müasir
+Misal: Kvant Hesablamalarının AES Alqoritminə Praktiki Təsiri</h2>
+<p>Qrover alqoritminin simmetrik şifrələmə alqoritmlərinə təsiri,
+asimptotik olaraq açar fəzasının kvadrat kökünün götürülməsi formasında
+özünü göstərir. Əgər bir simmetrik şifrənin həqiqi açar uzunluğu <span
+class="math inline">\(k\)</span> bitdirsə, klassik tam axtarış
+mürəkkəbliyi <span class="math inline">\(2^k\)</span> olduğu halda,
+kvant kompüterində bu təhlükəsizlik marjası <span
+class="math inline">\(\sqrt{2^k} = 2^{k/2}\)</span> əməliyyata
+düşür.</p>
+<ul>
+<li><p><strong>AES-128-in Gücü və Qrover Baryeri:</strong> AES-128
+alqoritmi klassik mühitdə <span class="math inline">\(2^{128}\)</span>
+hesablama mürəkkəbliyi ilə tamamilə keçilməzdir. Qrover alqoritmi tətbiq
+edildikdə onun effektiv nəzəri kvant təhlükəsizlik marjası <span
+class="math inline">\(2^{128/2} = 2^{64}\)</span> əməliyyata enir.
+Nəzəri olaraq <span class="math inline">\(2^{64}\)</span> əməliyyat
+kritik bir hədd hesab edilsə də, Qrover alqoritminin praktiki
+realizasiyasında tələb olunan ardıcıl kvant qapılarının mürəkkəbliyi
+(NIST-in rəsmi hesabatlarında <em>MAXDEPTH</em> olaraq adlandırılan
+maksimal dövr dərinliyi) və paralelləşdirmə çətinlikləri səbəbindən
+AES-128 alqoritmi real kvant hücumlarına qarşı hələ də müəyyən dərəcədə
+praktik dayanıqlığını qoruyur.</p></li>
+<li><p><strong>Kvant Dövrü Üçün AES-256 Tövsiyəsi:</strong> Eyni riyazi
+məntiqlə AES-256 alqoritminin açar fəzası kvant hücumları qarşısında
+<span class="math inline">\(\sqrt{2^{256}} = 2^{128}\)</span>
+səviyyəsinə geriləyir. <span class="math inline">\(2^{128}\)</span>
+hesablama mürəkkəbliyi hələ də astronomik bir miqyas ifadə etdiyi və
+kainatın mövcudluq müddətində belə tam axtarışla bitirilə bilməyəcəyi
+üçün, AES-256 alqoritmi kvant erasında da simmetrik şifrələmə üçün
+sənaye standartı və ən etibarlı qalxan olaraq tövsiyə edilir <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+<h2 class="unnumbered"
+id="tələbələr-üçün-özünü-yoxlama-sualları">Tələbələr üçün Özünü-Yoxlama
+Sualları</h2>
+<ol>
+<li><p>Niyə eyni təhlükəsizlik səviyyəsini (məsələn, 128 bit) təmin
+etmək üçün RSA açarının ölçüsü ECC açarından asimptotik olaraq daha
+böyük seçilməlidir? Cavabınızı GNFS və Pollard-ın Rho alqoritmlərinin
+mürəkkəblik sinifləri ilə əsaslandırın.</p></li>
+<li><p>Ad günü paradoksu heş funksiyalarının hansı təhlükəsizlik
+xassəsinə (ilkin obraza davamlılıq, yoxsa kolliziyaya davamlılıq)
+birbaşa təsir edir və mürəkkəbliyi asimptotik olaraq necə
+azaldır?</p></li>
+<li><p><span class="math inline">\(P \neq NP\)</span> fərziyyəsi
+tamamilə təkzib olunsa (yəni <span class="math inline">\(P = NP\)</span>
+olduğu sübut edilsə), bu müasir simmetrik və asimmetrik kriptoqrafiyaya
+necə təsir edər?</p></li>
+<li><p>Parolun uzunluğunun (<span class="math inline">\(L\)</span>)
+xətti artmasının kombinasiya fəzasında yaratdığı eksponensial artım ilə
+PBKDF2 funksiyasının dövr sayının yaratdığı xətti zaman artımı
+arasındakı fundamental fərqi izah edin.</p></li>
+</ol>
+<h1 id="nəticə">Nəticə</h1>
+<p>Hesablama mürəkkəbliyi nəzəriyyəsi müasir kriptoqrafiyanın sadəcə
+köməkçi aləti deyil, onun birbaşa mövcudluq fəlsəfəsidir. Kriptoqrafik
+primitivlərin və təhlükəsizlik protokollarının etibarlılığı yalnız
+müvafiq cəbri strukturların zərifliyinə deyil, həm də bu strukturlar
+üzərində təyin olunmuş tərs funksiyaların və riyazi problemlərin orta
+hal mürəkkəbliyinin (<em>average-case complexity</em>) asimptotik olaraq
+əlçatmazlığına söykənir.</p>
+<p>Klassik hesablama mühitində sub-eksponensial və eksponensial zaman
+fərziyyələri üzərində bərqərar olan bu müdafiə qalxanı, post-kvant
+dövründə <strong>BQP</strong> sinfinin gətirdiyi asimptotik təhdidlər
+qarşısında mütləq bir transformasiya tələb etsə də, əsas elmi mahiyyət
+dəyişməz qalır: rəqəmsal təhlükəsizlik, riyazi olaraq həlli hesablama
+baxımından əlçatmaz dərəcədə çətin olan strukturlaşdırılmış problemlərin
+asimptotik mürəkkəblik marjası daxilində qorunmağa davam edəcəkdir.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Qeyd etmək lazımdır ki, Mür qanunu və ya analoji olaraq
+eksponensial artım tempinə malik olan digər texnoloji proqnozlar yalnız
+qısamüddətli və ya ortamüddətli dövrlər üçün keçərlidir. Uzunmüddətli
+perspektivdə fiziki resursların (enerji, xammal, mikroçip ölçülərinin
+atomar səviyyəyə çatması və s.) tükənməsi, həmçinin fərqli sənaye
+sahələrinin eyni qlobal resurslar uğrunda rəqabəti səbəbindən bu cür
+eksponensial artım qanunları öz effektivliyini itirməyə məhkumdur.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

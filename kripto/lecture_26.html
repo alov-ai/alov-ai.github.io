@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_26</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 26</strong></p>
+<p><strong>IPsec və VPN</strong></p>
+<p>Bu mühazirə şəbəkə qatında təhlükəsizliyin təmin edilməsi üçün
+istifadə olunan IPsec protokolunu, onun komponentlərini (AH, ESP), iş
+rejimlərini (nəqliyyat, tunel), IKE açar mübadiləsini, VPN
+texnologiyasını və müasir VPN protokolu olan WireGuard-ı əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni müvəffəqiyyətlə başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>IPsec<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> arxitekturasında SPD<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>,
+SA<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>, AH<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>,
+ESP<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a> və IKEv2<a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+komponentlərinin rolunu paket axını müstəvisində müəyyənləşdirməyi <span
+class="citation"
+data-cites="stallings2017cryptography"></span>;</p></li>
+<li><p>AH və ESP protokollarını qorunan sahələr, autentifikasiya
+dəqiqliyi və NAT<a href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a> uyğunluğu üzrə müqayisə etməyi <span
+class="citation" data-cites="kent2005ipsec"></span>;</p></li>
+<li><p>Nəqliyyat və tunel rejimində daxili və xarici IP başlıqlarının
+(<em>IP headers</em>) strukturunu düzgün fərqləndirməyi <span
+class="citation" data-cites="paar2024understanding"></span>;</p></li>
+<li><p>IKEv2 mesaj axınında açar törətmə, qarşı tərəfin
+autentifikasiyası və NAT-T<a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a> (<em>NAT Traversal</em>)
+qərarlarını addım-addım izləməyi <span class="citation"
+data-cites="ferguson2010cryptography huttunen2005nat"></span>;</p></li>
+<li><p>Verilmiş təhdid modeli və tətbiq ssenarisinə uyğun olaraq IPsec
+və ya WireGuard həllərinin seçimini elmi şəkildə əsaslandırmağı
+bacaracaqlar <span class="citation"
+data-cites="donenfeld2017wireguard"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəlki mühazirə:</strong> 25-ci mühazirədə tətbiq səviyyəli
+əlaqələrin TLS protokol sistemi ilə qorunmasını təhlil etdik.</p>
+<p><strong>Cari mühazirə:</strong> Şəbəkə səviyyəsində IP paketlərinin
+və şəbəkələrarası tunellərin qorunması üçün IPsec/VPN modelini
+qururuq.</p>
+<p><strong>Növbəti mühazirə:</strong> 27-ci mühazirədə yalnız doğru
+protokol seçiminin kifayət etmədiyini, reallaşdırma mərhələsinin fiziki
+və proqram səviyyəli kənar kanal hücumlarından da qorunmasının
+vacibliyini öyrənəcəyik.</p>
+<p><strong>Terminologiya kanonu:</strong> <em>IP</em>;
+<em>autentifikasiya başlığı (AH)</em>; <em>inkapsullaşdırılmış
+təhlükəsizlik yükü (ESP)</em>; <em>virtual şəxsi şəbəkə (VPN)</em>;
+<em>şəbəkədən-şəbəkəyə (<em>site-to-site</em>)</em>; <em>uzaqdan giriş
+(<em>remote access</em>)</em>.</p>
+</div>
+<h1 id="giriş-və-fundamental-anlayışlar">Giriş və Fundamental
+Anlayışlar</h1>
+<p>İnternet üzərindən ötürülən məlumatların bütövlüyünü və məxfiliyini
+qorumaq üçün şəbəkə arxitekturasının müxtəlif qatlarında fəaliyyət
+göstərən təhlükəsizlik protokolları tətbiq olunur. Əvvəlki mühazirələrdə
+tədqiq etdiyimiz TLS protokolu OSI modelinin nəqliyyat qatında fəaliyyət
+göstərir və konkret tətbiq proqramları (məsələn, HTTP, SMTP) arasındakı
+fərdi bağlantıları qoruyur. Lakin korporativ şəbəkələrin
+birləşdirilməsi, fərdi tətbiqlərdən asılı olmayaraq bütün paket axınının
+şifrələnməsi və şəbəkə qatında tam təhlükəsizliyin təmin edilməsi üçün
+daha ümumi həllərə ehtiyac yaranmışdır. Bu məqsədlə tətbiq olunan əsas
+texnologiyalardan biri IPsec protokollar ailəsidir.</p>
+<div class="history">
+<p><span>IPsec-in Tarixi və Təkamülü</span> IPsec arxitekturasının
+inkişafı 1990-cı illərin əvvəllərində İnternet Mühəndisliyi üzrə İşçi
+Qrup (IETF) çərçivəsində başlamışdır. 1995-ci ildə ilk rəsmi
+spesifikasiyalar dərc edilsə də, protokolun əsas sütunları 1998-ci ildə
+işıq üzü görən RFC 2401, RFC 2402, RFC 2406 və RFC 2408 sənədləri ilə
+standartlaşdırılmışdır. İnternet topologiyasının sürətli böyüməsi və
+yeni kriptoqrafik tələblər nəticəsində, 2005-ci ildə rəsmi standartlar
+yenilənərək RFC 4301, RFC 4302 (AH), RFC 4303 (ESP) və RFC 4306 (IKEv2)
+statusunda təkmilləşdirilmişdir <span class="citation"
+data-cites="kent2005ipsec"></span>. Bu gün IPsec, qlobal korporativ
+şəbəkələrin təhlükəsizliyini təmin edən magistral VPN
+infrastrukturlarının təməl daşı hesab olunur.</p>
+</div>
+<p><strong>IPsec (IP təhlükəsizliyi)</strong> — IP protokolu (IPv4 və
+IPv6) üzərindən ötürülən bütün şəbəkə paketlərinin autentifikasiyasını
+və şifrələnməsini təmin edən kriptoqrafik protokollar toplusudur. OSI
+modelinin üçüncü qatında (şəbəkə qatı) işləyərək yuxarı qatdakı
+tətbiqlərin (məsələn, veb brauzerlər, verilənlər bazası sorğuları) işinə
+müdaxilə etmədən şəffaf şəkildə üç əsas xidmət təmin edir:
+<strong>məxfilik</strong>, <strong>məlumat tamlığı</strong> və
+<strong>mənbənin autentifikasiyası</strong>.</p>
+<p><strong>VPN (virtual şəxsi şəbəkə)</strong> — ictimai və
+qeyri-təhlükəsiz şəbəkə infrastrukturları (əsasən İnternet) üzərindən
+kriptoqrafik üsullarla qorunan izolyasiya edilmiş virtual tunellərin
+qurulması texnologiyasıdır. VPN, coğrafi olaraq bir-birindən uzaqda
+yerləşən daxili xüsusi şəbəkələri vahid və təhlükəsiz infrastruktur
+altında birləşdirir və bu prosesdə IPsec, OpenVPN, WireGuard kimi
+protokollardan birgə istifadə edir.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>IPsec arxitekturası hansı kriptoqrafik komponentlərdən təşkil
+olunub və hansı təhlükəsizlik xidmətlərini təmin edir?</p></li>
+<li><p>AH və ESP protokolları arasındakı fundamental fərqlər hansılardır
+və nə üçün eyni vaxtda istifadə oluna bilərlər?</p></li>
+<li><p>Nəqliyyat rejimi ilə tunel rejimi şəbəkə paketinin strukturunu
+necə dəyişir?</p></li>
+<li><p>IKE protokolu tərəflər arasında dinamik və təhlükəsiz açar
+mübadiləsini hansı mərhələlərlə icra edir?</p></li>
+<li><p>VPN arxitekturasının hansı topoloji növləri mövcuddur?</p></li>
+<li><p>Müasir WireGuard protokolunu klassik IPsec strukturundan
+fərqləndirən və onu daha üstün edən memarlıq həlləri
+hansılardır?</p></li>
+<li><p>NAT cihazlarının mövcudluğu IPsec paketlərinin ötürülməsində
+hansı problemləri yaradır və <em>NAT keçidi</em> mexanizmi bu problemi
+necə həll edir?</p></li>
+</ul>
+</div>
+<h1 id="ipsec-arxitekturası">IPsec Arxitekturası</h1>
+<p>IPsec (IP təhlükəsizliyi) — IP protokolu üzərindən ötürülən
+məlumatların şəbəkə qatında təhlükəsizliyini təmin etmək məqsədilə IETF
+tərəfindən hazırlanmış standart kriptoqrafik protokollar və memarlıq
+mexanizmləri toplusudur <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<h2 id="ipsec-in-təmin-etdiyi-təhlükəsizlik-xidmətləri">IPsec-in Təmin
+Etdiyi Təhlükəsizlik Xidmətləri</h2>
+<p>IPsec şəbəkə topologiyasında aşağıdakı fundamental kriptoqrafik və
+funksional təhlükəsizlik xidmətlərini təmin edir <span class="citation"
+data-cites="kent2005ipsec"></span>:</p>
+<ul>
+<li><p><strong>Məxfilik:</strong> Simmetrik şifrələmə alqoritmləri
+vasitəsilə məlumatların icazəsiz üçüncü tərəflərdən
+gizlədilməsi;</p></li>
+<li><p><strong>Bütövlük:</strong> SA daxilindəki gizli açara əsaslanan
+MAC və ya AEAD teqi vasitəsilə qorunan sahələrin dəyişdirilməsinin
+aşkarlanması;</p></li>
+<li><p><strong>Məlumat Mənbəyinin Autentifikasiyası:</strong> Paketin
+uyğun SA açarına malik tərəfdən gəldiyinin yoxlanması; bu, öz-özlüyündə
+fiziki şəxsin kimliyini və ya hüquqi müəllifliyi sübut etmir;</p></li>
+<li><p><strong>Təkrar göndərmədən qorunma:</strong> Şəbəkə daxilində
+kəsilən qanuni paketlərin hücumçu tərəfindən serverə yenidən
+göndərilməsinin ardıcıl sıra nömrələri vasitəsilə əngəllənməsi;</p></li>
+<li><p><strong>Girişə nəzarət:</strong> Təhlükəsizlik siyasətləri
+əsasında yalnız icazə verilmiş subyektlərin şəbəkə resurslarına
+müraciətinin tənzimlənməsi.</p></li>
+</ul>
+<h2 id="ipsec-in-əsas-komponentləri">IPsec-in Əsas Komponentləri</h2>
+<p>IPsec arxitekturası bir-biri ilə sıx bağlı olan növbəti funksional
+komponentlərdən təşkil olunmuşdur <span class="citation"
+data-cites="paar2024understanding"></span>:</p>
+<ol>
+<li><p><strong>AH (autentifikasiya başlığı):</strong> Şəbəkə paketlərinə
+mənbə autentifikasiyası və bütövlük təmin edən, lakin <strong>məxfilik
+(şifrələmə) təmin etməyən</strong> rəsmi protokoldur. IP protokol
+nömrəsi <span class="math inline">\(51\)</span>-dir.</p></li>
+<li><p><strong>ESP (enkapsullaşdırılmış təhlükəsizlik yükü):</strong>
+Ehtiyaca uyğun olaraq həm simmetrik şifrələmə (məxfilik), həm də
+kriptoqrafik autentifikasiya və bütövlük xidmətlərini eyni anda tətbiq
+edə bilən universal protokoldur. IP protokol nömrəsi <span
+class="math inline">\(50\)</span>-dir.</p></li>
+<li><p><strong>IKE (internet açar mübadiləsi):</strong> Diffi–Hellman
+paylaşımı, birdəfəlik qiymətlər və PRF əsasında ortaq açar materialını
+yerli olaraq törədən, tərəfləri autentifikasiya edən və təhlükəsizlik
+parametrlərini dinamik idarə edən protokoldur; işçi gizli açarlar şəbəkə
+ilə ötürülmür.</p></li>
+<li><p><strong>SA (təhlükəsizlik assosiasiyası):</strong> İki şəbəkə
+qovşağı arasında birtərəfli əlaqə üçün istifadə ediləcək bütün
+kriptoqrafik parametrləri (alqoritmlər, açarlar, ömür müddəti) müəyyən
+edən məntiqi müqavilədir.</p></li>
+<li><p><strong>SPD (təhlükəsizlik qaydaları bazası):</strong> Şəbəkə
+inzibatçısı tərəfindən təyin edilmiş və hansı növ trafikin hansı
+təhlükəsizlik rejimində emal ediləcəyini göstərən qaydalar
+toplusudur.</p></li>
+<li><p><strong>SAD (təhlükəsizlik assosiasiyaları bazası):</strong> Cari
+şəbəkə qurğusu üzərində aktiv olan və işlək vəziyyətdəki bütün SA
+parametrlərinin qeyd edildiyi dinamik cədvəldir.</p></li>
+</ol>
+<h2 id="təhlükəsizlik-assosiasiyası-sa">Təhlükəsizlik Assosiasiyası
+(SA)</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Təhlükəsizlik Assosiasiyası). <em>SA
+(<em>Təhlükəsizlik Assosiasiyası</em>) — IPsec rabitəsini icra edən iki
+tərəf arasında razılaşdırılmış konkret kriptoqrafik təhlükəsizlik
+parametrlərini və funksional qaydaları özündə saxlayan məntiqi əlaqə
+strukturudur <span class="citation" data-cites="kent2005ipsec"></span>.
+SA mexanizmi təbiəti etibarilə <strong>birtərəflidir</strong> — tam iki
+tərəfli rabitənin qurulması üçün həm daxil olan, həm də gedən trafik
+istiqamətlərində ayrı-ayrı müstəqil SA-ların yaradılması
+mütləqdir.</em></p>
+</div>
+<p><strong>Aktiv bir SA kontraktının tərkibinə daxil olan əsas
+parametrlər:</strong></p>
+<ul>
+<li><p><strong>Təhlükəsizlik parametrləri indeksi (SPI):</strong> Hər
+bir IPsec paketi daxilində daşınan və qəbul edən tərəfə müvafiq paketi
+SAD daxilindəki hansı konkret SA ilə emal etməli olduğunu göstərən <span
+class="math inline">\(32\)</span>-bitlik unikal identifikator
+dəyəridir;</p></li>
+<li><p><strong>Hədəf IP ünvanı:</strong> Paketin göndərildiyi son
+qovşağın (birləşmə nöqtəsinin) şəbəkə ünvanı;</p></li>
+<li><p><strong>Təhlükəsizlik protokolu:</strong> Cari SA üçün tətbiq
+olunan xüsusi protokol növü (AH və ya ESP);</p></li>
+<li><p><strong>Kriptoqrafik alqoritmlər və işçi açarlar:</strong>
+Şifrələmə üçün (məsələn, AES-GCM) və bütövlük yoxlaması üçün (məsələn,
+HMAC-SHA256) seçilmiş gizli açar massivləri;</p></li>
+<li><p><strong>SA-nın ömür müddəti:</strong> Mövcud SA-nın etibarlılıq
+vaxtını (saniyə və ya ötürülən bayt həcmi ilə) göstərən göstərici. Bu
+limit dolduqda sistem yeni açarlarla yenidən açarlama mərhələsinə
+keçir;</p></li>
+<li><p><strong>Sıra nömrəsi sayğacı:</strong> Təkrar göndərmə
+hücumlarının qarşısını almaq üçün hər göndərilən paketdə <span
+class="math inline">\(1\)</span> vahid artan <span
+class="math inline">\(32\)</span> və ya <span
+class="math inline">\(64\)</span>-bitlik sayğac dəyəri.</p></li>
+</ul>
+<h2
+id="təhlükəsizlik-siyasətləri-bazasının-spd-iş-siyasəti">Təhlükəsizlik
+Siyasətləri Bazasının (SPD) İş Siyasəti</h2>
+<p>SPD (təhlükəsizlik siyasətləri bazası) hər bir paketin atributlarına
+(mənbə/hədəf IP ünvanları, port nömrələri, protokol tipləri) əsasən
+hansı şəbəkə trafikinin qorunacağını, hansının bloklanacağını və
+hansının sərbəst buraxılacağını müəyyənləşdirən mərkəzi qaydalar
+toplusudur <span class="citation"
+data-cites="stallings2017cryptography"></span>. Şəbəkə interfeysinə
+paket daxil olduqda, sistem onu SPD süzgəcindən keçirir və növbəti üç
+əsas siyasətdən birini tətbiq edir:</p>
+<ul>
+<li><p><strong>Rədd etmək:</strong> Müvafiq şəbəkə paketi təhlükəsizlik
+baxımından tamamilə bloklanır və heç bir istiqamətə ötürülmədən şəbəkə
+qurğusu tərəfindən məhv edilir;</p></li>
+<li><p><strong>Qorumadan keçirmək:</strong> Paketə heç bir IPsec
+şifrələməsi və ya autentifikasiyası tətbiq edilmir, məlumat daxili və ya
+xarici şəbəkəyə ilkin açıq-mətn formasında birbaşa ötürülür;</p></li>
+<li><p><strong>Qorumaq:</strong> Paket məcburi şəkildə IPsec emalına
+yönləndirilir. Əgər uyğun istiqamətdə aktiv bir SA mövcuddursa, paket
+şifrələnir/imzalanır, əks halda dərhal yeni bir SA qurulması üçün IKE
+protokolu çağırılır.</p></li>
+</ul>
+<h1 id="ah-autentifikasiya-başlığı-protokolu">AH Autentifikasiya Başlığı
+Protokolu</h1>
+<p>AH (autentifikasiya başlığı) — IP paketlərinə məlumatın mənbə
+təsdiqini, məlumat bütövlüyünü və təkrar göndərmədən qorunma
+xidmətlərini təmin edən şəbəkə qatı protokoludur. AH protokolu
+<strong>məlumatların məxfiliyini (şifrələnməsini) təmin etmir</strong> —
+paket məzmunu şəbəkədə hamı tərəfindən oxunaqlı qalır <span
+class="citation" data-cites="kent2005ah"></span>.</p>
+<h2 id="ah-başlıq-strukturu">AH Başlıq Strukturu</h2>
+<pre class="text" data-frame="lines" data-framesep="2mm"
+data-fontsize="\footnotesize"
+data-label="AH başlıq formatı (RFC 4302)"><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Növbəti başlıq|  Yük uzunluğu |          AYRILMIŞ             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Təhlükəsizlik parametrləri indeksi (SPI)   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Sıra nömrəsi sahəsi                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                Autentifikasiya məlumatı (dəyişən)             +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</code></pre>
+<p><strong>AH daxili sahələrinin texniki təyinatı:</strong></p>
+<ul>
+<li><p><strong>Növbəti başlıq:</strong> AH strukturundan dərhal sonra
+gələn yuxarı qat protokolunun növünü (məsələn, TCP üçün <span
+class="math inline">\(6\)</span>, UDP üçün <span
+class="math inline">\(17\)</span> və ya ESP üçün <span
+class="math inline">\(50\)</span>) təyin edən <span
+class="math inline">\(8\)</span>-bitlik sahə;</p></li>
+<li><p><strong>Faydalı yükün uzunluğu:</strong> AH başlığının ümumi
+ölçüsünü <span class="math inline">\(32\)</span>-bitlik (4 baytlıq) söz
+vahidləri ilə ifadə edən və standart ölçüdən çıxıntıları göstərən
+sahə;</p></li>
+<li><p><strong>Ayrılmış sahə:</strong> Gələcək protokollar üçün ayrılmış
+və cari olaraq sıfırlaşdırılmış <span
+class="math inline">\(16\)</span>-bitlik sahə;</p></li>
+<li><p><strong>SPI (<em>Təhlükəsizlik parametrlərinin
+indeksi</em>):</strong> Müvafiq paketin aid olduğu təhlükəsizlik
+müqaviləsini göstərən unikal indeks dəyəri;</p></li>
+<li><p><strong>Sıra nömrəsi sahəsi:</strong> Paket hər dəfə
+göndərildikdə monoton şəkildə artan və qəbul edən tərəfdə sürüşən
+pəncərə mexanizmi ilə təkrar paketi aşkarlayan sahə;</p></li>
+<li><p><strong>Autentifikasiya məlumatları:</strong> SA açarı ilə
+seçilmiş MAC alqoritmi üzrə hesablanan dəyişkən uzunluqlu bütövlük
+yoxlama qiymətini (ICV) saxlayır; açarsız heş və rəqəmsal imza
+deyil.</p></li>
+</ul>
+<h2 id="ah-protokolunun-riyazi-və-funksional-xüsusiyyətləri">AH
+Protokolunun Riyazi və Funksional Xüsusiyyətləri</h2>
+<ul>
+<li><p><strong>IP Protokol İndeksi:</strong> Şəbəkə paketinin IP
+başlığında protokol tipi olaraq rəsmi şəkildə <span
+class="math inline">\(51\)</span> nömrəsini daşıyır;</p></li>
+<li><p><strong>Kriptoqrafik Əhatə dairəsi:</strong> AH faydalı yük və IP
+başlığının proqnozlaşdırılan, dəyişməz sahələri üzərində açarlı ICV
+hesablayır; tranzitdə dəyişə bilən sahələr RFC qaydasına görə ayrıca
+emal olunur;</p></li>
+<li><p><strong>NAT ilə kəsişmə problemi:</strong> AH protokolu ilkin IP
+başlığındakı IP ünvanlarını da ICV hesablanmasına daxil etdiyi üçün,
+paket yolda hər hansı bir şəbəkə ünvanlarının çevrilməsi (NAT)
+qurğusundan keçib IP ünvanı dəyişdirildikdə, qəbul edən tərəfdə ICV
+bütövlük yoxlaması uğursuz olur və paket rədd edilir. Bu səbəbdən AH
+protokolu müasir NAT-ın mövcud olduğu şəbəkələrdə istifadəyə uyğun
+deyil;</p></li>
+<li><p><strong>Dəyişən sahələr (imzalama prosesindən kənarda
+qalanlar):</strong> Paket yolda hərəkət edərkən marşrutlaşdırıcıların
+dəyişdirməyə məcbur olduğu <code>TTL</code> (yaşama müddəti),
+<code>TOS</code> (xidmət növü) və IP başlıq yoxlama cəmi kimi sahələr
+imza hesablanarkən sıfır olaraq qəbul edilir və ICV riyaziyyatını
+pozmur.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 1</strong> (AH Paketinin Yaradılması və Ötürülməsi
+Mexanizmi). <em>Tutaq ki, daxili şəbəkədə yerləşən bir kompüter mənbə IP
+ünvanı <code>192.168.1.10</code> və hədəf IP ünvanı
+<code>10.0.0.5</code> olan bir IP paketi formalaşdırır. Paketə AH
+protokolu tətbiq edildikdə proses aşağıdakı şəkildə icra
+olunur:</em></p>
+<ul>
+<li><p><em>Orijinal IP başlığı saxlanılır, lakin onun daxilindəki
+<code>Protocol</code> sahəsi <span class="math inline">\(51\)</span>
+(AH) olaraq yenidən yazılır;</em></p></li>
+<li><p><em>IP başlığı ilə yuxarı qat (məsələn, TCP) arasına yeni AH
+başlığı əlavə edilir;</em></p></li>
+<li><p><em>Mövcud SA daxilindəki gizli açarla IP başlığının RFC-də
+qorunan sahələri, AH başlığı və TCP faydalı yükü üzərində seçilmiş MAC
+hesablanır və nəticə autentifikasiya məlumatı sahəsinə
+yazılır;</em></p></li>
+<li><p><em>Qəbul edən tərəf dəyişən sahələri standartdakı qaydaya uyğun
+normallaşdırıb ICV-ni eyni SA açarı ilə yenidən hesablayır. Uyğunluq
+qorunan sahələrin dəyişmədiyini və göndərənin həmin SA açarına malik
+olduğunu göstərir; konkret insan kimliyini sübut etmir.</em></p></li>
+</ul>
+</div>
+<h1 id="esp-enkapsullaşdırılmış-təhlükəsizlik-yükü-protokolu">ESP
+Enkapsullaşdırılmış Təhlükəsizlik Yükü Protokolu</h1>
+<p>ESP (inkapsullaşdırılmış təhlükəsizlik yükü) — IPsec arxitekturasında
+məlumatların həm şifrələnməsini, həm də ehtiyaca uyğun olaraq
+autentifikasiya və bütövlük yoxlanılmasını təmin edən çevik və universal
+protokoldur <span class="citation" data-cites="kent2005esp"></span>.
+AH-dan fərqli olaraq, ESP ötürülən daxili faydalı yükü tamamilə gizlədə
+bilir və müasir VPN şəbəkələrinin əsas dayaq sütununu təşkil edir.</p>
+<h2 id="esp-paket-və-başlıq-strukturu">ESP Paket və Başlıq
+Strukturu</h2>
+<p>ESP paketi yalnız tək bir ön başlıqdan ibarət deyil. O, ESP ön
+başlığından, qorunan faydalı yük və ESP quyruğundan, bütövlük xidməti
+seçildikdə isə ESP autentifikasiya məlumatından təşkil olunur.</p>
+<pre class="text" data-frame="lines" data-framesep="2mm"
+data-fontsize="\footnotesize"
+data-label="ESP paketi formatı (RFC 4303)"><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ ----
+|               Təhlükəsizlik parametrləri indeksi (SPI)        |  | ESP
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+  | Başlığı
+|                      Sıra nömrəsi                              |  | (Açıq)
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ ----
+|                                                               |  |
+~                Faydalı yük (dəyişən uzunluq)                  ~  | Şifrələnən
+|                                                               |  | Sahə
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+  |
+|               Doldurma (0-255 bayt)                           |  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+  |
+|Dol. uzunluğu  |Növbəti başlıq |                               |  | ESP Quyruğu
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-------------------------------+ ----
+|                                                               |
+~            Autentifikasiya məlumatı (dəyişən uzunluq)         ~  | ICV / AEAD teqi
+|                                                               |  | (Açıq)
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ ----</code></pre>
+<p><strong>ESP daxili sahələrinin texniki təyinatı:</strong></p>
+<ul>
+<li><p><strong>Təhlükəsizlik parametrləri indeksi (SPI):</strong> Paket
+emalı üçün SAD daxilindəki müvafiq şifrələmə və autentifikasiya
+müqaviləsini seçən <span class="math inline">\(32\)</span>-bitlik unikal
+identifikator;</p></li>
+<li><p><strong>Sıra nömrəsi:</strong> Təkrar göndərmə hücumlarının
+qarşısını almaq üçün hər paketdə mütləq şəkildə artan ardıcıl
+sayğac;</p></li>
+<li><p><strong>Faydalı yük məlumatları:</strong> Ötürülən və simmetrik
+alqoritmlərlə şifrələnmiş vəziyyətdə olan əsas məlumat (məsələn, daxili
+TCP/UDP protokolları);</p></li>
+<li><p><strong>Doldurma baytları:</strong> Şifrələmə alqoritmlərinin
+(məsələn, AES blok şifrələməsi) tələb etdiyi sabit riyazi blok ölçüsünə
+(<span class="math inline">\(16\)</span> baytın tam qatlarına)
+uyğunlaşdırmaq üçün əlavə edilən <span class="math inline">\(0\)</span>
+ilə <span class="math inline">\(255\)</span> bayt arası mənasız
+tamamlayıcı daxili verilənlər;</p></li>
+<li><p><strong>Doldurma uzunluğu:</strong> Quyruq hissəsindəki doldurma
+sahəsinə tamamlama məqsədilə neçə bayt daxili məlumat əlavə edildiyini
+göstərən metaməlumat;</p></li>
+<li><p><strong>Növbəti başlıq:</strong> Şifrələnmiş faydalı yükün
+birbaşa daxilində hansı növ nəqliyyat və ya şəbəkə protokolunun
+(məsələn, TCP, UDP) yerləşdiyini bildirən sahə;</p></li>
+<li><p><strong>Autentifikasiya məlumatları:</strong> Seçilmiş çevirmədən
+asılı olaraq açarlı MAC və ya AEAD teqini saxlayır. Yoxlama qorunan ESP
+sahələrinin bütövlüyünü və SA üzrə məlumat mənbəyini autentifikasiya
+edir; xarici IP başlığı ESP bütövlük əhatəsinə daxil deyil.</p></li>
+</ul>
+<h2 id="esp-protokolunun-funksional-xüsusiyyətləri-və-üstünlükləri">ESP
+Protokolunun Funksional Xüsusiyyətləri və Üstünlükləri</h2>
+<ul>
+<li><p><strong>IP Protokol İndeksi:</strong> Şəbəkə qatında IP
+başlığının daxilində rəsmi olaraq <span
+class="math inline">\(50\)</span> nömrəli protokol kimi
+tanınır;</p></li>
+<li><p><strong>Həm şifrələmə, həm də autentifikasiya təmin edə
+bilər:</strong> Sistem administratorunun seçiminə uyğun olaraq eyni anda
+həm məxfiliyi, həm də bütövlüyü təmin edir;</p></li>
+<li><p><strong>Əlaqəli məlumatla autentifikasiyalı şifrələmə (AEAD)
+rejimləri:</strong> Müasir kriptoqrafik AEAD rejimləri (məsələn,
+AES-GCM) sayəsində həm şifrələmə, həm də autentifikasiya prosesini eyni
+bir riyazi dövrdə yerləşdirərək resurs istifadəsini minimuma
+endirir;</p></li>
+<li><p><strong>NAT ilə İş:</strong> Xarici IP başlığı ESP ICV/AEAD
+əhatəsinə daxil olmadığı üçün ünvan dəyişikliyi ESP yoxlamasını birbaşa
+pozmur. Bununla belə, adi ESP-də UDP/TCP portu olmadığı üçün PAT
+demultipleksasiyası və nəqliyyat rejimli TCP/UDP yoxlama cəmləri problem
+yarada bilər. NAT-T ESP-ni UDP 4500 daxilində kapsullaşdıraraq port
+əsaslı eşləndirməni təmin edir; təhlükəsizlik divarı və NAT siyasəti
+yenə də düzgün qurulmalıdır.</p></li>
+</ul>
+<h2 id="ah-və-esp-protokoallarının-müqayisəli-analizi">AH və ESP
+Protokoallarının Müqayisəli Analizi</h2>
+<p>IPsec memarlığında tətbiq edilən hər iki protokolun struktur və
+funksional fərqləri aşağıdakı cədvəldə elmi parametrlərlə müqayisə
+edilmişdir:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texniki Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>AH Protokolu</strong></th>
+<th style="text-align: left;"><strong>ESP Protokolu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">IP protokol nömrəsi</td>
+<td style="text-align: left;"><span
+class="math inline">\(51\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(50\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Məxfilik / Şifrələmə</td>
+<td style="text-align: left;">Xeyr (açıq mətn formatında qalır)</td>
+<td style="text-align: left;">Bəli (kriptoqrafik gizlilik təmin
+edilir)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mənbə Autentifikasiyası</td>
+<td style="text-align: left;">Bəli</td>
+<td style="text-align: left;">Bəli</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bütövlük qorunmasının əhatəsi</td>
+<td style="text-align: left;">Faydalı yük və IP başlığının
+dəyişməz/proqnozlaşdırılan sahələri</td>
+<td style="text-align: left;">ESP başlığı, faydalı yük və ESP quyruğu;
+xarici IP başlığı ICV/AEAD əhatəsində deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;">NAT keçidi</td>
+<td style="text-align: left;">Ünvan dəyişikliyi AH ICV-ni pozduğu üçün
+praktik deyil</td>
+<td style="text-align: left;">NAT-T ilə UDP 4500 kapsullaşdırması və
+port əsaslı demultipleksasiya</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rəsmi Standart</td>
+<td style="text-align: left;">RFC 4302</td>
+<td style="text-align: left;">RFC 4303</td>
+</tr>
+<tr>
+<td style="text-align: left;">Müasir Tətbiq Sahəsi</td>
+<td style="text-align: left;">Çox nadir və spesifik hallarda istifadə
+olunur</td>
+<td style="text-align: left;">Müasir magistral VPN infrastrukturlarında
+geniş istifadə olunur</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ipsec-iş-rejimləri">IPsec İş Rejimləri</h1>
+<p>IPsec protokollar toplusu şəbəkə topologiyasının tələblərindən və
+qorunacaq infrastrukturun növündən asılı olaraq iki əsas iş rejimində
+fəaliyyət göstərir <span class="citation"
+data-cites="stallings2017cryptography"></span>:</p>
+<h2 id="nəqliyyat-rejimi">Nəqliyyat Rejimi</h2>
+<p>Nəqliyyat rejimində orijinal IP başlığı marşrutlaşdırma üçün görünən
+qalır. ESP əsasən IP faydalı yükünü qoruyur və xarici IP başlığını
+autentifikasiya etmir; AH isə faydalı yüklə yanaşı IP başlığının
+dəyişməz və proqnozlaşdırılan sahələrini də ICV-yə daxil edir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="minipage">
+<pre><code>Orijinal paket strukturu:
++-------------------+-----------------------------------+
+| Orijinal IP Başl. |  Faydalı yük (TCP/UDP + məlumat)  |
++-------------------+-----------------------------------+
+
+Nəqliyyat Rejimi (AH tətbiqi):
++-------------------+---------------+-----------------------------------+
+| Orijinal IP Başl. |  AH Başlığı   |  Faydalı yük (TCP/UDP + məlumat)  |
++-------------------+---------------+-----------------------------------+
+|&lt;- - - - - - - - - - -  ICV İmza Sahəsi  - - - - - - - - - - - - - - -&gt;|
+
+Nəqliyyat Rejimi (ESP tətbiqi):
++-------------------+---------------+---------------+-----------+-------+
+| Orijinal IP Başl. |  ESP Başlığı  | TCP/UDP+məl.  | ESP Quyr. | ESP A.|
++-------------------+---------------+---------------+-----------+-------+
+                                    |&lt;-- Şifrə --&gt;|
+                    |&lt;-- - - - Autentifikasiya - - - - - --&gt;|</code></pre>
+</div>
+</div>
+<figcaption>Nəqliyyat rejimində paketlərin transformasiya
+strukturu</figcaption>
+</figure>
+<p><strong>Nəqliyyat rejiminin fundamental xüsusiyyətləri:</strong></p>
+<ul>
+<li><p><strong>İstifadə ssenarisi:</strong> Son istifadəçi cihazlarının
+birbaşa öz aralarında qurduğu nöqtədən-nöqtəyə rabitəni qorumaq üçün
+tətbiq edilir;</p></li>
+<li><p><strong>Üstünlükləri:</strong> Paketə yeni bir IP başlığı əlavə
+edilmədiyi üçün əlavə xidməti məlumat yükü minimum səviyyədə olur və
+şəbəkə resurslarına qənaət edilir;</p></li>
+<li><p><strong>Çatışmazlıqları:</strong> Orijinal IP başlığı tamamilə
+şifrəsiz və açıq qaldığı üçün şəbəkə daxilindəki hücumçular trafik
+axınını təhlil edərək mənbə və hədəf IP ünvanlarını öyrənə
+bilirlər.</p></li>
+</ul>
+<h2 id="tunel-rejimi">Tunel Rejimi</h2>
+<p>Tunel rejimində <strong>bütün ilkin IP paketi</strong> (həm daxili
+başlıq, həm də faydalı yük) bütövlükdə qorunma altına alınır (şifrələnir
+və ya imzalanır). Kapsullaşdırılmış bu yeni strukturun önünə şəbəkədə
+hərəkət etməsi üçün tamamilə yeni bir xarici IP başlığı əlavə
+edilir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="minipage">
+<pre><code>Orijinal paket strukturu:
++---------------+-----------------------------------+
+| Orij. IP Bş.  |  Faydalı yük (TCP/UDP + məlumat)  |
++---------------+-----------------------------------+
+
+Tunel Rejimi (AH tətbiqi):
++-----------+-----------+-----------+-----------------------------------+
+| Xarici IP | AH Başl.  | Orij. IP  |  Faydalı yük (TCP/UDP + məlumat)  |
++-----------+-----------+-----------+-----------------------------------+
+|&lt;- - - - - - - - - - - - ICV İmza Sahəsi - - - - - - - - - - - - - -&gt;|
+
+Tunel Rejimi (ESP tətbiqi):
++-----------+-----------+-----------+---------------+-----------+-------+
+| Xarici IP | ESP Başl. | Orij. IP  | TCP/UDP+məl.  | ESP Quyr. | ESP A.|
++-----------+-----------+-----------+---------------+-----------+-------+
+                        |&lt;-- - - - Şifrələnir - - - - -&gt;|
+            |&lt;-- - - - - - -  Autentifikasiya  - - - - - - - - - - -&gt;|</code></pre>
+</div>
+</div>
+<figcaption>Tunel rejimində paketlərin transformasiya
+strukturu</figcaption>
+</figure>
+<p><strong>Tunel rejiminin fundamental xüsusiyyətləri:</strong></p>
+<ul>
+<li><p><strong>İstifadə ssenarisi:</strong> Yerli şəbəkələri (LAN)
+bir-birinə bağlayan xidməti şlüzlər, marşrutlaşdırıcılar və ya şəbəkə
+ekranları arasında şəbəkədən-şəbəkəyə VPN tunellərinin qurulmasında
+istifadə olunur;</p></li>
+<li><p><strong>Üstünlükləri:</strong> Orijinal paket xarici IP daxilində
+tamamilə gizləndiyi üçün daxili şəbəkənin topologiyası, daxili IP
+ünvanları və cihazların strukturu kənar tərəflərdən tamamilə gizli
+qalır;</p></li>
+<li><p><strong>Çatışmazlıqları:</strong> Paketə əlavə xarici başlıq, ESP
+quyruğu və imza elementləri daxil edildiyi üçün ümumi paketin ölçüsü
+böyüyür. Bu hal şəbəkədə maksimum ötürmə vahidi (MTU) limitlərinin
+aşılmasına və paketlərin bölünməsinə səbəb ola bilər.</p></li>
+</ul>
+<h2 id="iş-rejimlərinin-müqayisəli-analizi">İş Rejimlərinin Müqayisəli
+Analizi</h2>
+<p>IPsec daxilində istifadə olunan hər iki rejimin texniki və funksional
+fərqləri aşağıdakı cədvəldə sistemləşdirilmişdir:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texniki Parametr</strong></th>
+<th style="text-align: left;"><strong>Nəqliyyat Rejimi</strong></th>
+<th style="text-align: left;"><strong>Tunel Rejimi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Kriptoqrafik Qorunma Sahəsi</td>
+<td style="text-align: left;">Yalnız IP paketinin daxili faydalı yükü
+qorunur.</td>
+<td style="text-align: left;">İlkin IP başlığı daxil olmaqla bütün paket
+qorunur.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Yeni IP Başlığının Əlavəsi</td>
+<td style="text-align: left;">Xeyr (<em>Orijinal IP başlığı istifadə
+olunur</em>).</td>
+<td style="text-align: left;">Bəli (<em>Yeni xarici marşrutlaşdırma
+başlığı yaradılır</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Əsas Tətbiq Topologiyası</td>
+<td style="text-align: left;">Son qovşaqlar arasında ucdan-uca
+rabitə.</td>
+<td style="text-align: left;">Şəbəkə şlüzləri və marşrutlaşdırıcılar
+arasında şəbəkədən-şəbəkəyə VPN.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Daxili Ünvan Gizliliyi</td>
+<td style="text-align: left;">Təmin edilmir (<em>Mənbə və hədəf IP-ləri
+şəbəkədə açıq görünür</em>).</td>
+<td style="text-align: left;">Tam təmin edilir (<em>Orijinal IP
+ünvanları tamamilə şifrələnir</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Əlavə Xidməti Məlumat Yükü</td>
+<td style="text-align: left;">Aşağı səviyyədədir.</td>
+<td style="text-align: left;">Yeni başlıq səbəbindən daha
+yüksəkdir.</td>
+</tr>
+<tr>
+<td style="text-align: left;">NAT ilə Kəsişmə Çevikliyi</td>
+<td style="text-align: left;">Çətin və məhduddur.</td>
+<td style="text-align: left;">NAT-T (<em>UDP 4500
+kapsullaşdırılması</em>) ilə tam və problemsizdir.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ike-internet-açar-mübadiləsi-protokolu">IKE (İnternet Açar
+Mübadiləsi) Protokolu</h1>
+<h2 id="ike-nin-fundamental-məqsədi">IKE-nin Fundamental Məqsədi</h2>
+<p>IKE — IPsec üçün tərəfləri autentifikasiya edən, Diffi–Hellman
+paylaşımı və birdəfəlik qiymətlərdən açar materialı törədən və
+təhlükəsizlik assosiasiyalarını (SA) idarə edən internet açar mübadiləsi
+protokoludur <span class="citation" data-cites="kaufman2005ike"></span>.
+IKE şəbəkə təhlükəsizliyində aşağıdakı funksiyaları yerinə yetirir:</p>
+<ul>
+<li><p><strong>Autentifikasiya:</strong> PSK və ya rəqəmsal imza ilə
+tərəflər qarşılıqlı autentifikasiya oluna bilər. Uzaqdan girişdə EAP çox
+vaxt başladan tərəfi autentifikasiya edir, cavab verən tərəf isə ayrıca
+rəqəmsal imza ilə autentifikasiya olunur;</p></li>
+<li><p><strong>Açar törətmə:</strong> Diffi–Hellman paylaşımı, hər iki
+tərəfin birdəfəlik qiymətləri və PRF vasitəsilə tərəflər eyni IKE və
+CHILD SA açar materialını yerli hesablayır; gizli işçi açarlar xətt
+üzərindən göndərilmir;</p></li>
+<li><p><strong>SA Parametrlərinin Razılaşdırılması:</strong> Şifrələmə
+(məsələn, AES), heşləmə (məsələn, SHA-2) və bütövlük alqoritmlərinin
+ortaq seçilməsi;</p></li>
+<li><p><strong>Açarların Yenidən Açarlanması:</strong> Müəyyən edilmiş
+zaman limitindən və ya məlumat həcmindən sonra köhnə açarların silinərək
+avtomatik yeni açarlarla əvəzlənməsi.</p></li>
+</ul>
+<h2 id="ike-protokolunun-versiyaları">IKE Protokolunun Versiyaları</h2>
+<h3 id="ikev1-rfc-2409">IKEv1 (RFC 2409)</h3>
+<p>IKEv1 standartı <span class="citation"
+data-cites="harkins1998ike"></span> təhlükəsizlik əlaqəsini iki fərqli
+və ardıcıl mərhələdə (<em>faza</em>) reallaşdırır:</p>
+<p><strong>Faza 1: İlkin Mərhələ</strong></p>
+<ul>
+<li><p>Tərəflər bir-birini autentifikasiya edir və Faza 2 üçün
+idarəedici və təhlükəsiz bir idarəetmə kanalı (<em>ISAKMP SA / IKE
+SA</em>) yaradır;</p></li>
+<li><p><strong>Əsas rejim:</strong> Ümumilikdə <span
+class="math inline">\(6\)</span> mesaj mübadiləsi ilə icra olunur.
+Şəxsiyyət məlumatlarını şifrəli ötürdüyü üçün yüksək təhlükəsizlik təmin
+edir, lakin yavaşdır;</p></li>
+<li><p><strong>Təcavüzkar rejim:</strong> Ümumilikdə <span
+class="math inline">\(3\)</span> mesajla tamamlanır. Sürətlidir, lakin
+tərəflərin identifikatorlarını açıq mətndə ötürdüyü üçün struktur
+daxilində zəiflik yaradır.</p></li>
+</ul>
+<p><strong>Faza 2: Sürətli Rejim</strong></p>
+<ul>
+<li><p>Faza 1-də qurulmuş təhlükəsiz idarəetmə tunelinin daxilindən
+keçərək daxili məlumat trafikini qoruyacaq əsas <strong>IPsec
+SA</strong> kontraktlarını yaradır;</p></li>
+<li><p>Hər istiqamət üçün (gələn və gedən trafik) ayrıca unikal SA
+qurlur;</p></li>
+<li><p>Ümumilikdə <span class="math inline">\(3\)</span> mesaj
+mübadiləsi ilə tamamlanır.</p></li>
+</ul>
+<h3 id="ikev2-rfc-7296">IKEv2 (RFC 7296)</h3>
+<p>IKEv2 <span class="citation" data-cites="kaufman2014ikev2"></span>
+köhnə versiyanın çatışmazlıqlarını aradan qaldırmaq üçün dizayn edilmiş
+müasir standartdır. IKEv1 ilə müqayisədə əsas fundamental üstünlükləri
+bunlardır:</p>
+<ul>
+<li><p><strong>Sadələşdirilmiş ilkin mübadilə:</strong> Əsas
+sertifikat/PSK ssenarisində ilkin IKE SA və ilk CHILD SA iki sorğu–cavab
+mübadiləsi, yəni dörd mesajla qurula bilər. <code>COOKIE</code>, EAP,
+əlavə sertifikatlar, yönləndirmə və ya ölçü məhdudiyyəti əlavə
+mübadilələr yarada bilər;</p></li>
+<li><p><strong>MOBIKE Dəstəyi:</strong> Mobil cihaz istifadəçisi Wi-Fi
+şəbəkəsindən mobil şəbəkəyə (4G/5G) keçdikdə və IP ünvanı dəyişdikdə
+belə VPN tunelinin qırılmadan davam etməsini təmin edir;</p></li>
+<li><p><strong>DoS-a qarşı cavab nişanı:</strong> Cavab verən tərəf
+<code>COOKIE</code> tələb etməklə başladan tərəfin cavab ala bildiyini
+böyük həcmli vəziyyət yaddaşı ayırmazdan əvvəl yoxlaya və saxta mənbəli
+yaddaş tükətmə yükünü azalda bilər; bu, bütün DDoS hücumlarının
+qarşısını almır;</p></li>
+<li><p><strong>EAP autentifikasiya çevikliyi:</strong> Uzaqdan qoşulan
+başladan tərəf üçün parol, nişan və başqa EAP metodları dəstəklənə
+bilər. EAP adətən cavab verən tərəfin autentifikasiyasını əvəz etmir və
+bir neçə əlavə IKE_AUTH mübadiləsi tələb edə bilər.</p></li>
+</ul>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<pre><code>Müştəri (başladan tərəf)                            Server (cavab verən tərəf)
+   |                                                       |
+   |------ IKE_SA_INIT (HDR, SAi1, KEi, Ni) --------------&gt;| (Şiffrəsiz təkliflər)
+   |&lt;----- IKE_SA_INIT (HDR, SAr1, KEr, Nr) ---------------| (DH Ortaq Açar)
+   |                                                       |
+   |-- IKE_AUTH (HDR, SK {IDi, AUTH, SA, TSi, TSr}) ------&gt;| (Şifrəli şəxsiyyət
+   |&lt;-- IKE_AUTH (HDR, SK {IDr, AUTH, SA, TSi, TSr}) ------|  və Autentifikasiya)
+   |                                                       |
+   |&lt;==================== IPsec ESP Tuneli ================&gt;|</code></pre>
+</div>
+<figcaption>IKEv2 üçün əsas dörd mesajlı ssenari; EAP və
+<code>COOKIE</code> əlavə mübadilə yarada bilər</figcaption>
+</figure>
+<h2 id="nat-keçidi-nat-t-texnologiyası">NAT Keçidi (NAT-T)
+Texnologiyası</h2>
+<div class="problem">
+<p><span>NAT və IPsec Kəsişmə Problemi</span> NAT və xüsusilə PAT
+cihazları xarici IP ünvanı və nəqliyyat portlarını dəyişir. AH IP
+ünvanlarını ICV-yə daxil etdiyi üçün NAT AH yoxlamasını pozur. Xarici IP
+başlığı ESP ICV-yə daxil deyil, lakin adi ESP-də PAT üçün UDP/TCP
+portları yoxdur; nəqliyyat rejimində daxili TCP/UDP yoxlama cəmi də
+psevdobaşlıqdakı ünvan dəyişikliyindən təsirlənə bilər. Buna görə NAT
+arxasında ESP-ni etibarlı demultipleksasiya etmək və yoxlama cəmi
+problemini idarə etmək üçün UDP kapsullaşdırması istifadə olunur.</p>
+</div>
+<p><strong>NAT-T (RFC 3948) Mexanizminin Həlli:</strong></p>
+<ol>
+<li><p><strong>NAT-ın Aşkarlanması:</strong> IKE əl sıxması zamanı
+<code>IKE_SA_INIT</code> mərhələsində tərəflər bir-birinə xətt üzərində
+NAT cihazının olub-olmadığını yoxlayan NAT aşkarlama heşləri
+göndərir;</p></li>
+<li><p><strong>UDP 4500 Kapsullaşdırılması:</strong> Əgər yolda NAT
+aşkarlanarsa, IKE və sonrakı bütün IPsec ESP paketləri
+avtomatlaşdırılmış şəkildə standart <strong>UDP 4500</strong> portunun
+daxilinə bükülür;</p></li>
+<li><p><strong>PAT uyğunluğu:</strong> NAT/PAT qurğusu qarşısında
+dördüncü qat UDP başlığını gördüyü üçün xarici UDP başlığındakı port
+nömrəsini rahatlıqla dəyişə bilir, lakin daxildəki şifrəli ESP paketi
+toxunulmaz qalır;</p></li>
+<li><p><strong>Bağlantını canlı saxlayan paketlər:</strong> NAT
+uyğunlaşdırması boş trafik zamanı tez silinirsə, tətbiq olunan profilə
+və cihaz sayğacına uyğun kiçik saxlayıcı paketlər göndərilə bilər; <span
+class="math inline">\(20\)</span> saniyə universal protokol intervalı
+deyil.</p></li>
+</ol>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<pre><code>+---------------+---------------+-------------------+-----------------------+
+| Xarici IP Bş. | UDP (P: 4500) |    ESP Başlığı    | Şifrələnmiş Məlumat   |
++---------------+---------------+-------------------+-----------------------+
+                |&lt;- NAT bura  -&gt;|
+                |   müdaxilə    |
+                |   edə bilir   |</code></pre>
+</div>
+<figcaption>NAT-T tətbiq edilmiş standart ESP paketinin daxili
+strukturu</figcaption>
+</figure>
+<h1 id="virtual-şəxsi-şəbəkə-vpn-texnologiyası">Virtual Şəxsi Şəbəkə
+(VPN) Texnologiyası</h1>
+<h2 id="vpn-anlayışı-və-fundamental-prinsipləri">VPN Anlayışı və
+Fundamental Prinsipləri</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (VPN). <em>VPN (virtual şəxsi şəbəkə) —
+ictimai şəbəkə infrastrukturu (əsasən İnternet) üzərindən ötürülən
+məlumatların təhlükəsizliyini təmin etmək məqsədilə nöqtələr arasında
+şifrələnmiş virtual tunellər quran və xüsusi şəbəkələrə uzaqdan
+təhlükəsiz qoşulma imkanı verən korporativ şəbəkə texnologiyasıdır <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</em></p>
+</div>
+<p><strong>VPN texnologiyasının təmin etdiyi dörd əsas təhlükəsizlik
+xidməti:</strong></p>
+<ul>
+<li><p><strong>Məxfilik:</strong> Paketlərin faydalı yükü güclü
+simmetrik şifrələmə alqoritmləri ilə qorunur;</p></li>
+<li><p><strong>Bütövlük:</strong> Məlumatların ötürülmə zamanı üçüncü
+tərəflər tərəfindən dəyişdirilmədiyi heş funksiyaları (HMAC) ilə təmin
+edilir;</p></li>
+<li><p><strong>Mənbənin Autentifikasiyası:</strong> Tunelin hər iki
+ucundakı tərəflərin şəxsiyyəti və legitimliyi ciddi şəkildə
+yoxlanılır;</p></li>
+<li><p><strong>Girişə Nəzarət:</strong> Şəbəkə resurslarına yalnız
+müvafiq icazəsi və legitim hüququ olan istifadəçilərin qoşulmasına icazə
+verilir.</p></li>
+</ul>
+<h2 id="arxitektur-vpn-növləri">Arxitektur VPN Növləri</h2>
+<h3 id="şəbəkədən-şəbəkəyə-vpn-şəbəkədən-şəbəkəyə">Şəbəkədən-şəbəkəyə
+VPN (Şəbəkədən-şəbəkəyə)</h3>
+<p>Coğrafi olaraq bir-birindən uzaqda yerləşən iki və ya daha çox
+müstəqil korporativ şəbəkəni vahid və təhlükəsiz infrastrukturda
+birləşdirmək üçün istifadə olunur.</p>
+<ul>
+<li><p><strong>İstifadə Ssenariləri:</strong> Regional şirkət
+ofislərinin baş ofislə və ya bulud məlumat mərkəzləri ilə
+əlaqələndirilməsi;</p></li>
+<li><p><strong>Dominant Protokollar:</strong> Əsasən şəbəkə qatında
+işləyən IPsec protokolunun tunel rejimi;</p></li>
+<li><p><strong>İnfrastruktur Qurğuları:</strong> Korporativ
+marşrutlaşdırıcılar, yeni nəsil şəbəkə ekranları (NGFW) və ya xüsusi VPN
+şlüzləri;</p></li>
+<li><p><strong>Xarakterik Xüsusiyyətləri:</strong> Daim aktiv əlaqə,
+statik konfiqurasiya və son istifadəçidən asılı olmayan şəbəkə səviyyəli
+tunelləmə.</p></li>
+</ul>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<pre><code>+-----------------------+                       +-----------------------+
+|  Ofis A Daxili Şəbəkə |                       |  Ofis B Daxili Şəbəkə |
+|     10.1.0.0 / 16     |                       |     10.2.0.0 / 16     |
++-----------+-----------+                       +-----------+-----------+
+            |                                               |
+      [ VPN Şlüzü ]                                   [ VPN Şlüzü ]
+    (Statik IP: X.X.X.X)                            (Statik IP: Y.Y.Y.Y)
+            |                                               |
+            +------------ İctimai İnternet Xətti ------------+
+                          ( Şifrəli IPsec Tuneli )</code></pre>
+</div>
+<figcaption>Şəbəkədən-şəbəkəyə VPN şəbəkə topologiyası</figcaption>
+</figure>
+<h3 id="uzaqdan-giriş-vpn-uzaqdan-giriş">Uzaqdan giriş VPN (Uzaqdan
+Giriş)</h3>
+<p>Fərdi istifadəçilərin (məsələn, evdən işləyən və ya ezamiyyətdə olan
+əməkdaşların) internet üzərindən korporativ daxili şəbəkə resurslarına
+təhlükəsiz daxil olması üçün tətbiq edilir.</p>
+<ul>
+<li><p><strong>İstifadə Ssenariləri:</strong> Uzaqdan iş mühiti, mobil
+istifadəçilərin şəbəkəyə qoşulması;</p></li>
+<li><p><strong>İstifadə Olunan Protokollar:</strong> IKEv2+EAP əsaslı
+IPsec, SSL/TLS (OpenVPN, Cisco AnyConnect) və müasir WireGuard;</p></li>
+<li><p><strong>İnfrastruktur Qurğuları:</strong> İstifadəçi cihazında
+quraşdırılmış VPN müştəri proqramı və mərkəzi şəbəkədə yerləşən VPN
+cəmləşdiricisi;</p></li>
+<li><p><strong>Xarakterik Xüsusiyyətləri:</strong> Dinamik IP
+ünvanlarının idarə edilməsi, çoxfaktorlu autentifikasiya (MFA) və
+istifadəçinin tələbi ilə açılıb-qapanan dinamik tunellər.</p></li>
+</ul>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<pre><code>+-----------------------+                       +-----------------------+
+|   Mobil İstifadəçi    |                       |   Şirkət Mərkəzi      |
+|  (Noutbuk / Proqram)  |                       |   Daxili Şəbəkəsi     |
++-----------+-----------+                       +-----------+-----------+
+            |                                               |
+     [ VPN Müştəri ]                                 [ VPN Konsentratoru ]
+   (Dinamik İctimai IP)                             (Daimi İctimai IP)
+            |                                               |
+            +------------ İctimai İnternet Xətti ------------+
+                          ( Dinamik Müştəri Tuneli )</code></pre>
+</div>
+<figcaption>Uzaqdan giriş VPN şəbəkə topologiyası</figcaption>
+</figure>
+<h2 id="vpn-protokollarının-müqayisəli-analizi">VPN Protokollarının
+Müqayisəli Analizi</h2>
+<table>
+<caption>Əsas VPN tunelləmə protokollarının texniki parametrlərinin
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Protokol</strong></th>
+<th style="text-align: left;"><strong>Fundamental
+Üstünlükləri</strong></th>
+<th style="text-align: left;"><strong>Kritik
+Çatışmazlıqları</strong></th>
+<th style="text-align: left;"><strong>Standart Port</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>IPsec</strong></td>
+<td style="text-align: left;">Maksimal şəbəkə səviyyəli təhlükəsizlik,
+əməliyyat sistemlərində daxili dəstək, IKEv2 ilə sürətli mobil
+keçid.</td>
+<td style="text-align: left;">Mürəkkəb konfiqurasiya strukturu, NAT
+mühitlərində əlavə NAT-T (UDP 4500) tələbi.</td>
+<td style="text-align: left;">UDP 500, UDP 4500</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OpenVPN</strong></td>
+<td style="text-align: left;">Çox yüksək çeviklik, açıq mənbə kodu,
+SSL/TLS arxitekturası, mürəkkəb paket süzgəci maneələrini asanlıqla keçə
+bilməsi.</td>
+<td style="text-align: left;">İstifadəçi rejimində işlədiyindən nisbətən
+yavaşdır, ayrıca müştəri proqramı tələb edir.</td>
+<td style="text-align: left;">UDP 1194 (TCP 443 rejimi)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WireGuard</strong></td>
+<td style="text-align: left;">Çox yüksək sürət, aşağı cavab gecikməsi,
+nüvə səviyyəsində inteqrasiya, müasir və sadə kriptoqrafik kod
+bazası.</td>
+<td style="text-align: left;">Doğma olaraq yalnız UDP dəstəkləyir və
+bəzi paket süzgəcləri tərəfindən bloklana bilər; nisbətən yenidir.</td>
+<td style="text-align: left;">UDP 51820</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>L2TP/IPsec</strong></td>
+<td style="text-align: left;">Bütün köhnə və müasir platformalarda geniş
+daxili dəstək, asan tənzimlənmə.</td>
+<td style="text-align: left;">Şifrələmə funksiyası yoxdur (mütləq
+IPsec-ə ehtiyac duyur), ikiqat kapsullaşdırmanın əlavə yükü səbəbindən
+yavaşdır.</td>
+<td style="text-align: left;">UDP 1701</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PPTP</strong></td>
+<td style="text-align: left;">Çox sadə qurulum, minimal resurs tələbi,
+köhnə avadanlıqlarda daxili dəstək.</td>
+<td style="text-align: left;"><strong>Təhlükəsiz deyil.</strong>
+MS-CHAPv2 mexanizmi tamamilə sındırılıb, müasir sistemlərdə istifadəsi
+qadağandır.</td>
+<td style="text-align: left;">TCP 1723</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SSTP</strong></td>
+<td style="text-align: left;">SSL/TLS əsaslıdır, standart HTTPS (port
+443) kimi göründüyü üçün şəbəkə ekranlarını və DPI sistemlərini
+asanlıqla keçir.</td>
+<td style="text-align: left;">Əsasən Microsoft ekosisteminə bağlıdır,
+digər platformalarda (Linux, macOS) dəstəyi məhduddur.</td>
+<td style="text-align: left;">TCP 443</td>
+</tr>
+</tbody>
+</table>
+<h1 id="wireguard-protokolu">WireGuard Protokolu</h1>
+<h2 id="wireguard-ın-yaranması-və-inkişaf-tarixi">WireGuard-ın Yaranması
+və İnkişaf Tarixi</h2>
+<div class="history">
+<p><span>WireGuard</span> WireGuard — kibertəhlükəsizlik mütəxəssisi
+<strong>Jason Donenfeld</strong> tərəfindən 2016-cı ildə yaradılmış və
+ənənəvi VPN protokollarının (IPsec, OpenVPN) mürəkkəbliyini azaltmaq
+məqsədi daşıyan müasir, yüksək məhsuldarlıqlı tunelləmə protokoludur
+<span class="citation" data-cites="donenfeld2017wireguard"></span>.
+Səmərəliliyinə görə 2020-ci ildə Linux 5.6 nüvəsinə daxil edilmişdir.
+Hazırda Windows, macOS, iOS, Android, FreeBSD və OpenBSD
+platformalarında geniş şəkildə dəstəklənir.</p>
+</div>
+<p><strong>WireGuard-ın əsas dizayn və memarlıq məqsədləri:</strong></p>
+<ul>
+<li><p><strong>Kiçik əsas quruluş:</strong> WireGuard-ın Linux nüvə
+reallaşdırması ilkin təqdimatlarda təxminən 4000 sətirlik əsas kod kimi
+təsvir edilirdi. Dəqiq sətir sayı versiya, platforma, sürücü və
+asılılıqların sayılmasından asılıdır; kiçik hücum səthi yoxlamanı
+asanlaşdıra bilər, lakin avtomatik təhlükəsizlik sübutu deyil;</p></li>
+<li><p><strong>Məhsuldarlıq məqsədi:</strong> Linux-da nüvə
+inteqrasiyası bəzi istifadəçi sahəsi keçidlərini azalda bilər. Real
+gecikmə və ötürmə qabiliyyəti platforma, paket ölçüsü, prosessor, aparat
+sürətləndirməsi və müqayisə olunan IPsec/WireGuard reallaşdırmalarından
+asılı olaraq ölçülməlidir;</p></li>
+<li><p><strong>Sabit Kriptoqrafik Dəst:</strong> Protokol seçim
+danışıqlarını azaltmaq üçün konkret müasir primitivlər seçir;</p></li>
+<li><p><strong>Formal təhlil:</strong> WireGuard protokolu üçün bir neçə
+formal model və təhlil dərc olunub. Bu nəticələr modelləşdirilən
+protokol və fərziyyələrə aiddir; bütün reallaşdırmaların, nüvə kodunun
+və əməliyyat mühitinin tam sübutu demək deyil.</p></li>
+</ul>
+<h2 id="wireguard-ın-kriptoqrafik-arxitekturası">WireGuard-ın
+Kriptoqrafik Arxitekturası</h2>
+<p>WireGuard protokolu ənənəvi VPN-lərdə olan "kriptoqrafik çeviklik"
+prinsipindən imtina edir. İstifadəçiyə alqoritm seçimi icazəsi vermir;
+bununla da konfiqurasiya xətalarından yaranan təhlükəsizlik
+boşluqlarının qarşısını alır. Protokol aşağıdakı müasir kriptoqrafik
+primitivləri sabit olaraq tətbiq edir <span class="citation"
+data-cites="donenfeld2017wireguard"></span>:</p>
+<ul>
+<li><p><strong>Asimmetrik açar mübadiləsi:</strong>
+<strong>X25519</strong> — Curve25519 üzərində Diffi–Hellman funksiyası;
+məhsuldarlıq və reallaşdırma xüsusiyyətləri platformadan
+asılıdır;</p></li>
+<li><p><strong>Simmetrik Şifrələmə və Autentifikasiya:</strong>
+<strong>ChaCha20-Poly1305</strong> — əlaqəli məlumatla autentifikasiyalı
+şifrələmə (AEAD) rejimində işləyir. İntel prosessorlarındakı AES-NI
+aparat sürətləndirilməsinə ehtiyac duymadan mobil və aşağı resurslu
+cihazlarda belə çox sürətlidir;</p></li>
+<li><p><strong>Heş funksiyası:</strong> <strong>BLAKE2s</strong> —
+protokolun heş və açarlı heş ehtiyacları üçün seçilmiş müasir
+funksiya;</p></li>
+<li><p><strong>Açar Törətmə Funksiyası:</strong> <strong>HKDF</strong> —
+mübadilə edilən ortaq sirdən sessiya açarlarının təhlükəsiz şəkildə
+törədilməsi üçün;</p></li>
+<li><p><strong>Təkrar Göndərmə Hücumlarından Qorunma:</strong>
+Paketlərin manipulyasiyasının qarşısını almaq üçün 64-bitlik unikal sıra
+nömrələri tətbiq edilir.</p></li>
+</ul>
+<div class="note">
+<p><span>Kriptoqrafik Sabitliyin Əhəmiyyəti</span> WireGuard v1 alqoritm
+danışıqları aparmır. Primitiv dəyişdirilməli olarsa yeni protokol
+versiyası və koordinasiyalı miqrasiya tələb olunar. Bu dizayn
+danışıqlarda zəif profilə endirmə səthini azaldır, lakin versiya keçidi,
+konfiqurasiya və reallaşdırma hücumlarını avtomatik aradan
+qaldırmır.</p>
+</div>
+<h2 id="şəbəkə-interfeysi-və-qarşı-tərəfin-identifikasiyası">Şəbəkə
+İnterfeysi və Qarşı Tərəfin İdentifikasiyası</h2>
+<p>WireGuard şəbəkə səviyyəsində virtual interfeys (məsələn,
+<code>wg0</code>) kimi davranır. Hər qarşı tərəf açıq açar və
+<code>AllowedIPs</code> prefiksləri ilə konfiqurasiya olunur. Göndərişdə
+prefiks uyğunluğu paketin hansı qarşı tərəf üçün şifrələnəcəyini seçir;
+qəbulda isə deşifrə olunmuş daxili mənbə ünvanının həmin qarşı tərəf
+üçün icazəli olub-olmadığı yoxlanır. Əməliyyat sisteminin marşrut
+cədvəlinə qaydaları <code>wg-quick</code> kimi alətlər əlavə edə bilər,
+lakin bu, WireGuard protokolunun öz marşrutlaşdırma cədvəli deyil.
+Düzgün olmayan və üst-üstə düşən prefikslər ayrıca konfiqurasiya riski
+yaradır.</p>
+<h2 id="iş-prinsipi-və-noise-protokolu">İş Prinsipi və Noise
+Protokolu</h2>
+<p>WireGuard-ın qoşulma və əl sıxma mexanizmi <strong>Noise Protokol
+Çərçivəsinə</strong> (xüsusilə <em>Noise_IK</em> modelinə)
+əsaslanır:</p>
+<ol>
+<li><p><strong>Statik Açar Tanıtımı:</strong> Tərəflər əvvəlcədən
+bir-birlərinin açıq açarlarını şəbəkə strukturu daxilində qeyd
+edirlər;</p></li>
+<li><p><strong>Əl sıxmanın başlanğıcı:</strong> Müştəri tərəf serverə
+efemer açar və öz statik açarını şifrəli bükərək ilk paketi
+göndərir;</p></li>
+<li><p><strong>Əl sıxma cavabı:</strong> Server sorğunu yoxlayır, öz
+efemer açarını hazırlayır və müştəriyə cavab paketi göndərir;</p></li>
+<li><p><strong>Sessiya açarlarının təyin edilməsi:</strong> Hər iki
+tərəf müstəqil şəkildə HKDF vasitəsilə məlumat ötürülməsində istifadə
+olunacaq simmetrik sessiya açarlarını hesablayır;</p></li>
+<li><p><strong>Dinamik Yenidən Açarlama:</strong> Təhlükəsizliyi
+maksimumda saxlamaq üçün hər <span class="math inline">\(2\)</span>
+dəqiqədən bir və ya müəyyən məlumat limitindən sonra arxa planda yeni əl
+sıxma baş verir və açarlar yenilənir.</p></li>
+</ol>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<pre><code>Müştəri (başladan tərəf)                            Server (cavab verən tərəf)
+   |                                                       |
+   |---- [Açıq açarlar konfiqurasiyada qarşılıqlı bilir] --|
+   |                                                       |
+   |------ Əl sıxmanın başlanması (müvəqqəti ECDH açarı) --&gt;|
+   |&lt;----- Əl sıxma cavabı (server təsdiqi və ECDH) --------|
+   |                                                       |
+   |         ( HKDF ilə müstəqil sessiya açarları )        |
+   |                                                       |
+   |&lt;===== Şifrəli Məlumat Trafiki (ChaCha20-Poly1305) ====&gt;|
+   |                                                       |
+   |------ Dövri açar yenilənməsi --------------------------&gt;|
+   |&lt;----- Açar yenilənməsi cavabı -------------------------|</code></pre>
+</div>
+<figcaption>WireGuard protokolunun Noise əsaslı əl sıxma
+mühiti</figcaption>
+</figure>
+<h2 id="ipsec-və-wireguard-protokollarının-fundamental-müqayisəsi">IPsec
+və WireGuard Protokollarının Fundamental Müqayisəsi</h2>
+<table>
+<caption>IPsec və WireGuard protokollarının müqayisəli analiz
+cədvəli</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texniki Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>IPsec (IKEv2 daxil)</strong></th>
+<th style="text-align: left;"><strong>WireGuard</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Kod həcmi</strong></td>
+<td style="text-align: left;">Reallaşdırmadan və IKE/ESP
+komponentlərindən asılıdır</td>
+<td style="text-align: left;">Platforma və versiyadan asılıdır; ilkin
+Linux əsas kodu kiçik quruluşla tanıdılıb</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Arxitektura Modeli</strong></td>
+<td style="text-align: left;">Çoxqatlı və mürəkkəb (AH, ESP, IKE, SA,
+SPD, SAD strukturları)</td>
+<td style="text-align: left;">Sadə şəbəkə interfeysi (Virtual cihaz,
+qarşı tərəf açarları)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kriptoqrafiya Seçimi</strong></td>
+<td style="text-align: left;">Çevik: AES, 3DES, SHA, MD5 (köhnə
+alqoritmlər dəstəklənir)</td>
+<td style="text-align: left;">Sabit: Curve25519, ChaCha20, Poly1305,
+BLAKE2s</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tənzimləmə</strong></td>
+<td style="text-align: left;">Çətin və mürəkkəb (Sertifikat zəncirləri,
+fazalar, kəsişmələr)</td>
+<td style="text-align: left;">Çox sadə (Yalnız qarşılıqlı açıq açarların
+yazılması)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Performans/Sürət</strong></td>
+<td style="text-align: left;">Aparat sürətləndirilməsi, nüvə və
+alqoritmdən asılıdır</td>
+<td style="text-align: left;">Platforma, nüvə/istifadəçi fəzası variantı
+və iş yükündən asılıdır; müqayisəli ölçmə tələb edir</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nüvə inteqrasiyası</strong></td>
+<td style="text-align: left;">Var, lakin bəzi kritik əməliyyatlar
+istifadəçi rejimində icra olunur</td>
+<td style="text-align: left;">Tam var (Linux nüvəsinə yerli olaraq daxil
+edilib)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mobil Şəbəkə Keçidi</strong></td>
+<td style="text-align: left;">IKEv2 MOBIKE uzantısı tələb edir</td>
+<td style="text-align: left;">Daxili ünvan dəyişikliyi dəstəyi (IP
+dəyişsə də tunel qırılmır)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NAT keçidi</strong></td>
+<td style="text-align: left;">ESP-in UDP 4500 daxilində NAT-T
+kapsullaşdırması</td>
+<td style="text-align: left;">UDP son nöqtələri və cavab paketindən
+öyrənilən son nöqtə; lazım olduqda <code>PersistentKeepalive</code> NAT
+uyğunlaşdırmasını saxlayır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Spesifikasiya
+mənbəyi</strong></td>
+<td style="text-align: left;">IETF RFC-ləri (RFC 4301, 4303, 7296)</td>
+<td style="text-align: left;">WireGuard layihəsinin protokol və texniki
+sənədləri; RFC 8815 WireGuard standartı deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Təftiş və yoxlama</strong></td>
+<td style="text-align: left;">Konkret reallaşdırma və sazlama üzrə
+aparılır</td>
+<td style="text-align: left;">Daha kiçik əsas protokol səthi təftişi
+asanlaşdıra bilər; tam sistem təftişi yenə platforma və inteqrasiyanı
+əhatə edir</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tətbiq-ssenariləri-və-topologiyalar">Praktik Tətbiq
+Ssenariləri və Topologiyalar</h1>
+<p>Müasir korporativ şəbəkələrdə VPN texnologiyalarının tətbiqi konkret
+ehtiyaclara (təhlükəsizlik, performans, idarəetmə asanlığı) əsaslanır.
+Bu bölmədə IPsec və WireGuard protokollarının real mühitlərdəki tətbiq
+arxitekturaları nəzərdən keçirilir.</p>
+<h2
+id="korporativ-şəbəkələrdə-ipsec-arxitekturası-strongswan-modeli">Korporativ
+Şəbəkələrdə IPsec Arxitekturası (strongSwan Modeli)</h2>
+<p>IPsec protokollar ailəsi (xüsusilə strongSwan reallaşdırması)
+mərkəzləşdirilmiş korporativ infrastrukturlarda <em>şəbəkədən
+şəbəkəyə</em> (mərkəz–filial) bağlantılar üçün standart seçimdir. Tətbiq
+zamanı aşağıdakı memarlıq elementləri əsas götürülür:</p>
+<ul>
+<li><p><strong>Qayda əsaslı marşrutlaşdırma:</strong> Yerli və uzaq alt
+şəbəkələr müəyyən edilmiş təhlükəsizlik qaydalarına əsasən dəqiq
+süzgəcdən keçirilir və yalnız bu meyarlara uyğun gələn şəbəkə paketləri
+şifrələnərək tunelə yönləndirilir;</p></li>
+<li><p><strong>IKEv2 və Kriptoqrafik Razılaşma:</strong> İnteqrasiya
+zamanı faza parametrləri (IKE və ESP) ciddi şəkildə unifikasiya
+olunmalıdır. Təhlükəsizlik üçün Diffi-Hellman qrupları (məsələn,
+<em>modp2048</em>) və güclü şifrələmə alqoritmləri qarşılıqlı olaraq
+təyin edilir;</p></li>
+<li><p><strong>Autentifikasiya Mexanizmləri:</strong> Cihazların
+bir-birini tanıması üçün geniş yayılmış əvvəlcədən paylaşılmış açar
+(PSK) və ya daha təhlükəsiz korporativ mühitlər üçün rəqəmsal
+sertifikatlar (X.509) tətbiq olunur.</p></li>
+</ul>
+<h2 id="wireguard-ın-şəbəkə-infrastrukturuna-inteqrasiyası">WireGuard-ın
+Şəbəkə İnfrastrukturuna İnteqrasiyası</h2>
+<p>WireGuard-ın praktik tətbiqi ənənəvi VPN-lərdən köklü şəkildə
+fərqlənir. Sistem inzibatçısı səviyyəsində quraşdırma və idarəetmə
+prosesi virtual şəbəkə interfeyslərinin manipulyasiyasına əsaslanır:</p>
+<ol>
+<li><p><strong>Asimmetrik Açarların Hazırlanması:</strong> Hər bir
+qovşaq (əməliyyat sistemindən asılı olmayaraq) öz daxili asimmetrik açar
+cütlüyünü (ictimai və gizli) generasiya edir;</p></li>
+<li><p><strong>İnterfeys Tənzimlənməsi:</strong> Sistemdə virtual bir
+şəbəkə kartı yaradılır, ona daxili VPN IP ünvanı mənsub edilir və
+müvafiq UDP portu (məsələn, <span class="math inline">\(51820\)</span>)
+dinlənilməyə başlanır;</p></li>
+<li><p><strong>Xidmət Səviyyəsində Avtomatlaşdırma:</strong> Şəbəkə
+interfeysinin sistem yüklənərkən avtomatik aktivləşməsi üçün əməliyyat
+sisteminin xidmət menecerləri (<em>systemd</em> və s.) səviyyəsində
+inteqrasiya təmin edilir.</p></li>
+</ol>
+<h2 id="fərqli-vpn-topologiyalarının-konseptual-analizi">Fərqli VPN
+Topologiyalarının Konseptual Analizi</h2>
+<p>Məşğələ dərslərində konfiqurasiya ediləcək iki əsas VPN
+arxitekturasının iş məntiqi aşağıdakı kimidir:</p>
+<dl>
+<dt>Şəbəkədən-şəbəkəyə (Şəbəkədən-şəbəkəyə) Modeli:</dt>
+<dd>
+<p>İki coğrafi şəbəkəni birləşdirir. Ən azı bağlantını başladan tərəf
+qarşı qarşı tərəfin son nöqtəsini və açıq açarını bilməlidir; WireGuard
+autentifikasiyalı paketdən qarşı tərəfin ən son son nöqtəsini öyrənərək
+ünvan dəyişikliyi edə bilir. NAT uyğunlaşdırması boş trafikdə bağlanırsa
+<code>PersistentKeepalive</code> seçilə bilər, lakin daimi trafik və ya
+birbaşa ünvanlanan qarşı tərəf üçün məcburi deyil.</p>
+</dd>
+<dt>Uzaqdan giriş modeli:</dt>
+<dd>
+<p>Səyyar və ya evdən işləyən əməkdaşların korporativ şəbəkəyə qoşulması
+ssenarisidir. Müştəri bütün IPv4 trafikini tunelə yönəltmək üçün
+<code>0.0.0.0/0</code>, IPv6 üçün isə ayrıca <code>::/0</code>
+prefiksindən istifadə edə bilər; yalnız daxili prefikslərin verilməsi
+bölünmüş tunel yaradır. Faktiki əməliyyat sistemi marşrutlarını
+idarəetmə aləti qurur.</p>
+</dd>
+</dl>
+<h1 id="korporativ-vpn-şəbəkələri-üçün-praktik-tövsiyələr">Korporativ
+VPN Şəbəkələri üçün Praktik Tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>IPsec Təhlükəsizlik Qaydaları:</strong></p>
+<ul>
+<li><p>Yalnız ESP rejimindən istifadə edin. AH rejimi NAT (şəbəkə
+ünvanlarının çevrilməsi) prosesi ilə tamamilə uyğunsuzdur;</p></li>
+<li><p>Köhnəlmiş IKEv1 protokolunu tamamilə rədd edin, yalnız IKEv2
+standartına keçid edin;</p></li>
+<li><p>Müasir şifrələmə üçün AEAD mexanizmlərinə (<em>AES-GCM</em> və ya
+<em>ChaCha20-Poly1305</em>) üstünlük verin.</p></li>
+</ul></li>
+<li><p><strong>Topologiya Seçim Kriteriyaları:</strong></p>
+<ul>
+<li><p><strong>Mərkəz-Filial:</strong> Əgər infrastruktur qlobal
+standartlara və RFC sənədlərinə (məsələn, dövlət strukturları ilə
+inteqrasiya) tabedirsə, IPsec tunel rejimi; dinamik və çevik tənzimləmə
+tələb olunursa, WireGuard üstün tutulmalıdır;</p></li>
+<li><p><strong>Uzaqdan Qoşulma:</strong> Mobil cihazların batareya
+qənaəti, sürətli şəbəkə keçidləri və idarəetmə asanlığı baxımından
+<strong>WireGuard</strong> tövsiyə olunan ilkin seçimdir.</p></li>
+</ul></li>
+<li><p><strong>NAT və Şəbəkə Ekranlarının Keçilməsi:</strong></p>
+<ul>
+<li><p>IPsec trafikinin NAT arxasından maneəsiz keçməsi üçün NAT keçidi
+(NAT-T) mexanizmini aktivləşdirin (UDP 4500 portu);</p></li>
+<li><p>WireGuard üçün tələb olunan UDP keçidini və son nöqtə siyasətini
+qurun. NAT arxasındakı qarşı tərəfin ünvan uyğunlaşdırması boş trafikdə
+qorunmalıdırsa <code>PersistentKeepalive</code> intervalını NAT
+taymerinə uyğun seçin; onu bütün qarşı tərəflər üçün avtomatik
+aktivləşdirmək tələb olunmur.</p></li>
+</ul></li>
+<li><p><strong>Diaqnostika və təftiş alətləri:</strong></p>
+<ul>
+<li><p>Tunellərin vəziyyətini və şifrəli paket axınını yoxlamaq üçün
+<em>strongSwan CLI</em>, <em>Wireguard-tools</em> və şəbəkə səviyyəsində
+<em>Wireshark</em> və ya <em>tcpdump</em> alətlərindən istifadə qaydası
+nümunə üzərində tətbiq edilməlidir.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="tcolorbox">
+<p>Paket və konfiqurasiya tapşırıqlarında qorunan sahələri və təhdid
+modeli əvvəlcə özünüz göstərin. Müəllim üçün cavab açarı yalnız ilkin
+cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>NAT cihazı IPv4 mənbə ünvanını və
+başlıq checksum-unu dəyişir. Eyni paket əvvəl AH, sonra
+ESP-nəqliyyat+NAT-T profili ilə qorunarsa, qəbul edən tərəfdə hansı
+yoxlama pozular? AH/ESP ICV əhatəsini və UDP kapsullaşdırmasının rolunu
+paket sahələri üzrə göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>Nəqliyyat rejimi ilə tunel rejimi
+arasındakı fərqlər nələrdir və hansı ssenarilərdə tətbiq
+olunurlar?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>IKE protokolunun əsas
+funksiyalarını qeyd edin. IKEv1 və IKEv2 standartları arasında hansı
+fundamental fərqlər var?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em><em>Şəbəkədən-şəbəkəyə</em> VPN
+ilə <em>Uzaqdan giriş</em> VPN arxitekturaları arasındakı əsas fərqləri
+izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>İki tətbiq ssenarisi verilib: A —
+müxtəlif təchizatçılarla şəbəkədən-şəbəkəyə şəbəkə, sertifikat/EAP
+siyasəti və aparat sürətləndirilməsi tələb edir; B — kiçik Linux qarşı
+tərəf qrupu, sabit sadə alqoritm dəsti və minimal konfiqurasiya tələb
+edir. Hər profil üçün IPsec və ya WireGuard seçin, seçimi təhdid/tətbiq
+ssenarisi modelinə bağlayın və universal “daha sürətli” iddiasından
+qaçın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>NAT keçidi problemi nədir? IPsec
+və <em>WireGuard</em> bu problemi hansı mexanizmlərlə həll
+edir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>IPsec mühitində ESP-nin iki
+fərqli yanaşmasını — klassik iş rejimini (şifrələmə + autentifikasiya)
+və AEAD mexanizmini müqayisə edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em>WireGuard konfiqurasiyasında A
+qarşı tərəfi üçün <code>AllowedIPs=10.20.0.0/16</code>, B qarşı tərəfi
+üçün <code>AllowedIPs=0.0.0.0/0</code> verilib.
+<code>10.20.5.7</code>-yə çıxışda qarşı tərəf seçimini, A qarşı
+tərəfindən <code>10.30.1.4</code> daxili mənbəli paket gələndə qəbul
+qərarını və IPv6 tam tunel üçün çatışmayan prefiksi göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 9</strong> (9). <em>IPsec arxitekturasında
+təhlükəsizlik assosiasiyası (SA) nədir və özündə hansı parametrləri
+ehtiva edir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 10</strong> (10). <em><em>WireGuard</em> protokolunda
+<code>PersistentKeepalive</code> parametrinin funksiyası nədir?</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p><strong>Paket artefaktının təhlili:</strong> AH ICV-si IP
+başlığının dəyişməz/proqnozlaşdırılan sahələrini də əhatə etdiyinə görə
+NAT-ın ünvan dəyişikliyi yoxlamanı pozur. ESP nəqliyyat ICV/AEAD əhatəsi
+xarici IP başlığını daxil etmir; NAT-T ESP-ni UDP/4500 daxilində
+daşıyaraq PAT demultipleksasiyasına imkan verir. ESP-in öz başlığı,
+faydalı yükü və sonluğu yenə autentifikasiya olunur; NAT-T dəyişən
+xarici IP/UDP sahələrini ESP teqinin daxilinə çevirmir.</p></li>
+<li><p><strong>Nəqliyyat və tunel rejimləri:</strong> Nəqliyyat
+rejimində orijinal IP başlığı görünən qalır; ESP IP faydalı yükünü, AH
+isə əlavə olaraq başlığın dəyişməz və proqnozlaşdırılan sahələrini
+qoruyur. Bu rejim əsasən hostlararası rabitədə işlədilir. Tunel rejimi
+orijinal IP paketini kapsullaşdırıb yeni xarici IP başlığı əlavə edir və
+şlüzlərarası və uzaqdan giriş VPN-lərində geniş istifadə
+olunur.</p></li>
+<li><p><strong>IKE funksiyaları və versiya fərqləri:</strong> IKE
+tərəfləri autentifikasiya edir, DH paylaşımı, birdəfəlik qiymətlər və
+PRF-dən işçi açarları yerli olaraq törədir və IKE/CHILD SA-ları idarə
+edir. IKEv2 əsas PSK/sertifikat ssenarisində iki sorğu–cavab mübadiləsi
+ilə başlaya bilər, lakin <code>COOKIE</code> və EAP əlavə mesajlar
+yaradır. MOBIKE və EAP kimi genişləndirmələr ayrıca profillərlə istifadə
+olunur; EAP çox vaxt yalnız başladan tərəfi autentifikasiya
+edir.</p></li>
+<li><p><strong>Şəbəkədən-şəbəkəyə və Uzaqdan giriş VPN:</strong>
+<em>Şəbəkədən-şəbəkəyə</em> VPN iki sabit korporativ şəbəkə seqmentini
+(məsələn, filial və mərkəzi ofis) daimi olaraq birləşdirir. <em>Uzaqdan
+giriş</em> VPN isə mobil istifadəçilərin istənilən nöqtədən müvəqqəti
+olaraq korporativ şəbəkəyə qoşulmasını təmin edir. <strong>Texniki
+olaraq hər iki növ də daxili şəbəkə paketlərini kapsullaşdırmaq üçün
+əsasən Tunel rejimindən istifadə edir.</strong></p></li>
+<li><p><strong>Tətbiq qərarı:</strong> A profili üçün IPsec/IKEv2 daha
+uyğun ilkin seçimdir: təchizatçılararası qarşılıqlı işləmə,
+sertifikat/EAP siyasəti və aparat sürətləndirilməsi profilləri tələb
+olunur. B profili üçün WireGuard-ın sabit suite-i və kiçik idarəetmə
+səthi üstün ola bilər. Yekun performans qərarı eyni aparat, MTU, yük və
+sürətləndirmə ilə müqayisəli ölçmə tələb edir.</p></li>
+<li><p><strong>NAT keçidi (NAT-T):</strong> Ünvan dəyişikliyi AH ICV-ni
+pozur. ESP-in xarici IP-si ICV-yə daxil deyil, lakin port olmayan ESP-ni
+PAT arxasında demultipleksasiya etmək və nəqliyyat yoxlama cəmlərini
+qorumaq çətindir; NAT-T buna görə ESP-ni UDP 4500 daxilində daşıyır.
+<em>WireGuard</em> UDP son nöqtələrindən istifadə edir və
+autentifikasiyalı paketdən qarşı tərəfin son nöqtəsini öyrənə bilər;
+<code>PersistentKeepalive</code> yalnız lazım olduqda NAT ünvan
+uyğunlaşdırmasını saxlayır.</p></li>
+<li><p><strong>Ayrı çevirmələr və AEAD:</strong> Ayrı ESP çevirmələrində
+şifrələmə və açarlı bütövlük alqoritmləri ayrıca seçilir. AES-GCM və
+ChaCha20-Poly1305 kimi AEAD çevirmələri məxfilik və autentifikasiya
+teqini vahid təhlükəsizlik interfeysində verir və birləşdirmə səhvlərini
+azaldır. Məhsuldarlıq platformadan asılıdır; birdəfəlik qiymət və sıra
+nömrəsi qaydalarına əməl edilməməsi AEAD təhlükəsizliyini poza
+bilər.</p></li>
+<li><p><strong>AllowedIPs artefaktı:</strong> Göndərişdə longest-prefix
+match <code>10.20.0.0/16</code>-nı seçdiyinə görə <code>10.20.5.7</code>
+A qarşı tərəfinə gedir. Qəbulda A qarşı tərəfi üçün
+<code>10.30.1.4</code> icazəli mənbə deyil və paket rədd edilir.
+<code>0.0.0.0/0</code> yalnız IPv4-dür; IPv6 tam tunel üçün
+<code>::/0</code>, həmçinin uyğun əməliyyat sistemi marşrutu, DNS və
+sızma siyasəti tələb olunur.</p></li>
+<li><p><strong>Təhlükəsizlik Assosiasiyası (SA):</strong> SA — iki nöqtə
+arasında birtərəfli təhlükəsiz rabitə kanalını təyin edən məntiqi
+müqavilədir. Onun tərkibinə təhlükəsizlik parametrləri indeksi (SPI),
+hədəf IP ünvanı, istifadə olunan protokol (AH və ya ESP), şifrələmə və
+autentifikasiya alqoritmləri, kriptoqrafik açarlar, SA-nın qüvvədə olma
+müddəti və ardıcıllıq nömrələri daxildir.</p></li>
+<li><p><strong>PersistentKeepalive:</strong> Bu parametr göstərilən
+boşluq intervalında autentifikasiyalı boş paket göndərərək
+NAT/təhlükəsizlik divarı ünvan uyğunlaşdırmasının saxlanmasına kömək
+edir. Yalnız qarşı tərəf arxadan giriş qəbul etməli və uyğunlaşdırma boş
+trafikdə tez silinməlidirsə istifadə olunur; interval şəbəkənin
+taymerinə görə seçilir və parametr tunelin təhlükəsizliyini və ya
+əlçatanlığını təkbaşına zəmanətə almır.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirə çərçivəsində şəbəkə təhlükəsizliyinin təmin edilməsində
+fundamental rol oynayan aşağıdakı əsas anlayışlar tədqiq edilmişdir:</p>
+<ul>
+<li><p><strong>IPsec:</strong> Şəbəkə qatında fəaliyyət göstərən və
+bütün IP trafikinin təhlükəsizliyini təmin edə bilən, sənaye standartı
+statuslu protokollar ailəsidir <span class="citation"
+data-cites="kent2005ipsec"></span>.</p></li>
+<li><p><strong>AH:</strong> Məlumatın mənbəyinin autentifikasiyasını və
+bütövlüyünü qoruyan, lakin məxfilik (şifrələmə) təmin etməyən
+autentifikasiya başlığı protokoludur. IP protokol nömrəsi 51-dir <span
+class="citation" data-cites="kent2005ah"></span>.</p></li>
+<li><p><strong>ESP:</strong> Həm şifrələmə, həm də autentifikasiya
+imkanlarına malik olan, müasir AEAD rejimlərini dəstəkləyən
+kapsullaşdırılmış təhlükəsizlik yükü protokoludur. IP protokol nömrəsi
+50-dir <span class="citation" data-cites="kent2005esp"></span>.</p></li>
+<li><p><strong>Nəqliyyat Rejimi:</strong> Orijinal IP başlığını görünən
+saxlayır; ESP əsasən faydalı yükü, AH isə faydalı yüklə yanaşı başlığın
+uyğun dəyişməz sahələrini qoruyur.</p></li>
+<li><p><strong>Tunel Rejimi:</strong> Orijinal IP paketini tamamilə
+yenisinin içərisinə yerləşdirərək kapsullaşdırır; korporativ VPN
+strukturlarının təməlini təşkil edir.</p></li>
+<li><p><strong>IKE (İnternet açar mübadiləsi):</strong> Dinamik açar
+mübadiləsini, qarşılıqlı autentifikasiyanı və SA parametrlərinin
+təhlükəsiz idarə edilməsini həyata keçirən köməkçi protokoldur. Müasir
+tətbiqlərdə IKEv2 versiyasına üstünlük verilir <span class="citation"
+data-cites="kaufman2014ikev2"></span>.</p></li>
+<li><p><strong>VPN Arxitekturaları:</strong> Korporativ coğrafi
+infrastrukturları birləşdirən <em>Şəbəkədən-şəbəkəyə</em> və fərdi uzaq
+istifadəçilərə xidmət edən <em>Uzaqdan giriş</em> modellərinə bölünür
+<span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p><strong>WireGuard:</strong> X25519, ChaCha20-Poly1305, BLAKE2s və
+HKDF-dən ibarət sabit dəstə əsaslanan, Linux nüvəsində və başqa
+platformalarda müxtəlif reallaşdırmaları olan VPN protokoludur <span
+class="citation" data-cites="donenfeld2017wireguard"></span>.</p></li>
+<li><p><strong>NAT Keçidi:</strong> IPsec ESP üçün NAT-T UDP 4500
+kapsullaşdırması istifadə olunur. WireGuard onsuz da UDP daşıyır, son
+nöqtəni autentifikasiyalı trafikdən yeniləyə bilir və yalnız ehtiyac
+olduqda <code>PersistentKeepalive</code> ilə ünvan uyğunlaşdırmasını
+saxlayır.</p></li>
+</ul>
+<p><strong>Əsas elmi-praktiki nəticə:</strong> IPsec geniş
+standartlaşdırılmış, alqoritm və topologiya baxımından çevik
+arxitekturadır; WireGuard isə sabit kriptoqrafik dəst və daha dar
+konfiqurasiya modeli seçir. Hansının uyğun olması ölçülmüş performans,
+platforma dəstəyi, identifikasiya və siyasət tələbləri, NAT/topologiya
+və əməliyyat imkanlarından asılıdır.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>IPsec (<em>Internet Protocol Security</em> — İnternet
+Protokolu Təhlükəsizliyi): Şəbəkə səviyyəsində (IP) paketlərin
+autentifikasiyasını və şifrələnməsini təmin edən protokollar
+kompleksi.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>SPD (<em>Security Policy Database</em> — Təhlükəsizlik
+Siyasəti Məlumat Bazası): Gələn və gedən paketlərə tətbiq ediləcək
+təhlükəsizlik qaydalarını (ləğv etmək, keçirmək və ya IPsec ilə qorumaq)
+müəyyən edən verilənlər bazası.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>SA (<em>Security Association</em> — Təhlükəsizlik
+Assosiasiyası): İki tərəf arasında istifadə olunacaq şifrələmə
+alqoritmlərini, açarları və parametrləri müəyyən edən biristiqamətli
+təhlükəsizlik müqaviləsi.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>AH (<em>Authentication Header</em> — Autentifikasiya
+Başlığı): IP paketlərinin bütövlüyünü və mənşəyinin dürüstliyini təmin
+edən, lakin məlumatın məxfiliyini (şifrələnməsini) təmin etməyən IPsec
+protokolu.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>ESP (<em>Encapsulating Security Payload</em> —
+İnkapsullaşdırılmış Təhlükəsizlik Yükü): IP paketlərinin məxfiliyini
+(şifrələnməsini), bütövlüyünü və autentifikasiyasını təmin edən ana
+IPsec protokolu.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>IKEv2 (<em>Internet Key Exchange version 2</em> —
+İnternet Açar Mübadiləsi, versiya 2): IPsec üçün SA parametrlərini
+dinamik şəkildə razılaşdıran və təhlükəsiz açar mübadiləsini həyata
+keçirən protokol.<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>NAT (<em>Network Address Translation</em> — Şəbəkə
+Ünvanlarının Tərcüməsi): Şəbəkə paketindəki xüsusi (private) IP
+ünvanlarını qlobal (public) IP ünvanları ilə dəyişən texnologiya.<a
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>NAT-T (<em>NAT Traversal</em> — NAT Keçidi): NAT
+qurğularının başlığı dəyişdirməsi nəticəsində IPsec paketlərinin
+pozulmasının qarşısını almaq üçün ESP paketlərini UDP (adətən 4500-cü
+port) daxilində inkapsulyasiya edən texnika.<a href="#fnref8"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (11)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Kent &amp; Seo, 2005</span>
+                        <small class="text-muted">RFC 4301</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Security Architecture for the Internet Protocol</h6>
+                    <p class="small text-secondary mb-0">S. Kent and K. Seo (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Huttunen et al., 2005</span>
+                        <small class="text-muted">RFC 3948</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">UDP Encapsulation of IPsec ESP Packets</h6>
+                    <p class="small text-secondary mb-0">A. Huttunen and B. Swander and V. Volpe and L. DiBurro and M. Stenberg (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Donenfeld, 2017</span>
+                        <small class="text-muted">Network and Distributed System Security Symposium (NDSS)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">WireGuard: Next Generation Kernel Network Tunnel</h6>
+                    <p class="small text-secondary mb-0">Jason A. Donenfeld (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Kent, 2005</span>
+                        <small class="text-muted">RFC 4302</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">IP Authentication Header</h6>
+                    <p class="small text-secondary mb-0">S. Kent (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Kent, 2005</span>
+                        <small class="text-muted">RFC 4303</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">IP Encapsulating Security Payload</h6>
+                    <p class="small text-secondary mb-0">S. Kent (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Kaufman, 2005</span>
+                        <small class="text-muted">Internet Engineering Task Force</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Internet Key Exchange (IKEv2) Protocol</h6>
+                    <p class="small text-secondary mb-0">Charlie Kaufman (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Harkins &amp; Carrel, 1998</span>
+                        <small class="text-muted">RFC 2409</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Internet Key Exchange (IKE)</h6>
+                    <p class="small text-secondary mb-0">D. Harkins and D. Carrel (1998)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Kaufman et al., 2014</span>
+                        <small class="text-muted">RFC 7296</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Internet Key Exchange Protocol Version 2 (IKEv2)</h6>
+                    <p class="small text-secondary mb-0">C. Kaufman and P. Hoffman and Y. Nir and P. Eronen (2014)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

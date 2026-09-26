@@ -1,0 +1,765 @@
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Əlavə G: Qrup, Meydan, Qalua Meydanı</strong></p>
+<p><strong>Kriptoqrafiyanın Riyazi Əsasları</strong></p>
+<p>Məşğələ vaxtı: 2 saat</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Kriptoqrafiya müasir dövrdə informasiya təhlükəsizliyinin ayrılmaz
+hissəsidir. Lakin kriptoqrafik alqoritmlərin daxili işini anlamaq üçün
+onların altında duran riyazi strukturları bilmək vacibdir. Müasir
+şifrələmə sistemləri — AES (blok şifrə), ECC (elliptik əyrilər), RSA
+(asimmetrik şifrə) və yüksək işləmə göstəricisi ilə seçilən
+<strong>Poly1305-ChaCha20</strong> kombinasiyası — hamısı müəyyən cəbri
+strukturlara əsaslanır.</p>
+<p>Xüsusilə Poly1305 alqoritmi mesajın həqiqiliyini təmin etmək üçün
+sonlu meydanlar üzərində sürətli riyazi hesablamalardan (<span
+class="math inline">\(GF(2^{130}-5)\)</span> meydanında) istifadə edir
+<span class="citation" data-cites="bernstein2005poly1305"></span>.
+ChaCha20 axın şifrəsi ilə birlikdə bu struktur müasir internet
+protokollarında (TLS 1.3, QUIC, WireGuard) həm təhlükəsizlik, həm də
+sürət baxımından ən effektiv protokollardan biri hesab edilir <span
+class="citation" data-cites="nir2018rfc8439"></span>.</p>
+<p>Bu əlavədə kriptoqrafiyanın riyazi arxitekturasını təşkil edən cəbri
+strukturları — <strong>qrup</strong>, <strong>halqa</strong>,
+<strong>meydan</strong> və rəqəmsal sistemlərin təməli olan
+<strong>Qalua meydanlarını</strong> ətraflı öyrənəcəyik.</p>
+<div class="history">
+<p><span>Evarist Qalua (1811-1832)</span> Evarist Qalua — müasir cəbrin
+formalaşmasında həlledici rol oynamış fransız riyaziyyatçısıdır. Cəmi
+iyirmi il yaşamasına baxmayaraq, o, cəbri tənliklərin köklərinin
+simmetriyasını araşdıraraq qrup anlayışını sistemləşdirmiş və meydanlar
+nəzəriyyəsinin əsasını qoymuşdur. Bu nəzəri baza sonralar sonlu
+meydanların və müasir kriptoqrafik konstruksiyaların inkişafına imkan
+yaratmışdır.</p>
+<p>Qaluanın həyatı riyaziyyat tarixində ən dramatik hekayələrdən
+biridir. O, öz nəzəriyyəsini tamamladığı gecənin səhəri dueldə
+öldürüləcəyini bilirdi. Buna görə də bütün ideyalarını tələsik şəkildə
+kağıza köçürərək dostuna belə yazmışdı: “Vaxtım yoxdur. Mənim işimə bax,
+sənə əmanət edirəm.”</p>
+<p>Həmin qeydlər sonradan riyaziyyatın ən güclü nəzəriyyələrindən birinə
+— Qalua nəzəriyyəsinə çevrildi. Bu gün istifadə etdiyimiz Poly1305 kimi
+sürətli autentifikasiya alqoritmləri də məhz Qalua nəzəriyyəsinin
+yaratdığı cəbri strukturlar üzərində qurulub <span class="citation"
+data-cites="stewart2015galois"></span>.</p>
+</div>
+<div class="history">
+<p><span>Nils Henrik Abel (1802-1829)</span> Nils Henrik Abel — XIX əsr
+riyaziyyatının ən parlaq simalarından biri, müasir analiz və cəbrin
+inkişafında fundamental rol oynamış dahi norveçli riyaziyyatçıdır <span
+class="citation" data-cites="stubhaug2000"></span>. O, cəmi iyirmi altı
+il yaşamasına baxmayaraq, elliptik inteqralların və Abel funksiyalarının
+nəzəri əsaslarını yaratmış, həmçinin beşinci dərəcəli ümumi cəbri
+tənliklərin radikallarla həllinin mümkün olmadığını (Abel–Ruffini
+teoremi) sübut etmişdir. Bu fundamental nəticə sonradan Qalua
+nəzəriyyəsinin formalaşmasına və cəbrin struktur əsaslarının qurulmasına
+birbaşa yol açmışdır <span class="citation"
+data-cites="kleiner2007"></span>.</p>
+<p>Abelin həyatı həm də dərin bir dramla xarakterizə olunur: yoxsulluq,
+ağır xəstəlik və elmi cəmiyyət (xüsusilə Paris Elmlər Akademiyası)
+tərəfindən vaxtında tanınmamaq onun bütün yaradıcılıq dövrünü müşayiət
+etmişdir <span class="citation" data-cites="stubhaug2000"></span>.
+Acınacaqlıdır ki, onun ölümündən cəmi bir neçə gün sonra Berlin
+Universitetindən rəsmi professorluq dəvəti və Parisdən elmi etiraf
+məktubları gəlmişdi.</p>
+<p>Abelin yaratdığı funksional və analitik metodlar bu gün sonlu
+meydanlar, elliptik əyrilər (ECC) və qrup nəzəriyyəsi kimi sahələrdə
+bünövrə rolunu oynayır <span class="citation"
+data-cites="washington2008elliptic"></span>. Beləliklə, onun riyazi irsi
+müasir asimmetrik kriptoqrafiyanın və alqoritmik təhlükəsizlik
+sistemlərinin formalaşmasına dolayı yolla, lakin dərindən təsir
+göstərmişdir.</p>
+</div>
+<h1 id="çoxluqlar-və-əməliyyatlar">Çoxluqlar və əməliyyatlar</h1>
+<h2 id="ikili-əməliyyat">İkili əməliyyat</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong>. <em><span>İkili əməliyyat.</span> <span
+class="math inline">\(A\)</span> çoxluğunda təyin olunmuş ikili
+əməliyyat <span class="math inline">\(\star\)</span>, <span
+class="math inline">\(A\)</span> çoxluğunun istənilən iki elementinə
+yenə həmin çoxluğun müəyyən bir elementinə çevirən funksiyadır: <span
+class="math display">\[\star: A \times A \to A\]</span></em></p>
+</div>
+<h2 id="əsas-əməliyyat-xüsusiyyətləri">Əsas əməliyyat
+xüsusiyyətləri</h2>
+<p>Cəbri strukturları bir-birindən fərqləndirmək üçün aşağıdakı
+xüsusiyyətlərin ödənilib-ödənilməməsi yoxlanılır:</p>
+<div class="description">
+<p><span class="math inline">\(\forall a,b \in A,\; a \star b \in
+A\)</span>. (Əməliyyatın nəticəsi çoxluqdan kənara çıxmır).</p>
+<p><span class="math inline">\(\forall a,b,c \in A,\; (a \star b) \star
+c
+    = a \star (b \star c)\)</span>. (Mötərizələrin yeri nəticəyə təsir
+etmir).</p>
+<p><span class="math inline">\(\forall a,b \in A,\; a \star b = b \star
+a\)</span>. (Elementlərin yeri dəyişdikdə nəticə dəyişmir).</p>
+<p><span class="math inline">\(\exists e \in A,\; \forall a \in A,\;
+    a \star e = e \star a = a\)</span>. (Toplamada <span
+class="math inline">\(0\)</span>, vurmada <span
+class="math inline">\(1\)</span> kimi başa düşmək olar).</p>
+<p><span class="math inline">\(\forall a \in A,\; \exists a^{-1} \in
+A\)</span> elə ki, <span class="math inline">\(a \star a^{-1} = a^{-1}
+\star a = e\)</span>. (<span class="math inline">\(a^{-1}\)</span>
+elementi <span class="math inline">\(a\)</span> elementinin tərsi hesab
+olunur.)</p>
+</div>
+<p>Bu xüsusiyyətlər kriptoqrafik alqoritmlərdə əməliyyatların
+geridönənliyini (məsələn, şifrənin açılması və ya qrup əməliyyatları
+üzərində hesablamalar) təmin edən əsas riyazi prinsiplərdir <span
+class="citation" data-cites="hungerford1974algebra"></span>.</p>
+<h1 id="qrup-nəzəriyyəsi">Qrup nəzəriyyəsi</h1>
+<h2 id="qrup-aksiomları">Qrup aksiomları</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong>. <em><span>Qrup</span> Tutaq ki, <span
+class="math inline">\(G\)</span> çoxluğu və <span
+class="math inline">\(\star\)</span> ikili əməliyyatı verilmişdir. Əgər
+aşağıdakı dörd fundamental aksiom ödənərsə, <span
+class="math inline">\((G, \star)\)</span> qrup adlanır:</em></p>
+<ol>
+<li><p><em><strong>Qapanma</strong>: <span class="math inline">\(\forall
+a,b \in G,\; a \star b \in G\)</span>.</em></p></li>
+<li><p><em><strong>Assosiativlik</strong>: <span
+class="math inline">\(\forall a,b,c \in G,\; (a \star b) \star c
+    = a \star (b \star c)\)</span>.</em></p></li>
+<li><p><em><strong>Neytral element</strong>: <span
+class="math inline">\(\exists e \in G\)</span> elə ki, <span
+class="math inline">\(\forall a \in G,\; a \star e = e \star a =
+a\)</span>.</em></p></li>
+<li><p><em><strong>Tərs element</strong>: <span
+class="math inline">\(\forall a \in G,\; \exists a^{-1} \in G\)</span>
+elə ki, <span class="math inline">\(a \star a^{-1} = a^{-1} \star a =
+e\)</span>.</em></p></li>
+</ol>
+</div>
+<p>Əgər əlavə olaraq</p>
+
+
+<div class="math-display">\[a \star b = b \star a \quad \forall a,b
+\in G\]</div>
+
+<p>şərti də ödənirsə, onda <span
+class="math inline">\((G,\star)\)</span> <strong>Abel qrupu</strong>
+adlanır.</p>
+<h2 id="abel-qrupu-və-tsiklik-qruplar">Abel qrupu və Tsiklik
+qruplar</h2>
+<p>Kriptoqrafiyada ən çox istifadə olunan qrup növü <strong>Abel
+qrupudur</strong> (kommutativ qrup). Kommutativlik səbəbindən bir çox
+hallarda <span class="math inline">\(\star\)</span> əməliyyatı əvəzinə
+<span class="math inline">\(+\)</span> işarəsi istifadə olunur.</p>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>Elliptik Əyri Qrupları</span>
+Elliptik əyrilər üzərindəki nöqtələrin toplanması əməliyyatı Abel qrupu
+təşkil edir. Burada <span class="math inline">\(P + Q = Q + P\)</span>
+olması açar mübadiləsi və digər elliptik əyri əsaslı protokollar üçün
+kritik əhəmiyyət daşıyır.</em></p>
+</div>
+<div class="keyconcept">
+<p><span>Diskret Loqarifm Problemi (DLP)</span> Tsiklik qruplarda elə
+bir <span class="math inline">\(g\)</span> elementi (generator)
+mövcuddur ki, qrupun bütün elementləri <span
+class="math inline">\(g^k\)</span> və ya elliptik əyrilər üçün <span
+class="math inline">\(kG\)</span> şəklində ifadə olunur.
+Kriptoqrafiyanın təhlükəsizliyi çox vaxt bu prinsipə əsaslanır: <span
+class="math inline">\(g\)</span> və <span
+class="math inline">\(g^k\)</span> (və ya <span
+class="math inline">\(G\)</span> və <span
+class="math inline">\(kG\)</span>) verildikdə <span
+class="math inline">\(k\)</span> ədədini tapmaq hesablama baxımından son
+dərəcə çətindir.</p>
+</div>
+<h2 id="sonlu-qruplar-və-kriptoqrafik-tətbiqlər">Sonlu qruplar və
+kriptoqrafik tətbiqlər</h2>
+<p>Əgər qrupun elementlərinin sayı sonludursa, ona <strong>sonlu
+qrup</strong> deyilir. Kriptoqrafiyada sonlu qruplar xüsusi əhəmiyyət
+daşıyır, çünki təhlükəsizlik hesablama mürəkkəbliyinin bu qrupların
+ölçüsü ilə birbaşa əlaqəsinə əsaslanır.</p>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>Qalıq sinifləri.</span> <span
+class="math inline">\(\mathbb{Z}_n^* = \{x \in \mathbb{Z}_n :
+\gcd(x,n)=1\}\)</span> çoxluğu vurma əməliyyatına görə qrup təşkil edir.
+Bu struktur <strong>vahidlərin qrupu</strong> adlanır və RSA
+alqoritminin işlədiyi əsas cəbri mühiti təşkil edir <span
+class="citation" data-cites="hungerford1974algebra"></span>.</em></p>
+</div>
+<h2 id="qrupların-kriptoqrafiyada-rolu">Qrupların kriptoqrafiyada
+rolu</h2>
+<p>Qrup nəzəriyyəsi müasir kriptoqrafiyanın arxitekturasını müəyyən edən
+əsas sütundur <span class="citation"
+data-cites="stallings2017cryptography schneier1996applied"></span>.
+Kriptoqrafik protokolların təhlükəsizliyi adətən böyük sıraya malik
+sonlu qruplarda bəzi riyazi problemlərin həllinin çətinliyinə
+əsaslanır:</p>
+<ul>
+<li><p><strong>Diffi–Hellman (DH) açar mübadiləsi:</strong> Bu protokol
+<span class="math inline">\(GF(p)\)</span> sonlu meydanının
+<em>multiplikativ qrupunda</em> və ya elliptik əyri qruplarında işləyir.
+İştirakçılar böyük bir tsiklik qrupun generatoru <span
+class="math inline">\(g\)</span> üzərində <span
+class="math inline">\(g^{ab} = (g^a)^b = (g^b)^a\)</span> bərabərliyinə
+əsaslanaraq ortaq məxfi açar yaradırlar <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+<li><p><strong>RSA alqoritmi:</strong> RSA əməliyyatları <span
+class="math inline">\(\mathbb{Z}_n^*\)</span> multiplikativ qrupunda
+aparılır (burada <span class="math inline">\(n=pq\)</span> iki böyük
+sadə ədədin hasilidir). Qrupun sırası Eyler funksiyası <span
+class="math inline">\(\phi(n) = (p-1)(q-1)\)</span> ilə müəyyən edilir
+və şifrələmə/deşifrələmə bu qrup daxilində qüvvətə yüksəltmə
+əməliyyatına əsaslanır <span class="citation"
+data-cites="rivest1978method"></span>.</p></li>
+<li><p><strong>ElGamal və DSA:</strong> Bu alqoritmlər sonlu meydanların
+multiplikativ qrupunda Diskret Loqarifm Probleminə (DLP) əsaslanır.
+Təhlükəsizlik üçün istifadə olunan qrupun sırası kifayət qədər böyük
+sadə bölənə malik olmalıdır ki, məlum hücum metodlarından (məsələn,
+Pollard–rho) qoruna bilsin <span class="citation"
+data-cites="elgamal1985public"></span>.</p></li>
+<li><p><strong>Elliptik Əyri Kriptoqrafiyası (ECC):</strong> Elliptik
+əyri üzərindəki nöqtələr toplama əməliyyatına görə sonlu <strong>Abel
+qrupu</strong> təşkil edir. ECC eyni təhlükəsizlik səviyyəsini RSA ilə
+müqayisədə daha kiçik açar ölçüləri ilə təmin edir, çünki elliptik əyri
+qruplarında diskret loqarifm üçün hal‑hazırda bilinən sub-eksponensial
+həll üsulu mövcud deyil <span class="citation"
+data-cites="koblitz1987elliptic miller1985use"></span>.</p></li>
+<li><p><strong>Poly1305–ChaCha20:</strong> Müasir autentifikasiya
+mexanizmi olan Poly1305, mesajı böyük bir sadə ədəd (<span
+class="math inline">\(2^{130}-5\)</span>) moduluna görə təyin olunmuş
+sonlu meydanın (və onun toplama və vurma qruplarının) elementi kimi emal
+edir <span class="citation"
+data-cites="nir2018rfc8439 bernstein2005poly1305"></span>.</p></li>
+</ul>
+<div class="note">
+<p><span>Diskret Loqarifm Problemi (DLP)</span> Tsiklik qrupların
+kriptoqrafik əhəmiyyəti DLP-nin mürəkkəbliyinə əsaslanır: <span
+class="math inline">\(G\)</span> qrupunda verilmiş <span
+class="math inline">\(g \in G\)</span> (generator) və <span
+class="math inline">\(y = g^x\)</span> elementləri üçün <span
+class="math inline">\(x\)</span> tam ədədini tapmaq (əgər qrupun sırası
+kifayət qədər böyükdürsə) praktiki olaraq qeyri-mümkündür. Müasir
+kriptoqrafiyada bu problemin daha mürəkkəb versiyası olan "Elliptik Əyri
+Diskret Loqarifm Problemi" (ECDLP) daha geniş tətbiq olunur.</p>
+</div>
+<h1 id="halqa-nəzəriyyəsi">Halqa nəzəriyyəsi</h1>
+<p>Qruplarda yalnız bir əməliyyat (adətən toplama və ya vurma) mövcud
+olduğu halda, halqalar adi arifmetikanı daha çox xatırladan iki
+əməliyyatlı riyazi quruluşlardır.</p>
+<h2 id="halqa-aksiomları">Halqa aksiomları</h2>
+<div class="definition">
+<p><strong>Tərif 3</strong>. <em><span>Halqa.</span> <span
+class="math inline">\(R\)</span> çoxluğunda iki ikili əməliyyat təyin
+olunubsa — toplama (<span class="math inline">\(+\)</span>) və vurma
+(<span class="math inline">\(\times\)</span>) — və aşağıdakı şərtlər
+ödənirsə, <span class="math inline">\((R,+,\times)\)</span> strukturu
+<strong>halqa</strong> adlanır:</em></p>
+<ol>
+<li><p><em><span class="math inline">\((R,+)\)</span> Abel qrupudur
+(toplama kommutativdir və <span class="math inline">\(0\)</span> neytral
+elementdir).</em></p></li>
+<li><p><em>Vurma əməliyyatı assosiativdir:</em></p>
+
+
+<div class="math-display">\[\forall a,b,c \in R,\quad (a \times
+b) \times c = a \times (b \times c).\]</div>
+</li>
+<li><p><em>Distributivlik qanunları ödənir (vurmanın toplama üzərinə
+paylanması):</em></p>
+<p></p>
+
+<div class="math-display">\[a \times (b + c) = a \times b + a
+\times c,\]</div>
+
+
+<div class="math-display">\[(a + b) \times c = a \times c + b
+\times c.\]</div>
+</li>
+</ol>
+</div>
+<div class="definition">
+<p><strong>Tərif 4</strong>. <em><span>Kommutativ halqa və vahid
+elementli halqa</span></em></p>
+<ul>
+<li><p><em>Əgər vurma əməliyyatı kommutativdirsə</em></p>
+
+
+<div class="math-display">\[\forall a,b \in R,\quad a \times b =
+b \times a,\]</div>
+
+<p><em>onda <span class="math inline">\((R,+,\times)\)</span>
+<strong>kommutativ halqa</strong> adlanır.</em></p></li>
+<li><p><em>Əgər vurma əməliyyatına görə neytral element
+mövcuddursa</em></p>
+<p></p>
+
+<div class="math-display">\[\exists 1_R \in R,\quad \forall a
+\in R,\; a \times 1_R = 1_R \times a = a,\]</div>
+
+<p><em>onda <span class="math inline">\((R,+,\times)\)</span>
+<strong>vahid elementli halqa</strong> adlanır.</em></p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong>. <em><span>Halqa nümunələri</span></em></p>
+<ul>
+<li><p><em><span class="math inline">\((\mathbb{Z}, +, \times)\)</span>
+— tam ədədlər halqası (kommutativ, vahid elementli).</em></p></li>
+<li><p><em><span class="math inline">\((\mathbb{Z}_n, +,
+\times)\)</span> — <span class="math inline">\(n\)</span> moduluna görə
+qalıq sinifləri halqası (kommutativ, vahid elementli). RSA alqoritmi bu
+halqa üzərində qurulub.</em></p></li>
+<li><p><em><span class="math inline">\(M_n(\mathbb{R})\)</span> — <span
+class="math inline">\(n \times n\)</span> real matrislər halqası.
+Toplama və vurma təyin olunub, vahid matris mövcuddur, lakin vurma
+<strong>kommutativ deyil</strong> (<span class="math inline">\(AB \neq
+BA\)</span>).</em></p></li>
+</ul>
+</div>
+<h2 id="sıfır-bölənləri-və-tərsi-olan-elementlər">Sıfır bölənləri və
+tərsi olan elementlər</h2>
+<p>Halqaları meydanlardan fərqləndirən əsas xüsusiyyət vurma
+əməliyyatına görə tərsi olmayan elementlərin mövcudluğudur.</p>
+<div class="definition">
+<p><strong>Tərif 5</strong>. <em><span>Sıfır böləni</span> <span
+class="math inline">\(R\)</span> halqasında <span
+class="math inline">\(a \neq 0\)</span> və <span class="math inline">\(b
+\neq 0\)</span> elementləri üçün <span class="math inline">\(a \times b
+= 0\)</span> olarsa, <span class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> <strong>sıfır bölənləri</strong>
+adlanır.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong>. <em><span><span
+class="math inline">\(\mathbb{Z}_6\)</span> halqasında sıfır
+bölənləri</span> <span class="math inline">\(\mathbb{Z}_6 =
+\{0,1,2,3,4,5\}\)</span> halqasında:</em></p>
+<p></p>
+
+<div class="math-display">\[2 \times 3 = 6 \equiv 0
+\pmod{6}\]</div>
+
+<p>Burada <span class="math inline">\(2\)</span> və <span
+class="math inline">\(3\)</span> sıfır bölənləridir. Sıfır böləni olan
+elementlərin vurmaya görə tərsi ola bilməz (məsələn, <span
+class="math inline">\(\mathbb{Z}_6\)</span>-da <span
+class="math inline">\(2\)</span> üçün elə bir <span
+class="math inline">\(x\)</span> yoxdur ki, <span
+class="math inline">\(2x \equiv 1 \pmod{6}\)</span> olsun).</em></p>
+</div>
+<h2 id="polinomlar-halqası">Polinomlar halqası</h2>
+<p>Kriptoqrafiyada mühüm yer tutan strukturlardan biri də əmsalları
+müəyyən bir halqadan (və ya meydandan) olan <strong>polinomlar
+halqasıdır</strong>. <span class="math inline">\(R[x]\)</span> kimi
+işarə olunur. Bu halqada elementlər</p>
+
+
+<div class="math-display">\[a_n x^n + \dots + a_1 x +
+a_0\]</div>
+
+<p>şəklində polinomlardır və əmsallar <span
+class="math inline">\(a_i\)</span> <span
+class="math inline">\(R\)</span> halqasından götürülür.</p>
+<div class="keyconcept">
+<p><span>Kriptoqrafiyada halqaların əhəmiyyəti</span></p>
+<ul>
+<li><p><strong>Asimmetrik kriptoqrafiya (RSA):</strong> RSA alqoritmi
+<span class="math inline">\(\mathbb{Z}_n\)</span> (burada <span
+class="math inline">\(n=pq\)</span>) qalıq sinifləri halqasında işləyir.
+Hücumçunun bu halqada tərsi olmayan elementləri (sıfır bölənləri, yəni
+<span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span>-nu) tapması faktorizasiya probleminə
+gətirib çıxarır və bu, praktik olaraq çətindir <span class="citation"
+data-cites="rivest1978method"></span>.</p></li>
+<li><p><strong>Simmetrik kriptoqrafiya (AES):</strong> AES alqoritmi
+<span class="math inline">\(GF(2)[x]\)</span> polinomlar halqasına
+əsaslanır; burada polinomlar <span class="math inline">\(x^8 + x^4 + x^3
++ x + 1\)</span> moduluna görə alınır və nəticədə <span
+class="math inline">\(GF(2^8)\)</span> meydanı qurulur.</p></li>
+<li><p><strong>Post-kvant kriptoqrafiyası:</strong> Kvant hücumlarına
+davamlı olan müasir alqoritmlər (NTRU, Kyber–CRYSTALS) mürəkkəb
+polinomlar halqaları üzərində qurulur. Bu halqalarda həm konvolyutiv
+strukturlar, həm də modul arifmetikası təhlükəsizliyin əsasını təşkil
+edir.</p></li>
+</ul>
+</div>
+<h1 id="meydan-nəzəriyyəsi">Meydan nəzəriyyəsi</h1>
+<p>Meydanlar cəbrin ən zəngin strukturlarından biridir, çünki burada
+dörd əsas əməliyyatın (toplama, çıxma, vurma və sıfıra bölmə istisna
+olmaqla bölmə) hamısı təyin olunub.</p>
+<div class="definition">
+<p><strong>Tərif 6</strong>. <em><span>Meydan (Field).</span> Kommutativ
+və vahid elementli elə halqadır ki, orada sıfırdan başqa hər bir
+elementin vurma əməliyyatına görə tərsi mövcuddur. Formal olaraq, <span
+class="math inline">\((F,+,\times)\)</span> sisteminin meydan olması
+üçün aşağıdakılar ödənməlidir:</em></p>
+<ol>
+<li><p><em><span class="math inline">\((F,+)\)</span> Abel qrupudur
+(neytral element <span class="math inline">\(0\)</span>).</em></p></li>
+<li><p><em><span class="math inline">\((F\setminus\{0\},
+\times)\)</span> Abel qrupudur (neytral element <span
+class="math inline">\(1\)</span>). Bu şərt vurmanın kommutativliyini və
+sıfırdan fərqli hər bir elementin <span
+class="math inline">\(a^{-1}\)</span> tərsinin mövcudluğunu təmin
+edir.</em></p></li>
+<li><p><em>Distributivlik qanunu ödənir:</em></p>
+
+
+<div class="math-display">\[a \times (b + c) = a \times b + a
+\times c.\]</div>
+</li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong>. <em><span>Meydan
+nümunələri</span></em></p>
+<ul>
+<li><p><em><span class="math inline">\(\mathbb{Q}, \mathbb{R},
+\mathbb{C}\)</span> — klassik sonsuz meydanlar.</em></p></li>
+<li><p><em><span class="math inline">\(\mathbb{Z}_p\)</span> (burada
+<span class="math inline">\(p\)</span> sadə ədəddir) — ən kiçik sonlu
+meydan nümunələridir. Məsələn, <span class="math inline">\(\mathbb{Z}_2
+= \{0,1\}\)</span> binar hesabın təməlini təşkil edir.</em></p></li>
+</ul>
+</div>
+<div class="note">
+<p><span>Niyə <span class="math inline">\(\mathbb{Z}_n\)</span> həmişə
+meydan deyil?</span> <span class="math inline">\(\mathbb{Z}_n\)</span>
+halqasında <span class="math inline">\(a\)</span> elementinin vurmaya
+görə tərsinin olması üçün <span
+class="math inline">\(\gcd(a,n)=1\)</span> olmalıdır. Əgər <span
+class="math inline">\(n\)</span> mürəkkəb ədəddirsə, halqada sıfırdan
+fərqli elə elementlər mövcuddur ki, onların <span
+class="math inline">\(n\)</span> ilə ortaq böləni var və buna görə də
+tərsləri yoxdur (yəni onlar sıfır bölənləridir). Yalnız <span
+class="math inline">\(n=p\)</span> sadə olduqda bütün sıfırdan fərqli
+elementlər <span class="math inline">\(p\)</span> ilə qarşılıqlı sadə
+olur və nəticədə <span class="math inline">\(\mathbb{Z}_p\)</span>
+meydan təşkil edir.</p>
+</div>
+<h2 id="meydanın-xarakteristikası">Meydanın xarakteristikası</h2>
+<div class="definition">
+<p><strong>Tərif 7</strong>. <em><span>Xarakteristika.</span> Əgər elə
+bir ən kiçik müsbət <span class="math inline">\(p\)</span> tam ədədi
+varsa ki, meydanın vahid elementini <span
+class="math inline">\(p\)</span> dəfə öz-özü ilə topladıqda sıfır
+alınsın</em></p>
+
+
+<div class="math-display">\[\underbrace{1 + 1 + \dots + 1}_{p\
+\text{dəfə}} = 0,\]</div>
+
+<p>onda <span class="math inline">\(p\)</span> ədədi meydanın
+<strong>xarakteristikası</strong> adlanır. Belə bir ədəd yoxdursa,
+meydanın xarakteristikası <span class="math inline">\(0\)</span> hesab
+olunur (məsələn, <span
+class="math inline">\(\mathbb{R}\)</span>).</em></p>
+</div>
+<p>Kriptoqrafiyada istifadə olunan sonlu meydanların xarakteristikası
+həmişə sadə ədəddir.</p>
+<h2 id="kriptoqrafik-tətbiqlər-böyük-sadə-meydanlar">Kriptoqrafik
+tətbiqlər: böyük sadə meydanlar</h2>
+<p>Müasir autentifikasiya və açar mübadiləsi alqoritmləri çox böyük sadə
+ədədlər moduluna görə qurulmuş meydanlarda işləyir:</p>
+<ul>
+<li><p><strong>Poly1305:</strong> Bu MAK (Message Authentication Code)
+mexanizmi <span class="math inline">\(p = 2^{130} - 5\)</span> sadə
+ədədi üzərində qurulmuş <span
+class="math inline">\(\mathbb{Z}_p\)</span> meydanında əməliyyat aparır.
+Bu meydanda toplama və vurma çox sürətlidir və “universal heşləmə” üçün
+ideal riyazi mühit yaradır.</p></li>
+<li><p><strong>Curve25519 (ECC):</strong> Elliptik əyri nöqtələri <span
+class="math inline">\(p = 2^{255} - 19\)</span> sadə ədədi moduluna görə
+təyin olunmuş meydanın elementləri üzərində hesablanır. Bu meydan
+üzərində qurulan Curve25519 müasir internet təhlükəsizliyinin (TLS 1.3)
+əsas sütunlarından biridir.</p></li>
+</ul>
+<h1 id="qalua-meydanları-sonlu-meydanlar-finite-fields">Qalua Meydanları
+(Sonlu Meydanlar / Finite Fields)</h1>
+<div class="keyconcept">
+<p><span>Qalua Meydanı</span> Elementlərinin sayı sonlu olan meydana
+<strong>sonlu meydan</strong> və ya <strong>Qalua meydanı</strong>
+deyilir. <span class="math inline">\(\mathbb{F}_q\)</span> və ya <span
+class="math inline">\(GF(q)\)</span> ilə işarə olunur, burada <span
+class="math inline">\(q = p^n\)</span> (burada <span
+class="math inline">\(p\)</span> sadə ədəddir, <span
+class="math inline">\(n \geq 1\)</span>).</p>
+</div>
+<h2 id="cəbri-qapalılıq-və-meydanın-genişlənməsi">Cəbri qapalılıq və
+meydanın genişlənməsi</h2>
+<p>Meydan genişlənmələrini anlamaq üçün klassik cəbrlə analogiya aparmaq
+çox effektivdir:</p>
+<ul>
+<li><p><strong>Klassik analogiya:</strong> Real ədədlər (<span
+class="math inline">\(\mathbb{R}\)</span>) meydanında <span
+class="math inline">\(x^2 + 1 = 0\)</span> tənliyinin kökü yoxdur. Bu
+problemi həll etmək üçün <span class="math inline">\(\mathbb{R}\)</span>
+meydanına xəyali vahid <span class="math inline">\(i\)</span> əlavə
+edilir və nəticədə <strong>kompleks ədədlər</strong> meydanı (<span
+class="math inline">\(\mathbb{C}\)</span>) alınır. Cəbrin əsas teoreminə
+görə <span class="math inline">\(\mathbb{C}\)</span> cəbri qapalıdır,
+yəni hər bir polinomun orada kökü mövcuddur.</p></li>
+<li><p><strong>Sonlu meydanlarda vəziyyət:</strong> <span
+class="math inline">\(GF(p)\)</span> meydanları cəbri qapalı deyil. Elə
+polinomlar mövcuddur ki, onların <span
+class="math inline">\(GF(p)\)</span> daxilində kökü yoxdur. Məsələn,
+<span class="math inline">\(GF(2)\)</span> meydanında <span
+class="math inline">\(f(x) = x^2 + x + 1\)</span> polinomu üçün</p>
+
+
+<div class="math-display">\[f(0) = 1,\qquad f(1) = 1,\]</div>
+
+<p>yəni bu polinomun <span class="math inline">\(GF(2)\)</span>
+daxilində heç bir kökü yoxdur.</p></li>
+</ul>
+<h2 id="polinomun-kökləri-və-meydanın-genişlənməsi">Polinomun kökləri və
+meydanın genişlənməsi</h2>
+<p>Qalua meydanlarının yaradılması ideyası polinomların köklərinin
+tapılması problemi ilə sıx bağlıdır. Əgər <span
+class="math inline">\(f(x) \in GF(p)[x]\)</span> sadələşməz (ayrılmaz)
+bir polinomun <span class="math inline">\(GF(p)\)</span> daxilində kökü
+yoxdursa, bu kökü özündə saxlayan daha böyük bir struktur —
+<strong>genişlənmə meydanı</strong> qurulur.</p>
+<div class="keyconcept">
+<p><span>Köklər və struktur</span> <span
+class="math inline">\(GF(2^n)\)</span> meydanı, <span
+class="math inline">\(GF(2)\)</span> üzərində <span
+class="math inline">\(n\)</span> dərəcəli sadələşməz hər hansı bir <span
+class="math inline">\(P(x)\)</span> polinomunun köklərini özündə
+birləşdirən ən kiçik meydandır <span class="citation"
+data-cites="lidl1997finite"></span>.</p>
+<ul>
+<li><p><span class="math inline">\(GF(2^n)\)</span>-in hər bir elementi
+həmin kökün (<span class="math inline">\(x\)</span>) qüvvətlərinin xətti
+kombinasiyası kimi ifadə olunur.</p></li>
+<li><p>Məsələn, AES-də istifadə olunan <span
+class="math inline">\(GF(2^8)\)</span> meydanını qurmaq üçün seçilən</p>
+
+
+<div class="math-display">\[P(x) = x^8 + x^4 + x^3 + x +
+1\]</div>
+
+<p>polinomunun <span class="math inline">\(GF(2)\)</span> daxilində
+(yəni <span class="math inline">\(0\)</span> və <span
+class="math inline">\(1\)</span> üçün) kökü yoxdur. Lakin bu polinomun
+bütün kökləri məhz <span class="math inline">\(GF(2^8)\)</span>
+meydanının daxilindədir <span class="citation"
+data-cites="daemen2002design"></span>.</p></li>
+</ul>
+</div>
+<div class="note">
+<p><span>Kriptoqrafik əhəmiyyəti</span> Polinomların kökləri ilə bağlı
+bu struktur xüsusiyyəti <strong>səhvlərin düzəldilməsi
+kodlarında</strong> (Reed–Solomon kodları) və bəzi müasir şifrələmə
+sistemlərində riyazi analizin əsasını təşkil edir.</p>
+</div>
+<h2 id="sonlu-meydanların-əsas-xüsusiyyətləri">Sonlu meydanların əsas
+xüsusiyyətləri</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong>. <em>Hər bir sonlu meydanın elementlərinin
+sayı <span class="math inline">\(p^n\)</span> şəklindədir, burada <span
+class="math inline">\(p\)</span> meydanın xarakteristikasını təşkil edən
+sadə ədəddir, <span class="math inline">\(n\)</span> isə müsbət tam
+ədəddir. Tərsinə, hər bir <span class="math inline">\(p^n\)</span> üçün
+izomorfizm dəqiqliyi ilə yeganə <span
+class="math inline">\(GF(p^n)\)</span> meydanı mövcuddur.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Teorem 2</strong>. <em><span
+class="math inline">\(GF(p^n)\)</span> meydanının vurma qrupu</em></p>
+
+
+<div class="math-display">\[GF(p^n)^* = GF(p^n) \setminus
+\{0\}\]</div>
+
+<p>tsiklik qrupdur. Bu qrupu generasiya edən <span
+class="math inline">\(g \in GF(p^n)^*\)</span> elementinə
+<strong>primitiv element</strong> deyilir.</em></p>
+</div>
+<h2 id="gfp-sadə-meydanları"><span class="math inline">\(GF(p)\)</span>
+sadə meydanları</h2>
+<p><span class="math inline">\(GF(p)\)</span> meydanı</p>
+
+
+<div class="math-display">\[\{0,1,2,\ldots,p-1\}\]</div>
+
+<p>qalıq siniflərindən ibarətdir və bütün əməliyyatlar mod <span
+class="math inline">\(p\)</span> aparılır.</p>
+<h2 id="gf2n-genişlənmə-meydanları-və-bit-təmsili"><span
+class="math inline">\(GF(2^n)\)</span> genişlənmə meydanları və bit
+təmsili</h2>
+<p>Kompüter sistemlərində verilənlər bitlərlə ifadə olunduğu üçün <span
+class="math inline">\(GF(2^n)\)</span> meydanları kriptoqrafiyada
+fundamental rol oynayır. Bu meydanın elementləri <span
+class="math inline">\(GF(2)\)</span> üzərində <span
+class="math inline">\(n-1\)</span> dərəcəli polinomlar kimi təmsil
+olunur:</p>
+
+
+<div class="math-display">\[A(x) = a_{n-1}x^{n-1} + a_{n-2}x^{n-2} +
+\cdots + a_1x + a_0,
+\qquad a_i \in \{0,1\}.\]</div>
+
+<div class="note">
+<p><span>Polinomların bitlərlə ifadəsi</span> Polinomun hər bir əmsalı
+(<span class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span>) bir bitə uyğundur. Məsələn, <span
+class="math inline">\(GF(2^8)\)</span> meydanında</p>
+
+
+<div class="math-display">\[A(x) = x^6 + x^4 + x^2 + x +
+1\]</div>
+
+<p>polinomu rəqəmsal olaraq aşağıdakı kimi ifadə olunur:</p>
+<ul>
+<li><p><span class="math inline">\(x^7 \rightarrow 0,\; x^6 \rightarrow
+1,\; x^5 \rightarrow 0,\;
+    x^4 \rightarrow 1,\; x^3 \rightarrow 0,\; x^2 \rightarrow 1,\;
+    x^1 \rightarrow 1,\; x^0 \rightarrow 1\)</span></p></li>
+<li><p>Bit ardıcıllığı: <span class="math inline">\(01010111_2\)</span>
+(Heksadesimal: <span class="math inline">\(0x57\)</span>)</p></li>
+</ul>
+</div>
+<div class="keyconcept">
+<p><span><span class="math inline">\(GF(2^n)\)</span>-də
+əməliyyatlar</span></p>
+<ul>
+<li><p><strong>Toplama:</strong> Polinomların əmsallarının mod <span
+class="math inline">\(2\)</span> toplanmasıdır; bu, bit səviyyəsində
+<strong>XOR</strong> (<span class="math inline">\(\oplus\)</span>)
+əməliyyatına tam ekvivalentdir.</p></li>
+<li><p><strong>Vurma:</strong> Polinomların adi vurulması və nəticənin
+seçilmiş <span class="math inline">\(n\)</span> dərəcəli
+<strong>sadələşməz (irreducible)</strong> polinom <span
+class="math inline">\(P(x)\)</span> moduluna görə bölünməsindən alınan
+qalıqdır.</p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 6</strong>. <em><span>Toplama (XOR) nümunəsi</span>
+<span class="math inline">\(0x57\)</span> (<span
+class="math inline">\(x^6+x^4+x^2+x+1\)</span>) və <span
+class="math inline">\(0x83\)</span> (<span
+class="math inline">\(x^7+x+1\)</span>) elementlərinin toplanması: <span
+class="math display">\[\begin{align*}
+    01010111 &amp; \quad (0x57) \\
+    \oplus\; 10000011 &amp; \quad (0x83) \\
+    \hline
+    11010100 &amp; \quad (0xD4) \rightarrow x^7 + x^6 + x^4 + x^2
+\end{align*}\]</span></em></p>
+</div>
+<h2
+id="kriptoqrafik-tətbiq-aes-advanced-encryption-standard">Kriptoqrafik
+tətbiq: AES (Advanced Encryption Standard)</h2>
+<p>AES alqoritmi <span class="math inline">\(GF(2^8)\)</span>
+meydanında, <span class="math inline">\(P(x) = x^8 + x^4 + x^3 + x +
+1\)</span> (heksadesimal: <span class="math inline">\(0x11B\)</span>)
+sadələşməz polinomu üzərində qurulmuşdur.</p>
+<div class="example">
+<p><strong>Nümunə 7</strong>. <em><span><span
+class="math inline">\(GF(2^8)\)</span>-də <code>xtime</code> ilə vurma
+nümunələri</span></em></p>
+<p><em>AES-də <span class="math inline">\(x\)</span> (yəni <span
+class="math inline">\(0x02\)</span>) ilə vurma əməliyyatını iki müxtəlif
+hal üçün nəzərdən keçirək.</em></p>
+<p><em><strong>Hal 1: MSB = 0 olduqda</strong></em></p>
+<p><em><span class="math inline">\(0x57\)</span> (<span
+class="math inline">\(01010111_2\)</span>) elementini <span
+class="math inline">\(x\)</span> ilə vuraq:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(01010111\)</span> sola 1 bit
+sürüşdürülür:</em></p>
+
+
+<div class="math-display">\[01010111 \rightarrow 10101110 \quad
+(0xAE).\]</div>
+</li>
+<li><p><em>Sürüşdürmədən əvvəl ən soldakı bit <span
+class="math inline">\(0\)</span> olduğu üçün modul düzəlişinə ehtiyac
+yoxdur.</em></p></li>
+<li><p><em>Nəticə: <span
+class="math inline">\(0xAE\)</span>.</em></p></li>
+</ol>
+<p><em><strong>Hal 2: MSB = 1 olduqda (modul əməliyyatı tələb
+olunur)</strong></em></p>
+<p><em><span class="math inline">\(0xAE\)</span> (<span
+class="math inline">\(10101110_2\)</span>) elementini <span
+class="math inline">\(x\)</span> ilə vuraq:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(10101110\)</span> sola 1 bit
+sürüşdürülür:</em></p>
+<p></p>
+
+<div class="math-display">\[10101110 \rightarrow 01011100 \quad
+(0x5C).\]</div>
+
+<p><em>(Sola sürüşdürmə zamanı yaranan 9-cu bit bayt çərçivəsindən
+kənara çıxır.)</em></p></li>
+<li><p><em>Sürüşdürmədən əvvəl ən soldakı bit <span
+class="math inline">\(1\)</span> olduğu üçün nəticə AES polinomu <span
+class="math inline">\(0x1B\)</span> ilə XOR edilir:</em></p>
+<p></p>
+
+<div class="math-display">\[\begin{aligned}
+        01011100 &amp;\quad (0x5C) \\
+        \oplus\; 00011011 &amp;\quad (0x1B) \\
+        \hline
+        01000111 &amp;\quad (0x47)
+    \end{aligned}\]</div>
+</li>
+<li><p><em>Nəticə: <span
+class="math inline">\(0x47\)</span>.</em></p></li>
+</ol>
+</div>
+<h2
+id="kriptoqrafik-tətbiq-elliptik-əyri-kriptoqrafiyası-ecc">Kriptoqrafik
+tətbiq: Elliptik Əyri Kriptoqrafiyası (ECC)</h2>
+<p>ECC, nöqtələri sonlu meydanlar (<span
+class="math inline">\(GF(p)\)</span> və ya <span
+class="math inline">\(GF(2^n)\)</span>) üzərində təyin olunmuş elliptik
+əyrilər qrupunda işləyir.</p>
+<div class="definition">
+<p><strong>Tərif 8</strong>. <em><span>Elliptik əyri</span> <span
+class="math inline">\(GF(p)\)</span> (burada <span
+class="math inline">\(p &gt; 3\)</span>) üzərində elliptik əyri</em></p>
+<p></p>
+
+<div class="math-display">\[y^2 = x^3 + ax + b\]</div>
+
+<p><em>tənliyi ilə təyin olunur. Burada</em></p>
+<p></p>
+
+<div class="math-display">\[4a^3 + 27b^2 \neq
+0\]</div>
+
+<p><em>şərti əyrinin sinqulyar olmamasını (təkrarlanan köklərin
+olmamasını) təmin edir.</em></p>
+</div>
+<p>Əyri üzərindəki bütün nöqtələr və “sonsuzluq nöqtəsi” <span
+class="math inline">\(O\)</span> birlikdə toplama əməliyyatına görə
+<strong>Abel qrupu</strong> təşkil edir. Bu struktur, RSA ilə müqayisədə
+daha kiçik açarlarla eyni təhlükəsizlik səviyyəsini təmin edir.</p>
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu əlavədə müasir kriptoqrafiyanın sütunlarını təşkil edən cəbri
+strukturların (qrup, halqa, meydan) riyazi mahiyyətini, onların rəqəmsal
+təmsillərini və real protokollardakı tətbiqlərini təhlil etdik.</p>
+<ul>
+<li><p><strong>Qrup:</strong> Vahid əməliyyatlı strukturdur. RSA üçün
+<span class="math inline">\(\mathbb{Z}_n^*\)</span> vurma qrupu, ECC
+üçün isə elliptik əyri nöqtələrinin təşkil etdiyi Abel qrupu asimmetrik
+kriptoqrafiyanın əsasını qoyur.</p></li>
+<li><p><strong>Halqa:</strong> İki əməliyyatlı (toplama və vurma) cəbri
+quruluşdur. RSA alqoritmi qalıq sinifləri halqasında (<span
+class="math inline">\(\mathbb{Z}_n\)</span>), post-kvant kriptoqrafiyası
+isə mürəkkəb polinomlar halqalarında işləyir.</p></li>
+<li><p><strong>Meydan:</strong> Sıfırdan fərqli hər bir elementin
+vurmaya görə tərsinin mövcud olduğu kommutativ strukturdur. Klassik
+meydanlarla (rasional, real, kompleks ədədlər) yanaşı, rəqəmsal
+təhlükəsizlik üçün sonlu meydanlar həlledici rol oynayır.</p></li>
+<li><p><strong>Qalua meydanları (<span
+class="math inline">\(GF(p^n)\)</span>):</strong> Elementlərinin sayı
+sonlu olan meydanlardır. AES alqoritmi <span
+class="math inline">\(GF(2^8)\)</span> meydanında polinomlar üzərində,
+Poly1305 isə <span class="math inline">\(GF(2^{130}-5)\)</span> sadə
+meydanında hesablamalar aparır.</p></li>
+</ul>
+<p>Qalua meydanları xüsusilə simmetrik şifrələmə və autentifikasiya
+mexanizmlərinin, elliptik əyrilər və tsiklik qruplar isə asimmetrik
+şifrələmənin və açar mübadiləsi protokollarının riyazi fundamentini
+təşkil edir <span class="citation"
+data-cites="schneier1996applied koblitz1994course"></span>.</p>

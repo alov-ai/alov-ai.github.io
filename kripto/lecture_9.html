@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_9</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 9: DES, 3DES və onların təhlükəsizliyi</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 9: Data Encryption Standard</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirədə blok şifrələr və Feystel şəbəkəsinin fundamental
+prinsipləri haqqında öyrəndik <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>. Bu
+mühazirədə Feystel şəbəkəsinin ən məşhur tətbiqi və uzun illər qlobal
+təhlükəsizlik standartı olmuş <strong>DES (Data Encryption
+Standard)</strong> alqoritmi ilə tanış olacağıq <span class="citation"
+data-cites="nist1977des coppersmith2000"></span>.</p>
+<p>DES tarixin ən təsirli kriptoqrafik alqoritmlərindən biridir. 1977-ci
+ildə standartlaşdırıldıqdan sonra 20 ildən çox müddət ərzində həm
+hökumət, həm də kommersiya sistemlərində geniş istifadə edilən əsas
+<strong>üsul</strong> olmuşdur <span class="citation"
+data-cites="stallings2017cryptography"></span>. Bu mühazirədə aşağıdakı
+mövzuları təfərrüatlı şəkildə əhatə edəcəyik:</p>
+<ul>
+<li><p>DES-in tarixi inkişafı və IBM-NSA əməkdaşlığı <span
+class="citation" data-cites="coppersmith2000"></span>.</p></li>
+<li><p>DES-in daxili strukturu: S-qutuları və açar cədvəli <span
+class="citation" data-cites="paar2010understanding"></span>.</p></li>
+<li><p>DES-in kriptoanalizi: diferensial və xətti hücumların alqoritmin
+dizaynına təsiri <span class="citation"
+data-cites="biham1993differential matsui1993linear"></span>.</p></li>
+<li><p>2DES və <em>meet-in-the-middle</em> hücumunun <strong>nümayiş
+etdirdiyi</strong> zəifliklər <span class="citation"
+data-cites="merkle1981"></span>.</p></li>
+<li><p>3DES (Triple DES) və onun təhlükəsizlik marjası <span
+class="citation" data-cites="nist2017sp800"></span>.</p></li>
+<li><p>Müasir dövrdə DES və 3DES-in rəsmi statusu <span class="citation"
+data-cites="nist2018deprecation"></span>.</p></li>
+</ul>
+<div class="history">
+<p><span>DES-in Tarixi</span> 1970-ci illərin əvvəllərində simmetrik
+kriptoqrafiya üçün vahid standarta ehtiyac yarandı. 1973-cü ildə ABŞ
+Milli Standartlar Bürosu (NBS, sonradan NIST) milli şifrləmə standartı
+üçün müsabiqə elan etdi <span class="citation"
+data-cites="coppersmith2000"></span>. IBM öz <em>Lucifer</em> şifrəsi
+ilə bu müsabiqəyə qoşuldu <span class="citation"
+data-cites="ibm1970lucifer"></span>. NSA-nın müdaxiləsi ilə
+<em>Lucifer</em> təkmilləşdirildi (açar uzunluğu 56-bitə endirildi,
+S-qutuları isə diferensial hücumlara qarşı gücləndirildi) və 1975-ci
+ildə DES təklif olundu. 1977-ci ildə FIPS 46 standartı kimi qəbul
+edilərək rəsmiləşdirildi <span class="citation"
+data-cites="nist1977des diffie1977exhaustive"></span>.</p>
+</div>
+<h2 id="des-in-təhlükəsizlik-fəlsəfəsi">DES-in Təhlükəsizlik
+Fəlsəfəsi</h2>
+<p>DES-in dizaynı həm o dövrün texnoloji məhdudiyyətlərini, həm də
+dövlət səviyyəli təhlükəsizlik tələblərini özündə birləşdirir. Açar
+uzunluğunun 56-bit seçilməsi o zaman böyük mübahisələrə səbəb olsa da,
+alqoritmin daxili S-qutularının riyazi strukturu onun nə qədər mükəmməl
+dizayn edildiyini <strong>göstərir</strong>.</p>
+<p>Mühazirənin bu hissəsi DES-in xarici "qabığını" və bitlərin ilkin
+emalı prosesini əhatə edir. İlkin və son permutasiyalar tez-tez
+kriptoqrafiya tələbələri tərəfindən "niyə lazımdır?" sualı ilə
+qarşılanan maraqlı bir mövzudur.</p>
+<p>Mətni razılaşdırdığımız akademik üslubda və LaTeX standartlarına
+uyğun olaraq təqdim edirəm: Code snippet</p>
+<h1 id="des-in-ümumi-quruluşu">DES-in Ümumi Quruluşu</h1>
+<h2 id="fundamental-texniki-göstəricilər">Fundamental Texniki
+Göstəricilər</h2>
+<p>DES alqoritminin daxili arxitekturası aşağıdakı əsas parametrlər
+üzərində qurulmuşdur <span class="citation"
+data-cites="nist1977des paar2010understanding"></span>:</p>
+<ul>
+<li><p><strong>Blok Ölçüsü:</strong> 64-bit (məlumat hər dəfə 64-bitlik
+bloklar şəklində emal olunur).</p></li>
+<li><p><strong>Açar Uzunluğu:</strong> 56-bit. Əslində alqoritmə
+64-bitlik açar daxil olur, lakin hər baytın sonuncu biti (<span
+class="math inline">\(8, 16, \dots, 64\)</span>) cütlük biti (<em>parity
+check</em>) üçün istifadə edildiyindən kriptoqrafik gücə təsir etmir
+<span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Raund Sayı:</strong> 16 təkrarlanan Feystel
+raundu.</p></li>
+<li><p><strong>Raund Açarı:</strong> Hər raundda əsas açardan törədilmiş
+48-bitlik unikal alt-açarlar istifadə olunur <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Quruluş tipli:</strong> Klassik Feystel şəbəkəsi <span
+class="citation" data-cites="feistel1973cryptography"></span>.</p></li>
+</ul>
+<h2 id="des-in-ümumi-sxemi">DES-in Ümumi Sxemi</h2>
+<p>DES-in şifrləmə prosesi üç əsas mərhələdən keçir. Bu mərhələlərin
+ardıcıllığı aşağıdakı sxemdə <strong>nümayiş etdirilir</strong> <span
+class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>:</p>
+<div class="center">
+
+</div>
+<h2 id="ilkin-və-son-permutasiyalar">İlkin və Son Permutasiyalar</h2>
+<p>İlkin permutasiya (IP) və onun tərsi olan son permutasiya (<span
+class="math inline">\(IP^{-1}\)</span>) DES alqoritminin giriş və çıxış
+qapıları hesab olunur <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<div class="keyconcept">
+<p><span>Permutasiyaların Rolu</span> Kriptoqrafik təhlil
+<strong>göstərir</strong> ki, IP və <span
+class="math inline">\(IP^{-1}\)</span> əməliyyatları şifrənin
+təhlükəsizlik səviyyəsini (riyazi dözümlülüyünü) artırmır. Bu
+permutasiyalar 1970-ci illərin aparat təminatında (hardware) bitlərin
+baytlar şəklində daha rahat oxunması üçün dizayn edilmişdi <span
+class="citation" data-cites="coppersmith2000"></span>.</p>
+</div>
+<p>Aşağıdakı cədvəldə bitlərin necə yer dəyişdirdiyi <strong>nümayiş
+etdirilir</strong>:</p>
+<table>
+<caption>İlkin Permutasiya (IP) Cədvəli</caption>
+<tbody>
+<tr>
+<td style="text-align: center;">58</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">42</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">62</td>
+<td style="text-align: center;">54</td>
+<td style="text-align: center;">46</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">56</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">49</td>
+<td style="text-align: center;">41</td>
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">59</td>
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">43</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">61</td>
+<td style="text-align: center;">53</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">7</td>
+</tr>
+</tbody>
+</table>
+<p>Bu cədvələ əsasən, açıq mətnin 58-ci biti şifrləmə prosesinin
+əvvəlində 1-ci mövqeyə keçir, 50-ci biti 2-ci mövqeyə keçir və bu qayda
+ilə davam edir.</p>
+<p>Bu hissə DES-in "ürəyi" hesab olunur, çünki bütün qeyri-xətti
+əməliyyatlar məhz burada cəmləşib. Mövcud mətni daha axıcı akademik dilə
+salaraq, vizual sxemi stabil TikZ kodu ilə əvəzləyirəm. Code snippet</p>
+<h1 id="des-in-raund-funksiyası-f">DES-in Raund Funksiyası (<span
+class="math inline">\(f\)</span>)</h1>
+<p>DES-in hər bir raundu mürəkkəb riyazi çevrilmələrdən ibarətdir və
+əsas gücü 32-bitlik sağ yarım (<span class="math inline">\(R_i\)</span>)
+üzərində tətbiq olunan <span class="math inline">\(f(R_i, K_i)\)</span>
+funksiyasındadır. Bu funksiya aşağıdakı dörd ardıcıl komponentdən təşkil
+olunmuşdur <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>:</p>
+<ol>
+<li><p><strong>Genişləndirmə (Expansion):</strong> 32-bitlik girişi
+qonşu bitlərin təkrarlanması vasitəsilə 48-bitə çatdırır.</p></li>
+<li><p><strong>Açarın Qarışdırılması:</strong> Genişləndirilmiş blok
+48-bitlik raund açarı (<span class="math inline">\(K_i\)</span>) ilə XOR
+əməliyyatına daxil olur.</p></li>
+<li><p><strong>S-qutuları (Substitution):</strong> Qeyri-xətti əvəzetmə
+aparılaraq 48-bitlik məlumat yenidən 32-bitə sıxılır.</p></li>
+<li><p><strong>P-qutuları (Permutation):</strong> 32-bitlik çıxışın
+bitləri xüsusi cədvələ uyğun olaraq yenidən düzülür.</p></li>
+</ol>
+<div class="center">
+
+</div>
+<h2 id="genişləndirmə-funksiyası-e">Genişləndirmə Funksiyası (E)</h2>
+<p>Genişləndirmə funksiyası (E-box) həm yayılmanı (<em>diffusion</em>)
+təmin edir, həm də blokun ölçüsünü açarın ölçüsünə uyğunlaşdırır.
+32-bitlik girişin hər 4-bitlik qrupu qonşu bitlər əlavə edilməklə 6-bitə
+çatdırılır <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<table>
+<caption>DES Genişləndirmə Cədvəli (E)</caption>
+<thead>
+<tr>
+<th style="text-align: center;">32</th>
+<th style="text-align: center;"><strong>1</strong></th>
+<th style="text-align: center;"><strong>2</strong></th>
+<th style="text-align: center;"><strong>3</strong></th>
+<th style="text-align: center;"><strong>4</strong></th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;"><strong>5</strong></th>
+<th style="text-align: center;"><strong>6</strong></th>
+<th style="text-align: center;"><strong>7</strong></th>
+<th style="text-align: center;"><strong>8</strong></th>
+<th style="text-align: center;">9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;"><strong>21</strong></td>
+<td style="text-align: center;"><strong>22</strong></td>
+<td style="text-align: center;"><strong>23</strong></td>
+<td style="text-align: center;"><strong>24</strong></td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;"><strong>25</strong></td>
+<td style="text-align: center;"><strong>26</strong></td>
+<td style="text-align: center;"><strong>27</strong></td>
+<td style="text-align: center;"><strong>28</strong></td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;"><strong>29</strong></td>
+<td style="text-align: center;"><strong>30</strong></td>
+<td style="text-align: center;"><strong>31</strong></td>
+<td style="text-align: center;"><strong>32</strong></td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s-qutuları-substitution-boxes">S-qutuları (Substitution
+Boxes)</h2>
+<p>DES-in təhlükəsizliyinin təməl daşı 8 ədəd S-qutusudur. Hər bir qutu
+6-bitlik girişi (cəmi 48-bit) qeyri-xətti şəkildə 4 bitlik çıxışa (cəmi
+32-bit) çevirir <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<div class="keyconcept">
+<p><span>Qeyri-xəttilik</span> S-qutuları DES-də qarışdırma
+(<em>confusion</em>) prinsipini reallaşdıran yeganə komponentdir. Onlar
+olmasa, DES sadə bir xətti tənliklər sisteminə çevrilər və asanlıqla
+sındırıla bilərdi <span class="citation"
+data-cites="coppersmith1994"></span>.</p>
+</div>
+<p>S-qutularının işləmə mexanizmi: Girişin 1-ci və 6-cı bitləri cədvəlin
+<strong>sətrini</strong>, daxili 4 bit (2, 3, 4, 5) isə
+<strong>sütununu</strong> müəyyən edir.</p>
+<table>
+<caption>S1 qutusu (Nümunə strukturu)</caption>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">12</th>
+<th style="text-align: center;">13</th>
+<th style="text-align: center;">14</th>
+<th style="text-align: center;">15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">13</td>
+</tr>
+</tbody>
+</table>
+<h2 id="p-qutusu">P-qutusu</h2>
+<p>S-qutularından çıxan 32-bitlik məlumat P-qutusu vasitəsilə yenidən
+paylanır. Bu, bir S-qutusundan gələn bitlərin növbəti raundda fərqli
+S-qutularına daxil olmasını təmin edir (yayılma effekti) <span
+class="citation" data-cites="stallings2017cryptography"></span>.</p>
+<table>
+<caption>P-qutusu Cədvəli</caption>
+<thead>
+<tr>
+<th style="text-align: center;">16</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">20</th>
+<th style="text-align: center;">21</th>
+<th style="text-align: center;">29</th>
+<th style="text-align: center;">12</th>
+<th style="text-align: center;">28</th>
+<th style="text-align: center;">17</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">25</td>
+</tr>
+</tbody>
+</table>
+<h1 id="des-in-açar-planı-key-schedule">DES-in Açar Planı (Key
+Schedule)</h1>
+<p>DES-in açar planı (və ya açar cədvəli) 64-bitlik ilkin açardan hər
+bir raund üçün unikal 48-bitlik 16 ədəd raund açarı (<span
+class="math inline">\(K_1, K_2, \dots, K_{16}\)</span>) törədir. Bu
+proses məlumatın şifrlənməsi zamanı istifadə olunan alt-açarların
+müxtəlifliyini təmin edir <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="pc-1-və-pc-2-permutasiyaları">PC-1 və PC-2 Permutasiyaları</h2>
+<p>Açar planı prosesində iki kritik seçici permutasiya tətbiq olunur
+<span class="citation" data-cites="menezes1996handbook"></span>:</p>
+<ul>
+<li><p><strong>PC-1 (Permuted Choice 1):</strong> Girişdəki 64-bitlik
+açardan 56-bit seçir. Qalan 8 bit (hər baytın sonuncu biti) cütlük biti
+(<em>parity check</em>) üçün nəzərdə tutulduğundan prosesdən
+kənarlaşdırılır.</p></li>
+<li><p><strong>PC-2 (Permuted Choice 2):</strong> Dövri sürüşdürmələrdən
+sonra əldə edilən 56-bitlik blokdan 48-bit seçərək konkret raund açarını
+formalaşdırır.</p></li>
+</ul>
+<h2 id="açar-planının-alqoritmik-addımları">Açar Planının Alqoritmik
+Addımları</h2>
+<p>Hər bir raund açarının törədilməsi aşağıdakı ardıcıllıqla icra edilir
+<span class="citation" data-cites="paar2010understanding"></span>:</p>
+<ol>
+<li><p>56-bitlik açar iki bərabər hissəyə — <span
+class="math inline">\(C_0\)</span> (28-bit) və <span
+class="math inline">\(D_0\)</span> (28-bit) yarımlarına
+bölünür.</p></li>
+<li><p>Hər raundda <span class="math inline">\(C_{i-1}\)</span> və <span
+class="math inline">\(D_{i-1}\)</span> blokları sola dövri sürüşdürülür
+(<em>left circular shift</em>). Sürüşdürmə miqdarı raundun nömrəsindən
+asılı olaraq 1 və ya 2 bit təşkil edir.</p></li>
+<li><p>Sürüşdürülmüş yarımlar birləşdirilir və PC-2 permutasiyasından
+keçirilərək həmin raundun 48-bitlik açarı (<span
+class="math inline">\(K_i\)</span>) əldə edilir.</p></li>
+</ol>
+<table>
+<caption>Raundlar üzrə sola dövri sürüşdürmə miqdarı</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Raund</strong></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">12</th>
+<th style="text-align: center;">13</th>
+<th style="text-align: center;">14</th>
+<th style="text-align: center;">15</th>
+<th style="text-align: center;">16</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sürüşdürmə</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pc-2-permuted-choice-2-detallı-analizi">PC-2 (Permuted Choice 2)
+Detallı Analizi</h2>
+<p><strong>PC-2</strong> əməliyyatı açar planının sonuncu mərhələsi
+olmaqla, "sıxıcı permutasiya" (<em>compression permutation</em>)
+funksiyasını yerinə yetirir. Bu mərhələnin əsas məqsədi hər raund üçün
+56-bitlik daxili vəziyyətdən 48-bitlik unikal alt-açar (<span
+class="math inline">\(K_i\)</span>) formalaşdırmaqdır.</p>
+<ul>
+<li><p><strong>Seçim (Selection):</strong> 56 bitdən 8-i (9, 18, 22, 25,
+35, 38, 43 və 54-cü bitlər) tamamilə kənarlaşdırılır. Bu, hücumçunun
+bütün alt-açarları bərpa etməsini çətinləşdirən bir qeyri-müəyyənlik
+yaradır.</p></li>
+<li><p><strong>Permutasiya (Permutation):</strong> Qalan 48 bit PC-2
+cədvəlinə uyğun olaraq yenidən düzülür. Bu yer dəyişdirmə sayəsində hər
+bir bit növbəti raundda fərqli S-qutusuna təsir edir.</p></li>
+</ul>
+<table>
+<caption>PC-2 Permutasiya Cədvəli (48-bit çıxış)</caption>
+<thead>
+<tr>
+<th style="text-align: center;">14</th>
+<th style="text-align: center;">17</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">24</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">28</th>
+<th style="text-align: center;">15</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">21</th>
+<th style="text-align: center;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">41</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">48</td>
+</tr>
+<tr>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">49</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">56</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">53</td>
+<td style="text-align: center;">46</td>
+<td style="text-align: center;">42</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">32</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nəticə:</strong> PC-2 vasitəsilə təmin olunan bit seçimi və
+yerdəyişməsi, əsas açar ilə şifrəli mətn arasındakı asılılığı
+qarışdıraraq (<em>confusion</em>), xətti və diferensial kriptoanalizə
+qarşı dözümlülüyü artırır.</p>
+<h2 id="des-in-zəif-və-yarımzəif-açarları">DES-in Zəif və Yarımzəif
+Açarları</h2>
+<p>DES alqoritminin riyazi strukturu bəzi açarların istifadəsi zamanı
+təhlükəsizlik marjasının azalmasına səbəb olur <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>:</p>
+<ul>
+<li><p><strong>Zəif Açarlar (<em>Weak Keys</em>):</strong> Bu açarlar
+tətbiq edildikdə şifrləmə və deşifrləmə əməliyyatları eyni nəticəni
+verir (<span class="math inline">\(E_K(P) = D_K(P)\)</span>). Cəmi 4
+belə açar mövcuddur. Onlar istifadə edildikdə bütün raund açarları
+(<span class="math inline">\(K_1 = K_2 = \dots = K_{16}\)</span>) eyni
+olur.</p></li>
+<li><p><strong>Yarımzəif Açarlar (<em>Semi-weak Keys</em>):</strong> Bu
+açarlar cütlük təşkil edir (<span class="math inline">\(K_a,
+K_b\)</span>). Bir açarla şifrlənmiş məlumatı digəri ilə deşifrləmək
+mümkündür (<span class="math inline">\(E_{K_b}(E_{K_a}(P)) =
+P\)</span>). Belə açarların sayı 12-dir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>Zəif Açar Analizi</span> Əgər
+<span class="math inline">\(K = \text{0x0101010101010101}\)</span> açarı
+seçilərsə, PC-1 permutasiyasından sonra yaranan 56-bitlik daxili
+vəziyyətin bütün bitləri <span class="math inline">\(0\)</span> olur.
+Sola dövri sürüşdürmə əməliyyatı sıfırlardan ibarət blokda heç bir
+dəyişiklik etmədiyi üçün: <span class="math display">\[K_1 = K_2 = \dots
+= K_{16}\]</span> olur. Bu vəziyyətdə Feystel raundları simmetrikləşir
+və nəticədə şifrləmə funksiyası öz-özünün tərsini formalaşdırır: <span
+class="math inline">\(E_K(P) = D_K(P)\)</span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>Yarımzəif Açar Cütləri</span>
+Yarımzəif açarların (<span class="math inline">\(K_a, K_b\)</span>) əsas
+xüsusiyyəti odur ki, <span class="math inline">\(K_a\)</span> üçün
+törədilmiş raund açarları ardıcıllığı <span
+class="math inline">\(K_b\)</span> üçün törədilmiş ardıcıllığın
+tərsidir: <span class="math display">\[k_i^{(a)} =
+k_{17-i}^{(b)}\]</span> Bu səbəbdən, bir açarla şifrləmə prosesi digər
+açarla deşifrləmə prosesinə ekvivalent olur. Məsələn, aşağıdakı iki açar
+bir yarımzəif cütlük təşkil edir:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(K_1 =
+\text{0x01FE01FE01FE01FE}\)</span></em></p></li>
+<li><p><em><span class="math inline">\(K_2 =
+\text{0xFE01FE01FE01FE01}\)</span></em></p></li>
+</ul>
+<p><em>Nəticədə: <span class="math inline">\(E_{K_2}(E_{K_1}(P)) =
+P\)</span>.</em></p>
+</div>
+<div class="note">
+<p><span>Zəif Açarların Yaradıcısı</span> Zəif açarların mövcudluğu açar
+planının xətti xüsusiyyətlərindən qaynaqlanır. Məsələn, ilkin açar
+tamamilə sıfırlardan və ya vahidlərdən ibarət olduqda, PC-1 və
+sürüşdürmə əməliyyatları heç bir dəyişiklik yaratmır, nəticədə raundlar
+arası variasiya itir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<p>Bu bölmə DES-in tarixən necə sındırıldığını və onun riyazi
+zəifliklərini əks etdirən mühüm bir hissədir. Təqdim etdiyiniz mətndəki
+xırda texniki qeydləri düzəldərək, akademik standartlara uyğun, vizual
+cəhətdən zəngin və tam işlək LaTeX formatını aşağıda hazırladım.</p>
+<p>Xüsusilə, Diferensial və Xətti kriptoanaliz bölmələrindəki düsturları
+və "Tamamlayıcı xassə" (Complementation Property) hissəsini daha
+anlaşıqlı formata saldım. Code snippet</p>
+<h1 id="des-in-kriptoanalizi">DES-in Kriptoanalizi</h1>
+<p>DES alqoritmi istifadəyə verildiyi gündən etibarən həm dövlət
+səviyyəsində, həm də akademik mühitdə ciddi hücumlara məruz qalmışdır.
+Bu hücumlar əsasən üç istiqamətdə qruplaşdırılır: tam axtarış,
+diferensial kriptoanaliz və xətti kriptoanaliz.</p>
+<h2 id="tam-axtarış-brute-force-hücumu">Tam Axtarış (Brute-force)
+Hücumu</h2>
+<p>DES-in 56-bitlik açar fəzası <span class="math inline">\(2^{56}
+\approx 7.2 \times 10^{16}\)</span> mümkün kombinasiyadan ibarətdir
+<span class="citation" data-cites="diffie1977exhaustive"></span>. İlk
+baxışda bu rəqəm böyük görünsə də, hesablama gücünün artması bu marjanı
+zamanla yox etmişdir.</p>
+<div class="keyconcept">
+<p><span>Tam Axtarışın Məntiqi</span> Tam axtarış hücumunda hücumçu
+doğru açarı tapana qədər bütün mümkün variantları sınaqdan keçirir. Orta
+hesabla açar fəzasının yarısını (<span
+class="math inline">\(2^{55}\)</span> sınaq) yoxlamaqla nəticə əldə
+etmək mümkündür <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<p>1998-ci ildə EFF tərəfindən cəmi 250,000 dollara hazırlanan
+<strong>Deep Crack</strong> cihazı DES-in artıq kommersiya məqsədləri
+üçün təhlükəsiz olmadığını sübut etdi.</p>
+<table>
+<caption>DES-in Tam Axtarış Hücumlarına Qarşı Tarixi
+Müqaviməti</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>İl</strong></th>
+<th style="text-align: left;"><strong>Hadisə / Cihaz</strong></th>
+<th style="text-align: left;"><strong>Sındırılma Müddəti</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1977</td>
+<td style="text-align: left;">Diffie-Hellman nəzəri təhlili</td>
+<td style="text-align: left;">1 gün (proqnoz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">1993</td>
+<td style="text-align: left;">Wiener-in xüsusi dizaynı</td>
+<td style="text-align: left;">3.5 saat (nəzəri)</td>
+</tr>
+<tr>
+<td style="text-align: left;">1998</td>
+<td style="text-align: left;">EFF Deep Crack</td>
+<td style="text-align: left;">22 saat 15 dəqiqə</td>
+</tr>
+<tr>
+<td style="text-align: left;">1999</td>
+<td style="text-align: left;">Deep Crack + Distributed.net</td>
+<td style="text-align: left;">22 saat 15 dəqiqə</td>
+</tr>
+<tr>
+<td style="text-align: left;">2006</td>
+<td style="text-align: left;">COPACOBANA (FPGA əsaslı)</td>
+<td style="text-align: left;">&lt; 7 gün (daha ucuz maliyyə)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="diferensial-kriptoanaliz">Diferensial Kriptoanaliz</h2>
+<p>Eli Biham və Adi Şamir tərəfindən 1990-cı ildə təqdim edilən bu üsul,
+şifrələmənin daxili quruluşundakı (xüsusilə S-qutularındakı) ehtimal
+qanunauyğunluqlarını hədəf alır <span class="citation"
+data-cites="biham1993differential"></span>.</p>
+<div class="keyconcept">
+<p><span>Diferensial Analiz</span> Hücumçu xüsusi seçilmiş giriş fərqinə
+(<span class="math inline">\(\Delta P\)</span>) malik açıq mətn
+cütlərinin şifrləndikdən sonra yaratdıqları çıxış fərqlərini (<span
+class="math inline">\(\Delta C\)</span>) analiz edir: <span
+class="math display">\[\Delta P = P_1 \oplus P_2, \quad \Delta C = C_1
+\oplus C_2\]</span> S-qutularının <strong>Diferensial Keçid Ehtimalları
+Cədvəlində (Difference Distribution Table - DDT)</strong> yüksək
+ehtimallı diferensial xarakteristikaları (keçidləri) izləməklə raund
+açarlarının bitləri müəyyən edilir.</p>
+</div>
+<p>Maraqlı bir tarixi fakt budur ki, IBM mühəndisləri bu hücum növünü
+hələ 1970-ci illərdə bilirdilər və DES-in S-qutularını buna qarşı xüsusi
+olaraq gücləndirmişdilər <span class="citation"
+data-cites="coppersmith1994"></span>. Nəticədə, tam 16 raundlu DES-i
+diferensial analizlə sındırmaq üçün <span
+class="math inline">\(2^{47}\)</span> seçilmiş açıq mətn tələb olunur
+ki, bu da tam axtarışdan daha çətindir.</p>
+<div class="note">
+<p><span>Sadə bənzətmə</span> Təsəvvür edin ki, bir hovuza iki daş
+atırsınız. Daşların düşdüyü yerlər arasındakı məsafəni (<span
+class="math inline">\(\Delta P\)</span>) bilirsiniz. Suda yaranan
+dalğaların kəsişmə nöqtələrini (<span class="math inline">\(\Delta
+C\)</span>) izləməklə, suyun altındakı maneələrin (yəni açarın)
+formasını təxmin etməyə çalışırsınız.</p>
+</div>
+<h2 id="xətti-kriptoanaliz">Xətti Kriptoanaliz</h2>
+<p>Mitsuru Matsui tərəfindən 1993-cü ildə kəşf edilən bu üsul, DES-in
+S-qutularının xətti tənliklərlə nə dərəcədə "yaxınlaşdırıla" biləcəyinə
+əsaslanır <span class="citation"
+data-cites="matsui1993linear"></span>.</p>
+<div class="keyconcept">
+<p><span>Xətti Yaxınlaşma</span> Məqsəd açıq mətn bitləri (<span
+class="math inline">\(P\)</span>), şifrəli mətn bitləri (<span
+class="math inline">\(C\)</span>) və açar bitləri (<span
+class="math inline">\(K\)</span>) arasında yüksək ehtimallı xətti əlaqə
+tapmaqdır: <span class="math display">\[Pr[P[i_1, \dots, i_a] \oplus
+C[j_1, \dots, j_b] = K[k_1, \dots, k_c]] = \frac{1}{2} +
+\epsilon\]</span> Burada <span class="math inline">\(\epsilon\)</span>
+"meyllilik" (<em>bias</em>) adlanır. Bu meyl nə qədər böyükdürsə, hücum
+bir o qədər effektivdir.</p>
+</div>
+<p>Matsui 1994-cü ildə <span class="math inline">\(2^{43}\)</span> məlum
+açıq mətndən istifadə edərək DES-i praktik olaraq sındıran ilk şəxs
+oldu. Bu hücum DES-in nəzəri deyil, real istifadədəki zəifliyini
+göstərən ən güclü zərbə idi.</p>
+<h2 id="tamamlayıcı-xassə-complementation-property">Tamamlayıcı Xassə
+(Complementation Property)</h2>
+<p>DES-in simmetrik quruluşundan irəli gələn bu xüsusiyyət hücumçuların
+işini xeyli asanlaşdırır <span class="citation"
+data-cites="paar2010understanding"></span>: <span
+class="math display">\[\text{Əgər } Y = E_K(X) \text{ olarsa, onda }
+\overline{Y} = E_{\overline{K}}(\overline{X})\]</span> Burada <span
+class="math inline">\(\overline{X}\)</span> bitlərin inversiyası (NOT
+əməliyyatı) deməkdir.</p>
+<div class="note">
+<p><span>Praktik Təsiri</span> Bu xüsusiyyətə görə, tam axtarış zamanı
+hücumçu açarların hamısını deyil, yalnız yarısını yoxlamalı olur (<span
+class="math inline">\(2^{55}\)</span> əvəzinə <span
+class="math inline">\(2^{54}\)</span> sınaq). Çünki hər bir <span
+class="math inline">\(K\)</span> açarını yoxladıqda, eyni zamanda <span
+class="math inline">\(\overline{K}\)</span> açarı haqqında da məlumat
+əldə edilmiş olur.</p>
+</div>
+<h1 id="des-və-ortada-görüş-meet-in-the-middle-hücumu">2DES və Ortada
+Görüş (Meet-in-the-Middle) Hücumu</h1>
+<p>DES-in 56-bitlik kiçik açar fəzası tam axtarış hücumlarına qarşı
+zəiflədikdən sonra, mühəndislər ən sadə çıxış yolunu şifrləməni ardıcıl
+iki dəfə tətbiq etməkdə gördülər. Bu struktur <strong>2DES</strong>
+adlanır və iki fərqli açardan (<span class="math inline">\(K_1\)</span>
+və <span class="math inline">\(K_2\)</span>) istifadə edir <span
+class="citation" data-cites="paar2010understanding"></span>:</p>
+<p><span class="math display">\[C = E_{K_2}(E_{K_1}(P))\]</span></p>
+<p>Nəzəriyyədə bu yanaşma açar fəzasını <span
+class="math inline">\(2^{56} \times 2^{56} = 2^{112}\)</span>
+səviyyəsinə qaldırmalı idi. Lakin Merkle və Hellman tərəfindən kəşf
+edilən hücum bu gözləntini puça çıxardı.</p>
+<h2 id="ortada-görüş-meet-in-the-middle-hücumu"> Ortada Görüş
+(Meet-in-the-Middle) Hücumu</h2>
+<p>Bu hücumun əsas fəlsəfəsi şifrləmənin həm "əvvəldən sona", həm də
+"sondan əvvələ" eyni vaxtda icra edilməsinə əsaslanır.</p>
+<div class="keyconcept">
+<p><span>Hücumun Addımları</span> Hücumçunun əlində ən azı bir cüt məlum
+açıq mətn (<span class="math inline">\(P\)</span>) və şifrəli mətn
+(<span class="math inline">\(C\)</span>) olduqda aşağıdakı proseduru
+icra edir <span class="citation" data-cites="merkle1981"></span>:</p>
+<ol>
+<li><p><strong>İrəli Hesablama:</strong> Bütün mümkün <span
+class="math inline">\(2^{56}\)</span> sayda <span
+class="math inline">\(K_1\)</span> açarları üçün <span
+class="math inline">\(X = E_{K_1}(P)\)</span> hesablanır və nəticələr
+<span class="math inline">\(X\)</span> dəyərinə görə sıralanmış şəkildə
+yaddaşda (cədvəldə) saxlanılır.</p></li>
+<li><p><strong>Geri Hesablama:</strong> Bütün mümkün <span
+class="math inline">\(2^{56}\)</span> sayda <span
+class="math inline">\(K_2\)</span> açarları üçün <span
+class="math inline">\(Y = D_{K_2}(C)\)</span> hesablanır.</p></li>
+<li><p><strong>Qarşılaşdırma:</strong> Hər hesablanan <span
+class="math inline">\(Y\)</span> dəyəri cədvəldəki <span
+class="math inline">\(X\)</span> dəyərləri ilə müqayisə edilir. Əgər
+<span class="math inline">\(X = Y\)</span> şərti ödənirsə, həmin <span
+class="math inline">\((K_1, K_2)\)</span> cütü potensial doğru
+açardır.</p></li>
+</ol>
+</div>
+<h2 id="mürəkkəblik-analizi">Mürəkkəblik Analizi</h2>
+<p>Bu hücum sayəsində <span class="math inline">\(2^{112}\)</span> sınaq
+yerinə cəmi <span class="math inline">\(2^{56} + 2^{56} =
+2^{57}\)</span> əməliyyat tələb olunur. Bu, 1DES-in sındırılmasından
+cəmi 2 dəfə daha çətindir, lakin 2DES-dən gözlənilən təhlükəsizlikdən
+kəskin dərəcədə azdır.</p>
+<table>
+<caption>DES və 2DES-in Təhlükəsizlik Marjası</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Nominal Açar</strong></th>
+<th style="text-align: center;"><strong>Yaddaş Tələbi</strong></th>
+<th style="text-align: center;"><strong>Effektiv Güc</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DES</td>
+<td style="text-align: center;">56-bit</td>
+<td style="text-align: center;">Minimal</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{55}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">2DES</td>
+<td style="text-align: center;">112-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{56}\)</span> sətirlik cədvəl</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{57}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="warning">
+<p><span>Niyə 2DES İstifadə Edilmir?</span> Meet-in-the-middle hücumu
+göstərdi ki, sadəcə şifrləmə sayını ikiqat artırmaq təhlükəsizliyi
+eksponensial deyil, yalnız xətti artırır. Bundan əlavə, hücumun tək
+mənfi cəhəti böyük yaddaş (<span class="math inline">\(2^{56}\)</span>
+qeyd) tələb etməsidir ki, bu da müasir bulud saxlama sistemləri üçün
+artıq keçilməz maneə deyil <span class="citation"
+data-cites="van1990"></span>.</p>
+</div>
+<h1 id="des-üçqat-triple-des">3DES (Üçqat (Triple) DES)</h1>
+<p>2DES-in "ortada görüş" hücumuna qarşı zəifliyi sübut olunduqdan
+sonra, sənaye standartı olaraq üçqat şifrləmə metoduna keçid edilmişdir
+<span class="citation" data-cites="nist1999des"></span>. 3DES həm açar
+uzunluğunu artırır, həm də mövjud DES infrastrukturundan istifadə etməyə
+imkan verir.</p>
+<h2 id="des-variantları-və-ede-rejimi">3DES Variantları və EDE
+Rejimi</h2>
+<p>3DES-in ən geniş yayılmış forması <strong>EDE</strong>
+(Encrypt-Decrypt-Encrypt) strukturudur. Bu ardıcıllığın seçilməsinin
+əsas səbəbi geriyə uyğunluqdur: əgər bütün açarlar eyni seçilərsə (<span
+class="math inline">\(K_1=K_2=K_3\)</span>), mərkəzdəki deşifrləmə
+birinci şifrləməni ləğv edir və sistem standart 1DES kimi işləyir <span
+class="citation" data-cites="stallings2017cryptography"></span>.</p>
+<ol>
+<li><p><strong>DES-EDE3 (Seçim 1):</strong> Üç fərqli açar istifadə
+olunur. <span class="math display">\[C =
+E_{K_3}(D_{K_2}(E_{K_1}(P)))\]</span></p></li>
+<li><p><strong>DES-EDE2 (Seçim 2):</strong> Birinci və üçüncü açar
+eynidir (<span class="math inline">\(K_1=K_3\)</span>). <span
+class="math display">\[C =
+E_{K_1}(D_{K_2}(E_{K_1}(P)))\]</span></p></li>
+</ol>
+<h2 id="təhlükəsizlik-analizi-və-mürəkkəblik">Təhlükəsizlik Analizi və
+Mürəkkəblik</h2>
+<p>3DES-in effektiv təhlükəsizliyi nominal açar uzunluğundan daha azdır.
+Məsələn, 168-bitlik açara malik EDE3 variantı, inkişaf etmiş "ortada
+görüş" hücumları səbəbindən praktikada <span
+class="math inline">\(2^{112}\)</span> gücündə olur <span
+class="citation" data-cites="nist2017sp800"></span>.</p>
+<table>
+<caption>3DES Variantlarının Müqayisəli Xüsusiyyətləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variant</strong></th>
+<th style="text-align: center;"><strong>Açar Sayı</strong></th>
+<th style="text-align: center;"><strong>Nominal Uzunluq</strong></th>
+<th style="text-align: center;"><strong>Effektiv
+Təhlükəsizlik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DES-EDE2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">112-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{80}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">DES-EDE3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">168-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{112}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="des-in-çatışmazlıqları-və-istifadədən-çıxarılması">3DES-in
+Çatışmazlıqları və İstifadədən Çıxarılması</h2>
+<p>NIST-in 2018-ci il qərarı ilə 3DES rəsmi olaraq "köhnəlmiş"
+(<em>deprecated</em>) elan edilmişdir <span class="citation"
+data-cites="nist2018deprecation"></span>. Bunun əsas səbəbləri
+aşağıdakılardır:</p>
+<ul>
+<li><p><strong>Effektivlik:</strong> Proqram təminatında (software)
+AES-dən xeyli yavaşdır.</p></li>
+<li><p><strong>Blok Ölçüsü Zəifliyi:</strong> 64-bitlik blok ölçüsü
+<em>Sweet32</em> kimi hücumlar üçün əlverişlidir (böyük həcmli
+verilənlərdə blokların təkrarı riski).</p></li>
+<li><p><strong>Resurs Tələbi:</strong> Üçqat hesablama mobil və aşağı
+güclü cihazlarda batareya və CPU sərfinə səbəb olur.</p></li>
+</ul>
+<div class="note">
+<p><span>Müasir Alternativ</span> 3DES hazırda yalnız köhnə bank
+sistemlərində (ATM və POS terminallarında) tədricən AES-ə keçid dövründə
+müvəqqəti olaraq istifadə olunur <span class="citation"
+data-cites="nist2001aes"></span>.</p>
+</div>
+<h1 id="des-və-3des-in-müasir-dövrdə-statusu">DES və 3DES-in Müasir
+Dövrdə Statusu</h1>
+<p>DES alqoritminin sındırılması və texnologiyanın inkişafı simmetrik
+şifrləmə sahəsində yeni bir eranın – AES erasının başlamasına səbəb
+oldu. Bu gün DES artıq təhlükəsizlik deyil, yalnız kriptoqrafiya tarixi
+üçün öyrənilir.</p>
+<h2 id="des-in-rəsmi-olaraq-ləğvi">DES-in Rəsmi Olaraq Ləğvi</h2>
+<p>1998-ci ildə EFF Deep Crack cihazının DES-i bir gündən az müddətdə
+sındırması alqoritmin praktik sonunu gətirdi <span class="citation"
+data-cites="efficient1998cracking"></span>. NIST 2004-cü ildə DES-in
+artıq federal standart (FIPS) olmadığını rəsmi şəkildə elan etdi və onun
+yalnız köhnə məlumatların deşifrlənməsi üçün istifadə edilə biləcəyini
+bildirdi <span class="citation" data-cites="nist2004des"></span>.</p>
+<h2 id="des-və-blok-ölçüsü-problemi-sweet32">3DES və Blok Ölçüsü
+Problemi (Sweet32)</h2>
+<p>3DES uzun müddət "keçid standartı" kimi xidmət etsə də, onun ən böyük
+zəifliyi açar uzunluğu deyil, 64-bitlik blok ölçüsü oldu.</p>
+<div class="keyconcept">
+<p><span>Ad Günü Hücumu (Birthday Attack)</span> Ehtimal nəzəriyyəsinə
+əsasən, 64-bitlik blok ölçüsünə malik şifrlərdə təxminən <span
+class="math inline">\(2^{32}\)</span> blok (<span
+class="math inline">\(32\)</span> GB-a yaxın məlumat) şifrləndikdən
+sonra eyni şifrəli mətn bloklarının yaranma ehtimalı (toqquşma) kritik
+səviyyəyə çatır. Bu zəiflik <em>Sweet32</em> hücumu kimi tanınır və
+məlumatın bir hissəsinin bərpasına imkan verir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<p>NIST 2018-ci ildə 3DES-in ləğvi prosesinə başladı və 2023-cü ilin
+sonundan etibarən bütün yeni tətbiqlərdə onun istifadəsini qadağan etdi
+<span class="citation" data-cites="nist2018deprecation"></span>.</p>
+<h2 id="aes-advanced-encryption-standard-standartı">AES (Advanced
+Encryption Standard) Standartı</h2>
+<p>Hal-hazırda DES və 3DES-in varisi kimi AES alqoritmi bütün dünyada
+qəbul edilmiş standartdır <span class="citation"
+data-cites="nist2001aes"></span>. AES Feystel şəbəkəsi deyil,
+"Substitution-Permutation Network" (SPN) strukturuna əsaslanır.</p>
+<table>
+<caption>DES vs AES Texniki Müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: center;"><strong>DES / 3DES</strong></th>
+<th style="text-align: center;"><strong>AES</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Blok Ölçüsü</td>
+<td style="text-align: center;">64-bit</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar Uzunluğu</td>
+<td style="text-align: center;">56 / 112 / 168 bit</td>
+<td style="text-align: center;">128 / 192 / 256 bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Struktur</td>
+<td style="text-align: center;">Feystel Şəbəkəsi</td>
+<td style="text-align: center;">SPN (Substitution-Permutation)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sürət</td>
+<td style="text-align: center;">Yavaş (Software-də)</td>
+<td style="text-align: center;">Çox Sürətli</td>
+</tr>
+<tr>
+<td style="text-align: left;">Təhlükəsizlik</td>
+<td style="text-align: center;">Sındırılıb / Zəif</td>
+<td style="text-align: center;">Müasir Standart</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tarixi-miras">Tarixi Miras</h2>
+<p>DES-in süqutu kriptoqrafiya elmi üçün böyük bir təkan oldu. Onun
+üzərində aparılan sınaqlar nəticəsində diferensial və xətti kriptoanaliz
+üsulları təkmilləşdirildi, S-qutularının dizayn prinsipləri
+standartlaşdırıldı. Bu gün istifadə etdiyimiz bir çox müasir alqoritmlər
+öz gücünü DES-in analizindən çıxarılan dərslərdən alır <span
+class="citation" data-cites="coppersmith2000"></span>.</p>
+<h1 id="praktiki-tapşırıqlar">Praktiki Tapşırıqlar</h1>
+<p>Bu bölmədəki tapşırıqlar DES alqoritminin daxili mexanizmlərini,
+təhlükəsizlik boşluqlarını və proqram təminatında reallaşdırılmasını
+əhatə edir.</p>
+<h2 id="tapşırıq-1-des-in-bir-raundunun-simulyasiyası">Tapşırıq 1:
+DES-in Bir Raundunun Simulyasiyası</h2>
+<p>Verilmiş 32-bitlik sağ yarım <span class="math inline">\(R =
+\text{0x12345678}\)</span> və 48-bitlik raund açarı <span
+class="math inline">\(K = \text{0x0123456789AB}\)</span> üçün DES raund
+funksiyasının çıxışını hesablayın <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<p><strong>Həll addımları:</strong></p>
+<ol>
+<li><p><strong>E-genişləndirmə:</strong> <span
+class="math inline">\(R\)</span> blokunu cədvələ uyğun 48-bitə
+çatdırın.</p></li>
+<li><p><strong>XOR:</strong> Alınmış 48-bitlik bloku <span
+class="math inline">\(K\)</span> açarı ilə XOR edin.</p></li>
+<li><p><strong>S-qutusu:</strong> 48-bitlik nəticəni 6-bitlik qruplara
+bölərək 8 S-qutusundan keçirin (hər qutudan 4-bit çıxış
+alınır).</p></li>
+<li><p><strong>P-qutusu:</strong> Alınmış 32-bitlik bloku P-cədvəli ilə
+yenidən düzün.</p></li>
+</ol>
+<h2 id="tapşırıq-2-des-in-zəif-açarlarının-təhlili">Tapşırıq 2: DES-in
+Zəif Açarlarının Təhlili</h2>
+<p>Aşağıdakı 64-bitlik (parity daxil) açarı nəzərdən keçirin: <span
+class="math display">\[K = \text{0x0101010101010101}\]</span></p>
+<ol>
+<li><p>Bu açarın PC-1 permutasiyasından sonrakı 56-bitlik daxili
+vəziyyətini tapın.</p></li>
+<li><p>Sola dövri sürüşdürmənin bu vəziyyətə təsirini izah
+edin.</p></li>
+<li><p>Niyə bu açarın şifrləmə və deşifrləmə proseslərini
+eyniləşdirdiyini əsaslandırın.</p></li>
+</ol>
+<h2 id="tapşırıq-3-tamamlayıcı-xassə-və-brute-force">Tapşırıq 3:
+Tamamlayıcı Xassə və Brute-force</h2>
+<p>Verilmiş <span class="math inline">\(P\)</span> (açıq mətn) və <span
+class="math inline">\(K\)</span> (açar) üçün <span
+class="math inline">\(\overline{E_K(P)} =
+E_{\overline{K}}(\overline{P})\)</span> bərabərliyini (tamamlayıcı
+xassə) nəzərə alaraq:</p>
+<ol>
+<li><p>Bu xassənin DES-in tam axtarış hücumuna qarşı müqavimətini niyə
+tam olaraq <span class="math inline">\(2^{56}\)</span>-dan <span
+class="math inline">\(2^{55}\)</span>-ə endirdiyini riyazi şəkildə
+göstərin.</p></li>
+<li><p>Bu xassənin istifadəsi üçün hücumçunun hansı tip məlumatlara
+(məsələn, <em>Known Plaintext</em>) ehtiyacı var?</p></li>
+</ol>
+<h2 id="tapşırıq-4-meet-in-the-middle-simulyasiyası">Tapşırıq 4:
+Meet-in-the-Middle Simulyasiyası</h2>
+<p>Sadələşdirilmiş 8-bitlik blok şifrdə 2DES strukturu tətbiq olunur:
+<span class="math inline">\(C = E_{K_2}(E_{K_1}(P))\)</span>. Verilir:
+<span class="math inline">\(P = \text{0x35}\)</span>, <span
+class="math inline">\(C = \text{0x72}\)</span>.
+<strong>Tapşırıq:</strong> Bütün mümkün 8-bitlik <span
+class="math inline">\(K_1\)</span> və <span
+class="math inline">\(K_2\)</span> açarları üçün cədvəl quraraq (və ya
+Python skripti ilə) "ortada görüş" nöqtəsini və doğru açar cütünü
+tapın.</p>
+<div class="tip">
+<p><span>Metodik Tövsiyə</span> Tapşırıqları yerinə yetirərkən bitlərin
+nömrələnmə ardıcıllığına (DES standartında bitlər 1-dən 64-ə doğru,
+soldan sağa nömrələnir) xüsusi diqqət yetirin. Bu, cədvəl
+permutasiyalarında ən çox rast gəlinən səhv mənbəyidir.</p>
+</div>
+<h1 id="praktiki-tapşırıqların-həlləri">Praktiki Tapşırıqların
+Həlləri</h1>
+<h2 id="tapşırıq-1-des-in-bir-raundunun-simulyasiyası-1">Tapşırıq 1:
+DES-in bir raundunun simulyasiyası</h2>
+<p><strong>Verilənlər:</strong> <span class="math inline">\(R =
+\text{0x12345678}\)</span>, <span class="math inline">\(K =
+\text{0x0123456789AB}\)</span></p>
+<ol>
+<li><p><strong>E-genişləndirmə:</strong> <span
+class="math inline">\(R\)</span> bloku 32-bitdən 48-bitə çatdırılır. Hər
+4-bitlik qrup qonşu bitlər hesabına 6-bitə çevrilir. Məsələn, ilk 4 bit
+olan ‘0001‘ bloku ‘32-1-2-3-4-5‘ bitlərinin birləşməsindən ‘000010‘
+formasına düşür.</p></li>
+<li><p><strong>XOR:</strong> <span class="math inline">\(E(R) \oplus
+K\)</span> əməliyyatı nəticəsində açar məlumatla qarışır. Bu mərhələ hər
+raundda fərqli açar istifadə edildiyi üçün şifrənin hər dəfə fərqli
+nəticə verməsini təmin edir.</p></li>
+<li><p><strong>S-qutuları:</strong> 48-bitlik giriş 6-bitlik 8 blok kimi
+emal olunur. Hər blokun kənar bitləri (1 və 6) cədvəldə
+<strong>sətri</strong>, daxili bitləri (2,3,4,5) isə
+<strong>sütunu</strong> seçir.</p></li>
+<li><p><strong>P-qutusu:</strong> S-qutularından çıxan 32-bitlik blokun
+bitləri P-cədvəli üzrə yenidən paylanır. Bu, qeyri-xətti əvəzetmənin
+nəticəsini bütün blok üzrə yayır (<em>diffusion</em>).</p></li>
+</ol>
+<h2 id="tapşırıq-2-des-in-zəif-açarları">Tapşırıq 2: DES-in zəif
+açarları</h2>
+<p><strong>Analiz:</strong> <span class="math inline">\(K =
+\text{0x0101010101010101}\)</span></p>
+<ul>
+<li><p><strong>Addım 1:</strong> Hər baytın sonuncu biti (parity bit)
+atıldıqdan sonra yerdə qalan 56 bitin hamısı <span
+class="math inline">\(0\)</span> olur.</p></li>
+<li><p><strong>Addım 2:</strong> Açar planında <span
+class="math inline">\(C_0\)</span> və <span
+class="math inline">\(D_0\)</span> yarımları tamamilə sıfırlardan ibarət
+olur. Sola dövri sürüşdürmə əməliyyatı <span
+class="math inline">\(0\)</span>-lardan ibarət blokda heç bir dəyişiklik
+etmir.</p></li>
+<li><p><strong>Nəticə:</strong> 16 raundun hər birində eyni alt-açar
+(<span class="math inline">\(K_1 = K_2 = \dots = K_{16}\)</span>)
+yaranır. Bu, şifrləmə və deşifrləmə prosesini eyniləşdirir: <span
+class="math inline">\(E_K(P) = D_K(P)\)</span>. <strong>Bu, zəif
+açardır.</strong></p></li>
+</ul>
+<h2 id="tapşırıq-3-tamamlayıcı-xassənin-yoxlanılması">Tapşırıq 3:
+Tamamlayıcı xassənin yoxlanılması</h2>
+<p><strong>Riyazi İzah:</strong> <span
+class="math inline">\(\overline{E_K(P)} =
+E_{\overline{K}}(\overline{P})\)</span> bərabərliyi DES-in daxili XOR
+əməliyyatlarının xüsusiyyətindən irəli gəlir.</p>
+<ul>
+<li><p><strong>Hücuma təsiri:</strong> Hücumçu bir <span
+class="math inline">\(K\)</span> açarını yoxlayarkən, eyni zamanda onun
+tamamlayıcısı olan <span class="math inline">\(\overline{K}\)</span>
+açarının da nəticəsini (mətni inversiya etməklə) öyrənmiş olur.</p></li>
+<li><p><strong>Mürəkkəblik:</strong> Bu xassə tam axtarış
+(<em>brute-force</em>) hücumunun işini tam olaraq iki dəfə azaldır.
+Hücumçu <span class="math inline">\(2^{56}\)</span> deyil, <span
+class="math inline">\(2^{55}\)</span> sınaqla bütün açar fəzasını əhatə
+edə bilir.</p></li>
+</ul>
+<h2 id="tapşırıq-4-meet-in-the-middle-hücumu">Tapşırıq 4:
+Meet-in-the-middle hücumu</h2>
+<p><strong>Konseptual Həll:</strong></p>
+<ol>
+<li><p><span class="math inline">\(K_1\)</span> üçün bütün mümkün <span
+class="math inline">\(2^8 = 256\)</span> variantı yoxlayaraq <span
+class="math inline">\(X = E_{K_1}(\text{0x35})\)</span> cədvəlini
+yaradın.</p></li>
+<li><p><span class="math inline">\(K_2\)</span> üçün bütün mümkün 256
+variantı yoxlayaraq <span class="math inline">\(Y =
+D_{K_2}(\text{0x72})\)</span> hesablayın.</p></li>
+<li><p><span class="math inline">\(X = Y\)</span> olan nöqtəni tapın. Bu
+nöqtə "ortada görüş" nöqtəsidir və bizə doğru <span
+class="math inline">\((K_1, K_2)\)</span> cütünü verir.</p></li>
+<li><p><strong>Effektivlik:</strong> <span class="math inline">\(2^{16}
+= 65,536\)</span> sınaq əvəzinə cəmi <span class="math inline">\(256 +
+256 = 512\)</span> əməliyyat tələb olunur.</p></li>
+</ol>
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu mühazirə çərçivəsində DES alqoritminin daxili mexanizmlərini, onun
+təkamül prosesini və kriptoanalizə qarşı dayanıqlığını dərindən təhlil
+etdik. Öyrənilmiş əsas məqamlar aşağıdakılardır:</p>
+<ul>
+<li><p><strong>DES-in Memarlığı:</strong> Feystel şəbəkəsi üzərində
+qurulmuş 16 raundlu struktur və 56-bitlik açar fəzası alqoritmin
+təməlini təşkil edir <span class="citation"
+data-cites="nist1977des"></span>.</p></li>
+<li><p><strong>Daxili Komponentlər:</strong> Genişləndirmə funksiyası
+(E-box), qeyri-xəttiliyi təmin edən S-qutuları və bitləri qarışdıran
+P-qutusu DES-in "qarışıqlıq" və "yayılma" prinsiplərini reallaşdırır
+<span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Kriptoanalitik Hücumlar:</strong> Tam axtarış
+(<em>brute-force</em>), diferensial və xətti kriptoanaliz üsulları
+DES-in nəzəri və praktik zəifliklərini üzə çıxarmışdır <span
+class="citation"
+data-cites="biham1993differential matsui1993linear"></span>.</p></li>
+<li><p><strong>2DES-in Çatışmazlığı:</strong> "Meet-in-the-middle"
+hücumu 2DES-in təhlükəsizlik marjasını gözlənilən <span
+class="math inline">\(2^{112}\)</span>-dən <span
+class="math inline">\(2^{57}\)</span>-yə endirmişdir <span
+class="citation" data-cites="merkle1981"></span>.</p></li>
+<li><p><strong>3DES Çözümü:</strong> EDE rejimi vasitəsilə təmin olunan
+geriyə uyğunluq və <span class="math inline">\(2^{112}\)</span> effektiv
+təhlükəsizlik səviyyəsi 3DES-i bir müddət etibarlı standart etmişdir
+<span class="citation" data-cites="nist2017sp800"></span>.</p></li>
+</ul>
+<p>DES, kriptoqrafiya sahəsində dövlət tərəfindən standartlaşdırılmış
+ilk alqoritm kimi, müasir şifrələmə prinsiplərinin formalaşmasında mühüm
+rol oynamışdır <span class="citation"
+data-cites="coppersmith2000"></span>.</p>
+<table>
+<caption>DES-in Tarixi Xronologiyası və Müasir Statusu</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Dövr</strong></th>
+<th style="text-align: left;"><strong>Status</strong></th>
+<th style="text-align: left;"><strong>Əsas Səbəb</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1977 – 1990-lar</td>
+<td style="text-align: left;">Qızıl Dövr</td>
+<td style="text-align: left;">Standart dövlət və bank şifrəsi</td>
+</tr>
+<tr>
+<td style="text-align: left;">2004</td>
+<td style="text-align: left;">Rəsmi Ləğv</td>
+<td style="text-align: left;">56-bit açarın asanlıqla sındırılması</td>
+</tr>
+<tr>
+<td style="text-align: left;">2018 – 2023</td>
+<td style="text-align: left;">3DES-in Çıxarılması</td>
+<td style="text-align: left;">64-bit blok ölçüsü (Sweet32 hücumu)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>İndiki Dövr</strong></td>
+<td style="text-align: left;"><strong>AES-ə Keçid</strong></td>
+<td style="text-align: left;">128-bit blok, yüksək sürət və
+təhlükəsizlik</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><span>Növbəti Mühazirəyə Hazırlıq</span> Həftə 10: <strong>AES
+(Advanced Encryption Standard)</strong>. Rijndael alqoritminin seçim
+prosesi, S-box quruluşu və cəbri əsasları (Galois Fields) haqqında ilkin
+oxu tövsiyə olunur <span class="citation"
+data-cites="nist2001aes daemen2002design"></span>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (20)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Standards, 1977</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">National Bureau of Standards (1977)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Coppersmith, 2000</span>
+                        <small class="text-muted">The History of Information Security</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Development of the Data Encryption Standard (DES)</h6>
+                    <p class="small text-secondary mb-0">Don Coppersmith (2000)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Biham &amp; Shamir, 1993</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Differential Cryptanalysis of the Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Eli Biham and Adi Shamir (1993)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Matsui, 1994</span>
+                        <small class="text-muted">Advances in Cryptology — EUROCRYPT &#x27;93</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Linear Cryptanalysis Method for DES Cipher</h6>
+                    <p class="small text-secondary mb-0">Mitsuru Matsui (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Merkle &amp; Hellman, 1981</span>
+                        <small class="text-muted">Communications of the ACM</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">On the Security of Multiple Encryption</h6>
+                    <p class="small text-secondary mb-0">Ralph C. Merkle and Martin E. Hellman (1981)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Barker &amp; Dang, 2017</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for the Triple Data Encryption Algorithm (TDEA) Block Cipher</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker and Quynh Dang (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Standards &amp; Technology, 2018</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Deprecation of the Triple Data Encryption Algorithm (TDEA)</h6>
+                    <p class="small text-secondary mb-0">National Institute of Standards and Technology (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Corporation, 1970</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Lucifer Cryptographic Algorithm</h6>
+                    <p class="small text-secondary mb-0">IBM Corporation (1970)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Diffie &amp; Hellman, 1977</span>
+                        <small class="text-muted">Computer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Exhaustive Cryptanalysis of the NBS Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Martin E. Hellman (1977)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Feistel, 1973</span>
+                        <small class="text-muted">Scientific American</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Computer Privacy</h6>
+                    <p class="small text-secondary mb-0">Horst Feistel (1973)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Coppersmith, 1994</span>
+                        <small class="text-muted">IBM Journal of Research and Development</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Data Encryption Standard (DES) and its strength against attacks</h6>
+                    <p class="small text-secondary mb-0">Don Coppersmith (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Oorschot &amp; Wiener, 1991</span>
+                        <small class="text-muted">Advances in Cryptology — EUROCRYPT &#x27;90</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Known-Plaintext Attack on Two-Key Triple Encryption</h6>
+                    <p class="small text-secondary mb-0">Paul C. van Oorschot and Michael J. Wiener (1991)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Standards &amp; Technology, 1999</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Data Encryption Standard (DES)</h6>
+                    <p class="small text-secondary mb-0">National Institute of Standards and Technology (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[17] NIST, 2001</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[18] ElectronicFrontierFoundation, 1998</span>
+                        <small class="text-muted">Electronic Frontier Foundation</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cracking DES: Secrets of Encryption Research, Wiretap Politics &amp; Chip Design</h6>
+                    <p class="small text-secondary mb-0">ElectronicFrontierFoundation (1998)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[19] Standards &amp; Technology, 2004</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Withdrawal of Federal Information Processing Standard (FIPS) 46-3, Data Encryption Standard (DES); FIPS 74, Guidelines for Implementing and Using the NBS Data Encryption Standard; and FIPS 81, DES Modes of Operation</h6>
+                    <p class="small text-secondary mb-0">National Institute of Standards and Technology (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[20] Daemen &amp; Rijmen, 2002</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Design of Rijndael: AES - The Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Joan Daemen and Vincent Rijmen (2002)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

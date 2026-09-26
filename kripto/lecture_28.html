@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_28</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 28</strong></p>
+<p><strong>Post-Kvant Kriptoqrafiya I - Qəfəs Əsaslı
+Sistemlər</strong></p>
+<p>Bu mühazirə kvant kompüterlərin kriptoqrafiyaya təsirini, post-kvant
+kriptoqrafiya anlayışını, qəfəs əsaslı kriptoqrafiyanın riyazi
+əsaslarını, LWE problemini, ML-KEM və ML-DSA standartlarını əhatə
+edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni müvəffəqiyyətlə başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>Şor<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> və Qrover<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+alqoritmlərinin klassik kriptoqrafik primitivlərə təsirini müxtəlif
+resurs modelləri müstəvisində izah etməyi <span class="citation"
+data-cites="shor1997polynomial grover1996fast"></span>;</p></li>
+<li><p>Qəfəs (<em>lattice</em>), SVP<a href="#fn3" class="footnote-ref"
+id="fnref3" role="doc-noteref"><sup>3</sup></a>/CVP<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> və
+LWE<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>/Module-LWE anlayışlarını təhlil
+edərək onları təhlükəsizlik fərziyyəsi səviyyəsində əlaqələndirməyi
+<span class="citation"
+data-cites="micciancio2016lattice regev2005lattice"></span>;</p></li>
+<li><p>ML-KEM<a href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a>-in K-PKE<a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+nüvəsi ilə KEM<a href="#fn8" class="footnote-ref" id="fnref8"
+role="doc-noteref"><sup>8</sup></a> çevrilməsini və açar enkapsulyasiya
+axınını fərqləndirməyi <span class="citation"
+data-cites="nist2024fips203"></span>;</p></li>
+<li><p>ML-DSA<a href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a> və FN-DSA<a href="#fn10"
+class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a>-nı açar və imza ölçüsü,
+reallaşdırma riski və standart statusu üzrə müqayisə etməyi <span
+class="citation"
+data-cites="nist2024fips204 fouque2018falcon"></span>;</p></li>
+<li><p>Verilmiş sistem inventarı və məlumat ömrü kriteriyalarına əsasən
+mərhələli PQC<a href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a> miqrasiya qərarını elmi şəkildə
+hazırlamağı bacaracaqlar <span class="citation"
+data-cites="bernstein2017pqc"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəlki mühazirə:</strong> 27-ci mühazirədə alqoritmik
+(kriptoqrafik) və reallaşdırma (fiziki/kənar kanal) hücum modellərini
+fərqləndirdik.</p>
+<p><strong>Cari mühazirə:</strong> Kvant təhdid modelini və qəfəs əsaslı
+NIST PQC standartlarını öyrənirik.</p>
+<p><strong>Növbəti mühazirə:</strong> 29-cu mühazirə kod əsaslı
+(<em>code-based</em>), heş əsaslı (<em>hash-based</em>) və çoxdəyişənli
+(<em>multivariate</em>) PQC ailələri ilə müqayisəli təhlili
+tamamlayacaqdır.</p>
+<p><strong>Terminologiya kanonu:</strong> <em>Şor (<em>Shor</em>)</em>
+və <em>Qrover (<em>Grover</em>)</em> (mətndə ilk dəfə orijinal adla,
+sonra azərbaycanca transkripsiyada); <em>ML-KEM</em> (əvvəlki adı
+CRYSTALS-Kyber); <em>ML-DSA</em> (əvvəlki adı CRYSTALS-Dilithium);
+<em>FN-DSA</em> (Falcon alqoritmi əsasında); <em>açar enkapsulyasiya
+mexanizmi (<em>KEM</em>)</em>; <em>sonlu meydan (<em>finite
+field</em>)</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Bu günə qədər öyrəndiyimiz bütün asimmetrik kriptosistemlər — RSA,
+Diffi-Hellman, ElGamal, ECC — müəyyən riyazi problemlərin çətinliyinə
+əsaslanır: faktorizasiya, diskret loqarifm, elliptik əyri diskret
+loqarifmi. Lakin 1994-cü ildə <strong>Peter Şor</strong> tərəfindən kəşf
+edilən <strong>Şor alqoritmi</strong> bu problemlərin hamısını kvant
+kompüterlərində polinomial zamanda həll edə bilir <span class="citation"
+data-cites="shor1997polynomial"></span>.</p>
+<div class="history">
+<p><span>Kvant təhlükəsi</span> 1994-cü ildə Peter Şor göstərdi ki,
+faktorizasiya və diskret loqarifm problemləri kvant kompüterlərində
+polinomial zamanda həll edilə bilər. Bu o deməkdir ki, güclü kvant
+kompüteri yaradıldıqda RSA, Diffi-Hellman, ElGamal, ECC kimi bütün
+məşhur asimmetrik kriptosistemlər sındırıla bilər <span class="citation"
+data-cites="shor1997polynomial"></span>. 1996-cı ildə Lov Qrover
+tərəfindən kəşf edilən Qrover alqoritmi isə simmetrik şifrlərin
+təhlükəsizliyini kvadratik olaraq azaldır <span class="citation"
+data-cites="grover1996fast"></span>.</p>
+</div>
+<p>Bu təhlükəyə qarşı iki əsas yanaşma mövcuddur:</p>
+<ul>
+<li><p><strong>Kvant kriptoqrafiyası (QKD):</strong> Fiziki prinsiplərə
+əsaslanan, lakin xüsusi aparat tələb edən üsul</p></li>
+<li><p><strong>Post-kvant kriptoqrafiya (PQC):</strong> Klassik
+kompüterlərdə işləyən, lakin kvant hücumlarına davamlı olan yeni
+kriptoqrafik alqoritmlər</p></li>
+</ul>
+<p>Bu mühazirədə post-kvant kriptoqrafiyanın ən mühüm istiqaməti olan
+<strong>qəfəs əsaslı kriptoqrafiya</strong> ilə tanış olacağıq.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>Kvant kompüterlər klassik kriptosistemləri necə təhdid
+edir?</p></li>
+<li><p>Post-kvant kriptoqrafiya nədir və nə üçün vacibdir?</p></li>
+<li><p>Qəfəslər nədir və onların kriptoqrafik əhəmiyyəti nədir?</p></li>
+<li><p>LWE (xətalarla öyrənmə) problemi nədir?</p></li>
+<li><p>ML-KEM necə işləyir və onu klassik açar-enkapsulyasiya
+mexanizmlərindən fərqləndirən nədir?</p></li>
+<li><p>ML-DSA-nın imza yaratma və yoxlama mərhələləri necə
+işləyir?</p></li>
+<li><p>NIST PQC standartları hansılardır və hansı parametrlərə
+malikdir?</p></li>
+</ul>
+</div>
+<h1 class="unnumbered" id="i-hissə-kvant-təhlükəsinin-sərhədi">I hissə:
+Kvant təhlükəsinin sərhədi</h1>
+<h1 id="kvant-hesablamalarının-kriptoqrafik-təhlükəsi">Kvant
+Hesablamalarının Kriptoqrafik Təhlükəsi</h1>
+<h2 id="kvant-kompüterlərinin-fundamental-iş-prinsipləri">Kvant
+Kompüterlərinin Fundamental İş Prinsipləri</h2>
+<p>Kvant kompüterləri, informasiyanın emalı və saxlanması üçün klassik
+bitlərin (<span class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span>) əvəzinə, kvant mexanikasının
+qanunlarına tabe olan <strong>kvant bitlərindən</strong> (kubitlərdən)
+istifadə edir. Bu sistemlərin klassik hesablama modelləri üzərində
+nümayiş etdirdiyi asimptotik sürətlənmə aşağıdakı üç fundamental kvant
+fenomeninə əsaslanır <span class="citation"
+data-cites="nielsen2010quantum"></span>:</p>
+<ul>
+<li><p><strong>Kvant Superpozisiyası:</strong> Klassik bit hər anda
+yalnız diskret <span class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span> vəziyyətində ola bildiyi halda, bir
+kubit eyni vaxtda hər iki vəziyyətin xətti kombinasiyasında (koherent
+superpozisiyada) <span class="math inline">\(\left| \psi \right\rangle =
+\alpha\left| 0 \right\rangle + \beta\left| 1 \right\rangle\)</span> ola
+bilər (burada <span class="math inline">\(\alpha, \beta \in
+\mathbb{C}\)</span> və <span class="math inline">\(\left| \alpha
+\right|^2 + \left| \beta \right|^2 = 1\)</span>). Bu xüsusiyyət <span
+class="math inline">\(n\)</span> sayda kubitin eyni anda <span
+class="math inline">\(2^n\)</span> sayda vəziyyəti riyazi olaraq ifadə
+etməsinə imkan verir.</p></li>
+<li><p><strong>Kvant Dolaşıqlığı:</strong> İki və ya daha çox kubit
+arasında elə bir qeyri-lokal korrelyasiya yaranır ki, onların fiziki
+vəziyyətləri bir-birindən asılı olmadan müstəqil şəkildə təsvir edilə
+bilməz. Bir kubitin vəziyyətinin ölçülməsi, aradakı məsafədən asılı
+olmayaraq, dolaşıq olan digər kubitin vəziyyətini dərhal təyin
+edir.</p></li>
+<li><p><strong>Kvant Paralelliyi:</strong> Superpozisiya və dolaşıqlıq
+sayəsində kvant registrləri üzərində icra edilən tək bir unitar
+çevrilmə, bütün mümkün giriş kombinasiyalarına eyni anda təsir edir.
+Kvant alqoritmləri bu böyük vəziyyət fəzasında destruktiv interferensiya
+ilə səhv cavabları yox edib, konstruktiv interferensiya ilə doğru
+cavabın ehtimalını maksimallaşdırır.</p></li>
+</ul>
+<h2 id="şor-alqoritmi-və-asimmetrik-kriptoqrafiyanın-iflası">Şor
+Alqoritmi və Asimmetrik Kriptoqrafiyanın İflası</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Şor alqoritmi). <em>1994-cü ildə
+<strong>Peter Şor</strong> tərəfindən işlənib hazırlanmış Şor alqoritmi
+— tam ədədlərin vuruqlara ayrılması (<em>integer factorisation</em>) və
+diskret loqarifmləmə (DLP) problemlərini universal kvant kompüterində
+polinomial zamanda, yəni <span class="math inline">\(\mathcal{O}((\log
+N)^3)\)</span> mürəkkəbliklə həll edən kvant alqoritmidir <span
+class="citation" data-cites="shor1997polynomial"></span>.</em></p>
+</div>
+<p><strong>Alqoritmin Konseptual İş Prinsipi:</strong> Şor alqoritmi
+böyük bir <span class="math inline">\(N\)</span> ədədini vuruqlara
+ayırmaq üçün birbaşa bölmə əməliyyatları aparmır. O, ədədlər
+nəzəriyyəsindən istifadə edərək bu problemi daha sürətli həll oluna
+bilən <strong>periodun tapılması</strong> probleminə çevirir:</p>
+<ol>
+<li><p><strong>Klassik Addım (Reduksiya):</strong> <span
+class="math inline">\(N\)</span>-dən kiçik və onunla qarşılıqlı sadə
+olan təsadüfi bir <span class="math inline">\(a\)</span> ədədi seçilir.
+Növbəti məqsəd <span class="math inline">\(f(x) = a^x \pmod N\)</span>
+funksiyasının periodunu, yəni <span class="math inline">\(a^r \equiv 1
+\pmod N\)</span> şərtini ödəyən ən kiçik müsbət <span
+class="math inline">\(r\)</span> tam ədədini tapmaqdır. Klassik
+kompüterlər üçün bu <span class="math inline">\(r\)</span> periodunu
+tapmaq eksponensial zaman aparır.</p></li>
+<li><p><strong>Kvant Sürətlənməsi (Kvant Furye Çevrilməsi —
+QFT):</strong> Şor alqoritminin ürəyi buradadır. Kubitlər üzərində
+superpozisiya yaradılaraq funksiyanın bütün mümkün <span
+class="math inline">\(x\)</span> qiymətləri üçün nəticələri eyni anda
+hesablanır. Daha sonra kvant Furye çevrilməsi tətbiq edilərək dalğaların
+interferensiyası vasitəsilə doğru <span class="math inline">\(r\)</span>
+periodu yüksək ehtimalla oxunur.</p></li>
+<li><p><strong>Vuruqların hesablanması (klassik):</strong> Dövr (<span
+class="math inline">\(r\)</span>) tapıldıqdan sonra, əgər <span
+class="math inline">\(r\)</span> cüt ədəddirsə, <span
+class="math inline">\(a^r - 1 \equiv 0 \pmod N\)</span> ifadəsi cəbri
+olaraq <span class="math inline">\((a^{r/2} - 1)(a^{r/2} + 1) \equiv 0
+\pmod N\)</span> şəklində vuruqlara ayrılır. <span
+class="math inline">\(N\)</span> ədədinin axtarılan həqiqi vuruqları
+klassik <em>Evklid alqoritmi</em> vasitəsilə asanlıqla tapılır: <span
+class="math display">\[p = \text{ƏBOB}(a^{r/2} - 1, N) \quad \text{və}
+\quad q = \text{ƏBOB}(a^{r/2} + 1, N)\]</span> Əgər <span
+class="math inline">\(r\)</span> tək olsa onda yeni təsadüfi <span
+class="math inline">\(a\)</span> seçilir və proses təkrarlanır.</p></li>
+</ol>
+<p>Beləliklə, Şor alqoritminin möcüzəsi böyük rəqəmlər arasında
+kor-koranə axtarış etmək deyil, kvant superpozisiyası sayəsində riyazi
+funksiyanın gizli ritmini (periodunu) bir addımda tapmaqdır.</p>
+<p>Klassik hesablama qurğularında bu problemlərin həlli üçün məlum olan
+ən səmərəli alqoritmlər sub-eksponensial və ya eksponensial vaxt tələb
+edir. Şor alqoritmi bu mürəkkəblik səviyyəsini dramatik şəkildə aşağı
+salır.</p>
+<table>
+<caption>Şor alqoritminin asimptotik mürəkkəbliyə təsiri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Kriptoqrafik Problem</strong></th>
+<th style="text-align: left;"><strong>Ən Yaxşı Klassik
+Mürəkkəblik</strong></th>
+<th style="text-align: left;"><strong>Kvant Mürəkkəbliyi
+(Şor)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">RSA Faktorizasiya</td>
+<td style="text-align: left;">Sub-eksponensial<br />
+(GNFS: <span class="math inline">\(\exp(c \sqrt[3]{\ln N (\ln \ln
+N)^2})\)</span>)</td>
+<td style="text-align: left;">Polinomial (<span
+class="math inline">\(\mathcal{O}((\log N)^3)\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Diskret loqarifm (DH)</td>
+<td style="text-align: left;">Subeksponensial (indeks hesabı)</td>
+<td style="text-align: left;">Polinomial (<span
+class="math inline">\(\mathcal{O}((\log N)^3)\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Elliptik Əyri DLP (ECDLP)</td>
+<td style="text-align: left;">Tam Eksponensial<br />
+(Pollard’s Rho: <span
+class="math inline">\(\mathcal{O}(\sqrt{p})\)</span>)</td>
+<td style="text-align: left;">Polinomial (<span
+class="math inline">\(\mathcal{O}((\log N)^3)\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Şor alqoritminin tamamilə sındırdığı
+kriptosistemlər:</strong></p>
+<ul>
+<li><p><strong>RSA:</strong> Açıq açarın modulunun (<span
+class="math inline">\(N = p \cdot q\)</span>) faktorizasiyası polinomial
+zamana düşdüyü üçün gizli eksponent (<span
+class="math inline">\(d\)</span>) anlıq hesablanır.</p></li>
+<li><p><strong>Diffi-Hellman (DH) və ElGamal:</strong> Multiplikativ
+qruplar üzərində diskret loqarifmləmə problemi həll olunduğu üçün ortaq
+gizli açar asanlıqla bərpa edilir.</p></li>
+<li><p><strong>Elliptik Əyri Kriptoqrafiyası (ECC / ECDSA):</strong>
+Kvant mühitində ECDLP-nin həlli RSA ilə müqayisədə daha az kubit tələb
+etdiyi üçün ECC strukturları kvant təhlükəsinə qarşı RSA-dan daha
+həssasdır.</p></li>
+</ul>
+<h2 id="qrover-alqoritmi-və-simmetrik-kriptoqrafiyaya-təsiri">Qrover
+Alqoritmi və Simmetrik Kriptoqrafiyaya Təsiri</h2>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (Qrover alqoritmi). <em>1996-cı ildə
+<strong>Lov Qrover</strong> tərəfindən təklif edilmiş Qrover alqoritmi —
+strukturlaşdırılmamış <span class="math inline">\(N\)</span> elementdən
+ibarət verilənlər bazasında axtarış mürəkkəbliyini kvadratik olaraq
+<span class="math inline">\(\mathcal{O}(\sqrt{N})\)</span> səviyyəsinə
+endirən universal kvant alqoritmidir <span class="citation"
+data-cites="grover1996fast"></span>.</em></p>
+</div>
+<p><strong>Alqoritmin Konseptual İş Prinsipi:</strong> Klassik
+kompüterdə sıralanmamış bir bazada hədəf elementi tapmaq üçün orta
+hesabla <span class="math inline">\(N/2\)</span>, ən pis halda isə <span
+class="math inline">\(N\)</span> yoxlama aparılmalıdır. Qrover alqoritmi
+isə bütün verilənləri eyni anda superpozisiyaya gətirir və xüsusi bir
+<strong>amplitud gücləndirilməsi</strong> addımları ilə axtarış
+müddətini <span class="math inline">\(\sqrt{N}\)</span> səviyyəsinə
+endirir:</p>
+<ol>
+<li><p><strong>Bərabər Superpozisiya:</strong> İlk olaraq bütün mümkün
+<span class="math inline">\(N\)</span> variant bərabər ehtimalla (eyni
+amplitudla) böyük bir kvant superpozisiyası vəziyyətinə
+gətirilir.</p></li>
+<li><p><strong>Kvant Orakulu (Faza İnversiyası):</strong> Alqoritm hədəf
+elementi tapmaq üçün "Orakul" adlı bir funksiyadan istifadə edir. Orakul
+bazanı oxumur; o, yalnız axtarılan doğru elementin ehtimal dalğasının
+işarəsini (fazasını) tərsinə çevirir (müsbət amplituddan mənfi amplituda
+keçirir). Digər səhv variantların işarəsi isə müsbət olaraq
+qalır.</p></li>
+<li><p><strong>Gücləndirmə (Orta Qiymət Ətrafında İnversiya):</strong>
+Bu mərhələdə sistemin bütün amplitudlarının orta qiymət xətti hesablanır
+və hər bir amplitud öz orta qiymətinə görə simmetrik olaraq güzgü
+effekti ilə tərsinə çevrilir. Nəticədə, fazası mənfi olan doğru
+elementin müsbət amplitudu kəskin şəkildə <strong>böyüyür</strong>, səhv
+elementlərin amplitudları isə sıxılaraq
+<strong>kiçilir</strong>.</p></li>
+<li><p><strong>Dövriyyə və Ölçmə:</strong> Bu iki addım (Orakul və
+Gücləndirmə) təxminən <span
+class="math inline">\(\frac{\pi}{4}\sqrt{N}\)</span> dəfə təkrarlanır.
+Hər dövrdə doğru cavabın dalğa hündürlüyü daha da artır. Sonda registr
+ölçüldükdə doğru element demək olar ki, <span
+class="math inline">\(100\%\)</span> ehtimalla tapılır.</p></li>
+</ol>
+<p><strong>Həndəsi Təsvir:</strong> Bu prosesi iki vektor arasındakı
+bucağın fırladılması kimi təsəvvür etmək olar. Hər bir Qrover dövrü
+kvant vəziyyət vektorunu doğru cavabı təmsil edən hədəf oxuna doğru
+müəyyən bir sabit bucaq qədər yaxınlaşdırır (fırladır). Hədəf oxuna tam
+çatmaq üçün tələb olunan fırlatma addımlarının sayı məhz <span
+class="math inline">\(\sqrt{N}\)</span> mütənasibliyindədir.</p>
+<p>Qrover alqoritmi asimmetrik şifrlər kimi simmetrik infrastrukturu
+tamamilə iflic etmir, lakin onların effektiv açar təhlükəsizliyi
+marjasını riyazi olaraq yarıbayarı azaldır:</p>
+<ul>
+<li><p><strong>AES-128:</strong> İdeal sorğu modelində Qrover axtarışı
+təxminən <span class="math inline">\(2^{64}\)</span> ardıcıl sorğu tələb
+edir; çevrilə bilən AES dövrəsi, dərinlik, paralelləşmə və xəta düzəlişi
+kimi tam resurslar ayrıca hesablanmalıdır. Bu hədd avtomatik praktiki
+sındırılma demək deyil.</p></li>
+<li><p><strong>AES-256:</strong> İdeal sorğu modelində təxminən <span
+class="math inline">\(2^{128}\)</span> sorğu səviyyəsi qalır; konkret
+təhlükəsizlik qərarı sistem profili və kvant resurs modeli ilə
+verilir.</p></li>
+<li><p><strong>Kriptoqrafik Heş Funksiyaları (SHA-2 / SHA-3):</strong>
+İlkin obraz və ikinci ilkin obraz dayanıqlılığı kvadratik olaraq azalır
+(məsələn, SHA-256 üçün <span class="math inline">\(2^{128}\)</span>
+kvant mürəkkəbliyi qalır).</p></li>
+</ul>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Simmetrik təhlükəsizlik:</strong> Açar uzunluğunu
+artırmaq ideal Qrover sorğu sərhədinə qarşı ehtiyatı yüksəldir, lakin
+protokol, birdəfəlik qiymət, açar idarəetməsi və reallaşdırma risklərini
+həll etmir. AES və SHA variantı tətbiq olunan standartın tələb etdiyi
+təhlükəsizlik gücünə və funksiyaya (ilkin təsvirə və ya toqquşmaya
+davamlılıq) görə seçilməlidir.</p></li>
+<li><p><strong>Asimmetrik Təhlükəsizlik:</strong> Açar ölçülərini sadəcə
+böyütmək (məsələn, RSA-nı 8192-bit etmək) polinomial sürətlənməyə qarşı
+effektiv deyil. Bu səbəbdən tamamilə fərqli cəbri problemlərə əsaslanan
+post-kvant asimmetrik sistemlərinə keçid məcburidir.</p></li>
+</ul>
+</div>
+<h2 id="kvant-avadanlıqlarının-inkişafı-və-real-təhlükə-zamanı">Kvant
+Avadanlıqlarının İnkişafı və Real Təhlükə Zamanı</h2>
+<p>Kvant hesablama texnologiyaları sənayesində (IBM, Google, Rigetti,
+Quantinuum və s.) superkeçirici və ion-tələli kubit arxitekturaları
+NISQ<a href="#fn12" class="footnote-ref" id="fnref12"
+role="doc-noteref"><sup>12</sup></a> mərhələsindən <strong>Xətalara
+Davamlı Kvant Hesablamaları (<em>FTQC</em>)</strong><a href="#fn13"
+class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>
+dövrünə doğru sürətlə irəliləyir.</p>
+<p>Kvant prosessorlarının inkişaf dinamikası göstərir ki, təkcə fiziki
+kubitlərin sayı deyil, onların keyfiyyəti (geyt dürüstlüyü / <em>gate
+fidelity</em>) və modulyarlığı əsas meyar kimi önə çıxmışdır. IBM
+2023-cü ildə 1121 fiziki kubitlik <em>Condor</em> prosessorunu nümayiş
+etdirdikdən sonra, diqqəti xətası azaldılmış modul arxitekturalara
+yönəltmişdir. 2024-cü ildə <span class="math inline">\(156\)</span>
+fiziki kubitlik, lakin 5 dəfə daha az xəta dərəcəsinə malik
+<em>Heron</em> prosessorunu və onun əsasında qurulmuş qrafik keçidli
+<em>Quantum System Two</em> platformasını təqdim etmişdir. Yol
+xəritəsinə əsasən, IBM 2026-cı ilə qədər kvant coupler-ləri vasitəsilə
+bütöv birləşdirilən <em>Flamingo</em> modul sistemlərini və 2029-cu ilə
+qədər <strong>100 tam xəta-düzəlişli məntiqi kubitdən</strong> ibarət
+<em>Starling</em> sistemini istifadəyə verməyi hədəfləyir.</p>
+<div class="tcolorbox">
+<p>RSA-2048 üçün tələb olunan resurslar doğrudan doğruya seçilmiş Şor
+alqoritmi dövrəsindən (Toffoli / T-dərinlik), fiziki geyt xəta
+dərəcəsindən (<span class="math inline">\(10^{-3}\)</span> və ya <span
+class="math inline">\(10^{-4}\)</span>) və səth kodunun (<em>surface
+code</em>) məsafəsindən (<span class="math inline">\(d\)</span>)
+asılıdır.</p>
+<p>Klassik ədəbiyyatda <span class="math inline">\(20\)</span> milyon
+fiziki kubit qiymətləndirmələri mövcud olsa da, müasir <strong>pəncərəli
+modulyar eksponentləmə</strong> və optimallaşdırılmış Şor dövrələri
+göstərir ki, <span class="math inline">\(10^{-4}\)</span> fiziki xəta
+dərəcəsi şəraitində RSA-2048-i təqribən <strong>4100 məntiqi
+kubit</strong> və <strong>3.5–4.5 milyon fiziki kubit</strong> ilə
+təqribən 8 saat ərzində sındırmaq mümkündür <span class="citation"
+data-cites="gouzien2021factoring"></span>.</p>
+<p>Buna görə də məxfi məlumatlar üçün hücumçuların tətbiq etdiyi “indi
+topla, sonra deşifrələ” (<em>Store Now, Decrypt Later — SNDL</em>)<a
+href="#fn14" class="footnote-ref" id="fnref14"
+role="doc-noteref"><sup>14</sup></a> riskinə görə PQC keçid planı
+gələcək kvant kompüterinin yaranacağı tarixi gözləməməli,
+<strong>bugünkü məlumat ömrü və sistem inventarından</strong>
+başlamalıdır.</p>
+</div>
+<div class="tcolorbox">
+<p>Bu məqamda tələbə Şor alqoritminin faktorizasiya və diskret
+loqarifmə, Qrover alqoritminin isə ideal axtarış mürəkkəbliyinə təsirini
+bir-birindən ayırmalıdır. Kubit sayı təkbaşına praktik hücum
+mümkünlüyünü müəyyən etmir.</p>
+</div>
+<h1 class="unnumbered"
+id="ii-hissə-post-kvant-fərziyyələr-və-qəfəslər">II hissə: Post-kvant
+fərziyyələr və qəfəslər</h1>
+<h1 id="post-kvant-kriptoqrafiyası">Post-kvant Kriptoqrafiyası</h1>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Post-kvant kriptoqrafiyası). <em>Post-kvant
+kriptoqrafiyası (PQC) — universal kvant kompüterlərinin və onlarda icra
+olunan spesifik kvant alqoritmlərinin (Şor və Qrover) hücumlarına qarşı
+riyazi cəhətdən dayanıqlı olan klassik kriptoqrafik sistemlərdir <span
+class="citation" data-cites="bernstein2017pqc"></span>. Bu alqoritmlər
+ənənəvi (klassik) hesablama platformalarında və mövcud şəbəkə
+infrastrukturlarında icra edilir, lakin onların əsaslandığı riyazi
+problemlər kvant mühitində belə polinomial zamanda həll oluna
+bilmir.</em></p>
+</div>
+<h2 id="pqc-nin-əsas-riyazi-ailələri">PQC-nin Əsas Riyazi Ailələri</h2>
+<ol>
+<li><p><strong>Qəfəs əsaslı:</strong> LWE, Module-LWE, Module-SIS və
+NTRU tipli konkret fərziyyələrdən istifadə edir. Ən pis hal
+gətirmələrinin mövcudluğu parametr və problem variantından asılıdır;
+bütün praktik sxemləri sadəcə “NP-çətin” etiketi ilə əsaslandırmaq
+olmaz.</p></li>
+<li><p><strong>Kod əsaslı:</strong> Xətaları düzəldən xətti kodların
+dekodlaşdırılması probleminin mürəkkəbliyinə əsaslanır. Ən bariz
+nümunəsi McEliece kriptosistemidir. Açıq açar ölçülərinin böyüklüyü onun
+tətbiqini məhdudlaşdırır.</p></li>
+<li><p><strong>Heş əsaslı:</strong> Birdəfəlik, daxili vəziyyət saxlayan
+və saxlamayan imza strukturlarını əhatə edir. Təhlükəsizlik sübutu
+seçilmiş heş/XOF xassələri, parametr və daxili vəziyyətin idarəsi kimi
+fərziyyələrə bağlıdır; fərqli ailələr arasında “ən etibarlı” hökmü
+ayrıca meyar tələb edir.</p></li>
+<li><p><strong>Çoxdəyişənli:</strong> Sonlu meydanlar üzərində
+çoxdəyişənli qeyri-xətti kvadratik tənliklər sisteminin həllinin
+çətinliyinə əsaslanır. Rəqəmsal imzaların ölçüsü kiçik olsa da, açıq
+açarların böyüklüyü və bəzi mühüm namizədlərin (məsələn, Rainbow)
+struktur təhlillə sındırılması bu ailəyə ehtiyatlı yanaşma tələb
+edir.</p></li>
+<li><p><strong>İzogeniya əsaslı:</strong> Supersinqulyar elliptik
+əyrilər arasındakı izogeniya xəritələrinin (mürəkkəb qrafiklərdə
+təsadüfi gəzintilərin) tapılması probleminə əsaslanır. Ən populyar
+namizəd olan SIKE alqoritmi daxili həndəsi strukturdakı zəifliklərə görə
+klassik kompüterlərdə tam sındırılsa da, bu sahədə <em>SQISign</em> kimi
+alternativ yanaşmalar üzərində tədqiqatlar davam edir.</p></li>
+</ol>
+<h2 id="nist-pqc-standartlaşdırma-prosesi">NIST PQC Standartlaşdırma
+Prosesi</h2>
+<p>NIST (ABŞ Milli Standartlar və Texnologiya İnstitutu)
+kvant-təhlükəsiz alqoritmlərin müəyyən edilməsi və sənaye üçün qlobal
+standartların formalaşdırılması məqsədilə 2016-cı ildə açıq beynəlxalq
+müsabiqə elan etmişdir <span class="citation"
+data-cites="nist2016pqc"></span>.</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>2016:</strong> Standartlaşdırma üçün rəsmi dəvətin elan
+edilməsi.</p></li>
+<li><p><strong>2017:</strong> Dünya miqyasında kriptoqnraflar tərəfindən
+rəsmi kriteriyalara cavab verən 82 ilkin namizədin təqdim olunması (I
+Raund).</p></li>
+<li><p><strong>2019:</strong> Geniş qlobal kriptoanaliz süzgəcindən
+sonra namizədlərin sayının 26-ya endirilməsi (II Raund).</p></li>
+<li><p><strong>2020:</strong> 7 əsas finalçının və əlavə olaraq daha
+geniş tədqiqat tələb edən 8 alternativ namizədin elan edilməsi (III
+Raund).</p></li>
+<li><p><strong>2022:</strong> İlkin qrup olaraq standartlaşdırılacaq ilk
+4 qalib alqoritmin rəsmən elan olunması.</p></li>
+<li><p><strong>2024:</strong> İlk rəsmi Federal İnformasiya Emalı
+Standartlarının (<em>FIPS</em>) yekun sənədlərinin dərc
+edilməsi.</p></li>
+</ul>
+</div>
+<h2 id="nist-pqc-qalibləri-və-standart-statusları">NIST PQC Qalibləri və
+Standart Statusları</h2>
+<p>Aşağıdakı cədvəl 26 iyul 2026-cı il tarixinə NIST statusunu göstərir.
+Alqoritmin FIPS statusu onun bütün TLS/SSH profillərində avtomatik və
+məcburi tətbiqi demək deyil; hər protokol ayrıca standartlaşdırma və
+qarşılıqlı işləmə işi tələb edir <span class="citation"
+data-cites="nist2026pqcstatus"></span>.</p>
+<table>
+<caption>NIST PQC alqoritmlərinin 26 iyul 2026-cı il statusu</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: left;"><strong>Riyazi Ailə</strong></th>
+<th style="text-align: left;"><strong>Kriptoqrafik
+Funksiya</strong></th>
+<th style="text-align: left;"><strong>Rəsmi FIPS Standartı</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ML-KEM</td>
+<td style="text-align: left;">Qəfəs əsaslı</td>
+<td style="text-align: left;">Açar enkapsulyasiyası (KEM)</td>
+<td style="text-align: left;">FIPS 203</td>
+</tr>
+<tr>
+<td style="text-align: left;">ML-DSA</td>
+<td style="text-align: left;">Qəfəs əsaslı</td>
+<td style="text-align: left;">Rəqəmsal İmza</td>
+<td style="text-align: left;">FIPS 204</td>
+</tr>
+<tr>
+<td style="text-align: left;">SPHINCS+</td>
+<td style="text-align: left;">Heş əsaslı</td>
+<td style="text-align: left;">Rəqəmsal İmza</td>
+<td style="text-align: left;">FIPS 205 (<strong>SLH-DSA</strong>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">FN-DSA</td>
+<td style="text-align: left;">Qəfəs əsaslı</td>
+<td style="text-align: left;">Rəqəmsal İmza</td>
+<td style="text-align: left;">FIPS 206 hazırlanır</td>
+</tr>
+<tr>
+<td style="text-align: left;">HQC</td>
+<td style="text-align: left;">Kod əsaslı</td>
+<td style="text-align: left;">Açar enkapsulyasiyası (KEM)</td>
+<td style="text-align: left;">2025-ci ildə seçilib; FIPS hazırlanır</td>
+</tr>
+</tbody>
+</table>
+<p>Təhlükəsizlik marjı və performans balansına görə sənayedə ilkin
+olaraq qəfəs əsaslı arxitekturalara üstünlük verilir. Bu səbəbdən
+mühazirəmizin növbəti hissəsində birbaşa ML-KEM və ML-DSA
+alqoritmlərinin daxili riyazi strukturlarına nəzər salacağıq.</p>
+<h1 id="qəfəs-əsaslı-kriptoqrafiyanın-riyazi-əsasları">Qəfəs Əsaslı
+Kriptoqrafiyanın Riyazi Əsasları</h1>
+<h2 id="qəfəs-nədir">Qəfəs Nədir?</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Qəfəs). <em><span
+class="math inline">\(\mathbb{R}^n\)</span> həqiqi fəzasında qəfəs —
+<span class="math inline">\(n\)</span> sayda xətti müstəqil <span
+class="math inline">\(b_1, b_2, \ldots, b_n\)</span> vektorlarının bütün
+tam əmsallı xətti kombinasiyalarından ibarət diskret nöqtələr çoxluğudur
+<span class="citation" data-cites="micciancio2016lattice"></span>: <span
+class="math display">\[\mathcal{L} = \left\{ \sum_{i=1}^{n} a_i b_i \mid
+a_i \in \mathbb{Z} \right\}\]</span> Burada <span
+class="math inline">\(b_1, b_2, \ldots, b_n\)</span> vektorları qəfəsin
+<strong>bazisi</strong> adlanır.</em></p>
+</div>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>2-ölçülü qəfəsin və onun bazis vektorlarının (<span
+class="math inline">\(b_1, b_2\)</span>) riyazi sxemi</figcaption>
+</figure>
+<h2 id="əsas-qəfəs-problemləri">Əsas Qəfəs Problemləri</h2>
+<p>Qəfəs əsaslı kvantdan sonrakı kriptoqrafik alqoritmlərin
+təhlükəsizliyi yüksəkölçülü fəzalarda (məsələn, <span
+class="math inline">\(n \ge 500\)</span>) həlli həm klassik, həm də
+kvant kompüterləri üçün hesablama baxımından mürəkkəb hesab edilən
+həndəsi problemlərə söykənir:</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (SVP — Ən Qısa Vektor Problemi).
+<em>Verilmiş <span class="math inline">\(\mathcal{L}\)</span> qəfəsində
+sıfırdan fərqli və Evklid norması (uzunluğu) <strong>minimum olan ən
+qısa <span class="math inline">\(\mathbf{v} \in \mathcal{L}\)</span>
+vektorunu</strong> tapmaq problemidir <span class="citation"
+data-cites="micciancio2016lattice"></span>: <span
+class="math display">\[\begin{equation}
+    \min_{\mathbf{v} \in \mathcal{L} \setminus \{\mathbf{0}\}}
+\lVert\mathbf{v}\rVert
+\end{equation}\]</span></em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 4</strong> (CVP — Ən Yaxın Vektor Problemi). <em>Qəfəsə
+aid olmayan, fəzada verilmiş ixtiyari <span
+class="math inline">\(\mathbf{t} \in \mathbb{R}^n\)</span> hədəf
+nöqtəsinə qəfəs daxilində <strong>ən yaxın olan <span
+class="math inline">\(\mathbf{v} \in \mathcal{L}\)</span>
+vektorunu</strong> tapmaq problemidir <span class="citation"
+data-cites="micciancio2016lattice"></span>: <span
+class="math display">\[\begin{equation}
+    \min_{\mathbf{v} \in \mathcal{L}} \lVert\mathbf{t} -
+\mathbf{v}\rVert
+\end{equation}\]</span></em></p>
+</div>
+<p>Qəfəs problemlərinin hesablama mürəkkəbliyi problemin konkret
+variantından və yaxınlaşma faktorundan (<em>approximation factor</em>
+<span class="math inline">\(\gamma\)</span>) bilavasitə asılıdır: dəqiq
+SVP (<em>exact SVP</em>) və bəzi yaxınlaşma variantları üçün <span
+class="math inline">\(NP\)</span>-çətinlik (<em>NP-hardness</em>)
+nəticələri sübut olunsa da, bu mürəkkəbliyi bütün praktiki SVP/CVP
+parametr dəstlərinə şamil etmək olmaz.</p>
+<p>Şor alqoritmi bu problemləri polinomial zamanda həll edə bilmir;
+bununla belə, “qəfəs problemləri üçün kvant alqoritmləri Qrover
+alqoritmindən daha sürətli ola bilməz” fərziyyəsi də hələ ki tam sübut
+olunmamışdır. Praktikada təhlükəsizlik hədləri ən yaxşı məlum olan
+klassik (məsələn, BKZ alqoritmi) və kvant hücumlarının konkret parametr
+qiymətləndirmələri ilə əsaslandırılır.</p>
+<h2 id="lwe-xətalarla-öyrənmə-problemi">LWE — Xətalarla Öyrənmə
+Problemi</h2>
+<div class="definition">
+<p><strong>Tərif 5</strong> (LWE — Xətalarla Öyrənmə Problemi).
+<em><span class="math inline">\(n\)</span> ölçülü fəza və <span
+class="math inline">\(q\)</span> modulu üzərində təyin olunmuş LWE
+problemi aşağıdakı riyazi prosedura əsaslanır <span class="citation"
+data-cites="regev2005lattice"></span>:</em></p>
+<ul>
+<li><p><em>Gizli (mühafizə olunan) bir <span class="math inline">\(s \in
+\mathbb{Z}_q^n\)</span> vektoru seçilir.</em></p></li>
+<li><p><em>Təsadüfi olaraq paylanmış <span class="math inline">\(a_i \in
+\mathbb{Z}_q^n\)</span> vektorları generasiya edilir.</em></p></li>
+<li><p><em>Diskret Qauss paylanmasına malik kiçik bir <span
+class="math inline">\(e_i \in \mathbb{Z}_q\)</span> küy xətası
+seçilir.</em></p></li>
+<li><p><em><span class="math inline">\(b_i = \langle a_i, s \rangle +
+e_i \pmod q\)</span> skalyar hasili hesablanır.</em></p></li>
+</ul>
+<p><em><strong>Axtarış LWE problemi:</strong> Verilmiş çoxsaylı <span
+class="math inline">\((a_i, b_i)\)</span> cütlərinə əsasən gizli <span
+class="math inline">\(s\)</span> vektorunun tapılması problemidir. Xəta
+olmasaydı uyğun şərtlərdə xətti cəbr tətbiq olunardı; seçilmiş <span
+class="math inline">\(n,q\)</span>, nümunə sayı və xəta paylanması isə
+ən yaxşı məlum hücumların çətinliyini müəyyən edir. Xəta sistemi
+“tamamilə həllolunmaz” etmir, sadəcə nəzərdə tutulan parametr ailəsində
+hesablama baxımından çətin problem yaradır.</em></p>
+</div>
+<div class="tcolorbox">
+<p>Oded Regev (2005) tərəfindən kriptoqrafiyaya gətirilən LWE modelinin
+əsas üstünlükləri:</p>
+<ul>
+<li><p><strong>Kvant hücumlarına münasibət:</strong> LWE üçün Şor tipli
+polinomial həll məlum deyil, lakin kvant sürətlənməsinin mümkünsüzlüyü
+sübut edilməyib; konkret təhlükəsizlik ən yaxşı məlum hücumlarla
+qiymətləndirilir.</p></li>
+<li><p><strong>Ən Pis Haldan Gətirmə:</strong> Regev nəticəsi müəyyən
+modul və xəta paylanması şərtləri altında orta-hal LWE həllini ən pis
+hal GapSVP/SIVP yaxınlaşdırma problemlərinin kvant alqoritminə gətirir.
+Module-LWE və konkret ML-KEM parametrləri üçün arqument və hücum
+qiymətləndirməsi ayrıca aparılır; bu, sadə “SVP/CVP-yə bərabərdir”
+iddiası deyil.</p></li>
+</ul>
+</div>
+<h2 id="lwe-əsaslı-kriptosistemin-arxitekturası-regev-şifrləməsi">LWE
+Əsaslı Kriptosistemin Arxitekturası (Regev Şifrləməsi)</h2>
+<p>LWE probleminin riyazi çətinliyindən istifadə edərək tam funksional
+bir asimmetrik (açıq açarlı) şifrləmə sxemi qurulur. Bu sistemdə
+açarların generasiyası, şifrləmə və deşifrləmə prosesləri aşağıdakı
+riyazi matris və vektor əməliyyatları ilə icra olunur:</p>
+<h4 id="açarların-yaradılması">1. Açarların yaradılması:</h4>
+<ul>
+<li><p><strong>Gizli Açar (<em>Gizli Açar</em>):</strong> Təsadüfi bir
+<span class="math inline">\(s \in \mathbb{Z}_q^n\)</span> vektoru
+seçilir. Bu vektor gizli açar rolunu oynayır.</p></li>
+<li><p><strong>Açıq Açar (<em>Açıq Açar</em>):</strong> <span
+class="math inline">\(m\)</span> sayda təsadüfi <span
+class="math inline">\(a_i \in \mathbb{Z}_q^n\)</span> vektoru generasiya
+edilərək bir <span class="math inline">\(A \in \mathbb{Z}_q^{m \times
+n}\)</span> matrisi formalaşdırılır. Kiçik xətalardan ibarət <span
+class="math inline">\(e \in \mathbb{Z}_q^m\)</span> vektoru seçilir.
+Açıq açarın ikinci komponenti olan <span class="math inline">\(b \in
+\mathbb{Z}_q^m\)</span> vektoru belə hesablanır: <span
+class="math display">\[b = A \cdot s + e \pmod q\]</span> İctimaiyyətə
+açıqlanan <strong>Açıq Açar:</strong> <span class="math inline">\((A,
+b)\)</span> cütüdür. LWE probleminin mahiyyətinə görə, bu cütü bilən
+kənar şəxs gizli <span class="math inline">\(s\)</span> vektorunu matris
+tənliyindən bərpa edə bilmir.</p></li>
+</ul>
+<h4 id="şifrələmə-prosesi">2. Şifrələmə prosesi:</h4>
+<p>Sistemdə bir binar bit (<span class="math inline">\(m \in \{0,
+1\}\)</span>) şifrləmək üçün açıq açardan (<span
+class="math inline">\((A, b)\)</span>) istifadə olunur:</p>
+<ul>
+<li><p>Göndərici təsadüfi binar bitlərdən ibarət kiçik bir <span
+class="math inline">\(r \in \{0, 1\}^m\)</span> perturbasiya (seçim)
+vektoru generasiya edir.</p></li>
+<li><p><strong>Şifrəli Mətn:</strong> İki komponentdən (<span
+class="math inline">\(c_1, c_2\)</span>) ibarət olan şifrəli mesaj belə
+formalaşdırılır: <span class="math display">\[c_1 = r^T \cdot A \pmod
+q\]</span> <span class="math display">\[c_2 = r^T \cdot b + m \cdot
+\left\lfloor \frac{q}{2} \right\rfloor \pmod q\]</span> Burada <span
+class="math inline">\(m=0\)</span> olarsa, mesaj <span
+class="math inline">\(r^T \cdot b\)</span> qiymətinə yaxın bir nöqtəyə,
+<span class="math inline">\(m=1\)</span> olduqda isə modulun düz yarısı
+qədər (<span class="math inline">\(\frac{q}{2}\)</span>) uzaqlaşdırılmış
+bir nöqtəyə şifrələnir. Cütlük <span class="math inline">\((c_1,
+c_2)\)</span> rabitə kanalı ilə qarşı tərəfə ötürülür.</p></li>
+</ul>
+<h4 id="deşifrələmə-prosesi">3. Deşifrələmə prosesi:</h4>
+<p>Şifrəli mətni (<span class="math inline">\(c_1, c_2\)</span>) alan
+qanuni istifadəçi öz gizli açarından (<span
+class="math inline">\(s\)</span>) istifadə edərək mesajı bərpa edir:</p>
+<ul>
+<li><p>İlk olaraq şifrəli mətn komponentləri gizli açarla kombinasiya
+edilərək xətadan təmizlənmə induksiyası aparılır: <span
+class="math display">\[v = c_2 - c_1 \cdot s \pmod q\]</span></p></li>
+<li><p>Bu tənliyin daxili strukturunu açsaq, xətanın necə təcrid
+olunduğunu görərik: <span class="math display">\[v = (r^T \cdot (A \cdot
+s + e) + m \cdot \left\lfloor \frac{q}{2} \right\rfloor) - (r^T \cdot A)
+\cdot s = r^T \cdot e + m \cdot \left\lfloor \frac{q}{2} \right\rfloor
+\pmod q\]</span></p></li>
+<li><p><strong>Qərar Qəbulu:</strong> <span class="math inline">\(r^T
+\cdot e\)</span> ifadəsi çok kiçik bir küy xətası olduğu üçün, əgər
+alınan <span class="math inline">\(v\)</span> qiyməti <span
+class="math inline">\(0\)</span>-a yaxındırsa, mesaj <strong><span
+class="math inline">\(0\)</span></strong> olaraq, əgər <span
+class="math inline">\(\frac{q}{2}\)</span>-ə yaxındırsa, mesaj
+<strong><span class="math inline">\(1\)</span></strong> olaraq deşifrə
+edilir.</p></li>
+</ul>
+<div class="tcolorbox">
+<p>Şifrələmə zamanı tətbiq edilən <span class="math inline">\(m \cdot
+\lfloor q/2 \rfloor\)</span> modulyasiyası bitləri qəfəs fəzasında
+bir-birindən maksimum uzaq məsafəyə yerləşdirmək məqsədi daşıyır. Əgər
+alqoritmdəki <span class="math inline">\(e\)</span> xətaları çox böyük
+seçilərsə, deşifrələmə zamanı <span class="math inline">\(r^T \cdot
+e\)</span> küyü <span class="math inline">\(\frac{q}{4}\)</span> həddini
+keçər və <span class="math inline">\(0\)</span> ilə <span
+class="math inline">\(1\)</span> bitləri bir-birinə qarışaraq
+deşifrələmə xətasına səbəb olar. ML-KEM və bu kimi müasir protokollarda
+bu parametrlər çox kiçik xəta ehtimalı ilə tənzimlənir.</p>
+</div>
+<h2 id="ring-lwe-və-module-lwe-variantları">Ring-LWE və Module-LWE
+Variantları</h2>
+<p>Standart LWE-də açarların ölçüsü matris vurma əməliyyatlarına görə
+çox böyükdür (kilobaytlarla). Sənayedə tətbiq olunma qabiliyyətini
+(səmərəliliyi) artırmaq üçün LWE probleminin optimallaşdırılmış cəbri
+variantları işlənib hazırlanmışdır:</p>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Ring-LWE). <em>LWE probleminin çokhədli
+(<em>polinom</em>) halqaları<a href="#fn15" class="footnote-ref"
+id="fnref15" role="doc-noteref"><sup>15</sup></a> üzərində
+strukturlaşdırılmış variantıdır <span class="citation"
+data-cites="lyubashevsky2010rlwe"></span>. Burada böyük ölçülü
+matris-vektor vurması deyil, halqa üzərində çoxhədlilərin vurulması
+əməliyyatı icra olunur. Bu cəbri fənd matrisləri dövri strukturlarla
+əvəz edərək açarların ölçüsünü kəskin şəkildə kiçildir və
+<em>Nömrə-Nəzəriyyəsi Çevrilməsi</em><a href="#fn16"
+class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a>
+(NTT) vasitəsilə yüksəksürətli hesablamaya imkan verir.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 7</strong> (Module-LWE). <em>Ring-LWE ilə standart
+(algebraik struktursuz) LWE arasında rank parametri (<span
+class="math inline">\(k\)</span>)<a href="#fn17" class="footnote-ref"
+id="fnref17" role="doc-noteref"><sup>17</sup></a> ilə tənzimlənən modul
+(<span class="math inline">\(R_q^k\)</span>) strukturudur <span
+class="citation" data-cites="langlois2015mlwe"></span>. Rank parametri
+səmərəlilik (açar ölçüsü) ilə cəbri struktur riskləri arasında optimal
+balans yaradır. FIPS standartlarında ML-KEM alqoritmi Module-LWE
+fərziyyəsinə, ML-DSA alqoritmi isə həm Module-LWE, həm də Module-SIS<a
+href="#fn18" class="footnote-ref" id="fnref18"
+role="doc-noteref"><sup>18</sup></a> fərziyyəsinə söykənir.</em></p>
+</div>
+<h2 id="lwe-variantlarının-müqayisəli-təhlili">LWE Variantlarının
+Müqayisəli Təhlili</h2>
+<p>Aşağıdakı cədvəldə post-kvant kriptosistemlərinin
+layihələndirilməsində riyazi problemlərin seçilmə kriteriyaları
+göstərilmişdir:</p>
+<table>
+<caption>Kriptoqrafik səmərəlilik və təhlükəsizlik baxımından LWE
+variantlarının müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Riyazi Problem</strong></th>
+<th style="text-align: left;"><strong>Hesablama
+Səmərəliliyi</strong></th>
+<th style="text-align: left;"><strong>Təhlükəsizlik
+Zəmanəti</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>LWE</strong></td>
+<td style="text-align: left;">Aşağı (yüksək yaddaş və böyük
+açarlar)</td>
+<td style="text-align: left;">Çox yüksək (heç bir əlavə cəbri struktur
+yoxdur)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ring-LWE</strong></td>
+<td style="text-align: left;">Yüksək (sürətli dövri vurma, kiçik
+açarlar)</td>
+<td style="text-align: left;">Yüksək (ideal ideallardan asılıdır, nəzəri
+risk ehtimalı var)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Module-LWE</strong></td>
+<td style="text-align: left;">Orta-Yüksək (çevik parametr seçimi)</td>
+<td style="text-align: left;">Çox yüksək (cəbri struktura qarşı əlavə
+mühafizə qatı var)</td>
+</tr>
+</tbody>
+</table>
+<div class="tcolorbox">
+<p>Tələbə qəfəs, SVP/CVP, LWE və Module-LWE anlayışlarını eyni termin
+kimi deyil, bir-birinə bağlı obyekt, problem və təhlükəsizlik
+fərziyyələri kimi izah etməlidir. Növbəti hissə bu fərziyyələri standart
+alqoritmlərdə tətbiq edir.</p>
+</div>
+<h1 class="unnumbered"
+id="iii-hissə-standart-post-kvant-alqoritmləri">III hissə: Standart
+post-kvant alqoritmləri</h1>
+<h1 id="ml-kem">ML-KEM</h1>
+<h2 id="ümumi-xüsusiyyətlər-və-parametrlər">Ümumi Xüsusiyyətlər və
+Parametrlər</h2>
+<p><strong>ML-KEM</strong> — yüksək ölçülü çoxhədli modulları üzərində
+qurulmuş <strong>Module-LWE</strong> probleminin riyazi çətinliyinə
+əsaslanan post-kvant açar enkapsulyasiya mexanizmidir (KEM) <span
+class="citation" data-cites="ducas2018crystals"></span>. Onun
+standartlaşdırmadan əvvəlki adı Kyber idi. ABŞ Milli Standartlar və
+Texnologiya İnstitutu (NIST) alqoritmi 2024-cü ildə <strong>FIPS
+203</strong> kimi təsdiq etmişdir <span class="citation"
+data-cites="nist2024fips203"></span>; bundan sonra bu mühazirədə yalnız
+ML-KEM adı işlədilir.</p>
+<div class="tabularx">
+<p><span>|l|C|C|C|</span> <strong>Parametr / Struktur</strong> &amp;
+<strong>ML-KEM-512</strong> &amp; <strong>ML-KEM-768</strong> &amp;
+<strong>ML-KEM-1024</strong><br />
+NIST kateqoriyası &amp; Kat. 1 (AES-128 ekvivalenti) &amp; Kat. 3
+(AES-192 ekvivalenti) &amp; Kat. 5 (AES-256 ekvivalenti)<br />
+Açıq açar (<em>pk</em>) ölçüsü &amp; 800 bayt &amp; 1184 bayt &amp; 1568
+bayt<br />
+Gizli açar (<em>sk</em>) ölçüsü &amp; 1632 bayt &amp; 2400 bayt &amp;
+3168 bayt<br />
+Şifrəli mətn (<em>c</em>) ölçüsü &amp; 768 bayt &amp; 1088 bayt &amp;
+1568 bayt<br />
+Paylaşılan ortaq sirr (<em>ss</em>) &amp; 32 bayt &amp; 32 bayt &amp; 32
+bayt<br />
+</p>
+</div>
+<h2 id="açar-enkapsulyasiya-mexanizmi-kem">Açar enkapsulyasiya mexanizmi
+(KEM)</h2>
+<div class="definition">
+<p><strong>Tərif 8</strong> (Açar Enkapsulyasiya Mexanizmi — KEM).
+<em>KEM — açıq açarlı (asimmetrik) kriptoqrafiyadan istifadə edərək, iki
+tərəf arasında simmetrik şifrələmə açarlarının (məsələn, AES üçün ortaq
+sirrin) təhlükəsiz şəkildə yaradılması və ötürülməsi mexanizmidir <span
+class="citation" data-cites="cramer2003kem"></span>. KEM ənənəvi
+formalardan fərqli olaraq mesajı birbaşa şifrələmir, simmetrik açarı
+"bükür" (kapsullaşdırır). KEM strukturu üç alqoritmdən
+ibarətdir:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\text{KeyGen}() \to (pk,
+sk)\)</span>: Təsadüfi olaraq bir-birinə bağlı açıq açar (<span
+class="math inline">\(pk\)</span>) və gizli açar (<span
+class="math inline">\(sk\)</span>) cütü generasiya edir.</em></p></li>
+<li><p><em><span class="math inline">\(\text{Encaps}(pk) \to (c,
+K)\)</span>: Açıq açarı giriş olaraq qəbul edir, təsadüfi paylaşılan
+ortaq sirr (<span class="math inline">\(K\)</span>) yaradır və bu sirrin
+şifrələnmiş forması olan bükülü mətni (<em>şifrəli mətn - <span
+class="math inline">\(c\)</span></em>) qaytarır.</em></p></li>
+<li><p><em><span class="math inline">\(\text{Decaps}(sk, c) \to
+K\)</span>: Gizli açar (<span class="math inline">\(sk\)</span>) və
+bükülü mətni (<span class="math inline">\(c\)</span>) istifadə edərək
+orijinal ortaq sirri (<span class="math inline">\(K\)</span>) bərpa
+edir.</em></p></li>
+</ul>
+</div>
+<h2 id="ml-kem-alqoritminin-riyazi-iş-prinsipi">ML-KEM Alqoritminin
+Riyazi İş Prinsipi</h2>
+<p>ML-KEM-in daxilində mesaj bitlərini polinomlara kodlaşdıran
+<strong>K-PKE</strong> komponenti işləyir, lakin K-PKE özü tətbiq üçün
+KEM deyil və ayrıca istifadə edilməməlidir. Aşağıdakı <span
+class="math inline">\(A,s,e,u,v\)</span> tənlikləri yalnız bu
+CPA-dayanıqlı daxili komponentin pedaqoji skeletidir; FIPS 203-də tətbiq
+edilən ML-KEM ona heş/KDF, deterministik yenidən şifrələmə və örtülü
+rəddetmə (<em>implicit rejection</em>) qatı əlavə edir <span
+class="citation" data-cites="nist2024fips203"></span>.</p>
+<h4 id="açar-yaradılması">1. Açar yaradılması:</h4>
+<ul>
+<li><p><span class="math inline">\(R_q = \mathbb{Z}_q[x] / \langle
+x^{256} + 1 \rangle\)</span> çokhədli halqası təyin olunur.</p></li>
+<li><p>Təsadüfi bir toxumdan (<em>ilkin toxum</em>) istifadə edilərək
+psevdotəsadüfi olaraq <span class="math inline">\(k \times k\)</span>
+ölçülü bir <span class="math inline">\(A\)</span> çokhədli matrisi
+generasiya edilir.</p></li>
+<li><p>Gizli açar olaraq kiçik əmsallı çoxhədlilərdən ibarət <span
+class="math inline">\(s\)</span> vektoru və xəta kimi <span
+class="math inline">\(e\)</span> küy vektoru seçilir.</p></li>
+<li><p>Daxili K-PKE üçün <span class="math inline">\(t=A\cdot s+e\pmod
+q\)</span> hesablanır və kodlaşdırılmış açıq açar matris ilkin toxumu
+ilə <span class="math inline">\(t\)</span>-ni daşıyır. Tam ML-KEM
+dekapsulyasiya açarı yalnız <span class="math inline">\(s\)</span>
+deyil: kodlaşdırılmış K-PKE deşifrələmə açarı ilə yanaşı enkapsulyasiya
+açarını, onun heşini və örtülü rədd üçün gizli <span
+class="math inline">\(z\)</span> dəyərini saxlayır.</p></li>
+</ul>
+<h4 id="daxili-k-pke-şifrələmə-analogiyası">2. Daxili K-PKE Şifrələmə
+Analogiyası:</h4>
+<p>K-PKE təsadüfi mesaj <span class="math inline">\(m\)</span> və
+deterministik təsadüfilikdən kiçik <span
+class="math inline">\(r,e_1,e_2\)</span> seçərək təqribən aşağıdakı iki
+komponenti yaradır:</p>
+<ul>
+<li><p>32 baytlıq <span class="math inline">\(m\)</span> mesajı polinom
+əmsallarına kodlaşdırılır; bu <span class="math inline">\(m\)</span> son
+ortaq sirr <span class="math inline">\(K\)</span> ilə eyni obyekt
+deyil.</p></li>
+<li><p><strong>Şifrəli Mətn:</strong> İki komponentli <span
+class="math inline">\(c = (u, v)\)</span> cütü kimi hesablanır: <span
+class="math display">\[u = A^T \cdot r + e_1 \pmod q\]</span> <span
+class="math display">\[v = t^T \cdot r + e_2 +
+\operatorname{Decompress}(\operatorname{Encode}(m),1) \pmod q.\]</span>
+Yaranan <span class="math inline">\(c = (u, v)\)</span> şifrəli mətni
+qarşı tərəfə göndərilir.</p></li>
+</ul>
+<h4 id="ml-kem-enkapsulyasiyası-və-dekapsulyasiyası">3. ML-KEM
+enkapsulyasiyası və dekapsulyasiyası:</h4>
+<ul>
+<li><p><code>ML-KEM.Encaps</code> təsadüfi <span
+class="math inline">\(m\)</span> yaradır, enkapsulyasiya açarının heşi
+ilə birlikdə heş/KDF vasitəsilə həm ortaq sirr <span
+class="math inline">\(K\)</span>, həm də K-PKE təsadüfiliyi törədir və
+<span class="math inline">\(m\)</span>-i deterministik K-PKE ilə
+şifrələyir.</p></li>
+<li><p><code>ML-KEM.Decaps</code> əvvəlcə şifrəli mətndən namizəd <span
+class="math inline">\(m&#39;\)</span> dəyərini dekodlaşdırır, eyni
+törətmə üsulu ilə şifrəli mətni yenidən yaradır və girişlə sabit zamanlı
+müqayisə edir.</p></li>
+<li><p>Yenidən şifrələmə uyğun gələrsə <span
+class="math inline">\(m&#39;\)</span>-dən törənən ortaq sirr qaytarılır;
+uyğun gəlməzsə şifrəli mətn və gizli <span
+class="math inline">\(z\)</span>-dən psevdotəsadüfi ehtiyat sirr
+törədilir (örtülü rədd). Beləliklə etibarlı/etibarsız şifrəli mətn fərqi
+xəta mesajı verərək hücumçu üçün orakula çevrilmir.</p></li>
+</ul>
+<p>K-PKE deşifrələmə bənzətməsində əsas yaxınlıq belə görünür:</p>
+<ul>
+<li><p>İlk olaraq gizli açarla (<span class="math inline">\(s\)</span>)
+şifrəli mətnin birinci komponenti vurulur və ikincidən çıxılır: <span
+class="math display">\[v - s^T \cdot u = (t^T \cdot r + e_2 +
+\operatorname{Encode}(m)) - s^T \cdot (A^T \cdot r + e_1) \pmod
+q\]</span></p></li>
+<li><p><span class="math inline">\(t = A \cdot s + e\)</span> tənliyi
+yerinə qoyulduqda, matris vurmalarının kommutativliyinə görə <span
+class="math inline">\(A^T \cdot r\)</span> hədləri bir-birini islah edir
+və geriyə yalnız kiçik xətalar qalır: <span class="math display">\[v -
+s^T \cdot u \approx \operatorname{Encode}(m) + \text{kiçik xəta} \pmod
+q\]</span></p></li>
+<li><p>Kodun açılması zamanı xəta düzgünlük sərhədindədirsə <span
+class="math inline">\(m\)</span> bərpa edilir. ML-KEM üçün deşifrələmə
+xətası ehtimalı parametr üzrə çox kiçikdir, lakin bu, "xəta tam
+sıfırlanır" və ya hər şifrəli mətn üçün qəti bərpa iddiası
+deyil.</p></li>
+</ul>
+<h2
+id="ml-kem-in-klassik-sistemlərlə-müqayisəsi-və-üstünlükləri">ML-KEM-in
+Klassik Sistemlərlə Müqayisəsi və Üstünlükləri</h2>
+<ul>
+<li><p><strong>IND-CCA2 məqsədi:</strong> FIPS 203 KEM qatı
+seçilmiş-şifrəli-mətn təhlükəsizliyi üçün yenidən şifrələmə və örtülü
+rədd üsulundan istifadə edir; təminat standartın fərziyyələri və yan
+kanal riskini nəzərə alan düzgün reallaşdırma daxilində
+qiymətləndirilir.</p></li>
+<li><p><strong>Ədədi-nəzəri çevrilmənin (NTT) inteqrasiyası:</strong>
+Polinomların vurulması əməliyyatını sürətləndirmək üçün diskret Furye
+çevrilməsinin sonlu meydan analoqundan istifadə edir. Bu, hesablama
+mürəkkəbliyini kəskin azaldır.</p></li>
+<li><p><strong>Modulyar Arxitektura:</strong> Matris ölçülərinin (<span
+class="math inline">\(k \times k\)</span>) dəyişdirilməsi ilə (<span
+class="math inline">\(k=2,3,4\)</span>) eyni riyazi nüvə üzərində
+müxtəlif təhlükəsizlik səviyyələri asanlıqla konfiqurasiya
+olunur.</p></li>
+</ul>
+<table id="tab:mlkem_compare">
+<caption>ML-KEM alqoritminin klassik asimmetrik sistemlərlə ölçü
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Açıq Açar</strong></th>
+<th style="text-align: center;"><strong>Gizli Açar</strong></th>
+<th style="text-align: center;"><strong>Şifrəli Mətn</strong></th>
+<th style="text-align: left;"><strong>Kvant Mühafizəsi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ML-KEM-768</strong></td>
+<td style="text-align: center;">1184 B</td>
+<td style="text-align: center;">2400 B</td>
+<td style="text-align: center;">1088 B</td>
+<td style="text-align: left;">Kvant-təhlükəsiz (Post-Kvant)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RSA-2048</strong></td>
+<td style="text-align: center;">256 B</td>
+<td style="text-align: center;">512 B</td>
+<td style="text-align: center;">256 B</td>
+<td style="text-align: left;">Kvant kompüteri ilə sındırılır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ECDH-256</strong></td>
+<td style="text-align: center;">32 B</td>
+<td style="text-align: center;">32 B</td>
+<td style="text-align: center;">– (Açar mübadiləsi)</td>
+<td style="text-align: left;">Kvant kompüteri ilə sındırılır</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ml-dsa">ML-DSA</h1>
+<h2 id="ümumi-xüsusiyyətlər-və-parametrlər-1">Ümumi Xüsusiyyətlər və
+Parametrlər</h2>
+<p><strong>ML-DSA</strong> — qəfəs çoxhədli modulları üzərində qurulmuş
+<strong>Module-LWE</strong> və <strong>Module-SIS</strong>
+çətinliklərinə əsaslanan post-kvant rəqəmsal imza sxemidir <span
+class="citation" data-cites="ducas2018crystals"></span>. Onun
+standartlaşdırmadan əvvəlki adı Dilithium idi. ABŞ Milli Standartlar və
+Texnologiya İnstitutu (NIST) alqoritmi 2024-cü ildə <strong>FIPS
+204</strong> kimi təsdiq etmişdir <span class="citation"
+data-cites="nist2024fips204"></span>; bundan sonra bu mühazirədə yalnız
+ML-DSA adı işlədilir.</p>
+<div class="tabularx">
+<p><span>|l|C|C|C|</span> <strong>Parametr / Struktur</strong> &amp;
+<strong>ML-DSA-44</strong> &amp; <strong>ML-DSA-65</strong> &amp;
+<strong>ML-DSA-87</strong><br />
+NIST kateqoriyası &amp; Kat. 1 (AES-128 ekv.) &amp; Kat. 3 (AES-192
+ekv.) &amp; Kat. 5 (AES-256 ekv.)<br />
+Açıq açar (<em>pk</em>) ölçüsü &amp; 1312 bayt &amp; 1952 bayt &amp;
+2592 bayt<br />
+Gizli açar (<em>sk</em>) ölçüsü &amp; 2560 bayt &amp; 4032 bayt &amp;
+4896 bayt<br />
+İmza (<em>sig</em>) ölçüsü &amp; 2420 bayt &amp; 3309 bayt &amp; 4627
+bayt<br />
+</p>
+</div>
+<h2 id="ml-dsa-alqoritminin-riyazi-iş-prinsipi">ML-DSA Alqoritminin
+Riyazi İş Prinsipi</h2>
+<p>ML-DSA alqoritmi qəfəs əsaslı kriptoqrafiyada gizli açar haqqında
+məlumatın sızmasının qarşısını almaq üçün <strong>imtina ilə
+seçmə</strong> üsulundan istifadə edən strukturlaşdırılmış Fiat–Şamir
+çevirməsinə əsaslanır. Alqoritm üç əsas riyazi mərhələdən ibarətdir:</p>
+<h4 id="açar-yaradılması-1">1. Açar yaradılması:</h4>
+<ul>
+<li><p><span class="math inline">\(R_q = \mathbb{Z}_q[x] / \langle
+x^{256} + 1 \rangle\)</span> çokhədli halqası üzərində təsadüfi bir
+<span class="math inline">\(A\)</span> çokhədli matrisi (<span
+class="math inline">\(k \times l\)</span> ölçülü)
+formalaşdırılır.</p></li>
+<li><p>Gizli açar olaraq əmsalları çox kiçik tam ədədlərdən ibarət iki
+gizli çoxhədli vektoru — <span class="math inline">\(s_1\)</span> və
+<span class="math inline">\(s_2\)</span> seçilir.</p></li>
+<li><p>Açıq açarın əsas hissəsi olan <span
+class="math inline">\(t\)</span> vektoru aşağıdakı şəkildə hesablanır:
+<span class="math display">\[t = A \cdot s_1 + s_2 \pmod
+q\]</span></p></li>
+<li><p><span class="math inline">\(t\)</span> <code>Power2Round</code>
+ilə <span class="math inline">\((t_1,t_0)\)</span> hissələrinə ayrılır.
+Kodlaşdırılmış açıq açar <span
+class="math inline">\(pk=(\rho,t_1)\)</span> formasındadır; <span
+class="math inline">\(A\)</span> ayrıca saxlanmır, <span
+class="math inline">\(\rho\)</span> ilkin toxumundan genişləndirilir.
+FIPS 204 kodlaşdırılmış gizli açarı <span
+class="math inline">\(\rho,K,tr,s_1,s_2,t_0\)</span> komponentlərini
+daşıyır; standartın icazə verdiyi ilkin-toxum girişi API ayrıca profil
+ola bilər.</p></li>
+</ul>
+<h4 id="imza-yaratma">2. İmza yaratma:</h4>
+<p>Bir <span class="math inline">\(M\)</span> mesajını imzalamaq üçün
+gizli açar sahibi (<span class="math inline">\(sk\)</span>) aşağıdakı
+interaktiv əməliyyatları yerinə yetirir:</p>
+<ul>
+<li><p>Mesajın təmsilçisi, kontekst və xüsusi təsadüfiləşdirmə
+girişindən maskalama vektoru <span class="math inline">\(y\)</span>
+törədilir; deterministik və əlavə təsadüfiliklə qorunan imza variantları
+standartda fərqləndirilir. <span class="math inline">\(w=A\cdot y\pmod
+q\)</span> və <span
+class="math inline">\(w_1=\operatorname{HighBits}(w,2\gamma_2)\)</span>
+hesablanır.</p></li>
+<li><p><span class="math inline">\(\tilde c=H(\mu\parallel w_1)\)</span>
+çağırışın ilkin toxumu kimi hesablanır və <span
+class="math inline">\(c=\operatorname{SampleInBall}(\tilde c)\)</span>
+çoxhədlisinə açılır.</p></li>
+<li><p>İmza namizədi olan <span class="math inline">\(z\)</span> vektoru
+gizli açarın komponenti ilə xətti kombinasiyaya daxil edilir: <span
+class="math display">\[z = y + c \cdot s_1\]</span></p></li>
+<li><p><span
+class="math inline">\(r_0=\operatorname{LowBits}(w-cs_2,2\gamma_2)\)</span>
+və <span class="math inline">\(ct_0\)</span> üzrə norma şərtləri
+yoxlanır. Şərtlər ödənməzsə yeni <span class="math inline">\(y\)</span>
+ilə imtina əsasında seçmə təkrarlanır.</p></li>
+<li><p><span
+class="math inline">\(h=\operatorname{MakeHint}(-ct_0,w-cs_2+ct_0,2\gamma_2)\)</span>
+hesablanır və çəki həddi yoxlanır. Kodlaşdırılmış imza <span
+class="math inline">\(\sigma=(\tilde c,z,h)\)</span>-dir; <span
+class="math inline">\((z,c)\)</span> cütü standart ML-DSA imzası
+deyil.</p></li>
+</ul>
+<h4 id="imzanın-yoxlanılması">3. İmzanın yoxlanılması:</h4>
+<p>Açıq açara (<span class="math inline">\(pk=(\rho,t_1)\)</span>) və
+mesaja malik olan tərəf kodlaşdırılmış <span
+class="math inline">\(\sigma=(\tilde c,z,h)\)</span> imzasını belə
+yoxlayır:</p>
+<ul>
+<li><p>Kodlaşdırma, <span class="math inline">\(z\)</span> norması və
+köməkçi məlumatın çəki həddi yoxlanılır; <span
+class="math inline">\(A\)</span> yenidən <span
+class="math inline">\(\rho\)</span>-dan genişləndirilir və <span
+class="math inline">\(c=\operatorname{SampleInBall}(\tilde c)\)</span>
+hesablanır.</p></li>
+<li><p>Yuvarlaqlaşdırılmış açıq komponent ilə yüksək bitlər bərpa
+olunur: <span class="math display">\[w&#39;_1 =
+\operatorname{UseHint}\left(h, \, A \mathbf{z} - c t_1 \cdot 2^d, \,
+2\gamma_2\right)\]</span></p></li>
+<li><p>Yoxlayan <span class="math inline">\(\tilde c&#39;=H(\mu\parallel
+w&#39;_1)\)</span> hesablayır və sabit-zamanlı şəkildə <span
+class="math inline">\(\tilde c&#39;=\tilde c\)</span> olub-olmadığını
+yoxlayır. Köməkçi məlumat məhz <span
+class="math inline">\(t\)</span>-nin <span
+class="math inline">\(t_1/t_0\)</span> yuvarlaqlaşdırılmasına baxmayaraq
+imzalayanın istifadə etdiyi yuxarı bitləri bərpa etməyə imkan
+verir.</p></li>
+</ul>
+<h2 id="ml-dsa-üstünlükləri-və-klassik-sistemlərlə-müqayisəsi">ML-DSA
+Üstünlükləri və Klassik Sistemlərlə Müqayisəsi</h2>
+<ul>
+<li><p><strong>EUF-CMA məqsədi:</strong> Təhlükəsizlik təsadüfi sorğu
+mənbəyi modeli fərziyyələri və Module-LWE/Module-SIS tipli problemlərə
+gətirmə əsasında təhlil olunur; bu, reallaşdırma qüsurlarına qarşı “tam
+sübut” deyil.</p></li>
+<li><p><strong>Yan kanal tələbi:</strong> Alqoritm sabit-zamanlı tətbiq
+edilə bilər, lakin imtina dövrü, nümunələyici, heş və yaddaş davranışı
+ayrıca qorunmalı və sınaqdan keçirilməlidir; riyazi struktur enerji
+sızıntısını avtomatik dayandırmır.</p></li>
+<li><p><strong>Balanslaşdırılmış ölçülər:</strong> FN-DSA alqoritminə
+nisbətən açarları bir qədər böyük olsa da, riyazi tətbiqi ondan xeyli
+sadədir və sürüşən nöqtəli hesablamalar tələb etmir.</p></li>
+</ul>
+<table id="tab:dsa_comparison">
+<caption>Post-kvant və klassik rəqəmsal imza sistemlərinin struktur
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Açıq Açar</strong></th>
+<th style="text-align: center;"><strong>İmza Ölçüsü</strong></th>
+<th style="text-align: left;"><strong>Riyazi Nüvə /
+Struktur</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ML-DSA-44</strong></td>
+<td style="text-align: center;">1312 B</td>
+<td style="text-align: center;">2420 B</td>
+<td style="text-align: left;">Qəfəs əsaslı (Module-LWE/SIS)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FN-DSA-512</strong></td>
+<td style="text-align: center;">897 B</td>
+<td style="text-align: center;">666 B</td>
+<td style="text-align: left;">Qəfəs əsaslı (NTRU / Qauss seçimi)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SLH-DSA-128s</strong><a
+href="#fn19" class="footnote-ref" id="fnref19"
+role="doc-noteref"><sup>19</sup></a></td>
+<td style="text-align: center;">32 B</td>
+<td style="text-align: center;">7856 B</td>
+<td style="text-align: left;">Heş əsaslı (Vəziyyətsiz heş ağacları)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RSA-2048</strong></td>
+<td style="text-align: center;">256 B</td>
+<td style="text-align: center;">256 B</td>
+<td style="text-align: left;">Klassik (Faktorizasiya — Kvant
+qeyri-dayanıqlı)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ECDSA-256</strong></td>
+<td style="text-align: center;">64 B</td>
+<td style="text-align: center;">64 B</td>
+<td style="text-align: left;">Klassik (Diskret loqarifm — Kvant
+qeyri-dayanıqlı)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="fn-dsa">FN-DSA</h1>
+<h2 id="ümumi-xüsusiyyətlər-və-parametrlər-2">Ümumi Xüsusiyyətlər və
+Parametrlər</h2>
+<p>FN-DSA NTRU qəfəsləri üzərində qurulmuş imza sxemidir <span
+class="citation" data-cites="fouque2018falcon"></span>. NIST onu gələcək
+<strong>FN-DSA</strong> standartı üçün seçib, lakin 26 iyul 2026-cı il
+tarixinə <strong>FIPS 206 hələ hazırlanır və təsdiqlənmiş FIPS
+deyil</strong>. Aşağıdakı ölçülər yekun FIPS 206 deyil, seçilmiş FN-DSA
+namizəd profilinin parametrlərinə aiddir.</p>
+<h4 id="ntru-strukturunun-riyazi-izahı">NTRU Strukturunun Riyazi
+İzahı:</h4>
+<p><strong>NTRU</strong> (<span class="math inline">\(N\)</span>-ci
+dərəcəli kəsilmiş çoxhədli halqası) — çoxhədli halqalar üzərində
+qurulmuş xüsusi bir qəfəs növüdür. Onun əsas iş prinsipi aşağıdakı
+kimidir:</p>
+<ul>
+<li><p>Bütün hesablamalar <span class="math inline">\(R = \mathbb{Z}[x]
+/ \langle x^n + 1 \rangle\)</span> halqasında, yəni dərəcəsi <span
+class="math inline">\(n-1\)</span> olan kəsik çoxhədlilər üzərində
+aparılır.</p></li>
+<li><p><strong>Gizli açar:</strong> Əmsalları çox kiçik tam ədədlərdən
+(məsələn, yalnız <span class="math inline">\(-1, 0, 1\)</span>) ibarət
+olan təsadüfi <span class="math inline">\(f\)</span> və <span
+class="math inline">\(g\)</span> çoxhədliləridir. Bu çoxhədlilər qəfəsin
+ən qısa və ortoqonala yaxın gizli bazasını formalaşdırır.</p></li>
+<li><p><strong>Açıq açar:</strong> Bu iki gizli çoxhədlinin halqa
+daxilindəki nisbətidir: <span class="math inline">\(h = g \cdot f^{-1}
+\pmod q\)</span>. Bu nisbət isə fəzada tamamilə fərqli, çox uzun və
+yararsız bir qəfəs bazası yaradır.</p></li>
+<li><p><strong>Riyazi Çətinlik Fərziyyəsi:</strong> Açıq NTRU qəfəsində
+imza saxtalaşdırmaq və ya qısa gizli baza tapmaq konkret NTRU qəfəsi
+hücumları ilə qiymətləndirilir. Bunu ümumi SVP-yə sadə bərabərlik və ya
+bütün klassik/kvant hücumlar üçün sübut olunmuş eksponensial aşağı
+sərhəd kimi təqdim etmək olmaz.</p></li>
+</ul>
+<p>FN-DSA məhz bu NTRU strukturunun üzərinə sürətli Furye çevrilməsini
+(FFT) əlavə edərək həm təhlükəsizliyi, həm də sürəti maksimuma
+çatdırır.</p>
+<table>
+<caption>FN-DSA namizəd profili parametr dəstləri; FIPS 206 hələ
+hazırlanır (26 iyul 2026)</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parametr / Struktur</strong></th>
+<th style="text-align: center;"><strong>FN-DSA-512</strong></th>
+<th style="text-align: center;"><strong>FN-DSA-1024</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">NIST kateqoriyası</td>
+<td style="text-align: center;">1 (AES-128 müqayisə həddi)</td>
+<td style="text-align: center;">5 (AES-256 müqayisə həddi)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açıq açar (<em>pk</em>) ölçüsü</td>
+<td style="text-align: center;">897 bayt</td>
+<td style="text-align: center;">1793 bayt</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gizli açar (<em>sk</em>) ölçüsü</td>
+<td style="text-align: center;">1281 bayt</td>
+<td style="text-align: center;">2561 bayt</td>
+</tr>
+<tr>
+<td style="text-align: left;">İmza (<em>sig</em>) ölçüsü</td>
+<td style="text-align: center;">666 bayt</td>
+<td style="text-align: center;">1280 bayt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fn-dsa-namizədinin-riyazi-iş-prinsipi">FN-DSA Namizədinin Riyazi
+İş Prinsipi</h2>
+<p>FN-DSA-nın iş prinsipi “heşlə və imzala” paradiqmasına və
+Gentry–Peikert–Vaikuntanathan (GPV) tərəfindən irəli sürülmüş qəfəs tələ
+qapısı mexanizminə əsaslanır. Alqoritmin riyazi strukturu aşağıdakı
+addım ardıcıllığı ilə işləyir:</p>
+<h4 id="açar-yaradılması-2">1. Açar yaradılması:</h4>
+<ul>
+<li><p><span class="math inline">\(R = \mathbb{Z}[x] / \langle x^n + 1
+\rangle\)</span> çoxhədli halqası seçilir, burada <span
+class="math inline">\(n \in \{512, 1024\}\)</span>.</p></li>
+<li><p>Təsadüfi olaraq kiçik əmsallı <span class="math inline">\(f, g,
+F, G \in R\)</span> çoxhədliləri elə generasiya edilir ki, onlar məşhur
+<strong>NTRU tənliyini</strong> ödəsinlər: <span
+class="math display">\[f \cdot G - g \cdot F = q \pmod{x^n +
+1}\]</span></p></li>
+<li><p><strong>Gizli Açar:</strong> Qəfəsin qısa vektorlar bazasını
+təşkil edən <span class="math inline">\(f, g, F, G\)</span>
+komponentləridir (xüsusi trapdor matrisi). <strong>Açıq Açar:</strong>
+Halqada hesablanan xətti nisbətdir: <span class="math inline">\(h = g
+\cdot f^{-1} \pmod q\)</span>.</p></li>
+</ul>
+<h4 id="imza-yaratma-1">2. İmza yaratma:</h4>
+<p>Bir mesajı imzalamaq üçün gizli açar sahibi (<span
+class="math inline">\(sk\)</span>) aşağıdakı mürəkkəb cəbri
+əməliyyatları icra edir:</p>
+<ul>
+<li><p>İmzalanacaq mesaj təsadüfi duz dəyəri ilə birlikdə qəfəs
+fəzasındakı bir nöqtəyə heşlənir: <span class="math inline">\(c = H(M
+\parallel \mathrm{duz})\)</span>.</p></li>
+<li><p><strong>Sürətli Furye nümunələməsi:</strong> Gizli açarın köməyi
+ilə <span class="math inline">\(c\)</span> nöqtəsinə həndəsi olaraq ən
+yaxın olan qəfəs nöqtəsi (<span class="math inline">\(v\)</span>)
+tapılır. Bu addımda çoxhədlilərin vurulmasını tezləşdirmək üçün sürətli
+Furye çevirməsi (FFT) və kəsr ədədləri üzərində diskret Qaus
+nümunələməsi alqoritmlərindən istifadə olunur.</p></li>
+<li><p><strong>Rəqəmsal imza:</strong> <span class="math inline">\(s =
+(c - v)\)</span> fərqi kimi hesablanan çox qısa vektordur. İmza <span
+class="math inline">\(\sigma = (\text{duz}, s)\)</span> cütü şəklində
+təqdim edilir.</p></li>
+</ul>
+<h4 id="imzanın-yoxlanılması-1">3. İmzanın yoxlanılması:</h4>
+<p>İmzanı yoxlayan tərəf yalnız açıq açara (<span
+class="math inline">\(h\)</span>) və mesaja malik olur. Heç bir FFT və
+ya onluq kəsr hesablama aparmadan tam ədədlər daxilində yoxlama
+aparır:</p>
+<ul>
+<li><p>Göndərilən <span class="math inline">\(\sigma\)</span>
+daxilindəki <span class="math inline">\(s\)</span> imza vektorunun
+dərəcə norması (həndəsi uzunluğu) yoxlanılır. Əgər vektor müəyyən
+olunmuş kritik normadan böyükdürsə, imza rədd edilir.</p></li>
+<li><p>Açıq açar (<span class="math inline">\(h\)</span>) vasitəsilə
+<span class="math inline">\(s\)</span> vektorunun qəfəs bərabərliyi
+yoxlanılır və alınan nəticə yenidən mesaj heşi ilə müqayisə edilir.
+Uyğunluq tamdırsa, imza <strong>etibarlı</strong> sayılır.</p></li>
+</ul>
+<h2 id="fn-dsa-və-ml-dsa-sistemlərinin-struktur-müqayisəsi">FN-DSA və
+ML-DSA Sistemlərinin Struktur Müqayisəsi</h2>
+<p>ML-DSA FIPS 204-də standartlaşdırılıb; FN-DSA isə FN-DSA/FIPS 206
+üçün seçilib və standartlaşdırma prosesi davam edir. Tətbiq müqayisəsi
+buna görə yetkinlik və qarşılıqlı işləmə statusunu da nəzərə
+almalıdır:</p>
+<h4 id="niyə-fn-dsa">Niyə FN-DSA?</h4>
+<ul>
+<li><p><strong>Kompakt İmza:</strong> FN-DSA-512 namizəd imzasının
+maksimal kodlaşdırılmış ölçüsü 666 baytdır və ML-DSA-44 imzasından
+kiçikdir. Faktiki paket fragmentasiyası bütöv protokol mesajı, MTU və
+nəqliyyat-dan asılıdır.</p></li>
+<li><p><strong>Yoxlama məhsuldarlığı:</strong> Sürətləndirilmiş
+reallaşdırmalarda güclü nəticələr göstərə bilər; konkret müqayisə
+prosessoru, versiyanı və müqayisəli ölçmə profilini göstərməyi tələb
+edir.</p></li>
+</ul>
+<h4 id="yarana-biləcək-mürəkkəbliklər">Yarana biləcək
+mürəkkəbliklər:</h4>
+<ul>
+<li><p><strong>Kəsr hesablamaları:</strong> İmza yaratma mərhələsində
+daxili Qaus nümunələməsi üçün yüksək dəqiqlikli onluq kəsr əməliyyatları
+tələb olunur. Bu, mikrokontrollerlərdə və xüsusi kartlarda
+reallaşdırmanı çətinləşdirir.</p></li>
+<li><p><strong>Açar Generasiyasının Mürəkkəbliyi:</strong> NTRU
+tənliyini ödəyən matrislərin tapılması ML-DSA-un xətti modullarına
+nisbətən hesablama baxımından daha çox vaxt aparır.</p></li>
+</ul>
+<h1 id="nist-standartları-və-müqayisəli-analiz">NIST Standartları və
+Müqayisəli Analiz</h1>
+<h2 id="fips-203-ml-kem">FIPS 203 (ML-KEM)</h2>
+<p>FIPS 203 standartı ML-KEM alqoritmi əsasında hazırlanmış post-kvant
+açar enkapsulyasiya mexanizmini müəyyən edir <span class="citation"
+data-cites="nist2024fips203"></span>. Alqoritm təhlükəsizlik
+səviyyələrinə görə üç parametr dəstinə bölünür:</p>
+<ul>
+<li><p><strong>ML-KEM-512:</strong> NIST kateqoriyası 1 — AES-128 açar
+axtarışı ilə müqayisə olunan resurs həddi.</p></li>
+<li><p><strong>ML-KEM-768:</strong> Kateqoriya 3 — AES-192 açar axtarışı
+müqayisə həddi.</p></li>
+<li><p><strong>ML-KEM-1024:</strong> Kateqoriya 5 — AES-256 açar
+axtarışı müqayisə həddi.</p></li>
+</ul>
+<h2 id="fips-204-ml-dsa">FIPS 204 (ML-DSA)</h2>
+<p>FIPS 204 standartı ML-DSA strukturu üzərində qurulmuş post-kvant
+rəqəmsal imza standartıdır <span class="citation"
+data-cites="nist2024fips204"></span>. Sistem aşağıdakı parametr
+dəstlərinə malikdir:</p>
+<ul>
+<li><p><strong>ML-DSA-44:</strong> NIST təhlükəsizlik səviyyəsi 2 üçün
+parametr dəsti.</p></li>
+<li><p><strong>ML-DSA-65:</strong> NIST təhlükəsizlik səviyyəsi 3 üçün
+parametr dəsti.</p></li>
+<li><p><strong>ML-DSA-87:</strong> NIST təhlükəsizlik səviyyəsi 5 üçün
+parametr dəsti.</p></li>
+</ul>
+<h2
+id="post-kvant-kriptoqrafiyası-pqc-alqoritmlərinin-müqayisəsi">Post-Kvant
+Kriptoqrafiyası (PQC) Alqoritmlərinin Müqayisəsi</h2>
+<p>Post-kvant dövrünə keçiddə ən mühüm amillərdən biri açar və imza
+ölçüləridir. Cədvəl <a href="#tab:pqc_comparison"
+data-reference-type="ref" data-reference="tab:pqc_comparison">3</a>-də
+müasir post-kvant alqoritmlərinin parametrləri klassik sistemlərlə bayt
+cinsindən müqayisə edilmişdir.</p>
+<table id="tab:pqc_comparison">
+<caption>Klassik və post-kvant kriptoqrafik alqoritmlərinin açar və
+verilənlər ölçüsü müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm Standartı</strong></th>
+<th style="text-align: left;"><strong>Açıq Açar</strong></th>
+<th style="text-align: left;"><strong>Gizli Açar</strong></th>
+<th style="text-align: left;"><strong>İmza / Şifrəli Mətn</strong></th>
+<th style="text-align: left;"><strong>Riyazi Növü</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ML-KEM-768</strong></td>
+<td style="text-align: left;">1184 B</td>
+<td style="text-align: left;">2400 B</td>
+<td style="text-align: left;">1088 B</td>
+<td style="text-align: left;">Qəfəs əsaslı KEM</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ML-DSA-44</strong></td>
+<td style="text-align: left;">1312 B</td>
+<td style="text-align: left;">2560 B</td>
+<td style="text-align: left;">2420 B</td>
+<td style="text-align: left;">Qəfəs əsaslı imza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FN-DSA-512</strong></td>
+<td style="text-align: left;">897 B</td>
+<td style="text-align: left;">1281 B</td>
+<td style="text-align: left;">666 B</td>
+<td style="text-align: left;">NTRU qəfəsi əsaslı imza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SLH-DSA-128s</strong></td>
+<td style="text-align: left;">32 B</td>
+<td style="text-align: left;">64 B</td>
+<td style="text-align: left;">7856 B</td>
+<td style="text-align: left;">Heş əsaslı imza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RSA-2048</strong></td>
+<td style="text-align: left;">256 B</td>
+<td style="text-align: left;">256 B</td>
+<td style="text-align: left;">256 B</td>
+<td style="text-align: left;">Klassik (<em>Kvant-həssas</em>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ECDSA-256</strong></td>
+<td style="text-align: left;">64 B</td>
+<td style="text-align: left;">32 B</td>
+<td style="text-align: left;">64 B</td>
+<td style="text-align: left;">Klassik (<em>Kvant-həssas</em>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Alqoritmlərin seçilməsində yalnız ölçü deyil, hesablama məhsuldarlığı
+da rol oynayır. Universal saniyəlik əməliyyat sayı yoxdur: nəticə
+prosessordan, kompilyator seçimlərindən, reallaşdırma versiyasından,
+mesaj/önheş rejimindən və təsadüfilik mənbəyindən asılıdır. Cədvəl <a
+href="#tab:perf_comparison" data-reference-type="ref"
+data-reference="tab:perf_comparison">4</a> buna görə yalnız ölçülməli
+profili göstərir.</p>
+<table id="tab:perf_comparison">
+<caption>Reproduksiya olunan PQC performans müqayisəsi üçün tələb olunan
+profil <span class="citation"
+data-cites="nist2026pqcstatus"></span></caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>İmzalama Sürəti</strong></th>
+<th style="text-align: center;"><strong>Yoxlama Sürəti</strong></th>
+<th style="text-align: left;"><strong>Əməliyyat Profili /
+Tələblər</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ML-DSA-44</strong></td>
+<td style="text-align: center;">Müqayisəli ölçmə</td>
+<td style="text-align: center;">Müqayisəli ölçmə</td>
+<td style="text-align: left;">FIPS 204 reallaşdırması və platforma
+göstərilməlidir</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FN-DSA-512</strong><a href="#fn20"
+class="footnote-ref" id="fnref20"
+role="doc-noteref"><sup>20</sup></a></td>
+<td style="text-align: center;">Müqayisəli ölçmə</td>
+<td style="text-align: center;">Müqayisəli ölçmə</td>
+<td style="text-align: left;">FIPS 206 qaralaması; versiya və aparatur
+yığım göstərilməlidir</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SLH-DSA-128s</strong></td>
+<td style="text-align: center;">Müqayisəli ölçmə</td>
+<td style="text-align: center;">Müqayisəli ölçmə</td>
+<td style="text-align: left;">SHA2/SHAKE variantı və parametr dəsti
+göstərilməlidir</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tövsiyələr">Praktik tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Kvant Təhlükəsinə Hazırlıq:</strong></p>
+<ul>
+<li><p>Uzunmüddətli məxfilik tələb edən kritik məlumatlar üçün “indi
+topla, sonra şifrəni aç” təhdidini nəzərə alın və post-kvant keçidini
+indidən planlaşdırın.</p></li>
+<li><p>Hibrid rejimi yalnız tətbiq olunan protokol profilində
+birləşdirici, kodlaşdırma, zəif profilə endirmədən müdafiə və qarşılıqlı
+işləmə qaydaları müəyyən edildikdə istifadə edin; alqoritm adlarını
+sadəcə yanaşı yazmaq təhlükəsiz birləşdirici yaratmır.</p></li>
+</ul></li>
+<li><p><strong>PQC Standartlarının Seçilməsi:</strong></p>
+<ul>
+<li><p>KEM və imza parametrini tətbiq olunan dövlət/sənaye profili,
+tələb olunan təhlükəsizlik kateqoriyası, məlumat ömrü, ötürmə zolağı,
+yoxlama və qarşılıqlı işləmə üzrə seçin; ML-KEM-768 və ML-DSA-44
+universal ilkin seçim kimi elan edilməməlidir.</p></li>
+<li><p>FN-DSA/FIPS 206 və HQC standartları hələ hazırlanır. Yekun
+profil, yoxlama və protokol dəstəyi olmadan onları məcburi istehsal
+seçimi kimi təqdim etməyin.</p></li>
+<li><p>Daha böyük parametr dəsti avtomatik “maksimum sistem
+təhlükəsizliyi” vermir; reallaşdırma, protokol və əməliyyat riskləri
+ayrıca qalır.</p></li>
+</ul></li>
+<li><p><strong>Reallaşdırma və Proqram Təminatı:</strong></p>
+<ul>
+<li><p><strong>liboqs</strong> kimi layihələr qarşılıqlı işləmə və
+eksperiment üçün faydalıdır; istehsal istifadəsi üçün tətbiq olunan
+standart, təminatçı, yoxlama statusu və dəstək həyat dövrü ayrıca
+təsdiqlənməlidir.</p></li>
+<li><p>OpenSSL versiya nömrəsi təkbaşına konkret PQC/hybrid protokol
+profilinin istehsal dəstəyini göstərmir; təminatçı və protocol stack
+sənədlərini yoxlayın.</p></li>
+<li><p>Sabit-zamanlı reallaşdırma yan kanal riskini azaldır, lakin
+enerji və xəta inyeksiyası, RNG, yaddaş təhlükəsizliyi və protokol sorğu
+mənbəyi risklərini ayrıca sınaqdan keçirmək lazımdır.</p></li>
+</ul></li>
+<li><p><strong>Keçid Strategiyası:</strong></p>
+<ul>
+<li><p>Kriptoqrafik inventar, abstraksiya/API, format və sertifikat
+dəyişiklikləri, protokol danışıqları və zəif profilə endirmədən müdafiə,
+sınaq/telemetriya, geri qayıtma və istifadədən çıxarma siyasəti qurun.
+Çeviklik həmişə “kodu dəyişmədən” miqrasiya demək deyil.</p></li>
+<li><p>İnformasiya sistemlərində post-kvant alqoritmlərinin
+inteqrasiyası üçün konkret yol xəritəsi hazırlayın.</p></li>
+<li><p>Köhnə və yenilənməyən müştəri proqramları ilə geriyə uyğunluğu
+müvəqqəti olaraq qoruyun.</p></li>
+</ul></li>
+<li><p><strong>Rəsmi Standartlara Uyğunluq:</strong></p>
+<ul>
+<li><p><strong>FIPS 203:</strong> Açar enkapsulyasiyası üçün
+ML-KEM.</p></li>
+<li><p><strong>FIPS 204:</strong> Rəqəmsal imza üçün ML-DSA.</p></li>
+<li><p><strong>FIPS 205:</strong> Heş əsaslı imzalar üçün
+SLH-DSA.</p></li>
+<li><p><strong>FIPS 206 (hazırlanır):</strong> FN-DSA üçün yekun
+standart və tətbiq profili hələ dərc edilməyib (26 iyul 2026).</p></li>
+<li><p><strong>HQC (standart hazırlanır):</strong> İkinci KEM kimi
+seçilib; yekun FIPS və parametrlər gözlənilir.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="tcolorbox">
+<p>Standart statusu, alqoritm rolu və təhlükəsizlik fərziyyəsini ayrı
+sütunlarda yazın. Müəllim üçün cavab açarı yalnız ilkin cəhddən sonra
+açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em>Şor alqoritmi hansı klassik
+kriptosistemləri təhdid edir və bunun riyazi səbəbi nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Qrover alqoritminin simmetrik
+kriptoqrafiyaya təsiri nədən ibarətdir? AES-128 və AES-256
+alqoritmlərinin post-kvant təhlükəsizlik səviyyəsi necə
+dəyişir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em>Xətalarla öyrənmə (LWE) problemi
+nədir və bu problemin müasir post-kvant kriptoqrafiyası üçün əhəmiyyəti
+necə izah olunur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Rəsmi NIST standartları olan ML-KEM
+(ML-KEM) və ML-DSA (ML-DSA) arasında funksional və riyazi cəhətdən hansı
+əsas fərqlər mövcuddur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>FN-DSA imza sxeminin ML-DSA ilə
+müqayisədə əsas üstünlükləri və çatışmazlıqları nələrdir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>NIST PQC standartlaşdırma prosesində
+müəyyən edilmiş təhlükəsizlik səviyyələri riyazi olaraq nəyi ifadə
+edir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>ML-KEM-768 alqoritminin açıq açar və
+şifrəli mətn ölçülərini klassik RSA-2048 kriptosistemi ilə müqayisə
+edin.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p>Şor alqoritmi ideal, kifayət qədər böyük xətaya davamlı kvant
+kompüterində tam ədədlərin vuruqlara ayrılması və uyğun sonlu qruplarda
+diskret loqarifm problemlərini polinomial zamanda həll edir. Buna görə
+RSA, klassik sonlu meydan DH/ElGamal və ECC-nin standart təhlükəsizlik
+fərziyyələri belə bir kompüter mövcud olduqda pozular;
+“super-polinomial, praktik olaraq polinomial” ifadəsi düzgün
+deyil.</p></li>
+<li><p>Qrover ideal sorğuların sayını <span
+class="math inline">\(O(N)\)</span>-dən <span
+class="math inline">\(O(\sqrt N)\)</span>-ə endirir: ideal modeldə
+AES-128 üçün təxminən <span class="math inline">\(2^{64}\)</span>,
+AES-256 üçün <span class="math inline">\(2^{128}\)</span> ardıcıl sorğu
+alınır. Bu, tam praktik xərc deyil; çevrilə bilən dövrə, dərinlik,
+paralelləşmə və xəta düzəlişi nəzərə alınmalıdır. Alqoritm seçimi tətbiq
+olunan standarta və tələb olunan təhlükəsizlik gücünə görə
+edilir.</p></li>
+<li><p>LWE-də <span class="math inline">\(b_i=\langle
+a_i,s\rangle+e_i\pmod q\)</span> nümunələrindən <span
+class="math inline">\(s\)</span>-i tapmaq və ya nümunələri bərabər
+paylanmış-dan ayırmaq hədəflənir. Çətinlik <span
+class="math inline">\(n,q\)</span>, nümunə sayı və xəta paylanmasına
+bağlıdır. Müəyyən şərtlərdə ən pis hal lattice problemlərinə gətirmə
+var; Şor tipli polinomial kvant hücumu məlum deyil, lakin “tam
+davamlılıq” sübutu deyil <span class="citation"
+data-cites="regev2005lattice"></span>.</p></li>
+<li><p>Funksional olaraq <strong>ML-KEM</strong> ortaq sirri
+enkapsulyasiya edir, <strong>ML-DSA</strong> isə rəqəmsal imza yaradır.
+ML-KEM daxili Module-LWE tipli K-PKE-ni heş/KDF, yenidən şifrələmə və
+örtülü rədd vasitəsilə CCA-davamlı KEM-ə çevirir. ML-DSA
+Module-LWE/Module-SIS tipli fərziyyələrdən, imtina ilə seçmədən,
+yuvarlaqlaşdırılmış açıq açardan və köməkçi məlumat mexanizmindən
+istifadə edir; onun imzası <span class="math inline">\((\tilde
+c,z,h)\)</span>-dir.</p></li>
+<li><p>FN-DSA-512 namizəd maksimum 666-bayt kodlaşdırılmış imza və
+897-bayt açıq açarla ML-DSA-44-dən daha yığcam ola bilər. FFT/Qaus
+nümunələməsi və yan kanala qarşı təhlükəsiz reallaşdırma daha
+mürəkkəbdir. Paketin hissələrə bölünməsi və məhsuldarlıq konkret
+protokol və platformadan asılıdır. FN-DSA seçilib, lakin FIPS 206 26
+iyul 2026-da hələ hazırlanır.</p></li>
+<li><p>NIST kateqoriyaları tək bir “klassik əməliyyat” sayına bərabər
+deyil; bütün uyğun klassik və kvant resursları ilə müqayisə
+hədləridir:</p>
+<ul>
+<li><p>Kateqoriyalar 1, 3 və 5 müvafiq olaraq AES-128, AES-192 və
+AES-256 açar axtarışına ən azı bərabər resurs həddi ilə müqayisə
+olunur.</p></li>
+<li><p>Kateqoriyalar 2 və 4 isə müvafiq olaraq SHA-256 və SHA-384
+toqquşma axtarışı müqayisə hədlərindən istifadə edir.</p></li>
+<li><p>Qiymətləndirmə qapı sayı, dərinlik, yaddaş, sorğu və başqa uyğun
+xərcləri nəzərə alır; sadəcə <span class="math inline">\(2^n\)</span>
+klassik əməliyyat deyil.</p></li>
+</ul></li>
+<li><p>ML-KEM-768 enkapsulyasiya açarı 1184 bayt, şifrəli mətn 1088
+baytdır. RSA-2048 modulu və bəsit şifrəli mətn 256 baytdır, lakin
+DER/SPKI açıq-açar kodlaşdırması əlavə metaməlumat daşıyır və
+RSA-KEM/OAEP funksional profili ayrıca müəyyən edilməlidir. Performans
+hökmü yalnız eyni platforma, reallaşdırma, əməliyyat və müqayisəli ölçmə
+şərtləri ilə verilə bilər.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirə çərçivəsində post-kvant kriptoqrafiyasının fundamental
+əsasları və müasir təhlükəsizlik arxitekturasındakı rolu ilə bağlı
+aşağıdakı kritik anlayışlar öyrənilmişdir:</p>
+<ul>
+<li><p><strong>Kvant Təhdidi:</strong> Şor alqoritmi tam ədədlərin
+vuruqlara ayrılması və diskret loqarifm əsaslı klassik asimmetrik
+sistemləri (RSA, ECC, Diffi-Hellman) tamamilə sındırır. Qrover alqoritmi
+isə simmetrik şifrələrin riyazi təhlükəsizlik bitini yarıya endirir
+<span class="citation"
+data-cites="shor1997polynomial grover1996fast"></span>.</p></li>
+<li><p><strong>Post-kvant kriptoqrafiyası (PQC):</strong> Kvant
+kompüterlərinin hesablama gücünə qarşı dayanıqlı riyazi strukturları
+öyrənir. PQC alqoritmləri əsasən qəfəs, kod, heş və çoxdəyişənli
+tənliklər əsaslı ailələrə bölünür <span class="citation"
+data-cites="bernstein2017pqc"></span>.</p></li>
+<li><p><strong>Qəfəs Əsaslı Kriptoqrafiya:</strong> Praktik sxemlər
+LWE/Module-LWE, SIS/Module-SIS və NTRU tipli konkret fərziyyələrdən
+istifadə edir. Ən pis hal gətirməsi və NP-çətinlik iddiaları problem
+variantı, yaxınlaşdırma əmsalı və parametr şərtləri ilə birlikdə
+verilməlidir <span class="citation"
+data-cites="regev2005lattice micciancio2016lattice"></span>.</p></li>
+<li><p><strong>ML-KEM (ML-KEM):</strong> Module-LWE probleminə əsaslanan
+və rəsmi olaraq NIST FIPS 203 standartı kimi qəbul edilən açar
+enkapsulyasiyası mexanizmidir. Müxtəlif təhlükəsizlik səviyyələrinə
+uyğun olaraq ML-KEM-512, ML-KEM-768 və ML-KEM-1024 konfiqurasiyaları
+mövcuddur <span class="citation"
+data-cites="nist2024fips203"></span>.</p></li>
+<li><p><strong>ML-DSA (ML-DSA):</strong> Module-LWE və Module-SIS
+çətinliklərinin müştərək sintezinə əsaslanan və NIST FIPS 204 standartı
+ilə rəsmi olaraq qəbul edilən rəqəmsal imza sxemidir. Sistem ML-DSA-44,
+ML-DSA-65 və ML-DSA-87 parametrləri ilə təqdim olunur <span
+class="citation"
+data-cites="ducas2018crystals nist2024fips204"></span>.</p></li>
+<li><p><strong>FN-DSA (FN-DSA):</strong> NTRU qəfəs strukturu üzərində
+kompakt imza sxemidir; NIST tərəfindən seçilib, lakin FIPS 206 26 iyul
+2026-da hələ hazırlanır <span class="citation"
+data-cites="fouque2018falcon nist2026pqcstatus"></span>.</p></li>
+<li><p><strong>HQC:</strong> NIST 2025-ci ildə onu gələcək ikinci PQC
+KEM kimi seçib. Yekun FIPS hələ hazırlanır; ölçü və tətbiq qərarları
+yekun standart/protokol profilinə bağlanmalıdır <span class="citation"
+data-cites="nist2026pqcstatus"></span>.</p></li>
+</ul>
+<p><strong>Əsas Nəticə:</strong> Xətaya davamlı kvant kompüteri RSA,
+sonlu meydan DH və ECC fərziyyələrini təhdid edir, lakin tarix və resurs
+miqyası qeyri-müəyyəndir. Buna görə təşkilatlar kriptoqrafik inventar,
+məlumat ömrü və tətbiq olunan profil əsasında PQC miqrasiyasını
+planlaşdırmalıdır. ML-KEM, ML-DSA və SLH-DSA yekun FIPS-lərdir; FN-DSA
+və HQC standartları isə 26 iyul 2026-da hələ hazırlanır. Təhlükəsiz
+seçim yalnız alqoritm adına deyil, protokol, parametr, yoxlama,
+reallaşdırma və əməliyyat nəzarətlərinə bağlıdır.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Şor alqoritmi (<em>Shor’s algorithm</em>): Kvant
+kompüterlərində tam ədədlərin vuruqlara ayrılması (faktorizasiya) və
+diskret loqarifma problemlərini eksponensial sürətlə (polinomial vaxtda)
+həll edən kvant alqoritmi.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Qrover alqoritmi (<em>Grover’s algorithm</em>):
+Strukturlaşdırılmamış verilənlər bazasında axtarışı kvadratik
+sürətləndirən kvant alqoritmi. Simmetrik şifrələrin (AES və s.) açar
+fəzasını <span class="math inline">\(2^n\)</span>-dən <span
+class="math inline">\(2^{n/2}\)</span>-yə endirir.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>SVP (<strong>Shortest Vector Problem</strong> (<em>Ən
+Qısa Vektor Problemi – SVP</em>): Verilmiş qəfəsdə sıfırdan fərqli ən
+kiçik uzunluğa malik vektoru tapmaqdan ibarətdir. Bu məsələ dəqiq
+parametr ilə (<span class="math inline">\(\gamma = 1\)</span>) <span
+class="math inline">\(NP\)</span>-çətin problem olsa da, praktikada
+istifadə edilən alqoritmlər (polinomial <span
+class="math inline">\(\gamma\)</span> parametri ilə olanlar) <span
+class="math inline">\(NP \cap \text{coNP}\)</span> kimi nisbətən daha
+asan problem sinfinə daxildir.<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>CVP (<em>Closest Vector Problem</em> — Ən Yaxın Vektor
+Problemi): Vektor fəzasında verilmiş ixtiyari nöqtəyə ən yaxın olan
+qəfəs vektorunu tapmaq məsələsidir. Dəqiq halda (<span
+class="math inline">\(\gamma = 1\)</span>) <span
+class="math inline">\(NP\)</span>-çətin problem hesab olunur, lakin
+kriptoqrafik tətbiqlərdə adətən onun polinomial yaxınlaşma (<span
+class="math inline">\(\gamma\)</span>) faktorlu variantlarından istifadə
+edilir.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>LWE (<em>Learning With Errors</em> — Xətalarla Öyrənmə):
+Xətti tənliklər sisteminə kiçik təsadüfi xətalar (küylər) əlavə etməklə
+qurulan və kvant hücumlarına davamlı olan riyazi problem.<a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>ML-KEM (<em>Module-Lattice-Based Key-Encapsulation
+Mechanism</em>): FIPS 203 lisenziyası ilə standartlaşdırılmış, əvvəllər
+CRYSTALS-Kyber kimi tanınan qəfəs əsaslı açar enkapsulyasiya
+mexanizmi.<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>K-PKE (<em>Kyber Public Key Encryption</em>): ML-KEM-in
+nüvəsində duran, lakin təkbaşına istifadə edildikdə CPA-təhlükəsiz olan
+açıq açarlı şifrələmə sxemi.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>KEM (<em>Key Encapsulation Mechanism</em> — Açar
+İnkapsulyasiya Mexanizmi): Açıq açar kriptoqrafiyasından istifadə edərək
+simmetrik seans açarını təhlükəsiz şəkildə yaradan və qarşı tərəfə
+ötürən protokol.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>ML-DSA (<em>Module-Lattice-Based Digital Signature
+Algorithm</em>): FIPS 204 lisenziyası ilə standartlaşdırılmış, əvvəllər
+CRYSTALS-Dilithium kimi tanınan qəfəs əsaslı rəqəmsal imza standardı.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>FN-DSA (<em>FFT (Fast Fourier Transform) Network
+Digital Signature Algorithm</em>): FALCON alqoritminə əsaslanan, çox
+kiçik imza və açar ölçüləri təklif edən, lakin sürüşkən nöqtə
+(<em>floating-point</em>) arifmetikası tələb etdiyi üçün reallaşdırması
+daha riskli olan rəqəmsal imza standardı.<a href="#fnref10"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>PQC (<em>Post-Quantum Cryptography</em> — Kvantdan
+Sonrakı Kriptoqrafiya): Kvant kompüterlərinin hesablama gücünə qarşı
+davamlı olan yeni nəsil kriptoqrafik alqoritmlər.<a href="#fnref11"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>NISQ (<em>Noisy Intermediate-Scale Quantum</em> — Küylü
+Orta-Məsafəli Kvant): Fiziki xəta korreksiyası olmayan, 100–1000 fiziki
+kubit aralığında işləyən müasir kvant kompüteri mərhələsi.<a
+href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>FTQC (<em>Fault-Tolerant Quantum Computing</em> —
+Xətalara Davamlı Kvant Hesablamaları): Səth kodları (<em>surface
+codes</em>) və ya qraf kodları vasitəsilə minlərlə fiziki kubiti bir
+araya gətirərək xətasız məntiqi kubit yaradan gələcək kvant
+arxitekturası.<a href="#fnref13" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>SNDL (<em>Store Now, Decrypt Later</em>): Bədniyyətli
+tərəflərin bugün şifrələnmiş tranzit trafiki toplayıb saxlaması və
+gələcəkdə FTQC kvant kompüteri əldə edildikdə Şor alqoritmi ilə
+deşifrələməsi strategiyası.<a href="#fnref14" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><em><span class="math inline">\(R_q = \mathbb{Z}_q[x] /
+\langle x^n + 1 \rangle\)</span> çokhədli halqası: Burada <span
+class="math inline">\(\mathbb{Z}_q = \mathbb{Z}/q\mathbb{Z}\)</span>
+əmsalları mod <span class="math inline">\(q\)</span> daxilində olan tam
+ədədlər halqasını, <span class="math inline">\(x^n + 1\)</span> isə
+dərəcəsi <span class="math inline">\(n\)</span> olan siklotomik polinomu
+təmsil edir. Bu faktor halqada istənilən <span
+class="math inline">\(x^n\)</span> dərəcəli hədd avtomatik olaraq <span
+class="math inline">\(x^n \equiv -1 \pmod{x^n + 1}\)</span> reduksiyası
+ilə dərəcəsi <span class="math inline">\(n-1\)</span>-dən kiçik olan
+çoxhədliyə gətirilir. Kriptoqrafiyada adətən <span
+class="math inline">\(n = 2^k\)</span> (məsələn, <span
+class="math inline">\(n=256, 512\)</span>) seçilir ki, bu da NTT
+sürətləndirilməsini mümkün edir.</em><a href="#fnref15"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><em>NTT (<em>Number Theoretic Transform</em>): Sonlu
+meydanlar və halqalar üzərində Sürətli Furye Çevrilməsinin
+(<em>FFT</em>) analoqu olan alqoritm. <span
+class="math inline">\(O(n^2)\)</span> mürəkkəbliyə malik çoxhədli
+vurmasını <span class="math inline">\(O(n \log n)\)</span> tezliyinə
+endirir.</em><a href="#fnref16" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><em>Rank parametri (<span
+class="math inline">\(k\)</span>): Modulun ölçüsünü müəyyənləşdirir.
+<span class="math inline">\(k=1\)</span> olduqda sxem tam olaraq
+Ring-LWE-yə çevrilir (yüksək səmərəlilik, lakin cəbri struktura görə bir
+qədər yüksək nəzəri risk); <span class="math inline">\(n=1\)</span>
+olduqda isə standart LWE-yə çevrilir (maksimum təhlükəsizlik, lakin
+böyük açar ölçüsü). ML-KEM-də <span class="math inline">\(k \in \{2, 3,
+4\}\)</span> seçilərək təhlükəsizlik səviyyələri (NIST Level 1, 3, 5)
+tənzimlənir.</em><a href="#fnref17" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><em>Module-SIS (<em>Module Short Integer
+Solution</em>): Qəfəs əsaslı rəqəmsal imzalarda (məsələn, ML-DSA /
+Dilithium) istifadə olunan, verilmiş matris üçün kiçik normaya malik
+sıfırdan fərqli vektoru tapmağa əsaslanan <span
+class="math inline">\(NP\)</span>-çətin problem.</em><a href="#fnref18"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>Əvvəlki adı SPHINCS<sup>+</sup> (NIST FIPS 205
+standartı).<a href="#fnref19" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>FIPS 206 (Falcon) yekunlaşdırma mərhələsindədir.<a
+href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (16)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Shor, 1997</span>
+                        <small class="text-muted">SIAM Journal on Computing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</h6>
+                    <p class="small text-secondary mb-0">Peter W. Shor (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Grover, 1996</span>
+                        <small class="text-muted">Proceedings of the 28th Annual ACM Symposium on Theory of Computing (STOC)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Fast Quantum Mechanical Algorithm for Database Search</h6>
+                    <p class="small text-secondary mb-0">Lov K. Grover (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Micciancio &amp; Regev, 2016</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Lattice-Based Cryptography</h6>
+                    <p class="small text-secondary mb-0">Daniele Micciancio and Oded Regev (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Regev, 2009</span>
+                        <small class="text-muted">Journal of the ACM</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">On Lattices, Learning with Errors, Random Linear Codes, and Cryptography</h6>
+                    <p class="small text-secondary mb-0">Oded Regev (2009)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Standards &amp; Technology, 2024</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">FIPS PUB 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard</h6>
+                    <p class="small text-secondary mb-0">National Institute of Standards and Technology (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] NIST, 2024</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">FIPS 204: Module-Lattice-Based Digital Signature Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Fouque et al., 2018</span>
+                        <small class="text-muted">NIST Post-Quantum Cryptography Standardization</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">FALCON: Fast-Fourier Lattice-based Compact Signatures</h6>
+                    <p class="small text-secondary mb-0">Pierre-Alain Fouque and Jeffrey Hoffstein and Paul Kirchner and Vadim Lyubashevsky and Thomas Pornin and Thomas Prest and Thomas Ricosset and Gregor Seiler and William Whyte and Zhenfei Zhang (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Bernstein et al., 2017</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Post-Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein and Johannes Buchmann and Erik Dahmen (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Nielsen &amp; Chuang, 2010</span>
+                        <small class="text-muted">Cambridge University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Quantum Computation and Quantum Information</h6>
+                    <p class="small text-secondary mb-0">Michael A. Nielsen and Isaac L. Chuang (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Gouzien &amp; Sangouard, 2021</span>
+                        <small class="text-muted">Physical Review Letters</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Factoring 2048 bit RSA integers in 177 days with 13436 qubits and a continuous-variable quantum computer</h6>
+                    <p class="small text-secondary mb-0">Gouzien, \&#x27;Elie and Sangouard, Nicolas (2021)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] NIST, 2016</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Post-Quantum Cryptography Standardization</h6>
+                    <p class="small text-secondary mb-0">NIST (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Alagic et al., 2026</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Status Report on the Second Round of the Additional Digital Signature Schemes for the NIST Post-Quantum Cryptography Standardization Process</h6>
+                    <p class="small text-secondary mb-0">Alagic, Gorjan and Bros, Maxime and Ciadoux, Pierre and Cooper, David and Dang, Quynh and Liu, Yi-Kai and Miller, Carl and Moody, Dustin and Peralta, Rene and Perlner, Ray and Robinson, Angela and Smith-Tone, Daniel (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Lyubashevsky et al., 2013</span>
+                        <small class="text-muted">Journal of the ACM</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">On Ideal Lattices and Learning with Errors over Rings</h6>
+                    <p class="small text-secondary mb-0">Vadim Lyubashevsky and Chris Peikert and Oded Regev (2013)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Langlois &amp; Stehl\&#x27;e, 2015</span>
+                        <small class="text-muted">Designs, Codes and Cryptography</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Worst-case to average-case reductions for module lattices</h6>
+                    <p class="small text-secondary mb-0">Langlois, Adeline and Stehl\&#x27;e (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Ducas et al., 2018</span>
+                        <small class="text-muted">IACR Transactions on Cryptographic Hardware and Embedded Systems</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">CRYSTALS -- Dilithium: A Lattice-Based Digital Signature Scheme</h6>
+                    <p class="small text-secondary mb-0">Léo Ducas and Eike Kiltz and Tancrède Lepoint and Vadim Lyubashevsky and Peter Schwabe and Gregor Seiler and Damien Stehlé (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Cramer &amp; Shoup, 2003</span>
+                        <small class="text-muted">SIAM Journal on Computing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack</h6>
+                    <p class="small text-secondary mb-0">Ronald Cramer and Victor Shoup (2003)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

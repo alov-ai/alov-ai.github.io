@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_19</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 19</strong></p>
+<p><strong>RSA Kriptosistemi</strong></p>
+<p>Bu mühazirə ən geniş yayılmış açıq açar kriptosistemi olan RSA-nı —
+onun tarixini, açar generasiyasını, şifrələmə/deşifrələmə proseslərini,
+təhlükəsizlik xüsusiyyətlərini və hücumları əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p><span class="math inline">\(p, q, e\)</span> parametrləri
+əsasında RSA açar cütünü hesablamağı və bütün domen şərtlərini yoxlamağı
+<span class="citation"
+data-cites="stinson2018cryptography"></span>;</p></li>
+<li><p>RSA şifrələmə/deşifrələmə alqoritminin doğruluğunu <span
+class="math inline">\(\varphi\)</span> funksiyası və CRT (Çin Qalıq
+Teoremi) vasitəsilə əsaslandırmağı <span class="citation"
+data-cites="katz2020introduction menezes1996handbook"></span>;</p></li>
+<li><p>Dərslik RSA-si (<em>Textbook RSA</em>), RSAES-OAEP və RSASSA-PSS
+sxemlərinin məqsəd və təhlükəsizlik sərhədlərini fərqləndirməyi <span
+class="citation" data-cites="bellare2000optimal"></span>;</p></li>
+<li><p>Verilmiş parametr və xəta davranışı ssenarilərində kiçik
+eksponent (<em>small exponent</em>), Viner (<em>Wiener</em>) və CCA /
+doldurma orakulu (<em>padding oracle</em>) hücum risklərini müəyyən
+etməyi <span class="citation"
+data-cites="boneh1999twenty"></span>;</p></li>
+<li><p>Müvafiq təhlükəsizlik səviyyəsi (profili) üçün açar ölçüsü,
+hibrid şifrələmə prinsipləri və reallaşdırma nəzarətlərini
+əsaslandırmağı bacaracaqlar <span class="citation"
+data-cites="nist2020keymanagement"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 18-ci mühazirədə Eylerin <span
+class="math inline">\(\varphi\)</span> funksiyası, Çin Qalıq Teoremi
+(CRT) və sadəlik testləri öyrənildi.</p>
+<p><strong>İndi:</strong> Həmin riyazi alətlər RSA alqoritmində
+açarların generasiyası, şifrələmənin doğruluğu və təhlükəsizlik
+mexanizmlərinə tətbiq olunur.</p>
+<p><strong>Sonra:</strong> 20-ci mühazirə açıq açarlı kriptoqrafiyanı
+ədəd-nəzəriyyə faktorizasiyası əvəzinə Diskret Loqarifm Probleminə (DLP)
+əsaslandıran Diffi–Hellman (DH) və ElGamal sxemlərinə keçid edir.</p>
+<p><strong>Kanon:</strong> <em>Eylerin <span
+class="math inline">\(\varphi\)</span> funksiyası</em>; <em>dərslik
+RSA-si (<em>Textbook RSA</em>)</em>; <em>doldurma mexanizmi
+(<em>padding</em>)</em>; <em>sessiya açarı (<em>session
+key</em>)</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>RSA — müasir informasiya təhlükəsizliyində ən geniş tətbiq olunan və
+rəqəmsal dünyanın əsasını təşkil edən ilk uğurlu açıq açarlı
+(asimmetrik) kriptosistemdir. Alqoritm 1977-ci ildə Massaçusets
+Texnologiya İnstitutunda (MIT) Ron Rivest, Adi Şamir və Leonard Adleman
+tərəfindən kəşf edilmiş və 1978-ci ildə rəsmi olaraq nəşr olunmuşdur
+<span class="citation" data-cites="rivest1978method"></span>. Sistem
+adını müəlliflərin soyadlarının baş hərflərindən (Rivest, Şamir,
+Adleman) götürmüşdür.<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p>
+<p>RSA kriptosisteminin təhlükəsizliyi böyük tam ədədlərin
+faktorizasiyasının klassik hesablama modellərində praktik çətinliyinə
+söykənir. İki böyük sadə ədədi vurmaq asandır, lakin yalnız hasil
+verildikdə onu yenidən sadə vuruqlara ayırmaq üçün məlum klassik üsullar
+böyük açar ölçülərində praktik deyil. Faktorizasiya RSA-nı sındırmağa
+imkan verir, amma ümumi RSA-inversiya probleminin faktorizasiyaya
+ekvivalentliyi sübut edilməyib; buna görə təhlükəsizlik iddiası konkret
+sxemə və qəbul edilən hesablama fərziyyələrinə bağlıdır.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>RSA kriptosistemi hansı riyazi prinsiplər əsasında fəaliyyət
+göstərir?</p></li>
+<li><p>Açıq və gizli açar komponentləri necə generasiya olunur?</p></li>
+<li><p>RSA alqoritminin işlək olması və düzgünlüyü Eyler teoremi ilə
+necə sübut edilir?</p></li>
+<li><p>Kriptoanaliz zamanı RSA-ya qarşı hansı riyazi və struktur
+hücumları tətbiq edilə bilər?</p></li>
+<li><p>Kiçik açıq eksponent seçimi şifrələmənin davamlılığına necə təsir
+edir?</p></li>
+<li><p>Viner hücumu nədir və gizli eksponent hansı şərtləri ödədikdə
+sistem tam sındırılır?</p></li>
+<li><p>Saf (deterministik) RSA niyə təhlükəlidir və doldurma
+mexanizmlərinə niyə ehtiyac duyulur?</p></li>
+<li><p>RSA-OAEP standartı təhlükəsizliyi hansı formada təmin edir?<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p></li>
+<li><p>İnformasiya sistemlərinin uzunmüddətli təhlükəsizliyi üçün
+tövsiyə olunan müasir RSA açar ölçüləri hansılardır?</p></li>
+</ul>
+</div>
+<h1 id="rsa-nın-tarixi">RSA-nın tarixi</h1>
+<h2 id="rivest-şamir-və-adleman-19771978">Rivest, Şamir və Adleman
+(1977–1978)</h2>
+<p>1977-ci ildə Massaçusets Texnologiya İnstitutunda (MIT) üç gənc
+tədqiqatçı — Ron Rivest, Adi Şamir və Leonard Adleman — Diffi və
+Hellmanın ortaya qoyduğu birtərəfli funksiya ideyasına əsaslanan real
+bir açıq açarlı kriptosistem yaratmaq üzərində çalışırdılar. Rivest və
+Şamir riyazi strukturlar əsasında müxtəlif alqoritmik modellər təklif
+edir, kompüter elmləri mütəxəssisi olan Adleman isə bu sistemlərin
+kriptoqrafik davamlılığını yoxlayaraq onları sındırmağa çalışırdı <span
+class="citation" data-cites="singh1999code"></span>.</p>
+<div class="history">
+<p><span>RSA alqoritminin kəşfi</span> Aylarla davam edən uğursuz
+cəhdlərdən sonra, 1977-ci ilin aprel ayında Ron Rivest bir gecə evində
+işləyərkən (bəzi qaynaqlara görə yuxudan oyanaraq) problemin unikal
+həllini — tam ədədlərin vuruqlara ayrılması çətinliyinə əsaslanan
+funksiyanı tapır. Səhər tezdən Adlemana təqdim olunan bu yeni riyazi
+model bütün sındırma cəhdlərinə təb gətirir və sistemin doğruluğu
+təsdiqlənir. Alqoritm rəsmi olaraq 1978-ci ildə müəlliflərin
+soyadlarının baş hərfləri ilə nəşr edilir: RSA <span class="citation"
+data-cites="rivest1978method"></span>.</p>
+</div>
+<h2 id="gizli-tarix-gchq-və-klifford-koks">Gizli tarix: GCHQ və Klifford
+Koks</h2>
+<p>Kriptoqrafiya tarixinin ən maraqlı məqamlarından biri 1997-ci ildə
+rəsmi sənədlərin məxfiliyinin ləğv edilməsi ilə ortaya çıxdı. Məlum oldu
+ki, Böyük Britaniyanın Hökumət Rabitə Qərargahında (GCHQ) çalışan
+riyaziyyatçı <strong>Clifford Cocks</strong> hələ 1973-cü ildə — MIT
+qrupundan dörd il əvvəl — tamamilə ekvivalent bir qeyri-simmetrik
+şifrələmə alqoritmi kəşf etmişdi <span class="citation"
+data-cites="singh1999code"></span>. Lakin hərbi kəşfiyyat qaydalarına
+görə bu kəşf dövlət sirri olaraq gizli saxlanıldığından, dünya elmi
+ictimaiyyətinə və kriptoqrafiyanın sonrakı inkişafına heç bir təsir
+göstərə bilməmişdi.</p>
+<h2 id="rsa-nın-patenti-və-ictimaiyyətə-açılması">RSA-nın patenti və
+ictimaiyyətə açılması</h2>
+<p>MIT 1983-cü ildə RSA alqoritmi üçün ABŞ-da rəsmi patent hüququ əldə
+etdi (ABŞ patenti 4,405,829). Bu patent alqoritmin kommersiya məqsədli
+sərbəst tətbiqini həddən artıq məhdudlaşdırsa da, RSA internet
+protokollarının (məsələn, SSL/TLS) formalaşmasında əsas sütun rolunu
+oynadı. Patentin müddəti 20 sentyabr 2000-ci ildə başa çatdıqdan sonra
+RSA tamamilə açıq status qazandı və qlobal rəqəmsal təhlükəsizlik
+infrastrukturunda daha da sürətlə yayılmağa başladı <span
+class="citation" data-cites="katz2020introduction"></span>.</p>
+<h1 id="rsa-üçün-bərpa-faktorizasiya-varphi-və-crt">RSA üçün Bərpa:
+Faktorizasiya, <span class="math inline">\(\varphi\)</span> və CRT</h1>
+<p>Bu bölmə 18-ci mühazirənin yeni nəzəri izahı deyil; RSA hesablamasına
+başlamazdan əvvəl tələb olunan üç faktın qısa geri çağırılmasıdır:</p>
+<div class="tcolorbox">
+<p>Qeydsiz tamamlayın:</p>
+<ol>
+<li><p><span class="math inline">\(n=pq\)</span> və <span
+class="math inline">\(p\neq q\)</span> sadədirsə, <span
+class="math inline">\(\varphi(n)=\underline{\hspace{2cm}}\)</span>.</p></li>
+<li><p><span class="math inline">\(ed\equiv1\pmod{\varphi(n)}\)</span>
+şərtində <span class="math inline">\(d\)</span> hansı alqoritmlə
+tapılır?</p></li>
+<li><p>CRT hesablamanı hansı iki kiçik modul üzrə ayırır?</p></li>
+</ol>
+<p>Yoxlama: <span class="math inline">\(\varphi(n)=(p-1)(q-1)\)</span>;
+genişləndirilmiş Evklid alqoritmi; <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> modulları. Bu faktların tərif və
+isbatları 18-ci mühazirədədir.</p>
+</div>
+<p>RSA-nın təhlükəsizlik fərziyyəsi və düzgünlük arqumenti eyni iddia
+deyil. Faktorizasiya problemi verilmiş <span
+class="math inline">\(n\)</span>-dən gizli <span
+class="math inline">\(p,q\)</span> vuruqlarını tapmaqdır; <span
+class="math inline">\(\varphi(n)\)</span> açar generasiyasında, CRT isə
+düzgünlük və sürətləndirmədə tətbiq olunur. Aşağıdakı bölmələr bu
+əvvəlki nəticələri konkret RSA axınına daşıyır.</p>
+<h1 id="rsa-açar-generasiyası">RSA açar generasiyası</h1>
+<p>RSA kriptosistemində asimmetrik açar cütünün yaradılması riyazi
+olaraq aşağıdakı addımlardan ibarətdir:</p>
+<ol>
+<li><p><strong>Sadə ədədlərin seçimi:</strong> Təsadüfi və bir-birindən
+asılı olmayan iki böyük sadə ədəd (<span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span>) seçilir. Təhlükəsizlik mülahizələrinə
+görə bu ədədlər təxminən eyni bit uzunluğunda (məsələn, hər biri
+1024-bit) olmalıdır, lakin bir-birinə həddindən artıq yaxın
+olmamalıdır.</p></li>
+<li><p><strong>RSA modulunun hesablanması:</strong> Bu iki sadə ədədin
+hasili tapılır: <span class="math display">\[n = p \cdot q\]</span>
+Burada <span class="math inline">\(n\)</span> dəyəri "RSA modulu"
+adlanır. Onun bit uzunluğu (məsələn, 2048-bit) sistemin ümumi
+təhlükəsizlik dərəcəsini müəyyən edir və açıq açarın tərkib hissəsi kimi
+hamıya elan olunur.</p></li>
+<li><p><strong>Eyler funksiyasının hesablanması:</strong> Modulun gizli
+strukturu əsasında Eyler funksiyasının qiyməti hesablanır: <span
+class="math display">\[\varphi(n) = (p-1)(q-1)\]</span> Bu dəyər
+sistemin ən kritik sirlərindən biridir və icazəsiz deşifrələmənin
+qarşısını almaq üçün ciddi şəkildə gizli saxlanılmalıdır.</p></li>
+<li><p><strong>Açıq eksponentin seçimi:</strong> <span
+class="math inline">\(1 &lt; e &lt; \varphi(n)\)</span> diapazonundan
+<span class="math inline">\(\varphi(n)\)</span> ilə qarşılıqlı sadə olan
+(<span class="math inline">\(\gcd(e, \varphi(n)) = 1\)</span>) bir <span
+class="math inline">\(e\)</span> tam ədədi (açıq eksponent) seçilir.
+Praktik tətbiqlərdə ən çox <span class="math inline">\(e =
+65537\)</span> (<span class="math inline">\(2^{16}+1\)</span>) ədədinə
+üstünlük verilir. Bu ədəd Ferma sadə ədədi olduğu üçün onun ikilik say
+sistemindəki təsvirində cəmi iki ədəd "1" bitindən istifadə olunur ki,
+bu da modulyar qüvvətə yüksəltmə əməliyyatını hesablama baxımından
+maksimum dərəcədə sürətləndirir.</p></li>
+<li><p><strong>Gizli eksponentin hesablanması:</strong> <span
+class="math inline">\(\varphi(n)\)</span> modulu üzrə <span
+class="math inline">\(e\)</span> ədədinin multiplikativ tərs elementi
+olan <span class="math inline">\(d\)</span> ədədi (gizli eksponent)
+hesablanır: <span class="math display">\[d \equiv e^{-1}
+\pmod{\varphi(n)} \quad \text{və ya} \quad e \cdot d \equiv 1
+\pmod{\varphi(n)}\]</span> Bu əməliyyat praktiki olaraq
+<strong>Genişləndirilmiş Evklid Alqoritmi</strong> vasitəsilə effektiv
+şəkildə yerinə yetirilir.</p></li>
+<li><p><strong>Açar cütünün formalaşdırılması:</strong> Hesablamalar
+bitdikdən sonra parametrlər iki qrupda birləşdirilir:</p>
+<ul>
+<li><p><strong>Açıq açar:</strong> <span class="math inline">\((n,
+e)\)</span> cütlüyü şəklində ictimaiyyətə təqdim olunur.</p></li>
+<li><p><strong>Gizli açar:</strong> minimal riyazi təqdimatda <span
+class="math inline">\((n,d)\)</span> cütlüyüdür; grafik PKCS#1
+təqdimatında isə adətən CRT üçün <span class="math inline">\(p\)</span>,
+<span class="math inline">\(q\)</span>, <span
+class="math inline">\(d_P\)</span>, <span
+class="math inline">\(d_Q\)</span> və <span
+class="math inline">\(q_{\mathrm{inv}}\)</span> kimi əlavə gizli
+parametrlər də saxlanılır.</p></li>
+</ul>
+<p>Müvəqqəti hesablama nümunələri təhlükəsiz silinməlidir, lakin CRT ilə
+işləyən reallaşdırma <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> daxil olmaqla bütün gizli açar
+təqdimatını qorunan saxlamada saxlayır. Bu parametrlərdən hər hansı
+birinin sızması gizli açarın ifşası deməkdir.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Kiçik ədədlərlə RSA açar generasiyası).
+<em>Alqoritmin işləmə prinsipini daha aydın görmək üçün kiçik ədədlər
+üzərində nümunəyə baxaq. Tutaq ki, sadə ədədlər olaraq <span
+class="math inline">\(p=61\)</span> və <span
+class="math inline">\(q=53\)</span> seçilmişdir: <span
+class="math display">\[\begin{align*}
+n &amp;= 61 \times 53 = 3233 \\
+\varphi(n) &amp;= (61-1) \times (53-1) = 60 \times 52 = 3120
+\end{align*}\]</span> İndi şərtləri ödəyən bir <span
+class="math inline">\(e\)</span> seçməliyik. <span
+class="math inline">\(e = 17\)</span> götürək, çünki <span
+class="math inline">\(\gcd(17, 3120) = 1\)</span> şərti ödənir.</em></p>
+<p><em>Genişləndirilmiş Evklid alqoritmi vasitəsilə <span
+class="math inline">\(17 \cdot d \equiv 1 \pmod{3120}\)</span> şərtindən
+gizli eksponent tapılır: <span class="math display">\[d = 17^{-1}
+\pmod{3120} = 2753\]</span> Nəticədə sistem tərəfindən istifadə olunacaq
+açarlar müəyyən olunur:</em></p>
+<ul>
+<li><p><em>Açıq açar: <span class="math inline">\((3233,
+17)\)</span></em></p></li>
+<li><p><em>Gizli açar: <span class="math inline">\((3233,
+2753)\)</span></em></p></li>
+</ul>
+</div>
+<h1 id="rsa-şifrələmə-və-deşifrələmə-mexanizmi">RSA şifrələmə və
+deşifrələmə mexanizmi</h1>
+<p>RSA sistemində məlumatın konfidensiallığının təmin edilməsi modulyar
+qüvvətə yüksəltmə əməliyyatının birtərəfliliyinə əsaslanır.</p>
+<h2 id="şifrələmə-prosesi">Şifrələmə prosesi</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (RSA şifrələməsi). <em>İnformasiyanı
+göndərən tərəf (Alis) qəbul edən tərəfə (Boba) göndərəcəyi və <span
+class="math inline">\(0 \le m &lt; n\)</span> şərtini ödəyən tam ədəd
+şəklindəki <span class="math inline">\(m\)</span> ilkin mətnini
+(mesajını) qəbul edənin hamıya açıq olan <span class="math inline">\((n,
+e)\)</span> açar parametrindən istifadə edərək aşağıdakı konqruensiya
+əsasında şifrələyir: <span class="math display">\[c \equiv m^e
+\pmod{n}\]</span> Burada <span class="math inline">\(c\)</span> ədədi
+əldə olunmuş şifrəli mətndir.</em></p>
+</div>
+<p><strong>Qeyd:</strong> Real tətbiqlərdə RSA alqoritmi böyük həcmli
+faylların birbaşa şifrələnməsi üçün istifadə edilmir. Bunun əvəzinə
+hibrid kriptosistemlərdən istifadə olunur: simmetrik şifrələmə
+alqoritminin (məsələn, AES) sessiya açarı RSA ilə şifrələnir, əsas böyük
+məlumat isə həmin simmetrik açarla sürətli şəkildə qorunur.</p>
+<h2 id="deşifrələmə-prosesi">Deşifrələmə prosesi</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (RSA deşifrələməsi). <em>Şifrəli <span
+class="math inline">\(c\)</span> mətni qəbul edən tərəfə çatdıqda, o,
+yalnız özünə məlum olan gizli <span class="math inline">\(d\)</span>
+eksponentindən və <span class="math inline">\(n\)</span> modulundan
+(<span class="math inline">\((n, d)\)</span> gizli açarı) istifadə
+edərək ilkin mətni bərpa edir: <span class="math display">\[m \equiv c^d
+\pmod{n}\]</span></em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (RSA şifrələmə və deşifrələməsinin ədədi
+tətbiqi). <em>Əvvəlki bölmədəki kiçik ədədlərlə aldığımız parametrləri
+tətbiq edək: <span class="math inline">\(n=3233\)</span>, <span
+class="math inline">\(e=17\)</span>, <span
+class="math inline">\(d=2753\)</span>. Fərz edək ki, ötürülən mesaj
+<span class="math inline">\(m=65\)</span>-dir. <span
+class="math display">\[\begin{align*}
+\text{\c{S}ifr\.{e}l\.{e}m\.{e}:} \quad c &amp;\equiv 65^{17}
+\pmod{3233} \equiv 2790 \\
+\text{De\c{s}ifr\.{e}l\.{e}m\.{e}:} \quad m &amp;\equiv 2790^{2753}
+\pmod{3233} \equiv 65
+\end{align*}\]</span> Göründüyü kimi, riyazi əməliyyatların sonunda
+ilkin mesaj dəqiqliklə geri qazanılır.</em></p>
+</div>
+<h2 id="rsa-alqoritminin-düzgünlüyünün-sübutu">RSA alqoritminin
+düzgünlüyünün sübutu</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (RSA-nın korrektliyi). <em>İxtiyari <span
+class="math inline">\(0 \le m &lt; n\)</span> tam ədədi üçün şifrələnmiş
+mətnin gizli eksponentlə qüvvətə yüksəldilməsi ilkin mətni identik
+olaraq bərpa edir: <span class="math display">\[(m^e)^d \equiv m^{ed}
+\equiv m \pmod{n}\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Açar generasiyasından bizə məlumdur ki, <span
+class="math inline">\(e \cdot d \equiv 1 \pmod{\varphi(n)}\)</span>. Bu
+isə o deməkdir ki, elə bir <span class="math inline">\(k\)</span> tam
+ədədi mövcuddur ki, <span class="math inline">\(e \cdot d = 1 + k \cdot
+\varphi(n)\)</span> bərabərliyi doğrudur. Onda ifadəni aşağıdakı formaya
+sala bilərik: <span class="math display">\[m^{ed} = m^{1 + k\varphi(n)}
+= m \cdot (m^{\varphi(n)})^k\]</span> Bu münasibətin <span
+class="math inline">\(n = p \cdot q\)</span> modulu üzrə doğruluğunu
+sübut etmək üçün Eyler teoremindən və Çin Qalıq Teoreminin (CRT)
+məntiqindən yararlanaraq iki hala baxaq:</p>
+<p><strong>Hal 1:</strong> Əgər <span class="math inline">\(\gcd(m, n) =
+1\)</span> olarsa, Eyler teoreminə əsasən <span
+class="math inline">\(m^{\varphi(n)} \equiv 1 \pmod{n}\)</span> şərti
+ödənir. Bu qiyməti yerinə yazsaq: <span class="math display">\[m^{ed}
+\equiv m \cdot (m^{\varphi(n)})^k \equiv m \cdot (1)^k \equiv m
+\pmod{n}\]</span></p>
+<p><strong>Hal 2:</strong> Əgər <span class="math inline">\(\gcd(m, n)
+\neq 1\)</span> olarsa, əvvəlcə <span class="math inline">\(m=0\)</span>
+üçün nəticə dərhal doğrudur. <span
+class="math inline">\(0&lt;m&lt;n\)</span> olduqda <span
+class="math inline">\(m\)</span> ədədi <span
+class="math inline">\(p\)</span> və ya <span
+class="math inline">\(q\)</span> sadə vuruqlarından yalnız birinə bölünə
+bilər. Tutaq ki, <span class="math inline">\(m\)</span> ədədi <span
+class="math inline">\(p\)</span>-yə bölünür (<span
+class="math inline">\(m \equiv 0 \pmod{p}\)</span>). O zaman: <span
+class="math display">\[m^{ed} \equiv 0^{ed} \equiv 0 \equiv m
+\pmod{p}\]</span> Digər tərəfdən, <span class="math inline">\(m\)</span>
+ədədi <span class="math inline">\(p\)</span>-yə bölündüyü üçün <span
+class="math inline">\(q\)</span> ilə qarşılıqlı sadədir (<span
+class="math inline">\(\gcd(m,q)=1\)</span>). Kiçik Ferma teoreminə görə
+<span class="math inline">\(m^{q-1} \equiv 1 \pmod{q}\)</span> yaza
+bilərik. Buradan alırıq: <span class="math display">\[m^{ed} \equiv m
+\cdot (m^{q-1})^{k(p-1)} \equiv m \cdot (1)^{k(p-1)} \equiv m
+\pmod{q}\]</span> Beləliklə, <span class="math inline">\(m^{ed} -
+m\)</span> fərqi həm <span class="math inline">\(p\)</span>-yə, həm də
+<span class="math inline">\(q\)</span>-ya qalıqsız bölünür. <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> qarşılıqlı sadə olduqlarından, bu fərq
+onların hasilinə (<span class="math inline">\(n = p \cdot q\)</span>) də
+qalıqsız bölünməlidir: <span class="math display">\[m^{ed} \equiv m
+\pmod{n}\]</span> İsbat tamamlandı. ◻</p>
+</div>
+<h1
+id="rsa-kriptosisteminə-qarşı-hücumlar-və-təhlükəsizlik-mülahizələri">RSA
+kriptosisteminə qarşı hücumlar və təhlükəsizlik mülahizələri</h1>
+<p>RSA alqoritminin sırf riyazi (dərslikdə olan) forması mətni birbaşa
+şifrələdikdə bir çox struktur zəifliklərinə malik olur. Bu bölmədə
+dərslik çərçivəsində öyrənilən əsas hücum vektorlarını nəzərdən
+keçiririk.</p>
+<h2 id="kiçik-açıq-eksponent-hücumu">Kiçik açıq eksponent hücumu</h2>
+<p>Əgər açıq eksponent çox kiçik seçilərsə (məsələn, <span
+class="math inline">\(e=3\)</span>) və şifrələnəcək <span
+class="math inline">\(m\)</span> mesajının qiyməti də kiçik olarsa,
+modulyar qüvvətə yüksəltmə zamanı alınan dəyər <span
+class="math inline">\(n\)</span> modulunu aşmaya bilər (<span
+class="math inline">\(m^e &lt; n\)</span>). Bu halda modulyar reduksiya
+(qalıq alma) əməliyyatı faktiki olaraq baş vermir və şifrəli mətn adi
+tam ədəd qüvvətinə bərabər olur (<span class="math inline">\(c =
+m^e\)</span>). Hücumçu modulu tamamilə dövrədən çıxararaq, sadəcə real
+ədədlər üzərində <span class="math inline">\(e\)</span>-ci dərəcədən kök
+almaqla ilkin mətni asanlıqla bərpa edə bilir.</p>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Kiçik eksponent təhlükəsi). <em>Fərz edək
+ki, tətbiq edilən RSA modulu <span class="math inline">\(n =
+3233\)</span>, açıq eksponent isə <span class="math inline">\(e =
+3\)</span>-dür. Əgər ötürülən gizli mesaj <span class="math inline">\(m
+= 12\)</span> olarsa, şifrəli mətn aşağıdakı kimi hesablanar: <span
+class="math display">\[c \equiv 12^3 \pmod{3233} \equiv 1728 \pmod{3233}
+= 1728\]</span> Göründüyü kimi, <span class="math inline">\(1728 &lt;
+3233\)</span> olduğu üçün modulyar reduksiya aparılmamışdır. Hücumçu
+açıq kanaldan <span class="math inline">\(c = 1728\)</span> məlumatını
+ələ keçirdikdən sonra asanlıqla ilkin mesajı tapır: <span
+class="math display">\[m = \sqrt[3]{1728} = 12\]</span></em></p>
+</div>
+<h2 id="kopersmit-hücumu">Kopersmit hücumu</h2>
+<p>Don Kopersmit tərəfindən irəli sürülən bu hücum metodu göstərir ki,
+əgər kiçik <span class="math inline">\(e\)</span> eksponentindən
+istifadə olunursa və şifrələnən mesajın müəyyən bir hissəsi (məsələn,
+sənədin standart başlığı və ya formatı) hücumçuya əvvəlcədən məlumdursa,
+o, məlum olmayan qalan bitləri çoxhədli köklərinin tapılması
+alqoritmləri (LLL qəfəs reduksiyası) vasitəsilə effektiv şəkildə
+hesablaya bilər <span class="citation"
+data-cites="coppersmith1996low"></span>. Bu hücum dərslik RSA-sinın
+daxili struktura malik mesajlar üçün tamamilə təhlükəli olduğunu sübut
+edir.</p>
+<h2 id="viner-hücumu-kiçik-gizli-eksponent-hücumu">Viner hücumu (Kiçik
+gizli eksponent hücumu)</h2>
+<p>Şifrələmə və ya rəqəmsal imza əməliyyatını sürətləndirmək məqsədilə
+gizli <span class="math inline">\(d\)</span> eksponentini kiçik seçmək
+ciddi təhlükəsizlik boşluğu yaradır. Maykl Viner sübut etmişdir ki,
+davamlı kəsrlər nəzəriyyəsindən istifadə etməklə <span
+class="math inline">\(d\)</span> parametri müəyyən bir həddən kiçik
+olduqda açıq açardan (<span class="math inline">\(n, e\)</span>)
+başlayaraq tamamilə bərpa oluna bilər <span class="citation"
+data-cites="wiener1990cryptanalysis"></span>.</p>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (Viner teoremi). <em>Əgər <span
+class="math inline">\(n = p \cdot q\)</span> şəklindəki RSA modulunda
+<span class="math inline">\(p &lt; q &lt; 2p\)</span> şərti ödənirsə və
+seçilmiş gizli eksponent <span class="math inline">\(d\)</span>
+aşağıdakı həddi aşmırsa: <span class="math display">\[d &lt;
+\frac{1}{3}n^{\frac{1}{4}}\]</span> onda hücumçu <span
+class="math inline">\(\frac{e}{n}\)</span> nisbətinin davamlı kəsrlər
+ayrılışının münasib kəsrləri vasitəsilə <span
+class="math inline">\(d\)</span> gizli açarını polinomial zamanda
+hesablaya bilər.</em></p>
+</div>
+<h2
+id="seçilmiş-şifrəli-mətn-hücumu-cca-və-multiplikativ-homomorfizm">Seçilmiş
+şifrəli mətn hücumu (CCA) və multiplikativ homomorfizm</h2>
+<p>Dərslik RSA-si alqoritmi riyazi olaraq multiplikativ homomorf xassəyə
+malikdir. Yəni iki fərqli şifrəli mətnin hasili, onların ilkin
+mətnlərinin hasilinin şifrələnməsinə bərabərdir: <span
+class="math display">\[(m_1)^e \cdot (m_2)^e \equiv (m_1 \cdot m_2)^e
+\pmod{n}\]</span> Bu xassə sistemə qarşı seçilmiş şifrəli mətn hücumunun
+(CCA) reallaşdırılmasına şərait yaradır. Hücum ssenarisi aşağıdakı
+kimidir:</p>
+<ol>
+<li><p>Hücumçu ələ keçirdiyi hədəf <span class="math inline">\(c \equiv
+m^e \pmod{n}\)</span> şifrəli mətnini birbaşa oxuya bilmir.</p></li>
+<li><p>O, təsadüfi bir <span class="math inline">\(s\)</span> ədədi
+seçir və onun qüvvətini hədəf mətni ilə vuraraq yeni bir modifikasiya
+olunmuş <span class="math inline">\(c&#39;\)</span> mətni formalaşdırır:
+<span class="math display">\[c&#39; \equiv s^e \cdot c \equiv s^e \cdot
+m^e \equiv (s \cdot m)^e \pmod{n}\]</span></p></li>
+<li><p>Hücumçu bu zərərsiz görünən <span
+class="math inline">\(c&#39;\)</span> mətnini sistemin deşifrələmə
+modulu vasitəsilə (məsələn, qurbanın kor-koranə imzalama və ya cavab
+vermə mexanizmindən yararlanaraq) deşifrə etdirir və <span
+class="math inline">\(m&#39;\)</span> nəticəsini alır: <span
+class="math display">\[m&#39; \equiv (c&#39;)^d \equiv ((s \cdot m)^e)^d
+\equiv s \cdot m \pmod{n}\]</span></p></li>
+<li><p>Əldə etdiyi <span class="math inline">\(m&#39;\)</span> dəyərini
+ilkin seçdiyi <span class="math inline">\(s\)</span> ədədinin modulyar
+tərs elementinə vurmaqla əsl gizli <span
+class="math inline">\(m\)</span> mesajını deşifrə etmiş olur: <span
+class="math display">\[m \equiv m&#39; \cdot s^{-1}
+\pmod{n}\]</span></p></li>
+</ol>
+<h2 id="müdafiə-mexanizmi-doldurma-sxemləri">Müdafiə Mexanizmi: Doldurma
+Sxemləri</h2>
+<p>Real tətbiqlərdə mesaj dərslik RSA-si funksiyasına birbaşa
+verilməməlidir. Şifrələmə üçün standartlaşdırılmış, ehtimallı
+kodlaşdırma sxemi tətbiq olunur. RSA-OAEP düzgün parametr, təsadüfi
+ilkin toxum, etibarlı heş/MGF və vahid xəta emalı ilə istifadə edildikdə
+dərslik RSA-sinın deterministik və algebraik zəifliklərini aradan
+qaldırır; təhlükəsizlik zəmanəti isə konkret model və fərziyyələrə
+bağlıdır.</p>
+<h1 id="rsa-doldurma-sxemləri">RSA Doldurma Sxemləri</h1>
+<h2 id="doldurma-mexanizminin-zərurəti">Doldurma mexanizminin
+zərurəti</h2>
+<p>Sırf riyazi prinsiplərə əsaslanan deterministik RSA şifrələməsi eyni
+mesaj üçün həmişə eyni şifrəli mətni hasil edir və multiplikativ
+homomorf xassəsinə görə seçilmiş şifrəli mətn hücumlarına (CCA) qarşı
+tamamilə müdafiəsiz olur. Bu fundamental problemi həll etmək,
+deterministik alqoritmi ehtimallı formaya salmaq və mesaj strukturuna
+ciddi asimmetrik təsadüfilik daxil etmək üçün şifrələmədən öncə xüsusi
+<strong>doldurma sxemləri</strong> tətbiq olunur.</p>
+<h2 id="rsa-oaep-doldurması">RSA-OAEP doldurması</h2>
+<p>Mihir Bellare və Phillip Rogaway tərəfindən təklif edilmiş OAEP
+ideyası RSA üçün PKCS#1 standartında dəqiq kodlaşdırma qaydası kimi
+verilir <span class="citation" data-cites="bellare2000optimal"></span>.
+<span class="math inline">\(k\)</span> modulun bayt uzunluğu, <span
+class="math inline">\(hLen\)</span> seçilmiş heşin çıxış uzunluğu
+olduqda mesaj üçün <span class="math inline">\(mLen \leq
+k-2hLen-2\)</span> şərti ödənməlidir.</p>
+<p>RSAES-OAEP kodlaşdırmasının əsas addımları belədir:</p>
+<ol>
+<li><p>İxtiyari etiket <span class="math inline">\(L\)</span> üçün <span
+class="math inline">\(lHash=Hash(L)\)</span> hesablanır və <span
+class="math display">\[DB=lHash\parallel PS\parallel
+\mathtt{0x01}\parallel M\]</span> məlumat bloku qurulur; <span
+class="math inline">\(PS\)</span> tələb olunan sayda sıfır
+baytdır.</p></li>
+<li><p>Kriptoqrafik təsadüfi generatorla <span
+class="math inline">\(hLen\)</span> baytlıq ilkin toxum <span
+class="math inline">\(S\)</span> yaradılır.</p></li>
+<li><p><span class="math inline">\(dbMask=MGF(S,k-hLen-1)\)</span> və
+<span class="math display">\[maskedDB=DB\oplus dbMask\]</span>
+hesablanır.</p></li>
+<li><p><span class="math inline">\(seedMask=MGF(maskedDB,hLen)\)</span>
+və <span class="math display">\[maskedSeed=S\oplus seedMask\]</span>
+hesablanır.</p></li>
+<li><p>RSA funksiyasına verilən kodlaşdırılmış blok <span
+class="math display">\[EM=\mathtt{0x00}\parallel maskedSeed\parallel
+maskedDB\]</span> şəklində formalaşdırılır.</p></li>
+</ol>
+<p>Deşifrələyici bütün struktur yoxlamalarını aparmalı, lakin
+uğursuzluğun səbəbini, işləmə vaxtını və digər müşahidə olunan
+davranışfərqləndirməməlidir. Ayrı-ayrı “doldurma xətası” siqnalları və
+zaman fərqləri seçilmiş şifrəli mətn sorğu mənbəyinə çevrilə bilər.
+OAEP-in IND-CCA təhlükəsizliyi uyğun RSA fərziyyəsi, təsadüfi sorğu
+mənbəyi modeli və düzgün reallaşdırma şərtləri daxilində ifadə
+olunur.</p>
+<h2 id="rsa-pss-ehtimallı-imza-sxemi">RSA-PSS ehtimallı imza sxemi</h2>
+<p>RSA-PSS rəqəmsal imzalar üçün hazırlanmış ehtimallı kodlaşdırma
+sxemidir <span class="citation"
+data-cites="ferguson2010cryptography"></span>. O, adətən hər imzada
+təsadüfi duz istifadə edir və təhlükəsizlik zəmanəti seçilmiş heş, duz
+siyasəti, RSA fərziyyəsi və reallaşdırma şərtləri daxilində ifadə
+olunur. Təhlükəsiz kitabxana və standart profil istifadə edilməli, sxem
+əl ilə yenidən qurulmamalıdır<a href="#fn3" class="footnote-ref"
+id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<h1
+id="müasir-rsa-təhlükəsizlik-standartları-və-hesablama-rekordları">Müasir
+RSA təhlükəsizlik standartları və hesablama rekordları</h1>
+<h2 id="açar-uzunluqları-və-simmetrik-ekvivalentlik">Açar uzunluqları və
+simmetrik ekvivalentlik</h2>
+<p>Müasir kriptoqrafiyada asimmetrik açarların uzunluğu,
+sub-eksponensial zaman mürəkkəbliyinə malik faktorizasiya alqoritmləri
+nəzərə alınaraq, simmetrik alqoritmlərin (məsələn, AES) təhlükəsizlik
+səviyyələrinə ekvivalent olaraq seçilir.</p>
+<table>
+<caption>NIST tövsiyələrinə əsasən ekvivalent açar uzunluqları <span
+class="citation" data-cites="nist2020keymanagement"></span></caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Təhlükəsizlik
+Səviyyəsi</strong></th>
+<th style="text-align: center;"><strong>RSA Açar Uzunluğu</strong></th>
+<th style="text-align: center;"><strong>ECC Açar Uzunluğu</strong></th>
+<th style="text-align: left;"><strong>Əməliyyat Statusu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">80-bit</td>
+<td style="text-align: center;">1024-bit</td>
+<td style="text-align: center;">160-bit</td>
+<td style="text-align: left;">Qətiyyən tövsiyə edilmir</td>
+</tr>
+<tr>
+<td style="text-align: center;">112-bit</td>
+<td style="text-align: center;">2048-bit</td>
+<td style="text-align: center;">224-bit</td>
+<td style="text-align: left;">Keçid dövrü standartı</td>
+</tr>
+<tr>
+<td style="text-align: center;">128-bit</td>
+<td style="text-align: center;">3072-bit</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: left;">Standart kommersiya müdafiəsi</td>
+</tr>
+<tr>
+<td style="text-align: center;">192-bit</td>
+<td style="text-align: center;">7680-bit</td>
+<td style="text-align: center;">384-bit</td>
+<td style="text-align: left;">Yüksək dövlət əhəmiyyətli sistemlər</td>
+</tr>
+<tr>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">15360-bit</td>
+<td style="text-align: center;">521-bit</td>
+<td style="text-align: left;">Uzunmüddətli strateji təhlükəsizlik</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>1024-bit RSA:</strong> Hesablama güclərinin müasir
+inkişaf tempinə və paylanmış şəbəkə hücumlarının effektivliyinə görə
+təhlükəsizlik statusunu tamamilə itirmişdir və rəsmi standartlardan
+çıxarılmışdır.</p></li>
+<li><p><strong>2048-bit RSA:</strong> Cari dövrdə əksər internet
+protokollarında (məsələn, SSL/TLS sertifikatlarında) minimum qəbulolunan
+baza təhlükəsizlik səviyyəsini təmin edir.</p></li>
+<li><p><strong>3072-bit RSA:</strong> NIST tərəfindən uzunmüddətli və
+128-bitlik simmetrik şifrələməyə ekvivalent təhlükəsizlik tələb edən
+müasir sistemlər üçün tövsiyə edilən əsas standartdır.</p></li>
+<li><p><strong>4096-bit RSA:</strong> Bəzi profillərdə əlavə ehtiyat
+üçün seçilə bilər, lakin universal tələb deyil; uyğun ölçü təhlükəsizlik
+müddəti, protokol, normativ profil və performans məhdudiyyətləri ilə
+müəyyən edilir.</p></li>
+</ul>
+<h2 id="rsa-faktorizasiya-rekordlarının-xronologiyası">RSA faktorizasiya
+rekordlarının xronologiyası</h2>
+<p>Bəşəriyyətin böyük ədədləri vuruqlara ayırma (faktorizasiya)
+sahəsindəki praktiki uğurları RSA üçün təhlükəsizlik hədlərini müəyyən
+edir:</p>
+<ul>
+<li><p><strong>1999-cu il:</strong> 512-bitlik (155 onluq rəqəmdən
+ibarət) RSA-155 modulu paylanmış hesablama sistemləri tərəfindən uğurla
+vuruqlara ayrılmışdır.</p></li>
+<li><p><strong>2009-cu il:</strong> 768-bitlik (232 onluq rəqəmdən
+ibarət) RSA-768 modulunun faktorizasiyası reallaşdırılmışdır.</p></li>
+<li><p><strong>2020-ci il:</strong> Ümumi Ədəd Sahəsi Ələyi (GNFS)
+alqoritminin optimallaşdırılması ilə 829-bitlik (250 onluq rəqəmdən
+ibarət) RSA-250 modulu sındırılmışdır.</p></li>
+<li><p><strong>Müasir Dövr:</strong> 1024-bitlik akademik RSA modulu
+praktiki olaraq hələ sındırılmamış qalsa da, kütləvi hesablama
+klasterlərinin və kvant superkompüterlərin (Şor alqoritmi
+perspektivində) inkişafı səbəbindən heç bir rəsmi tətbiqdə etibarlı
+qorunma vasitəsi kimi qəbul edilmir.</p></li>
+</ul>
+<h2 id="kvant-təhlükəsi-və-post-kvant-kriptoqrafiyasına-keçid">Kvant
+təhlükəsi və Post-Kvant Kriptoqrafiyasına keçid</h2>
+<p>RSA-nın təhlükəsizliyi haqqında danışarkən, gələcək hesablama
+texnologiyalarının yaradacağı fundamental riskləri də nəzərə almaq
+zəruridir. Klassik superkompüterlər böyük ədədləri vuruqlara ayırmaq
+üçün Ümumi Ədəd Sahəsi Ələyi (GNFS) kimi sub-eksponensial zaman
+mürəkkəbliyinə malik alqoritmlərdən istifadə etdiyi halda, kvant
+hesablama arxitekturasi bu mənzərəni kökündən dəyişir.</p>
+<p>1994-cü ildə Peter Şor tərəfindən kəşf edilmiş <strong>Şor
+alqoritmi</strong> ideal kvant hesablama modelində tam ədədlərin
+faktorizasiyasını və diskret loqarifmi giriş ölçüsünə görə polinomial
+resurslarla həll edir <span class="citation"
+data-cites="shor1997polynomial"></span>. Kriptoqrafik ölçülü RSA-nı
+praktik sındırmaq üçün isə böyük miqyaslı, xəta düzəltməli kvant
+kompüteri və konkret açar ölçüsündən asılı olan əhəmiyyətli fiziki
+resurslar tələb olunur; universal “bir neçə saat” müddəti göstərmək
+düzgün deyil.</p>
+<p>Bu riskə görə təşkilatlar <strong>post-kvant kriptoqrafiyasına
+(PQC)</strong> mərhələli keçid planlaşdırırlar. NIST qəfəs əsaslı ML-KEM
+və ML-DSA standartlarını dərc edib, lakin RSA-nın hansı tarixdə və hansı
+profildə dayandırılması konkret normativə, protokola və məlumatın
+qorunma müddətinə bağlıdır. Keçid inventarlaşdırma, kriptoqrafik
+çeviklik, hibrid sınaqlar və uyğunluq tələbləri əsasında
+aparılmalıdır.</p>
+<h1 id="praktik-mühəndislik-tövsiyələri">Praktik mühəndislik
+tövsiyələri</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Açar uzunluğu:</strong> Müasir sistemlərdə minimum
+standart olaraq 2048-bit təyin edilməlidir. Uzunmüddətli kommersiya və
+dövlət əhəmiyyətli layihələr üçün 3072-bitlik açarlardan istifadə
+edilməsi tövsiyə olunur.</p></li>
+<li><p><strong>Açıq eksponentin seçilməsi:</strong> Açıq eksponent
+olaraq <span class="math inline">\(e = 65537\)</span> (<span
+class="math inline">\(2^{16} + 1\)</span>) qiyməti seçilməlidir. Bu ədəd
+həm kiçik eksponent hücumlarına qarşı dayanıqlıdır, həm də ikilik
+sistemdə cəmi iki ədəd bitə (<span class="math inline">\(1\)</span>)
+malik olduğu üçün sürətli modular qüvvətə yüksəltməni təmin
+edir.</p></li>
+<li><p><strong>Mütləq doldurma tətbiqi:</strong> Sırf riyazi (dərslikdə
+verilən) RSA-nın istifadəsi qətiyyən yolverilməzdir. Şifrələmə
+ssenarilərində RSA-OAEP, rəqəmsal imza strukturlarında isə RSA-PSS
+doldurma standartları tətbiq olunmalıdır.</p></li>
+<li><p><strong>p və q sadə ədədlərinin generasiyası:</strong> <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə ədədləri eyni bit uzunluğuna malik
+olmalı, lakin Ferma faktorizasiyasından qorunmaq üçün bir-birindən
+kifayət qədər uzaq seçilməlidir. Həmçinin, Pollard <span
+class="math inline">\(p-1\)</span> hücumundan yayınmaq üçün <span
+class="math inline">\(p-1\)</span> və <span
+class="math inline">\(q-1\)</span> ədədlərinin tərkibində böyük sadə
+vuruqlar mövcud olmalıdır.</p></li>
+<li><p><strong>Çin qalıqlar teoremi (CRT):</strong> Deşifrələmə və
+imzalama proseslərini optimallaşdırmaq üçün CRT (<span
+class="math inline">\(dp, dq, qinv\)</span> parametrləri ilə)
+arxitekturasından istifadə edilməlidir. Bu, hesablama sürətini təxminən
+4 dəfə artırır.</p></li>
+<li><p><strong>Yan kanal hücumlarına qarşı müdafiə:</strong> Vaxt və
+enerji analizlərinə qarşı sistem sabit-zamanlı riyazi reallaşdırmaya
+malik olmalı və Montqomeri nərdivanı və ya korlaşdırma üsulları tətbiq
+edilməlidir.</p></li>
+<li><p><strong>Hibrid kriptosistem modeli:</strong> RSA assimetrik
+strukturu böyük həcmli məlumatların birbaşa şifrələnməsi üçün
+əlverişsizdir. Sistem hibrid modeldə qurulmalı: məlumat AES və ya
+ChaCha20 kimi simmetrik alqoritmlə şifrələnməli, həmin alqoritmin
+sessiya açarı isə RSA vasitəsilə ötürülməlidir.</p></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="tcolorbox">
+<p>Hər tapşırıq üçün domen şərtlərini və təhlükəsizlik modelini cavabdan
+əvvəl yazın. Müəllim üçün cavab açarı yalnız ilkin cəhddən sonra
+açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em><span
+class="math inline">\(p=11\)</span>, <span
+class="math inline">\(q=13\)</span> sadə ədədləri və <span
+class="math inline">\(e=7\)</span> açıq eksponenti verilmişdir. RSA
+alqoritminə uyğun olaraq açıq və gizli açar cütlərini generasiya
+edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Yuxarıdakı tapşırıqda əldə edilmiş
+açar cütündən istifadə edərək <span class="math inline">\(m=5\)</span>
+gizli mesajını şifrələyin və alınan şifrəli mətni yenidən
+deşifrələyin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em><span
+class="math inline">\(p=17\)</span>, <span
+class="math inline">\(q=19\)</span> və <span
+class="math inline">\(e=5\)</span> parametrləri üçün modular tərs
+elementin tapılması alqoritmini tətbiq edərək <span
+class="math inline">\(d\)</span> gizli açarını hesablayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Viner hücumunun uğurla
+reallaşdırılması üçün gizli açar üzərinə qoyulan kafi şərt nədir? <span
+class="math inline">\(n=3233\)</span> və <span
+class="math inline">\(d=7\)</span> olarsa, bu şərt ödənirmi? Verilən
+<span class="math inline">\(d\)</span>-nin etibarlı RSA eksponenti
+olduğunu <span
+class="math inline">\(\lambda(n)=\operatorname{lcm}(60,52)=780\)</span>
+və <span class="math inline">\(e=223\)</span> ilə yoxlayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>RSA-OAEP doldurma sxeminin seçilmiş
+şifrəli mətn hücumlarına (CCA) qarşı riyazi davamlılıq mexanizmini izah
+edin. O, RSA-nın homomorf xüsusiyyətini necə neytrallaşdırır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>2048-bitlik standart RSA
+şifrələməsində <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> vuruqlarının hər birinin bit uzunluğu
+nə qədər olmalıdır? Onların qiymətcə bir-birinə çox yaxın seçilməsi
+hansı kriptoqrafik riskləri yaradır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>Kiçik açıq eksponent hücumlarının
+(məsələn, Håstad yayım hücumu) qarşısını almaq üçün sistem
+layihələndirilərkən hansı preventiv tədbirlər görülməlidir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>Şor alqoritminin kvant hesablama
+sistemlərində işləmə prinsipi RSA alqoritminin əsaslandığı riyazi
+çətinlik probleminə (faktorizasiya) necə təsir göstərir?</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ol>
+<li><p>Verilən parametrlərə əsasən addım-addım hesablama aparaq:</p>
+<ul>
+<li><p>RSA modulu: <span class="math inline">\(n = p \cdot q = 11 \cdot
+13 = 143\)</span></p></li>
+<li><p>Eyler funksiyası: <span class="math inline">\(\varphi(n) =
+(p-1)(q-1) = 10 \cdot 12 = 120\)</span></p></li>
+<li><p>Gizli açar (<span class="math inline">\(d\)</span>): <span
+class="math inline">\(e \cdot d \equiv 1 \pmod{\varphi(n)}\)</span>
+şərtindən, yəni <span class="math inline">\(7 \cdot d \equiv 1
+\pmod{120}\)</span> tənliyindən Genişləndirilmiş Evklid Alqoritmi
+vasitəsilə tapılır: <span class="math inline">\(d = 7^{-1} \pmod{120} =
+103\)</span> (Doğruluğu: <span class="math inline">\(7 \cdot 103 = 721 =
+6 \cdot 120 + 1 \equiv 1 \pmod{120}\)</span>).</p></li>
+</ul>
+<p><strong>Nəticə:</strong> Açıq açar cütü: <span
+class="math inline">\((n=143, e=7)\)</span>, Gizli açar cütü: <span
+class="math inline">\((n=143, d=103)\)</span>.</p></li>
+<li><p>Şifrələmə və deşifrələmə prosesi aşağıdakı modulyar qüvvət
+əməliyyatları ilə icra olunur:</p>
+<ul>
+<li><p><strong>Şifrələmə:</strong> <span class="math inline">\(c = m^e
+\pmod{n} \longrightarrow c = 5^7 \pmod{143}\)</span>.<br />
+<span class="math inline">\(5^7 = 78125\)</span> ədədinin 143-ə
+bölünməsindən alınan qalıq: <span class="math inline">\(78125 = 546
+\cdot 143 + 47\)</span>. Deməli, <span class="math inline">\(c =
+47\)</span>.</p></li>
+<li><p><strong>Deşifrələmə:</strong> <span class="math inline">\(m = c^d
+\pmod{n} \longrightarrow m = 47^{103} \pmod{143}\)</span>.<br />
+Ardıcıl kvadrat yüksəlt-vur üsulu ilə hesablama apardıqda <span
+class="math inline">\(47^{103} \equiv 5 \pmod{143}\)</span> alınır və
+ilkin mesaj bərpa olunur.</p></li>
+</ul></li>
+<li><p>Parametrlərə əsasən hesablama:</p>
+<ul>
+<li><p>Modul: <span class="math inline">\(n = 17 \cdot 19 =
+323\)</span>, <span class="math inline">\(\varphi(n) = 16 \cdot 18 =
+288\)</span>.</p></li>
+<li><p>Tənlik: <span class="math inline">\(5 \cdot d \equiv 1
+\pmod{288}\)</span>.</p></li>
+<li><p><span class="math inline">\(d = 5^{-1} \pmod{288} = 173\)</span>
+(çünki <span class="math inline">\(5 \cdot 173 = 865 = 3 \cdot 288 + 1
+\equiv 1 \pmod{288}\)</span>).</p></li>
+</ul>
+<p><strong>Cavab:</strong> Gizli açar <span class="math inline">\(d =
+173\)</span> olaraq təyin edilir.</p></li>
+<li><p>Wiener teoreminin kifayət şərti <span class="math inline">\(d
+&lt; \frac{1}{3}n^{1/4}\)</span> şəklindədir. Verilən halda: <span
+class="math display">\[n = 3233 \implies n^{1/4} = (3233)^{0.25} \approx
+7.547\]</span> Sərhəd qiyməti: <span class="math inline">\(\frac{1}{3}
+\cdot 7.547 \approx 2.516\)</span>.<br />
+<span class="math inline">\(d=7&gt;2.516\)</span> olduğuna görə teoremin
+kifayət şərti ödənmir; bu nəticə hücumun qəti uğursuzluğunu sübut etmir.
+Parametr etibarlıdır: <span class="math inline">\(\gcd(7,780)=1\)</span>
+və <span class="math inline">\(7\cdot223=1561=2\cdot780+1\)</span>, yəni
+<span class="math inline">\(ed\equiv1\pmod{\lambda(n)}\)</span>. Bununla
+belə, belə kiçik gizli eksponent təhlükəsiz seçim deyil.</p></li>
+<li><p>OAEP ilkin toxum, MGF və strukturlaşdırılmış <span
+class="math inline">\(DB\)</span> vasitəsilə hər şifrələməni ehtimallı
+edir; buna görə dərslik RSA-sinın şifrəli mətnlər üzərindəki cəbri
+dəyişdirilməsi etibarlı OAEP blokuna çevrilmir. Deşifrələyici ayrıca
+“doldurma xətası” qaytarmamalı, bütün uğursuzluqları eyni nəticə və
+müşahidə olunan davranışla emal etməlidir. IND-CCA zəmanəti uyğun
+fərziyyələr və düzgün reallaşdırma daxilində verilir.</p></li>
+<li><p>2048-bitlik RSA arxitekturasında vuruqların hər biri təxminən
+1024-bit uzunluğunda sadə ədəd olmalıdır. Əgər <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> qiymətcə bir-birinə çox yaxın
+seçilərsə, <span class="math inline">\(n \approx p^2\)</span> münasibəti
+yaranır ki, bu zaman modul <strong>Ferma-nın kvadratlar fərqi
+metodu</strong> ilə kvadrat kökalma əməliyyatı vasitəsilə çox qısa
+zamanda asanlıqla vuruqlara ayrıla bilir.</p></li>
+<li><p>Kiçik eksponent risklərini azaltmaq üçün: 1) standart açıq
+eksponent kimi <span class="math inline">\(e=65537\)</span> seçilməli;
+2) eyni məlumat müxtəlif açarlara göndərilərkən dərslik RSA-si deyil,
+hər dəfə təzə təsadüfilik yaradan standart RSA-OAEP istifadə edilməli;
+3) protokol mesaj və xəta emalını autentifikasiya edilmiş şəkildə
+bağlamalıdır. Beləliklə Həstad yayım hücumunun tələb etdiyi əlaqəli
+bəsit mətnlər yaranmır.</p></li>
+<li><p>Şor alqoritmi period tapmanı kvant Furye çevrilməsi ilə həll
+edərək ideal kvant modelində faktorizasiyanı giriş ölçüsünə görə
+polinomial resurslarla yerinə yetirir. Buna görə kifayət qədər böyük
+xəta düzəltməli kvant kompüteri RSA-nın əsas çətinlik fərziyyəsini
+aradan qaldıra bilər. Praktik müddət isə açar ölçüsündən, məntiqi və
+fiziki kubitlərin sayından, qapı sürətindən və xəta düzəltmə xərcindən
+asılıdır.</p></li>
+</ol>
+<h1 id="mühazirənin-xülasəsi">Mühazirənin xülasəsi</h1>
+<p>Bu fundamental mühazirə fəsli çərçivəsində aşağıdakı kritik
+kriptoqrafik anlayışlar öyrənilmişdir:</p>
+<ul>
+<li><p><strong>RSA konsepti:</strong> Təhlükəsizlik konkret RSA sxemi və
+hesablama fərziyyələri ilə qiymətləndirilir; faktorizasiya RSA-nı
+sındırsa da, ümumi RSA-inversiyanın faktorizasiyaya ekvivalentliyi sübut
+edilməyib.</p></li>
+<li><p><strong>Açar Generasiyası və Şifrələmə:</strong> İki böyük sadə
+ədədin hasili (<span class="math inline">\(n = p \cdot q\)</span>),
+Eyler funksiyası (<span class="math inline">\(\varphi(n) =
+(p-1)(q-1)\)</span>), açıq eksponent (<span
+class="math inline">\(e\)</span>) və modular tərs element kimi
+hesablanan gizli açar (<span class="math inline">\(d\)</span>)
+strukturu. Şifrələmə <span class="math inline">\(c = m^e
+\pmod{n}\)</span>, deşifrələmə isə <span class="math inline">\(m = c^d
+\pmod{n}\)</span> qanununa tabedir.</p></li>
+<li><p><strong>Kriptoanaliz və Hücumlar:</strong> Kiçik eksponent,
+Wiener, sındırılma xronologiyaları (RSA-250) və seçilmiş şifrəli mətn
+hücumları (CCA) təhlil edilmişdir.</p></li>
+<li><p><strong>Doldurma Standartları:</strong> Dərslik RSA-sinın
+homomorf zəifliyini aradan qaldıran ehtimallı doldurma sxemləri müqayisə
+edilmişdir: şifrələmə üçün RSA-OAEP, rəqəmsal imza təhlükəsizliyi üçün
+isə RSA-PSS.</p></li>
+<li><p><strong>Gələcək Perspektiv:</strong> Klassik 2048/3072-bitlik RSA
+standartlarının cari effektivliyi və Şor alqoritminin yaratdığı
+universal kvant təhlükəsi fonunda Post-Kvant Kriptoqrafiyasına (PQC)
+keçidin fundamental zərurəti əsaslandırılmışdır.</p></li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Qeyd edək ki, asimmetrik şifrələmə konsepsiyası və
+RSA-ya bənzər alqoritm ilk dəfə 1973-cü ildə Britaniya Hökumətinin
+Rabitə Qərargahında (GCHQ) riyaziyyatçı Klifford Koks tərəfindən məxfi
+şəkildə işlənib hazırlanmışdı, lakin bu kəşf 1997-ci ilə qədər
+ictimaiyyətə açıqlanmamışdı.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>RSA-OAEP (<em>Optimal Asymmetric Encryption
+Padding</em>) təhlükəsizliyi Təsadüfi Orakul Modelində (<em>Random
+Oracle Model</em>) dərslik RSA-sinın biristiqamətli (<em>one-way</em>)
+funksiya olması fərziyyəsinə əsaslanır. O, mətni təsadüfi maskalama və
+heşləmə quruluşundan (Faystel şəbəkəsi) keçirərək uyğunlaşma seçilmiş
+şifrəmətn hücumlarına (<em>IND-CCA (Adaptive CCA)</em>) qarşı tam
+təhlükəsizlik təmin edir <span class="citation"
+data-cites="bellare2000optimal"></span>.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>RSASSA-PSS (PKCS#1 v2.1) Bellare və Rogaway tərəfindən
+təklif edilmiş ehtimallı imza sxemidir. O, mesaja təsadüfi duz
+(<em>salt</em>) əlavə edərək eyni mesaj üçün hər dəfə unikal imza
+yaradır. Bu yanaşma deterministik imzaların zəifliklərini aradan
+qaldırır və Təsadüfi Orakul Modelində (<em>Random Oracle Model</em>) RSA
+kök tapma probleminin mürəkkəbliyinə əsaslanan sıx təhlükəsizlik
+reduksiyası (<em>tight security reduction</em>) təmin edir <span
+class="citation" data-cites="ferguson2010cryptography"></span>.<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (12)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Bellare &amp; Rogaway, 1995</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT &#x27;94</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Optimal Asymmetric Encryption -- How to Encrypt with RSA</h6>
+                    <p class="small text-secondary mb-0">Mihir Bellare and Phillip Rogaway (1995)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Boneh, 1999</span>
+                        <small class="text-muted">Notices of the AMS</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Twenty Years of Attacks on the RSA Cryptosystem</h6>
+                    <p class="small text-secondary mb-0">Dan Boneh (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Barker, 2020</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Key Management: Part 1 – General</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Rivest et al., 1978</span>
+                        <small class="text-muted">Communications of the ACM</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Method for Obtaining Digital Signatures and Public-Key Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">Ronald L. Rivest and Adi Shamir and Leonard M. Adleman (1978)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Singh, 1999</span>
+                        <small class="text-muted">Doubleday</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Simon Singh (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Coppersmith, 1996</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT &#x27;96</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Low-Exponent RSA with Related Messages</h6>
+                    <p class="small text-secondary mb-0">Don Coppersmith (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Wiener, 1990</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptanalysis of Short RSA Secret Exponents</h6>
+                    <p class="small text-secondary mb-0">Michael J. Wiener (1990)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Shor, 1997</span>
+                        <small class="text-muted">SIAM Journal on Computing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</h6>
+                    <p class="small text-secondary mb-0">Peter W. Shor (1997)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

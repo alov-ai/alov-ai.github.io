@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_29</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 29</strong></p>
+<p><strong>Post-Kvant Kriptoqrafiya II – Kod, Heş və Çoxdəyişənli
+Ailələr</strong></p>
+<p>Bu mühazirə kod əsaslı, heş əsaslı və çoxdəyişənli post-kvant
+kriptoqrafiya ailələrini, sıfır-bilik sübutlarını, homomorf şifrələməni,
+blokçeyn texnologiyasını və kvant kriptoqrafiyasını əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin Məqsədləri</h1>
+<p>Bu mühazirəni müvəffəqiyyətlə bitirdikdən sonra tələbə:</p>
+<ul>
+<li><p><strong>Classic McEliece</strong>, <strong>HQC</strong> və
+<strong>BIKE</strong> alqoritmlərini xəta düzəldən kod problemi, açar
+ölçüsü və rəsmi standartlaşdırma statusu üzrə müqayisə edir <span
+class="citation"
+data-cites="mceliece1978public avarvari2022bike melchor2018hqc"></span>;</p></li>
+<li><p>Lamport OTS-dən Merkl ağacına və SLH-DSA-ya keçid mərhələlərini
+izləyir, daxili vəziyyət saxlayan (<em>stateful</em>) və saxlamayan
+(<em>stateless</em>) sxemləri fərqləndirir <span class="citation"
+data-cites="bernstein2015sphincs huelsing2017xmss"></span>;</p></li>
+<li><p>UOV və SNOVA ailələrinin mərkəzi xəritə və gizli cəbri struktur
+modelini izah edir <span class="citation"
+data-cites="kipnis1999unbalanced"></span>;</p></li>
+<li><p>Kod, heş, çoxdəyişənli (<em>multivariate</em>) və əvvəlki
+mühazirədə keçilən qəfəs əsaslı kriptoqrafiya ailələrini açar/imza
+ölçüsü, cəbri yetkinlik və təhlükəsizlik riskləri üzrə kompleks
+qiymətləndirir;</p></li>
+<li><p>Verilmiş KEM və rəqəmsal imza tətbiq profili üçün optimal namizəd
+ailə seçimini əsaslandırır.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 28-ci mühazirə qəfəs əsaslı ML-KEM, ML-DSA və
+FN-DSA xəttini əhatə etdi.</p>
+<p><strong>İndi:</strong> Kod, heş və çoxdəyişənli ailələrlə PQC
+müqayisəsini tamamlayırıq.</p>
+<p><strong>Sonra:</strong> Sıfır bilik sübutu (ZKP), homomorf şifrələmə,
+blokçeyn və QKD yalnız 30-cu yekun mühazirədə sistem seçimi kontekstində
+öyrəniləcək.</p>
+<p><strong>Kanon:</strong> <em>heş əsaslı</em>; <em>Merkl (Merkle)
+ağacı</em> (ilk təqdimatda mötərizə ilə, sonra <em>Merkl ağacı</em>);
+<em>sonlu meydan</em>; rəsmi standart adı kimi <em>SLH-DSA</em> (tarixi
+ad yalnız ilk təqdimatda <em>SPHINCS<sup>+</sup></em> kimi
+göstərilməklə).</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirədə post-kvant kriptoqrafiyasının ən geniş yayılmış
+istiqaməti olan qəfəs əsaslı sistemləri — rəsmi standartlar ML-KEM və
+ML-DSA-nı tədqiq etdik. Lakin kvant təhdidindən mühafizə yalnız qəfəs
+strukturları ilə məhdudlaşmır. Kriptoqrafik çevikliyi
+(<em>crypto-agility</em><a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>) təmin etmək və tək bir riyazi
+problemdən asılılığı aradan qaldırmaq üçün alternativ riyazi
+çətinliklərə əsaslanan digər PQC ailələrini də kompleks müqayisə etmək
+lazımdır.</p>
+<div class="history">
+<p><span>Post-Kvant Kriptoqrafiyasının İnkişaf Tarixi</span> Post-kvant
+kriptoqrafiyasının kökləri hələ kvant kompüterləri ideyası tam
+formalaşmamışdan əvvəl, 1970-ci illərə təsadüf edir. 1978-ci ildə Robert
+MakElis (Robert McEliece) xətti korreksiyaedici kodların<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+deşifrələmə çətinliyinə əsaslanan ilk asimmetrik kriptosistemi təklif
+etdi <span class="citation" data-cites="mceliece1978public"></span>.
+1979-cu ildə Lesli Lamport (Leslie Lamport) birdəfəlik imza sxemlərini
+(<em>One-Time Signature — OTS</em><a href="#fn3" class="footnote-ref"
+id="fnref3" role="doc-noteref"><sup>3</sup></a>) kəşf edərək heş əsaslı
+kriptoqrafiyanın əsasını qoydu <span class="citation"
+data-cites="lamport1979constructing"></span>. 1999-cu ildə isə UOV
+(<em>Unbalanced Oil and Vinegar</em><a href="#fn4" class="footnote-ref"
+id="fnref4" role="doc-noteref"><sup>4</sup></a>) çoxdəyişənli imza sxemi
+təqdim edildi <span class="citation"
+data-cites="kipnis1999unbalanced"></span>. Bu gün həmin alternativ
+ailələr post-kvant infrastrukturunda kriptoqrafik çeviklik üçün intensiv
+öyrənilir; hər bir konkret sxemin rəsmi standartlaşdırma statusu və
+təhlükəsizlik profili ayrıca qiymətləndirilməlidir.</p>
+</div>
+<div class="tcolorbox">
+<ul>
+<li><p>Kod əsaslı kriptoqrafiya hansı riyazi çətinliyə söykənir və
+<strong>Classic McEliece</strong> sxemi necə işləyir?</p></li>
+<li><p>Heş əsaslı imza sxemləri hansı fərziyyələrə əsaslanır və rəsmi
+<strong>SLH-DSA</strong> (FIPS 205) standartının mahiyyəti
+nədir?</p></li>
+<li><p>Çoxdəyişənli kriptoqrafiyanın əsasını qoyan <span
+class="math inline">\(NP\)</span>-çətin problem hansıdır və
+<strong>UOV</strong> alqoritmi necə fəaliyyət göstərir?</p></li>
+<li><p>Kod əsaslı KEM-lərdə böyük açar ölçüsü hansı təhlükəsizlik və
+şəbəkə kompromisləri yaradır?</p></li>
+<li><p>Heş əsaslı imzalarda birdəfəlik açarların təkrar istifadəsi niyə
+təhlükəlidir və Merkl (<em>Merkle</em>) ağacı<a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+nəyi həll edir?</p></li>
+<li><p>Daxili vəziyyət saxlayan (<em>stateful</em>) XMSS/LMS<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> ilə vəziyyətsiz (<em>stateless</em>)
+SLH-DSA hansı əməliyyat risklərinə malikdir?</p></li>
+<li><p>Çoxdəyişənli ailədə sındırılmış <em>Rainbow</em><a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+nümunəsi yeni namizədin (<em>SNOVA</em><a href="#fn8"
+class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>)
+ayrıca qiymətləndirilməsini niyə tələb edir?</p></li>
+</ul>
+</div>
+<h1 class="unnumbered" id="i-hissə-kod-əsaslı-kem-lər">I hissə: Kod
+əsaslı KEM-lər</h1>
+<h1 id="kod-əsaslı-kriptoqrafiya">Kod əsaslı kriptoqrafiya</h1>
+<h2 id="fundamental-prinsiplər">Fundamental Prinsiplər</h2>
+<p>Kod əsaslı kriptoqrafiya məlumat ötürülərkən yaranan xətaları
+düzəltmək üçün istifadə olunan <strong>xətti xəta düzəldən
+kodlara</strong> əsaslanır. Bu kriptosistemlərin təhlükəsizlik nüvəsi
+<strong>ixtiyari xətti kodların sindrom üzrə deşifrələnməsi
+probleminin</strong><a href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a> hesablama mürəkkəbliyinə söykənir.
+Problemin ümumi halda həlli NP-çətindir <span class="citation"
+data-cites="mceliece1978public"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Sindrom üzrə deşifrələmə problemi).
+<em>Verilmiş bir <span class="math inline">\(H \in \mathbb{F}_2^{(n-k)
+\times n}\)</span> paritet-yoxlama matrisi, <span
+class="math inline">\(s \in \mathbb{F}_2^{n-k}\)</span> sindrom vektoru
+və <span class="math inline">\(t \in \mathbb{Z}^+\)</span> xəta həddi
+üçün aşağıdakı şərtləri ödəyən <span class="math inline">\(e \in
+\mathbb{F}_2^n\)</span> xəta vektorunun tapılması problemidir: <span
+class="math display">\[\begin{equation}
+\begin{cases}
+H \cdot e^T = s^T \\
+\text{wt}(e) \le t
+\end{cases}
+\end{equation}\]</span> Burada <span
+class="math inline">\(\text{wt}(e)\)</span> funksiyası <span
+class="math inline">\(e\)</span> vektorunun <strong>Hemminq
+çəkisini</strong> ifadə edir.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Hemminq çəkisi). <em>Bir vektorun Hemminq
+çəkisi (<span class="math inline">\(\text{wt}\)</span>), həmin vektorun
+sıfırdan fərqli (bizim halda <span
+class="math inline">\(\mathbb{F}_2\)</span> fəzasında sıfırdan fərqli
+olan) komponentlərinin ümumi sayıdır. Formal olaraq, <span
+class="math inline">\(e = (e_1, e_2, \dots, e_n) \in
+\mathbb{F}_2^n\)</span> vektoru üçün bu göstərici aşağıdakı kimi
+hesablanır: <span class="math display">\[\begin{equation}
+\text{wt}(e) = \sum_{i=1}^{n} e_i = \Big| \{ i \in \{1, 2, \dots, n\}
+\mid e_i \neq 0 \} \Big|
+\end{equation}\]</span></em></p>
+</div>
+<h2 id="classic-mceliece-kriptosistemi">Classic McEliece
+Kriptosistemi</h2>
+<div class="history">
+<p><span>Robert McEliece və Goppa Kodları</span> 1978-ci ildə Robert
+Makelis cəbri <strong>Goppa kodlarına</strong> əsaslanan ilk kod əsaslı
+asimmetrik şifrələmə sistemini təklif etdi <span class="citation"
+data-cites="mceliece1978public"></span>. Bu sistem ən köhnə post-kvant
+kriptosistemlərindən biridir. Təxminən yarım əsr intensiv tədqiq
+edilməsinə baxmayaraq, Goppa kodlarının daxili strukturunu sındıran
+səmərəli klassik və ya kvant alqoritmi aşkar edilməyib.</p>
+</div>
+<div class="keyconcept">
+<p><span>McEliece Kriptosisteminin Riyazi Strukturu</span> McEliece
+mexanizmi üç əsas cəbri mərhələdən ibarətdir <span class="citation"
+data-cites="mceliece1978public"></span>:</p>
+<h4 id="açar-yaradılması">1. Açar yaradılması:</h4>
+<ul>
+<li><p><span class="math inline">\(t\)</span> sayda xətanı düzəltmə
+qabiliyyətinə malik olan <span class="math inline">\(k \times n\)</span>
+ölçülü xətti Goppa kodunun<a href="#fn10" class="footnote-ref"
+id="fnref10" role="doc-noteref"><sup>10</sup></a> <span
+class="math inline">\(G\)</span> yaradıcı matrisi seçilir.</p></li>
+<li><p><span class="math inline">\(k \times k\)</span> ölçülü təsadüfi
+tərsi olan <span class="math inline">\(S\)</span> qarışdırma matrisi
+yaradılır.</p></li>
+<li><p><span class="math inline">\(n \times n\)</span> ölçülü təsadüfi
+<span class="math inline">\(P\)</span> permutasiya matrisi<a
+href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a> seçilir.</p></li>
+<li><p><strong>Açıq Açar:</strong> Matrislərin hasili nəticəsində Goppa
+strukturunu gizlədən yeni generasiya matrisidir: <span
+class="math inline">\(G&#39; = S \cdot G \cdot P\)</span>.</p></li>
+<li><p><strong>Gizli Açar:</strong> Orijinal kod strukturunu bərpa edən
+matris üçlüyüdür: <span class="math inline">\((S, G,
+P)\)</span>.</p></li>
+</ul>
+<h4 id="şifrələmə">2. Şifrələmə:</h4>
+<p><span class="math inline">\(m \in \mathbb{F}_2^k\)</span> ilkin
+mesajını şifrələmək üçün <span class="math inline">\(G&#39;\)</span>
+açıq açarından və Hemminq çəkisi<a href="#fn12" class="footnote-ref"
+id="fnref12" role="doc-noteref"><sup>12</sup></a> dəqiq <span
+class="math inline">\(t\)</span> olan təsadüfi <span
+class="math inline">\(e \in \mathbb{F}_2^n\)</span> xəta vektorundan
+istifadə olunaraq şifrəli mətn hesablanır: <span
+class="math display">\[c = m \cdot G&#39; + e\]</span></p>
+<h4 id="deşifrələmə">3. Deşifrələmə:</h4>
+<p>Gizli açara <span class="math inline">\((S, G, P)\)</span> malik olan
+tərəf şifrəli mətni qəbul etdikdən sonra aşağıdakı addımları icra
+edir:</p>
+<ol>
+<li><p>Şifrəli mətn permutasiya matrisinin tərsinə vurularaq
+modifikasiya edilir: <span class="math display">\[c&#39; = c \cdot
+P^{-1} = (m \cdot S \cdot G \cdot P + e) \cdot P^{-1} = (m \cdot S)
+\cdot G + e \cdot P^{-1}\]</span></p>
+<p><span class="math inline">\(e \cdot P^{-1}\)</span> vektorunun çəkisi
+hələ də <span class="math inline">\(t\)</span> olduğundan, Goppa kodunun
+daxili sürətli deşifrələmə alqoritmi (məsələn, <em>Patterson
+alqoritmi</em>) vasitəsilə <span class="math inline">\(e \cdot
+P^{-1}\)</span> xətası təmizlənir və xətasız <span
+class="math inline">\(m \cdot S \cdot G\)</span> kod sözü əldə edilir.
+Buradan isə <span class="math inline">\(m \cdot S\)</span> komponenti
+ayrılır.</p></li>
+<li><p>İlkin mesaj gizli matrisin tərsinə vurulmaqla tam bərpa edilir:
+<span class="math inline">\(m = (m \cdot S) \cdot
+S^{-1}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="patterson-alqoritmi">Patterson alqoritmi</h2>
+<p>Patterson alqoritmi binominal (ikiqat) cəbri Goppa kodlarının
+deşifrələnməsi prosesində daxili xəta vektorunun yerini tapmaq üçün
+istifadə olunan ən effektiv deterministik alqoritmdir. Classic McEliece
+sxemində gizli açar vasitəsilə həyata keçirilən deşifrələmə mərhələsi
+bilavasitə bu alqoritmə əsaslanır.</p>
+<div class="keyconcept">
+<p><span>Patterson Deşifrələmə Metodu</span> Fərz edək ki, <span
+class="math inline">\(g(x) \in \mathbb{F}_{2^m}[x]\)</span> dərəcəsi
+<span class="math inline">\(t\)</span> olan gətirilməyən Goppa
+çoxhədlisidir<a href="#fn13" class="footnote-ref" id="fnref13"
+role="doc-noteref"><sup>13</sup></a> və qəbul edilən vektor üçün <span
+class="math inline">\(s(x)\)</span> sindrom çoxhədlisi hesablanmışdır.
+Alqoritmin məqsədi kökləri xətaların koordinatlarını göstərən <span
+class="math inline">\(\sigma(x)\)</span> <strong>xəta yeri
+çoxhədlisini</strong> tapmaqdır. Alqoritm növbəti addımlarla icra
+olunur:</p>
+<h4 id="sindromun-tərsini-hesablamaq">1. Sindromun Tərsini
+Hesablamaq:</h4>
+<p>İlk növbədə hesablanmış <span class="math inline">\(s(x)\)</span>
+sindromunun <span class="math inline">\(g(x)\)</span> moduluna görə
+multiplikativ tərsi<a href="#fn14" class="footnote-ref" id="fnref14"
+role="doc-noteref"><sup>14</sup></a> (<span
+class="math inline">\(v(x)\)</span>) tapılır: <span
+class="math display">\[\begin{equation}
+v(x) \equiv s(x)^{-1} \pmod{g(x)}
+\end{equation}\]</span></p>
+<h4 id="kvadrat-kök-funksiyası">2. Kvadrat Kök Funksiyası:</h4>
+<p>Əgər <span class="math inline">\(v(x) + x \equiv 0
+\pmod{g(x)}\)</span> olarsa, xəta yoxdur (<span
+class="math inline">\(e=0\)</span>). Əks halda, <span
+class="math inline">\(\mathbb{F}_{2^m}\)</span> sahəsində xarakteristika
+2<a href="#fn15" class="footnote-ref" id="fnref15"
+role="doc-noteref"><sup>15</sup></a> olduğu üçün aşağıdakı tənlikdən
+kvadrat kök alınaraq <span class="math inline">\(h(x)\)</span>
+çoxhədlisi çıxarılır: <span class="math display">\[\begin{equation}
+h(x) \equiv \sqrt{v(x) + x} \pmod{g(x)}
+\end{equation}\]</span></p>
+<h4 id="genişləndirilmiş-evklid-alqoritmi">3. Genişləndirilmiş Evklid
+alqoritmi:</h4>
+<p>Dərəcəsi ən çox <span class="math inline">\(\lfloor t/2
+\rfloor\)</span> olan elə <span class="math inline">\(a(x)\)</span> və
+<span class="math inline">\(b(x)\)</span> çoxhədliləri tapılır ki, onlar
+aşağıdakı şərti ödəsinlər: <span class="math display">\[\begin{equation}
+a(x) \equiv b(x) \cdot h(x) \pmod{g(x)}
+\end{equation}\]</span> Bu addım genişləndirilmiş Evklid alqoritmini<a
+href="#fn16" class="footnote-ref" id="fnref16"
+role="doc-noteref"><sup>16</sup></a> (<span
+class="math inline">\(g(x)\)</span> və <span
+class="math inline">\(h(x)\)</span> çoxhədliləri üçün) qalıq
+çoxhədlisinin dərəcəsi <span class="math inline">\(\lfloor t/2
+\rfloor\)</span> səviyyəsinə düşənə qədər icra etməklə
+reallaşdırılır.</p>
+<h4 id="lokator-çoxhədlisinin-qurulması">4. Lokator Çoxhədlisinin
+Qurulması:</h4>
+<p>Tapılmış <span class="math inline">\(a(x)\)</span> və <span
+class="math inline">\(b(x)\)</span> komponentləri vasitəsilə axtarılan
+<span class="math inline">\(\sigma(x)\)</span> xəta lokator çoxhədlisi
+sintez edilir: <span class="math display">\[\begin{equation}
+\sigma(x) = a^2(x) + x \cdot b^2(x)
+\end{equation}\]</span></p>
+<h4 id="xəta-yerlərinin-tapılması-çen-axtarışı">5. Xəta yerlərinin
+tapılması (Çen axtarışı):</h4>
+<p>Son mərhələdə <span class="math inline">\(\sigma(x)\)</span>
+çoxhədlisinin <span class="math inline">\(\mathbb{F}_{2^m}\)</span>
+meydanındakı kökləri Çen axtarışı<a href="#fn17" class="footnote-ref"
+id="fnref17" role="doc-noteref"><sup>17</sup></a> vasitəsilə yoxlanılır.
+Əgər bir <span class="math inline">\(\alpha_i\)</span> elementi üçün
+<span class="math inline">\(\sigma(\alpha_i) = 0\)</span> şərti
+ödənirsə, deməli <span class="math inline">\(i\)</span>-ci mövqedə xəta
+baş verib və xəta vektorunun həmin indeksi <span
+class="math inline">\(e_i = 1\)</span> olaraq təyin edilir.</p>
+</div>
+<h2 id="classic-mceliece-parametrləri">Classic McEliece
+Parametrləri</h2>
+<p><em>Classic McEliece</em> NIST PQC prosesində dördüncü raund
+finalçısı olmuş, lakin 2025-ci ildə əlavə KEM standartı kimi
+seçilməmişdir <span class="citation"
+data-cites="nist2026pqcstatus"></span>. Onun əsas praktik çatışmazlığı
+çox böyük açıq açarlardır. Cədvəl <a href="#tab:mceliece_params"
+data-reference-type="ref"
+data-reference="tab:mceliece_params">[tab:mceliece_params]</a>-də
+Classic McEliece təqdimatındakı üç parametr dəstinin ölçüləri
+göstərilir; bunlar NIST standartının parametrləri deyil.</p>
+<div class="note">
+<p><span>McEliece Sxeminin Kriptoqrafik Analizi</span>
+<strong>Üstünlükləri:</strong></p>
+<ul>
+<li><p>Uzun kriptoanaliz tarixinə və kod əsaslı fərziyyələrə söykənən
+konservativ namizədlərdən biridir.</p></li>
+<li><p>Əsas əməliyyatları praktik olaraq səmərəli ola bilər, lakin
+performans konkret parametr və tətbiqdən asılıdır.</p></li>
+<li><p>Təqdimatdakı şifrəli mətn ölçüləri açıq açarlara nisbətən
+kiçikdir.</p></li>
+</ul>
+<p><strong>Çatışmazlıqları:</strong></p>
+<ul>
+<li><p><strong>Ekstremal açar ölçüləri:</strong> Açıq açarın ölçüsünün
+yüzlərlə kilobayt olması şəbəkə protokollarında (məsələn, TLS) ciddi
+yaddaş və ötürülmə problemləri yaradır.</p></li>
+<li><p>Gizli açar matrislərinin və Goppa kodunun generasiya prosesi
+hesablama baxımından yavaşdır.</p></li>
+</ul>
+</div>
+<h2 id="müasir-kod-əsaslı-alternativlər">Müasir Kod Əsaslı
+Alternativlər</h2>
+<p>Açıq açarın böyük ölçüsünü azaltmaq üçün xüsusi strukturlu kodlardan
+istifadə edən BIKE və HQC də NIST PQC prosesinin dördüncü raundunda
+qiymətləndirilmişdir. NIST 2025-ci ildə HQC-ni əlavə KEM kimi seçmiş,
+BIKE-ni və Classic McEliece-i isə seçməmişdir; HQC üçün FIPS
+standartının hazırlanması davam edir <span class="citation"
+data-cites="nist2026pqcstatus"></span>.</p>
+<h3 id="bike-açar-enkapsulyasiyası">BIKE açar enkapsulyasiyası</h3>
+<p>BIKE alqoritmi kvazi-dövrü orta sıxlıqlı paritet-yoxlama (QC-MDPC)
+kodlarına əsaslanır <span class="citation"
+data-cites="avarvari2022bike"></span>. Dövrü struktur təqdimat
+parametrlərində açar ölçülərini kilobaytlar səviyyəsinə endirir (Cədvəl
+<a href="#tab:bike_params" data-reference-type="ref"
+data-reference="tab:bike_params">1</a>); cədvəldəki ölçülər həmin
+təqdimat versiyasına aiddir və alqoritm NIST tərəfindən standart kimi
+seçilməmişdir.</p>
+<table id="tab:bike_params">
+<caption>BIKE alqoritminin parametr ölçüləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parametr Dəsti</strong></th>
+<th style="text-align: center;"><strong>BIKE-128</strong></th>
+<th style="text-align: center;"><strong>BIKE-192</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açıq Açar (<em>pk</em>) Ölçüsü</td>
+<td style="text-align: center;">1,541 B</td>
+<td style="text-align: center;">3,082 B</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gizli Açar (<em>sk</em>) Ölçüsü</td>
+<td style="text-align: center;">3,114 B</td>
+<td style="text-align: center;">6,226 B</td>
+</tr>
+<tr>
+<td style="text-align: left;">Şifrəli Mətn (<em>ct</em>) Ölçüsü</td>
+<td style="text-align: center;">1,573 B</td>
+<td style="text-align: center;">3,146 B</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hqc-kvazi-dövrü-hemminq-sxemi">HQC kvazi-dövrü Hemminq
+sxemi</h3>
+<p>HQC strukturlaşdırılmış kvazi-dövrü kod əsaslı KEM-dir <span
+class="citation" data-cites="melchor2018hqc"></span>. Açıq açarın
+təhlükəsizliyi kvazi-dövrü sindrom deşifrələmə və kod sözü tapma
+problemləri ilə əlaqələndirilir; daxili xəta-düzəldən kod isə düzgün
+dekapsulyasiyaya xidmət edir. Yan kanal davamlılığı riyazi addan
+avtomatik yaranmır və sabit-zamanlı, yoxlanmış realizasiyadan asılıdır.
+Cədvəl <a href="#tab:hqc_params" data-reference-type="ref"
+data-reference="tab:hqc_params">2</a>-dəki ölçülər seçilmiş təqdimat
+versiyasına aiddir; 2025-ci il seçimindən sonra hazırlanacaq FIPS mətni
+ilə yenidən yoxlanmalıdır <span class="citation"
+data-cites="nist2026pqcstatus"></span>.</p>
+<table id="tab:hqc_params">
+<caption>HQC alqoritminin parametr ölçüləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parametr Dəsti</strong></th>
+<th style="text-align: center;"><strong>HQC-128</strong></th>
+<th style="text-align: center;"><strong>HQC-192</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açıq Açar (<em>pk</em>) Ölçüsü</td>
+<td style="text-align: center;">2,249 B</td>
+<td style="text-align: center;">4,522 B</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gizli Açar (<em>sk</em>) Ölçüsü</td>
+<td style="text-align: center;">2,289 B</td>
+<td style="text-align: center;">4,586 B</td>
+</tr>
+<tr>
+<td style="text-align: left;">Şifrəli Mətn (<em>ct</em>) Ölçüsü</td>
+<td style="text-align: center;">4,497 B</td>
+<td style="text-align: center;">9,026 B</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kem-alqoritmlərinin-sistem-müqayisəsi">KEM Alqoritmlərinin
+Sistem Müqayisəsi</h2>
+<p>Cədvəl <a href="#tab:kem_comparison" data-reference-type="ref"
+data-reference="tab:kem_comparison">3</a>-də kod əsaslı sxemlərin ölçü
+parametrləri qəfəs əsaslı ML-KEM (<em>Kyber</em>) standartı ilə müqayisə
+edilmişdir.</p>
+<table id="tab:kem_comparison">
+<caption>Kod əsaslı və qəfəs əsaslı post-kvant KEM sxemlərinin struktur
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm Standartı</strong></th>
+<th style="text-align: center;"><strong>Açıq Açar
+(<em>pk</em>)</strong></th>
+<th style="text-align: center;"><strong>Şifrəli Mətn
+(<em>ct</em>)</strong></th>
+<th style="text-align: left;"><strong>Kriptoqrafik
+Arxitekturası</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>McEliece348864</strong></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+261\)</span> KB</td>
+<td style="text-align: center;">128 B</td>
+<td style="text-align: left;">Klassik Goppa kodları (seçilməyib)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>BIKE-128</strong></td>
+<td style="text-align: center;">1.5 KB</td>
+<td style="text-align: center;">1.5 KB</td>
+<td style="text-align: left;">QC-MDPC kodları (seçilməyib)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>HQC-128</strong></td>
+<td style="text-align: center;">2.2 KB</td>
+<td style="text-align: center;">4.4 KB</td>
+<td style="text-align: left;">Kvazi-dövrü kodlar (FIPS hazırlanır)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ML-KEM-768</strong></td>
+<td style="text-align: center;">1.1 KB</td>
+<td style="text-align: center;">1.0 KB</td>
+<td style="text-align: left;">Qəfəs Əsaslı (NIST Əsas Standartı)</td>
+</tr>
+</tbody>
+</table>
+<div class="tcolorbox">
+<p>Tələbə kod əsaslı KEM-in təhlükəsizlik fərziyyəsini, böyük açar
+ölçüsünü və standart statusunu ayrı meyarlar kimi izah etməlidir. Bu
+meyarların heç biri təkbaşına istehsal seçimi vermir.</p>
+</div>
+<h1 class="unnumbered" id="ii-hissə-heş-əsaslı-imzalar">II hissə: Heş
+əsaslı imzalar</h1>
+<h1 id="heş-əsaslı-kriptoqrafiya">Heş əsaslı kriptoqrafiya</h1>
+<h2 id="fundamental-prinsiplər-1">Fundamental Prinsiplər</h2>
+<p>Heş əsaslı kriptoqrafiya riyazi olaraq kriptoqrafik
+<strong>birtərəfli heş funksiyalarının</strong>, məsələn, SHA-2 və
+SHA-3-ün toqquşmaya və ilkin təsvirə qarşı davamlılıq xassələrinə
+əsaslanır. Bu kriptoqrafik ailə <strong>yalnız rəqəmsal imza</strong>
+sxemlərinin qurulması üçün istifadə olunur; bu prinsiplərlə asimmetrik
+şifrələmə qurulmur <span class="citation"
+data-cites="merkle1989one"></span>.</p>
+<div class="history">
+<p><span>Lamport Birdəfəlik İmzası</span> 1979-cu ildə Lesli Lamport
+tərəfindən ilk heş əsaslı rəqəmsal imza konsepsiyası təklif edilmişdir
+<span class="citation" data-cites="lamport1979constructing"></span>.
+Lamport sxemi bir <strong>birdəfəlik imza</strong> (OTS) modelidir. Bu
+modeldə generasiya edilən hər bir asimmetrik açar cütü yalnız bir
+mesajın imzalanması üçün istifadə edilə bilər.</p>
+</div>
+<h2 id="lamport-imza-sxemi">Lamport imza sxemi</h2>
+<div class="keyconcept">
+<p><span>Lamport Alqoritminin Riyazi Arxitekturası</span> Fərz edək ki,
+<span class="math inline">\(H: \{0,1\}^* \rightarrow \{0,1\}^k\)</span>
+kriptoqrafik heş funksiyasıdır və imzalanacaq mesajın heş dəyəri <span
+class="math inline">\(k\)</span> bit uzunluğundadır.</p>
+<h4 id="açar-yaradılması-1">1. Açar yaradılması:</h4>
+<ul>
+<li><p><strong>Gizli Açar (<span
+class="math inline">\(sk\)</span>):</strong> Kriptoqrafik təsadüfi
+ədədlər generatoru vasitəsilə hər biri <span
+class="math inline">\(k\)</span>-bit uzunluğunda olan <span
+class="math inline">\(2k\)</span> sayda tamamilə təsadüfi gizli dəyər
+generasiya olunur və matris formasında qruplaşdırılır: <span
+class="math display">\[\begin{equation}
+    sk = \begin{pmatrix}
+    x_{1,0} &amp; x_{2,0} &amp; \dots &amp; x_{k,0} \\
+    x_{1,1} &amp; x_{2,1} &amp; \dots &amp; x_{k,1}
+    \end{pmatrix}
+\end{equation}\]</span></p></li>
+<li><p><strong>Açıq Açar (<span
+class="math inline">\(pk\)</span>):</strong> Gizli açarın hər bir
+komponentinə birtərəfli heş funksiyasının tətbiqi ilə əldə edilir: <span
+class="math display">\[\begin{equation}
+    pk = \begin{pmatrix}
+    y_{1,0} &amp; y_{2,0} &amp; \dots &amp; y_{k,0} \\
+    y_{1,1} &amp; y_{2,1} &amp; \dots &amp; y_{k,1}
+    \end{pmatrix} =
+    \begin{pmatrix}
+    H(x_{1,0}) &amp; H(x_{2,0}) &amp; \dots &amp; H(x_{k,0}) \\
+    H(x_{1,1}) &amp; H(x_{2,1}) &amp; \dots &amp; H(x_{k,1})
+    \end{pmatrix}
+\end{equation}\]</span></p></li>
+</ul>
+<h4 id="imza-yaratma">2. İmza yaratma:</h4>
+<p>İmzalanacaq <span class="math inline">\(M\)</span> mesajının əvvəlcə
+heş dəyəri hesablanır: <span class="math inline">\(m = H(M) = m_1 m_2
+\dots m_k \in \{0,1\}^k\)</span>.</p>
+<p>İmza vektoru (<span class="math inline">\(\Sigma\)</span>) mesajın
+hər bir <span class="math inline">\(m_i\)</span> bitinin dəyərinə (<span
+class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span>) uyğun olaraq gizli açar matrisindən
+sütun-sütun seçilir. Əgər mesajın <span
+class="math inline">\(i\)</span>-ci biti <span
+class="math inline">\(0\)</span>-dırsa, gizli açarın birinci sətrindəki
+<span class="math inline">\(x_{i,0}\)</span> dəyəri, yox əgər <span
+class="math inline">\(1\)</span>-dirsə, ikinci sətrindəki <span
+class="math inline">\(x_{i,1}\)</span> dəyəri imzaya daxil edilir: <span
+class="math display">\[\begin{equation}
+\Sigma = \Big( s_1, s_2, \dots, s_k \Big) = \Big( x_{1, m_1}, x_{2,
+m_2}, \dots, x_{k, m_k} \Big)
+\end{equation}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>3-bitlik Mesajın
+İmzalanması</span> Fərz edək ki, <span class="math inline">\(3\)</span>
+bitlik bir mesajımız var və onun heş dəyəri <span
+class="math inline">\(m = 101\)</span>-dir (yəni <span
+class="math inline">\(m_1=1, m_2=0, m_3=1\)</span>). Generasiya olunmuş
+gizli açar matrisi isə aşağıdakı kimidir: <span
+class="math display">\[\begin{equation}
+sk = \begin{pmatrix}
+x_{1,0} &amp; x_{2,0} &amp; x_{3,0} \\
+x_{1,1} &amp; x_{2,1} &amp; x_{3,1}
+\end{pmatrix}
+\end{equation}\]</span></em></p>
+<p><em>Bu mesaj üçün imza yaradarkən <span class="math inline">\(m =
+101\)</span> bitlərinə əsasən növbəti seçimləri edirik:</em></p>
+<ul>
+<li><p><em>1-ci bit <span class="math inline">\(m_1 = 1
+\implies\)</span> 1-ci sütundan <span class="math inline">\(1\)</span>
+indeksli elementi seçirik: <span class="math inline">\(s_1 =
+x_{1,1}\)</span></em></p></li>
+<li><p><em>2-ci bit <span class="math inline">\(m_2 = 0
+\implies\)</span> 2-ci sütundan <span class="math inline">\(0\)</span>
+indeksli elementi seçirik: <span class="math inline">\(s_2 =
+x_{2,0}\)</span></em></p></li>
+<li><p><em>3-cü bit <span class="math inline">\(m_3 = 1
+\implies\)</span> 3-cü sütundan <span class="math inline">\(1\)</span>
+indeksli elementi seçirik: <span class="math inline">\(s_3 =
+x_{3,1}\)</span></em></p></li>
+</ul>
+<p><em>Nəticədə əldə edilən yekun rəqəmsal imza vektoru bu şəkildə olur:
+<span class="math display">\[\begin{equation}
+\Sigma = (x_{1,1}, \, x_{2,0}, \, x_{3,1})
+\end{equation}\]</span> Hücumçu gizli matrisin yalnız bu 3 elementini
+görür, digər 3 elementi (<span class="math inline">\(x_{1,0}, x_{2,1},
+x_{3,0}\)</span>) isə gizli qalır.</em></p>
+</div>
+<h4 id="imzanın-yoxlanılması">3. İmzanın yoxlanılması:</h4>
+<p>Açıq açara (<span class="math inline">\(pk\)</span>) və <span
+class="math inline">\(M\)</span> mesajına malik olan yoxlayan tərəf
+əvvəlcə mesajın heşini hesablayır: <span class="math inline">\(m = H(M)
+= m_1 m_2 \dots m_k\)</span>.</p>
+<p>Daha sonra o, göndərilən <span class="math inline">\(\Sigma = (s_1,
+s_2, \dots, s_k)\)</span> imza vektorundakı hər bir <span
+class="math inline">\(s_i\)</span> elementini tək-tək heşdən keçirir və
+alınan nəticəni açıq açar matrisinin <span
+class="math inline">\(i\)</span>-ci sütununda, mesajın <span
+class="math inline">\(m_i\)</span> bitinə uyğun gələn sətirdəki <span
+class="math inline">\(y_{i, m_i}\)</span> dəyəri ilə müqayisə edir:
+<span class="math display">\[\begin{equation}
+H(s_i) \stackrel{?}{=} y_{i, m_i} \quad \forall i \in \{1, 2, \dots, k\}
+\end{equation}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>3-bitlik Mesajın İmzasının
+Yoxlanılması</span> Əvvəlki nümunədən başlasaq, yoxlayan tərəf <span
+class="math inline">\(m = 101\)</span> mesajını və <span
+class="math inline">\(\Sigma = (s_1, s_2, s_3) = (x_{1,1}, x_{2,0},
+x_{3,1})\)</span> imzasını qəbul edir. Əlindəki açıq açar matrisi isə
+budur: <span class="math display">\[\begin{equation}
+pk = \begin{pmatrix}
+y_{1,0} &amp; y_{2,0} &amp; y_{3,0} \\
+y_{1,1} &amp; y_{2,1} &amp; y_{3,1}
+\end{pmatrix}
+\end{equation}\]</span></em></p>
+<p><em>Yoxlama prosesi növbəti addımlarla icra olunur:</em></p>
+<ul>
+<li><p><em>1-ci bit <span class="math inline">\(m_1 = 1 \implies
+H(s_1)\)</span> hesablanır və matrisdəki <span
+class="math inline">\(y_{1,1}\)</span> ilə müqayisə edilir. (<span
+class="math inline">\(H(x_{1,1}) \stackrel{?}{=}
+y_{1,1}\)</span>)</em></p></li>
+<li><p><em>2-ci bit <span class="math inline">\(m_2 = 0 \implies
+H(s_2)\)</span> hesablanır və matrisdəki <span
+class="math inline">\(y_{2,0}\)</span> ilə müqayisə edilir. (<span
+class="math inline">\(H(x_{2,0}) \stackrel{?}{=}
+y_{2,0}\)</span>)</em></p></li>
+<li><p><em>3-cü bit <span class="math inline">\(m_3 = 1 \implies
+H(s_3)\)</span> hesablanır və matrisdəki <span
+class="math inline">\(y_{3,1}\)</span> ilə müqayisə edilir. (<span
+class="math inline">\(H(x_{3,1}) \stackrel{?}{=}
+y_{3,1}\)</span>)</em></p></li>
+</ul>
+<p><em>Əgər bu 3 müqayisənin hər biri doğrudursa, imza etibarlı sayılır.
+Hücumçu gizli <span class="math inline">\(x\)</span> dəyərlərini
+bilmədən heşi <span class="math inline">\(y\)</span> olan bir ədəd tapıb
+qoya bilməz (çünki heş funksiyası birtərəflidir).</em></p>
+</div>
+</div>
+<div class="warning">
+<p><span>Açarın təkrar istifadəsi riski</span> Lamport imza sxemində hər
+imza <span class="math inline">\(i\)</span> mövqeyi üçün yalnız <span
+class="math inline">\(x_{i,m_i}\)</span> dəyərini açıqlayır. Eyni açarla
+fərqli mesajlar imzalandıqca bəzi mövqelərdə hər iki dəyər açılır və
+hücumçunun imzalaya biləcəyi heş dəyərləri çoxalır. İki imza bütün
+ixtiyari mesajların dərhal saxtalaşdırılmasına həmişə kifayət etmir,
+lakin birdəfəlik təhlükəsizlik zəmanəti artıq qüvvədən düşür; buna görə
+Lamport açarı təkrar istifadə edilməməlidir.</p>
+</div>
+<h2 id="merkl-ağacları-və-çoxdəfəlik-imza-konstruksiyaları">Merkl
+Ağacları və Çoxdəfəlik İmza Konstruksiyaları</h2>
+<p>Ralf Merkl fərqli Lamport (və ya Winternitz) birdəfəlik imza
+açarlarını <strong>Merkl ağacı</strong> adlanan binar heş ağacı
+strukturunda birləşdirərək vahid açıq açarla çoxlu sayda mesajın
+imzalanmasına imkan verən sistem təklif etmişdir <span class="citation"
+data-cites="merkle1989one"></span>. Ağac bir OTS açarını çoxdəfəlik
+etmir: hər yarpaqdakı OTS açarı yenə yalnız bir dəfə istifadə
+olunur.</p>
+<p>Ağacın ən alt yarpaqları birdəfəlik imza sxemlərinin (<span
+class="math inline">\(OTS_i\)</span>) açıq açarlarının heşlərindən
+ibarətdir. Hər bir valideyn düyün öz övladlarının heşlərinin
+birləşdirilib (<span class="math inline">\(||\)</span>) yenidən
+heşlənməsi ilə tapılır. Ağacın <strong>kök düyünü</strong> sistemin
+yeganə ümumi açıq açarı rolunu oynayır (Şəkil <a href="#fig:merkle_tree"
+data-reference-type="ref" data-reference="fig:merkle_tree">1</a>).</p>
+<figure id="fig:merkle_tree" data-latex-placement="h">
+
+<figcaption>Merkl ağacı iyerarxiyası vasitəsilə birdəfəlik imzaların
+birləşdirilməsi</figcaption>
+</figure>
+<h2
+id="sphincs-daxili-vəziyyəti-olmayan-heş-əsaslı-imza-standartı">SPHINCS+
+— Daxili vəziyyəti olmayan Heş Əsaslı İmza Standartı</h2>
+<div class="history">
+<p><span>SPHINCS+ Təkamülü</span> SPHINCS+ alqoritmik olaraq 2015-ci
+ildə Daniel Bernşteyn və geniş tədqiqatçı qrupu tərəfindən
+hazırlanmışdır <span class="citation"
+data-cites="bernstein2015sphincs"></span>. NIST post-kvant
+standartlaşdırma proqramı çərçivəsində bəyənilərək <strong>FIPS
+205</strong> kodu altında rəsmi olaraq standartlaşdırılmışdır <span
+class="citation" data-cites="nist2024fips205"></span>.</p>
+</div>
+<div class="keyconcept">
+<p><span>SPHINCS+ Daxili Mexanizmi və Üstünlükləri</span></p>
+<ul>
+<li><p><strong>Vəziyyətsiz struktur:</strong> SLH-DSA imzalayıcının
+istifadə edilmiş yarpaq indekslərinin sayğacını saxlamasını tələb etmir.
+Mesajın təsadüfiləşdirilmiş heş dəyəri FORS və hiper-ağacdakı indeksləri
+müəyyən edir; parametr seçimi təkrar indeks ehtimalını təhlükəsizlik
+analizində məhdudlaşdırır, lakin onu riyazi olaraq sıfıra
+endirmir.</p></li>
+<li><p><strong>Heş əsaslı fərziyyələr:</strong> Təhlükəsizlik standartda
+konkretləşdirilən SHA-256 və ya SHAKE əsaslı funksiyaların uyğun
+ilkin-obraz, ikinci ilkin-obraz və toqquşma davamlılığı xüsusiyyətlərinə
+bağlanır; qəfəs və kod deşifrələmə fərziyyələrinə söykənmir.</p></li>
+<li><p><strong>Kvant hücum modeli:</strong> Şor alqoritmi heş
+funksiyalarını eksponensial sürətlə sındırmır. Ümumi kvant axtarışının
+təsiri parametr səviyyələri və çıxış uzunluqları seçilərkən nəzərə
+alınır.</p></li>
+</ul>
+</div>
+<h2 id="sphincs-parametrləri">SPHINCS+ Parametrləri</h2>
+<p>FIPS 205-də SHA2 və SHAKE ailələri üzrə, hər birində sürətə yönümlü
+(<code>f</code>) və ölçüyə yönümlü (<code>s</code>) olmaqla ümumilikdə
+12 parametr dəsti müəyyən edilir. Cədvəl <a href="#tab:sphincs_params"
+data-reference-type="ref" data-reference="tab:sphincs_params">4</a>-də
+onlardan üç nümunə göstərilmişdir.</p>
+<table id="tab:sphincs_params">
+<caption>FIPS 205 SLH-DSA parametr dəstlərindən üç nümunənin
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texniki Parametr</strong></th>
+<th style="text-align: center;"><strong>SLH-DSA-SHA2-128s</strong></th>
+<th style="text-align: center;"><strong>SLH-DSA-SHA2-128f</strong></th>
+<th style="text-align: center;"><strong>SLH-DSA-SHA2-256f</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Təhlükəsizlik Səviyyəsi</td>
+<td style="text-align: center;">Səviyyə 1 (AES-128)</td>
+<td style="text-align: center;">Səviyyə 1 (AES-128)</td>
+<td style="text-align: center;">Səviyyə 5 (AES-256)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açıq Açar (<em>pk</em>) Ölçüsü</td>
+<td style="text-align: center;">32 B</td>
+<td style="text-align: center;">32 B</td>
+<td style="text-align: center;">64 B</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gizli Açar (<em>sk</em>) Ölçüsü</td>
+<td style="text-align: center;">64 B</td>
+<td style="text-align: center;">64 B</td>
+<td style="text-align: center;">128 B</td>
+</tr>
+<tr>
+<td style="text-align: left;">İmza (<em>sig</em>) Ölçüsü</td>
+<td style="text-align: center;"><strong>7,856 B</strong></td>
+<td style="text-align: center;"><strong>17,088 B</strong></td>
+<td style="text-align: center;"><strong>49,856 B</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">İmzalama Sürəti</td>
+<td style="text-align: center;">Nisbətən Yavaş</td>
+<td style="text-align: center;">Çox Sürətli</td>
+<td style="text-align: center;">Orta Sürətli</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="daxili-vəziyyəti-olan-heş-əsaslı-imza-sxemləri-xmss-və-lms">Daxili
+vəziyyəti olan Heş Əsaslı İmza Sxemləri (XMSS və LMS)</h2>
+<p>İnfrastruktur baxımından SPHINCS+ alqoritmindən daha sürətli və kiçik
+imza ölçüsünə malik olan, lakin cari vəziyyətin qeydiyyatını tələb edən
+iki ilkin <strong>daxili vəziyyət saxlayan</strong> standart
+mövcuddur:</p>
+<ul>
+<li><p><strong>XMSS:</strong> Genişləndirilmiş Merkl İmza Sxemi IETF RFC
+8391 standartına malikdir <span class="citation"
+data-cites="huelsing2017xmss"></span>.</p></li>
+<li><p><strong>LMS:</strong> Leyton-Mikali imza sxemi IETF RFC 8554
+standartı çərçivəsində qəbul edilmişdir <span class="citation"
+data-cites="mcgrew2015lms"></span>.</p></li>
+</ul>
+<div class="warning">
+<p><span>Daxili Vəziyyət Saxlayan və Saxlamayan Sxemlərin Kritik
+Müqayisəsi</span> XMSS və LMS kimi <strong>daxili vəziyyət
+saxlayan</strong> sxemlərdə imza indeksi sayğacının dəqiq idarə edilməsi
+mütləqdir. Ehtiyat nüsxənin bərpası və ya virtual maşının
+klonlaşdırılması sayğacı geriyə qaytararsa, birdəfəlik yarpaq açarı
+təkrar istifadə oluna və sxemin təhlükəsizlik zəmanəti pozula bilər;
+nəticənin ağırlığı sxemdən və açıqlanan imzalardan asılıdır.
+<strong>SLH-DSA</strong> vəziyyətsiz olduğuna görə sayğacın geri
+qaytarılması riskini aradan qaldırır, lakin təsadüfilik, açar mühafizəsi
+və yan kanal təhlükəsizliyi kimi ümumi əməliyyat riskləri qalır.</p>
+</div>
+<div class="tcolorbox">
+<p>Tələbə Lamport açarının birdəfəlik olmasını, Merkl ağacının çoxlu
+açıq açarı bir kökə bağlamasını və SLH-DSA-nın daxili vəziyyət
+saxlamamasını ardıcıl izah etməlidir.</p>
+</div>
+<h1 class="unnumbered"
+id="iii-hissə-namizəd-ailələr-və-sistem-müqayisəsi">III hissə: Namizəd
+ailələr və sistem müqayisəsi</h1>
+<h1 id="çoxdəyişənli-kriptoqrafiya">Çoxdəyişənli kriptoqrafiya</h1>
+<h2 id="əsas-prinsiplər">Əsas prinsiplər</h2>
+<p>Çoxdəyişənli kriptoqrafiya <strong>sonlu meydan üzərində çoxdəyişənli
+kvadratik tənliklər sisteminin həllinin çətinliyinə</strong> əsaslanır
+<span class="citation" data-cites="kipnis1999unbalanced"></span>. Ümumi
+MQ problemi NP-çətindir; konkret imza sxeminin təhlükəsizliyi isə onun
+xüsusi strukturunun ümumi problemi həddindən artıq asanlaşdırmamasından
+və məlum klassik/kvant hücumlarının xərcindən asılıdır.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (MQ problemi). <em>Sonlu bir <span
+class="math inline">\(\mathbb{F}_q\)</span> meydanı üzərində verilmiş
+<span class="math inline">\(m\)</span> sayda və <span
+class="math inline">\(n\)</span> dəyişənli kvadratik tənliklər sistemini
+həll etmək problemidir: <span class="math display">\[\begin{equation}
+p_i(x_1, x_2, \dots, x_n) = \sum_{j=1}^n \sum_{k=j}^n \gamma_{ijk} x_j
+x_k + \sum_{j=1}^n \beta_{ij} x_j + \alpha_i = 0 \quad \forall i \in
+\{1, 2, \dots, m\}
+\end{equation}\]</span> Burada əmsallar <span
+class="math inline">\(\gamma_{ijk}, \beta_{ij}, \alpha_i \in
+\mathbb{F}_q\)</span> formasındadır və tənliyin axtarılan <span
+class="math inline">\((x_1, x_2, \dots, x_n)\)</span> həlləri də <span
+class="math inline">\(\mathbb{F}_q^n\)</span> fəzasına (yəni hər bir
+<span class="math inline">\(x_i \in \mathbb{F}_q\)</span>) aid
+olmalıdır.</em></p>
+</div>
+<h2 id="uov-imza-sxemi">UOV imza sxemi</h2>
+<div class="history">
+<p><span>UOV</span> UOV imza sxemi 1999-cu ildə Aviad Kipnis, Jacques
+Patarin və Louis Goubin tərəfindən təqdim edilmişdir <span
+class="citation" data-cites="kipnis1999unbalanced"></span>. UOV NIST-in
+əlavə post-kvant rəqəmsal imza prosesində 2026-cı ilin mayında üçüncü
+raunda keçirilmiş namizədlərdən biridir; bu, standartlaşdırma və ya
+təhlükəsizlik təsdiqi deyil <span class="citation"
+data-cites="nist2026ir8610"></span>.</p>
+</div>
+<div class="keyconcept">
+<p><span>UOV sxemi</span> UOV sxemi gizli vəziyyətdə (tərsini hesablamaq
+üçün) dəyişənləri iki qrupa bölür:</p>
+<ul>
+<li><p><strong>Sirkə (Vinegar) dəyişənləri (<span
+class="math inline">\(v\)</span> sayda):</strong> Tamamilə təsadüfi
+seçilən açıq dəyişənlər rolunu oynayır.</p></li>
+<li><p><strong>Yağ (Oil) dəyişənləri (<span
+class="math inline">\(o\)</span> sayda):</strong> Yalnız gizli açar
+sahibi tərəfindən bilinən xüsusi gizli dəyişənlərdir.</p></li>
+</ul>
+<p><strong>Əsas riyazi xüsusiyyət:</strong> Gizli kvadratik polinomların
+daxilində iki "Oil" dəyişəni heç vaxt bir-birinə vurulmur (<span
+class="math inline">\(x_{oil} \cdot x_{oil}\)</span> hadisəsi baş
+vermir). Vinegar dəyişənləri seçildikdən sonra Oil dəyişənləri üzrə
+xətti sistem alınır və gizli açar sahibi bu sistemi həll etməklə imza
+yaradır <span class="citation"
+data-cites="kipnis1999unbalanced"></span>.</p>
+</div>
+<table>
+<caption>UOV təqdimatındakı seçilmiş variantların ölçüləri;
+standartlaşdırma zamanı dəyişə bilər <span class="citation"
+data-cites="nist2026ir8610"></span></caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Variant</strong></th>
+<th style="text-align: center;"><strong>Açıq açar</strong></th>
+<th style="text-align: center;"><strong>Gizli açar</strong></th>
+<th style="text-align: center;"><strong>İmza ölçüsü</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">UOV classic</td>
+<td style="text-align: center;">272 KB</td>
+<td style="text-align: center;">76 KB</td>
+<td style="text-align: center;">128 bayt</td>
+</tr>
+<tr>
+<td style="text-align: left;">UOV-pkc</td>
+<td style="text-align: center;">43 KB</td>
+<td style="text-align: center;">76 KB</td>
+<td style="text-align: center;">144 bayt</td>
+</tr>
+<tr>
+<td style="text-align: left;">UOV-pkc+skc</td>
+<td style="text-align: center;">43 KB</td>
+<td style="text-align: center;">42 KB</td>
+<td style="text-align: center;">80 bayt</td>
+</tr>
+</tbody>
+</table>
+<div class="warning">
+<p><span>Rainbow sındırıldı</span> UOV-dən törəyən çoxsəviyyəli
+<strong>Rainbow</strong> imza sxemi 2022-ci ildə Ward Beullens-in
+praktik açar-bərpa hücumu ilə sındırılmışdır <span class="citation"
+data-cites="beullens2022rainbow"></span>. Hücum Rainbow-un strukturunun
+təhlükəli olduğunu göstərir; o, UOV-ni eyni üsulla avtomatik sındırmır,
+lakin UOV üçün müstəqil kriptoanaliz və NIST qiymətləndirilməsi yenə
+zəruridir.</p>
+</div>
+<h2 id="snova-yeni-ümid">SNOVA — yeni ümid</h2>
+<p>SNOVA, 2023-cü ildə təklif edilmiş və ənənəvi çoxdəyişənli
+sistemlərin ən böyük çatışmazlığı olan böyük açar ölçüsü problemini həll
+etməyə yönəlmiş yeni nəsil imza sxemidir <span class="citation"
+data-cites="duong2023snova"></span>. O, kvadratik tənlikləri matrislər
+üzərində quraraq strukturu optimallaşdırır.</p>
+<p>SNOVA 2026-cı ilin mayında NIST-in əlavə imza prosesinin üçüncü
+raunduna keçmişdir <span class="citation"
+data-cites="nist2026ir8610"></span>. Təqdimat variantlarından bəziləri
+UOV ilə müqayisədə kiçik açıq açar və imza təklif edir, lakin ölçülər
+konkret parametr və açar-sıxlaşdırma rejimindən asılıdır. Namizəd hələ
+standart deyil; təhlükəsizlik və realizasiya nəticələri yekunlaşmadan
+onu istehsal protokolu üçün universal seçim saymaq olmaz.</p>
+<h1 id="növbəti-mühazirəyə-keçid-məxfilik-və-kvant-rabitəsi">Növbəti
+Mühazirəyə Keçid: Məxfilik və Kvant Rabitəsi</h1>
+<p>Kod, heş və çoxdəyişənli PQC ailələrinin müqayisəsi bu mühazirənin
+son əsas mövzusudur. Sıfır bilik sübutu, homomorf şifrələmə, blokçeyn və
+QKD burada ayrıca tərif edilmir: onların təhlükəsizlik məqsədləri,
+məhdudiyyətləri və sistem seçimi 30-cu yekun mühazirədə vahid
+inteqrasiya ssenarisi üzərində öyrəniləcək.</p>
+<div class="tcolorbox">
+<p>Növbəti mühazirəyə qədər bu sualı hazırlayın: PQC mövcud açar
+razılaşdırılması və imzanı kvant hücumuna qarşı dəyişir; bəs ZKP, FHE,
+blokçeyn və QKD hansı fərqli sistem problemini həll edir? Cavabda
+primitivin adını deyil, təmin etdiyi xassəni və tələb etdiyi etibar
+modelini göstərin.</p>
+</div>
+<h1 id="pqc-ailələrinin-müqayisəli-analizi">PQC Ailələrinin Müqayisəli
+Analizi</h1>
+<p>Post-Kvant Kriptoqrafiyası (PQC) sahəsində təklif edilən əsas riyazi
+ailələrin bir-birinə nəzərən texniki üstünlükləri, açar və imza
+ölçüləri, həmçinin NIST standartlaşdırma statusları Cədvəl <a
+href="#tab:pqc_comparison" data-reference-type="ref"
+data-reference="tab:pqc_comparison">5</a>-də ətraflı şəkildə müqayisə
+edilmişdir.</p>
+<table id="tab:pqc_comparison">
+<caption>Müxtəlif riyazi problemlərə əsaslanan PQC ailələrinin
+müqayisəli texniki xüsusiyyətləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Texniki Meyar</strong></th>
+<th style="text-align: left;"><strong>Qəfəs Əsaslı</strong></th>
+<th style="text-align: left;"><strong>Kod Əsaslı</strong></th>
+<th style="text-align: left;"><strong>Heş Əsaslı</strong></th>
+<th style="text-align: left;"><strong>Çoxdəyişənli</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Nümayəndələr</strong></td>
+<td style="text-align: left;">ML-KEM (Kyber), ML-DSA (Dilithium), FN-DSA
+(FALCON)</td>
+<td style="text-align: left;">Classic McEliece, BIKE, HQC</td>
+<td style="text-align: left;">SLH-DSA (SPHINCS+), XMSS, LMS</td>
+<td style="text-align: left;">UOV, SNOVA</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kriptoqrafik
+Funksiya</strong></td>
+<td style="text-align: left;">KEM + Rəqəmsal İmza</td>
+<td style="text-align: left;">KEM (Açar Bölüşdürülməsi)</td>
+<td style="text-align: left;">Rəqəmsal İmza</td>
+<td style="text-align: left;">Rəqəmsal İmza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Açıq Açar Ölçüsü</strong></td>
+<td style="text-align: left;">0.8 – 2.5 KB</td>
+<td style="text-align: left;">1.5 – 261 KB</td>
+<td style="text-align: left;"><span class="math inline">\(\sim\)</span>
+32 Bayt</td>
+<td style="text-align: left;">1 – 272 KB</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>İmza / Şifrəli Mətn</strong></td>
+<td style="text-align: left;">0.6 – 4.5 KB</td>
+<td style="text-align: left;">0.1 – 4.5 KB</td>
+<td style="text-align: left;">8 – 50 KB</td>
+<td style="text-align: left;">0.1 – 0.3 KB</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hesablama Sürəti</strong></td>
+<td style="text-align: left;">Parametr və realizasiyadan asılıdır</td>
+<td style="text-align: left;">Parametr və realizasiyadan asılıdır</td>
+<td style="text-align: left;">Sxem və rejimdən asılıdır</td>
+<td style="text-align: left;">Namizəd və parametrdən asılıdır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Əsas fərziyyə</strong></td>
+<td style="text-align: left;">Modul qəfəs problemləri və sxem-spesifik
+analiz</td>
+<td style="text-align: left;">Kod deşifrələmə və sxem-spesifik
+analiz</td>
+<td style="text-align: left;">Heş funksiyalarının təhlükəsizlik
+xüsusiyyətləri</td>
+<td style="text-align: left;">Strukturlaşdırılmış MQ və sxem-spesifik
+analiz</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NIST statusu
+(26.07.2026)</strong></td>
+<td style="text-align: left;">ML-KEM: FIPS 203; ML-DSA: FIPS 204;
+FN-DSA: FIPS hazırlanır</td>
+<td style="text-align: left;">HQC: FIPS hazırlanır; BIKE və Classic
+McEliece seçilməyib</td>
+<td style="text-align: left;">SLH-DSA: FIPS 205; XMSS/LMS: IETF
+standartları</td>
+<td style="text-align: left;">UOV və SNOVA: əlavə imzaların 3-cü raund
+namizədləri</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<div class="tcolorbox">
+<p>Kriptoqrafik sistemlərin layihələndirilməsi zamanı təhlükəsizlik və
+performans balansını qorumaq üçün növbəti praktiki aspektlər nəzərə
+alınmalıdır:</p>
+<h4 id="ümumi-təyinatlı-tətbiqlər-üçün">Ümumi təyinatlı tətbiqlər
+üçün:</h4>
+<p>Standartlaşdırılmış <strong>ML-KEM</strong>, <strong>ML-DSA</strong>
+və ya <strong>SLH-DSA</strong> yalnız protokol profilinin, təhlükəsizlik
+səviyyəsinin, kitabxana dəstəyinin və miqrasiya planının tələblərinə
+uyğun seçilməlidir. Konkret parametr dəsti risk profili və qarşılıqlı
+işləmə standartı ilə əsaslandırılmalıdır.</p>
+<h4 id="imza-ölçüsü-kritik-olan-mühitlərdə">İmza ölçüsü kritik olan
+mühitlərdə:</h4>
+<p>Şəbəkə paketlərinin həcmi məhdud olduqda FN-DSA namizədinin kiçik
+imzaları cəlbedici ola bilər, lakin 26.07.2026 tarixində onun FIPS
+standartı hələ hazırlanır. İstehsal seçimi standartın tamamlanmasını,
+sabit-zamanlı realizasiyanı və platforma ölçmələrini gözləməlidir.</p>
+<h4 id="maksimum-və-konservativ-təhlükəsizlik-tələb-olunduqda">Maksimum
+və konservativ təhlükəsizlik tələb olunduqda:</h4>
+<p>Qəfəs və kod fərziyyələrindən asılı olmayan standartlaşdırılmış
+alternativ tələb olunursa, <strong>SLH-DSA</strong> nəzərdən keçirilə
+bilər. Onun heş əsaslı təhlükəsizlik arqumenti konservativ seçim verir,
+lakin “ən təhlükəsiz” kimi universal sıralama aparılmamalı; böyük imza
+və performans xərcləri profil üzrə ölçülməlidir.</p>
+<h4 id="uzunmüddətli-arxivləşdirmə-və-məxfilik-üçün">Uzunmüddətli
+arxivləşdirmə və məxfilik üçün:</h4>
+<p>Uzunmüddətli məxfilik üçün kriptoqrafik çeviklik, hibrid keçid, açar
+idarəetməsi və standartlaşdırılmış KEM profilinin birgə planlaşdırılması
+vacibdir. Classic McEliece-in uzun analiz tarixi maraqlıdır, lakin NIST
+tərəfindən seçilmədiyi üçün onu avtomatik istehsal seçimi saymaq
+olmaz.</p>
+<h4 id="miqrasiya-sınağı-üçün">Miqrasiya sınağı üçün:</h4>
+<p>Namizəd ailə yalnız alqoritm adına görə seçilməməlidir. Protokol
+mesajının ölçüsü, parçalanma, sertifikat zənciri, açar saxlanması,
+geriyə qaytarma siyasəti və qarşılıqlı işləmə ayrıca sınaq artefaktları
+ilə yoxlanmalıdır. Məxfilik texnologiyalarının və QKD-nin sistem
+səviyyəli seçimi 30-cu mühazirənin mövzusudur.</p>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Əvvəlcə bütün tapşırıqları qeydsiz cavablandırın, sonra cütlükdə
+arqumentləri müqayisə edin. Həllər müəllim üçün əlavədə verilir; yalnız
+ilkin cavab və əsaslandırma yazıldıqdan sonra açılmalıdır.</p>
+</div>
+<div id="ex:pqc-family-retrieval" class="exercise">
+<p><strong>Çalışma 1</strong>. <em>Classic McEliece/HQC, SLH-DSA/XMSS və
+UOV/SNOVA sxemlərini kod, heş və çoxdəyişənli ailələrə yerləşdirin; hər
+biri üçün KEM və ya imza rolunu göstərin.</em></p>
+</div>
+<div id="ex:pqc-profile" class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Bir firmware-update sistemi üçün imza
+tez-tez yoxlanılır, nadir yaradılır, cihaz yaddaşı məhduddur və daxili
+vəziyyəti idarə etmək mümkün deyil. SLH-DSA, XMSS və SNOVA namizədlərini
+standart statusu, daxili vəziyyət, açar/imza ölçüsü və yetkinlik üzrə
+qiymətləndirin; seçiminizi əsaslandırın.</em></p>
+</div>
+<div id="ex:lamport-transfer" class="exercise">
+<p><strong>Çalışma 3</strong>. <em>Eyni Lamport birdəfəlik açarı ilə iki
+fərqli mesaj imzalandıqda hansı gizli komponentlər açıla bilər? Bu riski
+Merkl ağacı çoxsaylı imzalarda necə idarə edir?</em></p>
+</div>
+<div id="ex:kem-decision" class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Uzunmüddətli arxiv sistemi üçün
+aşağıdakı iki profil verilib: A — kiçik şəbəkə mesajı vacibdir; B — uzun
+kriptoanaliz tarixi və böyük açara dözümlülük vacibdir. ML-KEM, HQC və
+Classic McEliece arasında hər profil üçün ilkin seçim edin və qərarı
+dəyişdirə biləcək iki əlavə ölçmə göstərin.</em></p>
+</div>
+<div id="ex:pqc-portfolio" class="exercise">
+<p><strong>Çalışma 5</strong>. <em>28–29-cu mühazirələrə əsasən KEM və
+imza üçün ayrıca alqoritm seçən hibrid miqrasiya portfeli hazırlayın.
+Standart statusu, ehtiyat rejim və zəif profilə endirmə riskini,
+qarşılıqlı işləmə və ölçmə planını daxil edin.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<h4 id="çalışma-expqc-family-retrieval-in-həlli">Çalışma <a
+href="#ex:pqc-family-retrieval" data-reference-type="ref"
+data-reference="ex:pqc-family-retrieval">1</a>-in həlli:</h4>
+<p>Classic McEliece və HQC kod əsaslı KEM-lərdir; SLH-DSA və XMSS heş
+əsaslı imzalardır; UOV və SNOVA çoxdəyişənli imza namizədləridir.
+Standart statusu alqoritm ailəsindən ayrıca göstərilməlidir.</p>
+<h4 id="çalışma-expqc-profile-in-həlli">Çalışma <a
+href="#ex:pqc-profile" data-reference-type="ref"
+data-reference="ex:pqc-profile">2</a>-in həlli:</h4>
+<p>XMSS daxili vəziyyət saxladığına görə etibarlı vəziyyət qeydiyyatı
+olmayan cihazda uyğun deyil. SNOVA 26 iyul 2026-da namizəddir, yekun
+standart deyil. SLH-DSA vəziyyətsiz və FIPS 205 standartıdır, lakin imza
+ölçüsü və performans konkret parametr üzrə ölçülməlidir; verilən
+şərtlərlə ilkin seçim SLH-DSA-dır.</p>
+<h4 id="çalışma-exlamport-transfer-in-həlli">Çalışma <a
+href="#ex:lamport-transfer" data-reference-type="ref"
+data-reference="ex:lamport-transfer">3</a>-in həlli:</h4>
+<p>Hər imza mesaj bitlərinə uyğun gizli elementlərin yarısını açıqlayır.
+İki fərqli mesaj eyni açarı işlətdikdə hücumçu daha çox cüt komponent
+görür və yeni mesaj üçün saxtalaşdırma imkanı arta bilər. Merkl ağacı
+bir kök açıq açar altında çoxlu ayrı birdəfəlik açarı autentifikasiya
+edir; hər yarpaq yenə yalnız bir dəfə işlənir.</p>
+<h4 id="çalışma-exkem-decision-in-həlli">Çalışma <a
+href="#ex:kem-decision" data-reference-type="ref"
+data-reference="ex:kem-decision">4</a>-in həlli:</h4>
+<p>A profili üçün standartlaşdırılmış və protokola uyğun ML-KEM ilkin
+namizəddir. B profili böyük açara dözürsə Classic McEliece-in uzun
+analiz tarixi araşdırıla bilər, lakin onun NIST standartı olmadığı
+ayrıca qeyd olunur; HQC üçün də yekun standart/profil gözlənilir.
+Müqayisəli ölçmə, sertifikat/protokol ölçüsü və reallaşdırma təminatı
+qərarı dəyişdirə biləcək ölçmələrdir.</p>
+<h4 id="çalışma-expqc-portfolio-in-həlli">Çalışma <a
+href="#ex:pqc-portfolio" data-reference-type="ref"
+data-reference="ex:pqc-portfolio">5</a>-in həlli:</h4>
+<p>Cavab KEM və imza rollarını ayırmalı, ən azı ML-KEM ilə klassik KEX
+kombinasiyası və ML-DSA və ya SLH-DSA imza yolu verməlidir. Danışıqlar
+transcript-ə bağlanmalı, zəif profilə endirmə rədd edilməli, sınaq
+vektorları və ölçmə büdcəsi göstərilməli, geri qayıtma köhnə zəif
+profilə səssiz qayıdış yaratmamalıdır.</p>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirə çərçivəsində post-kvant dövrünün kriptoqrafik çağırışları
+və onlara qarşı təklif edilən müasir məxfilik texnologiyalarının əsasını
+təşkil edən növbəti fundamental anlayışlar və arxitekturalar təhlil
+edilmişdir:</p>
+<ul>
+<li><p><strong>Kod əsaslı kriptoqrafiya:</strong> Classic McEliece uzun
+analiz tarixinə, lakin böyük açarlara malikdir. NIST 2025-ci ildə HQC-ni
+əlavə KEM kimi seçmiş, BIKE və Classic McEliece-i seçməmişdir; HQC
+standartının hazırlanması davam edir <span class="citation"
+data-cites="mceliece1978public nist2026pqcstatus"></span>.</p></li>
+<li><p><strong>Heş əsaslı kriptoqrafiya:</strong> Lamport OTS və Merkl
+ağacları əsas ideyalardır. FIPS 205-dəki SLH-DSA vəziyyətsiz, heş əsaslı
+standartdır; konservativ fərziyyələr böyük imza və performans
+kompromisləri ilə birlikdə qiymətləndirilir <span class="citation"
+data-cites="lamport1979constructing bernstein2015sphincs"></span>.</p></li>
+<li><p><strong>Çoxdəyişənli kriptoqrafiya:</strong> Strukturlaşdırılmış
+MQ sistemlərinə əsaslanır. Rainbow sındırılmışdır; UOV və SNOVA isə
+2026-cı ildə əlavə NIST imzalarının üçüncü raundunda qiymətləndirilən
+namizədlərdir, standart deyil <span class="citation"
+data-cites="kipnis1999unbalanced beullens2022rainbow nist2026ir8610"></span>.</p></li>
+<li><p><strong>Ailə seçimi:</strong> Standart statusu, açar və imza
+ölçüsü, realizasiya riski, protokol uyğunluğu və miqrasiya artefaktları
+birlikdə qiymətləndirilməlidir. Heç bir riyazi ailə təkcə adına görə
+universal seçim deyil.</p></li>
+</ul>
+<p><strong>Yekun nəticə:</strong> Post-kvant kriptoqrafiyası müxtəlif
+riyazi əsaslara malik şaxəli ekosistemdir. NIST-in FIPS 203, 204 və 205
+standartları əsas diqqəti qəfəs və heş əsaslı sistemlərə yönəldir; kod
+və çoxdəyişənli sxemlər isə ayrıca standart statusu və tətbiq profili
+tələb edir. Növbəti mühazirədə bu alqoritmlər təkrar öyrədilməyəcək,
+bütöv sistemin məxfilik və rabitə seçimlərinə daxil ediləcək.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><strong>Kriptoqrafik çeviklik (Crypto-agility):</strong>
+Sistemlərin əsas proqram təminatının arxitekturasını dəyişmədən,
+köhnəlmiş və ya sındırılmış kriptoqrafik alqoritmləri tez və təhlükəsiz
+şəkildə yeniləri ilə əvəz edə bilmək qabiliyyəti.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>Xətti korreksiyaedici kodlar (Linear
+error-correcting codes):</strong> Şəbəkə və ya yaddaş mühitində ötürülən
+verilənlərdə yaranan təhrifləri (xətaları) aşkar edib düzəltmək üçün
+istifadə olunan cəbri strukturlar. Kod əsaslı kriptoqrafiyada bu
+struktura qəsdən xətalar əlavə edilir.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><strong>OTS (One-Time Signature):</strong> Tək bir gizli
+açar ilə yalnız <strong>bir ədəd</strong> mesajın imzalanmasına icazə
+verən heş əsaslı imza sxemi. Eyni açarla ikinci mesajın imzalanması
+gizli açarın tamamilə ifşa olunmasına gətirib çıxarır.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><strong>UOV (Unbalanced Oil and Vinegar):</strong>
+Çoxdəyişənli kvadratik tənliklər sisteminin həllinin çətinliyinə
+əsaslanan imza sxemi. Dəyişənlər xətti ("yağ") və kvadratik ("sirkə")
+hissələrə bölünərək gizli mərkəzi xəritə (trapdoor) yaradılır.<a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><strong>Merkl ağacı (Merkle Tree):</strong> Yarpaq
+düyünləri məlumatların (və ya açarların) heş dəyərlərindən, daxili
+düyünləri isə övlad düyünlərin birləşməsinin heşindən ibarət olan ikili
+heş ağacı. Çoxlu sayda birdəfəlik açarları tək bir kök (root) heş
+altında birləşdirməyə imkan verir.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><strong>XMSS / LMS (Stateful Hash-based
+Signatures):</strong> Merkl ağacına əsaslanan, lakin imza atıldıqca
+hansı birdəfəlik açarın istifadə olunduğunu yaddaşda (<em>state</em>)
+saxlamalı olan RFC standartlı imza sxemləri.<a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><strong>Rainbow imza sxemi:</strong> UOV-nin çoxlaylı
+genişlənməsi olan çoxdəyişənli imza sxemi. 2022-ci ildə Uard Büyens
+(Ward Beullens) tərəfindən təklif edilən cəbri hücumla tamamilə
+sındırılmış və NIST müsabiqəsindən kənarlaşdırılmışdır.<a href="#fnref7"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><strong>SNOVA:</strong> UOV alqoritminin kommutativ
+olmayan matris halqaları üzərində qurulmuş, açar ölçülərini kəskin
+kiçiltdiyinə görə NIST PQC standartlaşdırma müsabiqəsinin növbəti
+mərhələlərinə keçmiş müasir çoxdəyişənli imza namizədi <span
+class="citation" data-cites="industrialcyber2026nist"></span>.<a
+href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><strong>Sindrom üzrə deşifrələmə (Syndrome
+Decoding):</strong> Verilmiş yoxlama matrisi və xəta indikatoru
+(sindrom) əsasında xəbərdəki ilkin xəta vektorunu bərpa etmə məsələsi.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><strong>Goppa kodu (Goppa Code):</strong> Sonlu
+meydanlar üzərində polinomlar vasitəsilə qurulan və mürəkkəb riyazi
+struktura malik xətti kodlar sınıfı. Bu kodlar effektiv deşifrələmə
+alqoritminə malik olduqları üçün McEliece kriptosistemində gizli mərkəzi
+xəritə (trapdoor) rolunu oynayır.<a href="#fnref10"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><strong>Permutasiya matrisi (Permutation
+Matrix):</strong> Hər sətir və sütununda yalnız bir ədəd <span
+class="math inline">\(1\)</span>, qalan elementləri isə <span
+class="math inline">\(0\)</span> olan kvadratik matris. Vektor və ya
+matrislə vurulduqda onun elementlərinin ardıcıllığını (yerini) dəyişmək
+üçün istifadə olunur.<a href="#fnref11" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><strong>Hemminq çəkisi (Hamming Weight):</strong>
+Vektorda sıfırdan fərqli olan elementlərin (binar halda <span
+class="math inline">\(1\)</span>-lərin) ümumi sayı. Məsələn, <span
+class="math inline">\((1, 0, 1, 1, 0)\)</span> vektorunun Hemminq çəkisi
+<span class="math inline">\(3\)</span>-ə bərabərdir.<a href="#fnref12"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><strong>Gətirilməyən Goppa çoxhədlisi (Irreducible
+Goppa Polynomial):</strong> Kodun parametrlərini təyin edən, <span
+class="math inline">\(\mathbb{F}_{2^m}\)</span> genişlənmə meydanında
+sıfıra çevrilməyən (kökü olmayan) və daha kiçik dərəcəli çoxhədlilərin
+hasilinə ayrılmayan çoxhədli. Çoxhədlinin gətirilməyən olması
+deşifrələmə alqoritminin unikal həllə malik olmasını təmin edir.<a
+href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><strong>Multiplikativ tərs (Multiplicative
+Inverse):</strong> Polyonomial halqada <span class="math inline">\(s(x)
+\cdot v(x) \equiv 1 \pmod{g(x)}\)</span> şərtini ödəyən <span
+class="math inline">\(v(x)\)</span> çoxhədlisidir. Genişləndirilmiş
+Evklid alqoritmi vasitəsilə tapılır.<a href="#fnref14"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><strong>Xarakteristika 2 (Characteristic 2):</strong>
+İkili Qalua meydanlarının (<span
+class="math inline">\(\mathbb{F}_{2^m}\)</span>) mühüm xassəsi; burada
+<span class="math inline">\(1+1=0\)</span> olduğu üçün kvadrat kökalma
+əməliyyatı unikal xətti inyeksiyadır. Məhz bu xassə Patterson
+alqoritminin klassik BMA alqoritmlərindən iki dəfə sürətli işləməsinə
+imkan verir.<a href="#fnref15" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><strong>Genişləndirilmiş Evklid alqoritmi (Extended
+Euclidean Algorithm):</strong> İki çoxhədlisinin ƏBOB-unu (ən böyük
+umumı bölənini) taparkən aralıq qalıq çoxhədlilərindən istifadə etməklə
+tənliyi <span class="math inline">\(a(x) + b(x)h(x) = k(x)g(x)\)</span>
+şəklində həll edən cəbri metod.<a href="#fnref16" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><strong>Çen axtarışı (Chien Search):</strong>
+Kodlaşdırma nəzəriyyəsində xəta lokator polinomunun köklərini sırayla
+bütün meydan elementlərini (<span class="math inline">\(2^m\)</span>)
+sınaqdan keçirməklə tapmaq üçün istifadə olunan, xüsusən aparat
+təminatında (hardware) parallel hesablanan sürətli alqoritm.<a
+href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (15)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] McEliece, 1978</span>
+                        <small class="text-muted">DSN Progress Report</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Public-Key Cryptosystem Based on Algebraic Coding Theory</h6>
+                    <p class="small text-secondary mb-0">McEliece, Robert J. (1978)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Avarvari &amp; Ciobanu, 2022</span>
+                        <small class="text-muted">IEEE Access</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Overview of BIKE: Bit Flipping Key Encapsulation</h6>
+                    <p class="small text-secondary mb-0">Avarvari, Andrei and Ciobanu, Radu-Ioan (2022)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Aguilar Melchor et al., 2018</span>
+                        <small class="text-muted">NIST PQC Standardization Submission</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Hamming Quasi-Cyclic (HQC)</h6>
+                    <p class="small text-secondary mb-0">Aguilar Melchor, Carlos and Aragon, Nicolas and Bettaieb, Slim and Bidoux, Lo\&quot;\ic and Blazy, Olivier and Deneuville, Jean-Christophe and Gaborit, Philippe and Z\&#x27;emor, Gilles (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Bernstein &amp; others, 2015</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT 2015</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SPHINCS: Practical Stateless Hash-Based Signatures</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein and others (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Huelsing et al., 2018</span>
+                        <small class="text-muted">Internet Engineering Task Force (IETF)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">XMSS: eXtended Merkle Signature Scheme</h6>
+                    <p class="small text-secondary mb-0">Huelsing, Andreas and Butin, Denis and Gazdag, Stefan-Lukas and Rijneveld, Joost and Mohamed, Aziz (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Kipnis et al., 1999</span>
+                        <small class="text-muted">Advances in Cryptology --- EUROCRYPT &#x27;99</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Unbalanced Oil and Vinegar Signature Schemes</h6>
+                    <p class="small text-secondary mb-0">Aviad Kipnis and Jacques Patarin and Louis Goubin (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Lamport, 1979</span>
+                        <small class="text-muted">SRI International</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Constructing Digital Signatures from a One-Way Function</h6>
+                    <p class="small text-secondary mb-0">Leslie Lamport (1979)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Alagic et al., 2026</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Status Report on the Second Round of the Additional Digital Signature Schemes for the NIST Post-Quantum Cryptography Standardization Process</h6>
+                    <p class="small text-secondary mb-0">Alagic, Gorjan and Bros, Maxime and Ciadoux, Pierre and Cooper, David and Dang, Quynh and Liu, Yi-Kai and Miller, Carl and Moody, Dustin and Peralta, Rene and Perlner, Ray and Robinson, Angela and Smith-Tone, Daniel (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Merkle, 1989</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;89</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">One Way Hash Functions and DES</h6>
+                    <p class="small text-secondary mb-0">Ralph C. Merkle (1989)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] NIST, 2024</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">FIPS 205: Stateless Hash-Based Digital Signature Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] McGrew et al., 2019</span>
+                        <small class="text-muted">RFC Editor</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Leighton-Micali Hash-Based Signatures</h6>
+                    <p class="small text-secondary mb-0">David McGrew and Michael Curcio and Scott Fluhrer (2019)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Alagic et al., 2026</span>
+                        <small class="text-muted">National Institute of Standards and Technology (NIST)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Status Report on the Second Round of the Additional Digital Signature Schemes for the NIST Post-Quantum Cryptography Standardization Process</h6>
+                    <p class="small text-secondary mb-0">Gorjan Alagic and Maxime Bros and Pierre Ciadoux and others (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Beullens, 2022</span>
+                        <small class="text-muted">Advances in Cryptology --- CRYPTO 2022</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Breaking Rainbow Takes a Weekend</h6>
+                    <p class="small text-secondary mb-0">Ward Beullens (2022)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Wang et al., 2023</span>
+                        <small class="text-muted">National Institute of Standards and Technology (NIST)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SNOVA: NIST PQC Additional Digital Signature Schemes Submission (Round 1)</h6>
+                    <p class="small text-secondary mb-0">Wang, Lih-Chung and Chou, Chun-Yen and Ding, Jintai and Kuan, Yen-Liang and Li, Ming-Siou and Tseng, Bo-Shu and Tseng, Po-En and Wang, Chia-Chun (2023)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Industrial Cyber, 2026</span>
+                        <small class="text-muted">Industrial Cyber Review</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">NIST Guidelines on Post-Quantum Cryptographic Migration and Infrastructure Security</h6>
+                    <p class="small text-secondary mb-0">Industrial Cyber Security Group (2026)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_15</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 15</strong></p>
+<p><strong>MAK (Message Authentication Code)</strong></p>
+<p>Bu mühazirə Mesaj Autentifikasiya Kodlarını (MAK) — CBC-MAC, CMAC,
+GMAC, Poly1305 — onların iş prinsiplərini, təhlükəsizlik
+xüsusiyyətlərini və praktik tətbiqlərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbə aşağıdakı biliklərə sahib
+olacaqdır:</p>
+<ul>
+<li><p><strong>MAK (MAC) anlayışı:</strong> Mesaj Autentifikasiya Kodu
+(MAC) fundamental tərifini, iş prinsipini və tələb olunan təhlükəsizlik
+xüsusiyyətlərini izah edə biləcək.</p></li>
+<li><p><strong>CBC-MAC analizi:</strong> CBC-MAC alqoritminin blok
+şifrləmə əsaslı iş prinsipini, həmçinin onun dəyişkən uzunluqlu mesajlar
+zamanı ortaya çıxan zəifliklərini başa düşəcək.</p></li>
+<li><p><strong>CMAC konstruksiyası:</strong> CMAC-ın quruluşunu və onun
+CBC-MAC-ın təhlükəsizlik problemlərini (məsələn, uzunluq genişləndirmə
+və açar manipulyasiyası) necə həll etdiyini izah edə biləcək.</p></li>
+<li><p><strong>GMAC və Qalua rejimi:</strong> GMAC-ın iş prinsipini və
+onun GCM (Galois/Counter Mode) rejimi daxilində autentifikasiya edilmiş
+şifrləmədəki rolunu dərk edəcək.</p></li>
+<li><p><strong>Poly1305 və AEAD:</strong> Poly1305-in universal
+heşləməyə əsaslanan sürətli quruluşunu və ChaCha20-Poly1305 AEAD
+rejiminin müasir şəbəkə protokollarındakı əhəmiyyətini izah edə
+biləcək.</p></li>
+<li><p><strong>Müqayisəli analiz:</strong> Müxtəlif MAK növlərini (blok
+şifrləmə, heş funksiyası və ya universal heşləmə əsaslı) səmərəlilik və
+təhlükəsizlik baxımından müqayisə edərək konkret tətbiqlər üçün ən uyğun
+variantı seçə biləcək.</p></li>
+</ul>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirələrdə heş funksiyalarını və onların müxtəlif tətbiq
+sahələrini öyrəndik. Heş funksiyaları məlumatın bütövlüyünü (integrity)
+yoxlamaq üçün effektiv alət olsa da, onlar təkbaşına məlumatın
+mənşəyini, yəni həqiqi mənbədən gəldiyini (authenticity) təsdiq edə
+bilmirlər. Bir mesajın heş dəyəri dəyişdirilməmiş ola bilər, lakin bu,
+həmin mesajın mütləq səlahiyyətli göndərəndən gəldiyinə zəmanət
+vermir.</p>
+<div class="tcolorbox">
+<p>Tutaq ki, Alis Boba bir mesaj göndərir. Mesaj ötürülmə zamanı kənar
+müdaxiləyə məruz qala və ya tamamilə dəyişdirilə bilər. Bob mesajı qəbul
+etdikdə, onun həqiqətən Alis tərəfindən göndərildiyini və yolda
+manipulyasiya edilmədiyini necə müəyyən edə bilər?</p>
+</div>
+<p>Bu problemi həll etmək üçün kriptoqrafiyada iki əsas yanaşma
+mövcuddur:</p>
+<ol>
+<li><p><strong>Rəqəmsal imzalar (Digital Signatures):</strong>
+Asimmetrik kriptoqrafiyaya əsaslanır, inkaredilməzlik (non-repudiation)
+təmin edir, lakin hesablama baxımından nisbətən yavaşdır.</p></li>
+<li><p><strong>MAK (Message Authentication Code):</strong> Simmetrik
+kriptoqrafiyaya əsaslanır, həm bütövlüyü, həm də autentifikasiyanı təmin
+edən sürətli mexanizmdir.</p></li>
+</ol>
+<p><strong>MAK (Mesaj Autentifikasiya Kodu)</strong> — gizli açar
+vasitəsilə hesablanan, məlumatın həm bütövlüyünü, həm də onun həqiqi
+mənbədən gəldiyini eyni anda təsdiq edən kriptoqrafik nəzarət
+elementidir.</p>
+<h1 id="mak-anlayışı-və-tərifi">MAK anlayışı və tərifi</h1>
+<h2 id="mak-nədir">MAK nədir?</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (MAK). <em>MAK (Mesaj Autentifikasiya Kodu,
+Message Authentication Code) — gizli açar istifadə edərək mesajın
+<strong>bütövlüyünü</strong> (integrity) və <strong>mənbəyini</strong>
+(authenticity) təsdiqləyən <strong>teq (tag)</strong><a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+yaradan kriptoqrafik mexanizmdir.</em></p>
+</div>
+<p>MAK-ın iş prinsipi aşağıdakı mərhələlərdən ibarətdir:</p>
+<ol>
+<li><p>Göndərən tərəf <span class="math inline">\(M\)</span> mesajı və
+hər iki tərəfə məlum olan ortaq gizli açar <span
+class="math inline">\(K\)</span> vasitəsilə <span
+class="math inline">\(T = \text{MAK}_K(M)\)</span> teqini
+hesablayır.</p></li>
+<li><p>Göndərən <span class="math inline">\((M, T)\)</span> cütünü
+rabitə kanalı vasitəsilə qəbulediciyə ötürür.</p></li>
+<li><p>Qəbuledici tərəf aldığı mesaj və eyni gizli açar <span
+class="math inline">\(K\)</span> istifadə edərək öz tərəfində <span
+class="math inline">\(T&#39; = \text{MAK}_K(M)\)</span> dəyərini
+hesablayır.</p></li>
+<li><p>Hesablanmış <span class="math inline">\(T&#39;\)</span> dəyəri
+ilə alınan <span class="math inline">\(T\)</span> teqi müqayisə edilir.
+Əgər <span class="math inline">\(T = T&#39;\)</span> olarsa, mesajın həm
+dəyişdirilmədiyi, həm də həqiqi mənbədən gəldiyi təsdiqlənir. Əks halda
+mesaj rədd edilir.</p></li>
+</ol>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="minipage">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;">Göndərən:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Qəbuledən:</td>
+</tr>
+<tr>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">K</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\downarrow\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">\(\downarrow\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">M <span
+class="math inline">\(\rightarrow\)</span> [MAK] <span
+class="math inline">\(\rightarrow\)</span> T</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">M <span
+class="math inline">\(\rightarrow\)</span> [MAK] <span
+class="math inline">\(\rightarrow\)</span> T’</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption>MAK-ın iş prinsipi</figcaption>
+</figure>
+<h2 id="mak-ın-formal-tərifi">MAK-ın formal tərifi</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (MAK-ın formal tərifi). <em>MAK sistemi üç
+alqoritmdən ibarət olan <span class="math inline">\((\text{Gen},
+\text{Mac}, \text{Ver})\)</span> üçlüyüdür:</em></p>
+<ul>
+<li><p><em><strong>Gen:</strong> Təhlükəsizlik parametri <span
+class="math inline">\(n\)</span> (məsələn, 128 və ya 256 bit) əsasında
+təsadüfi gizli <span class="math inline">\(K\)</span> açarını generasiya
+edir.</em></p></li>
+<li><p><em><strong>Mac:</strong> Gizli <span
+class="math inline">\(K\)</span> açarı və ixtiyari uzunluqlu <span
+class="math inline">\(M \in \{0,1\}^*\)</span> mesajını giriş olaraq
+qəbul edərək <span class="math inline">\(T\)</span> teqini hesablayır:
+<span class="math inline">\(T \leftarrow
+\text{Mac}_K(M)\)</span>.</em></p></li>
+<li><p><em><strong>Ver:</strong> Gizli <span
+class="math inline">\(K\)</span> açarı, <span
+class="math inline">\(M\)</span> mesajı və <span
+class="math inline">\(T\)</span> teqini giriş olaraq qəbul edərək teqin
+doğruluğunu yoxlayır və nəticədə <span
+class="math inline">\(\{0,1\}\)</span> (qəbul və ya rədd) qiymətini
+qaytarır: <span class="math display">\[\text{Ver}_K(M, T) =
+\begin{cases} 1, &amp; \text{əgər } T = \text{Mac}_K(M) \\ 0, &amp;
+\text{əgər } T \neq \text{Mac}_K(M) \end{cases}\]</span></em></p></li>
+</ul>
+<p><em><strong>Düzlük (Correctness) tələbi:</strong> Hər bir <span
+class="math inline">\(K\)</span> açarı və hər bir <span
+class="math inline">\(M\)</span> mesajı üçün növbəti bərabərlik mütləq
+ödənməlidir: <span class="math display">\[\text{Ver}_K(M,
+\text{Mac}_K(M)) = 1\]</span></em></p>
+</div>
+<h2 id="mak-ın-təhlükəsizlik-xüsusiyyətləri">MAK-ın təhlükəsizlik
+xüsusiyyətləri</h2>
+<p>MAK-ın təhlükəsizliyi standart olaraq <strong>UF-CMA</strong>
+anlayışı ilə ifadə olunur.</p>
+<ul>
+<li><p><strong>İngilis dilində:</strong> <em>Unforgeability under Chosen
+Message Attack</em></p></li>
+<li><p><strong>Azərbaycan dilində:</strong> Seçilmiş mesaj hücumu
+altında saxtalaşdırılmaya qarşı davamlılıq</p></li>
+</ul>
+<div class="definition">
+<p><strong>Tərif 3</strong> (UF-CMA təhlükəsizliyi). <em><span
+class="math inline">\((\text{Gen}, \text{Mac}, \text{Ver})\)</span> MAK
+sxemi o zaman <strong>UF-CMA</strong> təhlükəsiz hesab edilir ki, gizli
+<span class="math inline">\(K\)</span> açarını bilməyən, lakin
+<code>Mac</code> orakuluna adaptiv sorğular göndərə bilən istənilən PPT
+<span class="math inline">\(\mathcal{A}\)</span> hücumçusunun uğur
+ehtimalı cüzi (negligible) bir funksiya ilə məhdudlaşsın:</em></p>
+</div>
+<p><span class="math display">\[\Pr\left[ \text{Ver}_K(M, T) = 1 \;
+\middle| \;
+\begin{array}{l}
+K \leftarrow \text{Gen}(n) \\
+(M, T) \leftarrow \mathcal{A}^{\text{Mac}_K(\cdot)}(n) \\
+M \notin \mathcal{Q}
+\end{array} \right] \leq \varepsilon(n)\]</span></p>
+<p>burada:</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> — təhlükəsizlik parametri
+(məsələn, açar uzunluğu);</p></li>
+<li><p><span
+class="math inline">\(\mathcal{A}^{\text{Mac}_K(\cdot)}\)</span> —
+hücumçu <span class="math inline">\(\mathcal{A}\)</span>-nın <span
+class="math inline">\(\text{Mac}_K(\cdot)\)</span> orakuluna sorğu
+göndərə bilməsi;</p></li>
+<li><p><span class="math inline">\(\mathcal{Q}\)</span> — hücumçunun
+<span class="math inline">\(\text{Mac}_K(\cdot)\)</span> orakuluna sorğu
+olaraq göndərdiyi mesajlar çoxluğu;</p></li>
+<li><p><span class="math inline">\(M \notin \mathcal{Q}\)</span> —
+hücumçu tərəfindən yaradılan <span class="math inline">\((M, T)\)</span>
+cütündəki <span class="math inline">\(M\)</span> mesajı əvvəllər
+sorğulanmamış olmalıdır;</p></li>
+<li><p><span class="math inline">\(\varepsilon(n)\)</span> — cüzi
+funksiya (hər hansı <span class="math inline">\(c &gt; 0\)</span> üçün
+<span class="math inline">\(n^{-c}\)</span>-dən daha sürətlə
+azalan).</p></li>
+</ul>
+<p><strong>İzah:</strong> Bu tərifə görə, hücumçu istədiyi qədər mesaj
+üçün (adaptiv olaraq) teq sorğulaya bilər. UF-CMA təhlükəsiz sxemdə,
+hücumçu bu sorğulardan əldə etdiyi məlumat əsasında əvvəllər
+sorğulamadığı hər hansı yeni <span class="math inline">\(M\)</span>
+mesajı üçün etibarlı <span class="math inline">\(T\)</span> teqi yarada
+bilməməlidir.</p>
+<p><strong>Konseptual İzah:</strong> Bu modeldə hücumçunun açarı
+bilməməsi onun tamamilə çarəsiz olduğu mənasına gəlmir. O, sanki bir
+"qara qutuya" (orakula) mesajlar göndərir və açarı görmədən həmin
+mesajların teqlərini əldə edir (<span
+class="math inline">\(\mathcal{Q}\)</span> çoxluğu). Təhlükəsizlik
+tələbi ondan ibarətdir ki, hücumçu bu prosesin sonunda açarı ələ keçirə
+bilməsin və <span class="math inline">\(\mathcal{Q}\)</span> çoxluğuna
+daxil olmayan hər hansı yeni <span class="math inline">\(M\)</span>
+mesajı üçün keçərli <span class="math inline">\(T\)</span> teqi yarada
+(saxtalaşdıra) bilməsin.</p>
+<p>MAK-ın təhlükəsizliyi üçün əsas tələblərin formal ifadəsi:</p>
+<ol>
+<li><p><strong>Saxtalaşdırılmazlıq (Unforgeability):</strong> <span
+class="math display">\[\forall \mathcal{A}, \Pr[\text{Ver}_K(M, T) = 1
+\land M \notin \mathcal{Q}] \leq \varepsilon(n)\]</span></p></li>
+<li><p><strong>Toqquşmaya davamlılıq (Collision Resistance):</strong>
+<span class="math display">\[\forall M \neq M&#39;, \Pr[\text{Mac}_K(M)
+= \text{Mac}_K(M&#39;)] \leq \varepsilon(n)\]</span></p></li>
+<li><p><strong>Qeyri-ekstensivlik (Non-extensibility):</strong> <span
+class="math display">\[\forall \{(M_i, T_i)\}_{i=1}^q, \nexists M \notin
+\{M_i\}, T : \text{Ver}_K(M, T) = 1\]</span></p></li>
+</ol>
+<h2 id="mak-və-heş-funksiyalarının-müqayisəsi">MAK və heş
+funksiyalarının müqayisəsi</h2>
+<p>Heş funksiyaları və MAK sxemləri arasındakı fundamental fərqləri başa
+düşmək, kriptoqrafik protokolların düzgün seçilməsi üçün vacibdir. Əsas
+fərq ondan ibarətdir ki, heş funksiyaları yalnız məlumatın
+dəyişdirilib-dəyişdirilmədiyini (bütövlüyü) yoxlayır, MAK isə məlumatın
+həm bütövlüyünü, həm də səlahiyyətli bir tərəf tərəfindən göndərildiyini
+(autentifikasiyanı) təsdiq edir.</p>
+<table>
+<caption>Heş funksiyaları və MAK-ın müqayisəli təhlili</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Heş funksiyaları</strong></th>
+<th style="text-align: left;"><strong>MAK</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açar istifadəsi</td>
+<td style="text-align: left;">Açarsız mexanizm</td>
+<td style="text-align: left;">Gizli açar (<span
+class="math inline">\(K\)</span>) tələb olunur</td>
+</tr>
+<tr>
+<td style="text-align: left;">Məqsəd</td>
+<td style="text-align: left;">Məlumatın bütövlüyü (Integrity)</td>
+<td style="text-align: left;">Bütövlük + Mənbənin autentifikasiyası</td>
+</tr>
+<tr>
+<td style="text-align: left;">Çıxış elementi</td>
+<td style="text-align: left;">Heş dəyəri (Digest)</td>
+<td style="text-align: left;">Teq (Tag / Autentifikasiya kodu)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Təhlükəsizlik modeli</td>
+<td style="text-align: left;">Toqquşmaya davamlılıq (Collision
+resistance)</td>
+<td style="text-align: left;">Saxtalaşdırılmazlıq (Unforgeability -
+UF-CMA)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sürət performansı</td>
+<td style="text-align: left;">Çox sürətli</td>
+<td style="text-align: left;">Sürətli (istifadə olunan primitivdən
+asılıdır)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunələr</td>
+<td style="text-align: left;">MD5, SHA-2, SHA-3</td>
+<td style="text-align: left;">HMAC, CMAC, GMAC, Poly1305</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Qeyd:</strong> Heş funksiyaları hər kəs tərəfindən hesablana
+bildiyi halda, MAK teqi yalnız gizli açara sahib olan tərəflər
+tərəfindən hesablana və ya yoxlanıla bilər. Bu xüsusiyyət MAK-ı aktiv
+manipulyasiyalara qarşı daha dayanıqlı edir.</p>
+<h1 id="cbc-mac">CBC-MAC</h1>
+<h2 id="cbc-mac-ın-iş-prinsipi">CBC-MAC-ın iş prinsipi</h2>
+<p>CBC-MAC (Cipher Block Chaining Message Authentication Code — Şifrlə
+Blok Zəncirləmə Mesaj Autentifikasiya Kodu) blok şifrlərdən istifadə
+edərək MAK qurmaq üçün nəzərdə tutulmuş ən fundamental üsullardan
+biridir. Bu metodda mesaj blokları zəncirvari şəkildə bir-birinə
+bağlanır və sonda alınan blok teq kimi istifadə olunur.</p>
+<div class="definition">
+<p><strong>Tərif 4</strong> (CBC-MAC). <em><span
+class="math inline">\(E_K: \{0,1\}^b \times \{0,1\}^b \rightarrow
+\{0,1\}^b\)</span> blok şifri (məsələn, AES) üçün CBC-MAC prosesi
+aşağıdakı kimi təyin olunur:</em></p>
+<p><em>İxtiyari uzunluqlu <span class="math inline">\(M \in
+\{0,1\}^*\)</span> mesajı əvvəlcə <span
+class="math inline">\(b\)</span>-bitlik bloklara bölünür: <span
+class="math inline">\(M = M_1 \parallel M_2 \parallel \dots \parallel
+M_m\)</span>, burada hər <span class="math inline">\(M_i \in
+\{0,1\}^b\)</span> (əgər son blok tam deyilsə, xüsusi doldurma qaydaları
+tətbiq olunur). Teqin hesablanması ardıcıllığı belədir:</em></p>
+<p><em><span class="math display">\[\begin{align*}
+C_0 &amp;= \mathbf{0}^b \quad (\text{başlanğıc vektor b-sayda sıfır
+bitindən ibarətdir}) \\
+C_1 &amp;= E_K(C_0 \oplus M_1) \\
+C_2 &amp;= E_K(C_1 \oplus M_2) \\
+&amp;\vdots \nonumber \\
+C_i &amp;= E_K(C_{i-1} \oplus M_i) \quad \text{hər } i \in \{1, \dots,
+m\} \text{ üçün} \\
+T &amp;= C_m \quad (\text{sonuncu şifrlənmiş blok teq kimi qəbul
+edilir})
+\end{align*}\]</span></em></p>
+</div>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="minipage">
+<pre><code>   M1            M2            M3                   Mm
+   |             |             |                    |
+   v             v             v                    v
+0--⊕--&gt;[E_K]--&gt;⊕--&gt;[E_K]--&gt;⊕--&gt;[E_K]-- ... --&gt;⊕--&gt;[E_K] --&gt; T
+         |             |             |                    |
+         +------------&gt;+------------&gt;+-------------------&gt;+</code></pre>
+</div>
+</div>
+<figcaption>CBC-MAC-ın iş prinsipi: Hər bir blok əvvəlki blokun
+şifrlənmiş nəticəsi ilə XOR əməliyyatına daxil olur.</figcaption>
+</figure>
+<div class="example">
+<p><strong>Nümunə 1</strong> (AES-128 ilə CBC-MAC). <em>AES-128 istifadə
+edən CBC-MAC sxemində 128-bitlik teq yaradılır. Əgər mesaj 3 blokdan
+ibarətdirsə, hesablama prosesi belə görünür: <span
+class="math display">\[\begin{align*}
+C_0 &amp;= 0^{128} \nonumber \\
+C_1 &amp;= \text{AES}_K(C_0 \oplus M_1) \nonumber \\
+C_2 &amp;= \text{AES}_K(C_1 \oplus M_2) \nonumber \\
+C_3 &amp;= \text{AES}_K(C_2 \oplus M_3) \nonumber \\
+T &amp;= C_3 \quad (\text{128-bitlik teq})
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="cbc-mac-ın-təhlükəsizlik-xüsusiyyətləri">CBC-MAC-ın
+təhlükəsizlik xüsusiyyətləri</h2>
+<p>CBC-MAC-ın təhlükəsizliyi aşağıdakı fundamental teoremə əsaslanır
+<span class="citation" data-cites="bellare2000cbc"></span>:</p>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (CBC-MAC-ın təhlükəsizliyi). <em>Əgər <span
+class="math inline">\(E_K\)</span> təhlükəsiz psevdotəsadüfi
+permutasiyadırsa (PRP), onda <strong>sabit uzunluqlu</strong> mesajlar
+üçün CBC-MAC sxemi UF-CMA təhlükəsizdir <span class="citation"
+data-cites="bellare2000cbc"></span>.</em></p>
+</div>
+<p><strong>Vacib şərt:</strong> Bu təhlükəsizlik zəmanəti yalnız
+<strong>bütün mesajların eyni uzunluqda</strong> (eyni blok sayında)
+olduğu protokollarda keçərlidir.</p>
+<h2 id="cbc-mac-ın-problemləri-və-məhdudiyyətləri">CBC-MAC-ın
+problemləri və məhdudiyyətləri</h2>
+<p>CBC-MAC-ın praktiki tətbiqlərdə nəzərə alınmalı olan bir sıra ciddi
+çatışmazlıqları mövcuddur <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<h3 id="problem-1-dəyişən-uzunluqlu-mesajlar">Problem 1: Dəyişən
+uzunluqlu mesajlar</h3>
+<p>CBC-MAC-ın ən böyük zəifliyi onun dəyişən uzunluqlu mesajlar üçün
+təhlükəsiz olmamasıdır <span class="citation"
+data-cites="bellare2000cbc"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 2</strong> (CBC-MAC-ın dəyişən uzunluq problemi).
+<em>Tutaq ki, hücumçu birbloklu <span class="math inline">\(X\)</span>
+mesajı üçün <span class="math inline">\(T =
+\mathrm{CBC\text{-}MAC}_K(X)\)</span> teqini əldə edib. Onda o, iki
+bloklu <span class="math inline">\(M&#39; = X \parallel (X \oplus
+T)\)</span> mesajı üçün də teqin eyni olacağını qabaqcadan hesablaya
+bilər: <span class="math display">\[\mathrm{CBC\text{-}MAC}_K(M&#39;) =
+E_K(E_K(X) \oplus (X \oplus T)) = E_K(T \oplus X \oplus T) = E_K(X) =
+T\]</span> Bu, hücumçunun açarı bilmədən keçərli saxta teq yaratmasına
+imkan verir.</em></p>
+</div>
+<h3 id="problem-2-bir-açarla-məhdud-sayda-mesaj">Problem 2: Bir açarla
+məhdud sayda mesaj</h3>
+<p>CBC-MAC eyni açarla hədsiz sayda mesaj üçün istifadə edildikdə
+təhlükəsizlik ehtiyatı azalır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu, bir açar altında
+toqquşmaların yaranma ehtimalı ilə bağlıdır.</p>
+<h3 id="problem-3-blok-ölçüsü-məhdudiyyəti">Problem 3: Blok ölçüsü
+məhdudiyyəti</h3>
+<p>CBC-MAC-ın dayanılıqlığı istifadə olunan blok şifrin blok ölçüsü
+(<span class="math inline">\(b\)</span>) ilə birbaşa əlaqəlidir.
+64-bitlik blok şifrlər üçün ad günü hücumu (birthday attack) təxminən
+<span class="math inline">\(2^{32}\)</span> mesajdan sonra teq
+toqquşmalarına səbəb ola bilər.</p>
+<h2 id="dəyişən-uzunluqlu-mesajlar-üçün-təhlükəsizlik-həlləri">Dəyişən
+uzunluqlu mesajlar üçün təhlükəsizlik həlləri</h2>
+<p>CBC-MAC-ı istənilən uzunluqlu mesajlar üçün təhlükəsiz etmək
+məqsədilə aşağıdakı modifikasiyalar təklif edilmişdir <span
+class="citation" data-cites="bellare2000cbc"></span>:</p>
+<ol>
+<li><p><strong>EMAC (Encrypted MAC):</strong> Standart CBC-MAC
+nəticəsini çıxışda əlavə bir dəfə şifrləmək: <span
+class="math display">\[T = E_K(\text{CBC-MAC}_K(M))\]</span></p></li>
+<li><p><strong>ECBC-MAC:</strong> Daha yüksək təhlükəsizlik üçün iki
+fərqli müstəqil açar istifadə etmək: <span class="math display">\[T =
+E_{K_2}(\text{CBC-MAC}_{K_1}(M))\]</span></p></li>
+<li><p><strong>FCBC-MAC:</strong> Sonuncu blokun emalı zamanı mesajın
+uzunluğundan asılı olaraq fərqli açar variantlarından istifadə
+etmək.</p></li>
+</ol>
+<h1 id="cmac-cipher-based-mac">CMAC (Cipher-based MAC)</h1>
+<h2 id="cmac-ın-yaranması-və-standartlaşdırılması">CMAC-ın yaranması və
+standartlaşdırılması</h2>
+<p>CMAC (Cipher-based Message Authentication Code — Şifrə əsaslı mesaj
+autentifikasiya kodu) CBC-MAC-ın dəyişkən uzunluqlu mesajlar zamanı
+ortaya çıxan təhlükəsizlik problemlərini həll etmək üçün hazırlanmışdır.
+Bu alqoritm NIST tərəfindən <strong>NIST SP 800-38B</strong> və
+<strong>RFC 4493</strong> sənədləri ilə standartlaşdırılmışdır.</p>
+<p>CMAC-ın əsas xüsusiyyətləri:</p>
+<ul>
+<li><p>Həm tam, həm də qismən (tam olmayan) son bloklar üçün effektiv
+işləyir.</p></li>
+<li><p>Alt-açarlar vasitəsilə eyni əsas açardan istifadə edərək
+təhlükəsizliyi təmin edir.</p></li>
+<li><p>Dəyişkən uzunluqlu mesajlar üçün sübut edilmiş
+saxtalaşdırılmazlıq (UF-CMA) xüsusiyyətinə malikdir.</p></li>
+<li><p>Praktikada ən geniş yayılmış variantı AES-CMAC-dır.</p></li>
+</ul>
+<h2 id="cmac-ın-quruluşu">CMAC-ın quruluşu</h2>
+<p>CMAC alqoritmi əsas açardan törədilən iki əlavə alt-açardan (<span
+class="math inline">\(K_1\)</span> və <span
+class="math inline">\(K_2\)</span>) istifadə edir. Bu alt-açarlar
+mesajın sonuncu blokunun emalında istifadə olunaraq uzunluq
+genişləndirmə hücumlarının qarşısını alır.</p>
+<div class="definition">
+<p><strong>Tərif 5</strong> (CMAC). <em><span
+class="math inline">\(b\)</span>-bitlik blok ölçüsü olan <span
+class="math inline">\(E_K\)</span> blok şifri üçün CMAC hesablanması
+aşağıdakı kimidir:</em></p>
+<p><em><strong>1. Tam son blok üçün (<span
+class="math inline">\(M_m\)</span> blok ölçüsünə bərabər
+olduqda):</strong> <span class="math display">\[\begin{align*}
+C_0 &amp;= 0^b \\
+C_1 &amp;= E_K(C_0 \oplus M_1) \\
+&amp;\vdots \\
+C_{m-1} &amp;= E_K(C_{m-2} \oplus M_{m-1}) \\
+C_m &amp;= E_K(C_{m-1} \oplus M_m \oplus K_1) \\
+T &amp;= C_m
+\end{align*}\]</span></em></p>
+<p><em><strong>2. Qismən son blok üçün (<span
+class="math inline">\(M_m\)</span> tam blok deyilsə):</strong> Bu halda
+son blok <span class="math inline">\(M_m&#39; = M_m \parallel
+10^j\)</span> qaydası ilə doldurulur (padding). <span
+class="math display">\[\begin{align*}
+C_0 &amp;= 0^b \\
+C_i &amp;= E_K(C_{i-1} \oplus M_i) \quad (i = 1, \dots, m-1) \\
+C_m &amp;= E_K(C_{m-1} \oplus M_m&#39; \oplus K_2) \\
+T &amp;= C_m
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="alt-açarların-yaradılması">Alt-açarların yaradılması</h2>
+<p>CMAC alt-açarları <span class="math inline">\(K_1\)</span> və <span
+class="math inline">\(K_2\)</span> aşağıdakı ardıcıllıqla yaradılır
+<span class="citation" data-cites="nist2005cmac"></span>:</p>
+<ol>
+<li><p>İlk olaraq sıfır blokunun şifrlənməsi ilə <span
+class="math inline">\(L = E_K(0^b)\)</span> hesablanır.</p></li>
+<li><p><strong><span class="math inline">\(K_1\)</span>
+hesablanması:</strong> Əgər <span class="math inline">\(L\)</span>-in ən
+əhəmiyyətli biti (<span class="math inline">\(\text{msb}(L)\)</span>)
+0-dırsa, <span class="math inline">\(K_1 = L \ll 1\)</span>. Əks halda,
+<span class="math inline">\(K_1 = (L \ll 1) \oplus
+R_b\)</span>.</p></li>
+<li><p><strong><span class="math inline">\(K_2\)</span>
+hesablanması:</strong> Əgər <span class="math inline">\(K_1\)</span>-in
+ən əhəmiyyətli biti (<span
+class="math inline">\(\text{msb}(K_1)\)</span>) 0-dırsa, <span
+class="math inline">\(K_2 = K_1 \ll 1\)</span>. Əks halda, <span
+class="math inline">\(K_2 = (K_1 \ll 1) \oplus R_b\)</span>.</p></li>
+</ol>
+<p>Burada <span class="math inline">\(R_b\)</span> sonlu meydan
+sadələşməsi üçün istifadə olunan sabitdir:</p>
+<ul>
+<li><p><span class="math inline">\(b = 64\)</span> üçün: <span
+class="math inline">\(R_{64} = 0x00\dots1B\)</span> (onaltılıq formatda)
+<span class="citation" data-cites="nist2005cmac"></span>.</p></li>
+<li><p><span class="math inline">\(b = 128\)</span> üçün: <span
+class="math inline">\(R_{128} = 0x00\dots87\)</span> (onaltılıq
+formatda) <span class="citation"
+data-cites="nist2005cmac"></span>.</p></li>
+</ul>
+<p><strong>Qeyd:</strong> <span class="math inline">\(\ll 1\)</span>
+əməliyyatı sol tərəfə bir bitlik sürüşdürməni ifadə edir. <span
+class="math inline">\(R_b\)</span> ilə XOR əməliyyatı yalnız sürüşdürmə
+zamanı ən soldakı bit (msb) 1 olduqda yerinə yetirilir.</p>
+<h2 id="cmac-ın-üstünlükləri">CMAC-ın üstünlükləri</h2>
+<p>CMAC alqoritmi klassik CBC-MAC ilə müqayisədə bir sıra kritik
+üstünlüklərə malikdir:</p>
+<ul>
+<li><p><strong>Dəyişən uzunluqlu mesajlar:</strong> Həm tam, həm də
+qismən bloklar üçün təhlükəsizdir.</p></li>
+<li><p><strong>Eyni açar:</strong> İki fərqli açar tələb etmir,
+alt-açarlar əsas açardan törədilir.</p></li>
+<li><p><strong>Effektiv doldurma:</strong> Qismən son bloklar üçün
+xüsusi doldurma qaydası (<span class="math inline">\(10^j\)</span>)
+istifadə edərək birmənalığı təmin edir.</p></li>
+<li><p><strong>Standartlaşdırma:</strong> NIST və RFC tərəfindən rəsmi
+şəkildə qəbul edilib.</p></li>
+</ul>
+<h1 id="gmac-galois-message-authentication-code">GMAC (Galois Message
+Authentication Code)</h1>
+<h2 id="gmac-ın-iş-prinsipi">GMAC-ın iş prinsipi</h2>
+<p>GMAC (Qalua Mesaj Autentikasiyası Rejimi - Galois Message
+Authentication Code) — müasir kriptoqrafiyada geniş istifadə olunan
+<strong>GCM</strong> (Qalua/Sayğac Rejimi - Galois/Counter Mode)
+rejiminin autentifikasiya komponentidir. Bu alqoritm <span
+class="math inline">\(GF(2^{128})\)</span> Qalua meydanında vurma
+əməliyyatına əsaslanan universal heşləmə mexanizmidir.</p>
+<div class="definition">
+<p><strong>Tərif 6</strong> (GMAC). <em>GMAC sxemi aşağıdakı riyazi
+addımlarla təyin olunur:</em></p>
+<p><em><span class="math display">\[\begin{align*}
+H &amp;= E_K(0^{128}) \\
+X_0 &amp;= 0 \\
+X_i &amp;= (X_{i-1} \oplus M_i) \cdot H \quad (i = 1, 2, \dots, m) \\
+T &amp;= X_m \oplus E_K(\text{nonce} \parallel 0^{31} \parallel 1)
+\end{align*}\]</span></em></p>
+<p><em>burada:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(H\)</span> — heş açarı (blok
+şifrin sıfır blokuna tətbiqi ilə alınır);</em></p></li>
+<li><p><em><span class="math inline">\(M_i\)</span> — 128-bitlik mesaj
+blokları;</em></p></li>
+<li><p><em><span class="math inline">\(\cdot\)</span> — <span
+class="math inline">\(GF(2^{128})\)</span> neydanında vurma
+əməliyyatı;</em></p></li>
+<li><p><em><span class="math inline">\(\text{nonce}\)</span> — 96-bitlik
+birdəfəlik ədəd (tövsiyə olunan uzunluq).</em></p></li>
+</ul>
+</div>
+<h2 id="gmac-və-gcm-arasında-əlaqə">GMAC və GCM arasında əlaqə</h2>
+<p>GMAC əslində <strong>GCM rejiminin ixtisaslaşmış autentifikasiya
+hissəsidir</strong>:</p>
+<ul>
+<li><p><strong>GCM:</strong> Şifrələmə və autentifikasiyanı (CTR rejimi
++ GHASH) birləşdirir.</p></li>
+<li><p><strong>GMAC:</strong> Yalnız autentifikasiya tələb olunan hallar
+üçün GHASH funksiyasından istifadə edir.</p></li>
+</ul>
+<p>GMAC, məlumatın məxfiliyinin (şifrələnməsinin) vacib olmadığı, lakin
+onun tamlığının və mənbəyinin doğruluğunun (autentifikasiyasının)
+qorunmalı olduğu hallarda tətbiq edilir.</p>
+<h2 id="ghash-funksiyası">GHASH funksiyası</h2>
+<p>GHASH funksiyası GMAC-ın əsas riyazi nüvəsini təşkil edir:</p>
+<div class="definition">
+<p><strong>Tərif 7</strong> (GHASH-ın hesablama ardıcıllığı - <span
+class="math inline">\(\text{GHASH}_H(A,C)\)</span>). <em>Hesablama
+prosesi üç mərhələdən keçir: <span class="math display">\[\begin{align*}
+X_0 &amp;= 0 \\
+\text{(A blokları üçün):} \quad X_i &amp;= (X_{i-1} \oplus A_i) \cdot H
+\quad (i = 1, \dots, m) \\
+\text{(C blokları üçün):} \quad X_{m+i} &amp;= (X_{m+i-1} \oplus C_i)
+\cdot H \quad (i = 1, \dots, n) \\
+\text{(Final addım):} \quad X_{m+n+1} &amp;= (X_{m+n} \oplus
+(\text{len}(A) \parallel \text{len}(C))) \cdot H
+\end{align*}\]</span> Burada hər bir blok 128 bitdir. Əgər giriş
+məlumatları 128-in tam qatı deyilsə, son bloklar sıfırlarla
+tamamlanır.</em></p>
+</div>
+<p>Burada:</p>
+<ul>
+<li><p><strong>H (Heş açarı):</strong> Bu əvvəlki bölmədə qeyd olunan
+<span class="math inline">\(H = E_K(0^{128})\)</span> açarıdır. Bütün
+vurma əməliyyatları bu sabit açar üzərində aparılır.</p></li>
+<li><p><strong>A (<span class="math inline">\(A_1, \dots,
+A_m\)</span>):</strong> "Associated Data" (Əlaqəli Məlumat). Bunlar
+şifrlənməyən, lakin tamlığı yoxlanılması vacib olan başlıq
+məlumatlarıdır (məsələn, IP başlıqları).</p></li>
+<li><p><strong>C (<span class="math inline">\(C_1, \dots,
+C_n\)</span>):</strong> "Ciphertext" (Şifrlənmiş mətn). Bunlar
+şifrlənmiş mesaj bloklarıdır. Əgər yalnız GMAC (şifrələməsiz
+autentifikasiya) istifadə olunursa, <span
+class="math inline">\(C\)</span> boş çoxluq ola bilər və ya mesaj
+blokları bura daxil edilir.</p></li>
+<li><p><strong>len(A) <span class="math inline">\(\parallel\)</span>
+len(C):</strong> Bu, hər iki məlumatın bit uzunluqlarının
+birləşdirilməsidir. Bu addım "uzunluq genişləndirmə" hücumlarının
+qarşısını almaq üçün sonuncu blok kimi emal edilir.</p></li>
+<li><p><strong>Vurma - .</strong> əməliyyatı <span
+class="math inline">\(GF(2^{128}\)</span> meydanında aparılır</p></li>
+</ul>
+<p>GHASH funksiyası iki növ girişi qəbul edir: <span
+class="math inline">\(A\)</span> (autentifikasiya olunan əlavə
+məlumatlar) və <span class="math inline">\(C\)</span> (şifrlənmiş
+məlumatlar).</p>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (GHASH universal xüsusiyyəti). <em>İxtiyari
+<span class="math inline">\(H \neq 0\)</span> üçün, iki fərqli <span
+class="math inline">\((A,C) \neq (A&#39;,C&#39;)\)</span> girişi üçün
+toqquşma ehtimalı <span class="math inline">\(\varepsilon \leq
+\frac{1}{2^{128}}\)</span> həddini aşmır.</em></p>
+</div>
+<h2 id="gmac-ın-tətbiq-sahələri">GMAC-ın tətbiq sahələri</h2>
+<p>GMAC aşağıdakı kritik şəbəkə və təhlükəsizlik standartlarında geniş
+istifadə olunur:</p>
+<ul>
+<li><p><strong>IPsec:</strong> Şəbəkə paketlərinin autentifikasiyası
+üçün.</p></li>
+<li><p><strong>TLS 1.2/1.3:</strong> GCM şifrələmə rejiminin daxili
+komponenti kimi.</p></li>
+<li><p><strong>Wi-Fi WPA3:</strong> GCMP (Qalua/Sayğac Rejimi Protokolu
+- Galois/Counter Mode Protocol) daxilində məlumat bütövlüyünü təmin
+etmək üçün.</p></li>
+<li><p><strong>MACsec:</strong> IEEE 802.1AE standartı üzrə lokal şəbəkə
+təhlükəsizliyində.</p></li>
+</ul>
+<h1 id="poly1305">Poly1305</h1>
+<h2 id="poly1305-in-iş-prinsipi">Poly1305-in iş prinsipi</h2>
+<p>Poly1305 — <strong>Daniel J. Bernstein</strong> tərəfindən 2005-ci
+ildə hazırlanmış, <strong>universal heşləmə</strong> (universal hashing)
+konsepsiyasına əsaslanan yüksək sürətli MAK alqoritmidir.</p>
+<div class="definition">
+<p><strong>Tərif 8</strong> (Poly1305). <em>Poly1305 alqoritmi növbəti
+addımlarla təyin olunur:</em></p>
+<ol>
+<li><p><em><strong>Açarlar:</strong> Sistem 128-bitlik <span
+class="math inline">\(r\)</span> (vurulan) və 128-bitlik <span
+class="math inline">\(s\)</span> (toplanan) açarlarından istifadə edir
+(ümumi açar 256-bit).</em></p></li>
+<li><p><em><strong>Maskalama:</strong> <span
+class="math inline">\(r\)</span> açarının xüsusi bitləri (məsələn, bəzi
+yuxarı bitlər) təhlükəsizlik və hesablama səmərəliliyi üçün
+sıfırlanır.</em></p></li>
+<li><p><em><strong>Bloklama:</strong> Mesaj 16-baytlıq bloklara
+bölünür.</em></p></li>
+<li><p><em><strong>Hesablama:</strong> Hər bir blok ədədə çevrilir və
+böyük bir sadə ədəd olan <span class="math inline">\(2^{130}-5\)</span>
+modulu üzrə çoxhədli hesablamalar aparılır.</em></p></li>
+</ol>
+<p><em>Riyazi ifadəsi: <span
+class="math display">\[\text{Poly1305}_{r,s}(M) = \left( \left(
+\sum_{i=1}^{m} (M_i + 2^{8 \cdot |M_i|}) \cdot r^{m-i+1} \right) \mod
+(2^{130}-5) \right) + s \pmod{2^{128}}\]</span></em></p>
+</div>
+<p>Poly1305-in əsas xarakteristikaları:</p>
+<ul>
+<li><p><strong>Sürət:</strong> Xüsusilə proqram təminatı (software)
+səviyyəsində yüksək performans nümayiş etdirir.</p></li>
+<li><p><strong>Təhlükəsizlik:</strong> İnformasiya-nəzəri
+(information-theoretic) təhlükəsizlik ehtiyatına yaxın universal
+heşləməyə əsaslanır.</p></li>
+<li><p><strong>Sadəlik:</strong> Quruluşu sadədir və müxtəlif
+platformalarda asanlıqla tətbiq olunur.</p></li>
+<li><p><strong>Paralelləşdirmə:</strong> Riyazi strukturu hesablamaların
+eyni zamanda aparılmasına imkan verir.</p></li>
+</ul>
+<h2 id="poly1305-in-üstünlükləri">Poly1305-in üstünlükləri</h2>
+<p>Poly1305 digər MAK sxemləri (məsələn, GCM) ilə müqayisədə bir sıra
+üstünlüklərə malikdir:</p>
+<ol>
+<li><p><strong>Yüksək sürət:</strong> Proqram təminatı tərəfindən icra
+edildikdə çox vaxt GCM-dən daha yüksək sürət göstərir.</p></li>
+<li><p><strong>Aparat asılılığının olmaması:</strong> GCM-dən fərqli
+olaraq, AES-NI və ya PCLMULQDQ kimi xüsusi prosessor təlimatlarına
+ehtiyacı yoxdur.</p></li>
+<li><p><strong>Yan kanal hücumlarına davamlılıq:</strong> Sadə riyazi
+quruluşu əməliyyatların sabit zamanda (constant-time) yerinə
+yetirilməsini asanlaşdırır.</p></li>
+<li><p><strong>Çeviklik:</strong> İxtiyari uzunluqlu mesajların
+autentifikasiyası üçün effektivdir.</p></li>
+</ol>
+<h2 id="chacha20-poly1305-aead-rejimi">ChaCha20-Poly1305 AEAD
+rejimi</h2>
+<p>Müasir kriptoqrafiyada Poly1305 adətən <strong>ChaCha20</strong> axın
+şifri ilə kombinasiya edilərək <strong>ChaCha20-Poly1305</strong> AEAD
+(Autentifikasiyalı Şifrələmə) rejimi kimi istifadə olunur.</p>
+<div class="definition">
+<p><strong>Tərif 9</strong> (ChaCha20-Poly1305 prosesi). <em>Bu AEAD
+rejimi aşağıdakı mərhələlərdən ibarətdir:</em></p>
+<ol>
+<li><p><em><strong>Açar törədilməsi:</strong> ChaCha20 vasitəsilə hər
+bir mesaj üçün tək istifadəlik (one-time) açar bloku
+yaradılır.</em></p></li>
+<li><p><em><strong>Alt-açarlar:</strong> Həmin blokun ilk hissəsindən
+Poly1305 üçün <span class="math inline">\(r\)</span> və <span
+class="math inline">\(s\)</span> açarları əldə edilir.</em></p></li>
+<li><p><em><strong>Şifrələmə:</strong> Mesaj ChaCha20 axın şifri ilə
+şifrələnir.</em></p></li>
+<li><p><em><strong>Autentifikasiya:</strong> Şifrəli mətn Poly1305
+vasitəsilə imzalanaraq teq yaradılır.</em></p></li>
+</ol>
+</div>
+<p>ChaCha20-Poly1305-in tətbiq üstünlükləri:</p>
+<ul>
+<li><p><strong>Yüksək performans:</strong> Xüsusi şifrələmə modulu
+olmayan ucuz prosessorlarda və mobil cihazlarda çox sürətlidir.</p></li>
+<li><p><strong>Mobil cihazlar:</strong> ARM arxitekturunda (məsələn,
+NEON təlimatları ilə) yüksək enerji səmərəliliyi və sürət təmin
+edir.</p></li>
+</ul>
+<p>Bu rejim aşağıdakı müasir protokollarda tətbiq olunur:</p>
+<ul>
+<li><p><strong>TLS 1.3:</strong> İnternet təhlükəsizliyinin əsas
+protokolu kimi (RFC 8446).</p></li>
+<li><p><strong>WireGuard:</strong> Yeni nəsil VPN protokolu.</p></li>
+<li><p><strong>SSH:</strong> Təhlükəsiz uzaqdan qoşulma
+protokolu.</p></li>
+<li><p><strong>OpenSSL:</strong> Geniş istifadə olunan kriptoqrafik
+kitabxana.</p></li>
+</ul>
+<h1 id="mak-ın-təhlükəsizlik-müqayisəsi">MAK-ın təhlükəsizlik
+müqayisəsi</h1>
+<p>Müxtəlif MAK alqoritmlərinin təhlükəsizlik xüsusiyyətlərinin
+müqayisəli təhlili aşağıdakı cədvəldə təqdim olunmuşdur:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>CBC-MAC</strong></th>
+<th style="text-align: left;"><strong>CMAC</strong></th>
+<th style="text-align: left;"><strong>GMAC</strong></th>
+<th style="text-align: left;"><strong>Poly1305</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Əsas mexanizm</td>
+<td style="text-align: left;">Blok şifri</td>
+<td style="text-align: left;">Blok şifri</td>
+<td style="text-align: left;"><span
+class="math inline">\(GF(2^{128})\)</span> vurma</td>
+<td style="text-align: left;">Mod <span
+class="math inline">\(2^{130}-5\)</span> arifmetikası</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar uzunluğu</td>
+<td style="text-align: left;">Şifrdən asılı</td>
+<td style="text-align: left;">Şifrdən asılı</td>
+<td style="text-align: left;">Şifrdən asılı</td>
+<td style="text-align: left;">256-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dəyişən uzunluq</td>
+<td style="text-align: left;">Təhlükəsiz deyil</td>
+<td style="text-align: left;">Təhlükəsiz</td>
+<td style="text-align: left;">Təhlükəsiz</td>
+<td style="text-align: left;">Təhlükəsiz</td>
+</tr>
+<tr>
+<td style="text-align: left;">Doldurma (Padding)</td>
+<td style="text-align: left;">Bəli</td>
+<td style="text-align: left;">Xüsusi mexanizm</td>
+<td style="text-align: left;">Xeyr</td>
+<td style="text-align: left;">Xeyr</td>
+</tr>
+<tr>
+<td style="text-align: left;">Paralel icra</td>
+<td style="text-align: left;">Xeyr</td>
+<td style="text-align: left;">Xeyr</td>
+<td style="text-align: left;">Bəli</td>
+<td style="text-align: left;">Bəli</td>
+</tr>
+<tr>
+<td style="text-align: left;">Proqram sürəti</td>
+<td style="text-align: left;">Orta</td>
+<td style="text-align: left;">Orta</td>
+<td style="text-align: left;">Yüksək</td>
+<td style="text-align: left;">Çox yüksək</td>
+</tr>
+<tr>
+<td style="text-align: left;">Avadanlıq dəstəyi</td>
+<td style="text-align: left;">AES-NI</td>
+<td style="text-align: left;">AES-NI</td>
+<td style="text-align: left;">AES-NI, PCLMULQDQ</td>
+<td style="text-align: left;">Tələb etmir</td>
+</tr>
+<tr>
+<td style="text-align: left;">Standart</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">NIST SP 800-38B</td>
+<td style="text-align: left;">NIST SP 800-38D</td>
+<td style="text-align: left;">RFC 7539</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tövsiyələr">Praktik tövsiyələr</h1>
+<p>Müxtəlif tətbiqlər üçün MAK seçimi zamanı aşağıdakı tövsiyələrin
+nəzərə alınması məqsədəuyğundur:</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>AES əsaslı sistemlər üçün:</strong> CMAC (AES-CMAC)
+istifadə edilməlidir. NIST tərəfindən standartlaşdırılmışdır və geniş
+dəstəklənir.</p></li>
+<li><p><strong>AEAD tələb olunan sistemlər üçün:</strong> AES-GCM
+istifadə edin. Həm şifrələmə, həm də autentifikasiyanı eyni vaxtda təmin
+edir.</p></li>
+<li><p><strong>Yüksək performans tələb edən sistemlər üçün:</strong>
+Poly1305 (ChaCha20-Poly1305) tövsiyə olunur. AES-NI dəstəyi olmayan
+sistemlərdə çox sürətlidir.</p></li>
+<li><p><strong>Mobil cihazlar üçün:</strong> ChaCha20-Poly1305 rejimi
+ARM prosessorlarında daha səmərəlidir.</p></li>
+<li><p><strong>Köhnə sistemlərin modernizasiyası:</strong> CBC-MAC-dan
+istifadə dayandırılmalı və daha təhlükəsiz CMAC-a keçid
+edilməlidir.</p></li>
+<li><p><strong>Yalnız bütövlük yoxlanışı üçün:</strong> Şifrələmə tələb
+olunmadıqda GMAC və ya Poly1305 səmərəli həll yoludur.</p></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>MAK ilə heş funksiyası arasında
+əsas fərqlər nələrdir? MAK-ın təmin etdiyi əlavə təhlükəsizlik
+xüsusiyyəti nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>CBC-MAC-ın dəyişən uzunluqlu
+mesajlar üçün təhlükəsiz olmamasının səbəbini izah edin. Bir nümunə ilə
+göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>CMAC-ın CBC-MAC-ın problemlərini
+necə həll etdiyini izah edin. <span class="math inline">\(K_1\)</span>
+və <span class="math inline">\(K_2\)</span> alt-açarlarının funksiyası
+nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>GMAC və GCM arasında hansı əlaqə
+var? GMAC hansı hallarda istifadə olunur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>Poly1305-in digər MAK
+alqoritmlərinə nisbətən üstünlükləri nələrdir? ChaCha20-Poly1305 niyə bu
+qədər populyarlaşıb?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>Bir şəbəkə protokolunda həm
+şifrələmə, həm də autentifikasiya tələb olunur. Hansı MAK variantını
+seçərdiniz? Niyə?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>AES-128 CMAC üçün <span
+class="math inline">\(K_1\)</span> alt-açarını hesablayın. <span
+class="math inline">\(L = \text{AES}_K(0^{128}) =
+\text{0x2B7E151628AED2A6ABF7158809CF4F3C}\)</span> verilib.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em>GMAC-da GHASH funksiyasının
+universal olması nə deməkdir? Bu xüsusiyyət təhlükəsizliyə necə təsir
+edir?</em></p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların həlli</h1>
+<ol>
+<li><p><strong>Əsas fərq açar istifadəsindədir.</strong> Heş
+funksiyaları açarsız işlədiyi halda, MAK <strong>gizli açar</strong>
+tələb edir. Bu səbəbdən MAK həm məlumatın bütövlüyünü, həm də
+<strong>mənbə autentifikasiyasını</strong> (göndərənin şəxsiyyətini)
+təmin edir.</p></li>
+<li><p>CBC-MAC-da əgər hücumçu təkbloklu <span
+class="math inline">\(X\)</span> mesajı üçün <span
+class="math inline">\(T = \text{CBC-MAC}_K(X)\)</span> teqini ələ
+keçiribsə, o, <span class="math inline">\(M&#39; = X \parallel (X \oplus
+T)\)</span> formatında yeni bir mesaj qura bilər. Bu yeni mesaj üçün də
+teq eyni (<span class="math inline">\(T\)</span>) qalacaq ki, bu da
+saxtalaşdırma hücumuna şərait yaradır.</p></li>
+<li><p>CMAC iki xüsusi alt-açar (<span
+class="math inline">\(K_1\)</span> və <span
+class="math inline">\(K_2\)</span>) vasitəsilə sonuncu blokun emalını
+dəyişir. Tam son bloklar üçün <span class="math inline">\(K_1\)</span>,
+qismən (doldurulmuş) son bloklar üçün isə <span
+class="math inline">\(K_2\)</span> istifadə edilir. Bu metod fərqli
+uzunluqlu mesajların eyni teqi verməsinin (toqquşmanın) qarşısını
+alır.</p></li>
+<li><p>GMAC, GCM şifrələmə rejiminin yalnız autentifikasiya üçün
+istifadə edilən variantıdır. GCM həm CTR rejimində şifrələmə, həm də
+GHASH ilə autentifikasiya apardığı halda, GMAC yalnız
+<strong>GHASH</strong> mexanizmini tətbiq edir. Şifrələmə tələb
+olunmayan şəbəkə başlıqlarının qorunması üçün idealdır.</p></li>
+<li><p>Poly1305-in əsas üstünlükləri:</p>
+<ul>
+<li><p>Proqram təminatında çox yüksək sürət.</p></li>
+<li><p>Xüsusi avadanlıq dəstəyi (məs. AES-NI) tələb etmir.</p></li>
+<li><p>Sabit zamanlı (constant-time) icra sayəsində yan kanal
+hücumlarına davamlıdır.</p></li>
+</ul>
+<p>ChaCha20-Poly1305 mobil cihazlarda və müasir TLS 1.3 protokollarında
+AES-GCM-ə effektiv alternativ olduğu üçün populyarlaşıb.</p></li>
+<li><p>Seçim sistemin imkanlarından asılıdır:</p>
+<ul>
+<li><p><strong>AES-NI dəstəyi olan sistemlərdə:</strong> Yüksək aparat
+sürəti üçün <strong>AES-GCM</strong>.</p></li>
+<li><p><strong>Mobil və ya köhnə prosessorlarda:</strong> Proqram
+səmərəliliyi üçün <strong>ChaCha20-Poly1305</strong>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\(L\)</span> dəyərinin ən əhəmiyyətli
+biti (msb) 0-dır (onaltılıq <code>2</code> = ikilik <code>0010</code>).
+Bu halda qaydaya görə <span class="math inline">\(K_1 = L \ll 1\)</span>
+hesablanır: <span class="math display">\[\begin{align*}
+    L &amp;= \text{0x2B7E151628AED2A6ABF7158809CF4F3C} \\
+    K_1 &amp;= \text{0x56FC2A2C515D454D57EE2B10139E9E78}
+\end{align*}\]</span></p></li>
+<li><p>GHASH-ın universal olması o deməkdir ki, ixtiyari iki fərqli
+girişin eyni heş dəyərini vermə ehtimalı <span
+class="math inline">\(2^{-128}\)</span> həddini aşmır. Bu riyazi
+xüsusiyyət hücumçunun qəsdən toqquşma yaratmasını demək olar ki,
+qeyri-mümkün edir.</p></li>
+</ol>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirə çərçivəsində Mesaj Autentifikasiya Kodları (MAK)
+mövzusunda aşağıdakı əsas anlayışları nəzərdən keçirdik:</p>
+<ul>
+<li><p><strong>MAK (Message Authentication Code):</strong> Gizli açar
+mexanizminə əsaslanaraq həm mesajın bütövlüyünü (tamlığını), həm də
+mənbənin autentifikasiyasını təmin edən kriptoqrafik vasitədir.</p></li>
+<li><p><strong>CBC-MAC:</strong> Blok şifrlərin zəncirvari bağlanma
+rejiminə əsaslanan MAK növüdür. Sabit uzunluqlu mesajlar üçün təhlükəsiz
+hesab edilsə də, dəyişkən uzunluqlu mesajlar üçün əlavə modifikasiyalar
+tələb edir.</p></li>
+<li><p><strong>CMAC (Cipher-based MAC):</strong> CBC-MAC-ın
+çatışmazlıqlarını aradan qaldırmaq üçün NIST tərəfindən
+standartlaşdırılmış versiyadır. İki xüsusi alt-açar (<span
+class="math inline">\(K_1\)</span> və <span
+class="math inline">\(K_2\)</span>) vasitəsilə dəyişkən uzunluqlu
+mesajların təhlükəsiz autentifikasiyasını təmin edir.</p></li>
+<li><p><strong>GMAC (Galois MAC):</strong> GCM (Galois/Counter Mode)
+rejiminin autentifikasiya nüvəsidir. <span
+class="math inline">\(GF(2^{128})\)</span> Qalua meydanında vurma
+əməliyyatına və universal heşləmə prinsipinə əsaslanır.</p></li>
+<li><p><strong>Poly1305:</strong> Daniel J. Bernstein tərəfindən
+hazırlanmış, yüksək sürətli və proqram təminatı üçün optimallaşdırılmış
+MAK alqoritmidir. Müasir protokollarda (TLS 1.3, WireGuard) adətən
+ChaCha20 axın şifri ilə birlikdə AEAD rejimi kimi tətbiq
+olunur.</p></li>
+</ul>
+<p><strong>Yekun nəticə:</strong> MAK müasir informasiya
+təhlükəsizliyində verilənlərin saxtalaşdırılmasının qarşısını almaq üçün
+əvəzolunmazdır. Praktiki tətbiqlərdə AES-NI dəstəyi olan platformalar
+üçün <strong>AES-GCM</strong>, yüksək performans və proqram təminatı
+çevikliyi tələb olunan hallar üçün isə
+<strong>ChaCha20-Poly1305</strong> ən effektiv seçimlər hesab
+olunur.</p>
+<h1 id="əlavə-oxu-üçün-materiallar">Əlavə oxu üçün materiallar</h1>
+<p>Mövzu ilə daha dərindən tanış olmaq üçün aşağıdakı əsas mənbələrdən
+istifadə edilməsi tövsiyə olunur:</p>
+<ol>
+<li><p><strong>Bellare, M. et al. (2000).</strong> "The Security of
+CBC-MAC" — CBC-MAC alqoritminin təhlükəsizlik analizi və riyazi sübutu
+<span class="citation" data-cites="bellare2000cbc"></span>.</p></li>
+<li><p><strong>NIST (2005).</strong> "Recommendation for Block Cipher
+Modes of Operation: The CMAC Mode for Authentication" — CMAC standartı
+haqqında rəsmi SP 800-38B sənədi <span class="citation"
+data-cites="nist2005cmac"></span>.</p></li>
+<li><p><strong>McGrew, D. &amp; Viega, J. (2004).</strong> "The Security
+and Performance of the Galois/Counter Mode (GCM)" — GCM və GMAC
+sxemlərinin təqdimatı və performans təhlili <span class="citation"
+data-cites="mcgrew2004security"></span>.</p></li>
+<li><p><strong>Bernstein, D. (2005).</strong> "The Poly1305-AES
+Message-Authentication Code" — Poly1305 alqoritminin orijinal riyazi
+təqdimatı <span class="citation"
+data-cites="bernstein2005poly1305"></span>.</p></li>
+<li><p><strong>Nir, Y. &amp; Langley, A. (2015).</strong> "ChaCha20 and
+Poly1305 for IETF Protocols" — RFC 7539 standartı daxilində AEAD
+rejiminin izahı <span class="citation"
+data-cites="nir2015chacha"></span>.</p></li>
+<li><p><strong>NIST (2007).</strong> "Recommendation for Block Cipher
+Modes of Operation: Galois/Counter Mode (GCM) and GMAC" — GCM və GMAC-ın
+rəsmi NIST SP 800-38D tövsiyələri <span class="citation"
+data-cites="nist2007sp80038d"></span>.</p></li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>"tag" sözü azərbaycan dilinə "nişan" və ya "etiket"
+kimi də tərcümə oluna bilər</em><a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (7)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Bellare et al., 1994</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;94</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Security of the Cipher Block Chaining Message Authentication Code</h6>
+                    <p class="small text-secondary mb-0">Mihir Bellare and Joe Kilian and Phillip Rogaway (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Dworkin, 2005</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation: The CMAC Mode for Authentication</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] McGrew &amp; Viega, 2004</span>
+                        <small class="text-muted">International Conference on Cryptology in India (INDOCRYPT 2004)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Security and Performance of the Galois/Counter Mode (GCM) of Operation</h6>
+                    <p class="small text-secondary mb-0">David A. McGrew and John Viega (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Bernstein, 2005</span>
+                        <small class="text-muted">Fast Software Encryption (FSE 2005)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Poly1305-AES Message-Authentication Code</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Nir &amp; Langley, 2015</span>
+                        <small class="text-muted">RFC 7539</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">ChaCha20 and Poly1305 for IETF Protocols</h6>
+                    <p class="small text-secondary mb-0">Yoav Nir and Adam Langley (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Dworkin, 2007</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2007)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

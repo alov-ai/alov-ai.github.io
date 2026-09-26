@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_25</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 25</strong></p>
+<p><strong>TLS/SSL Protokolu</strong></p>
+<p>Bu mühazirə TLS/SSL protokolunun tarixini, arxitekturasını, əl sıxma
+protokolunu, yazı protokolunu, şifrə dəstlərini, TLS 1.3-də yenilikləri
+və irəli məxfilik anlayışını əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbələr:</p>
+<ul>
+<li><p>TLS Rekord (<em>Record</em>) və əl sıxma (<em>Handshake</em>)
+qatlarının vəzifələrini təqdim edilən protokol trafiki izində
+(<em>packet trace</em>) fərqləndirməyi <span class="citation"
+data-cites="stallings2017cryptography"></span>;</p></li>
+<li><p>TLS 1.2 və TLS 1.3 şifrə dəstləri (<em>cipher suite</em>)
+semantikasını, açar cədvəlini (<em>key schedule</em>) və irəli məxfilik
+(<em>forward secrecy</em>) şərtlərini müqayisə etməyi <span
+class="citation"
+data-cites="ferguson2010cryptography rescorla2018rfc8446"></span>;</p></li>
+<li><p>TLS 1.2 və 1.3 əl sıxma mesajlarını autentifikasiya və açar
+törədilməsi məqsədlərinə görə izləməyi <span class="citation"
+data-cites="paar2024understanding"></span>;</p></li>
+<li><p>sertifikat/yol yoxlaması xətasını protokol xətasından
+fərqləndirməyi;</p></li>
+<li><p>0-RTT məlumatı üçün təkrar icra (<em>replay attack</em>) riskini
+müəyyən edib təhlükəsiz qəbul siyasəti təklif etməyi bacaracaqlar <span
+class="citation" data-cites="rescorla2018rfc8446"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 24-cü mühazirədə X.509 sertifikat zənciri və
+yolun doğrulanması mexanizmləri təhlil edildi.</p>
+<p><strong>İndi:</strong> TLS həmin etibar qərarını rekord qatının
+qorunması və autentifikasiya olunmuş açar razılaşdırılması ilə
+birləşdirir.</p>
+<p><strong>Sonra:</strong> 26-cı mühazirə qorumanı tətbiq bağlantısından
+şəbəkə səviyyəsindəki IPsec/VPN modelinə keçirəcəkdir.</p>
+<p><strong>Kanon:</strong> <em>şifrə dəsti</em> (<em>cipher suite</em>);
+<em>açar cədvəli</em> (<em>key schedule</em>); <em>irəli məxfilik</em>
+(<em>forward secrecy, FS</em>); <em>sessiya açarı</em> (<em>session
+key</em>); <em>0-RTT erkən məlumatı</em> (<em>0-RTT early
+data</em>).</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Müasir internet infrastrukturunda təhlükəsiz və məxfi rabitənin təmin
+edilməsi üçün ən geniş yayılmış protokollardan biri TLS-dir<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>. Gündəlik istifadə etdiyimiz HTTPS<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>, e-poçt protokolları (IMAPS<a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>, SMTPS<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>),
+VPN<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a> sistemləri və bir çox paylanmış
+tətbiqlər məhz TLS-in təmin etdiyi kriptoqrafik təhlükəsizlik
+zəmanətlərinə əsaslanır. Bu mühazirədə TLS protokolunun daxili
+arxitekturasını, şəbəkə layihələndirilməsini, iş prinsiplərini, müasir
+hücum növlərinə qarşı dayanıqlığını və SSL-dən TLS 1.3-ə qədər olan
+tarixi təkamül prosesini dərindən təhlil edəcəyik.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>Tarixi SSL<a href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> protokolları ilə müasir TLS
+protokolları arasında hansı fundamental və təhlükəsizlik fərqləri
+var?</p></li>
+<li><p>TLS əl sıxması (<em>handshake</em>) kriptoqrafik olaraq sessiya
+açarlarını necə generasiya edir?</p></li>
+<li><p>Rekord protokolu nədir, verilənləri necə fraqmentləşdirir və
+şifrələyir?</p></li>
+<li><p>Şifrə dəstləri (<em>cipher suites</em>) daxilində hansı
+primitivlər (autentifikasiya, açar mübadiləsi, simmetrik şifrələmək və
+heşləşmə) kodlaşdırılır?</p></li>
+<li><p>TLS 1.3 versiyasında gecikmə müddətini azaltmaq üçün hansı
+struktur dəyişiklikləri edilmişdir?</p></li>
+<li><p>0-RTT<a href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a> rejimi nədir və bu rejim hansı
+kritik təhlükəsizlik boşluqlarına yol aça bilər?</p></li>
+<li><p>İrəli məxfilik (Forward Secrecy - FS) nə deməkdir və uzunmüddətli
+kök açarların kompromat olunması anında keçmiş sessiyaları necə
+qoruyur?</p></li>
+</ul>
+</div>
+<h1 id="tls-arxitekturası-və-alt-protokolları">TLS Arxitekturası və Alt
+Protokolları</h1>
+<p>TLS protokolu funksional olaraq iki əsas qatdan (laydan) və dörd alt
+protokoldan ibarət mürəkkəb bir memarlığa malikdir <span
+class="citation" data-cites="stallings2017cryptography"></span>. Yuxarı
+qat tərəflərin razılaşdırılması və idarəetmə mexanizmlərinə cavabdeh
+olduğu halda, aşağı qat birbaşa məlumatın təhlükəsiz daşınmasını təmin
+edir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="tcolorbox">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Əl Sıxma</strong></td>
+<td style="text-align: left;"><strong>Həyəcan (Alert)</strong></td>
+<td style="text-align: left;"><strong>Şifrə Dəyişmə</strong></td>
+<td style="text-align: left;"><strong>Tətbiq Məlumatı</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">(Handshake)</td>
+<td style="text-align: left;">(Alert)</td>
+<td style="text-align: left;">(ChangeCipherSpec)</td>
+<td style="text-align: left;">(Application)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tcolorbox">
+<p><strong>TLS Rekord Protokolu (<em>Record
+Protocol</em>)</strong><br />
+(Məlumatların fraqmentasiyası, sıxlaşdırılması, MAC autentifikasiyası və
+şifrələnməsi)</p>
+</div>
+<div class="tcolorbox">
+<p><strong>Nəqliyyat Qatı (TCP/IP)</strong></p>
+</div>
+</div>
+<figcaption>TLS Protokol Arxitekturası və Qat Strukturunun
+Bölünməsi</figcaption>
+</figure>
+<h2 id="yazı-protokolu">Yazı Protokolu</h2>
+<p>Rekord protokolu TLS memarlığının ən aşağı qatını təşkil edir. O,
+yuxarı qatdakı tətbiq və idarəetmə protokollarından gələn bütün
+məlumatların kapsullaşdırılması, bütövlüyünün yoxlanılması və
+şifrələnməsi üçün unifikasiya olunmuş təhlükəsiz ötürmə interfeysi təmin
+edir <span class="citation"
+data-cites="paar2024understanding"></span>.</p>
+<p><strong>Rekord protokolunun ardıcıl fəaliyyət alqoritmi:</strong></p>
+<ol>
+<li><p><strong>Fraqmentasiya (Fragmentation):</strong> Yuxarı qatdan
+gələn böyük həcmli məlumatlar idarə edilə bilən konseptual bloklara
+(maksimum <span class="math inline">\(2^{14}\)</span> bayt və ya 16 KB)
+bölünür;</p></li>
+<li><p><strong>Sıxlaşdırma (Compression):</strong> TLS 1.2 rekord
+sıxlaşdırmasını nəzəri olaraq razılaşdıra bilirdi; grafik profillər
+CRIME riskinə görə onu söndürür. TLS 1.3 rekord sıxlaşdırmasını müəyyən
+etmir. BREACH isə HTTP səviyyəli sıxlaşdırma ilə bağlı ayrıca
+riskdir;</p></li>
+<li><p><strong>Autentifikasiya:</strong> Məlumatın bütövlüyünü təmin
+etmək üçün hər bir bloka Mesaj Autentifikasiya Kodu (MAC) əlavə edilir
+(müasir AEAD rejimlərində bu proses şifrələmə ilə eyni anda icra
+olunur);</p></li>
+<li><p><strong>Şifrələmə:</strong> Razılaşdırılmış simmetrik sessiya
+açarı vasitəsilə məlumat bloku məxfiliyi qorumaq məqsədilə
+şifrələnir;</p></li>
+<li><p><strong>Ötürmə (Transmission):</strong> Hazır olan TLS Rekord
+paketi aşağıda yerləşən nəqliyyat qatına (adətən TCP) təslim
+edilir.</p></li>
+</ol>
+<h2 id="rekord-paketinin-anatomiyası">Rekord Paketinin Anatomiyası</h2>
+<p>Nəzəri baxımdan şəbəkə səviyyəsində ötürülən hər bir TLS açıq-mətn
+paketi sabit başlıq və dəyişən ölçülü faydalı yük hissəsindən ibarət
+olur. Paketin bayt paylanması və daxili strukturu aşağıdakı kimidir:</p>
+<table id="tab:tls_record_structure">
+<caption>TLS Rekord Başlığının Bayt Strukturu</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Sahə Adı</strong></th>
+<th style="text-align: center;"><strong>Ölçüsü</strong></th>
+<th style="text-align: left;"><strong>Nəzəri Funksiyası</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Məzmun tipi</td>
+<td style="text-align: center;">1 bayt</td>
+<td style="text-align: left;">Paketin hansı üst protokola aid olduğunu
+bildirir.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Protokol Versiyası (<em>Versiya</em>)</td>
+<td style="text-align: center;">2 bayt</td>
+<td style="text-align: left;">İstifadə olunan TLS versiyasının
+majör/minör nömrəsi.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Uzunluq</td>
+<td style="text-align: center;">2 bayt</td>
+<td style="text-align: left;">Başlıqdan sonra gələn fraqmentin bayt
+olaraq ölçüsü.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fraqment</td>
+<td style="text-align: center;">Maks 16 KB</td>
+<td style="text-align: left;">Şifrələnmiş məlumat və ya idarəetmə
+mesajları.</td>
+</tr>
+</tbody>
+</table>
+<p>TLS 1.2 və əvvəlki versiyalarda başlığın məzmun tipi sahəsi aşağıdakı
+protokol növlərini birbaşa göstərir. TLS 1.3-də qorunan yazının xarici
+tipi <code>application_data</code>, <code>legacy_record_version</code>
+sahəsi isə <code>0x0303</code> olur; həqiqi daxili tip şifrələnmiş
+<code>TLSInnerPlaintext</code> sonunda yerləşir <span class="citation"
+data-cites="rescorla2018rfc8446"></span>.</p>
+<p><strong>Protokoldaxili məzmun tipi identifikatorları:</strong></p>
+<ul>
+<li><p><code>0x14 (20): ChangeCipherSpec</code> – TLS 1.2-də tərəflərin
+növbəti mesajlar üçün razılaşdırılmış mühafizəyə keçdiyini bildirir. TLS
+1.3-də açar keçidi bu mesajla idarə edilmir; uyğunluq məqsədli dummy
+<code>ChangeCipherSpec</code> qəbul edilə və nəzərə alınmaya
+bilər;</p></li>
+<li><p><code>0x15 (21): Alert</code> – Bağlantı zamanı yaranan xətaları,
+xəbərdarlıqları və ya bağlantının qəfil kəsilməsi (fatal) mesajlarını
+daşıyır;</p></li>
+<li><p><code>0x16 (22): Əl sıxma</code> – Sessiyanın ilkin qurulması
+üçün tələb olunan əl sıxma mesajlaşmasını ötürür;</p></li>
+<li><p><code>0x17 (23): ApplicationData</code> – İstifadəçinin real
+şifrələnmiş trafikini (məsələn, HTTP mətni, fayl transferi)
+daşıyır.</p></li>
+</ul>
+<h2 id="ön-şərt-1-şifrə-dəstləri">Ön şərt 1: Şifrə Dəstləri</h2>
+<h3 id="tərif-və-struktur-təkamülü">Tərif və Struktur Təkamülü</h3>
+<p>Şifrə dəsti (<em>cipher suite</em>) — TLS bağlantısı zamanı
+tərəflərin konfidensiallıq, bütövlük və autentifikasiya ehtiyaclarını
+qarşılamaq üçün istifadə edəcəyi kriptoqrafik alqoritmlər toplusudur
+<span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<p>Protokolun təkamül prosesində şifrə dəstlərinin adlandırılma formatı
+köklü şəkildə dəyişmişdir:</p>
+<ul>
+<li><p><strong>TLS 1.2 və Əvvəlki Standart:</strong>
+<code>TLS_[Açar_Mübadiləsi]_WITH_[Şifrələmə]_[İnteqrasiya]</code><br />
+Nümunə: <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code><br />
+Bu formatda bütün kriptoqrafik mərhələlər tək bir sətirdə
+birləşirdi.</p></li>
+<li><p><strong>TLS 1.3 Standartı:</strong>
+<code>TLS_[AEAD_Şifrələmə]_[Hash]</code><br />
+Nümunə: <code>TLS_AES_256_GCM_SHA384</code><br />
+Açar mübadiləsi və imza alqoritmləri bu bəyannamədən ayrılaraq müstəqil
+genişləndirmələrə keçirilmişdir.</p></li>
+</ul>
+<h3 id="klassik-tls-şifrə-dəstinin-komponentləri">Klassik TLS Şifrə
+Dəstinin Komponentləri</h3>
+<p>TLS 1.2 və əvvəlki versiyaların klassik şifrə dəsti adı dörd
+funksional qrupu əlaqələndirirdi <span class="citation"
+data-cites="stallings2017cryptography"></span>:</p>
+<ol>
+<li><p><strong>Açar Mübadiləsi:</strong> RSA açar ötürülməsində ilkin
+əsas sirr şifrələnib ötürülür, DHE/ECDHE-də isə tərəflər ortaq sirri
+açıq paylardan hesablayır;</p></li>
+<li><p><strong>Autentifikasiya:</strong> Serverin (və ya müştərinin)
+rəqəmsal kimliyini təsdiqləyir (məsələn, RSA və ya ECDSA);</p></li>
+<li><p><strong>Simmetrik şifrələmə:</strong> Əsas verilənlər axınını
+şifrələyir (məsələn: AES-GCM, AES-CBC, ChaCha20);</p></li>
+<li><p><strong>PRF/MAC üçün heş:</strong> TLS 1.2 dəstindən asılı olaraq
+açar törətmə və HMAC üçün istifadə olunur; AEAD dəstində rekord
+bütövlüyünü autentifikasiya teqi təmin edir.</p></li>
+</ol>
+<h3 id="tls-1.3-də-sadələşdirmə-və-aead-məcburiyyəti">TLS 1.3-də
+Sadələşdirmə və AEAD Məcburiyyəti</h3>
+<p>TLS 1.3 əsas təsviri beş şifrə dəsti müəyyən edir və yalnız
+<strong>AEAD</strong>, yəni əlaqəli verilənlərlə autentifikasiyalı
+şifrələmə rejimlərini dəstəkləyir <span class="citation"
+data-cites="rescorla2018rfc8446"></span>. Dəstin adındakı heş qeyd üçün
+ayrıca MAC deyil; HKDF açar cədvəli və əl sıxma transkripti üçün
+istifadə olunur:</p>
+<ul>
+<li><p><code>TLS_AES_128_GCM_SHA256</code> — Standart və ən çox istifadə
+olunan səmərəli dəst;</p></li>
+<li><p><code>TLS_AES_256_GCM_SHA384</code> — AES-256-GCM və SHA-384
+əsaslı dəst;</p></li>
+<li><p><code>TLS_CHACHA20_POLY1305_SHA256</code> — Mobil və aparat
+sürətləndiricisi (AES-NI) olmayan cihazlar üçün optimal seçim;</p></li>
+<li><p><code>TLS_AES_128_CCM_SHA256</code> — resursları məhdud olan
+əşyaların interneti (IoT) ekosistemi üçün;</p></li>
+<li><p><code>TLS_AES_128_CCM_8_SHA256</code> — IoT mühiti üçün
+qısaldılmış autentifikasiya teqinə malik spesifik alt-variant.</p></li>
+</ul>
+<p>TLS 1.3-də autentifikasiya və açar mübadiləsi mexanizmləri bu
+siyahıdan kənar idarə olunduğu üçün, sistem mühəndisləri imza
+alqoritmlərini (<code>RSA-PSS</code>, <code>ECDSA</code>,
+<code>Ed25519</code>) müstəqil şəkildə konfiqurasiya edirlər.</p>
+<h3 id="tls-1.3-açar-cədvəli-üçün-minimum-model">TLS 1.3 açar cədvəli
+üçün minimum model</h3>
+<p>Əl sıxma mərhələsini öyrənməzdən əvvəl dörd əsas səviyyəni
+fərqləndirmək lazımdır: PSK-dan əldə edilə bilən <em>erkən sirr</em>
+(<em>early secret</em>), (EC)DHE nəticəsi daxil olduqdan sonra
+formalaşan <em>əl sıxma sirri</em> (<em>handshake secret</em>), daha
+sonra <em>əsas sirr</em> (<em>master secret</em>) və transkriptdən asılı
+olan <em>əl sıxma/tətbiq trafik sirləri</em>. İlkin (EC)DHE nəticəsi
+birbaşa rekord açarı kimi istifadə edilmir; HKDF açar cədvəli konteks və
+transkript heş qiymətini nəzərə almaqla müvafiq açar və IV
+(<em>initialization vector</em>) materiallarını törədir.</p>
+<h2 id="ön-şərt-2-irəli-məxfilik-forward-secrecy-fs">Ön şərt 2: İrəli
+Məxfilik (Forward Secrecy – FS)</h2>
+<h3 id="kriptoqrafik-tərifi">Kriptoqrafik Tərifi</h3>
+<div class="definition">
+<p><strong>Tərif 1</strong> (İrəli Məxfilik). <em>İrəli məxfilik (FS) —
+serverin uzunmüddətli asimmetrik gizli açarı gələcəkdə hücumçular
+tərəfindən ələ keçirilsə belə, keçmişdə həmin serverlə qurulmuş
+sessiyaların şifrəli trafikinin deşifrə oluna bilməməsi xüsusiyyətidir
+<span class="citation" data-cites="diffie1976new"></span>.</em></p>
+</div>
+<h3 id="fs-in-iş-mexanizmi-və-əhəmiyyəti">FS-in İş Mexanizmi və
+Əhəmiyyəti</h3>
+<p>Əgər şəbəkə infrastrukturunda FS arxitekturası tətbiq edilməzsə
+(məsələn, açar mübadiləsi üçün yalnız statik RSA istifadə olunarsa):</p>
+<ul>
+<li><p>Hücumçu hədəf serverin şifrəli şəbəkə trafikini illərlə passiv
+şəkildə qeydə ala bilər;</p></li>
+<li><p>İllər sonra server fiziki olaraq ələ keçirildikdə və ya məhkəmə
+qərarı ilə serverin əsas gizli açarı tapıldıqda, hücumçu arxivdəki bütün
+keçmiş gizli yazışmaları geriyə dönük olaraq tamamilə deşifrə
+edər.</p></li>
+</ul>
+<p>Bağlantıda FS aktiv edildikdə isə mexanizm belə işləyir:</p>
+<ul>
+<li><p>Hər bir unikal sessiya üçün operativ yaddaşda (RAM) tamamilə
+unikal, müvəqqəti açar cütləri generasiya olunur;</p></li>
+<li><p>Sessiya bağlandığı an bu keçici açarlar operativ yaddaşdan
+birdəfəlik silinir;</p></li>
+<li><p>Gələcəkdə serverin ana açarı oğurlansa belə, həmin açar keçmiş
+sessiya açarlarını riyazi olaraq bərpa edə bilmir, çünki keçmiş açarlar
+ana açardan törəməmişdir.</p></li>
+</ul>
+<h3 id="alqoritmik-təminat-və-tls-də-tətbiqi">Alqoritmik Təminat və
+TLS-də Tətbiqi</h3>
+<p>TLS kontekstində irəli məxfilik adətən efemer Diffi–Hellman
+paylaşımının açar cədvəlinə daxil edilməsi ilə əldə olunur:</p>
+<ul>
+<li><p><strong>DHE:</strong> Tam ədədlər qrupu üzərində hər bağlantıya
+özəl müvəqqəti parametrlər formalaşdırır;</p></li>
+<li><p><strong>ECDHE:</strong> Elliptik əyrilər kriptoqrafiyası əsasında
+həm sürətli, həm də FS təminatlı açar mübadiləsi aparır.</p></li>
+</ul>
+<p><strong>FS təmin etməyən köhnə rejimlər:</strong> RSA açar
+ötürülməsində müştəri ilkin əsas sirri serverin daimi RSA açıq açarı ilə
+şifrələyir. Statik DH-də isə tərəflərdən birinin uzunmüddətli DH gizli
+açarı qeydə alınmış açıq paylarla birlikdə keçmiş ortaq sirrin
+hesablanmasına imkan verə bilər. Bunlar fərqli mexanizmlərdir, lakin
+uzunmüddətli açarın sonrakı ələ keçirilməsi baxımından eyni irəli
+məxfilik problemini yaradır.</p>
+<p>TLS 1.2-də irəli məxfilik DHE/ECDHE dəstinin seçilməsindən asılı idi.
+TLS 1.3 statik RSA və statik DH açar mübadiləsini çıxarıb; sertifikatlı
+tam əl sıxma və <code>psk_dhe_ke</code> rejimi (EC)DHE-ni açar cədvəlinə
+daxil edir. Bununla belə, yalnız PSK-a əsaslanan <code>psk_ke</code>
+rejimi və 0-RTT erkən məlumat irəli məxfilik vermir. Buna görə “TLS 1.3
+həmişə FS-dir” iddiası düzgün deyil <span class="citation"
+data-cites="rescorla2018rfc8446"></span>.</p>
+<h2 id="əl-sıxma-protokolu">Əl Sıxma Protokolu</h2>
+<p>Əl sıxma protokolu tətbiq məlumatlarının mübadiləsi başlamazdan əvvəl
+müştəri və server arasında təhlükəsiz kriptoqrafik kanal yaradan ən
+mürəkkəb alt protokoldur <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<p><strong>Əsas fundamental funksiyaları:</strong></p>
+<ul>
+<li><p><strong>Tərəflərin Autentifikasiyası:</strong> Rəqəmsal
+sertifikatlar vasitəsilə serverin (bəzən həm də müştərinin) həqiqiliyi
+yoxlanılır;</p></li>
+<li><p><strong>Kriptoqrafik Alqoritmlərin Razılaşdırılması:</strong> Hər
+iki tərəfin dəstəklədiyi və sənaye tərəfindən qəbul edilən en təhlükəsiz
+şifrə dəstinin (<em>cipher suite</em>) seçilməsi;</p></li>
+<li><p><strong>Simmetrik Açarların Yaradılması:</strong> Asimmetrik
+kriptoqrafiya (məsələn, DH və ya ECDH) vasitəsilə tərəflər arasında
+məlumat şifrələməsində istifadə olunacaq müvəqqəti simmetrik sessiya
+açarlarının təhlükəsiz şəkildə generasiya edilməsi.</p></li>
+</ul>
+<h1 id="tls-1.2-əl-sıxması">TLS 1.2 Əl Sıxması</h1>
+<p>Tipik tam TLS 1.2 əl sıxması müştərinin tətbiq məlumatını
+göndərməsinədək iki gediş-gəliş (2 RTT) tələb edir <span
+class="citation" data-cites="rescorla2018rfc8446"></span>.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>TLS 1.2 tam əl sıxması (<em>Full Handshake</em>) və
+şifrələnmiş kanala keçid ardıcıllığı.</figcaption>
+</figure>
+<h2 id="clienthello">ClientHello</h2>
+<p>Müştəri serverə aşağıdakı məlumatları göndərir <span class="citation"
+data-cites="ferguson2010cryptography"></span>:</p>
+<ul>
+<li><p><strong>Versiya (<em>Version</em>):</strong> Müştərinin
+(klientin) dəstəklədiyi ən yüksək TLS versiyası;</p></li>
+<li><p><strong>Təsadüfi dəyər (<code>Random</code>):</strong> Klient
+tərəfindən generasiya olunan 32 baytlıq təsadüfi dəyər;</p></li>
+<li><p><strong>Sessiya identifikatoru (<em>Session ID</em>):</strong>
+Yeni əlaqə yaradıldıqda sıfır (<span class="math inline">\(0\)</span>),
+təkrar bərpa edildikdə isə əvvəlki id qiyməti;</p></li>
+<li><p><strong>Şifrə dəstləri (<em>Cipher Suites</em>):</strong>
+Müştərinin dəstəklədiyi kriptoqrafik şifrə dəstlərinin prioritet sırası
+ilə siyahısı;</p></li>
+<li><p><strong>Sıxlaşdırma metodları (<em>Compression
+Methods</em>):</strong> Müştərinin dəstəklədiyi sıxlaşdırma alqoritmləri
+(TLS 1.3-də təhlükəsizlik risklərinə görə ləğv edilmişdir);</p></li>
+<li><p><strong>Genişlənmələr (<em>Extensions</em>):</strong> Əlavə
+imkanlar və parametrlər (məsələn, SNI, ALPN, dəstəklənən qruplar və
+s.).</p></li>
+</ul>
+<h2 id="serverhello">ServerHello</h2>
+<p>Server, klientin sorğusuna cavab olaraq aşağıdakı parametrləri
+göndərir:</p>
+<ul>
+<li><p><strong>Versiya (<em>Version</em>):</strong> Klientin təklif
+etdiyi siyahıdan seçilmiş TLS versiyası;</p></li>
+<li><p><strong>Təsadüfi dəyər (<code>Random</code>):</strong> Server
+tərəfindən generasiya olunan (klientin təsadüfi dəyərindən müstəqil) 32
+baytlıq dəyər;</p></li>
+<li><p><strong>Sessiya identifikatoru (<em>Session ID</em>):</strong>
+Təyin olunmuş və ya bərpa edilən sessiyanın identifikatoru;</p></li>
+<li><p><strong>Şifrə dəsti (<em>Cipher Suite</em>):</strong> Klientin
+siyahısından seçilmiş vahid şifrə dəsti;</p></li>
+<li><p><strong>Sıxlaşdırma metodu (<em>Compression
+Method</em>):</strong> Seçilmiş sıxlaşdırma alqoritmi (TLS 1.2 və öncəki
+versiyalarda);</p></li>
+<li><p><strong>Genişlənmələr (<em>Extensions</em>):</strong>
+Təsdiqlənmiş və seçilmiş əlavə parametrlər.</p></li>
+</ul>
+<h2 id="sertifikat-göndərilməsi-certificate">Sertifikat Göndərilməsi
+(<em>Certificate</em>)</h2>
+<p>Server öz zəncirvari sertifikatını (server sertifikatı və tələb
+olunduqda aralıq CA sertifikatlarını) göndərir <span class="citation"
+data-cites="stallings2017cryptography"></span>. Sertifikatın əsas tərkib
+hissələri:</p>
+<ul>
+<li><p>Serverin açıq açarı (<em>public key</em>);</p></li>
+<li><p>Serverin domen adı — Əsas Ad (<em>Common Name — CN</em>) və ya
+Subyektin Alternativ Adı (<em>Subject Alternative Name —
+SAN</em>);</p></li>
+<li><p>Sertifikat Mərkəzinin (CA) rəqəmsal imzası;</p></li>
+<li><p>Sertifikatın etibarlılıq müddəti (<em>Validity
+Period</em>).</p></li>
+</ul>
+<h2 id="serverkeyexchange-lazım-olduqda">ServerKeyExchange (lazım
+olduqda)</h2>
+<p>DHE və ECDHE kimi müvəqqəti (<em>ephemeral</em>) açar mübadiləsi
+metodları istifadə edildikdə server əlavə efemer parametrləri göndərir
+<span class="citation"
+data-cites="ferguson2010cryptography"></span>:</p>
+<ul>
+<li><p>Diffi-Hellman parametrləri (<span
+class="math inline">\(p\)</span>, <span class="math inline">\(g\)</span>
+və ya eliptik əyri parametrləri);</p></li>
+<li><p>Serverin efemer Diffi-Hellman açıq açarı;</p></li>
+<li><p>Göndərilən parametrlərin rəqəmsal imzası (serverin uzunmüddətli
+özəl açarı ilə imzalanır).</p></li>
+</ul>
+<h2 id="serverhellodone">ServerHelloDone</h2>
+<p>Server, əl sıxmanın ilk mərhələsinin (server tərəfinin mesajlarının)
+yekunlaşdığını bildirir.</p>
+<h2 id="clientkeyexchange">ClientKeyExchange</h2>
+<p>Klient, simmetrik açarın törədilməsi üçün tələb olunan parametri
+göndərir <span class="citation"
+data-cites="paar2024understanding"></span>:</p>
+<ul>
+<li><p><strong>RSA rejimi üçün:</strong> Serverin açıq açarı ilə
+şifrələnmiş ilkin əsas sirr (<em>Pre-Master Secret</em>);</p></li>
+<li><p><strong>DHE/ECDHE rejimi üçün:</strong> Klientin efemer
+Diffi-Hellman açıq açarı.</p></li>
+</ul>
+<h2 id="changecipherspec">ChangeCipherSpec</h2>
+<p>Bu mesaj, tərəflərin növbəti mərhələdən etibarən razılaşdırılmış
+simmetrik şifrələməyə və bütövlük qorunmasına keçəcəyini xəbərdar edən
+siqnaldır.</p>
+<h2 id="finished">Finished</h2>
+<p><code>Finished</code> mesajı yeni razılaşdırılmış açarlarla qorunan
+ilk əl sıxma mesajıdır. Onun <code>verify_data</code> sahəsinin qiyməti
+əsas sirrdən (<em>Master Secret</em>) və həmin ana qədər mübadilə
+edilmiş bütün əl sıxma transkriptinin heş dəyərindən Pseudo-Random
+Function (PRF) vasitəsilə hesablanır. Bu mexanizm sayəsində qarşı tərəf
+həm açar razılaşmasının dəqiqliyini, həm də transkriptin bütövlüyünü
+(ötürülmə zamanı dəyişdirilmədiyini) yoxlayır.</p>
+<h1 id="tls-1.3-əl-sıxması">TLS 1.3 Əl Sıxması</h1>
+<p>TLS 1.3 tam əl sıxmada müştərinin tətbiq məlumatını göndərməsinədək
+gecikməni tipik TLS 1.2-dəki 2 RTT-dən 1 RTT-yə endirir <span
+class="citation" data-cites="rescorla2018rfc8446"></span>.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>TLS 1.3 protokolunda 1-RTT əl sıxma mexanizmi və mərhələli
+şifrələmə keçidləri.</figcaption>
+</figure>
+<h2 id="fundamental-arxitektur-fərqlər">Fundamental Arxitektur
+Fərqlər</h2>
+<p>TLS 1.3 spesifikasiyasında əvvəlki versiyalarla müqayisədə edilən
+əsas struktur dəyişiklikləri aşağıdakılardır:</p>
+<ol>
+<li><p><strong>Mesajların unifikasiyası:</strong> TLS 1.2-də mövcud olan
+<code>ServerKeyExchange</code> və <code>ServerHelloDone</code> mesajları
+tamamilə ləğv edilmiş, onların funksionallığı birbaşa
+<code>ServerHello</code> və genişlənmələrin (<em>extensions</em>)
+daxilinə inteqrasiya olunmuşdur;</p></li>
+<li><p><strong>Açar vəziyyətinə keçid mexanizmi:</strong> TLS 1.3-də
+<code>ChangeCipherSpec</code> mesajı artıq şifrələmə vəziyyətini
+dəyişmir. Bu mesaj bəzi şəbəkə avadanlıqları ilə (<em>middlebox</em>)
+geriyə uyğunluğu qorumaq məqsədilə fiktiv (<em>dummy</em>) siqnal kimi
+göndərilə bilər və qəbuledici tərəfindən nəzərə alınmır;</p></li>
+<li><p><strong>Açar mübadiləsinin optimallaşdırılması:</strong> Klient
+hələ ilk mesajda (<code>ClientHello</code>) dəstəklədiyi Diffi-Hellman
+qrupları üçün öz efemer açıq açar payını (<code>key_share</code>)
+göndərir. Beləliklə, alqoritmin seçilməsi və açar mübadiləsi birinci
+gedişdəcə (<em>1-RTT</em>) paralel icra olunur;</p></li>
+<li><p><strong>Maksimal konfidentsiallıq:</strong>
+<code>ServerHello</code> mesajından dərhal sonra gələn bütün idarəetmə
+elementləri (<code>EncryptedExtensions</code>, sertifikatlar və rəqəmsal
+imzalar) şəbəkədə artıq şifrələnmiş şəkildə ötürülür.</p></li>
+</ol>
+<h2 id="müştəri-salamı-clienthello">Müştəri Salamı (ClientHello)</h2>
+<p>TLS 1.3 mühitində <code>ClientHello</code> mesajı müştərinin
+kriptoqrafik imkanlarını göstərən genişləndirmələrə əsaslanır <span
+class="citation" data-cites="rescorla2018rfc8446"></span>:</p>
+<ul>
+<li><p><strong>Dəstəklənən versiyalar:</strong> Müştərinin TLS 1.3
+dəstəklədiyini bildirən açıq parametr;</p></li>
+<li><p><strong>Açar payı:</strong> Müştərinin müvəqqəti Diffi-Hellman
+(və ya ECDH) alqoritmi üçün yaratdığı açıq açar dəyərləri;</p></li>
+<li><p><strong>İmza alqoritmləri:</strong> Müştərinin rəqəmsal imzaları
+yoxlamaq üçün qəbul etdiyi heş və imza kombinasiyaları (məsələn,
+RSA-PSS, ECDSA).</p></li>
+</ul>
+<h2 id="server-salamı-serverhello-və-şifrəli-mesajlar">Server Salamı
+(ServerHello) və Şifrəli Mesajlar</h2>
+<p>Server müştərinin təkliflərini analiz etdikdən sonra cavab
+mesajlarını formalaşdırır:</p>
+<ul>
+<li><p><strong><code>ServerHello</code>:</strong> Seçilmiş TLS
+versiyasını, unikal təsadüfi dəyəri, ortaq simmetrik şifrə dəstini və
+uyğun rejimdə serverin Diffi–Hellman açıq açar payını
+(<code>key_share</code>) ehtiva edir. Bu mesajdan sonra tərəflər əl
+sıxma sirrini və əl sıxma trafik sirlərini törədərək sonrakı mesajları
+qoruyur; əsas sirr və tətbiq trafik sirləri açar cədvəlinin sonrakı
+mərhələlərində törədilir;</p></li>
+<li><p><strong>EncryptedExtensions (Şifrəli Genişləndirmələr):</strong>
+Serverin kriptoqrafik xüsusiyyəti olmayan, lakin bağlantı üçün vacib
+olan (məsələn, ALPN, SNI cavabları) tətbiq parametrləri burada
+təhlükəsiz ötürülür;</p></li>
+<li><p><strong><code>Certificate</code> və
+<code>CertificateVerify</code>:</strong> Sertifikat seçilmiş
+identifikatorla açıq açar arasındakı sertifikat verən tərəfin iddiasını
+daşıyır. <code>CertificateVerify</code> isə kontekst sətri və həmin
+nöqtəyədək transkript heşi daxil olmaqla müəyyən edilmiş strukturu
+sertifikatdakı açara uyğun gizli açarla imzalayır; müştəri ayrıca
+sertifikat yolunu və gözlənilən identifikatoru yoxlamalıdır;</p></li>
+<li><p><strong><code>Finished</code>:</strong> Tərəf
+<code>finished_key</code> ilə həmin nöqtəyədək transkript heşi üzərində
+HMAC hesablayıb <code>verify_data</code> göndərir. Qarşı tərəf dəyəri
+yenidən hesablayaraq açar cədvəlinə və transkriptə uyğunluğu
+yoxlayır.</p></li>
+</ul>
+<h1 id="rtt-sıfır-gediş-gəliş-müddəti-rejimi">0-RTT (Sıfır Gediş-Gəliş
+Müddəti) Rejimi</h1>
+<h2 id="iş-prinsipi">İş Prinsipi</h2>
+<p>0-RTT, əvvəlki sessiyadan və ya xaricdən təmin olunan əvvəlcədən
+paylaşılmış açar (PSK) əsasında müştərinin <code>ServerHello</code>
+cavabını gözləmədən <code>ClientHello</code> ilə birlikdə
+<code>early_data</code> göndərə bildiyi rejimdir. “0 RTT” şəbəkə
+gecikməsinin yox olması deyil, tətbiq məlumatını cavab gözləmədən
+göndərmək imkanıdır; server həmin məlumatı qəbul etməyə də bilər <span
+class="citation" data-cites="rescorla2018rfc8446"></span>.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>TLS 1.3 0-RTT rejimində mesaj sırası</figcaption>
+</figure>
+<h2 id="kritik-təhlükəsizlik-riskləri">Kritik Təhlükəsizlik
+Riskləri</h2>
+<p>0-RTT bir RTT gözləmədən tətbiq məlumatı göndərməyə imkan versə də,
+tətbiq protokolunun ayrıca idarə etməli olduğu təhlükəsizlik
+kompromisləri yaradır:</p>
+<ol>
+<li><p><strong>Təkrar Hücumları:</strong> TLS 1.3 şəbəkədə təkrarlanmış
+<code>early_data</code>-nı ümumi halda aşkarlamağa zəmanət vermir.
+Server təkrara qarşı vəziyyəti, məhdud qəbul pəncərəsi və ya tətbiq
+səviyyəli təkrarsızlaşdırma tətbiq etməzsə eyni əməliyyat bir neçə dəfə
+icra oluna bilər;</p></li>
+<li><p><strong>İrəli Məxfilik Məhdudiyyəti:</strong>
+<code>early_data</code> yalnız PSK-dan törəyən erkən sirr ilə qorunur və
+sonrakı (EC)DHE paylaşımına bağlı deyil. PSK sonradan əldə edilərsə və
+trafik qeydə alınıbsa, 0-RTT məlumatı üçün irəli məxfilik təmin
+edilmir;</p></li>
+<li><p><strong>Tətbiq Semantikası:</strong> Metodun adı və ya HTTP
+metodu təkbaşına təhlükəsizliyi göstərmir. Server hər bir əməliyyatın
+təkrar icrasının təsirini, autentifikasiya vəziyyətini və tətbiq
+protokolunun 0-RTT profilini nəzərə almalıdır.</p></li>
+</ol>
+<p><strong>Metodoloji tövsiyə:</strong> 0-RTT yalnız tətbiq protokolunun
+bunu açıq şəkildə profillədiyi, təkrarın təhlükəsiz olduğu və serverin
+təkrara qarşı qaydası tətbiq etdiyi əməliyyatlarda aktivləşdirilməlidir.
+Sadəcə <code>GET</code> və ya “təkrarlandıqda əlavə təsir yaratmayan”
+etiketi kifayət deyil: bəzi GET sorğuları yan təsir yarada, bəzi yazma
+əməliyyatları isə unikal təkrar açarı ilə təhlükəsiz təkrarlana
+bilər.</p>
+<h1
+id="tls-protokoluna-qarşı-tarixi-hücumlar-və-təhlükəsizlik-problemləri">TLS
+Protokoluna Qarşı Tarixi Hücumlar və Təhlükəsizlik Problemləri</h1>
+<p>TLS/SSL protokollarının inkişaf tarixi həm də onlara qarşı edilən
+kriptoqrafik və proqram təminatı səviyyəli hücumların tarixidir. Müasir
+TLS 1.3 protokolu məhz aşağıdakı tarixi zəifliklərin dərindən analiz
+edilməsi nəticəsində formalaşdırılmışdır.</p>
+<h2 id="poodle-hücumu-2014">POODLE Hücumu (2014)</h2>
+<p><strong>POODLE</strong> birbaşa SSL 3.0 protokolunun blok şifrələmə
+rejimini hədəf alan boşluqdur.</p>
+<p><strong>Nəzəriyyəsi və İş Prinsipi:</strong></p>
+<ul>
+<li><p><strong>Protokolun zəif versiyaya endirilməsi:</strong> Hücumçu
+müştəri ilə server arasındakı müasir TLS bağlantı cəhdlərini şəbəkə
+səviyyəsində qəsdən kəsir və sistemləri təhlükəsizlik səviyyəsi aşağı
+olan SSL 3.0 protokolundan istifadə etməyə məcbur edir;</p></li>
+<li><p><strong>Doldurma sorğu mənbəyi boşluğu:</strong> SSL 3.0
+daxilindəki CBC rejimi doldurma baytlarının strukturunu dəqiq yoxlamır.
+Hücumçu bu boşluqdan istifadə edərək deşifrə olunmuş hər bir bayt üçün
+serverin verdiyi xəta cavablarını təhlil edir;</p></li>
+<li><p><strong>Nəticə:</strong> Hücumçu sessiya çərəzlərini və şifrəli
+məlumatların açıq mətnini əldə edir.</p></li>
+</ul>
+<p><strong>Nəzəri Həlli:</strong> SSL 3.0 protokolunun infrastruktur
+səviyyəsində tamamilə söndürülməsi (RFC 7568).</p>
+<h2 id="beast-hücumu-2011">BEAST Hücumu (2011)</h2>
+<p><strong>BEAST</strong> hücumu TLS 1.0 versiyasında istifadə olunan
+CBC rejiminin tətbiqindəki zəiflikdən qaynaqlanır.</p>
+<p><strong>Nəzəriyyəsi və İş Prinsipi:</strong></p>
+<ul>
+<li><p>TLS 1.0 protokolunda bir şifrələmə blokunun başlanğıc vektoru
+(IV), özündən əvvəlki blokun şifrəli mətni ilə eyni olurdu; buna görə IV
+ardıcıl və təxmin edilə bilən idi;</p></li>
+<li><p>Brauzerdə skript işlədə bilən və trafiki müşahidə edib dəyişə
+bilən hücumçu seçilmiş açıq mətn blokları yaradaraq təxmin edilən IV ilə
+gizli baytları müqayisəli şəkildə bərpa edə bilirdi. Buna görə BEAST
+seçilmiş-açıq-mətn hücumudur, seçilmiş-şifrəli-mətn hücumu
+deyil.</p></li>
+</ul>
+<p><strong>Nəzəri Həlli:</strong> Eksplisit (aşkar/təsadüfi) IV tətbiq
+edən TLS 1.1 və ya daha müasir AEAD rejimlərinə malik TLS 1.2/1.3
+versiyalarına keçid.</p>
+<h2 id="crime-hücumu-2012">CRIME Hücumu (2012)</h2>
+<p><strong>CRIME</strong> hücumu TLS protokolunun nəqliyyat qatında
+tətbiq etdiyi sıxlaşdırma alqoritmlərinin informasiya sızdırmasına
+əsaslanır.</p>
+<p><strong>Nəzəriyyəsi və İş Prinsipi:</strong></p>
+<ul>
+<li><p>DEFLATE kimi sıxlaşdırma alqoritmləri mətndə təkrarlanan
+ifadələri daha qısa simvollarla əvəzləyir;</p></li>
+<li><p>Hücumçu HTTP sorğusunun daxilinə (məsələn, URL vasitəsilə) öz
+təxminlərini yerləşdirir. Əgər hücumçunun təxmini gizli sessiya çərəzi
+ilə üst-üstə düşərsə, sıxlaşdırılmış paketin ümumi ölçüsü
+kiçilir;</p></li>
+<li><p>Hücumçu paketin bayt ölçüsünün dəyişməsini izləyərək yan kanal
+analizi ilə gizli məlumatları bayt-bayt bərpa edir.</p></li>
+</ul>
+<p><strong>Nəzəri Həlli:</strong> TLS səviyyəsində məlumatların
+sıxlaşdırılması funksiyasının tamamilə ləğv edilməsi.</p>
+<h2 id="heartbleed-boşluğu-2014">Heartbleed Boşluğu (2014)</h2>
+<p><strong>Heartbleed</strong> bir TLS protokolu zəifliyi deyil, dünyada
+ən geniş istifadə olunan OpenSSL kriptoqrafik kitabxanasının
+proqramlaşdırma xətasıdır (CVE-2014-0160).</p>
+<p><strong>Nəzəriyyəsi və İş Prinsipi:</strong></p>
+<ul>
+<li><p>TLS bağlantısının aktiv saxlanılması üçün istifadə olunan
+<code>Heartbeat</code> genişləndirməsində müştəri serverə müəyyən ölçüdə
+məlumat göndərir və serverdən həmin məlumatı geri qaytarmasını
+istəyir;</p></li>
+<li><p>Proqram kodunda daxil olan sorğunun real ölçüsü ilə müştərinin
+bəyan etdiyi faydalı yük ölçüsü yoxlanılmırdı; nəticədə yaddaş
+sərhədindən artıq oxuma baş verirdi;</p></li>
+<li><p>Müştəri serverə 1 bayt məlumat göndərib "mənə 64 KB қайtar"
+dedikdə, server öz operativ yaddaşından (RAM) digər istifadəçilərə aid
+şifrələri, gizli açarları və sessiya məlumatlarını sızdırırdı.</p></li>
+</ul>
+<p><strong>Nəzəri Həlli:</strong> Giriş məlumatlarının sərhədlərini
+ciddi şəkildə yoxlayan təhlükəsiz proqram təminatı yeniləmələrinin
+tətbiqi.</p>
+<h2 id="logjam-2015-və-freak-2015-hücumları">Logjam (2015) və FREAK
+(2015) Hücumları</h2>
+<p>Hər iki hücum növü protokolları daha zəif, dövlət səviyyəsində
+sındırıla bilən kriptoqrafik rejimlərə keçməyə məcbur edən struktur
+endirmə hücumlarıdır.</p>
+<p><strong>Logjam Mexanizmi:</strong></p>
+<ul>
+<li><p>Diffi-Hellman açar mübadiləsində istifadə olunan ortaq riyazi
+parametrlərin (sadə ədədlərin) ölçüsünü 512-bit kimi zəif ixrac
+səviyyəsinə endirir. Müasir hesablama gücləri ilə bu ölçüdə diskret
+loqarifmləmə problemini həll etmək və əsas açarı tapmaq
+mümkündür.</p></li>
+</ul>
+<p><strong>FREAK Mexanizmi:</strong></p>
+<ul>
+<li><p>1990-cı illərin ABŞ ixrac qanunlarına görə xarici ölkələrə
+zəiflədilmiş (maksimum 512-bit) RSA açarları təklif olunurdu. Hücumçu
+serveri bu köhnə və zəif RSA rejimini seçməyə məcbur edir və riyazi
+olaraq vuruqlara ayırma üsulu ilə şifrəni sındırır.</p></li>
+</ul>
+<p><strong>Nəzəri Həlli:</strong> Bütün köhnə ixrac səviyyəli şifrə
+dəstlərinin arxitekturadan silinməsi və minimum 2048-bit ölçülü
+asimmetrik açarlardan istifadə edilməsi.</p>
+<h1 id="praktik-tövsiyələr">Praktik Tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Protokol versiyaları:</strong></p>
+<ul>
+<li><p>Yalnız TLS 1.2 və TLS 1.3 protokollarını dəstəkləyin.</p></li>
+<li><p>Təhlükəsizlik boşluqları olan SSL 2.0, SSL 3.0, TLS 1.0 və TLS
+1.1 versiyalarını infrastruktur səviyyəsində tamamilə söndürün.</p></li>
+</ul></li>
+<li><p><strong>Şifrə dəstləri (<em>Cipher Suites</em>):</strong></p>
+<ul>
+<li><p>TLS 1.3 üçün standart AEAD şifrələrindən istifadə edin: AES-GCM
+və ChaCha20-Poly1305.</p></li>
+<li><p>TLS 1.2 üçün: Həm autentifikasiya, həm də məxfilik qorunması
+məqsədilə <code>ECDHE + AES-GCM + SHA256</code> kombinasiyasına üstünlük
+verin.</p></li>
+<li><p>Müxtəlif yan kanal hücumlarına həssas olan CBC rejimli
+şifrələrdən tamamilə qaçının.</p></li>
+</ul></li>
+<li><p><strong>Açar mübadiləsi arxitekturası:</strong></p>
+<ul>
+<li><p>İrəli məxfilik (FS) təmin edən efemer xarakterli alqoritmlərdən
+(<em>ECDHE</em>, <em>DHE</em>) istifadə edin.</p></li>
+<li><p>Geriya dönük deşifrə riskini aradan qaldırmaq üçün statik RSA və
+statik DH rejimlərindən qaçının.</p></li>
+</ul></li>
+<li><p><strong>Sertifikat idarəçiliyi:</strong></p>
+<ul>
+<li><p>Ən azı 2048-bit RSA və ya 256-bit ECC asimmetrik açar cütünə
+malik sertifikatlar tətbiq edin.</p></li>
+<li><p>Kriptoqrafik toqquşma xətalarına görə SHA-1 imzalı köhnə
+sertifikatları qəbul etməyin.</p></li>
+<li><p>Yoxlama zəncirində qopuqluq yaşanmaması üçün sertifikat zəncirini
+tam şəkildə ötürün.</p></li>
+</ul></li>
+<li><p><strong>Protokol genişləndirmələri:</strong></p>
+<ul>
+<li><p>Müştəri tərəfindəki gecikmələri azaltmaq və sorğuları
+optimallaşdırmaq üçün OCSP bərkidilməsini aktiv edin.</p></li>
+<li><p>HSTS siyasətini HTTP-dən HTTPS-ə keçid zamanı
+<code>sslstrip</code> tipli endirməni və sertifikat xətası
+xəbərdarlığını keçmə davranışını azaltmaq üçün tətbiq edin; HSTS TLS
+versiyasının razılaşdırılmasını özü qorumur.</p></li>
+<li><p>TLS 1.3 0-RTT rejimini yalnız tətbiq protokolunun icazə verdiyi,
+təkrarın təhlükəsiz olduğu və təkrara qarşı nəzarətinin qurulduğu
+əməliyyatlar üçün aktivləşdirin.</p></li>
+</ul></li>
+<li><p><strong>Audit və test alətləri:</strong></p>
+<ul>
+<li><p>Kənar şəbəkədən TLS konfiqurasiyasının dayanıqlığını yoxlamaq
+üçün SSL Labs (<em>ssllabs.com</em>) platformasından istifadə
+edin.</p></li>
+<li><p>Yerli və qapalı şəbəkələrdə genişmiqyaslı audit aparmaq üçün
+<code>testssl.sh</code> terminal aləti vasitəsilə testlər icra
+edin.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="tcolorbox">
+<p>Əl sıxma tapşırıqlarında mesaj izi, açar vəziyyətini və qəbul/rədd
+qərarını özünüz işarələyin. Müəllim üçün cavab açarı yalnız ilkin
+cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>SSL və TLS protokolları
+arasındakı fundamental və kriptoqrafik fərqləri sadalayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>Aşağıdakı TLS 1.3 izini şərh
+edin: <code>ClientHello(key_share=X25519)</code> →
+<code>ServerHello(key_share=X25519)</code> →
+<code>EncryptedExtensions</code> → <code>Certificate</code> →
+<code>CertificateVerify</code> → <code>Finished</code>. Hansı nöqtədə əl
+sıxma trafik sirləri yaranır, hansı mesajlar şifrələnir və server
+kimliyi hansı iki ayrı yoxlama ilə qəbul edilir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>Bank API-si
+<code>POST /transfer</code> əməliyyatını TLS 1.3 0-RTT kimi qəbul edir;
+tətbiqdə unikal təkrar açarı və serverlərarası ortaq təkrara qarşı
+vəziyyəti yoxdur. Hücumçu eyni erkən məlumat yazısını iki sərhəd
+serverinə çatdırır. Nəticəni izləyin və təhlükəsiz qəbul siyasəti təklif
+edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>İrəli məxfilik (FS) anlayışını
+izah edin və onun tətbiqinin zəruriliyini əsaslandırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>TLS 1.3 protokolunun
+spesifikasiyasından hansı köhnə kriptoqrafik alqoritmlər və rejimlər
+çıxarılmışdır? Bunun səbəbini izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>Konfiqurasiyada
+<code>TLS_AES_128_GCM_SHA256</code>,
+<code>supported_groups=X25519</code> və
+<code>signature_algorithms=ed25519</code> verilib. TLS 1.3-də bu üç
+parametrin müvafiq olaraq hansı funksiyanı seçdiyini və hansının sessiya
+açarını birbaşa ifadə etmədiyini göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>TLS yazı protokolunun şəbəkə
+qatındakı əsas funksiyalarını şərh edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em>TLS/SSL protokollarına qarşı
+edilən tarixi hücumlardan ən azı üçünü seçərək onların riyazi və ya
+məntiqi əsaslarını izah edin.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p><strong>SSL və TLS arasındakı fundamental fərqlər:</strong></p>
+<ul>
+<li><p><strong>Standartlaşdırma:</strong> SSL protokolu ilkin olaraq
+Netscape tərəfindən fərdi şəkildə yaradıldığı halda, TLS protokolu IETF
+tərəfindən beynəlxalq internet standartı olaraq
+sənədləşdirilmişdir;</p></li>
+<li><p><strong>Autentifikasiya mexanizmi:</strong> TLS protokolu daha
+güclü mesaj autentifikasiyası üçün rəsmi HMAC alqoritmindən istifadə
+edir, SSL isə köhnə MAC strukturuna əsaslanır;</p></li>
+<li><p><strong>Kvadratik törəmə:</strong> TLS daxilində gizli açarların
+generasiyası üçün istifadə olunan psevdo-təsadüfi funksiya (PRF) SSL-in
+daxili mexanizmindən daha mürəkkəb və təhlükəsizdir. TLS 1.0 SSL 3.0
+bazasında hazırlansa da, aralarındakı protokol səviyyəli fərqlərə görə
+bir-biri ilə geriyə dönük uyuşmurlar.</p></li>
+</ul></li>
+<li><p><strong>TLS 1.3 iz təhlili:</strong></p>
+<ul>
+<li><p>ClientHello və ServerHello açıq görünür; ikinci açar payı qəbul
+edildikdən sonra (EC)DHE nəticəsi və transkript əsasında əl sıxma və
+trafik sirləri törədilir. EncryptedExtensions və sonrakı göstərilən
+mesajlar qorunur.</p></li>
+<li><p>Sertifikat yolu/qovşaq adı yoxlaması açıq açarın gözlənilən
+serverə bağlanmasını, CertificateVerify isə həmin açara uyğun gizli
+açarın transkripti imzalamasını yoxlayır. Finished ayrıca açar cədvəli
+və transkript bütövlüyünü təsdiqləyir.</p></li>
+</ul></li>
+<li><p><strong>0-RTT ssenarisinin analizi:</strong> TLS hər iki sərhəd
+serverinin eyni erkən məlumatı icra etməsini ümumi halda dayandırmır;
+iki pul köçürməsi yarana bilər. Bu əməliyyat 0-RTT-də rədd edilməli və
+tam əl sıxmadan sonra göndərilməlidir. Alternativ profil yalnız tətbiq
+səviyyəli unikal təkrar açarı, atomik paylaşılmış təkrar nəzarəti və
+aydın bitmə müddəti siyasəti olduqda əsaslandırıla bilər.</p></li>
+<li><p><strong>FS anlayışı və əhəmiyyəti:</strong> İrəli məxfilik
+uzunmüddətli autentifikasiya açarı sonradan kompromat olduqda belə,
+düzgün efemer açarların silindiyi və sessiya sirlərinin ayrıca sızmadığı
+fərziyyəsi altında keçmiş sessiya açarlarının bərpa olunmaması
+xüsusiyyətidir. TLS-də DHE/ECDHE paylaşımının açar cədvəlinə daxil
+edilməsi bu xüsusiyyəti verir; yalnız PSK və 0-RTT rejimləri ayrıca
+qiymətləndirilməlidir.</p></li>
+<li><p><strong>TLS 1.3-də çıxarılan alqoritmlər:</strong> TLS 1.3 rekord
+mühafizəsində yalnız AEAD dəstlərini saxlayır; RC4 və CBC dəstləri, RSA
+açar ötürülməsi və statik DH açar mübadiləsi yoxdur. MD5 və SHA-1 TLS
+1.3 açar cədvəli və <code>CertificateVerify</code> üçün istifadə
+edilmir. Dəyişikliklərin səbəbi yalnız hər alqoritmin “riyazi
+sındırılması” deyil, köhnə kombinasiya və protokol səthinin doldurma
+orakulu, zəif profilə endirmə və konfiqurasiya risklərini
+azaltmaqdır.</p></li>
+<li><p><strong>Konfiqurasiya artefaktı:</strong>
+<code>TLS_AES_128_GCM_SHA256</code> rekord üçün AEAD-i və
+HKDF/transkript heşini, <code>X25519</code> (EC)DHE qrup/funksiyasını,
+<code>ed25519</code> isə CertificateVerify imzasını seçir. Heç biri
+hazır sessiya açarının özünü göstərmir; trafik açarı və IV-lər açar
+cədvəli tərəfindən transkript və ortaq sirrdən törədilir.</p></li>
+<li><p><strong>TLS Rekord Protokolunun funksiyaları:</strong> Rekord
+protokolu tətbiqi qatdan gələn məlumatları qəbul edərək aşağıdakı
+mərhələli funksiyaları yerinə yetirir:</p>
+<ul>
+<li><p><strong>Fraqmentasiya:</strong> Böyük həcmli məlumatları
+ötürülməsi rahat olan idarəolunacaq bloklara bölür;</p></li>
+<li><p><strong>Şifrələmə və Tamlıq:</strong> Müvafiq simmetrik
+alqoritmlə bloku şifrələyir və ona MAC teqi və ya AEAD dolğunluğu əlavə
+edir;</p></li>
+<li><p><strong>Başlıq əlavə etmə:</strong> Paketin növünü, versiyasını
+və ölçüsünü təyin edən TLS başlığı yerləşdirərək məlumatı nəqliyyat
+qatına (TCP) ötürür.</p></li>
+</ul></li>
+<li><p><strong>TLS-ə qarşı hücumların şərhi:</strong></p>
+<ul>
+<li><p><strong>POODLE:</strong> Şəbəkə trafikini qəsdən köhnə SSL 3.0
+protokoluna endirir və CBC rejimindəki zəif dolğunlaşdırma
+riyaziyyatından istifadə edərək bayt-bayt məlumat sızdırır;</p></li>
+<li><p><strong>Heartbleed:</strong> OpenSSL yaddaşının sərhədlərini
+yoxlamayan proqram xətasına əsaslanır. Hücumçu saxta ölçülü
+<code>Heartbeat</code> sorğusu göndərməklə serverin RAM yaddaşındakı
+digər gizli dataları sızdırır;</p></li>
+<li><p><strong>Logjam:</strong> Diffi-Hellman açar mübadiləsi zamanı
+serveri 512-bitlik zəif ixrac parametrlərindən istifadəyə məcbur edir və
+riyazi olaraq əsas açarı şəbəkədə hesablayıb tapır.</p></li>
+</ul></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirə çərçivəsində şəbəkə təhlükəsizliyinin əsasını təşkil edən
+aşağıdakı fundamental anlayışlar öyrənilmişdir:</p>
+<ul>
+<li><p><strong>TLS/SSL protokollarının təkamülü:</strong> Netscape-in
+SSL ailəsindən IETF TLS 1.0, 1.1 və 1.2 versiyalarına, oradan isə
+sadələşdirilmiş TLS 1.3 arxitekturasına keçid təhlil edilmişdir <span
+class="citation" data-cites="rescorla2018rfc8446"></span>.</p></li>
+<li><p><strong>TLS daxili arxitekturası:</strong> Protokolun alt qatında
+yerləşən yazı protokolu ilə yuxarı funksional qat protokollarının (əl
+sıxma, <code>ChangeCipherSpec</code>, xəbərdarlıq və tətbiq məlumatları)
+qarşılıqlı əlaqəsi öyrənilmişdir <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>TLS 1.2 əl sıxması:</strong> Əlaqənin qurulması üçün 2
+RTT şəbəkə dövriyyəsinin tələb olunması; <code>ClientHello</code>,
+<code>ServerHello</code>, <code>Certificate</code>,
+<code>ServerKeyExchange</code>, <code>ClientKeyExchange</code>,
+<code>Finished</code> mesaj ardıcıllığının riyazi strukturu izah
+edilmişdir <span class="citation"
+data-cites="paar2024understanding"></span>.</p></li>
+<li><p><strong>TLS 1.3 əl sıxması:</strong> Tipik tam əl sıxmada 1 RTT
+arxitekturası, <code>ClientHello</code> daxilində efemer
+<code>key_share</code> və <code>ServerHello</code>-dan sonrakı əl sıxma
+mesajlarının qorunması mexanizmi öyrənilmişdir <span class="citation"
+data-cites="rescorla2018rfc8446"></span>.</p></li>
+<li><p><strong>0-RTT Rejimi:</strong> Müştərinin cavab gözləmədən erkən
+məlumat göndərməsi, təkrar riski, irəli-məxfilik məhdudiyyəti və tətbiq
+səviyyəli təkrara qarşı tələbləri analiz edilmişdir.</p></li>
+<li><p><strong>Şifrə dəstləri (<em>Cipher Suites</em>):</strong> Açar
+mübadiləsi, rəqəmsal autentifikasiya, simmetrik şifrələmə və mesaj
+tamlığının qorunması məqsədilə istifadə olunan kriptoqrafik blokların
+idarə edilməsi prinsipləri öyrənilmişdir <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p><strong>İrəli məxfilik (FS):</strong> Uzunmüddətli asimmetrik
+açarların gələcəkdə ələ keçirilməsi riskinə qarşı tarixi sessiya
+məlumatlarının təhlükəsizliyini təmin edən efemer kəsilməzlik
+arxitekturası tədqiq edilmişdir <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+<li><p><strong>Tarixi zəifliklər və boşluqlar:</strong> Protokolların
+tətbiqində ortaya çıxan POODLE, BEAST, CRIME, Heartbleed, Logjam və
+FREAK kimi kriptoqrafik və proqram səviyyəli hücum metodları
+araşdırılmışdır.</p></li>
+</ul>
+<p><strong>Əsas nəticə:</strong> TLS 1.3 köhnə şifrə dəstlərini və açar
+mübadiləsi rejimlərini azaldır, lakin təhlükəsizlik yenə də seçilmiş
+rejimdən və tətbiq siyasətindən asılıdır. Tam (EC)DHE əl sıxması və
+<code>psk_dhe_ke</code> tətbiq məlumatına irəli məxfilik verə bilər;
+<code>psk_ke</code> və 0-RTT üçün bu təminat yoxdur. Təhlükəsiz istismar
+protokol versiyası, alqoritm siyasəti, sertifikat yoxlaması, 0-RTT
+semantikası və HTTP səviyyəli HSTS kimi nəzarətlərin birlikdə düzgün
+qurulmasını tələb edir.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>TLS (<em>Transport Layer Security</em> — Nəqliyyat
+Qatının Təhlükəsizliyi): Şəbəkə üzərindən ötürülən məlumatların
+konfidentsiallığını, bütövlüyünü və autentifikasiyasını təmin edən
+kriptoqrafik protokol.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>HTTPS (<em>Hypertext Transfer Protocol Secure</em>):
+HTTP protokolunun TLS vasitəsilə şifrələnmiş təhlükəsiz versiyası (TCP
+443).<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>IMAPS (<em>Internet Message Access Protocol
+Secure</em>): Məktubların oxunması üçün IMAP protokolunun TLS ilə
+qorunan forması (TCP 993).<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>SMTPS (<em>Simple Mail Transfer Protocol Secure</em>):
+E-poçt göndərilməsi üçün SMTP protokolunun TLS ilə qorunan forması (TCP
+465/587).<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>VPN (<em>Virtual Private Network</em> — Virtual Şəxsi
+Şəbəkə): Açıq şəbəkələr üzərində şifrələnmiş təhlükəsiz tunel yaradan
+texnologiya.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>SSL (<em>Secure Sockets Layer</em> — Təhlükəsiz Soketlər
+Qatı): Netscape tərəfindən 1990-cı illərdə yaradılmış və veb trafiki
+şifrələmək üçün istifadə olunmuş ilk kriptoqrafik protokoldur.
+Təhlükəsizlik zəifliklərinə görə 2015-ci ildə (RFC 7568) istifadədən tam
+çıxarılmış və yerini TLS-ə vermişdir.<a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>0-RTT (<em>Zero Round-Trip Time</em> — Sıfır gediş-gəliş
+müddəti): TLS 1.3 protokolunda əvvəllər qoşulmuş tərəflərin təkrar əl
+sıxması (<em>handshake</em>) gözləmədən, ilk şəbəkə paketindəcə tətbiq
+məlumatlarını (<em>early data</em>) şifrələyərək göndərməsinə imkan
+verən rejimdir.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (6)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Rescorla, 2018</span>
+                        <small class="text-muted">RFC 8446</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Diffie &amp; Hellman, 1976</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">New Directions in Cryptography</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Martin E. Hellman (1976)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

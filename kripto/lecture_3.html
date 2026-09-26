@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_3</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 3: Polialfabetik Şifrələr və Vijener
+Şifrəsi</strong></p>
+<p>Bu mühazirə polialfabetik şifrələrin əsas anlayışlarını, Vijener
+şifrəsini, Kasiski testini və uyğunluq indeksini (index of coincidence)
+əhatə edir.</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirələrdə monoalfabetik şifrələri — Sezar, Affin və ümumi
+əvəzetmə şifrələrini öyrəndik. Bu şifrələrin ən böyük zəifliyi onların
+<strong>tezlik analizinə</strong> qarşı həssas olması idi. Çünki hər bir
+hərf həmişə eyni şifrəli mətn hərfinə çevrilirdi.</p>
+<div class="note">
+<p><span>Əsas problem</span> Monoalfabetik şifrələrdə "E" hərfi həmişə
+eyni şifrəli mətn hərfinə çevrilir. Bu, hücumçuya tezlik analizi
+aparmağa imkan verir. Məsələn, ingilis dilində ən çox işlənən hərf "E"
+olduğu üçün, şifrəli mətndə ən çox rast gəlinən hərf çox güman ki,
+"E"-nin şifrələnmiş formasıdır.</p>
+</div>
+<p>Bu problemi həll etmək üçün <strong>polialfabetik şifrələr</strong>
+yaradılmışdır. Polialfabetik şifrələrdə eyni açıq mətn hərfi müxtəlif
+yerlərdə fərqli şifrəli mətn hərflərinə çevrilə bilər. Bu, tezlik
+analizini çətinləşdirir.</p>
+<div class="history">
+<p><span>Polialfabetik şifrələrin tarixi</span> Polialfabetik şifrələr
+haqqında ilk məlumat XV əsrə aid edilir. İtalyan memar və yazıçı
+<strong>Leon Battista Alberti</strong> (1404–1472) tərəfindən iki
+hərəkətli diskdən ibarət ilk şifrələmə cihazı yaradılmışdır. Bu cihaz
+hər bir hərfdən sonra əlifbanın sürüşdürülməsinə imkan verirdi.</p>
+<p>Lakin ən məşhur polialfabetik sistem XVI əsrdə <strong>Bleyz de
+Vijener</strong> (<em>Blaise de Vigenère</em>) tərəfindən
+təkmilləşdirilmişdir. Maraqlıdır ki, Vijener əslində Covanni Battista
+Bellasonun ideyalarını inkişaf etdirmiş, lakin tarix bu şifrəni məhz
+onun adı ilə yadda saxlamışdır <span class="citation"
+data-cites="singh1999code"></span>.</p>
+<p>Vijener şifrəsi təxminən 300 il boyunca "sındırılmaz" (<em>le chiffre
+indéchiffrable</em>) hesab edilmişdir. Bu əfsanə XIX əsrin ortalarında
+iki dahi tərəfindən — ingilis riyaziyyatçısı <strong>Charles
+Babbage</strong> (təxm. 1854) və Prus zabiti <strong>Friedrich
+Kasiski</strong> (1863) tərəfindən müstəqil şəkildə sındırılmışdır <span
+class="citation" data-cites="kahn1996codebreakers"></span>.</p>
+</div>
+<div class="note">
+<p><span>Mühazirənin məqsədləri</span> Bu mühazirəni bitirdikdən sonra
+tələbə:</p>
+<ul>
+<li><p>Polialfabetik şifrələrin monoalfabetik şifrələrdən fərqlərini
+izah edə biləcək <span class="citation"
+data-cites="stinson2018cryptography"></span></p></li>
+<li><p>Vijener şifrəsinin iş prinsipini və riyazi təsvirini başa düşəcək
+<span class="citation"
+data-cites="paar2010understanding"></span></p></li>
+<li><p>Kasiski testi ilə şifrənin periodunu tapa biləcək <span
+class="citation" data-cites="kahn1996codebreakers"></span></p></li>
+<li><p>Uyğunluq indeksini (index of coincidence) hesablaya və şifrə
+tipini təyin edə biləcək <span class="citation"
+data-cites="stinson2018cryptography"></span></p></li>
+<li><p>Vijener şifrəsinə tam hücumun addımlarını izah edə biləcək <span
+class="citation" data-cites="singh1999code"></span></p></li>
+<li><p>Bir dəfəlik bloknot anlayışını və onun mütləq təhlükəsizliyini
+izah edə biləcək <span class="citation"
+data-cites="shannon1949communication"></span></p></li>
+</ul>
+</div>
+<h1 id="polialfabetik-şifrələr-anlayışı">Polialfabetik şifrələr
+anlayışı</h1>
+<h2 id="tərif-və-əsas-xüsusiyyətlər">Tərif və əsas xüsusiyyətlər</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong>. Polialfabetik şifrə — şifrləmə prosesində
+bir neçə fərqli əlifbadan (və ya bir neçə fərqli əvəzetmə cədvəlindən)
+istifadə edən şifrə növüdür <span class="citation"
+data-cites="stinson2018cryptography"></span>. Adətən bu əlifbalar dövri
+olaraq dəyişdirilir.</p>
+</div>
+<p><strong>Əsas xüsusiyyətləri:</strong></p>
+<ul>
+<li><p>Eyni açıq mətn hərfi müxtəlif yerlərdə fərqli şifrəli mətn
+hərflərinə çevrilir.</p></li>
+<li><p>Şifrləmə zamanı açar söz və ya açar cümlə istifadə
+olunur.</p></li>
+<li><p>Tezlik analizinə qarşı monoalfabetik şifrələrdən daha
+davamlıdır.</p></li>
+<li><p>Açarın uzunluğu (period) şifrənin təhlükəsizliyini birbaşa təsir
+edir.</p></li>
+</ul>
+<h2
+id="monoalfabetik-və-polialfabetik-şifrələrin-müqayisəsi">Monoalfabetik
+və polialfabetik şifrələrin müqayisəsi</h2>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Monoalfabetik
+şifrələr</strong></th>
+<th style="text-align: left;"><strong>Polialfabetik
+şifrələr</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Əvəzetmə cədvəli</td>
+<td style="text-align: left;">Bir əvəzetmə cədvəli</td>
+<td style="text-align: left;">Bir neçə əvəzetmə cədvəli</td>
+</tr>
+<tr>
+<td style="text-align: left;">Eyni hərf</td>
+<td style="text-align: left;">Həmişə eyni şifrələnir</td>
+<td style="text-align: left;">Müxtəlif yerlərdə fərqli şifrələnir</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tezlik analizi</td>
+<td style="text-align: left;">Çox həssas</td>
+<td style="text-align: left;">Daha davamlı</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar</td>
+<td style="text-align: left;">Sadə açar (bir ədəd)</td>
+<td style="text-align: left;">Açar söz (bir neçə hərf)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunələr</td>
+<td style="text-align: left;">Sezar, Affin, Atbaş</td>
+<td style="text-align: left;">Vijener, Beaufort, Alberti</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tarix</td>
+<td style="text-align: left;">Qədim dövr (e.ə.)</td>
+<td style="text-align: left;">XV əsr (Alberti)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip">
+<p><span>Düşündürücü sual</span> Əgər polialfabetik şifrədə açar sözün
+uzunluğu cəmi 1 hərf olarsa (məsələn, açar = "K"), bu şifrə hansı növə
+çevrilər? <em>Cavab: Bu halda şifrə adi Sezar şifrəsinə, yəni
+monoalfabetik şifrəyə çevrilir.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <span>Monoalfabetik vs polialfabetik
+şifrləmə</span> Tutaq ki, "AAAAAA" mətnini şifrləyirik.</p>
+<p><strong>Monoalfabetik (Sezar, k=3):</strong> <span
+class="math display">\[AAAAAA \rightarrow DDDDDD\]</span> Bütün A
+hərfləri eyni D hərfinə çevrilir.</p>
+<p><strong>Polialfabetik (Vijener, açar = "BCD"):</strong> <span
+class="math display">\[AAAAAA \rightarrow BCDBCD\]</span> Birinci A → B,
+ikinci A → C, üçüncü A → D, dördüncü A → B və s. Eyni A hərfləri fərqli
+şifrəli mətn hərflərinə çevrilir.</p>
+</div>
+<h1 id="vijener-şifrəsi">Vijener şifrəsi</h1>
+<h2 id="riyazi-təsvir">Riyazi təsvir</h2>
+<p>Vijener şifrəsi ən məşhur polialfabetik şifrədir. O, Sezar şifrəsinin
+ümumiləşdirilməsi kimi düşünülə bilər — hər bir hərf üçün fərqli
+sürüşdürmə miqdarı istifadə olunur <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<div class="keyconcept">
+<p><span>Vijener şifrələmə və deşifrələmə</span>
+<strong>Şifrələmə:</strong> <span class="math inline">\(C_i = (P_i +
+K_{i \bmod m}) \bmod 26\)</span><br />
+<strong>Deşifrələmə:</strong> <span class="math inline">\(P_i = (C_i -
+K_{i \bmod m}) \bmod 26\)</span></p>
+<p>Burada:</p>
+<ul>
+<li><p><span class="math inline">\(P_i\)</span> — açıq mətnin <span
+class="math inline">\(i\)</span>-ci hərfinin rəqəm qiyməti (0–25
+arası)</p></li>
+<li><p><span class="math inline">\(C_i\)</span> — şifrəli mətnin <span
+class="math inline">\(i\)</span>-ci hərfinin rəqəm qiyməti</p></li>
+<li><p><span class="math inline">\(K\)</span> — açar söz (hərflərin
+rəqəm qiymətlərindən ibarət massiv)</p></li>
+<li><p><span class="math inline">\(m\)</span> — açar sözün uzunluğu
+(period)</p></li>
+</ul>
+</div>
+<div class="note">
+<p><span>Modulyar hesablamada mənfi ədədlər</span> Deşifrləmə zamanı
+<span class="math inline">\(C_i - K_{i \bmod m}\)</span> nəticəsi mənfi
+alınarsa (məsələn, <span class="math inline">\(2 - 10 = -8\)</span>),
+nəticənin üzərinə 26 əlavə edilməlidir: <span class="math display">\[-8
+\pmod{26} \equiv -8 + 26 = 18 \rightarrow \text{S}\]</span> Kompüter
+proqramlaşdırmasında (məsələn, Python və ya C++) bu məqama xüsusi diqqət
+yetirilməlidir.</p>
+</div>
+<div class="remark">
+<p><em>Qeyd 1</em>. <span>Açar sözün təkrarı:</span> Açar söz şifrlənən
+mətnin uzunluğuna çatana qədər təkrar olunur. Məsələn, açar söz "KEY"
+(10, 4, 24) olarsa, təkrarlanan açar ardıcıllığı belə olur: 10, 4, 24,
+10, 4, 24, 10, 4, 24, ...</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <span>Vijener şifrəsi nümunəsi</span> Açar
+söz "KEY" (K=10, E=4, Y=24) olsun. "SALAM" sözünü şifrləyək.</p>
+<p>Əvvəlcə hərfləri rəqəmə çevirək:</p>
+<ul>
+<li><p>S = 18</p></li>
+<li><p>A = 0</p></li>
+<li><p>L = 11</p></li>
+<li><p>A = 0</p></li>
+<li><p>M = 12</p></li>
+</ul>
+<p>Açar sözün təkrarlanması: K (10), E (4), Y (24), K (10), E (4)</p>
+<p>Şifrləmə: <span class="math display">\[\begin{align*}
+    S (18) + K (10) &amp;= 28 \bmod 26 = 2 \rightarrow \text{C} \\
+    A (0) + E (4) &amp;= 4 \bmod 26 = 4 \rightarrow \text{E} \\
+    L (11) + Y (24) &amp;= 35 \bmod 26 = 9 \rightarrow \text{J} \\
+    A (0) + K (10) &amp;= 10 \bmod 26 = 10 \rightarrow \text{K} \\
+    M (12) + E (4) &amp;= 16 \bmod 26 = 16 \rightarrow \text{Q}
+\end{align*}\]</span></p>
+<p>Nəticə: "SALAM" → "CEJKQ"</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong>. <span>Vijener deşifrləmə nümunəsi</span>
+Yuxarıdakı "CEJKQ" şifrəli mətnini deşifrələyək. Açar söz eynidir: "KEY"
+(10, 4, 24).</p>
+<p>Deşifrləmə: <span class="math display">\[\begin{align*}
+    C (2) - K (10) &amp;= -8 \bmod 26 = 18 \rightarrow \text{S} \\
+    E (4) - E (4) &amp;= 0 \bmod 26 = 0 \rightarrow \text{A} \\
+    J (9) - Y (24) &amp;= -15 \bmod 26 = 11 \rightarrow \text{L} \\
+    K (10) - K (10) &amp;= 0 \bmod 26 = 0 \rightarrow \text{A} \\
+    Q (16) - E (4) &amp;= 12 \bmod 26 = 12 \rightarrow \text{M}
+\end{align*}\]</span></p>
+<p>Nəticə: "SALAM" — orijinal mətn!</p>
+</div>
+<h2 id="vijener-şifrəsinin-cədvəl-üsulu">Vijener şifrəsinin cədvəl
+üsulu</h2>
+<p>Vijener şifrəsini "Vigenère kvadratı" adlanan cədvəl vasitəsilə də
+həyata keçirmək olar <span class="citation"
+data-cites="singh1999code"></span>. Bu cədvəldə hər sətir bir Sezar
+şifrəsinə uyğun gəlir.</p>
+<p>İngilis əlifbası üçün tam cədvəl 26×26 ölçüsündə, Azərbaycan əlifbası
+üçün isə 32×32 ölçüsündə olur. Aşağıda cədvəlin yalnız bir hissəsi
+nümunə kimi göstərilmişdir:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">E</th>
+<th style="text-align: center;">F</th>
+<th style="text-align: center;">G</th>
+<th style="text-align: center;">H</th>
+<th style="text-align: center;">I</th>
+<th style="text-align: center;">J</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+</tr>
+<tr>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+</tr>
+<tr>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+</tr>
+<tr>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+</tr>
+<tr>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Qeyd:</strong> Yuxarıdakı cədvəl yalnız nümunə üçün A-E
+sətirlərini göstərir. K sətri əslində 11-ci sətirdir (A=0, B=1, ...,
+K=10). Tam cədvəldə K sətri K-dan başlayaraq davam edir.</p>
+<p><strong>İstifadə qaydası:</strong> Açar sözün hərfi sətri, açıq mətn
+hərfi isə sütunu göstərir. Onların kəsişməsindəki hərf şifrəli mətn
+hərfidir.</p>
+<div class="example">
+<p><strong>Nümunə 4</strong>. <span>Cədvəl üsulu ilə şifrləmə</span>
+Açar söz "KEY", açıq mətn "SALAM":</p>
+<ul>
+<li><p>K sətri, S sütunu → C</p></li>
+<li><p>E sətri, A sütunu → E</p></li>
+<li><p>Y sətri, L sütunu → J</p></li>
+<li><p>K sətri, A sütunu → K</p></li>
+<li><p>E sətri, M sütunu → Q</p></li>
+</ul>
+</div>
+<h1 id="vijener-şifrəsinin-kriptoanalizi">Vijener şifrəsinin
+kriptoanalizi</h1>
+<p>Vijener şifrəsi 300 il boyunca "sındırılmaz" hesab edilmişdir <span
+class="citation" data-cites="singh1999code"></span>. Onun sındırılması
+19-cu əsrdə bir neçə kriptoqraf tərəfindən müstəqil olaraq həyata
+keçirilmişdir.</p>
+<h2 id="kasiski-testi-kasiski-examination">Kasiski testi (Kasiski
+examination)</h2>
+<div class="history">
+<p><span>Friedrich Kasiski</span> 1863-cü ildə Prus ordusunun zabiti
+<strong>Friedrich Kasiski</strong> (1805-1881) Vijener şifrəsini
+sındırmaq üsulunu nəşr etdi. Maraqlıdır ki, ingilis riyaziyyatçısı
+<strong>Charles Babbage</strong> daha əvvəl (təxminən 1854-cü ildə) eyni
+üsulu kəşf etmiş, lakin onu nəşr etdirməmişdir <span class="citation"
+data-cites="kahn1996codebreakers"></span>.</p>
+</div>
+<p>Kasiski testi açar sözün uzunluğunu (periodu) tapmaq üçün istifadə
+olunur. Bu üsul aşağıdakı fundamental müşahidəyə əsaslanır:</p>
+<blockquote>
+<p><em>Eyni açıq mətn hissələri (məsələn, "THE" sözü), açar sözün eyni
+mövqelərinə düşərsə, şifrəli mətndə eyni simvollar qrupunu
+yaradacaqdır.</em></p>
+</blockquote>
+<div class="keyconcept">
+<p><span>Kasiski metodunun məntiqi</span> Əgər mətndə "ABC" birləşməsi
+30 simvoldan bir təkrar olunursa, bu o deməkdir ki, açar sözün uzunluğu
+(<span class="math inline">\(m\)</span>) çox güman ki, 30-un
+bölənlərindən biridir (2, 3, 5, 6, 10, 15 və ya 30). Bir neçə fərqli
+təkrar qrupunun məsafələrinin <strong>Ən Böyük Ortaq Böləni
+(ƏBOB)</strong> bizə real periodu böyük dəqiqliklə verir.</p>
+</div>
+<div class="keyconcept">
+<p><span>Kasiski testi</span> Kasiski testinin addımları:</p>
+<ol>
+<li><p>Şifrəli mətndə təkrarlanan qrupları (3 hərf və daha uzun)
+axtarın.</p></li>
+<li><p>Bu təkrarlanan qrupların başlanğıc mövqeləri arasındakı
+məsafələri hesablayın.</p></li>
+<li><p>Bu məsafələrin ortaq bölənləri açar sözün uzunluğu üçün
+namizədlər verir; xüsusilə ən böyük ortaq bölən(ƏBOB) çox vaxt periodla
+əlaqəli olur, lakin həmişə onun özünə bərabər olmaya bilər.</p></li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong>. <span>Praktik Kasiski Analizi</span> Tutaq
+ki, şifrəli mətndə "VZW" birləşməsi aşağıdakı mövqelərdə tapılıb:</p>
+<ul>
+<li><p>1-ci rast gəlmə: 25-ci mövqe</p></li>
+<li><p>2-ci rast gəlmə: 115-ci mövqe</p></li>
+<li><p>3-cü rast gəlmə: 175-ci mövqe</p></li>
+</ul>
+<p><strong>Məsafələrin hesablanması:</strong></p>
+<ol>
+<li><p><span class="math inline">\(d_1 = 115 - 25 = 90\)</span></p></li>
+<li><p><span class="math inline">\(d_2 = 175 - 115 =
+60\)</span></p></li>
+</ol>
+<p><strong>ƏBOB tapılması:</strong> <span
+class="math inline">\(\text{ƏBOB}(90, 60) = 30\)</span>.</p>
+<p>Deməli, açar sözün uzunluğu böyük ehtimalla <strong>30, 15, 10, 6, 5,
+3</strong> və ya <strong>2</strong>-dir. Digər təkrarlanan qrupları da
+yoxlayaraq mümkün variantların sayını azaltmaq olar.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 6</strong>. <span>Kasiski testi nümunəsi
+(Təkmilləşdirilmiş):</span> Tutaq ki, aşağıdakı şifrəli mətn ələ
+keçirilmişdir:</p>
+<p><code>ABCDE FGHIJ ABCDE KLMNO ABCDE PQRST</code></p>
+<p>Burada "ABCDE" qrupu 3 dəfə təkrarlanır. Gəlin onların başlanğıc
+indekslərini nömrələyək:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Mövqe</th>
+<th style="text-align: center;"><strong>0</strong></th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;"><strong>10</strong></th>
+<th style="text-align: center;">15</th>
+<th style="text-align: center;"><strong>20</strong></th>
+<th style="text-align: center;">25</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Qrup</td>
+<td style="text-align: center;"><code>ABCDE</code></td>
+<td style="text-align: center;"><code>FGHIJ</code></td>
+<td style="text-align: center;"><code>ABCDE</code></td>
+<td style="text-align: center;"><code>KLMNO</code></td>
+<td style="text-align: center;"><code>ABCDE</code></td>
+<td style="text-align: center;"><code>PQRST</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Analiz:</strong></p>
+<ul>
+<li><p>Birinci və ikinci <code>ABCDE</code> arası məsafə:
+10−0=10</p></li>
+<li><p>İkinci və üçüncü <code>ABCDE</code> arası məsafə:
+20−10=10</p></li>
+<li><p>Birinci və üçüncü <code>ABCDE</code> arası məsafə:
+20−0=20</p></li>
+</ul>
+<p><strong>Nəticə:</strong> Hesabladığımız məsafələrin (10,10,20) Ən
+Böyük Ortaq Böləni: ƏBOB(10,10,20)=10</p>
+<p>Bu o deməkdir ki, açar sözün uzunluğu (m) çox güman ki, 10-dur (və ya
+10-un bölənləri: 2 və ya 5).</p>
+<div class="tip">
+<p><span>Niyə məhz ƏBOB?</span> Əgər açar sözün uzunluğu 5-dirsə, hər 5,
+10, 15, 20 simvoldan bir açar özünü təkrar edir. Təkrarlanan açıq mətn
+hissəsi (məsələn, "THE") açarın təkrarına rast gəldikdə eyni şifrəli
+mətni yaradır. Buna görə də bütün təkrar məsafələri periodun tam
+bölünəni olmalıdır.</p>
+</div>
+</div>
+<h2 id="ətraflı-kasiski-testi-nümunəsi">Ətraflı Kasiski testi
+nümunəsi</h2>
+<div class="example">
+<p><strong>Nümunə 7</strong>. <span>Ətraflı Kasiski testi
+nümunəsi</span> Tutaq ki, aşağıdakı şifrəli mətn ələ keçirilmişdir
+(təhlil zamanı boşluqlar nəzərə alınmır):</p>
+<div class="center">
+<p><code>RHJDSI BJSDUF HGJDSI NBVCAY QWERTY HGJDSI</code></p>
+</div>
+<p>Mətn cəmi 36 simvoldan ibarətdir. Simvolları mövqelərinə görə
+sıralayaq:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Mövqe</strong></th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">12</th>
+<th style="text-align: center;">13</th>
+<th style="text-align: center;">14</th>
+<th style="text-align: center;">15</th>
+<th style="text-align: center;">16</th>
+<th style="text-align: center;">17</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hərf</strong></td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">I</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Mövqe</strong></th>
+<th style="text-align: center;">18</th>
+<th style="text-align: center;">19</th>
+<th style="text-align: center;">20</th>
+<th style="text-align: center;">21</th>
+<th style="text-align: center;">22</th>
+<th style="text-align: center;">23</th>
+<th style="text-align: center;">24</th>
+<th style="text-align: center;">25</th>
+<th style="text-align: center;">26</th>
+<th style="text-align: center;">27</th>
+<th style="text-align: center;">28</th>
+<th style="text-align: center;">29</th>
+<th style="text-align: center;">30</th>
+<th style="text-align: center;">31</th>
+<th style="text-align: center;">32</th>
+<th style="text-align: center;">33</th>
+<th style="text-align: center;">34</th>
+<th style="text-align: center;">35</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hərf</strong></td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">I</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Təkrarlanan qrupların analizi:</strong></p>
+<ol>
+<li><p><strong>"HGJDSI"</strong> qrupu (6 hərf):</p>
+<ul>
+<li><p>Mövqelər: 12 və 30. Məsafə: <span class="math inline">\(30 - 12 =
+\mathbf{18}\)</span>.</p></li>
+</ul></li>
+<li><p><strong>"JDSI"</strong> qrupu (4 hərf):</p>
+<ul>
+<li><p>Mövqelər: 2, 14 və 32. Məsafələr: <span class="math inline">\(14
+- 2 = \mathbf{12}\)</span>, <span class="math inline">\(\quad 32 - 14 =
+\mathbf{18}\)</span>.</p></li>
+</ul></li>
+<li><p><strong>"DSI"</strong> qrupu (3 hərf):</p>
+<ul>
+<li><p>Mövqelər: 3, 15 və 33. Məsafələr: <span class="math inline">\(15
+- 3 = \mathbf{12}\)</span>, <span class="math inline">\(\quad 33 - 15 =
+\mathbf{18}\)</span>.</p></li>
+</ul></li>
+</ol>
+<p><strong>Periodun təyini:</strong> Aşkar olunan bütün məsafələr: <span
+class="math inline">\(\{12, 18\}\)</span>. Bu ədədlərin ən böyük ortaq
+böləni: <span class="math display">\[\gcd(12, 18) = 6\]</span> Deməli,
+açar sözün uzunluğu (period) böyük ehtimalla <strong>6</strong>-dır (və
+ya 2 və ya 3).</p>
+</div>
+<h2 id="uyğunluq-indeksi-index-of-coincidence">Uyğunluq indeksi (Index
+of Coincidence)</h2>
+<p>Kasiski testi bizə ehtimal olunan periodları tapmağa kömək etsə də,
+bəzən mətndəki təsadüfi təkrarlar bizi yanılda bilər. Periodun
+doğruluğunu riyazi olaraq təsdiqləmək üçün 1922-ci ildə Uilyam Fridman
+tərəfindən təklif edilmiş <strong>Uyğunluq İndeksi (IC)</strong>
+metodundan istifadə olunur.</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Uyğunluq indeksi). Uyğunluq indeksi (<span
+class="math inline">\(IC\)</span> — Index of Coincidence) — mətndə
+təsadüfi seçilmiş iki hərfin eyni olma ehtimalıdır <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+</div>
+<p>Uyğunluq indeksi aşağıdakı düsturla hesablanır:</p>
+<p><span class="math display">\[\begin{equation}
+IC = \frac{\sum_{i=A}^{Z} n_i (n_i - 1)}{N (N - 1)}
+\end{equation}\]</span></p>
+<p>burada:</p>
+<ul>
+<li><p><span class="math inline">\(n_i\)</span> — <span
+class="math inline">\(i\)</span> hərfinin mətndə işlənmə sayı (<span
+class="math inline">\(n_A, n_B, \dots, n_Z\)</span>)</p></li>
+<li><p><span class="math inline">\(N\)</span> — mətnin ümumi
+uzunluğu</p></li>
+</ul>
+<p><strong>Uyğunluq indeksinin qiymətləri:</strong> Real dildə hərflərin
+paylanması qeyri-bərabər olduğu üçün (məsələn, ’E’ və ’A’ hərfləri ’Z’
+və ’Q’ hərflərindən daha çox işlənir), iki hərfin eyni çıxma ehtimalı
+yüksəkdir.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Mətn tipi / Dil</strong></th>
+<th style="text-align: center;"><strong>Təxmini IC dəyəri</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Tam təsadüfi mətn (bircins paylanma)</td>
+<td style="text-align: center;"><span class="math inline">\(1/26 \approx
+0.038\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">İngilis dili (normal mətn)</td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.066\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Azərbaycan dili (normal mətn)</td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.052\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Fransız dili (normal mətn)</td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.077\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="example">
+<p><strong>Nümunə 8</strong>. <span>Uyğunluq indeksinin
+hesablanması</span> Tutaq ki, qısa bir mətni analiz edirik:
+<code>"ABBCCCA"</code></p>
+<ul>
+<li><p><span class="math inline">\(N = 7\)</span> (Cəmi 7 hərf)</p></li>
+<li><p><span class="math inline">\(n_A = 2\)</span>, <span
+class="math inline">\(n_B = 2\)</span>, <span class="math inline">\(n_C
+= 3\)</span></p></li>
+</ul>
+<p>Düsturu tətbiq edək: <span class="math display">\[\begin{align*}
+IC &amp;= \frac{n_A(n_A-1) + n_B(n_B-1) + n_C(n_C-1)}{N(N-1)} \\
+IC &amp;= \frac{2(1) + 2(1) + 3(2)}{7(6)} = \frac{2 + 2 + 6}{42} =
+\frac{10}{42} \approx 0.238
+\end{align*}\]</span></p>
+</div>
+<div class="keyconcept">
+<p><span>Vijener şifrəsində tətbiqi</span> Vijener şifrəsi polialfabetik
+olduğu üçün hərflərin paylanmasını "hamarlayır" və şifrəli mətnin <span
+class="math inline">\(IC\)</span> dəyəri təsadüfi mətnə (<span
+class="math inline">\(0.038\)</span>) yaxınlaşır.</p>
+<p>Periodu (<span class="math inline">\(m\)</span>) tapmaq üçün:</p>
+<ol>
+<li><p>Mətni ehtimal olunan <span class="math inline">\(m\)</span> sayda
+sütuna ayırırıq.</p></li>
+<li><p>Hər sütun üçün ayrı-ayrılıqda <span
+class="math inline">\(IC\)</span> hesablayırıq.</p></li>
+<li><p>Əgər sütunların ortalama <span class="math inline">\(IC\)</span>
+dəyəri hədəf dilin (məsələn, <span class="math inline">\(0.066\)</span>)
+göstəricisinə yaxındırsa, deməli <span class="math inline">\(m\)</span>
+düzgün perioddur.</p></li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Nümunə 9</strong>. <span>Uyğunluq indeksinin
+hesablanması</span> Tutaq ki, "SALAM" sözü üçün uyğunluq indeksini
+hesablayaq:</p>
+<ul>
+<li><p>S: 1 dəfə</p></li>
+<li><p>A: 2 dəfə</p></li>
+<li><p>L: 1 dəfə</p></li>
+<li><p>M: 1 dəfə</p></li>
+<li><p>N = 5</p></li>
+</ul>
+<p><span class="math display">\[IC = \frac{1\cdot0 + 2\cdot1 + 1\cdot0 +
+1\cdot0}{5\cdot4} = \frac{2}{20} = 0.1\]</span></p>
+</div>
+<div class="note">
+<p><span>Uyğunluq indeksinin qiymətləndirilməsi</span> Alınan IC = 0.1
+qiyməti ingilis dili üçün orta göstərici olan 0.066-dan yüksəkdir. Bu
+fərqin bir neçə səbəbi var:</p>
+<ol>
+<li><p><strong>Dil fərqi:</strong> Nümunədə istifadə olunan "SALAM" sözü
+Azərbaycan dilinə aiddir, lakin müqayisə üçün verilən IC dəyərləri
+ingilis dilinin statistik göstəriciləridir. Azərbaycan dilinin hərf
+tezlikləri ingilis dilindən fərqlənir və bu da IC dəyərinə təsir
+edir.</p></li>
+<li><p><strong>Nümunənin qısa olması:</strong> "SALAM" cəmi 5 hərfdən
+ibarət olduğu üçün statistik etibarlılıq aşağıdır. Qısa mətnlərdə IC
+dəyərləri daha geniş diapazonda dəyişə bilər (statistik variasiya). Daha
+uzun mətnlər (100-200 hərf) daha etibarlı nəticələr verir.</p></li>
+<li><p><strong>Təsadüfi paylanma:</strong> Qısa mətnlərdə hərflərin
+paylanması təsadüfi olaraq orta dəyərdən kənara çıxa bilər.</p></li>
+</ol>
+<p>Bu səbəbdən, uyğunluq indeksindən istifadə edərkən kifayət qədər uzun
+mətnlərlə işləmək və dilin xüsusiyyətlərini nəzərə almaq vacibdir.</p>
+</div>
+<h2 id="uyğunluq-indeksi-ilə-periodun-tapılması">Uyğunluq indeksi ilə
+periodun tapılması</h2>
+<p>Uyğunluq indeksi (<span class="math inline">\(IC\)</span>) Vijener
+şifrəsinin periodunu (açarın uzunluğunu) tapmaq üçün ən etibarlı
+statistik üsullardan biridir <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu üsul <strong>"Friedman
+testi"</strong> kimi də tanınır.</p>
+<p><strong>Alqoritmin addımları:</strong></p>
+<ol>
+<li><p><strong>Sınaq periodunun seçilməsi:</strong> Hər hansı bir <span
+class="math inline">\(m \in \{1, 2, 3, \dots\}\)</span> ehtimalı üçün
+şifrəli mətni analiz edin.</p></li>
+<li><p><strong>Sütunlara ayırma:</strong> Şifrəli mətni <span
+class="math inline">\(m\)</span> sayda qrupa elə ayırın ki, hər qrupda
+eyni açar hərfi ilə şifrlənmiş simvollar toplansın. Məsələn, <span
+class="math inline">\(m=3\)</span> olduqda:</p>
+<ul>
+<li><p>1-ci qrup (<span class="math inline">\(C_1\)</span>): 1, 4, 7,
+... indeksli hərflər</p></li>
+<li><p>2-ci qrup (<span class="math inline">\(C_2\)</span>): 2, 5, 8,
+... indeksli hərflər</p></li>
+<li><p>3-cü qrup (<span class="math inline">\(C_3\)</span>): 3, 6, 9,
+... indeksli hərflər</p></li>
+</ul></li>
+<li><p><strong>Qrup daxili IC-nin hesablanması:</strong> Hər bir qrup
+üçün ayrılıqda <span class="math inline">\(IC(C_i)\)</span>
+hesablayın.</p></li>
+<li><p><strong>Ortalama IC:</strong> Bütün qrupların indekslərinin ədədi
+ortasını tapın: <span class="math display">\[\overline{IC} = \frac{1}{m}
+\sum_{i=1}^{m} IC(C_i)\]</span></p></li>
+<li><p><strong>Qiymətləndirmə:</strong> Əgər <span
+class="math inline">\(m\)</span> düzgün perioddursa, <span
+class="math inline">\(\overline{IC}\)</span> dəyəri hədəf dilin
+(məsələn, ingilis dili üçün <span class="math inline">\(\approx
+0.066\)</span>) göstəricisinə yaxın olacaq. Əgər <span
+class="math inline">\(m\)</span> səhvdirsə, nəticə təsadüfi paylanmaya
+(<span class="math inline">\(\approx 0.038\)</span>) yaxın
+olacaq.</p></li>
+</ol>
+<div class="tip">
+<p><span>Niyə bu üsul işləyir?</span> Əgər <span
+class="math inline">\(m\)</span> düzgün perioddursa, hər bir sütun
+əslində bir Sezar şifrəsi ilə şifrlənmiş <strong>monoalfabetik</strong>
+mətndir. Monoalfabetik şifrələmə hərflərin yerini dəyişsə də, onların
+bir-birinə nəzərən tezliklərini (və beləliklə <span
+class="math inline">\(IC\)</span> dəyərini) dəyişmir. Səhv periodda isə
+müxtəlif əlifbalar qarışdığı üçün statistik "hamarlanma" baş verir və
+<span class="math inline">\(IC\)</span> aşağı düşür.</p>
+</div>
+<h2 id="vijener-şifrəsinə-tam-hücum">Vijener şifrəsinə tam hücum</h2>
+<p>Açar sözün uzunluğu <span class="math inline">\(m\)</span>
+tapıldıqdan sonra, şifrə <span class="math inline">\(m\)</span>
+ayrı-ayrı Sezar şifrəsinə parçalanır <span class="citation"
+data-cites="singh1999code"></span>. Hər bir mövqe üçün ayrıca tezlik
+analizi aparmaq olar.</p>
+<p><strong>Hücumun addımları:</strong></p>
+<ol>
+<li><p>Kasiski testi ilə <span class="math inline">\(m\)</span>
+periodunu tapın.</p></li>
+<li><p>Şifrəli mətni <span class="math inline">\(m\)</span> qrupa ayırın
+(hər qrupda eyni mövqedəki hərflər).</p></li>
+<li><p>Hər bir qrup üçün tezlik analizi apararaq müvafiq Sezar açarını
+tapın.</p></li>
+<li><p>Tapılan açarları birləşdirərək açar sözü əldə edin.</p></li>
+<li><p>Bu açarla bütün mətni deşifrələyin və nəticəni yoxlayın.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 10</strong>. <span>Vijener şifrəsinə hücum
+nümunəsi:</span> Tutaq ki, aşağıdakı şifrəli mətn ələ keçirilmişdir:</p>
+<div class="center">
+<p><code>XMZ YZ XH ZV </code><strong><code>ZVV</code></strong><code> ZMMZ YZ XH ZV </code><strong><code>ZVV</code></strong><code> NVIH </code><strong><code>ZVV</code></strong></p>
+</div>
+<p><strong>Addım 1: Kasiski testi ilə periodun axtarılması</strong></p>
+<p>Təkrarlanan <strong>"ZVV"</strong> qrupunun mövqelərinə baxaq
+(boşluqlar nəzərə alınmır):</p>
+<ul>
+<li><p>1-ci "ZVV": 11-ci mövqe</p></li>
+<li><p>2-ci "ZVV": 24-cü mövqe</p></li>
+<li><p>3-cü "ZVV": 35-ci mövqe</p></li>
+<li><p>Məsafələr: <span class="math inline">\(d_1 = 24 - 11 =
+13\)</span>, <span class="math inline">\(d_2 = 35 - 24 =
+11\)</span></p></li>
+<li><p><span class="math inline">\(\gcd(13, 11) = 1\)</span></p></li>
+</ul>
+<p><em>Nəticə:</em> Məsafələr sadə ədədlərdir və ƏBOB 1-dir. Bu o
+deməkdir ki, "ZVV" birləşməsinin təkrarı böyük ehtimalla
+<strong>təsadüfidir</strong> və period haqqında məlumat vermir.</p>
+<p>İndi isə <strong>"YZ XH ZV"</strong> fraqmentinə baxaq:</p>
+<ul>
+<li><p>1-ci rastgəlmə: 3-cü mövqe (YZ...)</p></li>
+<li><p>2-ci rastgəlmə: 18-ci mövqe (YZ...)</p></li>
+<li><p>Məsafə: <span class="math inline">\(18 - 3 = 15\)</span></p></li>
+</ul>
+<p>Burada period 15 və ya onun bölənləri (3, 5) ola bilər.</p>
+<p><strong>Addım 2: Uyğunluq İndeksi (IC) ilə yoxlama</strong></p>
+<p>Fərz edək ki, <span class="math inline">\(m=5\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(m=5\)</span> üçün hesablanan orta
+<span class="math inline">\(IC \approx 0.067\)</span></p></li>
+</ul>
+<p>Bu göstərici ingilis dili üçün xarakterik olan <span
+class="math inline">\(0.066\)</span> dəyərinə çox yaxındır. Deməli,
+<strong>period m=5-dir</strong>.</p>
+<p><strong>Addım 3: Açarın tapılması</strong> Mətn 5 sütuna bölünür və
+hər sütun üçün tezlik analizi aparılaraq 5 hərfli açar söz (məsələn,
+"APPLE") bərpa edilir.</p>
+</div>
+<h1 id="bir-dəfəlik-bloknot-one-time-pad">Bir dəfəlik bloknot (One-time
+pad)</h1>
+<p>Vijener şifrəsinin xüsusi halı — açar söz mesaj qədər uzun olduqda və
+tamamilə təsadüfi seçildikdə, <strong>bir dəfəlik bloknot</strong>
+(one-time pad) adlanan kriptosistem yaranır <span class="citation"
+data-cites="shannon1949communication"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Bir dəfəlik bloknot). Bir dəfəlik bloknot —
+açarın hər bir mesaj üçün təsadüfi seçildiyi və heç vaxt təkrar istifadə
+edilmədiyi şifrələmə üsuludur.</p>
+</div>
+<p><strong>Xüsusiyyətləri:</strong></p>
+<ul>
+<li><p>Açar həqiqətən təsadüfi olmalıdır</p></li>
+<li><p>Açar mesaj qədər uzun olmalıdır</p></li>
+<li><p>Açar heç vaxt təkrar istifadə edilməməlidir</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Şannon teoremi). Bir dəfəlik bloknot
+<strong>mütləq təhlükəsizdir</strong> (unconditionally secure) — hətta
+sonsuz hesablama gücünə malik hücumçu belə onu sındıra bilməz <span
+class="citation" data-cites="shannon1949communication"></span>.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 11</strong>. <span>Bir dəfəlik bloknot nümunəsi</span>
+Mesaj: "SALAM" (18,0,11,0,12)<br />
+Təsadüfi açar: "XQZKL" (23,16,25,10,11)</p>
+<p>Şifrləmə: <span class="math display">\[\begin{align*}
+    (18+23) \bmod 26 = 15 \rightarrow \text{P} \\
+    (0+16) \bmod 26 = 16 \rightarrow \text{Q} \\
+    (11+25) \bmod 26 = 10 \rightarrow \text{K} \\
+    (0+10) \bmod 26 = 10 \rightarrow \text{K} \\
+    (12+11) \bmod 26 = 23 \rightarrow \text{X}
+\end{align*}\]</span> Nəticə: "PQKKX"</p>
+<p>Açar olmadan bu şifrəli mətni deşifrələmək mümkün deyil, çünki bütün
+mümkün açıq mətnlər eyni ehtimalla mümkündür. Məsələn, "PQKKX" şifrəli
+mətnini istənilən 5 hərfli sözə deşifrələmək mümkündür — sadəcə uyğun
+açar seçmək lazımdır.</p>
+</div>
+<div class="warning">
+<p><span>Bir dəfəlik bloknotun praktiki problemləri</span> Bir dəfəlik
+bloknot nəzəri olaraq təhlükəsiz olsa da, praktikada bir sıra problemlər
+var:</p>
+<ol>
+<li><p><strong>Açar paylanması</strong> — Açar mesaj qədər uzun olduğu
+üçün onu təhlükəsiz ötürmək çətindir.</p></li>
+<li><p><strong>Açarın saxlanması</strong> — Hər mesaj üçün yeni açar
+lazımdır, bu da böyük yaddaş tələb edir.</p></li>
+<li><p><strong>Açarın sinxronizasiyası</strong> — Göndərən və qəbul edən
+eyni açar ardıcıllığına malik olmalıdır.</p></li>
+</ol>
+<p>Bu səbəblərdən bir dəfəlik bloknot yalnız çox yüksək təhlükəsizlik
+tələb edən xüsusi hallarda istifadə olunur (məsələn, qırmızı telefon
+xətti).</p>
+</div>
+<div class="history">
+<p><span>Klod Şannon (1916-2001)</span> Amerikalı riyaziyyatçı,
+"informasiya nəzəriyyəsinin atası". 1949-cu ildə "Communication Theory
+of Secrecy Systems" əsərində bir dəfəlik bloknotun mütləq
+təhlükəsizliyini riyazi olaraq isbat etmişdir <span class="citation"
+data-cites="shannon1949communication"></span>. Onun işləri müasir
+kriptoqrafiyanın təməlini qoymuşdur.</p>
+</div>
+<h1 id="vijener-şifrəsi-və-təhlükəsizlik-xidmətləri">Vijener şifrəsi və
+təhlükəsizlik xidmətləri</h1>
+<p>Birinci mühazirədə öyrəndiyimiz dörd təhlükəsizlik xidməti baxımından
+Vijener şifrəsini qiymətləndirək:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xidmət</strong></th>
+<th style="text-align: center;"><strong>Vijener şifrəsi</strong></th>
+<th style="text-align: center;"><strong>Qeyd</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Konfidensiallıq</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Məhdud (period məlumdursa sındırıla
+bilər)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bütpvlük</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Mesaj dəyişdirilə bilər,
+aşkarlanmaz</td>
+</tr>
+<tr>
+<td style="text-align: left;">Autentifikasiya</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Mənbə təsdiqlənmir</td>
+</tr>
+<tr>
+<td style="text-align: left;">İnkar edilməzlik</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Rəqəmsal imza yoxdur</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="warning">
+<p><span>Vijener şifrəsinin məhdudiyyətləri</span> Vijener şifrəsi
+yalnız <strong>məhdud konfidensiallıq</strong> təmin edir. Digər üç
+xidməti (bütövlük, autentifikasiya, inkarolunmazlıq) təmin etmir. Buna
+görə də müasir tətbiqlərdə təkbaşına istifadə edilməməlidir.</p>
+</div>
+<h1 id="klassik-şifrlərdən-müasir-şifrlərə-keçid">Klassik şifrlərdən
+müasir şifrlərə keçid</h1>
+<p>Klassik şifrlər (Sezar, Affin, Vijener) bu gün təhlükəsiz hesab
+edilmir. Onların əsas zəiflikləri <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<ol>
+<li><p><strong>Kiçik açar fəzası</strong> — Sezar şifrəsində 26, Affin
+şifrəsində 312, Vijener şifrəsində isə <span
+class="math inline">\(26^{period}\)</span> qədər variant var.</p></li>
+<li><p><strong>Dilin statistik xüsusiyyətləri</strong> — Tezlik analizi,
+Kasiski testi, uyğunluq indeksi kimi üsullarla sındırıla
+bilirlər.</p></li>
+<li><p><strong>Kompüter hesablama gücü</strong> — Əgər açar fəzası az
+ölçülüdürsə müasir kompüterlərlə bütün açarları sınamaq
+mümkündür.</p></li>
+</ol>
+<p>Klassik şifrlərin zəiflikləri müasir sistemlərdə dörd əsas yanaşma
+ilə aradan qaldırılmışdır:</p>
+<ul>
+<li><p><strong>Böyük açar fəzası</strong> — Məsələn, 128-bitlik açar
+üçün <span class="math inline">\(2^{128} \approx 3.4 \times
+10^{38}\)</span> mümkün variant mövcuddur. Bu, "brute-force" (tam
+axtarış) hücumlarını qeyri-mümkün edir.</p></li>
+<li><p><strong>Konfuziya (Confusion)</strong> — Şifrəli mətn ilə açar
+arasındakı statistik asılılığın mürəkkəbləşdirilməsi. Bu, adətən
+qeyri-xətti əvəzetmə (S-box) vasitəsilə həyata keçirilir.</p></li>
+<li><p><strong>Diffuziya (Diffusion)</strong> — Açıq mətnin bir bitinin
+dəyişməsinin şifrəli mətnin təxminən yarısına təsir etməsi. Bu,
+statistik analizi çətinləşdirir.</p></li>
+<li><p><strong>Kerckhoffs prinsipi</strong> — Sistemin təhlükəsizliyi
+alqoritmin gizliliyinə deyil, yalnız açarın gizliliyinə
+əsaslanmalıdır.</p></li>
+</ul>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Şifrə</strong></th>
+<th style="text-align: center;"><strong>Açar fəzası</strong></th>
+<th style="text-align: center;"><strong>Sındırılma müddəti
+(Brute-force)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sezar</td>
+<td style="text-align: center;"><span class="math inline">\(26 \approx
+2^{4.7}\)</span></td>
+<td style="text-align: center;">Saniyələr (anında)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Affin</td>
+<td style="text-align: center;"><span class="math inline">\(312 \approx
+2^{8.3}\)</span></td>
+<td style="text-align: center;">Saniyələr (anında)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vijener (<span
+class="math inline">\(m=5\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(26^5 \approx
+2^{23.5}\)</span></td>
+<td style="text-align: center;">Saniyələr</td>
+</tr>
+<tr>
+<td style="text-align: left;">DES (56-bit)</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{56}\)</span></td>
+<td style="text-align: center;">Bir neçə gün (xüsusi aparatla)</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-128</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{128}\)</span></td>
+<td style="text-align: center;">Kainatın yaşından daha çox</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Açar fəzasının böyüklüyü</span> <span
+class="math inline">\(2^{128}\)</span> ədədinin böyüklüyünü təsəvvür
+etmək üçün: Dünyadakı bütün kompüterlər birlikdə saniyədə <span
+class="math inline">\(10^{15}\)</span> (petahash) açar sınasalar belə,
+AES-128 açarını tapmaq üçün lazım olan vaxt kainatın hazırkı yaşından
+(<span class="math inline">\(13.8\)</span> milyard il) dəfələrlə
+çoxdur.</p>
+</div>
+<h1 id="müasir-kriptoqrafiyada-polialfabetik-prinsiplər">Müasir
+kriptoqrafiyada polialfabetik prinsiplər</h1>
+<p>Polialfabetik prinsiplər müasir kriptoqrafiyada da istifadə olunur
+<span class="citation" data-cites="stinson2018cryptography"></span>:</p>
+<ul>
+<li><p><strong>Blok şifrələrdə təkrar açarlar</strong> — Müxtəlif
+raundlarda fərqli açarlar istifadə olunur</p></li>
+<li><p><strong>Açar axını şifrələri</strong> — Açar axını əsasında hər
+simvol fərqli şifrlənir</p></li>
+<li><p><strong>Kriptoqrafik heş funksiyaları</strong> — Təkrar
+dövrələr</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 12</strong>. <span>Açar axını şifrələri (Stream
+ciphers)</span> Müasir açar axını şifrələri (məsələn,
+<strong>RC4</strong>, <strong>ChaCha20</strong>) Vijener şifrəsinin
+yüksək sürətli və rəqəmsal variantlarıdır. Bu sistemlərdə
+<em>psevdotəsadüfi ədəd generatoru</em> (PRNG) çox uzun bir açar axını
+yaradır və bu axın açıq mətnlə bit-bit <strong>XOR</strong> edilir:</p>
+<p><span class="math display">\[\begin{equation}
+C_i = P_i \oplus K_i
+\end{equation}\]</span></p>
+<p><strong>Vijener şifrəsi ilə müqayisəli fərqlər:</strong></p>
+<ul>
+<li><p><strong>Əlifba:</strong> Vijener hərflər (mod 26) üzərində, açar
+axını şifrələri isə bitlər (mod 2) üzərində işləyir.</p></li>
+<li><p><strong>Açarın uzunluğu:</strong> Vijenerdə açar söz qısadır və
+mətndə təkrar olunur (periodikdir). Müasir aaçar axını şifrələrində açar
+axınının dövrü (təkrarlanma intervalı) o qədər böyükdür ki, sındırılması
+qeyri-mümkündür.</p></li>
+<li><p><strong>Əməliyyat sürəti:</strong> XOR əməliyyatı prosessor
+səviyyəsində mod 26 toplamasından minlərlə dəfə daha
+sürətlidir.</p></li>
+<li><p><strong>Statistika:</strong> Psevdotəsadüfi açar axını sayəsində
+şifrəli mətn tamamilə təsadüfi səs-küyə (noise) bənzəyir və tezlik
+analizinə qarşı tam davamlıdır.</p></li>
+</ul>
+</div>
+<div class="tip">
+<p><span>Niyə məhz XOR?</span> XOR əməliyyatının unikal cəhəti onun
+<strong>öz-özünün tərsi</strong> olmasıdır. Yəni: Əgər <span
+class="math inline">\(C=P \oplus K\)</span> isə, onda <span
+class="math inline">\(P=C \oplus K\)</span>. Bu, şifrələmə və
+deşifrələmə üçün eyni alqoritmdən istifadə etməyə imkan verir ki, bu da
+aparat (hardware) təminatında resurslara qənaət edir.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 13</strong>. <span>Blok şifrələrdə polialfabetik
+prinsiplər</span> AES (Advanced Encryption Standard) kimi müasir blok
+şifrələrdə hər raundda fərqli açar istifadə olunur:</p>
+<ol>
+<li><p>İlkin açar (128, 192 və ya 256 bit)</p></li>
+<li><p>Açar genişləndirmə funksiyası ilə hər raund üçün ayrı açar
+yaradılır</p></li>
+<li><p>10-14 raund (açar uzunluğundan asılı olaraq)</p></li>
+</ol>
+<p>Bu, Vijener prinsipinin müasir variantıdır — hər raundda fərqli
+"əvəzetmə cədvəli" istifadə olunur.</p>
+</div>
+<h2 id="vijener-şifrəsinin-sındırılmasında-əməyi-olan-alimlər">Vijener
+şifrəsinin sındırılmasında əməyi olan alimlər</h2>
+<div class="history">
+<p><span>Charles Babbage (1791-1871)</span> İngilis riyaziyyatçısı və
+ixtiraçısı. Analitik maşının ixtiraçısı. Təxminən 1854-cü ildə Vijener
+şifrəsini sındırmaq üsulunu kəşf etmiş, lakin bunu nəşr etdirməmişdir.
+Onun qeydləri ölümündən sonra tapılmışdır <span class="citation"
+data-cites="kahn1996codebreakers"></span>. Babbage həmçinin "Difference
+Engine" (Fərq mühərriki) adlı mexaniki kalkulyatoru ilə də
+məşhurdur.</p>
+</div>
+<div class="history">
+<p><span>Friedrich Kasiski (1805-1881)</span> Prus ordusunun zabiti.
+1863-cü ildə Vijener şifrəsini sındırmaq üsulunu nəşr etdirmişdir. Onun
+şərəfinə bu üsul "Kasiski testi" adlanır. Kasiski testi bu gün də
+kriptoanalizdə istifadə olunur <span class="citation"
+data-cites="kahn1996codebreakers"></span>. Kasiski öz üsulunu "Die
+Geheimschriften und die Dechiffrierkunst" (Gizli yazılar və deşifrələmə
+sənəti) kitabında nəşr etdirmişdir.</p>
+</div>
+<div class="history">
+<p><span>Claude Shannon (1916-2001)</span> Amerikalı riyaziyyatçı,
+"informasiya nəzəriyyəsinin atası". 1949-cu ildə "Communication Theory
+of Secrecy Systems" əsərində bir dəfəlik bloknotun mütləq
+təhlükəsizliyini riyazi olaraq isbat etmişdir <span class="citation"
+data-cites="shannon1949communication"></span>. O, həmçinin konfuziya
+(confusion) və diffuziya (diffusion) anlayışlarını kriptoqrafiyaya daxil
+etmişdir.</p>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). Açar söz "CODE" (C=2, O=14, D=3, E=4)
+olarsa, "HELLO" sözünü Vijener şifrəsi ilə şifrləyin.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). Açar söz "KEY" ilə şifrlənmiş "RIJVS"
+şifrəli mətnini deşifrələyin.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). Aşağıdakı şifrəli mətndə Kasiski
+testi ilə periodu tapın:</p>
+<p><code>ABCXYZ ABCXYZ DEFABC XYZABC</code></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). Aşağıdakı şifrəli mətn üçün uyğunluq
+indeksini hesablayın:</p>
+<p><code>AAAAABBBBB</code></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). Vijener şifrəsi ilə şifrlənmiş
+aşağıdakı mətni kriptoanaliz edin (period 3-dür):</p>
+<p><code>XMZ YZ XH ZV ZVV ZMMZ YZ XH ZV NVIH ZVV</code></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). Niyə Vijener şifrəsi monoalfabetik
+şifrələrdən daha təhlükəsizdir? Əsas səbəbləri sadalayın.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). Vijener şifrəsində açar sözün
+uzunluğu nə qədər böyük olarsa, şifrə bir o qədər təhlükəsiz olar?
+Niyə?</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). Bir dəfəlik bloknotun Vijener
+şifrəsindən əsas fərqləri nələrdir? Hansı şərtlər daxilində bir dəfəlik
+bloknot mütləq təhlükəsizdir?</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 9</strong> (9). Açar fəzasının böyüklüyü ilə
+təhlükəsizlik arasında hansı əlaqə var? Müasir şifrələrdə (məsələn,
+AES-128) açar fəzası nə qədərdir?</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 10</strong> (10). Müasir açar axını şifrələri ilə
+Vijener şifrəsi arasında oxşarlıqlar və fərqlər nələrdir?</p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların həlli</h1>
+<ul>
+<li><p>"HELLO" → H=7, E=4, L=11, L=11, O=14. Açar: C=2, O=14, D=3, E=4,
+C=2. Şifrləmə: <span class="math display">\[\begin{align*}
+        H (7) + C (2) &amp;= 9 \rightarrow \text{J} \\
+        E (4) + O (14) &amp;= 18 \rightarrow \text{S} \\
+        L (11) + D (3) &amp;= 14 \rightarrow \text{O} \\
+        L (11) + E (4) &amp;= 15 \rightarrow \text{P} \\
+        O (14) + C (2) &amp;= 16 \rightarrow \text{Q}
+\end{align*}\]</span> Nəticə: "JSOPQ"</p></li>
+<li><p>"RIJVS" deşifrləmə: R=17, I=8, J=9, V=21, S=18. Açar: K=10, E=4,
+Y=24, K=10, E=4. <span class="math display">\[\begin{align*}
+        R (17) - K (10) &amp;= 7 \rightarrow \text{H} \\
+        I (8) - E (4) &amp;= 4 \rightarrow \text{E} \\
+        J (9) - Y (24) &amp;= -15 \bmod 26 = 11 \rightarrow \text{L} \\
+        V (21) - K (10) &amp;= 11 \rightarrow \text{L} \\
+        S (18) - E (4) &amp;= 14 \rightarrow \text{O}
+\end{align*}\]</span> Nəticə: "HELLO"</p></li>
+<li><p>Təkrarlanan "ABC" qrupu:</p>
+<ul>
+<li><p>"ABC" mövqeləri: 0, 6, 12, 18</p></li>
+<li><p>Məsafələr: 6, 6, 6</p></li>
+<li><p>ƏBOB(6,6,6) = 6</p></li>
+</ul>
+<p>Period 6 ola bilər.</p></li>
+<li><p>"AAAAABBBBB" (N=10):</p>
+<ul>
+<li><p>A: 5 dəfə</p></li>
+<li><p>B: 5 dəfə</p></li>
+</ul>
+<p><span class="math display">\[IC = \frac{5\cdot4 + 5\cdot4}{10\cdot9}
+= \frac{20 + 20}{90} = \frac{40}{90} \approx 0.444\]</span></p></li>
+<li><p>Mətn çox qısa olduğu üçün tam həll mümkün deyil. Amma period 3
+olduğu üçün hər üçüncü hərfdən ibarət qruplar ayrılır və hər qrup üçün
+tezlik analizi aparılır.</p></li>
+<li><p>Vijener şifrəsinin monoalfabetik şifrələrdən üstünlükləri:</p>
+<ol>
+<li><p>Eyni açıq mətn hərfi müxtəlif yerlərdə fərqli şifrəli mətn
+hərflərinə çevrilir.</p></li>
+<li><p>Tezlik analizi birbaşa tətbiq oluna bilmir.</p></li>
+<li><p>Açar sözün uzunluğu bilinmədikcə hücum çətinləşir.</p></li>
+</ol></li>
+<li><p>Açar söz nə qədər uzun olarsa, tezlik analizi bir o qədər
+çətinləşir. İdeal halda açar söz mesaj qədər uzun olarsa, bir dəfəlik
+bloknota yaxınlaşır. Lakin açar sözün təsadüfi olması və təkrarlanmaması
+şərti ilə.</p></li>
+<li><p>Bir dəfəlik bloknotun Vijener şifrəsindən əsas fərqləri:</p>
+<ul>
+<li><p>Açar həqiqi təsadüfi olmalıdır</p></li>
+<li><p>Açar mesaj qədər uzun olmalıdır</p></li>
+<li><p>Açar heç vaxt təkrar istifadə edilməməlidir</p></li>
+</ul>
+<p>Bu şərtlər daxilində bir dəfəlik bloknot mütləq
+təhlükəsizdir.</p></li>
+<li><p>Açar fəzası nə qədər böyükdürsə, tam axtarış hücumu bir o qədər
+çətinləşir. AES-128-in açar fəzası <span class="math inline">\(2^{128}
+\approx 3.4 \times 10^{38}\)</span>-dir.</p></li>
+<li><p>Oxşarlıqlar: hər ikisi açar axını əsasında işləyir. Fərqlər:
+müasir açar axını şifrələrində açar axını çox uzundur, XOR əməliyyatı
+istifadə olunur, bitlər üzərində işləyir, kompüterlər üçün
+optimallaşdırılıb.</p></li>
+</ul>
+<h1 id="praktik-tövsiyələr">Praktik tövsiyələr</h1>
+<div class="tip">
+<p><span>Vijener şifrəsindən nə vaxt istifadə etməli?</span></p>
+<ul>
+<li><p>Təhsil məqsədləri üçün (polialfabetik şifrələri
+öyrənmək)</p></li>
+<li><p>Tarixi nümunələr üçün</p></li>
+<li><p>Həqiqi təhlükəsizlik tələb etməyən sadə tapşırıqlar üçün</p></li>
+<li><p>Kriptoanaliz üsullarını öyrənmək üçün</p></li>
+</ul>
+</div>
+<div class="warning">
+<p><span>Nə vaxt istifadə etməməli?</span></p>
+<ul>
+<li><p>Real təhlükəsizlik tələb edən sistemlərdə (asanlıqla
+sındırılır)</p></li>
+<li><p>Müasir kriptoqrafiya tələb edən tətbiqlərdə</p></li>
+<li><p>Bank əməliyyatlarında, dövlət sirlərində, şəxsi məlumatların
+qorunmasında</p></li>
+</ul>
+</div>
+<div class="tip">
+<p><span>Vijener şifrəsini gücləndirmək üçün (yalnız təhsil
+məqsədilə)</span></p>
+<ul>
+<li><p>Açar sözü mesaj qədər uzun seçmək (bir dəfəlik bloknota
+yaxınlaşır)</p></li>
+<li><p>Açar sözü təsadüfi seçmək</p></li>
+<li><p>Mətni şifrləmədən əvvəl sıxmaq</p></li>
+<li><p>Bir neçə dəfə ardıcıl şifrləmək (multiple encryption)</p></li>
+</ul>
+<p>Lakin unutmayın ki, bu üsulların heç biri Vijener şifrəsini müasir
+tələblər səviyyəsində təhlükəsiz etmir.</p>
+</div>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə aşağıdakı əsas anlayışları öyrəndik:</p>
+<ul>
+<li><p><strong>Polialfabetik şifrələr:</strong> Bir neçə fərqli əvəzetmə
+cədvəlindən istifadə edən şifrələr. Monoalfabetik şifrələrin tezlik
+analizi problemini həll etmək üçün yaradılmışdır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Vijener şifrəsi:</strong> Ən məşhur polialfabetik şifrə.
+Açar söz əsasında hər hərf üçün fərqli Sezar sürüşdürməsi tətbiq edir
+<span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Vijener şifrələmə:</strong> <span
+class="math inline">\(C_i = (P_i + K_{i \bmod m}) \bmod
+26\)</span></p></li>
+<li><p><strong>Vijener deşifrləmə:</strong> <span
+class="math inline">\(P_i = (C_i - K_{i \bmod m}) \bmod
+26\)</span></p></li>
+<li><p><strong>Kasiski testi:</strong> Təkrarlanan qruplar arasındakı
+məsafələrin ƏBOB-u ilə periodun tapılması <span class="citation"
+data-cites="kahn1996codebreakers"></span>.</p></li>
+<li><p><strong>Uyğunluq indeksi (IC):</strong> Mətndə təsadüfi seçilmiş
+iki hərfin eyni olma ehtimalı. İngilis dili üçün IC ≈ 0.066 <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Vijener şifrəsinə tam hücum:</strong> Period tapıldıqdan
+sonra şifrə <span class="math inline">\(m\)</span> ayrı-ayrı Sezar
+şifrəsinə parçalanır və hər biri üçün tezlik analizi aparılır <span
+class="citation" data-cites="singh1999code"></span>.</p></li>
+<li><p><strong>Bir dəfəlik bloknot:</strong> Açar mesaj qədər uzun və
+təsadüfi olduqda, mütləq təhlükəsiz kriptosistem <span class="citation"
+data-cites="shannon1949communication"></span>.</p></li>
+<li><p><strong>Müasir şifrlər:</strong> Böyük açar fəzası, konfuziya,
+diffuziya prinsiplərinə əsaslanır.</p></li>
+</ul>
+<div class="note">
+<p><span>Əsas nəticə</span> Vijener şifrəsi 300 il boyunca təhlükəsiz
+hesab edilsə də, 19-cu əsrdə Kasiski və Babbage tərəfindən
+sındırılmışdır. Bu, kriptoqrafiyada mühüm bir dərsdir — "sındırılmaz"
+hesab edilən sistemlər belə zamanla zəifliklərini göstərə bilər. Müasir
+kriptoqrafiyada Vijener şifrəsi təhlükəsiz hesab edilmir, lakin onu
+öyrənmək polialfabetik şifrələrin prinsiplərini başa düşmək üçün
+vacibdir. Vijener prinsipi (fərqli mövqelərdə fərqli açarların
+istifadəsi) müasir blok şifrələrdə və açar axını şifrələrində hələ də
+istifadə olunur.</p>
+</div>
+<h1 class="unnumbered" id="kriptoanaliz-guşəsi-vijener-ovçusu">��️
+Kriptoanaliz Guşəsi: Vijener Ovçusu</h1>
+<p>Vijener şifrəsi təxminən 300 il ərzində riyaziyyatçıları aciz qoyduğu
+üçün "sındırılamaz" (fr. <em>le chiffre indéchiffrable</em>) adını
+almışdı. Onu sındırmaq üçün bir kriptoanalitik kimi iki fundamental
+suala cavab tapmalıyıq:</p>
+<h2 class="unnumbered" id="zəif-bənd-haradadır-təkrarların-analizi">1.
+Zəif bənd haradadır? (Təkrarların analizi)</h2>
+<p>Polialfabetik şifrlərin ən böyük düşməni <strong>təkrarlanan
+açar</strong> və <strong>təkrarlanan dildir</strong>.</p>
+<ul>
+<li><p><strong>Məntiq:</strong> Əgər açar sözümüz "ALMA"dırsa (uzunluğu
+4), hər 4 simvoldan bir eyni əlifba tətbiq olunur. Əgər açıq mətndə
+"THE" sözü 20 simvoldan bir təkrar olunursa və bu təkrar açarın eyni
+mövqeyinə düşürsə, şifrəli mətndə də eyni simvollar görünəcək.</p></li>
+<li><p><strong>Ovçu taktikası:</strong> Şifrəli mətndə 3 və ya daha çox
+hərfdən ibarət eyni qrupları tapın. Aralarındakı məsafəni ölçün. Bu
+məsafələrin <strong>ƏBOB</strong>-u bizə açarın uzunluğunu (<span
+class="math inline">\(m\)</span>) verəcək.</p></li>
+</ul>
+<h2 class="unnumbered" id="hansı-pəncərədən-baxırıq-sütunlaşdırma">2.
+Hansı pəncərədən baxırıq? (Sütunlaşdırma)</h2>
+<p>Açarın uzunluğunu (<span class="math inline">\(m\)</span>) tapdıqdan
+sonra "parçala və hökm sür" prinsipini tətbiq edirik.</p>
+<ul>
+<li><p><strong>Məntiq:</strong> Əgər mətni <span
+class="math inline">\(m\)</span> sayda sütuna ayırsaq, hər sütun
+daxilindəki hər bir hərf <strong>eyni açar hərfi</strong> ilə
+sürüşdürülmüş olur.</p></li>
+<li><p><strong>Nəticə:</strong> Bu o deməkdir ki, hər bir sütun fərdi
+şəkildə sadə <strong>Sezar şifrəsidir</strong>. Polialfabetik şifrə
+artıq bir neçə monoalfabetik şifrəyə parçalanmış olur.</p></li>
+</ul>
+<div class="note">
+<p><span>Qızıl Qayda</span> Kriptoanalizin uğurlu olması üçün şifrəli
+mətnin uzunluğu açar sözün uzunluğundan əhəmiyyətli dərəcədə çox
+olmalıdır. Əks halda, statistik təkrarlar (Kasiski testi) və hərflərin
+paylanması (IC testi) özünü büruzə verməyəcək.</p>
+</div>
+<div class="note">
+<p><span>Növbəti mühazirə</span> Növbəti mühazirədə müasir simmetrik
+şifrələrə — blok şifrələrə keçid edəcəyik. DES (Data Encryption
+Standard) və onun iş prinsipləri haqqında danışacağıq. Həmçinin Feistel
+şəbəkəsi anlayışı ilə tanış olacağıq.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (5)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Singh, 1999</span>
+                        <small class="text-muted">Doubleday</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Simon Singh (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Kahn, 1996</span>
+                        <small class="text-muted">Scribner</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Codebreakers: The Comprehensive History of Secret Communication from Ancient Times to the Internet</h6>
+                    <p class="small text-secondary mb-0">David Kahn (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Shannon, 1949</span>
+                        <small class="text-muted">Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Communication Theory of Secrecy Systems</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1949)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

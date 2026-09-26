@@ -102,6 +102,12 @@
   white-space: nowrap;
 }
 
+/* Chirpy sets `white-space: nowrap` on table cells; let long topic titles wrap
+   so the link columns (PDF · HTML, Colab · Colab) stay inside the table. */
+.course-syllabus td:nth-child(2) {
+  white-space: normal;
+}
+
 .course-nb a + a {
   margin-left: 0.5rem;
 }

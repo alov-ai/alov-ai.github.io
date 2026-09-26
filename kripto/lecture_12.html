@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_12</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 12</strong></p>
+<p><strong>Heş funksiyalarına giriş və xüsusiyyətləri</strong></p>
+<p>Bu mühazirə heş funksiyalarının əsas anlayışlarını, təhlükəsizlik
+xüsusiyyətlərini, quruluşlarını (Merkl-Damqord, süngər) və praktik
+tətbiqlərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin Məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbə aşağıdakı bilik və bacarıqlara
+sahib olacaq:</p>
+<ul>
+<li><p><strong>Heş Funksiyalarının Mahiyyəti:</strong> Kriptoqrafik heş
+funksiyalarının texniki tərifini və onların əsas xüsusiyyətlərini
+(deterministik olması, sürətli hesablanması) izah edə biləcək <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Təhlükəsizlik Xüsusiyyətləri:</strong> İlkin obrazın
+tapılmasına dayanıqlılığı (pre-image resistance), ikinci ilkin obrazın
+tapılmasına dayanıqlılığı və toqquşma dayanıqlılığı (collision
+resistance) anlayışlarını və onların bir-birindən fərqini başa düşəcək
+<span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Kriptoanalitik Hücumlar:</strong> Ad günü paradoksu
+(birthday paradox) və toqquşma hücumlarının riyazi əsaslarını dərk
+edərək, heş dəyərinin uzunluğuna görə hücum ehtimallarını hesablaya
+biləcək <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Daxili Struktur (Quruluş):</strong> Merkl-Damqord
+(Merkle-Damgård) iterativ quruluşunun və SHA-3-də istifadə olunan süngər
+(sponge) strukturunun iş prinsiplərini fərqləndirə biləcək <span
+class="citation"
+data-cites="damgard1989design merkle1989one"></span>.</p></li>
+<li><p><strong>Praktik Tətbiq Sahələri:</strong> Heş funksiyalarının
+real dünyadakı tətbiqlərini (parolların təhlükəsiz saxlanması, məlumat
+bütövlüyü, rəqəmsal imzalar və blokçeyn texnologiyası) dərindən dərk
+edəcək <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p><strong>Hücum Davamlılığı:</strong> Uzunluq genişləndirmə
+hücumunun (length extension attack) mahiyyətini, hansı strukturlarda bu
+problemin yarandığını və onun qarşısını alma üsullarını biləcək <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+<div class="note">
+<p><span>Mövzunun Önəmi</span> Heş funksiyaları müasir kriptoqrafiyanın
+"işçi atları" hesab olunur. Onlar məlumatın bütövlüyünü təmin edən
+fundamental alətlərdir və aşağıdakı sistemlərin qurulmasında əvəzedilməz
+rol oynayırlar:</p>
+<ul>
+<li><p><strong>Rəqəmsal imzalar:</strong> Böyük həcmli sənədlərin
+sürətli və təhlükəsiz imzalanması üçün.</p></li>
+<li><p><strong>Blokçeyn texnologiyası:</strong> Blokların zəncirvari
+bağlanması və tranzaksiyaların dəyişməzliyinin təmin edilməsi
+üçün.</p></li>
+<li><p><strong>Təhlükəsiz autentifikasiya:</strong> İstifadəçi
+parollarının verilənlər bazasında birbaşa deyil, "barmaq izi" şəklində
+saxlanılması üçün.</p></li>
+</ul>
+<p>Bu funksiyalar olmadan müasir internet təhlükəsizliyi və rəqəmsal
+etibar mexanizmlərini təsəvvür etmək mümkün deyil.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>İnformasiya texnologiyalarının sürətli inkişafı ilə birlikdə,
+məlumatların təhlükəsizliyi və bütövlüyünün qorunması problemi getdikcə
+daha aktuallaşır. İnternet üzərindən ötürülən məlumatların
+dəyişdirilməməsi, saxtalaşdırılmaması və ya icazəsiz girişlərdən
+qorunması üçün müxtəlif kriptoqrafik üsullardan istifadə olunur. Bu
+üsullar arasında <strong>heş funksiyaları (hash functions)</strong>
+xüsusi yer tutur.</p>
+<p>Heş funksiyaları müasir kriptoqrafiyanın təməl daşlarından biridir.
+Onlar ixtiyari uzunluqlu məlumatı sabit uzunluqlu qısa bir dəyərə (heş)
+çevirən birtərəfli funksiyalardır. Bu funksiyalar sayəsində böyük həcmli
+məlumatların bütövlüyü yoxlanıla bilir, parollar təhlükəsiz saxlanılır,
+rəqəmsal imzalar yaradılır və blokçeyn texnologiyasının əsasını təşkil
+edir.</p>
+<div class="note">
+<p><span>Mövzunun Önəmi</span> Heş funksiyaları müasir kriptoqrafiyanın
+"işçi atlarıdır". Onlar olmadan rəqəmsal imzalar, blokçeyn və ya
+təhlükəsiz autentifikasiya sistemlərini qurmaq mümkün deyil.</p>
+</div>
+<p>Bu mühazirədə heş funksiyalarının əsas anlayışları, təhlükəsizlik
+xüsusiyyətləri, quruluşları və praktik tətbiqləri ətraflı şəkildə
+öyrəniləcəkdir.</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Birtərəflilik:</strong> Heş funksiyası nədir və niyə
+"birtərəfli" (one-way) funksiya adlanır?</p></li>
+<li><p><strong>Təhlükəsizlik Meyarları:</strong> Heş funksiyalarının
+təhlükəsizliyi hansı xüsusiyyətlərlə (dayanıqlılıq növləri)
+ölçülür?</p></li>
+<li><p><strong>Kriptoanaliz:</strong> Ad günü paradoksu heş
+funksiyalarına və toqquşma ehtimalına necə təsir edir?</p></li>
+<li><p><strong>Daxili Struktur:</strong> Merkl-Damqord və süngər
+(sponge) quruluşları arasında hansı fundamental fərqlər var?</p></li>
+<li><p><strong>Praktika:</strong> Heş funksiyaları gündəlik həyatda və
+müasir protokollarda harada istifadə olunur?</p></li>
+</ul>
+</div>
+<h1 id="heş-funksiyalarının-tərifi-və-əsas-anlayışlar">Heş
+funksiyalarının tərifi və əsas anlayışlar</h1>
+<h2 id="heş-funksiyası-nədir">Heş Funksiyası Nədir?</h2>
+<p><strong>Heş funksiyası (hash function)</strong> — ixtiyari uzunluqlu
+giriş məlumatını (mesajı) sabit uzunluqlu çıxışa (heş dəyərinə) çevirən
+riyazi alqoritmdir <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu çevrilmə prosesi
+<strong>birtərəfli</strong> (one-way) xarakter daşıyır; yəni heş
+dəyərindən istifadə edərək orijinal mesajı bərpa etmək müasir hesablama
+gücləri ilə mümkün deyil.</p>
+<p>Heş funksiyaları gündəlik həyatda tez-tez rast gəlinən anlayışlarla
+analogiya təşkil edir. Məsələn, bir insanın <strong>barmaq izi</strong>
+onun şəxsiyyətini unikal şəkildə təmsil edən qısa bir identifikatordur.
+Eyni şəkildə, heş funksiyaları da böyük həcmli rəqəmsal məlumatları qısa
+və unikal "rəqəmsal barmaq izlərinə" çevirir.</p>
+<div class="definition">
+<p><strong>Tərif 1</strong>. <em><span>Heş Funksiyası.</span> Heş
+funksiyası <span class="math inline">\(H: \{0,1\}^* \rightarrow
+\{0,1\}^n\)</span> şəklində təyin olunan, ixtiyari uzunluqlu ikilik
+(binary) sətirləri <span class="math inline">\(n\)</span>-bit uzunluqlu
+sabit ölçülü çıxışa xəritələyən funksiyadır <span class="citation"
+data-cites="paar2010understanding"></span>.</em></p>
+</div>
+<p>Bu riyazi tərifin komponentləri aşağıdakıları ifadə edir:</p>
+<ul>
+<li><p><strong><span class="math inline">\(\{0,1\}^*\)</span>:</strong>
+Giriş çoxluğu — istənilən uzunluqlu (boş sətir də daxil olmaqla) bütün
+mümkün ikilik sətirlər.</p></li>
+<li><p><strong><span class="math inline">\(\{0,1\}^n\)</span>:</strong>
+Çıxış çoxluğu — dəqiq <span class="math inline">\(n\)</span>-bit
+uzunluqlu ikilik sətirlər çoxluğu.</p></li>
+<li><p><strong><span class="math inline">\(n\)</span>:</strong> Heş
+funksiyasının çıxış uzunluğu (məsələn, <strong>SHA-256</strong> üçün
+<span class="math inline">\(n=256\)</span>, <strong>MD5</strong> üçün
+<span class="math inline">\(n=128\)</span>).</p></li>
+</ul>
+<div class="tip">
+<p><span>Deterministik Xüsusiyyət</span> Heş funksiyaları
+deterministikdir: eyni giriş məlumatı hər zaman, istisnasız olaraq eyni
+heş çıxışını verməlidir. Girişdəki hətta bir bitlik dəyişiklik ("lavina
+(avalanche) effekti" - avalanche effect) tamamilə fərqli bir heş
+dəyərinin yaranmasına səbəb olur.</p>
+</div>
+<h2 id="heş-funksiyalarının-formal-tərifi">Heş funksiyalarının formal
+tərifi</h2>
+<p>Kriptoqrafik heş funksiyaları təhlükəsizliyi təmin etmək üçün
+aşağıdakı fundamental xüsusiyyətlərə malik olmalıdır <span
+class="citation" data-cites="katz2020introduction"></span>:</p>
+<ol>
+<li><p><strong>Deterministik:</strong> Funksiya eyni giriş məlumatı üçün
+hər zaman istisnasız olaraq eyni çıxış (heş) dəyərini istehsal
+edir.</p></li>
+<li><p><strong>Sürətli Hesablama:</strong> İxtiyari uzunluqlu giriş
+məlumatı üçün heş dəyərinin hesablanması səmərəli və sürətli şəkildə
+həyata keçirilməlidir.</p></li>
+<li><p><strong>İlkin Obrazın Tapılmasına Dayanıqlılığı (Preimage
+Resistance):</strong> Verilmiş bir <span class="math inline">\(y =
+H(x)\)</span> heş dəyəri üçün orijinal <span
+class="math inline">\(x\)</span> girişini tapmaq hesablama baxımından
+qeyri-mümkün (çətin) olmalıdır. Bu xüsusiyyət funksiyanın "birtərəfli"
+olduğunu təmin edir.</p></li>
+<li><p><strong>İkinci İkinci İlkin Obrazın Tapılmasına Dayanıqlılığı
+(Second Preimage Resistance):</strong> Verilmiş bir <span
+class="math inline">\(x_1\)</span> girişi üçün <span
+class="math inline">\(H(x_1) = H(x_2)\)</span> və <span
+class="math inline">\(x_1 \neq x_2\)</span> şərtlərini ödəyən fərqli bir
+<span class="math inline">\(x_2\)</span> girişi tapmaq hesablama
+baxımından mürəkkəb olmalıdır.</p></li>
+<li><p><strong>Toqquşma Dayanıqlılığı (Collision Resistance):</strong>
+<span class="math inline">\(H(x_1) = H(x_2)\)</span> və <span
+class="math inline">\(x_1 \neq x_2\)</span> şərtini ödəyən hər hansı iki
+fərqli giriş cütlüyünü tapmaq hesablama baxımından qeyri-mümkün
+olmalıdır.</p></li>
+<li><p><strong>Lavina Effekti (Avalanche Effect):</strong> Giriş
+məlumatında edilən kiçik bir dəyişiklik (məsələn, bir bitin
+dəyişdirilməsi) çıxışdakı heş dəyərinin əhəmiyyətli dərəcədə və tamamilə
+fərqli görünməsinə səbəb olmalıdır.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Lavina Effekti Nümunəsi). <em>SHA-256 heş
+funksiyası vasitəsilə bir-birinə çox yaxın olan iki mətnin çıxış
+dəyərlərini müqayisə edək:</em></p>
+<div class="tcolorbox">
+<p><em><strong>Mətn 1:</strong> "Kriptoqrafiya kursu"<br />
+<strong>SHA-256:</strong>
+<span><code>3805f9006ca8924f22381255b5a18a33e72f10b6fc520a95010f3fcfa7e56691</code></span></em></p>
+<p><em><strong>Mətn 2:</strong> "Kriptoqrafiya kursu." (Sona nöqtə əlavə
+olunub)<br />
+<strong>SHA-256:</strong>
+<span><code>572f6ee739aea68aac3f20136de8da9bdb335669762d3c046fa932c595917b9a</code></span></em></p>
+</div>
+<p><em>Göründüyü kimi, girişdə cəmi bir simvolun dəyişməsi heş dəyərinin
+tamamilə fərqli görünməsinə səbəb olur.</em></p>
+</div>
+<h2 id="heş-funksiyalarının-tətbiq-sahələri">Heş funksiyalarının tətbiq
+sahələri</h2>
+<p>Heş funksiyaları müasir informasiya texnologiyalarında çox geniş
+tətbiq sahələrinə malikdir <span class="citation"
+data-cites="ferguson2010cryptography"></span>:</p>
+<ol>
+<li><p><strong>Parol Saxlanması:</strong> Təhlükəsizlik baxımından
+istifadəçi parolları verilənlər bazasında açıq şəkildə deyil, heş
+formasında saxlanılır. Autentifikasiya zamanı daxil edilən parol
+heşlənir və nəticə saxlanılan heşlə müqayisə edilir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Məlumat Bütövlüyünün Yoxlanması:</strong> Faylın və ya
+mesajın ötürülmə zamanı dəyişdirilmədiyini yoxlamaq üçün onun heş dəyəri
+("checksum") saxlanılır və qəbul edildikdə yenidən hesablanaraq
+orijinalı ilə müqayisə edilir.</p></li>
+<li><p><strong>Rəqəmsal İmzalar:</strong> Böyük həcmli məlumatların
+birbaşa imzalanması səmərəli olmadığından, əvvəlcə məlumatın heşi
+hesablanır, sonra isə bu qısa heş dəyəri imzalanır <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Merkl Ağacları (Merkle Trees):</strong> Blokçeyn
+texnologiyasında çoxlu sayda əməliyyatın bütövlüyünü tək bir "kök heş"
+(root hash) vasitəsilə səmərəli şəkildə təmin etmək üçün istifadə olunur
+<span class="citation"
+data-cites="antonopoulos2017mastering"></span>.</p></li>
+<li><p><strong>HMAC (Heşə əsaslanan məlumat autentikasiya kodu -
+Hash-based Message Authentication Code):</strong> Mesajın həm tamlığını,
+həm də mənbəyini yoxlamaq məqsədilə gizli açar və heş funksiyası
+əsasında qurulan mexanizmdir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Açar Törətmə Funksiyaları (KDF):</strong> Zəif
+parollardan və ya digər ilkin materiallardan kriptoqrafik cəhətdən güclü
+açarlar yaratmaq üçün istifadə olunur.</p></li>
+</ol>
+<h1 id="heş-funksiyalarının-təhlükəsizlik-xüsusiyyətləri">Heş
+Funksiyalarının Təhlükəsizlik Xüsusiyyətləri</h1>
+<p>Heş funksiyalarının təhlükəsizlik səviyyəsi üç fundamental
+dayanıqlılıq xüsusiyyəti ilə xarakterizə olunur <span class="citation"
+data-cites="katz2020introduction"></span>:</p>
+<ul>
+<li><p><strong>İlkin Obrazın Tapılmasına Dayanıqlılığı (Pre-image
+Resistance):</strong> Verilmiş bir <span
+class="math inline">\(y\)</span> heş dəyəri üçün <span
+class="math inline">\(H(x) = y\)</span> şərtini ödəyən hər hansı bir
+<span class="math inline">\(x\)</span> girişini tapmaq hesablama
+baxımından qeyri-mümkün olmalıdır. Bu xüsusiyyət funksiyanın
+"birtərəfli" (one-way) olmasını təmin edir.</p></li>
+<li><p><strong>İkinci İlin Obrazın Tapılmasına Dayanıqlılığı (Second
+Pre-image Resistance):</strong> Verilmiş konkret bir <span
+class="math inline">\(x\)</span> girişi üçün <span
+class="math inline">\(H(x) = H(x&#39;)\)</span> və <span
+class="math inline">\(x \neq x&#39;\)</span> şərtlərini ödəyən başqa bir
+<span class="math inline">\(x&#39;\)</span> girişini tapmaq hesablama
+baxımından çətin olmalıdır. Bu xüsusiyyət mövcud olan bir mesajın
+(məsələn, rəqəmsal imzalı sənədin) heş dəyərini dəyişmədən məzmununun
+saxtalaşdırılmasının qarşısını alır.</p></li>
+<li><p><strong>Toqquşma Dayanıqlılığı (Collision Resistance):</strong>
+<span class="math inline">\(H(x_1) = H(x_2)\)</span> və <span
+class="math inline">\(x_1 \neq x_2\)</span> şərtini ödəyən <strong>hər
+hansı</strong> iki fərqli <span class="math inline">\(x_1\)</span> və
+<span class="math inline">\(x_2\)</span> giriş cütlüyünü tapmaq
+hesablama baxımından qeyri-mümkün olmalıdır. Bu, ən güclü dayanıqlılıq
+tələbi hesab olunur.</p></li>
+</ul>
+<div class="importantbox">
+<p>Toqquşma dayanıqlılığı (Collision Resistance) hər zaman İkinci İlkin
+Obrazın Tapılmasına dayanıqlılığını təmin edir, lakin bunun əksi hər
+zaman doğru deyil. Kriptoqrafik analizlərdə toqquşma tapmaq çox vaxt "Ad
+günü paradoksu" (Birthday Paradox) prinsipinə əsaslanır.</p>
+</div>
+<h2
+id="ilkin-obrazın-tapılmasına-dayanıqlılığı-preimage-resistance">İlkin
+Obrazın Tapılmasına Dayanıqlılığı (Preimage Resistance)</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong>. <em><span>İlkin Obrazın Tapılmasına
+Dayanıqlılığı</span> <span class="math inline">\(y\)</span> heş dəyəri
+verildikdə, <span class="math inline">\(H(x) = y\)</span> şərtini ödəyən
+hər hansı bir <span class="math inline">\(x\)</span> girişini tapmaq
+hesablama baxımından çətin olmalıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<p>Bu xüsusiyyət heş funksiyasının <strong>birtərəfli</strong> (one-way)
+olmasını təmin edir. Başqa sözlə, heş dəyərindən istifadə edərək
+orijinal məlumatı bərpa etmək mümkün olmamalıdır. İdeal halda, <span
+class="math inline">\(n\)</span>-bitlik çıxışa malik heş funksiyası üçün
+ilkin obraz tapmaq mürəkkəbliyi <span class="math inline">\(2^n\)</span>
+əməliyyat tərtibində olmalıdır.</p>
+<div class="example">
+<p><strong>Nümunə 2</strong> (İlkin Obrazın Taplmasına Dayanıqlılığı).
+<em>Tutaq ki, <span class="math inline">\(H(x) =
+\texttt{0x3F2A...}\)</span> heş dəyəri verilib. Bu heş dəyərini yaradan
+<span class="math inline">\(x\)</span> girişini tapmaq üçün orta hesabla
+<span class="math inline">\(2^{n}\)</span> sınaq tələb olunur.
+<strong>SHA-256</strong> üçün bu, <span class="math inline">\(2^{256}
+\approx 10^{77}\)</span> sınaq deməkdir ki, bu da müasir
+superkompüterlər üçün belə praktik olaraq qeyri-mümkündür.</em></p>
+</div>
+<h2
+id="ikinci-ilkin-obrazın-tapılmasına-dayanıqlılığı-second-preimage-resistance">İkinci
+İlkin Obrazın Tapılmasına Dayanıqlılığı (Second Preimage
+Resistance)</h2>
+<div class="definition">
+<p><strong>Tərif 3</strong>. <em><span>İkinci İlkin Obrazın
+Dayanıqlılığı</span> Konkret bir <span
+class="math inline">\(x_1\)</span> girişi verildikdə, <span
+class="math inline">\(H(x_1) = H(x_2)\)</span> və <span
+class="math inline">\(x_1 \neq x_2\)</span> şərtini ödəyən fərqli bir
+<span class="math inline">\(x_2\)</span> girişini tapmaq hesablama
+baxımından çətin olmalıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<p>Bu xüsusiyyət, mövcud olan bir mesajla eyni heş dəyərinə (barmaq
+izinə) malik başqa bir alternativ mesaj tapmağın qarşısını alır. İkinci
+ilkin obrazın tapılmasına dayanıqlılığı üçün tələb olunan hesablama
+mürəkkəbliyi də <span class="math inline">\(2^n\)</span>
+səviyyəsindədir.</p>
+<div class="example">
+<p><strong>Nümunə 3</strong> (İkinci İlkin Obrazın Tapılmasına
+Dayanıqlılığı). <em>Tutaq ki, rəqəmsal imzalanmış bir
+<code>Müqavilə.txt</code> faylı var və onun heş dəyəri sistemdə qeyd
+olunub. Hücumçu bu faylla eyni heş dəyərinə malik olan, lakin şərtləri
+fərqli (məsələn, ödəniş məbləği dəyişdirilmiş)
+<code>Müqavilə_saxta.txt</code> faylı yaratmağa çalışır. İkinci ilkin
+obrazın tapılmasınaü dayanıqlılığı sayəsində bu cür saxtalaşdırma
+cəhdlərinin qarşısı alınır.</em></p>
+</div>
+<h2 id="toqquşma-dayanıqlılığı-collision-resistance">Toqquşma
+dayanıqlılığı (Collision resistance)</h2>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Toqquşma dayanıqlılığı). <em><span
+class="math inline">\(H(x_1) = H(x_2)\)</span> və <span
+class="math inline">\(x_1 \neq x_2\)</span> şərtini ödəyən iki fərqli
+<span class="math inline">\(x_1, x_2\)</span> girişi tapmaq hesablama
+baxımından çətin olmalıdır <span class="citation"
+data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<p>Bu, heş funksiyalarının ən güclü təhlükəsizlik xüsusiyyətidir.
+Toqquşma tapmaq, rəqəmsal imzaların saxtalaşdırılmasına və məlumat
+bütövlüyünün pozulmasına səbəb ola bilər. Ad günü paradoksuna görə,
+toqquşma tapmaq üçün tələb olunan mürəkkəblik <span
+class="math inline">\(2^{n/2}\)</span>-dir.</p>
+<div class="example">
+<p><strong>Nümunə 4</strong> (Toqquşma dayanıqlılığı). <em>MD5 heş
+funksiyası üçün 2004-cü ildən etibarən praktik toqquşmalar
+göstərilmişdir <span class="citation"
+data-cites="wang2005collisions"></span>. Bu o deməkdir ki, eyni MD5
+dəyərinə malik iki fərqli mesaj qurmaq mümkündür. Buna görə MD5
+toqquşmaya dayanıqlıq tələb olunan tətbiqlər üçün artıq təhlükəsiz hesab
+edilmir.</em></p>
+</div>
+<h2 id="təhlükəsizlik-xüsusiyyətləri-arasında-əlaqələr">Təhlükəsizlik
+Xüsusiyyətləri Arasında Əlaqələr</h2>
+<p>Heş funksiyalarının üç əsas təhlükəsizlik meyarı bir-birindən asılı
+deyil və onlar arasında müəyyən iyerarxik əlaqələr mövcuddur <span
+class="citation" data-cites="katz2020introduction"></span>:</p>
+<div class="theorem">
+<p><strong>Teorem 1</strong>. <em>[Təhlükəsizlik Xüsusiyyətlərinin
+İyerarxiyası] Heş funksiyaları üçün aşağıdakı məntiqi əlaqələr
+doğrudur:</em></p>
+<ol>
+<li><p><em><strong>Toqquşma dayanıqlılığı</strong> <span
+class="math inline">\(\Rightarrow\)</span> <strong>İkinci ilkin obrazın
+tapəlmasına dayanıqlılığı</strong></em></p></li>
+<li><p><em><strong>İkinci ilkin obrazın tapılmasına
+dayanıqlılığı</strong> <span
+class="math inline">\(\not\Rightarrow\)</span> <strong>Toqquşma
+dayanıqlılığı</strong></em></p></li>
+<li><p><em><strong>İkinci ilkin obrazın tapılmasına
+dayanıqlılığı</strong> <span
+class="math inline">\(\not\Rightarrow\)</span> <strong>İlkin obrazın
+tapılmasına dayanıqlılığı</strong></em></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Toqquşma dayanıqlılığı hər hansı iki girişi tapmağın
+çətinliyini tələb etdiyi üçün, o, avtomatik olaraq konkret bir girişə
+qarşı ikinci birini tapmağı da (ikinci ilkin obraz) çətinləşdirir. Lakin
+əksi doğru deyil; funksiya konkret bir <span
+class="math inline">\(x\)</span> üçün alternativ tapmağa imkan verməsə
+də, hücumçuya hər hansı iki ixtiyari <span class="math inline">\(x_1,
+x_2\)</span> cütünü tapmaq şansı yarada bilər (məsələn, ad günü
+paradoksu vasitəsilə). ◻</p>
+</div>
+<table>
+<caption>Heş funksiyalarının təhlükəsizlik xüsusiyyətlərinin müqayisəli
+təhlili</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Tərif (Məqsəd)</strong></th>
+<th style="text-align: center;"><strong>Mürəkkəblik</strong></th>
+<th style="text-align: left;"><strong>Əhəmiyyəti</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>İlkin obrazın tapılmasına
+dayanıqlılığı</strong></td>
+<td style="text-align: left;"><span class="math inline">\(y\)</span>
+verildikdə, <span class="math inline">\(H(x)=y\)</span> olan <span
+class="math inline">\(x\)</span> tapmaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^n\)</span></td>
+<td style="text-align: left;">Birtərəflilik</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>İkinci ilkin obrazın tapılmasına
+dayanıqlılığı</strong></td>
+<td style="text-align: left;"><span class="math inline">\(x_1\)</span>
+verildikdə, <span class="math inline">\(H(x_1)=H(x_2)\)</span> olan
+<span class="math inline">\(x_2\)</span> tapmaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^n\)</span></td>
+<td style="text-align: left;">Saxtalaşdırmaya qarşı</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Toqquşma
+dayanıqlılığı</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(H(x_1)=H(x_2)\)</span> olan ixtiyari <span
+class="math inline">\(x_1, x_2\)</span> tapmaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{n/2}\)</span></td>
+<td style="text-align: left;">Rəqəmsal imzalar</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><span>Mürəkkəblik fərqi</span> Diqqət yetirin ki, toqquşma
+dayanıqlılığı üçün hücum mürəkkəbliyi digərlərindən xeyli aşağıdır
+(<span class="math inline">\(2^{n/2}\)</span>). Bu fərq "Ad günü
+paradoksu" ilə əlaqədardır və heş funksiyalarının çıxış uzunluğunun
+seçilməsində (məsələn, 128 bitlik MD5-in artıq təhlükəsiz sayılmaması)
+həlledici rol oynayır.</p>
+</div>
+<h1 id="ad-günü-paradoksu-və-toqquşma-hücumları">Ad Günü Paradoksu və
+Toqquşma Hücumları</h1>
+<h2 id="ad-günü-paradoksunun-riyazi-əsasları">Ad Günü Paradoksunun
+Riyazi Əsasları</h2>
+<p>Ad günü paradoksu ehtimal nəzəriyyəsinin ən məşhur və intuitiv olaraq
+gözlənilməz nümunələrindən biridir. Bu fenomen heş funksiyalarının
+toqquşma dayanıqlılığının analizində mühüm rol oynayır <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<div class="theorem">
+<p><strong>Teorem 2</strong>. <em><span>Ad Günü Paradoksu</span> <span
+class="math inline">\(N\)</span> mümkün dəyər arasından <span
+class="math inline">\(q\)</span> sayda element təsadüfi və asılı
+olmayaraq seçildikdə, ən azı iki elementin eyni olma (toqquşma) ehtimalı
+aşağıdakı düsturla yaxınlaşdırılır <span class="citation"
+data-cites="stinson2018cryptography"></span>:</em></p>
+<p><em><span class="math display">\[P(\text{toqquşma}) \approx 1 -
+e^{-\frac{q^2}{2N}}\]</span></em></p>
+</div>
+<p>Bu ehtimalın <span class="math inline">\(0.5\)</span> (yəni 50%)
+səviyyəsinə çatması üçün tələb olunan seçim sayı (<span
+class="math inline">\(q\)</span>) aşağıdakı kimidir:</p>
+<p><span class="math display">\[q \approx \sqrt{2N \ln 2} \approx
+1.177\sqrt{N}\]</span></p>
+<p>Kriptoqrafik heş funksiyaları üçün <span class="math inline">\(N =
+2^n\)</span> (burada <span class="math inline">\(n\)</span> çıxış
+bitlərinin sayıdır). Bu halda 50% ehtimalla toqquşma tapmaq üçün lazım
+olan sınaq sayı:</p>
+<p><span class="math display">\[q \approx 1.177 \cdot
+2^{n/2}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 5</strong> (Ad Günü Paradoksu Nümunələri). <em>İlin
+365 gündən ibarət olduğunu fərz etsək (<span
+class="math inline">\(N=365\)</span>):</em></p>
+<ul>
+<li><p><em><strong>23 nəfərlik</strong> qrupda ən azı iki nəfərin eyni
+ad gününə sahib olma ehtimalı <span class="math inline">\(&gt;
+0.5\)</span> təşkil edir.</em></p></li>
+<li><p><em><strong>57 nəfərlik</strong> qrupda bu ehtimal <span
+class="math inline">\(&gt; 0.99\)</span> səviyyəsinə
+qalxır.</em></p></li>
+<li><p><em><strong>70 nəfərlik</strong> qrupda isə ehtimal <span
+class="math inline">\(&gt; 0.999\)</span> olur.</em></p></li>
+</ul>
+</div>
+<h2 id="heş-funksiyalarında-toqquşma-ehtimalı">Heş Funksiyalarında
+Toqquşma Ehtimalı</h2>
+<p>Heş funksiyalarında <span class="math inline">\(q\)</span> sayda
+təsadüfi giriş üçün toqquşma ehtimalı çıxış uzunluğu <span
+class="math inline">\(n\)</span> olmaqla belə hesablanır <span
+class="citation" data-cites="stinson2018cryptography"></span>:</p>
+<p><span class="math display">\[P_{\text{toqquşma}} \approx 1 -
+e^{-\frac{q^2}{2 \cdot 2^n}}\]</span></p>
+<table>
+<caption>Müxtəlif heş funksiyalarında toqquşma ehtimalının
+müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Seçim sayı (<span
+class="math inline">\(q\)</span>)</strong></th>
+<th style="text-align: center;"><strong><span
+class="math inline">\(n=128\)</span> (MD5)</strong></th>
+<th style="text-align: center;"><strong><span
+class="math inline">\(n=160\)</span> (SHA-1)</strong></th>
+<th style="text-align: center;"><strong><span
+class="math inline">\(n=256\)</span> (SHA-256)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(2^{n/4}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{32}\)</span> sınaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{40}\)</span> sınaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{64}\)</span> sınaq</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ehtimal</strong></td>
+<td style="text-align: center;"><span class="math inline">\(\approx 2.71
+\times 10^{-20}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx 4.14
+\times 10^{-25}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx 1.47
+\times 10^{-39}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(1.177 \cdot
+2^{n/2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1.177 \cdot
+2^{64}\)</span> sınaq</td>
+<td style="text-align: center;"><span class="math inline">\(1.177 \cdot
+2^{80}\)</span> sınaq</td>
+<td style="text-align: center;"><span class="math inline">\(1.177 \cdot
+2^{128}\)</span> sınaq</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ehtimal</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{\approx 0.500}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{\approx 0.500}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathbf{\approx 0.500}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(2^{n/2+1}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{65}\)</span> sınaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{81}\)</span> sınaq</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{129}\)</span> sınaq</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ehtimal</strong></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.865\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.865\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.865\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="importantbox">
+<p>Cədvəldən göründüyü kimi, <span
+class="math inline">\(2^{n/2}\)</span> sınaq aparıldıqda toqquşma
+ehtimalı giriş sayından asılı olmayaraq sabit qalır. Bu səbəbdən, 128
+bitlik təhlükəsizlik səviyyəsi təmin etmək üçün heş funksiyasının çıxışı
+ən azı <strong>256 bit</strong> olmalıdır.</p>
+</div>
+<h2 id="ad-günü-hücumu-birthday-attack">Ad Günü Hücumu (Birthday
+Attack)</h2>
+<p>Ad günü hücumu, ad günü paradoksunun ehtimal prinsiplərinə
+əsaslanaraq heş funksiyalarında toqquşma (collision) tapmaq üçün
+istifadə edilən ümumi (generic) bir üsuldur. Bu hücumun ən mühüm cəhəti
+onun mürəkkəbliyinin <span class="math inline">\(2^{n/2}\)</span>
+olmasıdır — bu, tam axtarış (brute-force, <span
+class="math inline">\(2^n\)</span>) metodundan qat-qat daha
+səmərəlidir.</p>
+<div class="example">
+<p><strong>Nümunə 6</strong>. <em><span>Ad Günü Hücumu üzrə
+Müqayisələr</span> Müxtəlif heş alqoritmləri üçün toqquşma tapmağın
+nəzəri və praktik sərhədləri aşağıdakı kimidir:</em></p>
+<ul>
+<li><p><em><strong>MD5 (128-bit):</strong> İdeal ümumi ad günü hücumu
+üçün nəzəri sərhəd <span class="math inline">\(2^{64}\)</span>
+əməliyyatdır. Lakin MD5 alqoritminin daxili strukturundakı zəifliklər
+səbəbindən praktik xüsusi toqquşma hücumları bu həddən xeyli daha az
+resurs tələb edir.</em></p></li>
+<li><p><em><strong>SHA-1 (160-bit):</strong> Nəzəri toqquşma sərhədi
+<span class="math inline">\(2^{80}\)</span> əməliyyatdır. 2017-ci ildə
+həyata keçirilən <em>SHAttered</em> layihəsi çərçivəsində ilk real SHA-1
+toqquşması nümayiş etdirilmişdir.</em></p></li>
+<li><p><em><strong>SHA-256 (256-bit):</strong> Bu funksiya üçün ad günü
+hücumunun mürəkkəbliyi <span class="math inline">\(2^{128}\)</span>
+təşkil edir. Müasir hesablama texnologiyaları ilə bu sayda sınaq aparmaq
+hazırda praktik olaraq qeyri-mümkün hesab olunur.</em></p></li>
+</ul>
+</div>
+<div class="note">
+<p><span>Nəticə</span> Toqquşma dayanıqlılığını təmin etmək üçün heş
+funksiyasının çıxış uzunluğu (<span class="math inline">\(n\)</span>),
+hədəflənən təhlükəsizlik səviyyəsindən ən azı iki dəfə böyük
+seçilməlidir.</p>
+</div>
+<h1 id="merkl-damqord-quruluşu">Merkl-Damqord Quruluşu</h1>
+<h2 id="merkl-damqord-konstruksiyasının-iş-prinsipi">Merkl-Damqord
+Konstruksiyasının İş Prinsipi</h2>
+<p>Merkl-Damqord quruluşu MD5, SHA-1 və SHA-2 kimi klassik heş
+funksiyalarının fundamental memarlıq modelidir <span class="citation"
+data-cites="damgard1989design merkle1989one"></span>. Bu konstruksiyanın
+əsas məqsədi ixtiyari uzunluqlu mesajı sabit uzunluqlu çıxışa (heş
+dəyərinə) çevirmək üçün məlumatı bərabər ölçülü bloklara bölərək ardıcıl
+emal etməkdir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>Merkl-Damqord quruluşunun sxematik təsviri</figcaption>
+</figure>
+<p>Merkl-Damqord konstruksiyasının üç əsas komponenti mövcuddur <span
+class="citation" data-cites="damgard1989design"></span>:</p>
+<ul>
+<li><p><strong>İlkin Dəyər (IV - Initial Value):</strong> Alqoritm
+tərəfindən əvvəlcədən təyin edilmiş, sabit <span
+class="math inline">\(n\)</span>-bitlik başlanğıc vektoru.</p></li>
+<li><p><strong>Sıxışdırma Funksiyası (Compression Function):</strong>
+<span class="math inline">\(f: \{0,1\}^n \times \{0,1\}^r \rightarrow
+\{0,1\}^n\)</span> — cari aralıq heş dəyəri (<span
+class="math inline">\(h_{i-1}\)</span>) və növbəti mesaj blokunu (<span
+class="math inline">\(M_i\)</span>) giriş kimi qəbul edib, yeni aralıq
+heş dəyərini (<span class="math inline">\(h_i\)</span>) hasil edən nüvə
+funksiya.</p></li>
+<li><p><strong>Doldurma Qaydası (Padding):</strong> Mesajın ümumi
+uzunluğunu blok ölçüsünə (<span class="math inline">\(r\)</span> bit)
+tam bölünən hala gətirmək üçün sonuncu bloka əlavə edilən xüsusi bitlər
+ardıcıllığı.</p></li>
+</ul>
+<div class="definition">
+<p><strong>Tərif 5</strong>. <em><span>Merkl-Damqord İterasiyası</span>
+Merkl-Damqord quruluşunda heşləmə prosesi aşağıdakı rekursiv tənliklərlə
+ifadə olunur <span class="citation"
+data-cites="damgard1989design"></span>: <span
+class="math display">\[\begin{equation*}
+    \begin{cases}
+    h_0 = IV \\
+    h_i = f(h_{i-1}, M_i) \quad \text{üçün } i = 1, \dots, k \\
+    H(M) = h_k
+    \end{cases}
+\end{equation*}\]</span> Burada <span class="math inline">\(M_1, M_2,
+\dots, M_k\)</span> mesajın <span
+class="math inline">\(r\)</span>-bitlik bloklarını təmsil edir.</em></p>
+</div>
+<h2 id="doldurma-padding-qaydaları">Doldurma (Padding) Qaydaları</h2>
+<p>Merkl-Damqord quruluşunda mesajın ümumi uzunluğu blok ölçüsünə (<span
+class="math inline">\(r\)</span> bit) tam bölünmədikdə, prosesin düzgün
+davam etməsi üçün <strong>doldurma (padding)</strong> tətbiq olunur
+<span class="citation" data-cites="stinson2018cryptography"></span>.
+Standart kriptoqrafik doldurma prosesi aşağıdakı kimidir:</p>
+<ol>
+<li><p>Mesajın dərhal sonuna "1" biti əlavə edilir.</p></li>
+<li><p>Blokun dolması üçün lazım olan qədər (sonuncu hissə istisna
+olmaqla) "0" bitləri əlavə edilir.</p></li>
+<li><p>Mesajın orijinal uzunluğu (bitlərlə) sonuncu blokun xüsusi
+ayrılmış hissəsində (adətən son 64 və ya 128 bit) saxlanılır.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 7</strong> (MD5 üçün Doldurma Mexanizmi). <em>MD5
+alqoritmində mesaj blokları 512 bit (64 bayt) təşkil edir. Doldurma
+prosesi belədir:</em></p>
+<ul>
+<li><p><em>Mesajın sonuna <code>0x80</code> baytı
+(<code>10000000</code><span class="math inline">\(_2\)</span>) əlavə
+edilir.</em></p></li>
+<li><p><em>Blokun uzunluğu 448 bitə (56 bayt) çatana qədər
+<code>0x00</code> baytları ilə doldurulur.</em></p></li>
+<li><p><em>Qalan son 64 bitə orijinal mesajın uzunluğu əlavə edilərək
+blok 512 bitə tamamlanır.</em></p></li>
+</ul>
+</div>
+<h2 id="sıxışdırma-funksiyası-compression-function">Sıxışdırma
+Funksiyası (Compression Function)</h2>
+<p>Sıxışdırma funksiyası Merkl-Damqord konstruksiyasının nüvəsini və ən
+mühüm komponentini təşkil edir <span class="citation"
+data-cites="damgard1989design"></span>. Bu funksiya iki əsas girişi
+qəbul edərək sabit uzunluqlu çıxış hasil edir:</p>
+<ul>
+<li><p><strong><span class="math inline">\(h_{i-1}\)</span>:</strong>
+Əvvəlki iterasiyadan əldə edilən aralıq heş dəyəri (<span
+class="math inline">\(n\)</span> bit).</p></li>
+<li><p><strong><span class="math inline">\(M_i\)</span>:</strong> Cari
+mesaj bloku (<span class="math inline">\(r\)</span> bit).</p></li>
+</ul>
+<p>Funksiyanın çıxışı növbəti addım üçün giriş rolu oynayan yeni <span
+class="math inline">\(n\)</span>-bitlik aralıq dəyərdir.</p>
+<div class="theorem">
+<p><strong>Teorem 3</strong>. <em><span>Sıxışdırma Funksiyasının
+Təhlükəsizliyi.</span> Əgər istifadə olunan <span
+class="math inline">\(f\)</span> sıxışdırma funksiyası toqquşmaya
+dayanıqlıdırsa (collision resistant), onda Merkl-Damqord konstruksiyası
+əsasında qurulan ümumi <span class="math inline">\(H\)</span> heş
+funksiyası da toqquşmaya dayanıqlıdır <span class="citation"
+data-cites="damgard1989design"></span>.</em></p>
+</div>
+<div class="proof">
+<p><em>İsbatın mahiyyəti.</em> Bu teorem göstərir ki, mürəkkəb bir heş
+funksiyasının təhlükəsizliyi onun təməlində duran daha kiçik komponentin
+— sıxışdırma funksiyasının təhlükəsizliyinə endirilə bilər. Əgər hücumçu
+<span class="math inline">\(H\)</span> funksiyasında toqquşma tapa
+bilirsə, bu, riyazi olaraq onun <span class="math inline">\(f\)</span>
+funksiyasında da toqquşma tapdığı mənasına gəlir. ◻</p>
+</div>
+<h2 id="merkl-damqord-quruluşunun-təhlükəsizlik-sübutu">Merkl-Damqord
+Quruluşunun Təhlükəsizlik Sübutu</h2>
+<p>Dördüncü nəsil kriptoqrafiyanın əsasını qoyan Damqord <span
+class="citation" data-cites="damgard1989design"></span> və Merkl <span
+class="citation" data-cites="merkle1989one"></span> müstəqil olaraq
+sübut etmişlər ki, heş funksiyasının tam təhlükəsizliyi onun təməlində
+duran sıxışdırma funksiyasının (compression function) toqquşmaya
+dayanıqlılığına endirilə bilər.</p>
+<div class="proof">
+<p><em>Sübutun İdeyası.</em> Tutaq ki, <span class="math inline">\(H(M)
+= H(M&#39;)\)</span> və <span class="math inline">\(M \neq
+M&#39;\)</span> şərtini ödəyən iki fərqli mesaj (toqquşma) tapılıb. Bu
+halda iki ssenari mümkündür:</p>
+<ol>
+<li><p><strong><span class="math inline">\(\left|M\right| \neq
+\left|M&#39;\right|\)</span>:</strong> Mesajların uzunluqları fərqlidir.
+Doldurma (padding) qaydasına görə sonuncu bloklara fərqli uzunluq
+məlumatı daxil edildiyi üçün, sıxışdırma funksiyasının son addımında
+mütləq toqquşma baş verir.</p></li>
+<li><p><strong><span class="math inline">\(\left|M\right| =
+\left|Mə\right|\)</span>::</strong> Mesajların uzunluqları eynidir. Bu
+halda sonuncu blokdan (<span class="math inline">\(k\)</span>-cı blok)
+başlayaraq geriyə doğru (<span class="math inline">\(k-1, k-2,
+\dots\)</span>) zəncirvari şəkildə yoxlama apardıqda, mesajların
+fərqləndiyi ilk nöqtədə sıxışdırma funksiyasında toqquşma
+tapılacaqdır.</p></li>
+</ol>
+<p>Hər iki hal göstərir ki, <span class="math inline">\(H\)</span>
+funksiyasında toqquşma tapmaq, <span class="math inline">\(f\)</span>
+sıxışdırma funksiyasında toqquşma tapmağı tələb edir. ◻</p>
+</div>
+<h2 id="uzunluq-genişləndirmə-hücumu-length-extension-attack">Uzunluq
+Genişləndirmə Hücumu (Length Extension Attack)</h2>
+<p>Merkl-Damqord konstruksiyasının ən ciddi zəifliyi onun
+<strong>uzunluq genişləndirmə hücumuna</strong> qarşı həssaslığıdır
+<span class="citation" data-cites="katz2020introduction"></span>. Bu
+zəiflik MD5, SHA-1 və SHA-2 kimi bir çox klassik heş funksiyalarına
+təsir edir.</p>
+<div class="definition">
+<p><strong>Tərif 6</strong>. <em><span>Uzunluq Genişləndirmə
+Hücumu.</span> Əgər <span class="math inline">\(H\)</span> Merkl-Damqord
+quruluşlu heş funksiyasıdırsa, <span class="math inline">\(H(M)\)</span>
+heş dəyəri və <span class="math inline">\(M\)</span> mesajının uzunluğu
+(<span class="math inline">\(\left|M\right|\)</span>) məlum olduqda,
+hücumçu orijinal <span class="math inline">\(M\)</span> mesajını
+bilmədən <span class="math inline">\(H(M \parallel pad \parallel
+M&#39;)\)</span> dəyərini sərbəst hesablaya bilər <span class="citation"
+data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<p><strong>Hücumun iş prinsipi:</strong></p>
+<ul>
+<li><p><span class="math inline">\(H(M)\)</span> dəyəri əslində iterativ
+prosesin son vəziyyətini (<span class="math inline">\(h_k\)</span>
+aralıq dəyəri) təmsil edir.</p></li>
+<li><p>Hücumçu bu <span class="math inline">\(h_k\)</span> dəyərini
+sıxışdırma funksiyasının yeni "başlanğıc vəziyyəti" (IV) kimi istifadə
+edir.</p></li>
+<li><p>Orijinal mesajın sonuna əlavə etdiyi <span
+class="math inline">\(M&#39;\)</span> bloklarını bu vəziyyətdən
+başlayaraq emal edir və yeni keçərli heş dəyəri əldə edir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 8</strong> (MAC Sistemlərinə Təsir). <em>Tutaq ki,
+server mesajın həqiqiliyini yoxlamaq üçün <span
+class="math inline">\(H(K \parallel M)\)</span> strukturundan istifadə
+edir (<span class="math inline">\(K\)</span> - gizli açar). Hücumçu
+açarı bilmədən saxta bir <span class="math inline">\(M&#39;\)</span>
+hissəsini mesaja əlavə edib, onun üçün keçərli olan <span
+class="math inline">\(H(K \parallel M \parallel pad \parallel
+M&#39;)\)</span> heş dəyərini hesablaya bilər.</em></p>
+</div>
+<div class="importantbox">
+<p>Bu tip hücumlardan qorunmaq üçün Merkl-Damqord əsaslı funksiyalarda
+sadə <span class="math inline">\(H(K \parallel M)\)</span> strukturu
+yerinə mütləq <strong>HMAC</strong> (Hash-based Message Authentication
+Code) mexanizmi istifadə olunmalıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+</div>
+<h1 id="süngər-sponge-quruluşu">Süngər (Sponge) Quruluşu</h1>
+<h2 id="süngər-konstruksiyasının-iş-prinsipi">Süngər Konstruksiyasının
+İş Prinsipi</h2>
+<p>Süngər quruluşu (sponge construction) müasir <strong>SHA-3
+(Keccak)</strong> heş funksiyasının əsasını təşkil edən innovativ bir
+arxitekturadır <span class="citation"
+data-cites="bertoni2007sponge"></span>. Bu quruluş klassik Merkl-Damqord
+modelindən fərqli olaraq, uzunluq genişləndirmə hücumlarına qarşı daxili
+(təbii) davamlılığa malikdir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>Süngər quruluşu: Məlumatın udulması və nəticənin sıxılıb
+çıxarılması</figcaption>
+</figure>
+<p>Süngər quruluşu iki əsas mərhələdən ibarətdir <span class="citation"
+data-cites="bertoni2007sponge"></span>:</p>
+<ul>
+<li><p><strong>Udma (Absorbing):</strong> Giriş mesaj blokları daxili
+vəziyyətin bir hissəsi ilə XOR əməliyyatına daxil edilir və permutasiya
+tətbiq olunur.</p></li>
+<li><p><strong>Sıxma (Squeezing):</strong> Daxili vəziyyətdən ixtiyari
+uzunluqda çıxış (heş) dəyəri əldə edilir.</p></li>
+</ul>
+<h2 id="süngər-quruluşunun-parametrləri">Süngər Quruluşunun
+Parametrləri</h2>
+<p>Süngər quruluşunun təhlükəsizliyi və səmərəliliyi daxili vəziyyətin
+(<span class="math inline">\(b\)</span> bit) bölünməsi ilə təyin olunur
+<span class="citation" data-cites="bertoni2007sponge"></span>:</p>
+<ol>
+<li><p><strong>Sürət parametri (<span class="math inline">\(r\)</span> -
+rate):</strong> Hər addımda emal olunan giriş və ya hasil olunan çıxış
+bitlərinin sayıdır. <span class="math inline">\(r\)</span> nə qədər
+böyük olsa, sürət bir o qədər yüksək olar.</p></li>
+<li><p><strong>Təhlükəsizlik parametri (<span
+class="math inline">\(c\)</span> - capacity):</strong> <span
+class="math inline">\(c = b - r\)</span> düsturu ilə hesablanır. Bu
+hissə birbaşa giriş-çıxış əməliyyatlarına məruz qalmır və alqoritmin
+kriptoqrafik dayanıqlılığını (məsələn, toqquşma dayanıqlılığını) təmin
+edir.</p></li>
+<li><p><strong><span class="math inline">\(f\)</span>
+Permutasiyası:</strong> <span class="math inline">\(b\)</span> bitlik
+daxili vəziyyəti qarışdıran və yayılmanı təmin edən təkrarlanan
+funksiyadır.</p></li>
+</ol>
+<div class="importantbox">
+<p>Süngər quruluşunda toqquşma dayanıqlılığı <span
+class="math inline">\(2^{c/2}\)</span> səviyyəsindədir. Bu, <span
+class="math inline">\(c\)</span> parametrinin (təhlükəsizlik ehtiyatı)
+düzgün seçilməsinin nə qədər kritik olduğunu göstərir.</p>
+</div>
+<h2 id="udma-absorbing-mərhələsi">Udma (Absorbing) Mərhələsi</h2>
+<p>Udma mərhələsində ixtiyari uzunluqlu giriş mesajı daxili vəziyyətə
+(state) inteqrasiya olunur <span class="citation"
+data-cites="bertoni2007sponge"></span>:</p>
+<ol>
+<li><p>Giriş mesajı <span class="math inline">\(r\)</span>-bitlik
+bloklara bölünür: <span class="math inline">\(M = M_0, M_1, \dots,
+M_{k-1}\)</span>.</p></li>
+<li><p>Hər bir <span class="math inline">\(M_i\)</span> bloku üçün
+aşağıdakı ardıcıllıq icra edilir: <span
+class="math display">\[\begin{align*}
+        \text{state}[0..r-1] &amp;\leftarrow \text{state}[0..r-1] \oplus
+M_i \\
+        \text{state} &amp;\leftarrow f(\text{state})
+\end{align*}\]</span></p></li>
+</ol>
+<p>Burada <span class="math inline">\(f\)</span> permutasiyası daxili
+vəziyyəti tamamilə qarışdıraraq növbəti blok üçün hazırlayır.</p>
+<h2 id="sıxma-squeezing-mərhələsi">Sıxma (Squeezing) Mərhələsi</h2>
+<p>Sıxma mərhələsində süngər daxili vəziyyətdən tələb olunan uzunluqda
+çıxış (heş) dəyərini hasil edir <span class="citation"
+data-cites="bertoni2007sponge"></span>:</p>
+<ol>
+<li><p>Süngər quruluşu mahiyyəti etibarilə ixtiyari uzunluqda çıxış
+hasil etməyə imkan verir.</p></li>
+<li><p>Hər <span class="math inline">\(f\)</span> permutasiyası
+tətbiqindən sonra daxili vəziyyətin ilk <span
+class="math inline">\(r\)</span> biti çıxış kimi götürülür.</p></li>
+<li><p>Tələb olunan heş uzunluğu əldə edilənə qədər proses (permutasiya
+və çıxış götürmə) davam edir.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 9</strong> (SHA-3-256 Standartının Parametrləri).
+<em>SHA-3 ailəsinin 256-bitlik variantı üçün texniki konfiqurasiya
+aşağıdakı kimidir:</em></p>
+<ul>
+<li><p><em><strong>Daxili vəziyyət (<span
+class="math inline">\(b\)</span>):</strong> <span
+class="math inline">\(1600\)</span> bit.</em></p></li>
+<li><p><em><strong>Bit sürəti (<span
+class="math inline">\(r\)</span>):</strong> <span
+class="math inline">\(1088\)</span> bit (<span
+class="math inline">\(136\)</span> bayt).</em></p></li>
+<li><p><em><strong>Təhlükəsizlik ehtiyatı (<span
+class="math inline">\(c\)</span>):</strong> <span
+class="math inline">\(512\)</span> bit (<span class="math inline">\(b -
+r\)</span>).</em></p></li>
+<li><p><em><strong>Çıxış uzunluğu:</strong> Sabit 256 bit.</em></p></li>
+</ul>
+<p><em><em><strong>Qeyd:</strong> "Sonsuz" uzunluqlu çıxış imkanı (XOF -
+Extendable-Output Functions) SHA-3 standartında xüsusi olaraq
+<code>SHAKE128</code> və <code>SHAKE256</code> funksiyaları üçün nəzərdə
+tutulmuşdur.</em></em></p>
+</div>
+<h2 id="merkl-damqord-və-süngər-quruluşlarının-müqayisəsi">Merkl-Damqord
+və Süngər Quruluşlarının Müqayisəsi</h2>
+<p>Heş funksiyalarının dizaynında istifadə olunan bu iki fundamental
+yanaşma arasındakı əsas fərqlər aşağıdakı cədvəldə
+ümumiləşdirilmişdir:</p>
+<table>
+<caption>Merkl-Damqord və süngər konstruksiyalarının müqayisəli
+təhlili</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Merkl-Damqord</strong></th>
+<th style="text-align: left;"><strong>Süngər (Sponge)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Daxili Vəziyyət</strong></td>
+<td style="text-align: left;"><span class="math inline">\(n\)</span> bit
+(adətən çıxış uzunluğuna bərabərdir)</td>
+<td style="text-align: left;"><span class="math inline">\(b = r +
+c\)</span> bit (çıxışdan daha böyük daxili vəziyyət)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Əsas Komponent</strong></td>
+<td style="text-align: left;">Sıxışdırma funksiyası (<span
+class="math inline">\(f\)</span>)</td>
+<td style="text-align: left;">Permutasiya funksiyası (<span
+class="math inline">\(f\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prosesin İstiqaməti</strong></td>
+<td style="text-align: left;">Təkyönlü (yalnız irəli emal)</td>
+<td style="text-align: left;">İki mərhələli (udma və sıxma)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Çıxış Uzunluğu</strong></td>
+<td style="text-align: left;">Sabit (alqoritmin dizaynı ilə təyin
+olunur)</td>
+<td style="text-align: left;">Dəyişkən (XOF – ixtiyari uzunluqlu çıxış
+imkanı)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Uzunluq Genişləndirmə
+Hücumu</strong></td>
+<td style="text-align: left;">Həssas (əlavə qorunma tələb edir)</td>
+<td style="text-align: left;">Davamlı (dizayn etibarilə qorunur)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nümunələr</strong></td>
+<td style="text-align: left;">MD5, SHA-1, SHA-2</td>
+<td style="text-align: left;">SHA-3 (Keccak), SHAKE</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><span>Nəticə</span> Merkl-Damqord quruluşu uzun illər sənaye
+standartı olsa da, süngər quruluşu həm daha yüksək təhlükəsizlik
+(uzunluq genişləndirmə hücumlarına qarşı), həm də daha çox çeviklik
+(ixtiyari uzunluqlu çıxış) təklif edərək yeni nəsil SHA-3 standartının
+təməlini qoymuşdur.</p>
+</div>
+<h1 id="heş-funksiyalarının-praktik-tətbiqləri">Heş Funksiyalarının
+Praktik Tətbiqləri</h1>
+<h2 id="parolların-təhlükəsiz-saxlanması">Parolların Təhlükəsiz
+Saxlanması</h2>
+<p>Heş funksiyalarının ən kritik tətbiqlərindən biri istifadəçi
+parollarının verilənlər bazasında açıq şəkildə deyil, qeyri-oxunacaq
+formatda saxlanmasıdır <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 10</strong> (Parolun Heşlənməsi Prosesi).
+<em>İstifadəçi "parol123" şifrəsini təyin etdikdə, sistem onu birbaşa
+saxlamır: H() = <code>0x3F2A8B7C...</code> Verilənlər bazasında yalnız
+bu nəticə (digest) saxlanılır. Avtorizasiya zamanı daxil edilən
+simvollar yenidən heşlənir və bazadakı qeydlə müqayisə edilir.</em></p>
+</div>
+<p>Parol təhlükəsizliyini artırmaq üçün iki əsas mexanizmdən istifadə
+olunur:</p>
+<ul>
+<li><p><strong>Duz (Salt):</strong> Hər bir istifadəçi üçün yaradılan
+unikal təsadüfi dəyərdir. Parola əlavə edilərək heşlənir və bu, "Rainbow
+table" (əvvəlcədən hesablanmış heş cədvəlləri) hücumlarını səmərəsiz
+edir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Açar Uzatma (Key Stretching):</strong>
+<code>PBKDF2</code>, <code>bcrypt</code>, <code>scrypt</code> və ya
+<code>Argon2</code> kimi alqoritmlər vasitəsilə heşləmə prosesi minlərlə
+dəfə təkrarlanır. Bu, tam axtarış (brute-force) hücumlarını hesablama
+baxımından hədsiz dərəcədə bahalı edir <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+<h2 id="məlumat-bütövlüyünün-yoxlanması-data-integrity">Məlumat
+Bütövlüyünün Yoxlanması (Data Integrity)</h2>
+<p>Heş funksiyaları rəqəmsal obyektlərin "barmaq izi" kimi çıxış edərək
+onların ötürülmə və ya saxlanma zamanı dəyişdirilmədiyini sübut etmək
+üçün istifadə olunur <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 11</strong> (Fayl Bütövlüyünün Yoxlanması).
+<em>Proqram təminatı istehsalçıları (məsələn, Linux distributivləri)
+faylın yanında onun SHA-256 heş dəyərini dərc edirlər. İstifadəçi
+endirdiyi faylın heşini hesablamaqla aşağıdakıları yoxlaya
+bilər:</em></p>
+<ul>
+<li><p><em>Fayl yükləmə zamanı texniki xəta səbəbindən
+zədələnməyib.</em></p></li>
+<li><p><em>Fayl zərərli tərəf tərəfindən modifikasiya
+edilməyib.</em></p></li>
+</ul>
+</div>
+<div class="importantbox">
+<p>Heş uyğunluğu yalnız o halda bütövlük zəmanəti verir ki, etalon heş
+dəyəri <strong>etibarlı və autentik</strong> mənbədən götürülsün. Heş
+funksiyası özlüyündə müəlliflik (authenticity) sübutu deyil, yalnız
+dəyişməzlik (integrity) indikatorudur.</p>
+</div>
+<h2 id="rəqəmsal-imzalar">Rəqəmsal İmzalar</h2>
+<p>Rəqəmsal imza sxemlərində (məsələn, RSA və ya ECDSA) böyük həcmli
+məlumatları birbaşa imzalamaq hesablama baxımından səmərəsizdir. Bunun
+əvəzinə, məlumatın sabit uzunluqlu heş dəyəri imzalanır <span
+class="citation" data-cites="katz2020introduction"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 12</strong> (Heşləmə və İmzalama Prosesi). <em>Proses
+aşağıdakı addımlardan ibarətdir:</em></p>
+<ol>
+<li><p><em><strong>Heşləmə:</strong> <span class="math inline">\(h =
+H(M)\)</span> — mesajın unikal "barmaq izi" hesablanır.</em></p></li>
+<li><p><em><strong>İmzalama:</strong> <span class="math inline">\(\sigma
+= \text{Sign}_{sk}(h)\)</span> — heş dəyəri göndəricinin gizli açarı
+(<span class="math inline">\(sk\)</span>) ilə imzalanır.</em></p></li>
+<li><p><em><strong>Ötürmə:</strong> Orijinal mesaj və imza <span
+class="math inline">\((M, \sigma)\)</span> birlikdə
+göndərilir.</em></p></li>
+<li><p><em><strong>Verifikasiya:</strong> Qəbul edən tərəf <span
+class="math inline">\(h&#39; = H(M)\)</span> hesablayır və açıq açar
+(<span class="math inline">\(pk\)</span>) vasitəsilə <span
+class="math inline">\(\text{Verify}_{pk}(h&#39;, \sigma)\)</span>
+funksiyasını icra edərək imzanın doğruluğunu yoxlayır.</em></p></li>
+</ol>
+</div>
+<h2 id="merkle-ağacları-və-blokçeyn-texnologiyası">Merkle Ağacları və
+Blokçeyn Texnologiyası</h2>
+<p>Merkle ağacları (və ya heş ağacları) böyük verilənlər toplusunun
+bütövlüyünü tək bir "kök heş" (root hash) vasitəsilə səmərəli şəkildə
+təmin etmək üçün istifadə olunur <span class="citation"
+data-cites="antonopoulos2017mastering"></span>.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+
+</div>
+<figcaption>Tranzaksiyaların Merkle ağacı vasitəsilə
+qruplaşdırılması</figcaption>
+</figure>
+<ul>
+<li><p><strong>Blokçeyn tətbiqi:</strong> Bitcoin və digər
+kriptovalyutalarda hər blokdakı yüzlərlə əməliyyat (transaction) Merkle
+ağacı ilə tək bir kök heşdə birləşdirilir. Bu kök heş blokun başlığında
+(header) saxlanılır <span class="citation"
+data-cites="antonopoulos2017mastering"></span>.</p></li>
+<li><p><strong>Səmərəlilik:</strong> Merkle ağacı bütün məlumatı
+yükləmədən konkret bir əməliyyatın (məsələn, <span
+class="math inline">\(Tx_3\)</span>) blok daxilində mövcudluğunu
+loqarifmik zaman ərzində sübut etməyə imkan verir.</p></li>
+</ul>
+<div class="importantbox">
+<p>Merkle ağacında hər hansı bir tranzaksiyanın bir biti belə
+dəyişdirilərsə, bu dəyişiklik zəncirvari şəkildə kök heşə qədər təsir
+edəcək və bütövlüyün pozulduğunu dərhal büruzə verəcəkdir.</p>
+</div>
+<h2 id="açar-törətmə-funksiyaları-kdf">Açar Törətmə Funksiyaları
+(KDF)</h2>
+<p>Açar törətmə funksiyaları (Key Derivation Functions - KDF) parollar,
+daxil edilən entropiya və ya digər ilkin materiallardan yüksək
+keyfiyyətli kriptoqrafik açarlar yaratmaq üçün istifadə olunur. Bu
+funksiyalar zəif və ya qeyri-bərabər paylanmış daxilolmaları
+kriptoqrafik protokollar üçün uyğun olan güclü açarlara çevirir.</p>
+<div class="example">
+<p><strong>Nümunə 13</strong> (HKDF - HMAC-əsaslı KDF). <em>HKDF
+standartı müasir sistemlərdə geniş istifadə olunur və iki əsas
+mərhələdən ibarətdir:</em></p>
+<ol>
+<li><p><em><strong>Çıxarma (Extract):</strong> <span
+class="math inline">\(PRK =
+\text{HMAC}_{\text{salt}}(\text{IKM})\)</span></em></p>
+<ul>
+<li><p><em>Bu mərhələdə giriş materialından (<em>IKM - Input Keying
+Material</em>) istifadə edilərək sabit uzunluqlu psevdotəsadüfi açar
+(<em>PRK - Pseudorandom Key</em>) çıxarılır.</em></p></li>
+</ul></li>
+<li><p><em><strong>Genişləndirmə (Expand):</strong> <span
+class="math inline">\(K_i = \text{HMAC}_{PRK}(K_{i-1} \parallel
+\text{info} \parallel i)\)</span></em></p>
+<ul>
+<li><p><em>Əldə edilmiş <em>PRK</em> vasitəsilə konkret tətbiq sahəsi
+üçün lazım olan bir və ya bir neçə kriptoqrafik açar törədilir.
+<em>info</em> parametri eyni materialdan fərqli məqsədlər üçün müxtəlif
+açarların alınmasını təmin edir.</em></p></li>
+</ul></li>
+</ol>
+</div>
+<h2 id="hmac-və-mesaj-autentifikasiyası">HMAC və Mesaj
+Autentifikasiyası</h2>
+<p>HMAC (<em>Hash-based Message Authentication Code</em>) gizli açar və
+kriptoqrafik heş funksiyasının kombinasiyası əsasında mesajın həm
+bütövlüyünü (integrity), həm də autentifikasiyasını (authenticity) təmin
+edən mexanizmdir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 7</strong> (HMAC-ın Riyazi Konstruksiyası). <em>HMAC
+alqoritmi daxili və xarici heşləmə mərhələlərindən ibarət olub aşağıdakı
+düsturla təyin edilir <span class="citation"
+data-cites="stinson2018cryptography"></span>:</em></p>
+<p><em><span class="math display">\[\text{HMAC}_K(m) = H\big((K \oplus
+\text{opad}) \parallel H((K \oplus \text{ipad}) \parallel
+m)\big)\]</span></em></p>
+<p><em>Burada parametrlərin mənası aşağıdakı kimidir:</em></p>
+<ul>
+<li><p><em><strong><span class="math inline">\(H\)</span>:</strong>
+İstifadə olunan kriptoqrafik heş funksiyası (məsələn,
+SHA-256).</em></p></li>
+<li><p><em><strong><span class="math inline">\(K\)</span>:</strong>
+Göndərən və qəbul edən tərəfə məlum olan gizli açar.</em></p></li>
+<li><p><em><strong><span
+class="math inline">\(\text{ipad}\)</span>:</strong> Daxili doldurma
+sabiti (<em>inner padding</em>, <code>0x36</code> baytının blok ölçüsü
+qədər təkrarı).</em></p></li>
+<li><p><em><strong><span
+class="math inline">\(\text{opad}\)</span>:</strong> Xarici doldurma
+sabiti (<em>outer padding</em>, <span
+class="math inline">\(0x5C\)</span> baytının blok ölçüsü qədər
+təkrarı).</em></p></li>
+</ul>
+</div>
+<p><strong>HMAC-ın Əsas Üstünlükləri <span class="citation"
+data-cites="stinson2018cryptography"></span>:</strong></p>
+<ul>
+<li><p><strong>Hücumlara Davamlılıq:</strong> Merkl-Damqord quruluşlu
+heş funksiyalarının ən böyük zəifliyi olan uzunluq genişləndirmə
+hücumlarına (<em>length extension attacks</em>) qarşı tam qorumaya
+malikdir.</p></li>
+<li><p><strong>Yüksək Təhlükəsizlik:</strong> Sadə <span
+class="math inline">\(H(K \parallel M)\)</span> strukturundan fərqli
+olaraq, HMAC-da toqquşma (collision) hücumlarının tətbiqi praktiki
+olaraq nəticəsizdir.</p></li>
+<li><p><strong>Müasir Standartlar:</strong> Köhnəlmiş
+<code>HMAC-MD5</code> və ya <code>HMAC-SHA1</code> əvəzinə, müasir
+tətbiqlərdə <code>HMAC-SHA-256</code> və ya <code>HMAC-SHA-3</code>
+istifadəsi tövsiyə olunur.</p></li>
+<li><p><strong>Geniş Tətbiq Sahəsi:</strong> TLS, IPsec, SSH və bir çox
+digər şəbəkə təhlükəsizliyi protokollarında əsas autentifikasiya
+vasitəsidir.</p></li>
+</ul>
+<div class="note">
+<p><span>Niyə sadə heşləmə kifayət deyil?</span> Xatırladaq ki, sadə heş
+funksiyası (<span class="math inline">\(H(M)\)</span>) açarsız işləyir
+və yalnız mesajın dəyişdirilmədiyini göstərir. Lakin hücumçu həm mesajı,
+həm də heşi eyni vaxtda dəyişə bilər. HMAC gizli açardan istifadə etdiyi
+üçün hücumçunun saxta imza (MAC) yaratması qeyri-mümkündür.</p>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em>128-bit çıxışlı bir heş funksiyası
+üçün ilkin obraz (pre-image) tapmaq mürəkkəbliyi nədir? Toqquşma
+(collision) tapmaq mürəkkəbliyi nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Ad günü paradoksuna əsasən, 256-bit
+heş funksiyasında 0.5 (50%) ehtimalla toqquşma tapmaq üçün təxminən neçə
+heş dəyəri hesablamaq lazımdır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em>Merkl-Damqord quruluşlu heş
+funksiyasının uzunluq genişləndirmə hücumuna (length extension attack)
+qarşı həssas olmasının fundamental səbəbini izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>SHA-3 standartının süngər quruluşu
+Merkl-Damqord quruluşundan texniki olaraq nə ilə fərqlənir və hansı
+üstünlüklərə malikdir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>Server tərəfində istifadəçi
+parollarının təhlükəsizliyini təmin etmək və "Rainbow table"
+hücumlarının qarşısını almaq üçün hansı mexanizmlər tətbiq
+edilməlidir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>HMAC konstruksiyasının sadə <span
+class="math inline">\(H(K \parallel M)\)</span> strukturuna nəzərən əsas
+təhlükəsizlik üstünlüyü nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>Heş funksiyalarında verillənlərin
+bütövlüyünün yoxlanılması prinsipləri nəyə əsaslanır və lavina effekti
+(avalanche effect) bu prosesdə nə kimi rol oynayır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>MD5 heş funksiyasında toqquşmaların
+praktik olaraq tapılmasının kriptoqrafik sistemlər üçün nəticələri
+nələrdir?</em></p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların Həlli</h1>
+<ol>
+<li><p><strong>Mürəkkəblik:</strong> İlkin obraz tapmaq mürəkkəbliyi tam
+axtarışla <span class="math inline">\(2^{128}\)</span> əməliyyat təşkil
+edir. Toqquşma tapmaq mürəkkəbliyi isə ad günü paradoksuna əsasən <span
+class="math inline">\(2^{n/2}\)</span>, yəni <span
+class="math inline">\(2^{64}\)</span> əməliyyatdır.</p></li>
+<li><p><strong>Hesablama:</strong> <span class="math inline">\(q \approx
+1.177 \cdot 2^{n/2}\)</span> düsturuna əsasən, <span
+class="math inline">\(n=256\)</span> olduqda: <span
+class="math display">\[q \approx 1.177 \cdot 2^{128} \approx 1.177 \cdot
+3.4 \times 10^{38} \approx 4.0 \times 10^{38}\]</span> Bu sayda heş
+dəyəri hesablandıqda toqquşma ehtimalı 50%-ə çatır.</p></li>
+<li><p><strong>Həssaslıq:</strong> Merkl-Damqord quruluşunda yekun heş
+dəyəri <span class="math inline">\(H(M)\)</span> sıxışdırma
+funksiyasının daxili vəziyyətinin (state) son nəticəsidir. Hücumçu bu
+dəyəri yeni IV kimi istifadə edərək, mesajın daxilini bilmədən ona əlavə
+bloklar (<span class="math inline">\(M&#39;\)</span>) birləşdirə və yeni
+keçərli heş dəyəri hesablaya bilər.</p></li>
+<li><p><strong>Fərqlər:</strong> Süngər quruluşu daxili vəziyyətin
+çıxışdan böyük olması (<span class="math inline">\(b = r + c\)</span>)
+və udma/sıxma mərhələləri ilə fərqlənir. Üstünlüyü uzunluq genişləndirmə
+hücumlarına qarşı daxili davamlılığı və dəyişkən uzunluqlu çıxış (XOF)
+təmin etməsidir.</p></li>
+<li><p><strong>Tədbirlər:</strong> "Rainbow table" hücumlarını səmərəsiz
+etmək üçün hər istifadəçiyə unikal <strong>duz (salt)</strong> təyin
+edilməlidir. Əlavə olaraq, brute-force hücumlarını çətinləşdirmək üçün
+<em>bcrypt</em> və ya <em>Argon2</em> kimi "yavaş" heş funksiyaları
+seçilməlidir.</p></li>
+<li><p><strong>HMAC Üstünlüyü:</strong> HMAC konstruksiyası uzunluq
+genişləndirmə hücumlarına qarşı tam qorunma təmin edir. Sadə <span
+class="math inline">\(H(K \parallel M)\)</span> strukturu isə bu hücuma
+qarşı tamamilə müdafiəsizdir.</p></li>
+<li><p><strong>Bütövlük və Lavina Effekti:</strong> Heş dəyərinin
+dəyişməz qalması məlumatın modifikasiya olunmadığını göstərir. Lavina
+effekti (avalanche effect) sayəsində mesajda edilən minimal dəyişiklik
+belə heş dəyərinin tamamilə fərqli olmasına gətirib çıxarır.</p></li>
+<li><p><strong>MD5 Nəticələri:</strong> MD5-də toqquşmaların tapılması
+eyni heşə malik fərqli faylların yaradılmasına imkan verir. Bu, rəqəmsal
+imzaların saxtalaşdırılmasına və autentifikasiya sistemlərinin kütləvi
+şəkildə pozulmasına yol açdığı üçün MD5 artıq istifadə
+edilməməlidir.</p></li>
+</ol>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə kriptoqrafik heş funksiyalarının quruluşu və tətbiqi
+sahəsində aşağıdakı əsas anlayışlar öyrənilmişdir:</p>
+<ul>
+<li><p><strong>Heş funksiyaları:</strong> İxtiyari uzunluqlu məlumatı
+sabit uzunluqlu çıxışa (digest) çevirən birtərəfli
+funksiyalardır.</p></li>
+<li><p><strong>Təhlükəsizlik xüsusiyyətləri:</strong></p>
+<ul>
+<li><p><strong>İlkin obraz (Pre-image) dayanıqlılığı:</strong> Verilmiş
+<span class="math inline">\(y\)</span> heş dəyəri üçün <span
+class="math inline">\(H(x)=y\)</span> şərtini ödəyən <span
+class="math inline">\(x\)</span> girişini tapmağın çətinliyi (<span
+class="math inline">\(2^n\)</span> mürəkkəblik).</p></li>
+<li><p><strong>İkinci ilkin obrazın tapılmasına dayanıqlılığı:</strong>
+Verilmiş <span class="math inline">\(x_1\)</span> girişi üçün <span
+class="math inline">\(H(x_1)=H(x_2)\)</span> şərtini ödəyən fərqli <span
+class="math inline">\(x_2\)</span> tapmağın çətinliyi (<span
+class="math inline">\(2^n\)</span> mürəkkəblik).</p></li>
+<li><p><strong>Toqquşma (Collision) dayanıqlılığı:</strong> Eyni heş
+dəyərinə malik hər hansı iki fərqli <span class="math inline">\(x_1,
+x_2\)</span> cütünü tapmağın çətinliyi (<span
+class="math inline">\(2^{n/2}\)</span> mürəkkəblik).</p></li>
+</ul></li>
+<li><p><strong>Ad günü paradoksu:</strong> Ehtimal nəzəriyyəsinə əsasən,
+<span class="math inline">\(N\)</span> mümkün çıxış arasında toqquşma
+ehtimalı <span class="math inline">\(q \approx 1.177\sqrt{N}\)</span>
+sınaqdan sonra 0.5-ə çatır. Bu, heş funksiyalarında toqquşma
+mürəkkəbliyini <span class="math inline">\(2^{n/2}\)</span> səviyyəsinə
+endirir.</p></li>
+<li><p><strong>Merkl-Damqord quruluşu:</strong> MD5, SHA-1 və SHA-2
+funksiyalarının əsasını təşkil edən iterativ modeldir. Əsas zəifliyi
+<strong>uzunluq genişləndirmə hücumuna</strong> (length extension
+attack) qarşı həssas olmasıdır.</p></li>
+<li><p><strong>Süngər (Sponge) quruluşu:</strong> SHA-3 (Keccak)
+standartının təməlidir. Udma (<em>absorb</em>) və sıxma
+(<em>squeeze</em>) mərhələlərindən ibarət olub, uzunluq genişləndirmə
+hücumlarına qarşı təbii davamlılığa malikdir.</p></li>
+<li><p><strong>Praktik tətbiqlər:</strong> Parolların "duz"
+(<em>salt</em>) ilə saxlanması, rəqəmsal imzalar, fayl bütövlüyünün
+yoxlanması, blokçeyn sistemlərində Merkle ağacları və mesaj
+autentifikasiyası üçün HMAC strukturu.</p></li>
+</ul>
+<p><strong>Nəticə:</strong> Müasir kriptoqrafiyada heş funksiyalarının
+təhlükəsizliyi həm riyazi xüsusiyyətlərdən, həm də istifadə olunan
+konstruksiyadan asılıdır. SHA-2 hələ də geniş istifadə olunsa da, süngər
+quruluşlu SHA-3 daha çevik və hücumlara qarşı daha dayanıqlı alternativ
+təklif edir.</p>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (9)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Damgård, 1989</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;89</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Design Principle for Hash Functions</h6>
+                    <p class="small text-secondary mb-0">Ivan Damgård (1989)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Merkle, 1989</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;89</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">One Way Hash Functions and DES</h6>
+                    <p class="small text-secondary mb-0">Ralph C. Merkle (1989)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Antonopoulos, 2017</span>
+                        <small class="text-muted">O&#x27;Reilly Media</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Mastering Bitcoin: Programming the Open Blockchain</h6>
+                    <p class="small text-secondary mb-0">Andreas M. Antonopoulos (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Wang &amp; Yu, 2005</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT 2005</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">How to Break MD5 and Other Hash Functions</h6>
+                    <p class="small text-secondary mb-0">Xiaoyun Wang and Hongbo Yu (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Bertoni et al., 2007</span>
+                        <small class="text-muted">ECRYPT Hash Function Workshop</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Sponge Functions</h6>
+                    <p class="small text-secondary mb-0">Guido Bertoni and Joan Daemen and Michaël Peeters and Gilles Van Assche (2007)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

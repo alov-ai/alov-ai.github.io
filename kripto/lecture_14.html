@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_14</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 14</strong></p>
+<p><strong>SHA-3 (Keccak) və Süngər Quruluşu</strong></p>
+<p>Bu mühazirə NIST SHA-3 yarışmasının qalibi olan Keccak alqoritmini,
+onun əsasında duran süngər (sponge) quruluşunu, Keccak-f permutasiyasını
+və SHA-3-ün üstünlüklərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbə:</p>
+<ul>
+<li><p>NIST SHA-3 yarışmasının tarixini və Keccak alqoritminin qalib
+seçilmə səbəblərini əsaslandıra biləcək <span class="citation"
+data-cites="nist2007sha3 bertoni2011keccak"></span>;</p></li>
+<li><p>Süngər (<em>sponge</em>) quruluşunun iş prinsipini, udma
+(<em>absorbing</em>) və sıxma (<em>squeezing</em>) mərhələlərini
+dərindən başa düşəcək <span class="citation"
+data-cites="bertoni2007sponge"></span>;</p></li>
+<li><p>Keccak-f permutasiyasının daxili quruluşunu və onun 5 əməliyyat
+qatını (<span class="math inline">\(\theta, \rho, \pi, \chi,
+\iota\)</span>) riyazi və məntiqi baxımdan təhlil edə biləcək <span
+class="citation" data-cites="bertoni2011keccak"></span>;</p></li>
+<li><p>SHA-3 standartının müxtəlif variantlarını (SHA3-224, SHA3-256,
+SHA3-384, SHA3-512) və onların tətbiq parametrlərini fərqləndirməyi
+bacaracaq <span class="citation"
+data-cites="nist2015sha3"></span>;</p></li>
+<li><p>SHA-3-ün Merkl-Damqord quruluşuna əsaslanan heş funksiyalarından
+(MD5, SHA-1, SHA-2) struktur üstünlüklərini izah edə biləcək <span
+class="citation" data-cites="ferguson2010cryptography"></span>;</p></li>
+<li><p>SHA-3 alqoritminin müasir kriptoqrafik tətbiq sahələrini və
+gələcək perspektivlərini qiymətləndirəcək <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+</ul>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirələrdə geniş təhlil etdiyimiz MD5, SHA-1 və SHA-2 heş
+funksiyalarının hamısı <strong>Merkl-Damqord (Merkle-Damgård)</strong>
+quruluşuna əsaslanır. Bu struktur uzun illər standart olaraq qəbul
+edilsə də, bəzi daxili zəifliklərə malikdir:</p>
+<ul>
+<li><p><strong>Uzunluq genişləndirmə (Length-extension)
+hücumlarına</strong> qarşı həssaslıq: Daxili vəziyyətin birbaşa çıxışa
+bərabər olması hücumçulara məlum heş dəyərindən başlayaraq yeni
+məlumatlar əlavə etməyə imkan verir <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Məhdud paralelləşmə:</strong> Ardıcıl blok emalı müasir
+çoxnüvəli prosessorların imkanlarından tam istifadəni
+çətinləşdirir.</p></li>
+<li><p><strong>Daxili vəziyyət məhdudiyyəti:</strong> Daxili vəziyyətin
+ölçüsü çıxış uzunluğu ilə eyni olduğu üçün kriptoqrafik "ehtiyat payı"
+(security margin) bəzi hallarda yetərsiz qalır.</p></li>
+</ul>
+<p>Bu fundamental çatışmazlıqları aradan qaldırmaq və heş funksiyaları
+arsenalını şaxələndirmək məqsədilə <strong>NIST</strong> 2007-ci ildə
+yeni nəsil standart üçün beynəlxalq müsabiqə elan etmişdir. 2012-ci ildə
+<strong>Keccak</strong> alqoritmi qalib seçilərək <strong>SHA-3</strong>
+adı ilə rəsmiləşdirildi. SHA-3-ün inqilabi xüsusiyyəti onun
+Merkl-Damqord strukturundan tamamilə fərqlənən <strong>süngər
+(sponge)</strong> quruluşuna əsaslanmasıdır.</p>
+<div class="tcolorbox">
+<p>Mühazirə boyunca aşağıdakı suallara cavab axtarılacaq:</p>
+<ul>
+<li><p>NIST-in SHA-3 yarışmasını təşkil etməsinə səbəb olan strateji
+amillər və Keccak-ın seçim kriteriyaları hansılardır?</p></li>
+<li><p>Süngər quruluşu məlumatın emalı mexanizminə görə Merkl-Damqord
+quruluşundan nə ilə fərqlənir?</p></li>
+<li><p>Keccak-f permutasiyasının daxili iş prinsipi və tətbiq olunan 5
+transformatsiya qatının rolu nədir?</p></li>
+<li><p>SHA-3-ün SHA-2-yə nəzərən kriptoqrafik və performans üstünlükləri
+nələrdən ibarətdir?</p></li>
+<li><p>Müxtəlif SHA-3 variantları (məsafəli və dəyişən çıxışlı) hansı
+spesifik tətbiqlər üçün optimallaşdırılmışdır?</p></li>
+</ul>
+</div>
+<h1 id="sha-3-ün-yaranma-tarixi">SHA-3-ün yaranma tarixi</h1>
+<h2 id="nist-sha-3-yarışması-2007-2012">NIST SHA-3 yarışması
+(2007-2012)</h2>
+<p>2007-ci ildə <strong>ABŞ Milli Standartlar və Texnologiya İnstitutu
+(NIST)</strong> yeni nəsil heş funksiyası standartının müəyyən edilməsi
+məqsədilə açıq beynəlxalq müsabiqə elan etmişdir. Bu strateji qərarın
+verilməsinə aşağıdakı fundamental faktorlar səbəb olmuşdur:</p>
+<ul>
+<li><p>SHA-1 alqoritminə qarşı toqquşma hücumlarının nəzəri və praktik
+olaraq getdikcə daha effektiv xarakter alması;</p></li>
+<li><p>SHA-2 ailəsinin SHA-1 ilə eyni dizayn prinsipinə (Merkl-Damqord
+quruluşu) əsaslanması və buna görə də bənzər struktur zəifliklərinə
+malik ola bilmə ehtimalı;</p></li>
+<li><p>Kriptoqrafik arsenalda diversifikasiya yaratmaq və uzunmüddətli
+təhlükəsizlik təminatı üçün tamamilə fərqli riyazi modelə malik heş
+funksiyasına ehtiyacın yaranması.</p></li>
+</ul>
+<p>Müsabiqənin gedişatı aşağıdakı xronoloji ardıcıllıqla
+reallaşmışdır:</p>
+<table>
+<caption>NIST SHA-3 yarışmasının əsas mərhələləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Tarix</strong></th>
+<th style="text-align: left;"><strong>Hadisə</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">2 noyabr 2007</td>
+<td style="text-align: left;">Müsabiqənin rəsmi elanı</td>
+</tr>
+<tr>
+<td style="text-align: left;">31 oktyabr 2008</td>
+<td style="text-align: left;">64 ilkin namizədin təqdim edilməsi</td>
+</tr>
+<tr>
+<td style="text-align: left;">2009</td>
+<td style="text-align: left;">Seçim prosesi nəticəsində 14 namizədin
+saxlanılması</td>
+</tr>
+<tr>
+<td style="text-align: left;">2010</td>
+<td style="text-align: left;">5 əsas finalçının (Blake, Grøstl, JH,
+Keccak, Skein) müəyyən edilməsi</td>
+</tr>
+<tr>
+<td style="text-align: left;">2012</td>
+<td style="text-align: left;">Keccak alqoritminin qalib elan
+edilməsi</td>
+</tr>
+<tr>
+<td style="text-align: left;">2015</td>
+<td style="text-align: left;">FIPS 202 standartının (SHA-3) rəsmi
+nəşri</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keccak-alqoritminin-seçilməsi">Keccak alqoritminin
+seçilməsi</h2>
+<p>Keccak alqoritmi Guido Bertoni, Joan Daemen, Michaël Peeters və
+Gilles Van Assche tərəfindən dizayn edilmişdir. NIST tərəfindən
+Keccak-ın qalib seçilməsini şərtləndirən əsas xüsusiyyətlər
+aşağıdakılardır:</p>
+<ul>
+<li><p><strong>İnnovativ dizayn:</strong> Ənənəvi Merkl-Damqord
+quruluşunu əvəz edən və daha çevik olan <strong>süngər (sponge)</strong>
+funksiyası modelinin tətbiqi;</p></li>
+<li><p><strong>Yüksək təhlükəsizlik ehtiyatı:</strong> Mövcud
+kriptoanaliz metodlarına qarşı nümayiş etdirilən yüksək
+dayanıqlılıq;</p></li>
+<li><p><strong>Universal performans:</strong> Həm proqram təminatı, həm
+də aparat (hardware) səviyyəsində yüksək icra sürəti və
+səmərəlilik;</p></li>
+<li><p><strong>Çeviklik:</strong> Dəyişkən çıxış uzunluqlarının (XOF)
+asanlıqla generasiya edilməsi imkanı;</p></li>
+<li><p><strong>Analiz asanlığı:</strong> Alqoritmin riyazi quruluşunun
+sadəliyi sayəsində onun təhlükəsizlik xüsusiyyətlərinin daha şəffaf
+qiymətləndirilməsi.</p></li>
+</ul>
+<h2 id="sha-3-ün-standartlaşdırılması">SHA-3-ün
+standartlaşdırılması</h2>
+<p>2015-ci ildə NIST tərəfindən nəşr edilmiş <strong>FIPS PUB
+202</strong> "SHA-3 Standard: Permutation-Based Hash and
+Extendable-Output Functions" sənədi Keccak alqoritminin rəsmi
+standartını müəyyən etmişdir. Bu standart çərçivəsində təqdim olunan
+əsas funksiyalar aşağıdakılardır:</p>
+<ul>
+<li><p><strong>SHA3-224:</strong> 224-bit çıxış uzunluğuna malik olan
+heş funksiyası.</p></li>
+<li><p><strong>SHA3-256:</strong> 256-bit çıxış uzunluğuna malik olan
+heş funksiyası.</p></li>
+<li><p><strong>SHA3-384:</strong> 384-bit çıxış uzunluğuna malik olan
+heş funksiyası.</p></li>
+<li><p><strong>SHA3-512:</strong> 512-bit çıxış uzunluğuna malik olan
+heş funksiyası.</p></li>
+<li><p><strong>SHAKE128:</strong> 128-bit təhlükəsizlik səviyyəsi təmin
+edən, genişləndirilə bilən çıxış funksiyası (XOF).</p></li>
+<li><p><strong>SHAKE256:</strong> 256-bit təhlükəsizlik səviyyəsi təmin
+edən, genişləndirilə bilən çıxış funksiyası (XOF).</p></li>
+</ul>
+<div class="note">
+<p>SHAKE funksiyaları (Extendable-Output Functions) istifadəçiyə
+istənilən uzunluqda heş dəyəri generasiya etməyə imkan verir ki, bu da
+onları standart heş funksiyalarından daha çevik edir.</p>
+</div>
+<h1 id="süngər-sponge-quruluşu">Süngər (Sponge) quruluşu</h1>
+<h2 id="süngər-konstruksiyasının-əsas-prinsipləri">Süngər
+konstruksiyasının əsas prinsipləri</h2>
+<p>SHA-3 alqoritminin əsasını təşkil edən süngər quruluşu, mesaj
+bloklarını ardıcıl olaraq daxili vəziyyətə (state) inteqrasiya edən və
+sonra ondan istənilən uzunluqda çıxış generasiya edən innovativ
+mexanizmdir.</p>
+<figure data-latex-placement="h">
+
+<figcaption>Süngər quruluşunun sxematik təsviri.</figcaption>
+</figure>
+<p>Süngər quruluşunun əsas komponentləri aşağıdakılardır:</p>
+<ul>
+<li><p><strong>Daxili vəziyyət (State):</strong> Ümumi ölçüsü <span
+class="math inline">\(b = r + c\)</span> bit olan registr.</p>
+<ul>
+<li><p><span class="math inline">\(r\)</span> — <strong>Bit sürəti
+(Rate):</strong> Məlumatın daxil olduğu və çıxdığı aktiv hissə.</p></li>
+<li><p><span class="math inline">\(c\)</span> — <strong>Təhlükəsizlik
+(Capacity):</strong> Kənar təsirlərə qapalı qalan və təhlükəsizlik
+səviyyəsini (<span class="math inline">\(c/2\)</span>) müəyyən edən
+hissə.</p></li>
+</ul></li>
+<li><p><strong>f permutasiyası:</strong> Bütün <span
+class="math inline">\(b\)</span> bitləri üzərində tətbiq olunan və
+daxili qarışdırmanı təmin edən təkrarlanan permutasiya
+funksiyası.</p></li>
+<li><p><strong>Doldurma (Padding):</strong> Giriş mesajını <span
+class="math inline">\(r\)</span>-bitlik bloklara tamamlamaq üçün
+istifadə olunan mexanizm.</p></li>
+</ul>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Süngər funksiyası). <em>Süngər quruluşu iki
+əsas mərhələdən ibarət olan əməliyyat dövrüdür:</em></p>
+<ol>
+<li><p><em><strong>Udma (Absorb) mərhələsi:</strong> Mesaj blokları XOR
+əməliyyatı ilə daxili vəziyyətə əlavə olunur və <span
+class="math inline">\(f\)</span> funksiyası ilə
+qarışdırılır.</em></p></li>
+<li><p><em><strong>Sıxma (Squeeze) mərhələsi:</strong> Arzu olunan çıxış
+uzunluğu əldə edilənə qədər daxili vəziyyətdən bloklar oxunur və hər
+oxunuşdan sonra <span class="math inline">\(f\)</span> funksiyası tətbiq
+edilir.</em></p></li>
+</ol>
+</div>
+<h2 id="udma-absorb-mərhələsi">Udma (Absorb) mərhələsi</h2>
+<p>Udma mərhələsində giriş mesajı sistem tərəfindən emal edilərək daxili
+vəziyyətə inteqrasiya olunur <span class="citation"
+data-cites="bertoni2007sponge"></span>:</p>
+<ol>
+<li><p>Mesaj müvafiq doldurma (padding) qaydası tətbiq edilməklə <span
+class="math inline">\(r\)</span>-bitlik bloklara bölünür: <span
+class="math inline">\(M = M_0, M_1, \dots, M_{k-1}\)</span>.</p></li>
+<li><p>Daxili vəziyyət (state) sıfırlanaraq ilkin dəyərə təyin
+edilir.</p></li>
+<li><p>Hər bir <span class="math inline">\(M_i\)</span> bloku üçün
+aşağıdakı əməliyyatlar ardıcıllığı yerinə yetirilir: <span
+class="math display">\[\begin{align*}
+        \text{state}[0 \dots r-1] &amp;\leftarrow \text{state}[0 \dots
+r-1] \oplus M_i \\
+        \text{state} &amp;\leftarrow f(\text{state})
+\end{align*}\]</span></p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Udma mərhələsi). <em>SHA3-256 üçün bit
+sürəti <span class="math inline">\(r = 1088\)</span> bit (136 bayt)
+təşkil edir. Tutaq ki, 300 baytlıq bir mesaj emal olunmalıdır:</em></p>
+<ul>
+<li><p><em>Mesaj 136 baytlıq bloklara bölünür: bu, 2 tam blok (272 bayt)
+və 1 qismən blokdan (28 bayt) ibarətdir.</em></p></li>
+<li><p><em>Sonuncu qismən blok standart doldurma (padding) qaydası ilə
+136 bayta tamamlanır.</em></p></li>
+<li><p><em>Hər bir blok üçün ardıcıl olaraq XOR əməliyyatı və <span
+class="math inline">\(f\)</span> permutasiyası tətbiq
+olunur.</em></p></li>
+</ul>
+</div>
+<h2 id="sıxma-squeeze-mərhələsi">Sıxma (Squeeze) mərhələsi</h2>
+<p>Sıxma mərhələsində daxili vəziyyətdən tələb olunan uzunluqda heş
+dəyəri hasil edilir <span class="citation"
+data-cites="bertoni2007sponge"></span>:</p>
+<ol>
+<li><p>Bu struktur istənilən uzunluqda çıxış əldə etməyə imkan verir
+(XOF — Extendable-Output Function xüsusiyyəti).</p></li>
+<li><p>İlk çıxış bloku cari vəziyyətin ilk <span
+class="math inline">\(r\)</span> bitindən götürülür. Əlavə çıxış
+blokları tələb olunduqda <span class="math inline">\(f\)</span>
+permutasiyası təkrar tətbiq edilir: <span
+class="math display">\[\begin{align*}
+        Z_0 &amp;= \text{state}[0 \dots r-1] \\
+        \text{state} &amp;\leftarrow f(\text{state}) \\
+        Z_1 &amp;= \text{state}[0 \dots r-1] \\
+        &amp;\vdots
+\end{align*}\]</span></p></li>
+<li><p>Proses, istifadəçi tərəfindən tələb olunan uzunluqda çıxış
+bitləri alınana qədər davam etdirilir.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 2</strong> (Sıxma mərhələsi). <em>SHA3-256
+alqoritmində standart olaraq 256-bit (32 bayt) çıxış tələb
+olunur:</em></p>
+<ul>
+<li><p><em>Udma mərhələsi bitdikdən sonra daxili vəziyyətin (state) ilk
+32 baytı götürülür.</em></p></li>
+<li><p><em>Tələb olunan uzunluq ödənildiyi üçün əlavə permutasiya tətbiq
+edilmir və proses dayandırılır.</em></p></li>
+</ul>
+<p><em>SHAKE128 vasitəsilə 1000 baytlıq çıxış tələb olunduqda:</em></p>
+<ul>
+<li><p><em>SHAKE128 üçün <span class="math inline">\(r = 1344\)</span>
+bit (168 bayt) təyin edilmişdir.</em></p></li>
+<li><p><em>1000 baytlıq çıxış əldə etmək üçün <span
+class="math inline">\(\lceil 1000/168 \rceil = 6\)</span> çıxış bloku
+generasiya edilməsi kifayətdir.</em></p></li>
+</ul>
+</div>
+<h2 id="süngər-quruluşunun-üstünlükləri">Süngər quruluşunun
+üstünlükləri</h2>
+<p>Süngər konstruksiyası ənənəvi Merkl-Damqord (Merkle-Damgård)
+quruluşuna nisbətən həm təhlükəsizlik, həm də funksionallıq baxımından
+bir sıra mühüm üstünlüklərə malikdir <span class="citation"
+data-cites="bertoni2007sponge ferguson2010cryptography"></span>:</p>
+<ol>
+<li><p><strong>Uzunluq genişləndirmə (Length-extension) hücumlarına
+davamlılıq:</strong> SHA-3-də çıxış bitləri daxili vəziyyətin yalnız bir
+hissəsindən (<span class="math inline">\(r\)</span> biti) götürülür,
+<span class="math inline">\(c\)</span> bitlik "tutub saxlama"
+(<em>capacity</em>) hissəsi isə gizli qalır. Bu struktur sayəsində məlum
+<span class="math inline">\(H(M)\)</span> dəyərindən istifadə edərək
+<span class="math inline">\(H(M \parallel M&#39;)\)</span> dəyərini
+hesablamaq praktiki olaraq qeyri-mümkündür.</p></li>
+<li><p><strong>Dəyişkən çıxış uzunluğu (XOF):</strong> Bu struktur
+ixtiyari uzunluqda çıxış generasiya etməyə imkan verir. Bu xüsusiyyət
+SHAKE funksiyalarında tətbiq olunur və KDF (<em>Key Derivation
+Function</em>) həmçinin PRNG (<em>Pseudorandom Number Generator</em>)
+kimi sistemlər üçün yüksək səmərəlilik təmin edir.</p></li>
+<li><p><strong>Çevik təhlükəsizlik konfiqurasiyası:</strong> <span
+class="math inline">\(c\)</span> (capacity) parametrini dəyişməklə
+(məsələn, sürəti azaldıb tutumu artırmaqla) eyni alqoritm daxilində
+təhlükəsizlik səviyyəsini tənzimləmək mümkündür.</p></li>
+<li><p><strong>Paralelləşdirilə bilən rejimlər:</strong> Standart süngər
+quruluşu ardıcıl olsa da, Keccak komandası tərəfindən təklif edilən
+<em>tree-hashing</em> və <em>ParallelHash</em> rejimləri vasitəsilə
+yüksək sürətli paralel emal imkanları əldə edilmişdir.</p></li>
+<li><p><strong>Dizayn sadəliyi:</strong> Permutasiyaya əsaslanan
+struktur sıxışdırma funksiyalarına nisbətən daha sadə riyazi modelə
+malikdir, bu da kriptoanaliz prosesini şəffaflaşdırır.</p></li>
+</ol>
+<table>
+<caption>Merkl-Damqord və süngər quruluşlarının müqayisəli
+xarakteristikası</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Merkl-Damqord</strong></th>
+<th style="text-align: left;"><strong>Süngər</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Daxili vəziyyət (State)</td>
+<td style="text-align: left;"><span class="math inline">\(n\)</span> bit
+(adətən çıxış ölçüsü qədər)</td>
+<td style="text-align: left;"><span class="math inline">\(b = r +
+c\)</span> bit (çıxışdan böyük)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Əsas komponent</td>
+<td style="text-align: left;">Sıxışdırma funksiyası
+(<em>Compression</em>)</td>
+<td style="text-align: left;">Permutasiya (<em>Permutation</em>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">İstiqamət</td>
+<td style="text-align: left;">Təkyönlü emal</td>
+<td style="text-align: left;">İkitərəfli dövr (udma/sıxma)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Çıxış uzunluğu</td>
+<td style="text-align: left;">Sabit</td>
+<td style="text-align: left;">Dəyişkən (XOF dəstəyi)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Genişləndirmə hücumu</td>
+<td style="text-align: left;">Həssas</td>
+<td style="text-align: left;">Davamlı</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunələr</td>
+<td style="text-align: left;">MD5, SHA-1, SHA-2</td>
+<td style="text-align: left;">SHA-3 (Keccak)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="keccak-f-permutasiyası">Keccak-f permutasiyası</h1>
+<h2 id="daxili-vəziyyətin-quruluşu">Daxili vəziyyətin quruluşu</h2>
+<p>Keccak-f permutasiyasının daxili vəziyyəti üçölçülü matris (və ya
+qəfəs) şəklində təşkil olunub: <span
+class="math display">\[\text{state}[x][y][z]\]</span> burada:</p>
+<ul>
+<li><p><span class="math inline">\(x, y \in \{0,1,2,3,4\}\)</span>
+(5<span class="math inline">\(\times\)</span>5 sətir və sütun
+müstəvisi);</p></li>
+<li><p><span class="math inline">\(z \in \{0,1,\dots,w-1\}\)</span>,
+burada <span class="math inline">\(w = 2^l\)</span>;</p></li>
+<li><p><span class="math inline">\(l\)</span> — dərinlik parametridir
+(Keccak-f[1600] üçün <span class="math inline">\(l = 6\)</span>, <span
+class="math inline">\(w = 64\)</span>).</p></li>
+</ul>
+<p>Beləliklə, daxili vəziyyət <span class="math inline">\(5 \times 5
+\times w = 25w\)</span> bitdən ibarətdir. SHA-3-də <span
+class="math inline">\(w = 64\)</span> olduğu üçün ümumi daxili vəziyyət
+<span class="math inline">\(25 \times 64 = 1600\)</span> bit təşkil
+edir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="minipage">
+<pre><code>   y=4  . . . . . 
+   y=3  . . . . . 
+   y=2  . . . . .   &lt;-- hər nöqtə 64-bitlik 
+   y=1  . . . . .       bir sözdür (lane)
+   y=0  . . . . . 
+        x=0 1 2 3 4</code></pre>
+</div>
+</div>
+<figcaption>Keccak-f daxili vəziyyətinin quruluşu (<span
+class="math inline">\(5 \times 5 \times 64\)</span>)</figcaption>
+</figure>
+<h2 id="keccak-f-raundları">Keccak-f raundları</h2>
+<p>Keccak-f permutasiyası <span class="math inline">\(12 + 2l\)</span>
+raunddan ibarətdir. <span class="math inline">\(l = 6\)</span> (<span
+class="math inline">\(w=64\)</span>) üçün raund sayı: <span
+class="math display">\[n_r = 12 + 2 \times 6 = 24 \text{ raund}\]</span>
+Hər raund 5 ardıcıl transformasiyadan ibarətdir:</p>
+<ol>
+<li><p><strong>Theta (<span
+class="math inline">\(\theta\)</span>):</strong> Sütunlararası
+diffuziya.</p></li>
+<li><p><strong>Rho (<span class="math inline">\(\rho\)</span>):</strong>
+Sözlər (lane) daxilində bit sürüşdürmə.</p></li>
+<li><p><strong>Pi (<span class="math inline">\(\pi\)</span>):</strong>
+Sözlərin yerdəyişməsi.</p></li>
+<li><p><strong>Chi (<span class="math inline">\(\chi\)</span>):</strong>
+Qeyri-xətti əvəzetmə qatı.</p></li>
+<li><p><strong>Iota (<span
+class="math inline">\(\iota\)</span>):</strong> Raund sabitinin əlavə
+edilməsi.</p></li>
+</ol>
+<h2 id="theta-theta-əməliyyatı">Theta (<span
+class="math inline">\(\theta\)</span>) əməliyyatı</h2>
+<p>Theta əməliyyatı sütunlar arasında xətti diffuziya (məlumatın
+yayılması) təmin edir. Bu əməliyyat üç ardıcıl addımdan ibarətdir:</p>
+<p><span class="math display">\[\begin{align*}
+    C[x] &amp;= \bigoplus_{y=0}^{4} \text{state}[x][y] \\
+    D[x] &amp;= C[x-1] \oplus \text{ROT}(C[x+1], 1) \\
+    \text{state}&#39;[x][y] &amp;= \text{state}[x][y] \oplus D[x]
+\end{align*}\]</span></p>
+<p>Burada:</p>
+<ul>
+<li><p><span class="math inline">\(\text{ROT}(C[x+1], 1)\)</span> —
+<span class="math inline">\(C[x+1]\)</span> paritet sözünün 1 bit sola
+dövri sürüşdürülməsidir.</p></li>
+<li><p><strong>Hər bir <span class="math inline">\(y\)</span> üçün
+tətbiq:</strong> Sonuncu tənlikdə hər bir <span
+class="math inline">\(x\)</span> sütunu üçün hesablanmış <span
+class="math inline">\(D[x]\)</span> təsir vektoru, həmin sütundakı
+<strong>hər bir <span class="math inline">\(y \in \{0, 1, 2, 3,
+4\}\)</span> sözünə</strong> (lane) fərdi şəkildə XOR edilir.</p></li>
+<li><p><strong>Məqsəd:</strong> Hər bir bitin təsirini qonşu
+sütunlardakı bitlərə yaymaqla yüksək dərəcəli diffuziya əldə
+etməkdir.</p></li>
+</ul>
+<h2 id="rho-rho-əməliyyatı">Rho (<span
+class="math inline">\(\rho\)</span>) əməliyyatı</h2>
+<p>Rho əməliyyatı hər bir söz daxilində bitləri spesifik sabitlər qədər
+sürüşdürür: <span class="math display">\[\text{state}&#39;[x][y] =
+\text{ROT}(\text{state}[x][y], r[x][y])\]</span> Heç bir iki söz eyni
+sürüşdürmə miqdarına malik deyil, bu da müxtəlif mövqelərdəki bitlərin
+fərqli şəkildə qarışmasını təmin edir.</p>
+<table>
+<caption>Keccak-f[1600] üçün Rho sürüşdürmə miqdarları <span
+class="math inline">\(r[x][y]\)</span></caption>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span
+class="math inline">\(x=0\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x=1\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x=2\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x=3\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(x=4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(y=0\)</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">62</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">27</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(y=1\)</span></td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(y=2\)</span></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">43</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">39</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(y=3\)</span></td>
+<td style="text-align: center;">41</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(y=4\)</span></td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">61</td>
+<td style="text-align: center;">56</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pi-pi-əməliyyatı">Pi (<span class="math inline">\(\pi\)</span>)
+əməliyyatı</h2>
+<p>Pi əməliyyatı sözlərin (lane) matris daxilindəki mövqelərini
+dəyişdirərək sətir və sütunlar arasında çarpaz qarışma yaradır <span
+class="citation" data-cites="bertoni2011keccak"></span>. Riyazi
+ifadəsi:</p>
+<p><span class="math display">\[\text{state}&#39;[x][y] =
+\text{state}[(x + 3y) \bmod 5][x]\]</span></p>
+<p>Bu transformasiyanın xüsusiyyətləri:</p>
+<ul>
+<li><p><strong>Koordinat yerdəyişməsi:</strong> Girişin sütun (<span
+class="math inline">\(x\)</span>) və sətir (<span
+class="math inline">\(y\)</span>) məlumatları yeni koordinatların
+hesablanmasında çarpaz şəkildə istifadə olunur <span class="citation"
+data-cites="bertoni2011keccak"></span>.</p></li>
+<li><p><strong>Diffuziyanın genişləndirilməsi:</strong> Theta əməliyyatı
+sütun daxilində yayılma təmin etdiyi halda, Pi bu yayılmanı müstəvi üzrə
+(fərqli sətirlərə) transfer edir <span class="citation"
+data-cites="bertoni2011keccak"></span>.</p></li>
+<li><p><strong>Sabit xəritəçəkmə:</strong> Bu əməliyyat bitlərin
+dəyərini dəyişmir, yalnız onların 1600-bitlik daxili vəziyyətdəki
+"ünvanlarını" permutasiya edir <span class="citation"
+data-cites="nist2015sha3"></span>.</p></li>
+</ul>
+<h2 id="chi-chi-əməliyyatı">Chi (<span
+class="math inline">\(\chi\)</span>) əməliyyatı</h2>
+<p>Chi əməliyyatı Keccak-f-də <strong>yeganə qeyri-xətti</strong>
+transformasiyadır: <span class="math display">\[\text{state}&#39;[x][y]
+= \text{state}[x][y] \oplus \big((\lnot \text{state}[x+1][y]) \land
+\text{state}[x+2][y]\big)\]</span> Burada <span
+class="math inline">\(x+1\)</span> və <span
+class="math inline">\(x+2\)</span> indeksləri modulo 5 ilə hesablanır.
+Bu əməliyyat alqoritmi xətti və diferensial kriptoanaliz hücumlarına
+qarşı dayanıqlı edir.</p>
+<h2 id="iota-iota-əməliyyatı">Iota (<span
+class="math inline">\(\iota\)</span>) əməliyyatı</h2>
+<p>Iota əməliyyatı raundların bir-birinə bənzəməməsi (simmetriyanın
+pozulması) üçün raund sabitini (RC) daxili vəziyyətə əlavə edir: <span
+class="math display">\[\text{state}&#39;[0][0] = \text{state}[0][0]
+\oplus RC[i]\]</span> Bu, aşağı dərəcəli cəbr hücumlarının qarşısını
+almağa kömək edir.</p>
+<h1 id="sha-3-variantları">SHA-3 variantları</h1>
+<h2 id="heş-funksiyaları">Heş funksiyaları</h2>
+<p>SHA-3 standartı dörd əsas heş funksiyasını təyin edir. Bu funksiyalar
+sabit çıxış uzunluğuna malikdir və Keccak-f[1600] permutasiyasına
+əsaslanır:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Çıxış (bit)</strong></th>
+<th style="text-align: center;"><strong>Blok ölçüsü <span
+class="math inline">\(r\)</span></strong></th>
+<th style="text-align: center;"><strong>Təhlükəsizlik <span
+class="math inline">\(c\)</span></strong></th>
+<th style="text-align: center;"><strong>Təhlükəsizlik
+səviyyəsi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SHA3-224</td>
+<td style="text-align: center;">224</td>
+<td style="text-align: center;">1152 bit (144 bayt)</td>
+<td style="text-align: center;">448 bit</td>
+<td style="text-align: center;">112-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA3-256</td>
+<td style="text-align: center;">256</td>
+<td style="text-align: center;">1088 bit (136 bayt)</td>
+<td style="text-align: center;">512 bit</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA3-384</td>
+<td style="text-align: center;">384</td>
+<td style="text-align: center;">832 bit (104 bayt)</td>
+<td style="text-align: center;">768 bit</td>
+<td style="text-align: center;">192-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA3-512</td>
+<td style="text-align: center;">512</td>
+<td style="text-align: center;">576 bit (72 bayt)</td>
+<td style="text-align: center;">1024 bit</td>
+<td style="text-align: center;">256-bit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="genişləndirilə-bilən-çıxış-funksiyaları-xof">Genişləndirilə
+bilən çıxış funksiyaları (XOF)</h2>
+<p>SHA-3 standartı həmçinin iki genişləndirilə bilən çıxış funksiyasını
+(XOF) təyin edir. XOF funksiyaları istifadəçiyə ehtiyaca uyğun olaraq
+ixtiyari uzunluqda çıxış generasiya etməyə imkan verir:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Çıxış</strong></th>
+<th style="text-align: center;"><strong>Blok ölçüsü <span
+class="math inline">\(r\)</span></strong></th>
+<th style="text-align: center;"><strong>Təhlükəsizlik <span
+class="math inline">\(c\)</span></strong></th>
+<th style="text-align: center;"><strong>Təhlükəsizlik
+səviyyəsi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SHAKE128</td>
+<td style="text-align: center;">İxtiyari</td>
+<td style="text-align: center;">1344 bit (168 bayt)</td>
+<td style="text-align: center;">256 bit</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHAKE256</td>
+<td style="text-align: center;">İxtiyari</td>
+<td style="text-align: center;">1088 bit (136 bayt)</td>
+<td style="text-align: center;">512 bit</td>
+<td style="text-align: center;">256-bit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>XOF funksiyaları sabit uzunluqlu heş funksiyalarından daha
+çevikdir.</p></li>
+<li><p>Bu xüsusiyyət onları Açar Törətmə Funksiyaları (KDF) və
+Psevdotəsadüfi Ədəd Generatorları (PRNG) üçün ideal edir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 3</strong> (SHAKE128 istifadəsi). <em>SHAKE128-dən
+1000 bayt təsadüfi görünən çıxış əldə etmək üçün funksiya növbəti
+şəkildə çağırılır:</em></p>
+<pre><code>SHAKE128(&quot;salam&quot;, 1000) -&gt; 1000 bayt çıxış</code></pre>
+</div>
+<h2 id="doldurma-və-domen-ayırımı">Doldurma və domen ayırımı</h2>
+<p>FIPS 202-də müxtəlif SHA-3 instansiyaları arasında toqquşmaların
+qarşısını almaq üçün mesajın sonuna domen ayırıcı bitlər əlavə
+olunur:</p>
+<ul>
+<li><p><strong>SHA3-x</strong> (sabit çıxışlılar) üçün sonluq:
+<code>01</code>.</p></li>
+<li><p><strong>SHAKE-x</strong> (genişləndirilə bilənlər) üçün sonluq:
+<code>1111</code>.</p></li>
+</ul>
+<p>Domen ayırıcısından dərhal sonra tətbiq olunan
+<strong>pad10*1</strong> doldurma qaydası aşağıdakı kimidir: <span
+class="math display">\[\text{pad10*1}(r, m) = 1 \parallel 0^* \parallel
+1\]</span></p>
+<p>Bu prosesin addımları aşağıdakı kimidir:</p>
+<ol>
+<li><p>Mesajın (və domen ayırıcısının) sonuna bir "1" biti əlavə
+edilir.</p></li>
+<li><p>Blok ölçüsü <span class="math inline">\(r\)</span>-ə tam bölünmək
+üçün lazım olan sayda "0" bitləri əlavə olunur.</p></li>
+<li><p>Əməliyyat sonuncu "1" bitinin əlavə edilməsi ilə bitir.</p></li>
+</ol>
+<p>Bu mexanizm mesajın uzunluğundan asılı olmayaraq onun sonunun unikal
+şəkildə müəyyən edilməsini təmin edir.</p>
+<h1 id="sha-3-ün-təhlükəsizliyi">SHA-3-ün təhlükəsizliyi</h1>
+<h2 id="təhlükəsizlik-xüsusiyyətləri">Təhlükəsizlik xüsusiyyətləri</h2>
+<p>SHA-3 alqoritminin təhlükəsizlik səviyyəsi birbaşa süngər quruluşunun
+parametrləri, xüsusilə də tutum (<span class="math inline">\(c\)</span>)
+və çıxış uzunluğu (<span class="math inline">\(n\)</span>) ilə müəyyən
+olunur:</p>
+<ul>
+<li><p><strong>İlkin obraz (Pre-image) dayanıqlılığı:</strong> <span
+class="math inline">\(2^{\min(n, c/2)}\)</span></p></li>
+<li><p><strong>İkinci ilkin obraz (Second pre-image)
+dayanıqlılığı:</strong> <span class="math inline">\(2^{\min(n,
+c/2)}\)</span></p></li>
+<li><p><strong>Toqquşma (Collision) dayanıqlılığı:</strong> <span
+class="math inline">\(2^{\min(n/2, c/2)}\)</span></p></li>
+</ul>
+<p>burada <span class="math inline">\(n\)</span> — çıxış bitlərinin
+sayı, <span class="math inline">\(c\)</span> — təhlükəsizlik parametrini
+(capacity) ifadə edir.</p>
+<p>SHA3-256 instansiyası üçün <span class="math inline">\(c =
+512\)</span> və <span class="math inline">\(n = 256\)</span> bit təşkil
+etdiyi üçün təhlükəsizlik göstəriciləri aşağıdakı kimidir:</p>
+<ul>
+<li><p><strong>İlkin obraz dayanıqlılığı:</strong> <span
+class="math inline">\(2^{256}\)</span></p></li>
+<li><p><strong>Toqquşma dayanıqlılığı:</strong> <span
+class="math inline">\(2^{128}\)</span></p></li>
+</ul>
+<h2 id="hücumlara-qarşı-dayanıqlılıq">Hücumlara qarşı dayanıqlılıq</h2>
+<p>Keccak dizaynerləri alqoritmi müasir kriptoanaliz üsullarına qarşı
+dərindən analiz etmişlər:</p>
+<ul>
+<li><p><strong>Diferensial kriptoanaliz:</strong> Qeyri-xətti Chi (<span
+class="math inline">\(\chi\)</span>) əməliyyatı sayəsində diferensial
+yolların yayılma ehtimalı olduqca aşağıdır.</p></li>
+<li><p><strong>Xətti kriptoanaliz:</strong> Chi əməliyyatı yüksək
+qeyri-xəttilik nümayiş etdirir; xətti yaxınlaşmaların ehtimalı <span
+class="math inline">\(2^{-4}\)</span> həddini aşmır.</p></li>
+<li><p><strong>Cəbri hücumlar:</strong> Keccak-f permutasiyasının cəbri
+dərəcəsi sürətlə artır və artıq 5-ci raunddan sonra 32-yə bərabər
+olur.</p></li>
+<li><p><strong>Uzunluq genişləndirmə hücumları:</strong> Süngər
+quruluşunun təbiəti (çıxışın yalnız <span
+class="math inline">\(r\)</span> bitindən götürülməsi) bu hücum növünü
+qeyri-mümkün edir.</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (SHA-3-ün təhlükəsizlik vəziyyəti).
+<em>Aparılmış tədqiqatlar göstərir ki, SHA-3-ün tam (24 raundlu)
+versiyasına qarşı heç bir praktiki hücum mövcud deyil. Mövcud nəzəri
+hücumlar yalnız raund sayı azaldılmış modellərə aiddir:</em></p>
+<ul>
+<li><p><em><strong>2012:</strong> 8 raundluq Keccak üçün nəzəri toqquşma
+hücumu;</em></p></li>
+<li><p><em><strong>2015:</strong> 10 raundluq Keccak üçün nəzəri
+hücum;</em></p></li>
+<li><p><em><strong>2017:</strong> 11 raundluq Keccak üçün nəzəri
+hücum.</em></p></li>
+</ul>
+</div>
+<h1 id="sha-3-və-sha-2-nin-müqayisəsi">SHA-3 və SHA-2-nin
+müqayisəsi</h1>
+<p>SHA-3 və SHA-2 alqoritmlərinin müqayisəli xarakteristikası onların
+struktur və performans fərqlərini aydın göstərir:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>SHA-2</strong></th>
+<th style="text-align: left;"><strong>SHA-3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Quruluş</td>
+<td style="text-align: left;">Merkl-Damqord</td>
+<td style="text-align: left;">Süngər (Sponge)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Daxili vəziyyət</td>
+<td style="text-align: left;">256/512 bit</td>
+<td style="text-align: left;">1600 bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Əsas əməliyyatlar</td>
+<td style="text-align: left;">Bit-bit (AND, OR, XOR, ROT)</td>
+<td style="text-align: left;">Bit-bit + Chi qeyri-xətti funksiyası</td>
+</tr>
+<tr>
+<td style="text-align: left;">Uzunluq genişləndirmə</td>
+<td style="text-align: left;">Həssas</td>
+<td style="text-align: left;">Davamlı</td>
+</tr>
+<tr>
+<td style="text-align: left;">XOF dəstəyi</td>
+<td style="text-align: left;">Yox</td>
+<td style="text-align: left;">Bəli (SHAKE128/256)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Aparat səmərəliliyi</td>
+<td style="text-align: left;">Yaxşı</td>
+<td style="text-align: left;">Çox yaxşı</td>
+</tr>
+<tr>
+<td style="text-align: left;">Proqram səmərəliliyi</td>
+<td style="text-align: left;">Çox yaxşı</td>
+<td style="text-align: left;">Yaxşı</td>
+</tr>
+<tr>
+<td style="text-align: left;">Təhlükəsizlik ehtiyatı</td>
+<td style="text-align: left;">Yetərli</td>
+<td style="text-align: left;">Yüksək</td>
+</tr>
+<tr>
+<td style="text-align: left;">Standartlaşdırma ili</td>
+<td style="text-align: left;">2001 (FIPS 180-2)</td>
+<td style="text-align: left;">2015 (FIPS 202)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tətbiqlər">Praktik tətbiqlər</h1>
+<h2 id="tls-1.3-və-rəqəmsal-sertifikatlar">TLS 1.3 və rəqəmsal
+sertifikatlar</h2>
+<p>SHA-3 protokolu hələ TLS 1.3-də geniş kütləvi istifadəyə sahib olmasa
+da, müasir PKI (Public Key Infrastructure) sistemlərində və rəqəmsal
+sertifikatlarda SHA-3 əsaslı imza sxemlərinin tətbiqi üçün infrastruktur
+mövcuddur.</p>
+<h2 id="blokçeyn-və-kriptovalyutalar">Blokçeyn və kriptovalyutalar</h2>
+<p>SHA-3 (xüsusilə Keccak) blokçeyn texnologiyalarında mühüm yer
+tutur:</p>
+<ul>
+<li><p><strong>Ethereum:</strong> Hazırkı Ethereum şəbəkəsi Keccak-256
+istifadə edir; gələcək mərhələlərdə rəsmi SHA-3 standartına keçid
+imkanları nəzərdən keçirilir.</p></li>
+<li><p><strong>IOTA:</strong> IOTA platforması daxili Curl-P
+funksiyasından əlavə, təhlükəsizliyin artırılması məqsədilə SHA-3-ə
+keçid variantlarını müzakirə edir.</p></li>
+<li><p><strong>Siacoin:</strong> Sia blokçeyn platforması əsas heş
+alqoritmi kimi SHA-3-dən istifadə edir.</p></li>
+</ul>
+<h2 id="post-kvant-kriptoqrafiya">Post-kvant kriptoqrafiya</h2>
+<p>Kvant hesablamaları dövründə dayanıqlığı təmin etmək üçün SHA-3
+post-kvant kriptoqrafiya sistemlərində mərkəzi rol oynayır:</p>
+<ul>
+<li><p><strong>SPHINCS+:</strong> Heş əsaslı rəqəmsal imza sxemi olan
+SPHINCS+ daxili emal üçün SHA-3-ün imkanlarından istifadə edir.</p></li>
+<li><p><strong>McEliece:</strong> Kod əsaslı kriptosistemlərdə məlumatın
+bütövlüyünü və açar törətməni təmin etmək üçün SHA-3 tətbiq
+olunur.</p></li>
+</ul>
+<h2 id="parol-saxlanması">Parol saxlanması</h2>
+<p>SHA-3 və SHAKE ailəsi birbaşa parol saxlanması üçün uyğun seçim
+deyil, çünki bunlar sürətli kriptoqrafik heş/XOF funksiyalarıdır.</p>
+<p>Parol saxlanması üçün <strong>Argon2id</strong> (və ya uyğun hallarda
+<strong>scrypt</strong>, <strong>bcrypt</strong>,
+<strong>PBKDF2</strong>) kimi adaptiv və ya yaddaş-sərt alqoritmlərdən
+istifadə olunmalıdır.</p>
+<h2 id="hmac-sha3">HMAC-SHA3</h2>
+<p>SHA3-224/256/384/512 funksiyaları HMAC daxilində istifadə oluna
+bilər. Bundan əlavə, Keccak əsaslı standart MAC kimi
+<strong>KMAC</strong> mövcuddur.</p>
+<p>Praktikada özəl “açarlı-heşləmə” sxemi təklif etmək əvəzinə
+<strong>HMAC-SHA3</strong> və ya <strong>KMAC</strong> istifadə etmək
+lazımdır.</p>
+<h2 id="sadə-açarlı-heşləmə-keyed-hash">Sadə Açarlı Heşləmə
+(Keyed-hash)</h2>
+<p>SHA-3-ün süngər quruluşu, mesajın həqiqiliyini yoxlamaq üçün (MAC -
+Message Authentication Code) açarlı heşləməni çox sadə bir şəkildə
+həyata keçirməyə imkan verir.</p>
+<ul>
+<li><p><strong>Struktur üstünlüyü:</strong> SHA-2 kimi Merkl-Damqord
+(Merkle-Damgård) quruluşlu alqoritmlərdə açarı birbaşa mesajın önünə
+əlavə etmək (<span class="math inline">\(Hash(K \parallel M)\)</span>)
+"uzunluq genişləndirmə hücumuna" (length extension attack) qarşı zəiflik
+yaradır. Bu səbəbdən SHA-2-də mürəkkəb HMAC strukturu istifadə
+olunur.</p></li>
+<li><p><strong>Süngər effektivliyi:</strong> SHA-3 (Keccak) bu növ
+hücumlara qarşı təbii olaraq davamlıdır. Buna görə də, SHA-3-də açarlı
+heşləmə sadəcə açarı mesajın önünə birləşdirməklə təhlükəsiz şəkildə
+yerinə yetirilə bilər: <span class="math display">\[MAC(K, M) = SHA3(K
+\parallel M)\]</span></p></li>
+<li><p><strong>KMAC (Keccak MAC):</strong> NIST tərəfindən
+standartlaşdırılan KMAC, məhz bu "sadə keyed-hash" prinsipinə əsaslanır.
+O, SHAKE funksiyalarından istifadə edərək həm səmərəli, həm də ixtiyari
+uzunluqlu açarlı çıxış təmin edir.</p></li>
+</ul>
+<div class="importantbox">
+<p>Bu xüsusiyyət SHA-3-ü daha sürətli və proqramlaşdırılması daha asan
+bir MAC alətinə çevirir, çünki ikiqat heşləmə prosesinə (HMAC-da olduğu
+kimi) ehtiyac qalmır.</p>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>SHA3-256 üçün <span
+class="math inline">\(r = 1088\)</span> bit və <span
+class="math inline">\(c = 512\)</span> bit verilib. Bu dəyərlər nəyi
+ifadə edir və alqoritmin təhlükəsizlik səviyyəsi necə müəyyən
+olunur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>Süngər (Sponge) quruluşunun
+ənənəvi Merkl-Damqord quruluşundan əsas fərqlərini sadalayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>Keccak-f permutasiyasının raund
+daxilindəki 5 transformasiyasını (<span class="math inline">\(\theta,
+\rho, \pi, \chi, \iota\)</span>) qısaca izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>SHA3-256 və SHAKE256 arasında
+hansı fundamental fərqlər var? Hansı tətbiq sahələrində SHAKE256-dan
+istifadə etmək daha məqsədəuyğundur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>Uzunluq genişləndirmə (length
+extension) hücumunun SHA-3-ə təsirini izah edin. Niyə SHA-3 bu hücum
+növünə qarşı təbii davamlılıq nümayiş etdirir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>SHA-3-ün aparat (hardware)
+implementasiyası zamanı təmin etdiyi üstünlüklər nələrdir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>Kriptoqrafik sistemlərdə
+SHA-2-dən SHA-3-ə keçid etmək üçün əsas meyarlar hansılardır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em>1000 baytlıq bir mesajın emalı
+zamanı SHA3-256 neçə dəfə <span class="math inline">\(f\)</span>
+permutasiyası tətbiq edir? Hesablamanı göstərin.</em></p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların həlli</h1>
+<ul>
+<li><p>SHA3-256 üçün <span class="math inline">\(r=1088\)</span> bit
+(136 bayt) blokun sürəti (rate), <span
+class="math inline">\(c=512\)</span> bit isə tutum parametridir
+(capacity). Təhlükəsizlik səviyyəsi: ilkin obraz dayanıqlılığı üçün
+<span class="math inline">\(2^{256}\)</span>, toqquşma dayanıqlılığı
+üçün isə <span class="math inline">\(2^{128}\)</span> təşkil
+edir.</p></li>
+<li><p>Süngər quruluşunun əsas fərqləri bunlardır:</p>
+<ul>
+<li><p>Daha geniş daxili vəziyyət (<span class="math inline">\(b = r + c
+= 1600\)</span> bit);</p></li>
+<li><p>Məlumatın emalı üçün udma (absorbing) və sıxma (squeezing)
+mərhələlərinin olması;</p></li>
+<li><p>Uzunluq genişləndirmə hücumlarına qarşı daxili
+davamlılıq;</p></li>
+<li><p>Dəyişkən çıxış uzunluğu (XOF) imkanı.</p></li>
+</ul></li>
+<li><p>Keccak-f transformasiyaları:</p>
+<ul>
+<li><p><strong>Theta (<span
+class="math inline">\(\theta\)</span>):</strong> Sütunlararası xətti
+diffuziya;</p></li>
+<li><p><strong>Rho (<span class="math inline">\(\rho\)</span>):</strong>
+Sözlər daxilində bitlərin dövri sürüşdürülməsi;</p></li>
+<li><p><strong>Pi (<span class="math inline">\(\pi\)</span>):</strong>
+Sözlərin matris üzrə yerlərinin dəyişdirilməsi;</p></li>
+<li><p><strong>Chi (<span class="math inline">\(\chi\)</span>):</strong>
+Qeyri-xətti əvəzetmə qatı;</p></li>
+<li><p><strong>Iota (<span
+class="math inline">\(\iota\)</span>):</strong> Raund sabitinin XOR
+edilməsi (simmetriyanın pozulması).</p></li>
+</ul></li>
+<li><p>SHA3-256 sabit 256-bitlik heş dəyəri qaytarır, SHAKE256 isə
+ixtiyari uzunluqda çıxış generasiya edən XOF funksiyasıdır. SHAKE256
+xüsusilə KDF (açar törətmə), PRNG və ixtiyari uzunluqlu maskaların
+yaradılması üçün idealdır.</p></li>
+<li><p>SHA-3 süngər quruluşuna sahib olduğu üçün uzunluq genişləndirmə
+hücumuna qarşı davamlıdır. Çıxış daxili vəziyyətin yalnız <span
+class="math inline">\(r\)</span> bitlik hissəsindən götürülür, <span
+class="math inline">\(c\)</span> bitlik hissə isə gizli qalır. Bu
+səbəbdən kənar müşahidəçi <span class="math inline">\(H(M)\)</span>
+dəyərinə əsaslanaraq daxili vəziyyəti tam bərpa edə və <span
+class="math inline">\(H(M \parallel M&#39;)\)</span> dəyərini hesablaya
+bilməz.</p></li>
+<li><p>SHA-3-ün aparat üstünlükləri:</p>
+<ul>
+<li><p>Transformasiyaların sadə və müntəzəm olması (FPGA və ASIC üçün
+uyğunluq);</p></li>
+<li><p><span class="math inline">\(\chi\)</span> əməliyyatının aparatda
+çox sürətli implementasiyası;</p></li>
+<li><p>Yüksək dərəcəli pralelləşmə imkanı;</p></li>
+<li><p>Əməliyyatların enerji səmərəliliyi.</p></li>
+</ul></li>
+<li><p>SHA-2-dən SHA-3-ə keçid səbəbləri:</p>
+<ul>
+<li><p>Uzunmüddətli kriptoqrafik dayanıqlıq (SHA-2-dən fərqli
+struktur);</p></li>
+<li><p>XOF funksiyalarına (SHAKE) ehtiyac;</p></li>
+<li><p>Post-kvant kriptoqrafiya sistemləri ilə yüksək uyğunluq.</p></li>
+</ul></li>
+<li><p>1000 bayt = 8000 bit. SHA3-256 üçün blok ölçüsü <span
+class="math inline">\(r = 1088\)</span> bitdir. Tələb olunan <span
+class="math inline">\(f\)</span> permutasiya sayı blokların sayına
+bərabərdir: <span class="math display">\[N = \lceil \text{Mesaj
+Uzunluğu} / r \rceil = \lceil 8000 / 1088 \rceil = \lceil 7.35 \rceil =
+8\]</span> Doldurma<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> (padding) daxil olmaqla cəmi 8 dəfə
+<span class="math inline">\(f\)</span> permutasiyası tətbiq
+olunur.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə SHA-3 standartı ilə bağlı aşağıdakı əsas anlayışları
+öyrəndik:</p>
+<ul>
+<li><p><strong>SHA-3 yarışması:</strong> NIST tərəfindən 2007-2012-ci
+illərdə keçirilən açıq müsabiqə nəticəsində Keccak alqoritmi qalib
+gələrək yeni SHA-3 standartı kimi seçilmişdir.</p></li>
+<li><p><strong>Süngər (sponge) quruluşu:</strong> Ənənəvi Merkl-Damqord
+quruluşundan fərqli olaraq, bu innovativ dizayn məlumatın udulması
+(absorb) və sıxılması (squeeze) mərhələlərindən ibarətdir.</p></li>
+<li><p><strong>Keccak-f permutasiyası:</strong> 1600-bitlik daxili
+vəziyyət (state) üzərində 24 raund boyunca tətbiq olunan beş əsas
+transformasiyadan (theta, rho, pi, chi, iota) ibarətdir.</p></li>
+<li><p><strong>SHA-3 variantları:</strong> Standart dörd sabit çıxışlı
+heş funksiyasını (SHA3-224, SHA3-256, SHA3-384, SHA3-512) və iki
+genişləndirilə bilən çıxış funksiyasını (SHAKE128, SHAKE256) təyin
+edir.</p></li>
+<li><p><strong>Üstünlüklər:</strong> Uzunluq genişləndirmə hücumlarına
+qarşı təbii davamlılıq, XOF dəstəyi vasitəsilə ixtiyari uzunluqlu çıxış
+imkanı və yüksək təhlükəsizlik ehtiyatı əsas üstünlüklərdir.</p></li>
+</ul>
+<p><strong>Əsas nəticə:</strong> SHA-3 (Keccak) müasir kriptoqrafiyanın
+ən təhlükəsiz və çevik heş funksiyalarından biridir. Süngər quruluşu
+sayəsində o, Merkl-Damqord quruluşlu funksiyaların (məsələn, SHA-2)
+malik olduğu struktur zəifliklərindən azaddır. SHA-3 xüsusilə post-kvant
+kriptoqrafiyası, blokçeyn texnologiyaları və yüksək dərəcəli
+təhlükəsizlik tələb edən müasir sistemlər üçün ideal seçimdir.</p>
+<h1 id="əlavə-oxu-üçün-materiallar">Əlavə oxu üçün materiallar</h1>
+<p>SHA-3 alqoritmi, süngər quruluşu və Keccak permutasiyası haqqında
+daha dərindən məlumat əldə etmək üçün aşağıdakı fundamental mənbələrə
+müraciət etmək tövsiyə olunur:</p>
+<ol>
+<li><p><strong>Bertoni, G. et al. (2007).</strong> "Sponge Functions" —
+Süngər quruluşunun (Sponge construction) konseptual əsaslarını və riyazi
+modelini təqdim edən orijinal mənbə <span class="citation"
+data-cites="bertoni2007sponge"></span>.</p></li>
+<li><p><strong>Bertoni, G. et al. (2011).</strong> "The Keccak SHA-3
+Submission" — Keccak alqoritminin texniki spesifikasiyalarını və NIST
+yarışması üçün hazırlanmış ətraflı təsvirini ehtiva edən sənəd <span
+class="citation" data-cites="bertoni2011keccak"></span>.</p></li>
+<li><p><strong>NIST (2015).</strong> "SHA-3 Standard: Permutation-Based
+Hash and Extendable-Output Functions" — SHA-3 ailəsinin rəsmi standartı
+olan FIPS PUB 202 sənədi <span class="citation"
+data-cites="nist2015sha3"></span>.</p></li>
+<li><p><strong>Daemen, J. et al. (2017).</strong> "An Update on the
+Security of Keccak" — Keccak permutasiyasının müasir kriptoanalitik
+hücumlar qarşısındakı dayanıqlığını və təhlükəsizlik ehtiyatını təhlil
+edən yenilənmiş hesabat <span class="citation"
+data-cites="daemen2017update"></span>.</p></li>
+<li><p><strong>NIST (2012).</strong> "SHA-3 Selection Announcement" —
+Beş illik beynəlxalq yarışmanın nəticələrini və Keccak-ın qalib seçilmə
+səbəblərini açıqlayan rəsmi elan <span class="citation"
+data-cites="nist2012sha3"></span>.</p></li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>"padding" Azərbaycan dilinıə "tamamlama" və ya "padlama"
+kimi də tərcümə oluna bilir<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (9)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] NIST, 2007</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Announcing Request for Candidate Algorithm Nominations for a New Cryptographic Hash Algorithm (SHA-3) Family</h6>
+                    <p class="small text-secondary mb-0">NIST (2007)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Bertoni et al., 2011</span>
+                        <small class="text-muted">NIST SHA-3 Competition</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Keccak SHA-3 Submission</h6>
+                    <p class="small text-secondary mb-0">Guido Bertoni and Joan Daemen and Michaël Peeters and Gilles Van Assche (2011)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Bertoni et al., 2007</span>
+                        <small class="text-muted">ECRYPT Hash Function Workshop</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Sponge Functions</h6>
+                    <p class="small text-secondary mb-0">Guido Bertoni and Joan Daemen and Michaël Peeters and Gilles Van Assche (2007)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] NIST, 2015</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions</h6>
+                    <p class="small text-secondary mb-0">NIST (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Daemen et al., 2017</span>
+                        <small class="text-muted">IACR Cryptology ePrint Archive</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Update on the Security of Keccak</h6>
+                    <p class="small text-secondary mb-0">Joan Daemen and Michaël Peeters and Gilles Van Assche (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] NIST, 2012</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Third-Round Report of the SHA-3 Cryptographic Hash Algorithm Competition</h6>
+                    <p class="small text-secondary mb-0">NIST (2012)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

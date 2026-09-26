@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_8</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 8: Blok Şifrələrə Giriş və Feystel
+Şəbəkəsi</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 8: Blok Şifrələrin Əsas Prinsipləri</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Bu mühazirədə simmetrik kriptoqrafiyanın ən mühüm sahələrindən biri
+olan <strong>blok şifrələr</strong> ilə tanış olacağıq. Blok şifrələr
+məlumatı sabit uzunluqlu bloklara bölərək şifrləyən və müasir
+kriptoqrafiyanın təməl daşlarından hesab olunan
+<strong>alqoritmlərdir.</strong> <span class="citation"
+data-cites="stallings2017cryptography paar2010understanding"></span>.</p>
+<div class="keyconcept">
+<p><span>Blok Şifrənin Tərifi</span> Blok şifrə — gizli açardan istifadə
+edərək sabit uzunluqlu məlumat bloklarını (məsələn, 64, 128 bit)
+şifrləyən simmetrik kriptoqrafik alqoritmdir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<p>Formal olaraq bu <strong>gösterici</strong> belə ifadə olunur: <span
+class="math display">\[E: \{0,1\}^k \times \{0,1\}^n \rightarrow
+\{0,1\}^n\]</span></p>
+<p>Burada <span class="math inline">\(k\)</span> açar uzunluğu, <span
+class="math inline">\(n\)</span> isə blok uzunluğudur. Şifrləmə
+funksiyası <span class="math inline">\(E\)</span>, hər bir <span
+class="math inline">\(k\)</span> açarı üçün <span
+class="math inline">\(\{0,1\}^n\)</span> çoxluğundan özünə doğru
+permutasiya yaradır <span class="citation"
+data-cites="katz2020introduction"></span>.</p>
+</div>
+<h2 id="mühazirənin-əhatə-dairəsi">Mühazirənin Əhatə Dairəsi</h2>
+<p>Mühazirə ərzində aşağıdakı mövzuları təhlil edəcəyik:</p>
+<ul>
+<li><p>Blok şifrələrin tərifi və fundamental xüusiyyətləri.</p></li>
+<li><p>Şannonun (Shannon) qarışdırma (<em>confusion</em>) və yayılma
+(<em>diffusion</em>) prinsipləri <span class="citation"
+data-cites="shannon1949communication"></span>.</p></li>
+<li><p>Feystel şəbəkəsi — Horst Feystelin məşhur konstruksiyası <span
+class="citation" data-cites="feistel1973cryptography"></span>.</p></li>
+<li><p>Luby-Rackoff teoreminin əsas <strong>nümayiş etdirdiyi</strong>
+nəticələr <span class="citation"
+data-cites="luby1988construction"></span>.</p></li>
+<li><p>DES (<em>Data Encryption Standard</em>) alqoritminə giriş <span
+class="citation" data-cites="nist1977des"></span>.</p></li>
+</ul>
+<div class="history">
+<p><span>Blok Şifrələrin Tarixi</span> Müasir blok şifrələrin inkişafı
+1970-ci illərdə IBM-də Horst Feystelin rəhbərliyi ilə başlamışdır.
+<em>Lucifer</em> şifrəsi ilk Feystel şəbəkəsi əsaslı blok şifrə
+<strong>alqoritmi</strong> idi <span class="citation"
+data-cites="feistel1973cryptography ibm1970lucifer"></span>. Daha sonra
+bu işlər əsasında DES (<em>Data Encryption Standard</em>) hazırlanmış və
+1977-ci ildə ABŞ hökuməti tərəfindən rəsmi standart kimi qəbul
+edilmişdir <span class="citation"
+data-cites="nist1977des diffie1977exhaustive"></span>.</p>
+</div>
+<h1 id="blok-şifrələrin-əsas-xüsusiyyətləri">Blok Şifrələrin Əsas
+Xüsusiyyətləri</h1>
+<h2 id="tərif-və-tələblər">Tərif və Tələblər</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong>. <em><span>Blok Şifrə.</span> <span
+class="math inline">\(n\)</span> bitlik blok şifrə, <span
+class="math inline">\(k\)</span> bitlik açarın idarə etdiyi təkbətək
+(<em>bijective</em>) funksiyadır: <span class="math display">\[E_K:
+\{0,1\}^n \rightarrow \{0,1\}^n\]</span> Hər bir <span
+class="math inline">\(K\)</span> açarı üçün <span
+class="math inline">\(E_K\)</span> əməliyyatı bir permutasiyadır. Bu isə
+o deməkdir ki, hər bir şifrləmə prosesinin unikal tərs funksiyası (<span
+class="math inline">\(D_K\)</span>) mövcuddur <span class="citation"
+data-cites="katz2020introduction menezes1996handbook"></span>.</em></p>
+</div>
+<p>Blok şifrə <strong>alqoritmlərinin</strong> effektivliyi aşağıdakı üç
+təməl tələbə söykənir:</p>
+<ol>
+<li><p><strong>Biyektivlik:</strong> Hər bir açar üçün şifrləmə
+funksiyası biyektiv olmalıdır. Bu xüsusiyyət, müxtəlif açıq mətn
+bloklarının fərqli şifrəli mətn bloklarına çevrilməsini təmin edir və
+məlumat itkisinin qarşısını alır <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Tərs Olma İmkanı:</strong> Şifrlənmiş mətn blokunu ilkin
+halına qaytarmaq üçün unikal deşifrləmə açarı və
+<strong>alqoritm</strong> mövcud olmalıdır <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Açar Fəzası (<em>Key Space</em>):</strong> Mümkün
+açarların sayı tükəndirmə hücumlarına (<em>brute-force</em>) qarşı
+dözümlülük nümayiş etdirmək üçün kifayət qədər böyük olmalıdır. Müasir
+standartlar ən azı 128-bitlik təhlükəsizlik səviyyəsini hədəfləyir <span
+class="citation" data-cites="nist2012recommendation"></span>.</p></li>
+</ol>
+<h2 id="axın-şifrələri-ilə-müqayisə">Axın Şifrələri ilə Müqayisə</h2>
+<p>Blok şifrələr və axın şifrələri arasındakı fundamental fərqlər
+aşağıdakı cədvəldə <strong>göstərilmişdir</strong> <span
+class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Axın Şifrələri</strong></th>
+<th style="text-align: left;"><strong>Blok Şifrələr</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">İş Prinsipi</td>
+<td style="text-align: left;">Açar axını yaradır, məlumatla XOR
+edir</td>
+<td style="text-align: left;">Məlumatı sabit bloklarda şifrləyir</td>
+</tr>
+<tr>
+<td style="text-align: left;">Yaddaş Tələbi</td>
+<td style="text-align: left;">Çox az yaddaş kifayət edir</td>
+<td style="text-align: left;">Orta səviyyədə yaddaş tələb olunur</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sürət</td>
+<td style="text-align: left;">Müstəsna dərəcədə sürətlidir</td>
+<td style="text-align: left;">Sürətlidir, lakin axın şifrələrindən geri
+qalır</td>
+</tr>
+<tr>
+<td style="text-align: left;">İmplementasiya</td>
+<td style="text-align: left;">Sadə (xüsusilə aparat təminatında)</td>
+<td style="text-align: left;">Mürəkkəb (xüsusi təlimatlar tələb edə
+bilər)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tipik Tətbiqlər</td>
+<td style="text-align: left;">Mobil rabitə, IoT, real-vaxt
+sistemləri</td>
+<td style="text-align: left;">Verilənlər bazası, şəbəkə
+protokolları</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Blok Şifrələrin Üstünlükləri</span> Müasir kriptoqrafik
+sistemlərdə blok şifrələrin geniş istifadəsi bu amillərlə
+əlaqədardır:</p>
+<ul>
+<li><p>Hərtərəfli təhlil edilmiş və AES kimi qlobal standartlara
+malikdir <span class="citation"
+data-cites="nist2001aes daemen2002design"></span>.</p></li>
+<li><p>Müxtəlif iş rejimləri (<em>modes of operation</em>) vasitəsilə
+fərqli təhlükəsizlik xidmətləri (məsələn, autentifikasiya) təmin edir
+<span class="citation" data-cites="nist2001modes"></span>.</p></li>
+<li><p><strong>Təsadüfi giriş imkanı:</strong> Məlumatın istənilən
+blokunu digərlərindən asılı olmayaraq müstəqil şəkildə şifrləmək və ya
+deşifrləmək mümkündür <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+</div>
+<h1 id="şannonun-prinsipləri">Şannonun prinsipləri</h1>
+<p>Klod Şannon 1949-cu ildə nəşr etdiyi "Communication Theory of Secrecy
+Systems" əsərində təhlükəsiz şifrləmə sistemləri üçün iki fundamental
+prinsip təqdim etmişdir <span class="citation"
+data-cites="shannon1949communication"></span>. Bu prinsiplər müasir blok
+şifrə <strong>alqoritmlərinin</strong> təhlükəsizlik bazasını
+formalaşdırır.</p>
+<h2 id="qarışdırma-confusion">Qarışdırma (Confusion)</h2>
+<div class="keyconcept">
+<p><span>Qarışdırma</span> Qarışdırma — açar və şifrəli mətn arasındakı
+statistik əlaqəni mümkün qədər mürəkkəbləşdirmək prinsipidir. Hədəf —
+açarla şifrəli mətn arasındakı asılılığın aşkar edilməsini
+çətinləşdirməkdir <span class="citation"
+data-cites="shannon1949communication stallings2017cryptography"></span>.</p>
+</div>
+<p>Şannonun orijinal tərifinə görə, qarışdırma "açar və şifrəli mətn
+arasındakı əlaqəni mümkün qədər mürəkkəb və qarışıq etmək" məqsədi
+daşıyır <span class="citation"
+data-cites="shannon1949communication"></span>. Yaxşı qarışdırma
+səviyyəsində hər bir şifrəli mətn biti açarın bir neçə müxtəlif
+hissəsindən asılı olduğunu <strong>göstərir</strong> <span
+class="citation"
+data-cites="stallings2017cryptography smart2016cryptography"></span>.</p>
+<p>Qarışdırma adətən <strong>S-qutuları</strong> (<em>substitution
+table</em> – əvəzetmə cədvəlləri) vasitəsilə həyata keçirilir.
+S-qutuları giriş bitlərini qeyri-xətti şəkildə çıxış bitlərinə
+xəritələyir <span class="citation"
+data-cites="paar2010understanding stinson2018cryptography"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>Sadə S-qutusu Nümunəsi.</span>
+3-bit giriş və 3-bit çıxış üçün nəzərdə tutulmuş sadə S-qutusu aşağıdakı
+kimidir:</em></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Giriş</strong></em></th>
+<th style="text-align: center;"><em><strong>Çıxış</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>000</em></td>
+<td style="text-align: center;"><em>011</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>001</em></td>
+<td style="text-align: center;"><em>110</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>010</em></td>
+<td style="text-align: center;"><em>101</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>011</em></td>
+<td style="text-align: center;"><em>000</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>100</em></td>
+<td style="text-align: center;"><em>111</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>101</em></td>
+<td style="text-align: center;"><em>001</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>110</em></td>
+<td style="text-align: center;"><em>010</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>111</em></td>
+<td style="text-align: center;"><em>100</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Bu cədvəlin strukturu tamamilə qeyri-xəttidir — o, heç bir sadə
+xətti funksiya ilə ifadə edilə bilməz <span class="citation"
+data-cites="paar2010understanding smart2016cryptography"></span>.</em></p>
+</div>
+<h2 id="yayılma-diffusion">Yayılma (Diffusion)</h2>
+<div class="keyconcept">
+<p><span>Yayılma</span> Yayılma — açıq mətndəki bir bit dəyişikliyinin
+şifrəli mətndə bir çox bitə təsir etməsi prinsipidir. Hədəf — statistik
+əlaqələri bütün mətnə yaymaqla hücumçunun işini çətinləşdirməkdir <span
+class="citation"
+data-cites="shannon1949communication stallings2017cryptography"></span>.</p>
+</div>
+<p>Şannonun tərifinə görə, yayılma "açıq mətnin statistik quruluşunun
+şifrəli mətnin böyük hissəsinə yayılması" deməkdir <span
+class="citation" data-cites="shannon1949communication"></span>. Bu, açıq
+mətndəki artıqlığın (<em>redundancy</em>) şifrəli mətndə görünməməsini
+təmin edir <span class="citation"
+data-cites="stallings2017cryptography menezes1996handbook"></span>.</p>
+<p>Yayılma adətən <strong>permutasiyalar</strong> (bitlərin və ya
+baytların yerini dəyişmək) vasitəsilə həyata keçirilir <span
+class="citation" data-cites="paar2010understanding"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>Yayılma Nümunəsi</span> 8-bitlik
+mətn üçün tətbiq olunan sadə permutasiya cədvəli:</em></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Mövqe</strong></em></th>
+<th style="text-align: center;"><em>0</em></th>
+<th style="text-align: center;"><em>1</em></th>
+<th style="text-align: center;"><em>2</em></th>
+<th style="text-align: center;"><em>3</em></th>
+<th style="text-align: center;"><em>4</em></th>
+<th style="text-align: center;"><em>5</em></th>
+<th style="text-align: center;"><em>6</em></th>
+<th style="text-align: center;"><em>7</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em><strong>Yeni
+mövqe</strong></em></td>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>6</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>7</em></td>
+<td style="text-align: center;"><em>3</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>5</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Bu permutasiyada bir bitin dəyişməsi ilkin mərhələdə yalnız bir
+çıxış bitinə təsir edir, lakin bir neçə raunddan sonra bu təsir bütün
+bitlərə yayılır <span class="citation"
+data-cites="paar2010understanding stinson2018cryptography"></span>.</em></p>
+</div>
+<h2 id="şannon-prinsiplərinin-əhəmiyyəti">Şannon Prinsiplərinin
+Əhəmiyyəti</h2>
+<p>Müasir blok şifrələrin əksəriyyəti Şannonun bu iki prinsipini
+təkrarlanan quruluşda birləşdirir. Hər bir raundda əvvəlcə qarışdırma
+(S-qutuları ilə), sonra yayılma (permutasiya ilə) tətbiq olunur <span
+class="citation"
+data-cites="stallings2017cryptography smart2016cryptography"></span>.
+Bir neçə raunddan sonra hər bir açıq mətn biti hər bir şifrəli mətn
+bitinə təsir edir — bu <strong>lavina effekti</strong> (<em>avalanche
+effect</em>) adlanır <span class="citation"
+data-cites="paar2010understanding ferguson2010cryptography"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 2</strong>. <em><span>Lavina Effekti.</span> Lavina
+effekti — girişdə (açıq mətndə və ya açarda) baş verən çox kiçik bir
+dəyişikliyin — hətta yalnız bir bitin dəyişməsinin — çıxış bitlərinin
+təxminən yarısının (<span class="math inline">\(50\%\)</span>)
+dəyişməsinə səbəb olmasıdır <span class="citation"
+data-cites="paar2010understanding stinson2018cryptography"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong>. <em><span>Lavina Effekti Testi.</span>
+128-bitlik AES şifrəsində bir bit dəyişikliyi orta hesabla 64 bitin
+dəyişməsinə səbəb olur ki, bu da sistemin yüksək yayılma qabiliyyətinə
+malik olduğunu <strong>nümayiş etdirir</strong> <span class="citation"
+data-cites="stallings2017cryptography daemen2002design"></span>.</em></p>
+</div>
+<h1 id="feystel-şəbəkəsi">Feystel Şəbəkəsi</h1>
+<h2 id="tarixi-fon">Tarixi Fon</h2>
+<div class="history">
+<p><span>Horst Feistel (1915-1990)</span> Horst Feistel — Alman əsilli
+amerikalı kriptoqraf. IBM-də çalışarkən <em>Lucifer</em> şifrəsini və
+Feystel şəbəkəsini icad etmişdir <span class="citation"
+data-cites="feistel1973cryptography ibm1970lucifer"></span>. Onun
+tədqiqatları DES (<em>Data Encryption Standard</em>) alqoritminin
+yaradılmasına əsas olmuşdur <span class="citation"
+data-cites="nist1977des"></span>.</p>
+</div>
+<p>Feystel şəbəkəsi blok şifrələrinin dizaynında istifadə olunan
+təkrarlanan bir struktur <strong>alqoritmidir</strong>. Bu quruluşun ən
+mühüm üstünlüyü ondan ibarətdir ki, şifrləmə və deşifrləmə prosesləri
+mahiyyətcə eynidir — yalnız raund açarlarının tətbiq ardıcıllığı dəyişir
+<span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="feystel-şəbəkəsinin-quruluşu">Feystel Şəbəkəsinin Quruluşu</h2>
+<p>Feystel şəbəkəsində hər raundda məlumat bloku iki bərabər yarıya
+bölünür <span class="citation"
+data-cites="stallings2017cryptography menezes1996handbook"></span>:</p>
+<ul>
+<li><p><span class="math inline">\(L_i\)</span> — sol yarım (<span
+class="math inline">\(n/2\)</span> bit)</p></li>
+<li><p><span class="math inline">\(R_i\)</span> — sağ yarım (<span
+class="math inline">\(n/2\)</span> bit)</p></li>
+</ul>
+<div class="keyconcept">
+<p><span>Feystel Raundu</span> Bir Feystel raundu aşağıdakı riyazi
+əməliyyatlardan ibarətdir: <span class="math display">\[\begin{align*}
+L_{i+1} &amp;= R_i \\
+R_{i+1} &amp;= L_i \oplus F(R_i, K_i)
+\end{align*}\]</span></p>
+<p>Burada:</p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> — raund funksiyası
+(qarışdırma və yayılmanı təmin edir)</p></li>
+<li><p><span class="math inline">\(K_i\)</span> — <span
+class="math inline">\(i\)</span>-ci raund açarı (əsas açardan
+törədilir)</p></li>
+<li><p><span class="math inline">\(\oplus\)</span> — XOR
+əməliyyatı</p></li>
+</ul>
+<p><span class="citation"
+data-cites="paar2010understanding katz2020introduction"></span></p>
+</div>
+<h2 id="feystel-şəbəkəsinin-xüsusiyyətləri">Feystel Şəbəkəsinin
+Xüsusiyyətləri</h2>
+<ol>
+<li><p><strong>Tərs Olma İmkanı:</strong> <span
+class="math inline">\(F\)</span> funksiyasının tərs-olunmaz (invertible)
+olması tələb olunmur. Strukturun özü biyektiv olduğu üçün <span
+class="math inline">\(F\)</span> istənilən mürəkkəb
+<strong>alqoritm</strong> ola bilər <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Simmetriya:</strong> Deşifrləmə prosesi eyni
+quruluşdadır, yalnız raund açarları tərs ardıcıllıqla (<span
+class="math inline">\(K_n, \dots, K_1\)</span>) tətbiq olunur <span
+class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Çeviklik:</strong> Blok ölçüsü, raund sayı və raund
+funksiyasının daxili komponentləri sərbəst seçilə bilər <span
+class="citation" data-cites="schneier1996applied"></span>.</p></li>
+<li><p><strong>Möhkəmlik:</strong> <span
+class="math inline">\(F\)</span> funksiyası nə qədər mürəkkəb
+qeyri-xəttilik nümayiş etdirsə, şifrə bir o qədər təhlükəsiz olar <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</p></li>
+</ol>
+<h2 id="deşifrləmə-prosesi">Deşifrləmə Prosesi</h2>
+<p>Deşifrləmə zamanı <span class="math inline">\(F\)</span>
+funksiyasının tərsinə çevrilməsi tələb olunmur. Riyazi olaraq deşifrləmə
+addımları belə <strong>göstərilir</strong>: <span
+class="math display">\[\begin{align*}
+R_i &amp;= L_{i+1} \\
+L_i &amp;= R_{i+1} \oplus F(L_{i+1}, K_i)
+\end{align*}\]</span></p>
+<p>Bu xüsusiyyət aparat implementasiyasını xeyli asanlaşdırır və
+resurslara qənaət edir <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<h2 id="feystel-şəbəkəsinin-nümunələri">Feystel Şəbəkəsinin
+Nümunələri</h2>
+<p>Aşağıdakı cədvəldə Feystel arxitekturası əsasında qurulmuş məşhur
+blok şifrə <strong>alqoritmləri</strong> verilmişdir:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Şifrə</strong></th>
+<th style="text-align: center;"><strong>Blok (bit)</strong></th>
+<th style="text-align: center;"><strong>Açar (bit)</strong></th>
+<th style="text-align: center;"><strong>Raund Sayı</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DES</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">56</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr>
+<td style="text-align: left;">Blowfish</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">32-448</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr>
+<td style="text-align: left;">Twofish</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">128/192/256</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr>
+<td style="text-align: left;">Camellia</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">128/192/256</td>
+<td style="text-align: center;">18/24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong>. <em><span>Sadələşdirilmiş Feystel
+Hesablaması</span> Tutaq ki, 8-bitlik blokumuz var (L=4 bit, R=4 bit) və
+<span class="math inline">\(F(R, K) = (R + K) \mod 16\)</span>.
+<em>İlkin şərtlər:</em> Açıq mətn <span class="math inline">\(1011
+0101_2\)</span> (<span class="math inline">\(L_0=11, R_0=5\)</span>),
+açarlar <span class="math inline">\(K_1=3, K_2=5\)</span>.</em></p>
+<p><em><strong>Raund 1:</strong> <span class="math inline">\(L_1 = R_0 =
+5\)</span><br />
+<span class="math inline">\(F(5, 3) = (5 + 3) \mod 16 = 8\)</span><br />
+<span class="math inline">\(R_1 = L_0 \oplus 8 = 11 \oplus 8 =
+3\)</span></em></p>
+<p><em><strong>Raund 2:</strong> <span class="math inline">\(L_2 = R_1 =
+3\)</span><br />
+<span class="math inline">\(F(3, 5) = (3 + 5) \mod 16 = 8\)</span><br />
+<span class="math inline">\(R_2 = L_1 \oplus 8 = 5 \oplus 8 =
+13\)</span></em></p>
+<p><em><strong>Nəticə:</strong> Şifrəli mətn <span
+class="math inline">\(0011 1101_2\)</span> (3, 13) olur <span
+class="citation" data-cites="paar2010understanding"></span>.</em></p>
+</div>
+<h1 id="luby-rackoff-teoremi">Luby-Rackoff Teoremi</h1>
+<p>Luby-Rackoff teoremi Feystel şəbəkəsinin nəzəri əsasını təşkil
+edir.</p>
+<div class="theorem">
+<p><strong>Teorem 1</strong>. <em><span>Luby-Rackoff (1988)</span> Əgər
+<span class="math inline">\(F: \{0,1\}^k \times \{0,1\}^n \rightarrow
+\{0,1\}^n\)</span> təhlükəsiz psevdo-təsadüfi funksiyadırsa, onda üç
+raundlu Feystel şəbəkəsi psevdo-təsadüfi permutasiyadır <span
+class="citation"
+data-cites="luby1988construction katz2020introduction"></span>.</em></p>
+</div>
+<p>Bu teorem Michael Luby və Charles Rackoff tərəfindən 1988-ci ildə
+nəşr edilmiş "How to construct pseudorandom permutations from
+pseudorandom functions" məqaləsində təqdim edilmişdir <span
+class="citation" data-cites="luby1988construction"></span>. Bu iş
+kriptoqrafiya nəzəriyyəsində mühüm dönüş nöqtəsi hesab olunan bir
+<strong>elmi məqalədir</strong> <span class="citation"
+data-cites="katz2020introduction"></span>.</p>
+<h2 id="üç-raundlu-feystel-şəbəkəsi">Üç Raundlu Feystel Şəbəkəsi</h2>
+<p>Üç raundlu Feystel şəbəkəsi aşağıdakı ardıcıllıqla işləyir <span
+class="citation"
+data-cites="luby1988construction smart2016cryptography"></span>:</p>
+<p><span class="math display">\[\begin{align*}
+L_1 &amp;= R_0 \\
+R_1 &amp;= L_0 \oplus F_1(R_0) \\
+L_2 &amp;= R_1 \\
+R_2 &amp;= L_1 \oplus F_2(R_1) \\
+L_3 &amp;= R_2 \\
+R_3 &amp;= L_2 \oplus F_3(R_2)
+\end{align*}\]</span></p>
+<p>Burada <span class="math inline">\(F_1, F_2, F_3\)</span> müstəqil
+PRF-lərdir.</p>
+<h2 id="dörd-raundlu-feystel-şəbəkəsi">Dörd Raundlu Feystel
+Şəbəkəsi</h2>
+<p>Dörd raundlu Feystel şəbəkəsi isə <strong>super-psevdo-təsadüfi
+permutasiya</strong> yaradır. Bu o deməkdir ki, hücumçu həm irəli
+(şifrləmə), həm də tərs (deşifrləmə) funksiyaya sorğu göndərə bilsə
+belə, çıxışı həqiqi təsadüfi permutasiyadan ayıra bilməz <span
+class="citation"
+data-cites="luby1988construction maurer1992simplified"></span>.</p>
+<h2 id="teoremin-təkmilləşdirilməsi-və-müasir-tədqiqatlar">Teoremin
+Təkmilləşdirilməsi və Müasir Tədqiqatlar</h2>
+<p>Luby-Rackoff teoremi sonradan bir çox tədqiqatçılar tərəfindən
+ümumiləşdirilmişdir <span class="citation"
+data-cites="maurer1992simplified patarin2003luby"></span>. Ueli Maurer
+1992-ci ildə teoremin daha sadə variantını təqdim etmişdir <span
+class="citation" data-cites="maurer1992simplified"></span>. Jak Patarin
+isə 2003-cü ildə <strong>göstərmişdir</strong> ki, 7 raundlu Feystel
+şəbəkəsi <span class="math inline">\(2^{n(1-\epsilon)}\)</span>
+təhlükəsizlik səviyyəsi təmin edir <span class="citation"
+data-cites="patarin2003luby"></span>.</p>
+<div class="note">
+<p><span>Praktiki Əhəmiyyət</span> Bu teorem Feystel şəbəkəsinin
+kriptoqrafik gücünü nəzəri olaraq əsaslandırsa da, praktikada
+təhlükəsizlik ehtiyatını (<em>security margin</em>) artırmaq üçün daha
+çox raund (məsələn, DES-də 16 raund) istifadə olunan
+<strong>alqoritmlərə</strong> üstünlük verilir <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+</div>
+<h2 id="diferensial-ehtimallar-və-son-elmi-yeniliklər">Diferensial
+Ehtimallar və Son Elmi Yeniliklər</h2>
+<p>Luby-Rackoff sxemində diferensial keçid ehtimallarının hesablanması
+üçün müasir <strong>alqoritmlər</strong> mövcuddur. Denisov və Qluxov
+(2025) <span class="math inline">\(r\)</span> raundlu Luby-Rackoff sxemi
+üçün fərqlərin keçid matrisinin hesablanmasının iki
+<strong>alqoritmi</strong> təsvir etmişlər <span class="citation"
+data-cites="denisov2025two"></span>. Birinci <strong>alqoritm</strong>
+Patarin teoremlərinə, ikincisi isə Markov zənciri yanaşmasına
+əsaslanır.</p>
+<p>Eyni zamanda, Wang və Smith (2024) biyektiv funksiyalarla işləyən
+Feystel şəbəkələrinin təhlükəsizlik xüsusiyyətlərini təhlil edərək yeni
+nəticələr <strong>nümayiş etdirmişlər</strong> <span class="citation"
+data-cites="wang2024security"></span>.</p>
+<h1 id="raund-funksiyasının-dizaynı">Raund Funksiyasının Dizaynı</h1>
+<p>Raund funksiyası (<span class="math inline">\(F\)</span>) Feystel
+şəbəkəsinin nüvəsini təşkil edir. Onun dizaynı şifrləmənin
+təhlükəsizliyini və kriptoqrafik dözümlülüyünü birbaşa müəyyən edən əsas
+<strong>göstericidir</strong> <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="qarışdırma-və-yayılma-balansı">Qarışdırma və Yayılma
+Balansı</h2>
+<p><span class="math inline">\(F\)</span> funksiyası həm qarışdırma, həm
+də yayılma prinsiplərini eyni zamanda təmin etməlidir. Tipik bir <span
+class="math inline">\(F\)</span> funksiyası aşağıdakı ardıcıl
+addımlardan ibarət olan bir <strong>alqoritmdir</strong> <span
+class="citation"
+data-cites="stallings2017cryptography menezes1996handbook"></span>:</p>
+<ol>
+<li><p><strong>Genişləndirmə (<em>Expansion</em>):</strong> Girişdəki
+<span class="math inline">\(n/2\)</span> bit, <span
+class="math inline">\(m &gt; n/2\)</span> bitə qədər genişləndirilir.
+Bu, növbəti mərhələdə bitlərin daha effektiv şəkildə bir-birinə
+qarışmasını təmin edir.</p></li>
+<li><p><strong>Açarın Əlavə Edilməsi:</strong> Genişləndirilmiş məlumat
+bloku raund açarı (<span class="math inline">\(K_i\)</span>) ilə XOR
+əməliyyatına cəlb olunur.</p></li>
+<li><p><strong>S-qutuları (<em>Substitution</em>):</strong> Qeyri-xətti
+əvəzetmə əməliyyatı tətbiq olunur.</p></li>
+<li><p><strong>Permutasiya:</strong> Bitlərin və ya baytların yeri
+sistematik şəkildə dəyişdirilir.</p></li>
+</ol>
+<h2 id="s-qutuları-substitution-boxes">S-qutuları (Substitution
+Boxes)</h2>
+<p>S-qutuları blok şifrələrdə qarışdırma (<em>confusion</em>)
+prinsipinin əsas mənbəyidir <span class="citation"
+data-cites="paar2010understanding stinson2018cryptography"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong>. <em><span>S-qutusu</span> S-qutusu — <span
+class="math inline">\(m\)</span> bitlik girişi <span
+class="math inline">\(n\)</span> bitlik çıxışa xəritələyən qeyri-xətti
+funksiyadır: <span class="math inline">\(S: \{0,1\}^m \rightarrow
+\{0,1\}^n\)</span> <span class="citation"
+data-cites="stallings2017cryptography smart2016cryptography"></span>.</em></p>
+</div>
+<p>S-qutularının dizaynında aşağıdakı mühüm xassələr <strong>nümayiş
+etdirilməlidir</strong> <span class="citation"
+data-cites="paar2010understanding menezes1996handbook"></span>:</p>
+<ul>
+<li><p><strong>Qeyri-xəttilik:</strong> S-qutusu xətti yaxınlaşmalara
+qarşı dayanıqlı olmalıdır ki, xətti kriptoanaliz hücumları uğursuz olsun
+<span class="citation" data-cites="matsui1994linear"></span>.</p></li>
+<li><p><strong>Diferensial Bərabər Paylanma:</strong> Diferensial
+kriptoanalizə qarşı dözümlülük üçün giriş-çıxış fərqləri bərabər
+ehtimalla paylanmalıdır <span class="citation"
+data-cites="biham1991differential"></span>.</p></li>
+<li><p><strong>Biyektivlik:</strong> Əgər <span class="math inline">\(m
+= n\)</span> olarsa, S-qutusu təkbətək (<em>one-to-one</em>)
+olmalıdır.</p></li>
+<li><p><strong>Lavina Effekti:</strong> Girişdəki cəmi bir bitin
+dəyişməsi, çıxışda bir neçə bitin dəyişməsinə səbəb olduğunu
+<strong>göstərməlidir</strong>.</p></li>
+</ul>
+<h2 id="p-qutuları-permutation-boxes">P-qutuları (Permutation
+Boxes)</h2>
+<p>P-qutuları yayılma (<em>diffusion</em>) prinsipini təmin edir. Onlar
+bitlərin və ya baytların yerini sistematik olaraq dəyişdirir <span
+class="citation"
+data-cites="stallings2017cryptography schneier1996applied"></span>.</p>
+<ul>
+<li><p><strong>Bit Səviyyəsində P-qutusu:</strong> Hər bir bit spesifik
+qayda ilə yeni mövqeyə köçürülür.</p></li>
+<li><p><strong>Bayt Səviyyəsində P-qutusu:</strong> Məlumat qrupları
+(baytlar) səviyyəsində yerdəyişmə icra olunur (məsələn, AES-dəki
+<em>ShiftRows</em> və <em>MixColumns</em> <strong>alqoritmləri</strong>)
+<span class="citation" data-cites="daemen2002design"></span>.</p></li>
+</ul>
+<h1 id="des-data-encryption-standard-alqoritminə-giriş">DES (Data
+Encryption Standard) Alqoritminə Giriş</h1>
+<p>DES, Feystel şəbəkəsi əsasında qurulmuş və uzun illər kriptoqrafiya
+dünyasında standart kimi qəbul edilmiş ən məşhur blok şifrə
+<strong>alqoritmidir</strong> <span class="citation"
+data-cites="nist1977des paar2010understanding"></span>.</p>
+<h2 id="tarixi-inkişafı">Tarixi İnkişafı</h2>
+<div class="history">
+<p><span>DES-in Yaranma Tarixi</span> 1973-cü ildə ABŞ Milli Standartlar
+Bürosu (NBS, indiki NIST) milli şifrləmə standartı üçün müsabiqə elan
+etdi. IBM şirkəti özünün <em>Lucifer</em> şifrəsi ilə bu müsabiqədə
+iştirak etdi <span class="citation" data-cites="ibm1970lucifer"></span>.
+NSA-nın texniki dəstəyi ilə <em>Lucifer</em> təkmilləşdirildi və 1975-ci
+ildə DES təklif olundu. 1977-ci ildə rəsmi olaraq FIPS 46 standartı kimi
+qəbul edilmişdir <span class="citation"
+data-cites="nist1977des diffie1977exhaustive"></span>.</p>
+</div>
+<h2 id="fundamental-xüsusiyyətlər">Fundamental Xüsusiyyətlər</h2>
+<p>DES alqoritminin əsas texniki <strong>parametrləri</strong> aşağıdakı
+kimidir:</p>
+<ul>
+<li><p><strong>Blok Ölçüsü:</strong> 64-bit <span class="citation"
+data-cites="nist1977des"></span>.</p></li>
+<li><p><strong>Açar Uzunluğu:</strong> Nominal olaraq 64-bitdir, lakin
+hər 8-ci bit cütlük yoxlanışı (<em>parity check</em>) üçün istifadə
+edildiyindən effektiv açar uzunluğu 56-bitdir <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Raund Sayı:</strong> 16 Feystel raundu <span
+class="citation" data-cites="schneier1996applied"></span>.</p></li>
+<li><p><strong>Raund Açarı:</strong> Hər raund üçün əsas açardan
+48-bitlik alt-açarlar törədilir <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+</ul>
+<h2 id="des-in-ümumi-strukturu">DES-in Ümumi Strukturu</h2>
+<p>DES-in işləmə mexanizmi aşağıdakı üç əsas mərhələdən keçir <span
+class="citation" data-cites="stallings2017cryptography"></span>:</p>
+<ol>
+<li><p><strong>İlkin Permutasiya (IP):</strong> Mətnin bitlərinin yerini
+müəyyən cədvəl üzrə dəyişir.</p></li>
+<li><p><strong>16 Raundlu Feystel Şəbəkəsi:</strong> Qarışdırma və
+yayılma əməliyyatlarının icra edildiyi əsas blokdur.</p></li>
+<li><p><strong>Son Permutasiya (FP):</strong> İlkin permutasiyanın
+tərsidir (<span class="math inline">\(IP^{-1}\)</span>) və yekun şifrəli
+mətni formalaşdırır.</p></li>
+</ol>
+<h2 id="des-in-raund-funksiyası">DES-in Raund Funksiyası</h2>
+<p>DES-in hər bir Feystel raundu daxilində aşağıdakı
+<strong>alqoritmlər</strong> tətbiq olunur <span class="citation"
+data-cites="paar2010understanding"></span>:</p>
+<ol>
+<li><p><strong>Genişləndirmə (E):</strong> Sağ yarım (32-bit) xüsusi
+cədvəl vasitəsilə 48-bitə çatdırılır.</p></li>
+<li><p><strong>Açar Miksajı:</strong> Genişləndirilmiş məlumat 48-bitlik
+raund açarı ilə XOR edilir.</p></li>
+<li><p><strong>S-qutuları:</strong> 48-bitlik məlumat 8 fərqli
+S-qutusundan keçərək yenidən 32-bitə endirilir. Bu mərhələ
+qeyri-xəttiliyi təmin edir.</p></li>
+<li><p><strong>P-Permutasiyası:</strong> 32-bitlik nəticə yayılma
+prinsipini gücləndirmək üçün yenidən düzülür.</p></li>
+</ol>
+<div class="note">
+<p><span>Təhlükəsizlik Vəziyyəti</span> DES 56-bitlik qısa açar uzunluğu
+səbəbindən müasir dövrdə təhlükəsiz hesab olunmur. 1998-ci ildə <em>EFF
+Deep Crack</em> cihazı DES-i 22 saatdan az müddətə sındıraraq bu
+<strong>göstəricini</strong> praktiki olaraq <strong>nümayiş
+etdirmişdir</strong>.</p>
+</div>
+<h1 id="feystel-şəbəkəsinin-python-implementasiyası">Feystel Şəbəkəsinin
+Python İmplementasiyası</h1>
+<p>Nəzəriyyəni daha yaxşı anlamaq üçün sadələşdirilmiş bir Feystel
+şifrəsinin proqram kodunu təhlil edək.</p>
+<h2 id="şifrləmə-və-deşifrləmə-funksiyaları">Şifrləmə və Deşifrləmə
+Funksiyaları</h2>
+<div class="sourceCode" id="cb1" data-language="Python"
+data-caption="Sadə Feystel Şifrəsi Modeli"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feistel_round(L, R, round_key, F):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Bir Feystel raundunun icrası&quot;&quot;&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    new_L <span class="op">=</span> R</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    new_R <span class="op">=</span> L <span class="op">^</span> F(R, round_key)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_L, new_R</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feistel_encrypt(plaintext, round_keys, F, rounds, block_size):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Feystel şifrləmə alqoritmi&quot;&quot;&quot;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    half <span class="op">=</span> block_size <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> half) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> (plaintext <span class="op">&gt;&gt;</span> half) <span class="op">&amp;</span> mask</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> plaintext <span class="op">&amp;</span> mask</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rounds):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        L, R <span class="op">=</span> feistel_round(L, R, round_keys[i], F)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (L <span class="op">&lt;&lt;</span> half) <span class="op">|</span> R</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feistel_decrypt(ciphertext, round_keys, F, rounds, block_size):</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Deşifrləmə zamanı açarlar tərs ardıcıllıqla tətbiq olunur&quot;&quot;&quot;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    half <span class="op">=</span> block_size <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> half) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> (ciphertext <span class="op">&gt;&gt;</span> half) <span class="op">&amp;</span> mask</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> ciphertext <span class="op">&amp;</span> mask</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Deşifrləmə üçün açarları tərsinə çeviririk</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key <span class="kw">in</span> <span class="bu">reversed</span>(round_keys):</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Strukturun simmetrik olduğunu göstərir</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        L, R <span class="op">=</span> (R <span class="op">^</span> F(L, key)) <span class="op">&amp;</span> mask, L</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (L <span class="op">&lt;&lt;</span> half) <span class="op">|</span> R</span></code></pre></div>
+<h2 id="raund-funksiyası-nümunəsi">Raund Funksiyası Nümunəsi</h2>
+<div class="sourceCode" id="cb2" data-language="Python"
+data-caption="Qeyri-xətti Raund Funksiyası"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simple_F(R, key):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Sadə qeyri-xətti raund funksiyası&quot;&quot;&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Qeyri-xəttilik üçün vurma və bit döndərmə alqoritmi</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (R <span class="op">^</span> key) <span class="op">*</span> <span class="bn">0x9e3779b9</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">&amp;</span> <span class="bn">0xFFFFFFFF</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ((x <span class="op">&lt;&lt;</span> <span class="dv">5</span>) <span class="op">|</span> (x <span class="op">&gt;&gt;</span> <span class="dv">27</span>)) <span class="op">&amp;</span> <span class="bn">0xFFFFFFFF</span></span></code></pre></div>
+<div class="warning">
+<p><span>Akademik İstifadə Üçün Xəbərdarlıq</span> Təqdim olunan Python
+kodu yalnız təhsil məqsədi daşıyır. Real layihələrdə və yüksək
+təhlükəsizlik tələb edən sistemlərdə AES (<em>Advanced Encryption
+Standard</em>) kimi müasir və standartlaşdırılmış alqoritmlərdən
+istifadə edilməsi tövsiyə olunur <span class="citation"
+data-cites="nist2001aes"></span>.</p>
+</div>
+<p>Mühazirənin bu son hissəsi öyrənilən nəzəri biliklərin
+möhkəmləndirilməsi üçün nəzərdə tutulmuşdur. Praktiki tapşırıqlar və
+Nəticə bölməsini razılaşdırdığımız akademik üslubda (alqoritm, nümayiş
+etdirir, göstərir) və tam LaTeX formatında təqdim edirəm.</p>
+<h1 id="praktiki-tapşırıqlar">Praktiki Tapşırıqlar</h1>
+<p>Bu tapşırıqlar blok şifrə <strong>alqoritmlərinin</strong> daxili
+məntiqini və kriptoqrafik dayanıqlığını daha dərindən anlamaq məqsədi
+daşıyır.</p>
+<h2 id="tapşırıq-1-sadə-feystel-şəbəkəsi-hesablaması">Tapşırıq 1: Sadə
+Feystel Şəbəkəsi Hesablaması</h2>
+<p>8-bitlik blok, 4-bitlik yarımlar və sadə <span
+class="math inline">\(F(R,K) = (R + K) \mod 16\)</span> funksiyası üçün
+aşağıdakı əməliyyatları icra edin:</p>
+<ol>
+<li><p>Açıq mətn = <span class="math inline">\(10110101_2\)</span>,
+<span class="math inline">\(K_1=3\)</span>, <span
+class="math inline">\(K_2=7\)</span> parametrləri üçün 2 raundluq
+şifrləmə aparın.</p></li>
+<li><p>Əldə olunan şifrəli mətni deşifrləyərək prosesin simmetrikliyini
+<strong>nümayiş etdirin</strong>.</p></li>
+</ol>
+<h2 id="tapşırıq-2-qeyri-xətti-s-qutusu-dizaynı">Tapşırıq 2: Qeyri-xətti
+S-qutusu Dizaynı</h2>
+<p>3-bit giriş və 3-bit çıxış üçün bir S-qutusu tərtib edin. Dizayn
+etdiyiniz S-qutusunun tamamilə qeyri-xətti olduğunu (heç bir xətti
+funksiya ilə ifadə edilə bilməyəcəyini) riyazi olaraq
+<strong>göstərin</strong>.</p>
+<h2 id="tapşırıq-3-lavina-effektinin-ölçülməsi">Tapşırıq 3: Lavina
+Effektinin Ölçülməsi</h2>
+<p>Hazırladığınız sadə Feystel şifrəsində bir bit dəyişikliyinin çıxışa
+təsirini analiz edin:</p>
+<ol>
+<li><p>Açıq mətndə yalnız bir bit dəyişikliyi edin.</p></li>
+<li><p>İki müxtəlif şifrəli mətni müqayisə edərək, dəyişən bitlərin
+sayını hesablayın.</p></li>
+<li><p>Bu <strong>göstəricini</strong> raund sayından (<span
+class="math inline">\(r=1, 2, 4, 8\)</span>) asılı olaraq qrafik şəkildə
+təsvir edin.</p></li>
+</ol>
+<h2 id="tapşırıq-4-python-proqramlaşdırması">Tapşırıq 4: Python
+Proqramlaşdırması</h2>
+<p>Aşağıdakı kriptoqrafik funksiyaların strukturunu Python dilində
+reallaşdırın:</p>
+<div class="sourceCode" id="cb3" data-language="Python"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feistel_network(plaintext, round_keys, F, rounds, block_size):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Ümumi Feystel şəbəkəsi implementasiyası&quot;&quot;&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Kodunuzu burada reallaşdırın</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_sbox(size_in, size_out):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Təsadüfi və qeyri-xətti S-qutusu yaradan alqoritm&quot;&quot;&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Kodunuzu burada reallaşdırın</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> avalanche_effect_analysis(plaintext1, plaintext2, cipher_func, params):</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;İki mətn arasındakı bit fərqinin yayılma dərəcəsini ölçür&quot;&quot;&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Kodunuzu burada reallaşdırın</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+<h2 id="tapşırıq-5-des-in-ilkin-permutasiyası">Tapşırıq 5: DES-in İlkin
+Permutasiyası</h2>
+<p>DES alqoritminin İlkin Permutasiya (IP) cədvəlini tədqiq edin və bu
+yerdəyişmə <strong>alqoritmini</strong> Python-da implementasiya edin
+<span class="citation"
+data-cites="nist1977des paar2010understanding"></span>.</p>
+<h2 id="tapşırıq-6-feystel-və-spn-müqayisəsi">Tapşırıq 6: Feystel və SPN
+Müqayisəsi</h2>
+<p>Feystel şəbəkəsi ilə SPN (<em>Substitution-Permutation Network</em>)
+arasındakı fundamental fərqləri müəyyən edin. Hər iki arxitekturanın
+resurs səmərəliliyi və təhlükəsizlik üstünlüklərini müqayisəli şəkildə
+şərh edin <span class="citation"
+data-cites="stallings2017cryptography smart2016cryptography"></span>.</p>
+<div class="tip">
+<p><span>Əlavə Oxu Materialları</span> Mövzu ilə bağlı biliklərinizi
+genişləndirmək üçün aşağıdakı mənbələrə müraciət etməyiniz tövsiyə
+olunur:</p>
+<ul>
+<li><p><span class="citation" data-cites="paar2010understanding"></span>
+— Fəsil 3</p></li>
+<li><p><span class="citation"
+data-cites="stallings2017cryptography"></span> — Fəsil 5</p></li>
+<li><p><span class="citation" data-cites="katz2020introduction"></span>
+— Fəsil 6</p></li>
+<li><p><span class="citation" data-cites="smart2016cryptography"></span>
+— Fəsil 4</p></li>
+</ul>
+</div>
+<h1 id="praktiki-tapşırıqların-həlli">Praktiki Tapşırıqların Həlli</h1>
+<h2 id="həll-1-sadə-feystel-şəbəkəsi">Həll 1: Sadə Feystel Şəbəkəsi</h2>
+<p><strong>Verilənlər:</strong> Açıq mətn = <span
+class="math inline">\(10110101_2\)</span> (<span
+class="math inline">\(L_0 = 1011_2 = 11, R_0 = 0101_2 =
+5\)</span>)<br />
+Açarlar: <span class="math inline">\(K_1 = 3, K_2 = 7\)</span><br />
+Funksiya: <span class="math inline">\(F(R, K) = (R + K) \mod
+16\)</span></p>
+<p><strong>Raund 1:</strong></p>
+<ul>
+<li><p><span class="math inline">\(L_1 = R_0 = 5\)</span> (<span
+class="math inline">\(0101_2\)</span>)</p></li>
+<li><p><span class="math inline">\(F(R_0, K_1) = (5 + 3) \mod 16 =
+8\)</span> (<span class="math inline">\(1000_2\)</span>)</p></li>
+<li><p><span class="math inline">\(R_1 = L_0 \oplus F(R_0, K_1) = 11
+\oplus 8 = 3\)</span> (<span
+class="math inline">\(0011_2\)</span>)</p></li>
+</ul>
+<p><strong>Raund 2:</strong></p>
+<ul>
+<li><p><span class="math inline">\(L_2 = R_1 = 3\)</span> (<span
+class="math inline">\(0011_2\)</span>)</p></li>
+<li><p><span class="math inline">\(F(R_1, K_2) = (3 + 7) \mod 16 =
+10\)</span> (<span class="math inline">\(1010_2\)</span>)</p></li>
+<li><p><span class="math inline">\(R_2 = L_1 \oplus F(R_1, K_2) = 5
+\oplus 10 = 15\)</span> (<span
+class="math inline">\(1111_2\)</span>)</p></li>
+</ul>
+<p><strong>Şifrəli mətn:</strong> <span class="math inline">\(L_2R_2 =
+00111111_2\)</span>.</p>
+<p><strong>Deşifrləmə (Yoxlama):</strong> Raund 2-nin açarı (<span
+class="math inline">\(K_2=7\)</span>) ilə başlayırıq:</p>
+<ul>
+<li><p><span class="math inline">\(R_1 = L_2 = 3\)</span></p></li>
+<li><p><span class="math inline">\(L_1 = R_2 \oplus F(L_2, K_2) = 15
+\oplus 10 = 5\)</span></p></li>
+</ul>
+<p>Raund 1-in açarı (<span class="math inline">\(K_1=3\)</span>)
+ilə:</p>
+<ul>
+<li><p><span class="math inline">\(R_0 = L_1 = 5\)</span></p></li>
+<li><p><span class="math inline">\(L_0 = R_1 \oplus F(L_1, K_1) = 3
+\oplus 8 = 11\)</span></p></li>
+</ul>
+<p><strong>Nəticə:</strong> <span class="math inline">\(L_0R_0 =
+10110101_2\)</span>. Prosesin simmetrikliyi <strong>nümayiş
+etdirildi</strong>.</p>
+<h2 id="həll-2-s-qutusu-dizaynı">Həll 2: S-qutusu Dizaynı</h2>
+<p>Qeyri-xəttiliyi təmin etmək üçün çıxış bitləri giriş bitlərinin xətti
+kombinasiyası (XOR) olmamalıdır. Məsələn, 3-bitlik S-qutusu:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Giriş</th>
+<th style="text-align: center;">000</th>
+<th style="text-align: center;">001</th>
+<th style="text-align: center;">010</th>
+<th style="text-align: center;">011</th>
+<th style="text-align: center;">100</th>
+<th style="text-align: center;">101</th>
+<th style="text-align: center;">110</th>
+<th style="text-align: center;">111</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Çıxış</td>
+<td style="text-align: center;">101</td>
+<td style="text-align: center;">010</td>
+<td style="text-align: center;">001</td>
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">011</td>
+<td style="text-align: center;">111</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Analiz:</strong> Bu cədvəldə heç bir bit çıxışı (məsələn,
+<span class="math inline">\(y_0\)</span>) girişlərin <span
+class="math inline">\(x_i \oplus x_j\)</span> şəkildə sadə cəbri cəmi
+deyil. Bu, sistemin xətti kriptoanalizə qarşı dözümlü olduğunu
+<strong>göstərir</strong>.</p>
+<h2 id="həll-3-lavina-effekti">Həll 3: Lavina Effekti</h2>
+<p>Açıq mətndə 1 bit dəyişdikdə, Feystel şəbəkəsinin hər raundunda bu
+dəyişiklik <span class="math inline">\(F\)</span> funksiyası vasitəsilə
+yayılır.</p>
+<ul>
+<li><p><strong>Raund 1:</strong> Dəyişiklik yalnız bir yarıma (<span
+class="math inline">\(R_1\)</span>) təsir edir.</p></li>
+<li><p><strong>Raund 2:</strong> <span class="math inline">\(F(R_1,
+K_2)\)</span> vasitəsilə dəyişiklik digər yarıma da keçir.</p></li>
+<li><p><strong>Nəticə:</strong> 4-8 raunddan sonra çıxış bitlərinin
+təxminən 50%-i dəyişir. Bu, blok şifrənin yüksək yayılma qabiliyyətini
+<strong>nümayiş etdirir</strong>.</p></li>
+</ul>
+<h2 id="həll-4-python-proqramlaşdırması-model-kod">Həll 4: Python
+Proqramlaşdırması (Model Kod)</h2>
+<p>Feystel şəbəkəsinin və lavina effektinin analizi üçün funksiyaların
+implementasiyası aşağıdakı kimidir:</p>
+<div class="sourceCode" id="cb4" data-language="Python"
+data-caption="Tapşırıq 4-ün həlli"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feistel_network(plaintext, round_keys, F, rounds, block_size):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    half <span class="op">=</span> block_size <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> half) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> (plaintext <span class="op">&gt;&gt;</span> half) <span class="op">&amp;</span> mask</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> plaintext <span class="op">&amp;</span> mask</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(rounds):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Feystel mexanizmi: L_{i+1} = R_i, R_{i+1} = L_i ^ F(R_i, K_i)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        L, R <span class="op">=</span> R, (L <span class="op">^</span> F(R, round_keys[i])) <span class="op">&amp;</span> mask</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sonuncu raunddan sonra yarımların yerini dəyişməmək (DES-dəki kimi)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (L <span class="op">&lt;&lt;</span> half) <span class="op">|</span> R</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_sbox(size_in, size_out):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> random</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Biyektiv (təkbətək) S-qutusu yaratmaq üçün permutasiya istifadə olunur</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    entries <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span><span class="op">**</span>size_out))</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    random.shuffle(entries)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> entries</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> avalanche_effect_analysis(plaintext1, plaintext2, cipher_func, params):</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    c1 <span class="op">=</span> cipher_func(plaintext1, <span class="op">**</span>params)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    c2 <span class="op">=</span> cipher_func(plaintext2, <span class="op">**</span>params)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># XOR vasitəsilə fərqli bitləri tapırıq</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    diff <span class="op">=</span> c1 <span class="op">^</span> c2</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bin</span>(diff).count(<span class="st">&#39;1&#39;</span>) <span class="co"># Dəyişən bitlərin sayı</span></span></code></pre></div>
+<h2 id="həll-5-des-in-ilkin-permutasiyası-ip">Həll 5: DES-in İlkin
+Permutasiyası (IP)</h2>
+<p>DES-də İlkin Permutasiya (IP) 64-bitlik mətni müəyyən bir cədvələ
+uyğun olaraq yenidən düzür. Bu, kriptoqrafik möhkəmlikdən ziyada,
+1970-ci illərin aparat təminatında (hardware) məlumatın yüklənməsini
+asanlaşdırmaq üçün nəzərdə tutulmuşdu.</p>
+<div class="sourceCode" id="cb5" data-language="Python"
+data-caption="Tapşırıq 5-in həlli"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initial_permutation(block_64bit):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># DES IP Cədvəli (sadələşdirilmiş nümunə üçün bir hissə)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    IP_TABLE <span class="op">=</span> [</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="dv">58</span>, <span class="dv">50</span>, <span class="dv">42</span>, <span class="dv">34</span>, <span class="dv">26</span>, <span class="dv">18</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">60</span>, <span class="dv">52</span>, <span class="dv">44</span>, <span class="dv">36</span>, <span class="dv">28</span>, <span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">4</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="dv">62</span>, <span class="dv">54</span>, <span class="dv">46</span>, <span class="dv">38</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">64</span>, <span class="dv">56</span>, <span class="dv">48</span>, <span class="dv">40</span>, <span class="dv">32</span>, <span class="dv">24</span>, <span class="dv">16</span>, <span class="dv">8</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="dv">57</span>, <span class="dv">49</span>, <span class="dv">41</span>, <span class="dv">33</span>, <span class="dv">25</span>, <span class="dv">17</span>, <span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">59</span>, <span class="dv">51</span>, <span class="dv">43</span>, <span class="dv">35</span>, <span class="dv">27</span>, <span class="dv">19</span>, <span class="dv">11</span>, <span class="dv">3</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="dv">61</span>, <span class="dv">53</span>, <span class="dv">45</span>, <span class="dv">37</span>, <span class="dv">29</span>, <span class="dv">21</span>, <span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">63</span>, <span class="dv">55</span>, <span class="dv">47</span>, <span class="dv">39</span>, <span class="dv">31</span>, <span class="dv">23</span>, <span class="dv">15</span>, <span class="dv">7</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, position <span class="kw">in</span> <span class="bu">enumerate</span>(IP_TABLE):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Bitin mövqeyini tapırıq (DES-də bitlər 1-dən 64-ə kimi nömrələnir)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        bit <span class="op">=</span> (block_64bit <span class="op">&gt;&gt;</span> (<span class="dv">64</span> <span class="op">-</span> position)) <span class="op">&amp;</span> <span class="dv">1</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Yeni mövqeyinə yerləşdiririk</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        result <span class="op">|=</span> (bit <span class="op">&lt;&lt;</span> (<span class="dv">63</span> <span class="op">-</span> i))</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code></pre></div>
+<div class="note">
+<p><span>Mühüm Qeyd</span> İlkin permutasiya (IP) və onun tərsi olan son
+permutasiya (FP) şifrənin təhlükəsizlik səviyyəsini (key strength)
+artırmır. Müasir alqoritmlərdə (məsələn, AES) bu tip sabit bit
+yerdəyişmələrinə adətən rast gəlinmir, çünki proqram təminatında
+(software) əlavə resurs tələb edir.</p>
+</div>
+<h2 id="həll-6-feystel-vs-spn-müqayisəsi">Həll 6: Feystel vs SPN
+Müqayisəsi</h2>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Feystel Şəbəkəsi (məs.
+DES)</strong></th>
+<th style="text-align: left;"><strong>SPN (məs. AES)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tərs Olma</strong></td>
+<td style="text-align: left;"><span class="math inline">\(F\)</span>
+funksiyasının tərsi tələb olunmur.</td>
+<td style="text-align: left;">Hər bir komponentin (S-qutusu, P-qutusu)
+tərsi olmalıdır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Verilənlər</strong></td>
+<td style="text-align: left;">Hər raundda yalnız blokun yarısı
+dəyişir.</td>
+<td style="text-align: left;">Hər raundda bütün blok dəyişir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Effektivlik</strong></td>
+<td style="text-align: left;">Daha çox raund tələb edir (məs. 16).</td>
+<td style="text-align: left;">Daha az raundla yüksək yayılma (məs.
+10).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Simmetriya</strong></td>
+<td style="text-align: left;">Şifrləmə və deşifrləmə eynidir.</td>
+<td style="text-align: left;">Şifrləmə və deşifrləmə fərqli struktura
+malikdir.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu mühazirə çərçivəsində blok şifrələr və Feystel şəbəkəsinin təməl
+prinsipləri təhlil edilmişdir:</p>
+<ul>
+<li><p><strong>Blok Şifrələrin Mahiyyəti:</strong> Sabit uzunluqlu
+məlumat blokları üzərində işləyən simmetrik sistemlər.</p></li>
+<li><p><strong>Şannon Prinsipləri:</strong> Qarışdırma
+(<em>confusion</em>) və yayılma (<em>diffusion</em>) vasitəsilə
+statistik təhlükəsizliyin təmini <span class="citation"
+data-cites="shannon1949communication"></span>.</p></li>
+<li><p><strong>Feystel Konstruksiyası:</strong> Şifrləmə və
+deşifrləmənin vahid strukturda birləşdiyi effektiv dizayn <span
+class="citation" data-cites="feistel1973cryptography"></span>.</p></li>
+<li><p><strong>Luby-Rackoff Teoremi:</strong> Feystel şəbəkəsinin
+psevdotəsadüfi permutasiya yaratma qabiliyyətinin nəzəri sübutu <span
+class="citation" data-cites="luby1988construction"></span>.</p></li>
+<li><p><strong>Raund Funksiyası:</strong> S-qutuları və P-qutuları
+vasitəsilə qeyri-xəttiliyin və yayılmanın təmini.</p></li>
+<li><p><strong>DES-in Rolu:</strong> Feystel şəbəkəsinin ilk qlobal və
+ən çox təhlil edilmiş tətbiqi <span class="citation"
+data-cites="nist1977des"></span>.</p></li>
+</ul>
+<p>Feystel şəbəkəsi blok şifrə dizaynında çeviklik və implementasiya
+sadəliyi baxımından əvəzsiz bir modeldir. Növbəti dərsimizdə DES
+alqoritminin daxili komponentlərini (S-qutularının xüsusi strukturu) və
+3DES <strong>alqoritmini</strong> öyrənəcəyik.</p>
+<div class="note">
+<p><span>Növbəti Mühazirə Mövzusu</span> <strong>Həftə 9:</strong> DES,
+3DES və Müasir Kriptoanaliz Hücumları <span class="citation"
+data-cites="nist1977des paar2010understanding smart2016cryptography"></span>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (24)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Shannon, 1949</span>
+                        <small class="text-muted">Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Communication Theory of Secrecy Systems</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1949)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Feistel, 1973</span>
+                        <small class="text-muted">Scientific American</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Computer Privacy</h6>
+                    <p class="small text-secondary mb-0">Horst Feistel (1973)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Luby &amp; Rackoff, 1988</span>
+                        <small class="text-muted">SIAM Journal on Computing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">How to Construct Pseudorandom Permutations from Pseudorandom Functions</h6>
+                    <p class="small text-secondary mb-0">Michael Luby and Charles Rackoff (1988)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Standards, 1977</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">National Bureau of Standards (1977)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Corporation, 1970</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Lucifer Cryptographic Algorithm</h6>
+                    <p class="small text-secondary mb-0">IBM Corporation (1970)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Diffie &amp; Hellman, 1977</span>
+                        <small class="text-muted">Computer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Exhaustive Cryptanalysis of the NBS Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Martin E. Hellman (1977)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Barker et al., 2012</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Key Management: Part 1: General</h6>
+                    <p class="small text-secondary mb-0">Barker, Elaine and Barker, William and Burr, William and Polk, William and Smid, Miles (2012)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] NIST, 2001</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Daemen &amp; Rijmen, 2002</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Design of Rijndael: AES - The Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Joan Daemen and Vincent Rijmen (2002)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Dworkin, 2001</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Block Cipher Modes of Operation</h6>
+                    <p class="small text-secondary mb-0">Morris Dworkin (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Smart, 2016</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Made Simple</h6>
+                    <p class="small text-secondary mb-0">Nigel P. Smart (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[17] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[18] Schneier, 1996</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Applied Cryptography: Protocols, Algorithms, and Source Code in C</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[19] Maurer, 1992</span>
+                        <small class="text-muted">Advances in Cryptology — EUROCRYPT &#x27;92</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Simplified and Generalized Treatment of Luby-Rackoff Pseudorandom Permutation Generators</h6>
+                    <p class="small text-secondary mb-0">Ueli M. Maurer (1992)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[20] Patarin, 2003</span>
+                        <small class="text-muted">Advances in Cryptology — CRYPTO 2003</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Luby-Rackoff: 7 Rounds Are Enough for 2n(1−ε) Security</h6>
+                    <p class="small text-secondary mb-0">Jacques Patarin (2003)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[21] Denisov &amp; Glukhov, 2025</span>
+                        <small class="text-muted">Prikladnaya Diskretnaya Matematika. Supplement</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Two Ways of Calculating of Differential Transition Probabilities in Luby — Rackoff Scheme</h6>
+                    <p class="small text-secondary mb-0">O. V. Denisov and M. M. Glukhov (2025)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[22] Wang &amp; Smith, 2024</span>
+                        <small class="text-muted">Journal of Cryptographic Research</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Security analysis of Feistel networks with bijective round functions</h6>
+                    <p class="small text-secondary mb-0">Wang, Li and Smith, James (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[23] Matsui, 1994</span>
+                        <small class="text-muted">Advances in Cryptology — EUROCRYPT &#x27;93</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Linear cryptanalysis method for DES cipher</h6>
+                    <p class="small text-secondary mb-0">Matsui, Mitsuru (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[24] Biham &amp; Shamir, 1991</span>
+                        <small class="text-muted">Advances in Cryptology — CRYPTO &#x27;90</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Differential Cryptanalysis of DES-like Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">Eli Biham and Adi Shamir (1991)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

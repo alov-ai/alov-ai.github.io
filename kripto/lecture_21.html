@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_21</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 21</strong></p>
+<p><strong>Elliptik Əyrilərə Giriş - I Hissə</strong></p>
+<p>Bu mühazirə elliptik əyrilərin kriptoqrafiyada istifadəsinə giriş,
+onların riyazi əsaslarını, Veyerştras tənliyini, nöqtələrin toplanması
+əməliyyatını və qrup xüsusiyyətlərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>Verilmiş qısa Veyerştras tənliyinin diskriminantını hesablayaraq
+əyrinin qeyri-sinqulyar olub-olmadığını müəyyən etməyi <span
+class="citation" data-cites="silverman2009arithmetic"></span>;</p></li>
+<li><p>Həqiqi müstəvidə həndəsi, sonlu meydanda isə cəbri üsulla
+nöqtələrin toplanması və ikiqatlaşdırılması əməliyyatlarını icra etməyi
+<span class="citation"
+data-cites="paar2024understanding hankerson2004guide"></span>;</p></li>
+<li><p>Sonsuzluq nöqtəsinin (<span class="math inline">\(O\)</span>)
+neytral element rolunu və elliptik əyri nöqtələrinin Abel qrupu
+formalaşdırmasını yoxlamağı <span class="citation"
+data-cites="katz2020introduction"></span>;</p></li>
+<li><p>Qrup tərtibi, nöqtə tərtibi və altqrup anlayışlarını
+fərqləndirməyi <span class="citation"
+data-cites="hankerson2004guide"></span>;</p></li>
+<li><p>ECDLP problemini klassik DLP ilə parametr və hücum modelləri üzrə
+müqayisə etməyi bacaracaqlar <span class="citation"
+data-cites="menezes1996handbook"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 20-ci mühazirədə sonlu qruplarda DLP/CDH/DDH
+fərziyyələri öyrənildi.</p>
+<p><strong>İndi:</strong> Elliptik əyri nöqtələrinin qrup strukturunun
+qurulması və onlar üzərində cəbri hesablama qaydaları təhlil edilir.</p>
+<p><strong>Sonra:</strong> 22-ci mühazirə bu qrup strukturunu ECDH açar
+razılaşdırılması protokoluna və təhlükəsiz əyri seçimi kriteriyalarına
+tətbiq edəcək.</p>
+<p><strong>Kanon:</strong> <em>Veyerştras (<em>Weierstrass</em>)
+forması</em>; <em>sonlu meydan</em>; <em>nöqtələrin toplanması</em>;
+<em>qeyri-sinqulyarlıq</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirələrimizdə asimmetrik kriptoqrafiyanın iki klassik
+sütununu — RSA və Diffi-Hellman/ElGamal sistemlərini araşdırdıq. Bu
+sistemlərin təhlükəsizlik arxitekturası müvafiq olaraq böyük ədədlərin
+vuruqlara ayrılması və sonlu meydanların multiplikativ qruplarında
+diskret loqarifm probleminin (DLP) hesablama çətinliyinə əsaslanır.
+Faktorizasiya üçün GNFS, uyğun sonlu-meydan DLP-si üçün isə NFS-DL kimi
+sub-eksponensial alqoritmlər məlumdur; buna görə tələb olunan
+təhlükəsizlik səviyyəsi artdıqca bu sistemlərin parametrləri də
+böyüdülür.</p>
+<p>1985-ci ildə <strong>Nil Koblitz</strong> və <strong>Viktor
+Miller</strong> bir-birindən müstəqil olaraq daha səmərəli bir
+alternativ təklif etdilər: şifrələmə üçün cəbri həndəsənin əsas obyekti
+olan elliptik əyrilərin nöqtələrindən istifadə etmək <span
+class="citation" data-cites="koblitz1987elliptic miller1985use"></span>.
+Bu yanaşma <strong>elliptik əyri kriptoqrafiyası (ECC)</strong> adlanır.
+ECC-yə qarşı məlum olan ən güclü klassik hücumlar (məsələn, Pollard ro
+üsulu) subeksponensial deyil, tam eksponensial zaman mürəkkəbliyinə
+malikdir. Bu xassə ECC-yə RSA ilə eyni təhlükəsizlik səviyyəsini daha
+kiçik açar ölçüləri ilə təmin etməyə imkan verir.</p>
+<table id="tab:rsa_ecc_comparison">
+<caption>NIST standartlarına əsasən RSA və ECC açar uzunluqlarının
+ekvivalentlik müqayisəsi <span class="citation"
+data-cites="nist2020keymanagement"></span>.</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Təhlükəsizlik
+Səviyyəsi</strong></th>
+<th style="text-align: center;"><strong>RSA Açar Uzunluğu
+(bit)</strong></th>
+<th style="text-align: center;"><strong>ECC Açar Uzunluğu
+(bit)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">80-bit</td>
+<td style="text-align: center;">1024</td>
+<td style="text-align: center;">160</td>
+</tr>
+<tr>
+<td style="text-align: center;">112-bit</td>
+<td style="text-align: center;">2048</td>
+<td style="text-align: center;">224</td>
+</tr>
+<tr>
+<td style="text-align: center;">128-bit</td>
+<td style="text-align: center;">3072</td>
+<td style="text-align: center;">256</td>
+</tr>
+<tr>
+<td style="text-align: center;">192-bit</td>
+<td style="text-align: center;">7680</td>
+<td style="text-align: center;">384</td>
+</tr>
+<tr>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">15360</td>
+<td style="text-align: center;">521</td>
+</tr>
+</tbody>
+</table>
+<p>Cədvəl <a href="#tab:rsa_ecc_comparison" data-reference-type="ref"
+data-reference="tab:rsa_ecc_comparison">1</a>-dən göründüyü kimi, müasir
+standart olan 128-bitlik təhlükəsizliyi təmin etmək üçün RSA-ə 3072
+bitlik nəhəng bir açar lazım olduğu halda, ECC cəmi 256 bitlik açarla
+eyni işi görür. Bu resurs səmərəliliyi ECC-ni mobil cihazlar, çip
+kartları, IoT sistemləri və yüksək trafikli şəbəkə protokolları üçün
+əvəzedilməz edir.</p>
+<div class="tcolorbox">
+<p>Mühazirə boyunca aşağıdakı sualların riyazi və praktiki cavablarını
+formalaşdıracağıq:</p>
+<ol>
+<li><p>Elliptik əyrilər vizual və cəbri olaraq nəyi ifade edir?</p></li>
+<li><p>Qısa Veyerştras tənliyində diskriminantın sıfırdan fərqli olması
+şərti (<span class="math inline">\(4a^3 + 27b^2 \neq 0\)</span>) nə üçün
+mütləqdir?</p></li>
+<li><p>Əyri üzərində "nöqtələrin toplanması" əməliyyatı həndəsi olaraq
+necə təyin olunur? Niyə iki nöqtəni düz xətlə birləşdirib üçüncü kəsişmə
+nöqtəsinin <span class="math inline">\(x\)</span> oxuna nəzərən
+simmetriyasını götürürük?</p></li>
+<li><p>Sonsuzluq nöqtəsi (<span
+class="math inline">\(\mathcal{O}\)</span>) harada yerləşir və o necə
+neytral elementə çevrilir?</p></li>
+<li><p>Nöqtələrin çoxluğu bu əməliyyata görə niyə mütləq Abel qrupu
+təşkil etməlidir?</p></li>
+<li><p>ECDLP-ni klassik DLP-dən riyazi olaraq daha çətin edən daxili
+struktur fərqi nədir?</p></li>
+</ol>
+</div>
+<h1 id="elliptik-əyrilərin-tarixi">Elliptik Əyrilərin Tarixi</h1>
+<h2 id="kriptoqrafiyadan-əvvəl">Kriptoqrafiyadan Əvvəl</h2>
+<p>Elliptik əyrilər riyaziyyat elmində XIX əsrdən etibarən geniş
+öyrənilməyə başlanmışdır. Bu obyektlər ilkin olaraq elliptik
+inteqralların — xüsusilə ellipsin qövs uzunluğunun və rəqqas
+hərəkətlərinin hesablanması zamanı yaranmışdır (adlarının "elliptik"
+olması da elə buradan qaynaqlanır; özləri isə həndəsi ellips deyildir).
+XX əsrdə cəbri həndəsə və ədədlər nəzəriyyəsində mühüm rol oynamağa
+başlayan bu əyrilər, riyaziyyat tarixinin ən böyük tapmacalarından biri
+olan <strong>Fermanın böyük teoreminin</strong> 1994-cü ildə Endrü Uayls
+(<em>Andrew Wiles</em>) tərəfindən ısbatında əsas riyazi alət
+olmuşdur.</p>
+<h2 id="koblitz-və-miller-1985">Koblitz və Miller (1985)</h2>
+<p>1985-ci ildə iki riyaziyyatçı bir-birindən tamamilə müstəqil şəkildə
+elliptik əyrilərin nöqtələrindən kriptoqrafik sistemlərin qurulmasında
+istifadə etməyi təklif etdi:</p>
+<ul>
+<li><p><strong>Viktor Miller:</strong> “Kriptoqrafiyada elliptik
+əyrilərin istifadəsi” əsəri ilə <span class="citation"
+data-cites="miller1985use"></span>.</p></li>
+<li><p><strong>Nil Koblitz:</strong> “Elliptik əyri kriptosistemləri”
+tədqiqatı ilə <span class="citation"
+data-cites="koblitz1987elliptic"></span>.</p></li>
+</ul>
+<p>Bu tədqiqatçılar riyazi olaraq göstərdilər ki, elliptik əyrilər
+üzərində təyin olunan qrup daxilində diskret loqarifm problemi, klassik
+multiplikativ sonlu meydanlardakı analoqundan struktur baxımından daha
+mürəkkəbdir. Klassik meydanlarda indeks hesablama kimi sub-eksponensial
+sürətli hücum alqoritmlərindən istifadə edilir, lakin elliptik əyrilər
+üçün bu cür sürətlə işləyən hər hansı alqoritm məlum deyil. Məhz bu
+fərq, eyni təhlükəsizlik hüdudunu qorumaq şərtilə ECC-yə daha kiçik açar
+ölçülərindən istifadə etmək üstünlüyü verir.</p>
+<h1 id="veyerştras-tənliyi">Veyerştras Tənliyi</h1>
+<h2 id="qısa-veyerştras-tənliyi">Qısa Veyerştras Tənliyi</h2>
+<p>Riyazi olaraq, elliptik əyrilər iki dəyişənli kubik tənliklərin
+köklərinin çoxluğudur. Xarakteristikası 2 və 3-dən fərqli olan
+meydanlarda (məsələn, <span class="math inline">\(p &gt; 3\)</span>
+şərtini ödəyən ixtiyari meydanda) ümumi kubik tənlik xətti dəyişənlərin
+əvəzlənməsi metodu ilə sadələşdirilir və aşağıdakı <strong>Qısa
+Veyerştras tənliyi</strong> formasına gətirilir <span class="citation"
+data-cites="silverman2009arithmetic"></span>:</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Qısa Veyerştras tənliyi). <em>Həqiqi
+ədədlər meydanı (<span class="math inline">\(\mathbb{R}\)</span>)
+üzərində elliptik əyri, koordinatları aşağıdakı tənliyi ödəyən <span
+class="math inline">\(P=(x,y)\)</span> nöqtələrinin və sonsuzluq nöqtəsi
+adlanan xüsusi <span class="math inline">\(O\)</span> neytral
+elementinin çoxluğudur: <span class="math display">\[E: y^2 = x^3 + ax +
+b\]</span> Burada <span class="math inline">\(a, b \in
+\mathbb{R}\)</span> sabit parametrlərdir və əyrinin hamar
+(qeyri-sinqulyar) olmasını təmin edən aşağıdakı şərt ödənilməlidir:
+<span class="math display">\[\Delta = -16(4a^3 + 27b^2) \neq 0\]</span>
+Kriptoqrafik ədəbiyyatda sadəlik üçün sabit multiplikator (<span
+class="math inline">\(-16\)</span>) nəzərə alınmır və
+<strong>diskriminant</strong> birbaşa aşağıdakı formada ifadə edilir <a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[\Delta
+= 4a^3 + 27b^2\neq 0\]</span></em></p>
+</div>
+<div class="remark">
+<p><span> Ümumi Veyerştras və transformasiyalar</span> <strong>1. Ən
+ümumi riyazi forma (Proyektiv Müstəvi):</strong> Riyazi baxımdan
+elliptik əyri, 2-ölçülü proyektiv müstəvidə (<span
+class="math inline">\(\mathbb{P}^2(K)\)</span>) azı bir rasional nöqtəsi
+(<span class="math inline">\(O\)</span>) olan <span
+class="math inline">\(3\)</span>-cü dərəcəli hamar (qeyri-sinqulyar)
+cəbri əyridir. Riman–Rox (<em>Riemann–Roch</em>) teoreminə görə,
+ixtiyari belə əyrini bircins koordinatda (<span
+class="math inline">\(X:Y:Z\)</span>) aşağıdakı tənliklə ifadə etmək
+olar: <span class="math display">\[Y^2 Z + a_1 X Y Z + a_3 Y Z^2 = X^3 +
+a_2 X^2 Z + a_4 X Z^2 + a_6 Z^3 \quad (a_i \in K)\]</span> Biz <span
+class="math inline">\(Z \neq 0\)</span> olduqda afinn koordinatlara
+(<span class="math inline">\(x = X/Z, y = Y/Z\)</span>) keçsək, ixtiyari
+<span class="math inline">\(K\)</span> meydanı üzərində təyin olunan
+<strong>Ümumi Veyerştras tənliyini</strong> alırıq: <span
+class="math display">\[E: y^2 + a_1 xy + a_3 y = x^3 + a_2 x^2 + a_4 x +
+a_6\]</span> <span class="math inline">\(Z=0\)</span> şərtini ödəyən
+yeganə <span class="math inline">\((0:1:0)\)</span> nöqtəsi isə əyrinin
+<strong>sonsuzluq nöqtəsidir</strong> (<span
+class="math inline">\(O\)</span>) və qrup əməliyyatında neytral element
+rolunu oynayır.</p>
+<p><strong>2. Qısa Veyerştras formasına transformasiya (<span
+class="math inline">\(\mathrm{char}(K) \neq 2, 3\)</span>):</strong>
+Meydanın xarakteristikası <span class="math inline">\(2\)</span> və
+<span class="math inline">\(3\)</span>-dən fərqli olduqda (məsələn,
+<span class="math inline">\(\mathbb{R}\)</span> və ya <span
+class="math inline">\(p &gt; 3\)</span> olan <span
+class="math inline">\(\mathbb{F}_p\)</span> meydanlarında) aşağıdakı
+addımlarla <span class="math inline">\(x^2, xy, y\)</span> hədləri ləğv
+edilir:</p>
+<ol>
+<li><p><strong><span class="math inline">\(y\)</span> dəyişəninin
+tamamlanması (<span class="math inline">\(\mathrm{char}(K) \neq
+2\)</span>):</strong> <span class="math inline">\(y \mapsto y -
+\frac{a_1 x + a_3}{2}\)</span> xətti əvəzləməsi aparıldıqda <span
+class="math inline">\(xy\)</span> və <span
+class="math inline">\(y\)</span> hədləri ləğv olunur: <span
+class="math display">\[y^2 = x^3 + \frac{b_2}{4} x^2 + \frac{b_4}{2} x +
+\frac{b_6}{4} \quad \left(\text{burada } b_2 = a_1^2 +
+4a_2\right)\]</span></p></li>
+<li><p><strong><span class="math inline">\(x\)</span> dəyişəninin
+tamamlanması və miqyaslama (<span class="math inline">\(\mathrm{char}(K)
+\neq 3\)</span>):</strong> Daha sonra <span class="math inline">\(x
+\mapsto \frac{x - 3b_2}{12}\)</span> və <span class="math inline">\(y
+\mapsto \frac{y}{108}\)</span> transformasiyaları tətbiq edilməklə <span
+class="math inline">\(x^2\)</span> kvadratik həddi ləğv olunur.</p></li>
+</ol>
+<p>Nəticədə tənlik kriptoqrafiyada standart qəbul edilən <strong>Qısa
+Veyerştras formasına</strong> (<span class="math inline">\(y^2 = x^3 +
+ax + b\)</span>) gətirilir.</p>
+<p><strong>3. Xüsusi xarakteristikalı meydanlar (<span
+class="math inline">\(\mathrm{char}(K) = 2, 3\)</span>):</strong> Əgər
+meydanın xarakteristikası 2 və ya 3 olarsa (<span
+class="math inline">\(\mathbb{F}_{2^m}\)</span> və ya <span
+class="math inline">\(\mathbb{F}_{3^m}\)</span>), <span
+class="math inline">\(2\)</span>-yə və <span
+class="math inline">\(3\)</span>-ə bölmə əməliyyatı təyin olunmadığı
+üçün yuxarıdakı transformasiyalar mümkün olmur. Bu səbəbdən həmin
+meydanlarda uyğun sadələşdirilmiş xüsusi formalar istifadə edilir:</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{char}(K) = 2\)</span> olduqda
+(adi qeyri-supersinqulyar halda): <span class="math inline">\(y^2 + xy =
+x^3 + ax^2 + b\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{char}(K) = 3\)</span>
+olduqda: <span class="math inline">\(y^2 = x^3 + ax^2 +
+b\)</span></p></li>
+</ul>
+</div>
+<div class="remark">
+<p><span>Veyerştras formasından əlavə</span> Müasir kriptoqrafik
+protokollarda <span class="math inline">\(x^2 y^2\)</span> kvadratik
+həddini ehtiva edən <strong>Bükülmüş Edvards Əyriləri</strong>
+(<em>Twisted Edwards Curves</em>) geniş istifadə olunur: <span
+class="math display">\[a x^2 + y^2 = 1 + d x^2 y^2 \quad (a, d \in K,
+\quad a \cdot d \cdot (a - d) \neq 0)\]</span> Xüsusilə <span
+class="math inline">\(a=1\)</span> olduqda tənlik sadə <strong>Edvards
+formasına</strong> düşür: <span class="math inline">\(x^2 + y^2 = 1 + d
+x^2 y^2\)</span>.</p>
+<p><strong>Kriptoqrafik üstünlüyü:</strong> Bu əyrilər bir-birinə
+birasional izomorfizm vasitəsilə Veyerştras formasına ekvivalent olsa
+da, nöqtələrin toplanması üçün <strong>tam və istisnasız</strong>
+(<em>complete addition law</em>) cəbri düsturlara malikdir. Bu xassə
+proqram təminatında xüsusi istisna şərtlərini (<em>edge cases</em>)
+yoxlamaq ehtiyacını aradan qaldırır və alqoritmi yan-kanal hücumlarına
+(<em>side-channel attacks</em>) qarşı təbii olaraq davamlı edir
+(məsələn, <code>Ed25519</code> və <code>Ed448</code> rəqəmsal imza
+standartları bu formaya əsaslanır).</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>Qeyri-sinqulyar elliptik əyri
+nümunələri</span></em></p>
+<ul>
+<li><p><em><span class="math inline">\(E_1: y^2 = x^3 - x \implies (a =
+-1, b = 0) \implies \Delta = 4(-1)^3 + 27(0)^2 = -4 \neq
+0\)</span></em></p></li>
+<li><p><em><span class="math inline">\(E_2: y^2 = x^3 + x \implies (a =
+1, b = 0) \implies \Delta = 4(1)^3 + 27(0)^2 = 4 \neq
+0\)</span></em></p></li>
+<li><p><em><span class="math inline">\(E_3: y^2 = x^3 + 1 \implies (a =
+0, b = 1) \implies \Delta = 4(0)^3 + 27(1)^2 = 27 \neq
+0\)</span></em></p></li>
+</ul>
+</div>
+<h2
+id="diskriminantın-riyazi-mənşəyi-bu-şərt-haradan-gəlir">Diskriminantın
+Riyazi Mənşəyi: Bu Şərt Haradan Gəlir?</h2>
+<p>Vacib suallardan biri budur: <em>"Niyə məhz <span
+class="math inline">\(4a^3 + 27b^2\)</span>?"</em> Bu ifadə göydən
+düşməyib; o, cəbrin fundamental qaydalarından və çoxhədlilərin
+köklərinin təbiətindən gəlir. Gəlin bu mexanizmi iki fərqli baxış
+bucağından analiz edək.</p>
+<h3 id="çoxhədlinin-kökləri-baxımından-cəbri-yanaşma">Çoxhədlinin
+Kökləri Baxımından (Cəbri Yanaşma)</h3>
+<p>Veyerştras tənliyini (<span class="math inline">\(y^2 = x^3 + ax +
+b\)</span>) araşdırarkən, sağ tərəfdəki <span class="math inline">\(f(x)
+= x^3 + ax + b\)</span> funksiyasına diqqət yetirək. Bu, üçüncü dərəcəli
+(kubik) bir çoxhədlidir.</p>
+<p>Əyri üzərində <span class="math inline">\(y = 0\)</span> olan
+nöqtələr, əyrinin <span class="math inline">\(x\)</span> oxunu kəsdiyi
+nöqtələrdir. Yəni <span class="math inline">\(x^3 + ax + b = 0\)</span>
+tənliyinin köklədir. Cəbrdən məlumdur ki, kvadrat tənliyin (<span
+class="math inline">\(ax^2+bx+c=0\)</span>) iki eyni kökünün
+(təkrarlanan kökünün) olub-olmamasını <span class="math inline">\(\Delta
+= b^2 - 4ac\)</span> diskriminantı ilə yoxlayırıq. Eyni məntiq kubik
+tənliklər üçün də tətbiq oluna bilər. <span class="math inline">\(x^3 +
+ax + b = 0\)</span> tənliyinin diskriminantı tam olaraq aşağıdakı
+kimidir: <span class="math display">\[\Delta_{kubik} = -(4a^3 +
+27b^2)\]</span></p>
+<p>Əgər bu diskriminant sıfıra bərabər olarsa (<span
+class="math inline">\(\Delta_{kubik} = 0\)</span>), bu o deməkdir ki,
+<span class="math inline">\(f(x) = x^3 + ax + b\)</span> çoxhədlisinin
+<strong>ən azı iki kökü bir-birinə bərabərdir</strong>
+(təkrarlanan/qatlı kökü var).</p>
+<p>Tutaq ki, bu təkrarlanan kök <span class="math inline">\(x_0\)</span>
+ədədidir. Bu halda çoxhədlini <span class="math inline">\(f(x) =
+(x-x_0)^2(x-x_1)\)</span> şəklində yaza bilərik. Onda əyrinin tənliyi
+<span class="math inline">\(y^2 = (x-x_0)^2(x-x_1)\)</span> halına
+düşür. İndi bura diqqət edək: <span class="math inline">\(x \to
+x_0\)</span> nöqtəsinə yaxınlaşdıqca, kvadratik vuruğa görə <span
+class="math inline">\(y\)</span> dəyişəni <span
+class="math inline">\(x\)</span>-in dəyişməsinə qarşı ekstremal (iti və
+ya öz-özünü kəsən) reaksiya verir. Məhz bu nöqtə əyrinin hamarlığını
+pozan <strong>sinqulyar (hamarlığı pozulmuş) nöqtədir</strong>.</p>
+<h3 id="xüsusi-törəmələr-və-hamarlıq-baxımından-analitik-yanaşma">Xüsusi
+Törəmələr və Hamarlıq Baxımından (Analitik Yanaşma)</h3>
+<p>Bir əyrinin həndəsi olaraq hamar olması üçün onun hər bir nöqtəsində
+törəmənin mövcud olması və unikal bir toxunan düz xəttin çəkilə bilməsi
+şərtdir. Əyri tənliyini funksional formada yazaq: <span
+class="math display">\[F(x,y) = y^2 - x^3 - ax - b = 0\]</span></p>
+<p>Riyazi analizdən bilirik ki, funksiyanın hər hansı bir nöqtədə unikal
+törəməsinin (toxunanının) <strong>təyin olunmaması</strong> üçün həmin
+nöqtədə həm <span class="math inline">\(x\)</span>-ə görə, həm də <span
+class="math inline">\(y\)</span>-ə görə xüsusi törəmələr eyni anda
+sıfıra bərabər olmalıdır: <span class="math display">\[\frac{\partial
+F}{\partial x} = 0 \quad \text{və} \quad \frac{\partial F}{\partial y} =
+0\]</span></p>
+<p>Gəlin bu törəmələri hesablayaq:</p>
+<ol>
+<li><p><span class="math inline">\(\frac{\partial F}{\partial y} = 2y =
+0 \implies y = 0\)</span>. (Deməli, problem ancaq <span
+class="math inline">\(y=0\)</span> olduqda, yəni əyri <span
+class="math inline">\(x\)</span> oxunu kəsəndə yarana bilər).</p></li>
+<li><p><span class="math inline">\(\frac{\partial F}{\partial x} = -3x^2
+- a = 0 \implies 3x^2 + a = 0 \implies x^2 =
+-\frac{a}{3}\)</span>.</p></li>
+</ol>
+<p>İndi bu tapdığımız şərtləri (<span class="math inline">\(y=0\)</span>
+və <span class="math inline">\(3x^2+a=0\)</span>) orijinal tənliyimizdə
+yerinə qoyaq: <span class="math display">\[0^2 = x^3 + ax + b \implies
+x^3 + ax + b = 0\]</span></p>
+<p>Bu tənliyi <span class="math inline">\(x \cdot x^2 + ax + b =
+0\)</span> kimi yazsaq və <span class="math inline">\(x^2 =
+-\frac{a}{3}\)</span> əvəzləməsini etsək: <span
+class="math display">\[x\left(-\frac{a}{3}\right) + ax + b = 0 \implies
+\frac{2ax}{3} + b = 0 \implies x = -\frac{3b}{2a}\]</span></p>
+<p>Son bölmə yalnız <span class="math inline">\(a\neq0\)</span> olduqda
+aparıla bilər. Əgər <span class="math inline">\(a=0\)</span> olarsa,
+<span class="math inline">\(3x^2+a=0\)</span> şərtindən <span
+class="math inline">\(x=0\)</span>, sonra əyri tənliyindən <span
+class="math inline">\(b=0\)</span> alınır; beləliklə <span
+class="math inline">\(4a^3+27b^2=0\)</span> və sinqulyar nöqtə <span
+class="math inline">\((0,0)\)</span>-dır. İndi <span
+class="math inline">\(a\neq0\)</span> halında hesablamanı davam
+etdirək.</p>
+<p>İndi əlimizdə <span class="math inline">\(x\)</span> üçün iki fərqli
+ifadə var: <span class="math inline">\(x^2 = -\frac{a}{3}\)</span> və
+<span class="math inline">\(x = -\frac{3b}{2a}\)</span>. Birincidə <span
+class="math inline">\(x\)</span>-in yerinə ikincini yazsaq: <span
+class="math display">\[\left(-\frac{3b}{2a}\right)^2 = -\frac{a}{3}
+\implies \frac{9b^2}{4a^2} = -\frac{a}{3}\]</span></p>
+<p>Çarpaz vursaq: <span class="math display">\[27b^2 = -4a^3 \implies
+4a^3 + 27b^2 = 0\]</span></p>
+<div class="tcolorbox">
+<p>Beləliklə, <span class="math inline">\(a\neq0\)</span> halında
+sinqulyar nöqtə <span
+class="math inline">\(P=(-\frac{3b}{2a},0)\)</span>, <span
+class="math inline">\(a=0\)</span> halında isə yalnız <span
+class="math inline">\(b=0\)</span> olduqda <span
+class="math inline">\(P=(0,0)\)</span>-dır. Hər iki halda ümumi meyar
+<span class="math inline">\(4a^3+27b^2=0\)</span> şəklindədir və həmin
+nöqtədə hər iki xüsusi törəmə sıfıra bərabər olur.</p>
+<p>Sıfıra bərabər olan törəmələr sıfıra bölmə qeyri-müəyyənliyi
+yaradacağı üçün həmin nöqtədə <strong>toxunan xətt çəkmək mümkün
+olmayacaq</strong>. Kriptoqrafiyada biz iki nöqtəni toplamaq üçün onlar
+arasında düz xətt çəkməli, bir nöqtəni özü ilə toplamaq üçün isə həmin
+nöqtədən toxunan keçirməliyik. Toxunanın olmadığı bir əyridə
+kriptoqrafik riyaziyyat tamamilə çökür. Bu səbəbdən <span
+class="math inline">\(4a^3 + 27b^2 \neq 0\)</span> şərti ECC-də böyük
+əhəmiyyət daşıyır.</p>
+</div>
+<h2 id="diskriminantın-əhəmiyyəti-və-sinqulyarlıq">Diskriminantın
+Əhəmiyyəti və Sinqulyarlıq</h2>
+<p>Diskriminantın sıfırdan fərqli olması (<span
+class="math inline">\(\Delta \neq 0\)</span>) şərti əyrinin
+<strong>qeyri-sinqulyar</strong>, yəni hamar olmasını təmin edir.
+Həndəsi olaraq qeyri-sinqulyarlıq o deməkdir ki, əyri öz-özünü kəsmir və
+üzərində kəskin qırılma (iti uc) nöqtəsi yoxdur.</p>
+<p>Riyazi baxımdan yanaşsaq, qeyri-sinqulyar əyrinin ixtiyari nöqtəsində
+unikal (yeganə) toxunan düz xətt çəkmək mümkündür. Əgər <span
+class="math inline">\(\Delta = 0\)</span> olarsa, əyri üzərində elə bir
+nöqtə yaranır ki, orada funksiyanın xüsusi törəmələrinin hər ikisi eyni
+anda sıfıra bərabər olur (<span class="math inline">\(0/0\)</span>
+qeyri-müəyyənliyi). Bu isə həmin nöqtədə toxunan düz xəttin təyin
+olunmasını qeyri-mümkün edir. Kriptoqrafiyada nöqtələrin toplanması
+əməliyyatı birbaşa toxunan xətlərin çəkilməsinə əsaslandığı üçün,
+sinqulyar əyrilər <strong>kriptoqrafik sistemlərdə tamamilə
+yararsızdır</strong>.</p>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>Sinqulyar
+əyrilər</span></em></p>
+<ul>
+<li><p><em><strong>İti uclu əyri:</strong> <span
+class="math inline">\(y^2 = x^3 \implies (a=0, b=0) \implies \Delta =
+0\)</span>. Bu əyri <span class="math inline">\((0,0)\)</span>
+nöqtəsində kəskin qırılmaya (iti uca) malikdir. Həmin nöqtədə törəmə
+təyin edilmir.</em></p></li>
+<li><p><em><strong>Öz-özünü kəsən əyri:</strong> <span
+class="math inline">\(y^2 = x^3 - 3x + 2 \implies (a=-3, b=2) \implies
+\Delta = 4(-3)^3 + 27(2)^2 = -108 + 108 = 0\)</span>. Bu əyri isə <span
+class="math inline">\((1,0)\)</span> nöqtəsində özünü kəsir (düyün
+nöqtəsi formalaşdırır) və həmin nöqtədən eyni anda iki fərqli toxunan
+keçir ki, bu da funksionallığı pozur.</em></p></li>
+</ul>
+</div>
+<h2 id="sonlu-meydanlar-üzərində-elliptik-əyrilər">Sonlu Meydanlar
+Üzərində Elliptik Əyrilər</h2>
+<p>Həqiqi ədədlər meydanı (<span
+class="math inline">\(\mathbb{R}\)</span>) vizual anlama üçün rahat olsa
+da, kompüter sistemlərində sürüşən nöqtəli hesablamanın yuvarlaqlaşdırma
+xətalarına yol açır və sonsuz çoxluq olduğu üçün kriptoqrafiyaya birbaşa
+tətbiq edilə bilməz. Təhlükəsizliyi təmin etmək üçün elliptik əyrilər
+<strong>Qalua sonlu meydanları</strong> üzərində təyin olunur.
+Praktikada ən çox istifadə olunan iki növ sonlu meydan mövcuddur:</p>
+<ol>
+<li><p><strong>Sadə meydanlar</strong> <span
+class="math inline">\(\mathbb{F}_p\)</span> (burada <span
+class="math inline">\(p\)</span> çox böyük bir sadə ədəddir).</p></li>
+<li><p><strong>Binar genişləndirilmiş meydanlar</strong> <span
+class="math inline">\(\mathbb{F}_{2^m}\)</span> (xarakteristikası 2 olan
+avadanlıq-yönümlü meydanlar).</p></li>
+</ol>
+<p>Bu dərs çərçivəsində hesablamaları konkretləşdirmək üçün asimmetrik
+şifrələmədə geniş yayılmış sadə meydanlar (<span
+class="math inline">\(\mathbb{F}_p\)</span>) üzərindəki strukturlara
+fokuslanacağıq.</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (<span
+class="math inline">\(\mathbb{F}_p\)</span> üzərində elliptik əyri).
+<em><span class="math inline">\(p &gt; 3\)</span> sadə ədədi üçün, <span
+class="math inline">\(\mathbb{F}_p\)</span> meydanı üzərində elliptik
+əyri, koordinatları modulyar arifmetika qaydalarına əsasən aşağıdakı
+konqruensiya tənliyini ödəyən <span class="math inline">\((x,y)\)</span>
+nöqtələr çoxluğu və xüsusi bir <span
+class="math inline">\(\mathcal{O}\)</span> sonsuzluq nöqtəsinin
+birləşməsindən ibarətdir: <span class="math display">\[E(\mathbb{F}_p):
+y^2 \equiv x^3 + ax + b \pmod{p}\]</span> burada <span
+class="math inline">\(a, b \in \mathbb{F}_p\)</span> olmaqla yanaşı,
+aşağıdakı modulyar qeyri-sinqulyarlıq şərti ödənilməlidir: <span
+class="math display">\[4a^3 + 27b^2 \not\equiv 0
+\pmod{p}\]</span></em></p>
+</div>
+<figure id="fig:tikz_real_curve" data-latex-placement="H">
+
+<figcaption>Həqiqi ədədlər meydanında hamar və simmetrik elliptik əyri
+təsviri (<span class="math inline">\(a = -3\)</span>, <span
+class="math inline">\(b = 3\)</span>, <span class="math inline">\(\Delta
+= 4a^3 + 27b^2 = 4(-3)^3 + 27(3)^2 = -108 + 243 = 135 \neq
+0\)</span>).</figcaption>
+</figure>
+<figure id="fig:tikz_finite_field" data-latex-placement="H">
+
+<figcaption><span class="math inline">\(\mathbb{F}_{17}\)</span>
+üzərində <span class="math inline">\(y^2 \equiv x^3 - x + 3
+\pmod{17}\)</span> əyrisinin diskret nöqtələr çoxluğu. Əyrinin həllərini
+<span class="math inline">\(\pmod {17}\)</span> şərti ilə ödəyən
+nöqtələrin sayı sonludur</figcaption>
+</figure>
+<h1 id="elliptik-əyrilər-üzərində-qrup-quruluşu">Elliptik Əyrilər
+Üzərində Qrup Quruluşu</h1>
+<p>Elliptik əyrilər üzərində müəyyən bir cəbri əməliyyat təyin etmək
+olar ki, bu da həmin əyrinin nöqtələr çoxluğunu toplama əməliyyatına
+nəzərən bir Abel (kommutativ) qrupuna çevirir. Bu əməliyyat
+<strong>nöqtələrin toplanması</strong> adlanır və "<span
+class="math inline">\(+\)</span>" simvolu ilə işarə olunur.</p>
+<h2 id="neytral-element-sonsuzluq-nöqtəsi">Neytral Element: Sonsuzluq
+Nöqtəsi</h2>
+<p>Elliptik əyri üzərində nöqtələrin toplanması əməliyyatı üçün neytral
+element (vahid element) rolunu <strong>sonsuzluq nöqtəsi</strong> (<span
+class="math inline">\(\mathcal{O}\)</span>) oynayır.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Sonsuzluq nöqtəsi). <em>Sonsuzluq nöqtəsi
+<span class="math inline">\(\mathcal{O}\)</span> aşağıdakı
+xüsusiyyətlərə malik ideal formalaşdırılmış bir nöqtədir:</em></p>
+<ul>
+<li><p><em>İxtiyari <span class="math inline">\(P\)</span> nöqtəsi üçün:
+<span class="math inline">\(P + \mathcal{O} = \mathcal{O} + P =
+P\)</span></em></p></li>
+<li><p><em>Hər bir <span class="math inline">\(P\)</span> nöqtəsinin
+tərsi üçün: <span class="math inline">\(P + (-P) =
+\mathcal{O}\)</span></em></p></li>
+</ul>
+</div>
+<p>Qrafik olaraq, sonsuzluq nöqtəsini <span
+class="math inline">\(y\)</span> oxu boyunca şaquli istiqamətdə sonsuzda
+yerləşən və bütün şaquli düz xətlərin kəsişdiyi müstəvi kənarı nöqtə
+kimi təsəvvür etmək olar.</p>
+<h2 id="nöqtələrin-toplanmasının-qrafik-izahı">Nöqtələrin Toplanmasının
+Qrafik İzahı</h2>
+<p>Həqiqi ədədlər meydanında elliptik əyri üzərində iki nöqtənin cəmini
+həndəsi olaraq <strong>kəsən və toxunan</strong> üsulu ilə tapırıq <span
+class="citation" data-cites="paar2024understanding"></span>:</p>
+<ol>
+<li><p>Əyri üzərində <span class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələri götürürük</p></li>
+<li><p><span class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələrindən keçən bir düz xətt
+çəkilir.</p></li>
+<li><p>Əyrinin cəbri xüsusiyyətinə görə bu xətt əyrini mütləq üçüncü bir
+<span class="math inline">\(R\)</span> nöqtəsində kəsir.</p></li>
+<li><p><span class="math inline">\(P + Q = -R\)</span> qəbul edilir,
+yəni tapılan üçüncü <span class="math inline">\(R\)</span> nöqtəsinin
+<span class="math inline">\(x\)</span> oxuna nəzərən simmetrik əksi
+alınır.</p></li>
+</ol>
+<figure id="fig:tikz_point_addition" data-latex-placement="h!">
+
+<figcaption>Elliptik əyri üzərində nöqtələrin toplanması əməliyyatının
+həndəsi təsviri: <span class="math inline">\(P + Q =
+-R\)</span>.</figcaption>
+</figure>
+<h2 id="nöqtənin-ikiqat-artırılması">Nöqtənin ikiqat artırılması</h2>
+<p>Elliptik əyri üzərində bir <span class="math inline">\(P\)</span>
+nöqtəsini özü ilə toplamaq (<span class="math inline">\(P + P =
+2P\)</span>) həndəsi olaraq həmin nöqtədən əyriyə <strong>toxunan
+(tangent) xətt</strong> çəkmək deməkdir. İki fərqli nöqtə halından
+fərqli olaraq, burada kəsən xətt limit halında toxunana çevrilir.</p>
+<ol>
+<li><p><span class="math inline">\(P\)</span> nöqtəsindən əyriyə toxunan
+xətt çəkilir.</p></li>
+<li><p>Bu toxunan xətt əyrini digər bir <span
+class="math inline">\(R\)</span> nöqtəsində kəsir.</p></li>
+<li><p>Alınan <span class="math inline">\(R\)</span> nöqtəsinin <span
+class="math inline">\(x\)</span> oxuna nəzərən simmetrik əksi tapılır:
+<span class="math inline">\(2P = -R\)</span>.</p></li>
+</ol>
+<h3 id="addım-addım-hesablama-alqoritmı">Addım-addım Hesablama
+Alqoritmı</h3>
+<p>Kompüter sistemlərində və cəbri hesablamalarda <span
+class="math inline">\(2P = (x_3, y_3)\)</span> koordinatlarını tapmaq
+üçün aşağıdakı ardıcıllıq icra olunur:</p>
+<ol>
+<li><p><strong>Addım 1 (Xüsusi halın yoxlanılması):</strong> Əgər <span
+class="math inline">\(y_1 = 0\)</span> olarsa, nöqtəyə çəkilən toxunan
+xətt şaquli olur. Şaquli xətt əyrini başqa bir nöqtədə kəsmədiyi üçün
+birbaşa <span class="math inline">\(2P = \mathcal{O}\)</span> (sonsuzluq
+nöqtəsi) təyin edilir və alqoritm dayandırılır.</p></li>
+<li><p><strong>Addım 2 (Toxunanın meyl bucağının tapılması):</strong>
+Əyrinin həmin nöqtədəki törəməsi (<span
+class="math inline">\(\lambda\)</span>) hesablanır: <span
+class="math display">\[\begin{equation}
+        \lambda = \frac{3x_1^2 + a}{2y_1}
+\end{equation}\]</span></p></li>
+<li><p><strong>Addım 3 (Yeni <span class="math inline">\(x_3\)</span>
+koordinatının hesablanması):</strong> Toxunan xəttin əyri ilə kəsişmə
+tənliyindən <span class="math inline">\(x_3\)</span> tapılır: <span
+class="math display">\[\begin{equation}
+        x_3 = \lambda^2 - 2x_1
+\end{equation}\]</span></p></li>
+<li><p><strong>Addım 4 (Yeni <span class="math inline">\(y_3\)</span>
+koordinatının hesablanması):</strong> Tapılan <span
+class="math inline">\(x_3\)</span> nöqtəsi toxunan xəttin tənliyində
+yerinə qoyulur və <span class="math inline">\(x\)</span> oxuna nəzərən
+əks etdirilir: <span class="math display">\[\begin{equation}
+        y_3 = \lambda(x_1 - x_3) - y_1
+\end{equation}\]</span></p></li>
+</ol>
+<figure id="fig:tikz_point_doubling" data-latex-placement="h!">
+
+<figcaption>Elliptik əyri üzərində nöqtəni ikiqat artırma əməliyyatının
+həndəsi təsviri: <span class="math inline">\(P + P =
+2P\)</span>.</figcaption>
+</figure>
+<h2 id="nöqtələrin-toplanmasının-cəbri-izahı">Nöqtələrin Toplanmasının
+Cəbri İzahı</h2>
+<p>Qrafik (həndəsi) metod vizual anlama üçün mükəmməl olsa da, kompüter
+sistemlərində dəqiq və sürətli hesablamalar aparmaq üçün əlverişli
+deyil. Buna görə də analitik həndəsə prinsiplərinə əsaslanan cəbri
+düsturlardan istifadə olunur <span class="citation"
+data-cites="hankerson2004guide"></span>.</p>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Nöqtə toplama və ikiqat artırma
+düsturları). <em><span class="math inline">\(E: y^2 = x^3 + ax +
+b\)</span> elliptik əyrisi üzərində <span class="math inline">\(P =
+(x_1, y_1)\)</span> və <span class="math inline">\(Q = (x_2,
+y_2)\)</span> nöqtələri verilmişdir. Əgər <span class="math inline">\(P
+\neq -Q\)</span> olarsa, onda bu iki nöqtənin cəmi olan <span
+class="math inline">\(P + Q = (x_3, y_3)\)</span> nöqtəsinin
+koordinatları aşağıdakı analitik düsturlarla hesablanır:</em></p>
+<ol>
+<li><p><em><strong>Fərqli nöqtələr (<span class="math inline">\(P \neq
+Q\)</span>) üçün (Kəsən xəttin meyl bucağı):</strong> <span
+class="math display">\[\begin{align*}
+        \lambda &amp;= \frac{y_2 - y_1}{x_2 - x_1} \\
+        x_3 &amp;= \lambda^2 - x_1 - x_2 \\
+        y_3 &amp;= \lambda(x_1 - x_3) - y_1
+\end{align*}\]</span></em></p></li>
+<li><p><em><strong>Eyni nöqtələr (<span class="math inline">\(P =
+Q\)</span>) üçün (Toxunan xəttin meyl bucağı / İkiqat artırma):</strong>
+<span class="math display">\[\begin{align*}
+        \lambda &amp;= \frac{3x_1^2 + a}{2y_1} \\
+        x_3 &amp;= \lambda^2 - 2x_1 \\
+        y_3 &amp;= \lambda(x_1 - x_3) - y_1
+\end{align*}\]</span></em></p></li>
+</ol>
+</div>
+<div class="tcolorbox">
+<p>Əgər iki fərqli nöqtə üçün <span class="math inline">\(x_1 =
+x_2\)</span> lakin <span class="math inline">\(y_1 = -y_2\)</span>
+olarsa (yəni nöqtələr <span class="math inline">\(x\)</span> oxuna
+nəzərən simmetrik yerləşərsə) və ya ikiqat artırmada <span
+class="math inline">\(y_1 = 0\)</span> olarsa, düz xətt tam şaquli hal
+alır. Şaquli düz xətlər əyrini üçüncü bir nöqtədə kəsmir, onlar birbaşa
+sonsuzluğa uzanır. Bu halda riyazi olaraq <span class="math inline">\(P
++ Q = \mathcal{O}\)</span> qəbul edilir.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Fərqli nöqtələrin toplanması). <em><span
+class="math inline">\(E: y^2 = x^3 - 7x + 10\)</span> əyrisi üzərində
+<span class="math inline">\(P = (1,2)\)</span> və <span
+class="math inline">\(Q = (3,4)\)</span> nöqtələrini toplayaq. <span
+class="math display">\[\begin{align*}
+\lambda &amp;= \frac{4-2}{3-1} = \frac{2}{2} = 1 \\
+x_3 &amp;= 1^2 - 1 - 3 = 1 - 4 = -3 \\
+y_3 &amp;= 1 \cdot (1 - (-3)) - 2 = 1 \cdot 4 - 2 = 2
+\end{align*}\]</span> Nəticə: <span class="math inline">\(P + Q = (-3,
+2)\)</span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong> (Nöqtənin ikiqat artırılması). <em>Eyni
+əyri üzərində <span class="math inline">\(P = (1,2)\)</span> nöqtəsini
+özü ilə toplayaq (<span class="math inline">\(2P\)</span>). <span
+class="math display">\[\begin{align*}
+\lambda &amp;= \frac{3 \cdot 1^2 + (-7)}{2 \cdot 2} = \frac{3 - 7}{4} =
+\frac{-4}{4} = -1 \\
+x_3 &amp;= (-1)^2 - 2 \cdot 1 = 1 - 2 = -1 \\
+y_3 &amp;= -1 \cdot (1 - (-1)) - 2 = -1 \cdot 2 - 2 = -4
+\end{align*}\]</span> Nəticə: <span class="math inline">\(2P = (-1,
+-4)\)</span>.</em></p>
+</div>
+<h2 id="sonlu-meydanlarda-nöqtələrin-toplanması">Sonlu Meydanlarda
+Nöqtələrin Toplanması</h2>
+<p><span class="math inline">\(\mathbb{F}_p\)</span> sonlu meydanı
+üzərində nöqtələrin toplanması zamanı cəbri düsturların strukturu eynilə
+qorunur, lakin real bölmə əməliyyatı mövcud olmadığı üçün bütün
+hesablamalar <span class="math inline">\(\pmod p\)</span> mühitində
+aparılır. Kəsr formasında olan bölmə əməliyyatı (<span
+class="math inline">\(\frac{1}{x}\)</span>) məxrəcin modula nəzərən
+multiplikativ tərs elementinin (<span class="math inline">\(x^{-1} \pmod
+p\)</span>) tapılması və surətə vurulması ilə əvəzlənir.</p>
+<div class="example">
+<p><strong>Nümunə 5</strong> (<span
+class="math inline">\(\mathbb{F}_{13}\)</span> üzərində analitik
+hesablama). <em><span class="math inline">\(E: y^2 \equiv x^3 + 3x + 8
+\pmod{13}\)</span> əyrisi üzərində <span class="math inline">\(P =
+(9,7)\)</span> və <span class="math inline">\(Q = (1,8)\)</span>
+nöqtələrini toplayaq. <span class="math display">\[\begin{align*}
+\lambda &amp;= (8-7) \cdot (1-9)^{-1} \mod 13 = 1 \cdot (-8)^{-1} \mod
+13 \\
+-8 &amp;\equiv 5 \pmod{13} \quad (\text{çünki } -8 + 13 = 5) \\
+5^{-1} &amp;\equiv 8 \pmod{13} \quad (\text{çünki } 5 \times 8 = 40
+\equiv 1 \pmod{13}) \\
+\lambda &amp;= 1 \cdot 8 = 8 \pmod{13} \\
+x_3 &amp;= 8^2 - 9 - 1 = 64 - 10 = 54 \equiv 2 \pmod{13} \\
+y_3 &amp;= 8 \cdot (9 - 2) - 7 = 8 \cdot 7 - 7 = 56 - 7 = 49 \equiv 10
+\pmod{13}
+\end{align*}\]</span> Nəticə: <span class="math inline">\(P + Q = (2,
+10)\)</span>.</em></p>
+</div>
+<h1 id="qrup-xüsusiyyətləri">Qrup Xüsusiyyətləri</h1>
+<p>Elliptik əyri üzərində nöqtələr çoxluğu və yuxarıda təyin olunan
+toplama əməliyyatı bir <strong>Abel qrupu</strong> təşkil edir <span
+class="citation" data-cites="silverman2009arithmetic"></span>.</p>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (Elliptik əyri qrupu). <em><span
+class="math inline">\(E(\mathbb{F}_p)\)</span> ilə işarə olunan, <span
+class="math inline">\(\mathbb{F}_p\)</span> üzərində elliptik əyrinin
+bütün nöqtələri və sonsuzluq nöqtəsi <span
+class="math inline">\(\mathcal{O}\)</span> aşağıdakı qrup
+xüsusiyyətlərini ödəyir:</em></p>
+<ol>
+<li><p><em><strong>Qapanma:</strong> <span class="math inline">\(P, Q
+\in E(\mathbb{F}_p)\)</span> üçün <span class="math inline">\(P + Q \in
+E(\mathbb{F}_p)\)</span>.</em></p></li>
+<li><p><em><strong>Assosiativlik:</strong> <span
+class="math inline">\((P + Q) + R = P + (Q + R)\)</span>.</em></p></li>
+<li><p><em><strong>Neytral element:</strong> <span
+class="math inline">\(P + \mathcal{O} = \mathcal{O} + P =
+P\)</span>.</em></p></li>
+<li><p><em><strong>Tərs element:</strong> <span class="math inline">\(P
+= (x, y)\)</span> üçün <span class="math inline">\(-P = (x, -y)\)</span>
+və <span class="math inline">\(P + (-P) =
+\mathcal{O}\)</span>.</em></p></li>
+<li><p><em><strong>Kommutativlik:</strong> <span class="math inline">\(P
++ Q = Q + P\)</span> (Abel qrupu).</em></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>İsbatın izahı və cəbri əsaslandırılması.</em> Qrup aksiomlarının
+ödənilməsini iki yolla — həndəsi (vətər-toxunan üsulu) və cəbri (sonlu
+<span class="math inline">\(\mathbb{F}_p\)</span> meydanında koordinat
+düsturları ilə) əsaslandırmaq olar:</p>
+<ol>
+<li><p><strong>Neytral element:</strong> Sonsuzluq nöqtəsi <span
+class="math inline">\(\mathcal{O}\)</span> tərifə görə xəyali olaraq
+şaquli oxun tam yuxarısında yerləşən nöqtədir. İxtiyari <span
+class="math inline">\(P=(x,y)\)</span> nöqtəsindən və <span
+class="math inline">\(\mathcal{O}\)</span>-dan keçən düz xətt şaquli düz
+xəttdir. Bu düz xətt əyrini <span
+class="math inline">\(P&#39;=(x,-y)\)</span> nöqtəsində kəsir. Buradan
+<span class="math inline">\(P + \mathcal{O} = -P&#39; = (x, y) =
+P\)</span> alınır.</p></li>
+<li><p><strong>Tərs element:</strong> <span
+class="math inline">\(P=(x,y)\)</span> nöqtəsinin tərsi <span
+class="math inline">\(-P=(x,-y)\)</span> nöqtəsidir (yəni <span
+class="math inline">\(y\)</span>-oxu üzrə əks işarəli koordinat). <span
+class="math inline">\(P\)</span> və <span
+class="math inline">\(-P\)</span> nöqtələrindən keçən düz xətt şaqulidir
+və əyrini müstəvidə başqa bir afinn nöqtədə kəsmir; o, əyrini yalnız
+<span class="math inline">\(\mathcal{O}\)</span> nöqtəsində kəsir.
+Deməli, <span class="math inline">\(P + (-P) =
+\mathcal{O}\)</span>.</p></li>
+<li><p><strong>Kommutativlik:</strong> <span
+class="math inline">\(P=(x_1, y_1)\)</span> və <span
+class="math inline">\(Q=(x_2, y_2)\)</span> nöqtələrindən keçən <span
+class="math inline">\(L\)</span> düz xəttinin tənliyi <span
+class="math inline">\(P\)</span>-dən <span
+class="math inline">\(Q\)</span>-ya və ya <span
+class="math inline">\(Q\)</span>-dan <span
+class="math inline">\(P\)</span>-yə çəkilməsindən asılı olmayaraq
+eynidir ( əmsal <span class="math inline">\(\lambda = \frac{y_2 -
+y_1}{x_2 - x_1}\)</span> dəyişmir). Düz xətt əyrini eyni üçüncü <span
+class="math inline">\(R\)</span> nöqtəsində kəsdiyi üçün <span
+class="math inline">\(P + Q = -R = Q + P\)</span> olur.</p></li>
+<li><p><strong>Qapanma:</strong> <span class="math inline">\(P\)</span>
+və <span class="math inline">\(Q\)</span> nöqtələrindən keçən düz xəttin
+tənliyi <span class="math inline">\(y = \lambda x + \nu\)</span>
+şəklindədir. Bunu əyrinin <span class="math inline">\(y^2 = x^3 + ax +
+b\)</span> tənliyində nəzərə alsaq: <span
+class="math display">\[(\lambda x + \nu)^2 = x^3 + ax + b \implies x^3 -
+\lambda^2 x^2 + (a - 2\lambda\nu)x + (b - \nu^2) = 0\]</span> Bu, <span
+class="math inline">\(x\)</span>-ə nəzərən 3-cü dərəcəli tənlikdir.
+Viyet teoreminə görə köklərin cəmi <span class="math inline">\(x_1 + x_2
++ x_3 = \lambda^2\)</span> olar. Buradan üçüncü kəsişmə nöqtəsinin <span
+class="math inline">\(x_3\)</span> koordinatı müəyyən olunur: <span
+class="math display">\[x_3 = \lambda^2 - x_1 - x_2 \pmod p\]</span>
+<span class="math inline">\(\mathbb{F}_p\)</span> meydanı toplama,
+çıxma, vurma və bölmə əməliyyatlarına görə qapalı olduğundan <span
+class="math inline">\(x_3, y_3 \in \mathbb{F}_p\)</span> olur. Deməli,
+<span class="math inline">\(P + Q \in E(\mathbb{F}_p)\)</span>.</p></li>
+<li><p><strong>Assosiativlik (<span class="math inline">\((P + Q) + R =
+P + (Q + R)\)</span>):</strong> Bu aksiomun birbaşa cəbri düsturlarla
+(məsələn, <span class="math inline">\(x\)</span>-lərin və <span
+class="math inline">\(y\)</span>-lərin açıq ifadəsini yerinə qoymaqla)
+isbatı son dərəcə uzundur və yüzlərlə polinomial həddin açılışını tələb
+edir <span class="citation"
+data-cites="silverman2009arithmetic"></span>. Cəbri həndəsədə bu aksiom
+adətən <strong>Bezu teoremi</strong> (<em>Bézout’s Theorem</em>) və ya
+onun nəticəsi olan <strong>Keyli–Baxarak teoremi</strong>
+(<em>Cayley–Bacharach Theorem</em>) vasitəsilə isbat olunur <span
+class="citation" data-cites="washington2008elliptic"></span>:</p>
+<blockquote>
+<p><em>Teorem (Keyli–Baxarak):</em> Müstəvidə iki 3-cü dərəcəli (kubik)
+əyri 9 nöqtədə kəsişirsə, bu 9 nöqtədən keçən ixtiyari üçüncü kubik əyri
+həmin 9-cu kəsişmə nöqtəsindən də keçməlidir.</p>
+</blockquote>
+<p><span class="math inline">\((P+Q)+R\)</span> və <span
+class="math inline">\(P+(Q+R)\)</span> cəmlərini uyğun düz xətlər
+vasitəsilə quran zaman Keyli–Baxarak teoremi həmin 9-cu kəsişmə
+nöqtələrinin üst-üstə düşməsini, dolayısı ilə assosiativlik xassəsinin
+ödənilməsini zəmanət edir <span class="citation"
+data-cites="koblitz1994course"></span>.</p></li>
+</ol>
+<p> ◻</p>
+</div>
+<div class="tcolorbox">
+<p><span class="math inline">\(P = (x, y)\)</span> nöqtəsinin tərsi
+<span class="math inline">\(-P = (x, -y)\)</span> sadəcə <span
+class="math inline">\(y\)</span> koordinatının işarəsinin dəyişməsidir.
+Qrafik olaraq bu, nöqtənin <span class="math inline">\(x\)</span> oxuna
+nəzərən tam şaquli simmetriyasıdır. Əgər bu iki nöqtəni düz xətlə
+birləşdirsək, xətt <span class="math inline">\(x\)</span> oxuna
+perpendikulyar olacaq və əyrini başqa heç bir nöqtədə kəsməyərək birbaşa
+sonsuzluq nöqtəsinə (<span class="math inline">\(\mathcal{O}\)</span>)
+uzanacaqdır.</p>
+</div>
+<figure id="fig:tikz_inverse_element" data-latex-placement="h!">
+
+<figcaption>Elliptik əyri üzərində tərs elementin (<span
+class="math inline">\(P\)</span> və <span
+class="math inline">\(-P\)</span>) <span
+class="math inline">\(x\)</span> oxuna nəzərən şaquli
+simmetriyası.</figcaption>
+</figure>
+<h2 id="qrupun-tərtibi">Qrupun Tərtibi</h2>
+<p><span class="math inline">\(E(\mathbb{F}_p)\)</span> qrupundakı
+nöqtələrin sayı <strong>qrupun tərtibi</strong> (order) adlanır və
+adətən <span class="math inline">\(\#E(\mathbb{F}_p)\)</span> ilə işarə
+olunur. Sonlu meydanlarda nöqtələrin sayını bir-bir hesablamaq böyük
+meydanlarda qeyri-mümkün olduğundan, qrupun ölçüsünü qiymətləndirmək
+üçün Hasse teoremindən istifadə edilir.</p>
+<div class="theorem">
+<p><strong>Teorem 3</strong> (Hasse teoremi). <em><span
+class="math inline">\(\mathbb{F}_p\)</span> üzərində elliptik əyrinin
+tərtibi aşağıdakı bərabərsizliyi ödəyir: <span
+class="math display">\[\begin{equation}
+    p + 1 - 2\sqrt{p} \leq \#E(\mathbb{F}_p) \leq p + 1 + 2\sqrt{p}
+\end{equation}\]</span></em></p>
+</div>
+<p>Bu teoremi praktiki olaraq belə ifadə edirlər: qrupun tərtibi mütləq
+<span class="math inline">\(p+1\)</span> mərkəz nöqtəsinin ətrafında,
+<span class="math inline">\(2\sqrt{p}\)</span> qədər sağa və ya sola
+dəyişən bir interval daxilində yerləşir. Kriptoqrafik təhlükəsizlik üçün
+bu intervalın dəqiq bilinməsi mühüm əhəmiyyət kəsb edir.</p>
+<div class="example">
+<p><strong>Nümunə 6</strong> (Hasse teoreminin tətbiqi). <em><span
+class="math inline">\(\mathbb{F}_{11}\)</span> sonlu meydanı üzərində
+təyin olunmuş ixtiyari bir elliptik əyrinin mümkün nöqtə sayını
+limitləyək (<span class="math inline">\(p = 11\)</span>). <span
+class="math display">\[\begin{align*}
+    \text{Mərkəz qiymət:} \quad &amp; p + 1 = 11 + 1 = 12 \\
+    \text{Maksimal meyl:} \quad &amp; 2\sqrt{11} \approx 2 \times 3.316
+= 6.632
+\end{align*}\]</span> Hasse teoreminə görə qrupun tərtibi aşağıdakı
+intervalda olmalıdır: <span class="math display">\[\begin{align*}
+    12 - 6.632 &amp;\leq \#E(\mathbb{F}_{11}) \leq 12 + 6.632 \\
+    5.368 &amp;\leq \#E(\mathbb{F}_{11}) \leq 18.632
+\end{align*}\]</span> Nöqtələrin sayı tam ədəd olmaq məcburiyyətində
+olduğu üçün, <span class="math inline">\(\mathbb{F}_{11}\)</span>
+üzərində qurulmuş ixtiyari elliptik əyrinin nöqtələrinin sayı <strong>ən
+az 6, ən çox isə 18</strong> ola bilər.</em></p>
+</div>
+<h1 id="elliptik-əyri-diskret-loqarifm-problemi-ecdlp">Elliptik Əyri
+Diskret Loqarifm Problemi (ECDLP)</h1>
+<h2 id="problemin-tərifi">Problemin Tərifi</h2>
+<p>Elliptik əyri kriptoqrafiyasının (ECC) riyazi təhlükəsizlik təməli
+asimmetrik şifrələmədə birtərəfli funksiyaların tətbiqinə söykənir.
+Nöqtələrin skalyar vurulması (<span class="math inline">\(Q =
+nG\)</span>) cəbri olaraq asan hesablandığı halda, əks əməliyyatın
+icrası müasir hesablama texnikası üçün praktiki olaraq
+qeyri-mümkündür.</p>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Elliptik Əyri Diskret Loqarifm Problemi -
+ECDLP). <em><span class="math inline">\(E(\mathbb{F}_p)\)</span>
+elliptik əyrisi, bu qrupun <span class="math inline">\(r\)</span>
+tərtibli bir <span class="math inline">\(G\)</span> generator nöqtəsi və
+əyri üzərində yerləşən <span class="math inline">\(Q = nG\)</span>
+nöqtəsi verildikdə; <span class="math inline">\(0 \leq n &lt; r\)</span>
+şərtini ödəyən gizli <span class="math inline">\(n\)</span> tam ədədinin
+(məxfi açarın) tapılması probleminə <strong>ECDLP</strong>
+deyilir.</em></p>
+</div>
+<p>Klassik sonlu meydanlardakı diskret loqarifm problemi (DLP) və ya
+vuruqlara ayırma (RSA) problemlərindən fərqli olaraq, ECDLP üçün
+sub-eksponensial zaman mürəkkəbliyinə malik heç bir ümumi hücum metodu
+(məsələn, indeks hesablama metodu) mövcud deyil.</p>
+<h2 id="ecdlp-nin-çətinliyi-və-alqoritmik-mürəkkəblik">ECDLP-nin
+Çətinliyi və Alqoritmik Mürəkkəblik</h2>
+<p>ECDLP-ni həll etmək üçün məlum olan ən güclü ümumi alqoritmlər
+<strong>Pollard-rho</strong> və <strong>Baby-step Giant-step</strong>
+metodlarıdır. Bu alqoritmlər ümumi təhlükəsiz elliptik-əyri qruplarında
+qrupun tərtibinə görə <span class="math inline">\(O(\sqrt{r})\)</span>
+mürəkkəbliyə malikdir. Buna görə uyğun seçilmiş ECC parametrləri daha
+kiçik açarlarla müqayisəli klassik təhlükəsizlik səviyyəsi verə
+bilər.</p>
+<table id="tab:dlp_vs_ecdlp">
+<caption>Klassik DLP və ECDLP Mürəkkəbliklərinin Müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hücum Metodu</strong></th>
+<th style="text-align: center;"><strong>Klassik DLP (<span
+class="math inline">\(\mathbb{F}_p^*\)</span> üzərində)</strong></th>
+<th style="text-align: center;"><strong>ECDLP (<span
+class="math inline">\(E(\mathbb{F}_p)\)</span> üzərində)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Ümumi Alqoritmlər</td>
+<td style="text-align: center;"><span
+class="math inline">\(O(\sqrt{r})\)</span> (<em>Şanks/Pollard</em>)</td>
+<td style="text-align: center;"><span
+class="math inline">\(O(\sqrt{r})\)</span> (<em>Pollard-rho</em>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">İndeks Hesablama</td>
+<td style="text-align: center;">Sub-eksponensial: <span
+class="math inline">\(L_p[\alpha, c]\)</span></td>
+<td style="text-align: center;">Tətbiq olunmur (Effektsizdir)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ən Effektiv Hücum</td>
+<td style="text-align: center;">Parametrdən asılı sub-eksponensial
+(<em>NFS-DL</em>)</td>
+<td style="text-align: center;">Ümumi halda <span
+class="math inline">\(O(\sqrt{r})\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Bu asimmetriya praktiki tətbiqlərdə açar uzunluqlarının xeyli
+ixtisarına şərait yaradır. NIST standartlarına əsasən, eyni
+təhlükəsizlik səviyyəsini təmin etmək üçün tələb olunan açar ölçülərinin
+müqayisəsi aşağıdakı cədvəldə göstərilib:</p>
+<table id="tab:key_sizes">
+<caption>Ekvivalent Təhlükəsizlik Səviyyələrinə Görə Açar
+Ölçüləri</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Təhlükəsizlik Səviyyəsi
+(Bit)</strong></th>
+<th style="text-align: center;"><strong>RSA / Klassik DLP Açar
+Ölçüsü</strong></th>
+<th style="text-align: center;"><strong>ECDLP / ECC Açar
+Ölçüsü</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">1024 bit</td>
+<td style="text-align: center;">160 bit</td>
+</tr>
+<tr>
+<td style="text-align: center;">112</td>
+<td style="text-align: center;">2048 bit</td>
+<td style="text-align: center;">224 bit</td>
+</tr>
+<tr>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">3072 bit</td>
+<td style="text-align: center;">256 bit</td>
+</tr>
+<tr>
+<td style="text-align: center;">256</td>
+<td style="text-align: center;">15360 bit</td>
+<td style="text-align: center;">521 bit</td>
+</tr>
+</tbody>
+</table>
+<p>Göründüyü kimi, 128 bitlik simmetrik şifrələmə (məsələn, AES-128)
+səviyyəsində qorunmaq üçün sistem 3072 bitlik nəhəng RSA açarı əvəzinə,
+cəmi 256 bitlik bir elliptik əyri açarı ilə eyni işi görür. Bu da yaddaş
+mühiti məhdud olan çip kartları, IoT cihazları və mobil şəbəkələr üçün
+ECC-ni əvəzedilməz edir.</p>
+<h2 id="ecdlp-və-kriptoqrafik-sistemlər">ECDLP və Kriptoqrafik
+Sistemlər</h2>
+<p>Müasir kiber-təhlükəsizlik infrastrukturunda ECDLP-nin çətinliyinə
+əsaslanan və sənaye standartı qəbul edilən bir neçə mühüm kriptoqrafik
+protokol tətbiq olunur:</p>
+<ul>
+<li><p><strong>ECDH (elliptik əyri Diffi-Hellman):</strong> Şifrəli
+rabitədən əvvəl tərəflərin qeyri-təhlükəsiz kanal üzərindən ortaq
+simmetrik sessiya açarı generasiya etməsi üçün istifadə olunan
+asimmetrik açar razılaşdırılması protokolu.</p></li>
+<li><p><strong>ECDSA:</strong> Elliptik əyrilərə əsaslanan, məlumatın
+bütövlüyünü və imzanın açıq açarla yoxlanmasını təmin edən rəqəmsal imza
+alqoritmidir. Hüquqi inkarolunmazlıq açarın sahibə bağlanması, açarın
+qorunması, zaman və normativ kontekstdən də asılıdır. ECDSA TLS
+sertifikatlarında və Bitcoin-in <em>secp256k1</em> qrupunda
+tranzaksiyaların təsdiqi üçün istifadə olunur.</p></li>
+<li><p><strong>ECIES:</strong> ECC əsaslı açar razılaşdırılmasını KDF,
+simmetrik şifrələmə və autentifikasiya teqi ilə birləşdirən hibrid sxem
+ailəsidir. Dəqiq təhlükəsizlik xassələri seçilmiş profilə bağlıdır;
+şifrəli mətnin bütövlüyü göndərənin şəxsiyyət autentifikasiyasını
+öz-özünə təmin etmir.</p></li>
+</ul>
+<p>Bu protokolların riyazi strukturu, imza generasiyası və açar
+razılaşdırılmasınin cəbri addımları növbəti mühazirəmizin əsas mövzusu
+olacaqdır.</p>
+<h1 id="praktik-tətbiqlər">Praktik Tətbiqlər</h1>
+<p>Elliptik əyrilər müasir kriptoqrafiyada yüksək performans və
+resurslara qənaət tələb edən sistemlərin əsasını təşkil edir:</p>
+<ul>
+<li><p><strong>TLS/SSL Protokolları:</strong> Müasir HTTPS trafikinin
+(xüsusilə TLS 1.2 və TLS 1.3 versiyalarında) təhlükəsizliyi böyük ölçüdə
+ECDH (açar razılaşdırılması) və ECDSA (server autentifikasiyası)
+alqoritmlərinə əsaslanır.</p></li>
+<li><p><strong>Bitcoin və Kriptovalyutalar:</strong> Blokçeyn
+texnologiyalarında istifadəçi ünvanlarının generasiyası və
+tranzaksiyaların rəqəmsal imzalanması üçün <code>secp256k1</code> xüsusi
+elliptik əyrisi üzərində qurulmuş ECDSA alqoritmindən istifadə
+olunur.</p></li>
+<li><p><strong>WireGuard VPN:</strong> Müasir və sürətli VPN protokolu
+olan WireGuard, simmetrik açarların təhlükəsiz paylanması üçün Daniel J.
+Bernstein tərəfindən layihələndirilmiş yüksək performanslı
+<code>Curve25519</code> əyrisinə əsaslanan ECDH protokolunu tətbiq
+edir.</p></li>
+<li><p><strong>Ağıllı Kartlar və IoT Cihazları:</strong> Biometrik
+pasportlar, bank kartları və məhdud hesablama gücünə malik Əşyaların
+İnterneti (IoT) sensorlarında kiçik yaddaş sahəsi tutduğuna və az enerji
+sərf etdiyinə görə ECC-nin qısa açarları mütləq üstünlüyə
+malikdir.</p></li>
+</ul>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Nöqtə hesablamalarında bütün xüsusi halları və qrup şərtlərini
+əvvəlcə özünüz yoxlayın. Müəllim üçün cavab açarı yalnız ilkin cəhddən
+sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em><span class="math inline">\(E: y^2 =
+x^3 - 4x + 1\)</span> əyrisinin diskriminantını hesablayın. Bu əyri
+qeyri-sinqulyardırmı?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em><span class="math inline">\(E: y^2 =
+x^3 + 2x + 1\)</span> əyrisi üzərində <span class="math inline">\(P =
+(1,2)\)</span> nöqtəsinin tərsini tapın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em><span class="math inline">\(E: y^2 =
+x^3 - 7x + 10\)</span> əyrisi üzərində <span class="math inline">\(P =
+(1,2)\)</span> və <span class="math inline">\(Q = (3,4)\)</span>
+nöqtələrini toplayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em><span class="math inline">\(E: y^2 =
+x^3 - 7x + 10\)</span> əyrisi üzərində <span class="math inline">\(P =
+(1,2)\)</span> nöqtəsini ikiqat artırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em><span class="math inline">\(E: y^2
+\equiv x^3 + 3x + 8 \pmod{13}\)</span> əyrisi üzərində <span
+class="math inline">\(P = (9,7)\)</span> və <span
+class="math inline">\(Q = (1,8)\)</span> nöqtələrini toplayaq.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em><span
+class="math inline">\(E(\mathbb{F}_{13}): y^2 \equiv x^3 + 3x + 8
+\pmod{13}\)</span> sonlu meydan əyrisi üzərində <span
+class="math inline">\(P = (9,7)\)</span> nöqtəsini ikiqat
+artırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>Elliptik əyri qrupunun Abel qrupu
+olması nə deməkdir? Kommutativlik xüsusiyyəti həndəsi olaraq necə ifadə
+olunur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>ECDLP-nin klassik DLP-dən fərqli
+olaraq niyə riyazi baxımdan daha mürəkkəb və təhlükəsiz olduğu
+düşünülür?</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<h3 class="unnumbered" id="çalışma-1-in-həlli">Çalışma 1-in Həlli:</h3>
+<p>Verilən əyrinin parametrləri <span class="math inline">\(a =
+-4\)</span> və <span class="math inline">\(b = 1\)</span>-dir.
+Veyerştras elliptik əyriləri üçün diskriminant düsturu: <span
+class="math display">\[\begin{equation}
+    \Delta = 4a^3 + 27b^2
+\end{equation}\]</span> Qiymətləri yerinə yazaq: <span
+class="math display">\[\begin{align*}
+    \Delta &amp;= 4(-4)^3 + 27(1)^2 \\
+    \Delta &amp;= 4 \cdot (-64) + 27 \\
+    \Delta &amp;= -256 + 27 =-229
+\end{align*}\]</span> Diskriminant sıfırdan fərqli olduğu üçün (<span
+class="math inline">\(\Delta = 229 \neq 0\)</span>), əyri uclarında heç
+bir sinqulyarlıq (düyün və ya qırılma nöqtəsi) mövcud deyil.
+<strong>Əyri qeyri-sinqulyardır.</strong></p>
+<h3 class="unnumbered" id="çalışma-2-in-həlli">Çalışma 2-in Həlli:</h3>
+<p>Əyri üzərində ixtiyari <span class="math inline">\(P = (x,
+y)\)</span> nöqtəsinin qrup tərsi <span class="math inline">\(-P = (x,
+-y)\)</span> düsturu ilə tapılır. Bizə verilən <span
+class="math inline">\(P = (1,2)\)</span> nöqtəsi üçün koordinatların
+işarəsini dəyişsək: <span class="math display">\[\begin{equation}
+    -P = (1, -2)
+\end{equation}\]</span> Bu nöqtə həm də əyrinin tənliyini ödəyir: <span
+class="math inline">\((-2)^2 = 1^3 + 2(1) + 1 \implies 4 =
+4\)</span>.</p>
+<h3 class="unnumbered" id="çalışma-3-ün-həlli">Çalışma 3-ün Həlli:</h3>
+<p><span class="math inline">\(P(1,2)\)</span> və <span
+class="math inline">\(Q(3,4)\)</span> fərqli nöqtələrdir. Əvvəlcə kəsən
+xəttin meyl bucağını (<span class="math inline">\(\lambda\)</span>)
+hesablayaq: <span class="math display">\[\begin{equation}
+    \lambda = \frac{y_2 - y_1}{x_2 - x_1} = \frac{4 - 2}{3 - 1} =
+\frac{2}{2} = 1
+\end{equation}\]</span> İndi isə yeni kəsişmə nöqtəsinin koordinatlarını
+(<span class="math inline">\(x_3, y_3\)</span>) tapaq: <span
+class="math display">\[\begin{align*}
+    x_3 &amp;= \lambda^2 - x_1 - x_2 = 1^2 - 1 - 3 = -3 \\
+    y_3 &amp;= \lambda(x_1 - x_3) - y_1 = 1 \cdot (1 - (-3)) - 2 = 4 - 2
+= 2
+\end{align*}\]</span> Nəticə: <span class="math inline">\(P + Q = (-3,
+2)\)</span>.</p>
+<h3 class="unnumbered" id="çalışma-4-ün-həlli">Çalışma 4-ün Həlli:</h3>
+<p><span class="math inline">\(P(1,2)\)</span> nöqtəsini ikiqat artırmaq
+üçün həmin nöqtədən əyriyə çəkilən toxunan xəttin meylini (<span
+class="math inline">\(\lambda\)</span>) hesablamaq lazımdır (<span
+class="math inline">\(a = -7\)</span>): <span
+class="math display">\[\begin{equation}
+    \lambda = \frac{3x_1^2 + a}{2y_1} = \frac{3(1)^2 + (-7)}{2 \cdot 2}
+= \frac{3 - 7}{4} = -1
+\end{equation}\]</span> Yeni koordinatların hesablanması: <span
+class="math display">\[\begin{align*}
+    x_3 &amp;= \lambda^2 - 2x_1 = (-1)^2 - 2(1) = 1 - 2 = -1 \\
+    y_3 &amp;= \lambda(x_1 - x_3) - y_1 = -1 \cdot (1 - (-1)) - 2 =
+-1(2) - 2 = -4
+\end{align*}\]</span> Nəticə: <span class="math inline">\(2P = (-1,
+-4)\)</span>.</p>
+<h3 class="unnumbered" id="çalışma-5-in-həlli">Çalışma 5-in Həlli:</h3>
+<p><span class="math inline">\(\mathbb{F}_{13}\)</span> modulu üzərində
+kəsən xəttin meyli modulyar bölmə (tərs element tapılması) ilə icra
+olunur: <span class="math display">\[\begin{equation}
+    \lambda = \frac{y_2 - y_1}{x_2 - x_1} \equiv \frac{8 - 7}{1 - 9}
+\equiv \frac{1}{-8} \equiv \frac{1}{5} \pmod{13}
+\end{equation}\]</span> Burada <span class="math inline">\(5^{-1}
+\pmod{13} = 8\)</span> olduğundan (çünki <span class="math inline">\(5
+\times 8 = 40 \equiv 1 \pmod{13}\)</span>), <span
+class="math inline">\(\lambda = 8\)</span> tapılır. <span
+class="math display">\[\begin{align*}
+    x_3 &amp;= \lambda^2 - x_1 - x_2 = 8^2 - 9 - 1 = 64 - 10 = 54 \equiv
+2 \pmod{13} \\
+    y_3 &amp;= \lambda(x_1 - x_3) - y_1 = 8 \cdot (9 - 2) - 7 = 8 \cdot
+7 - 7 = 56 - 7 = 49 \equiv 10 \pmod{13}
+\end{align*}\]</span> Nəticə: <span class="math inline">\(P + Q = (2,
+10)\)</span>.</p>
+<h3 class="unnumbered" id="çalışma-6-nın-həlli">Çalışma 6-nın
+Həlli:</h3>
+<p><span class="math inline">\(P(9,7)\)</span> nöqtəsinin ikiqat
+artırılması (<span class="math inline">\(a = 3, p = 13\)</span>): <span
+class="math display">\[\begin{equation*}
+    \lambda = \frac{3x_1^2 + a}{2y_1} = \frac{3(9^2) + 3}{2 \cdot 7} =
+\frac{243 + 3}{14} = \frac{246}{14} \pmod{13}
+\end{equation*}\]</span></p>
+<p>Surət və məxrəci <span class="math inline">\(\pmod{13}\)</span> üzrə
+sadələşdirək:</p>
+<ul>
+<li><p><span class="math inline">\(246 = 18 \cdot 13 + 12 \equiv 12
+\equiv -1 \pmod{13}\)</span></p></li>
+<li><p><span class="math inline">\(14 \equiv 1 \pmod{13} \implies
+14^{-1} \equiv 1^{-1} \equiv 1 \pmod{13}\)</span></p></li>
+</ul>
+<p>Buradan meyl bucağı <span class="math inline">\(\lambda \equiv -1
+\cdot 1 \equiv -1 \equiv 12 \pmod{13}\)</span> tapılır.</p>
+<p>Yeni koordinatları hesablayaq (<span class="math inline">\(\lambda
+\equiv -1\)</span> əvəzləməsi ilə): <span
+class="math display">\[\begin{align*}
+    x_3 &amp;= \lambda^2 - 2x_1 = (-1)^2 - 2(9) = 1 - 18 = -17 \equiv 9
+\pmod{13} \\
+    y_3 &amp;= \lambda(x_1 - x_3) - y_1 = -1 \cdot (9 - 9) - 7 = -7
+\equiv 6 \pmod{13}
+\end{align*}\]</span></p>
+<p><strong>Nəticə:</strong> <span class="math inline">\(2P = (9,
+6)\)</span>.</p>
+<h3 class="unnumbered" id="çalışma-7-nin-həlli">Çalışma 7-nin
+Həlli:</h3>
+<p>Bir qrupun Abel qrupu olması onun kommutativ (dəyişmə) xüsusiyyətinə
+sahib olduğunu göstərir. Elliptik əyrilər üzərində bu o deməkdir ki,
+<span class="math inline">\(P + Q = Q + P\)</span>. Həndəsi olaraq,
+<span class="math inline">\(P\)</span> və <span
+class="math inline">\(Q\)</span> nöqtələrindən keçən düz xətt sabitdir;
+xəttin hansı nöqtədən başlanaraq çəkilməsinin əhəmiyyəti yoxdur. Xətt
+əyrini eyni bir üçüncü <span class="math inline">\(R\)</span> nöqtəsində
+kəsir və onun <span class="math inline">\(x\)</span> oxuna nəzərən əksi
+hər iki halda eyni <span class="math inline">\(P+Q\)</span> nəticəsini
+verir.</p>
+<h3 class="unnumbered" id="çalışma-8-in-həlli">Çalışma 8-in Həlli:</h3>
+<p>Sonlu meydanların multiplikativ qruplarında elementləri kiçik “vuruq
+bazası” ilə ifadə etməyə imkan verən cəbri münasibətlər NFS-DL kimi
+indeks hesabı üsullarını yaradır. Adi təhlükəsiz elliptik əyri qrupları
+üçün analoji səmərəli ümumi vuruq bazası metodu məlum deyil; ən yaxşı
+məlum ümumi hücumlar təxminən <span
+class="math inline">\(O(\sqrt{r})\)</span> qrup əməliyyatı tələb edir.
+Bu, nöqtələrin sadəcə “xaotik” görünməsi deyil, məlum alqoritmlərin
+istifadə edə bildiyi cəbri strukturun fərqli olması ilə izah olunur.</p>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə aşağıdakı əsas kriptoqrafik və riyazi anlayışları
+sistemləşdirdik:</p>
+<ul>
+<li><p><strong>Elliptik Əyrilər:</strong> <span
+class="math inline">\(y^2 = x^3 + ax + b\)</span> tənliyi ilə verilən və
+<span class="math inline">\(\Delta = -(4a^3 + 27b^2) \neq 0\)</span>
+şərtini ödəyən hamar həndəsi strukturlardır.</p></li>
+<li><p><strong>Sonsuzluq Nöqtəsi (<span
+class="math inline">\(\mathcal{O}\)</span>):</strong> Qrupun ideal
+neytral elementidir. Şaquli xətlərin əyri ilə sonsuzluqda kəsişdiyini
+simvolizə edir.</p></li>
+<li><p><strong>Cəbri və Həndəsi Abel Qrupu:</strong> Əyri üzərindəki
+toplama əməliyyatı qapanma, assosiativlik, neytral/tərs element və
+kommutativlik aksiomlarını tam ödəyir.</p></li>
+<li><p><strong>ECDLP-nin Üstünlüyü:</strong> <span
+class="math inline">\(Q = nG\)</span> tənliyindən gizli skalyar <span
+class="math inline">\(n\)</span> dəyərinin tapılmasının çətinliyi,
+ECC-yə RSA-dan daha kiçik açarlarla (məsələn, 3072 bit yerinə cəmi 256
+bit) ekvivalent təhlükəsizlik təmin etmə şansı verir.</p></li>
+</ul>
+<p><strong>Əsas Nəticə:</strong> Elliptik əyrilər müasir asimmetrik
+kriptoqrafiyanın ən fundamental sütunudur. Növbəti mühazirəmizdə bu
+dərsimizdə öyrəndiyimiz cəbri hesablamaları birbaşa sənaye
+protokollarına (<strong>ECDH</strong> açar razılaşdırılması və
+<strong>ECDSA</strong> rəqəmsal imza) tətbiq edərək riyazi mexanizmin
+işləməsini kod səviyyəsində nəzərdən keçirəcəyik.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><em>Biz bu mühazirələrdə</em></p>
+<p><em><span class="math display">\[\Delta = 4a^3 + 27b^2\neq
+0\]</span></em></p>
+<p><em>və</em></p>
+<p><em><span class="math display">\[\Delta = -16(4a^3 + 27b^2) \neq
+0\]</span></em></p>
+<p><em>ifadələrini ekvivalent ifadələr kimi istifadə edəcəyik</em><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (10)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Silverman, 2009</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Arithmetic of Elliptic Curves</h6>
+                    <p class="small text-secondary mb-0">Joseph H. Silverman (2009)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Hankerson et al., 2004</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Guide to Elliptic Curve Cryptography</h6>
+                    <p class="small text-secondary mb-0">Darrel Hankerson and Alfred J. Menezes and Scott A. Vanstone (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Koblitz, 1987</span>
+                        <small class="text-muted">Mathematics of Computation</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Elliptic Curve Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">Neal Koblitz (1987)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Miller, 1985</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;85</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Use of Elliptic Curves in Cryptography</h6>
+                    <p class="small text-secondary mb-0">Victor S. Miller (1985)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Barker, 2020</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Key Management: Part 1 – General</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Washington, 2008</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Elliptic Curves: Number Theory and Cryptography</h6>
+                    <p class="small text-secondary mb-0">Lawrence C. Washington (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Koblitz, 1994</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Course in Number Theory and Cryptography</h6>
+                    <p class="small text-secondary mb-0">Neal Koblitz (1994)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

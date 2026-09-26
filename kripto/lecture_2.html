@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_2</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 2: Klassik Şifrələr</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 2: Sezar, Affin və Monoalfabetik Şifrələr</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Bu ikinci mühazirədə klassik şifrələrlə tanış olacağıq. Klassik
+şifrələr müasir kriptoqrafiyanın təməlini təşkil edir <span
+class="citation" data-cites="stinson2018cryptography"></span>. Onların
+iş prinsiplərini və zəifliklərini anlamaq, müasir şifrələrin niyə daha
+mürəkkəb olduğunu başa düşməyə kömək edir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<p>Bu mühazirədə aşağıdakı mövzuları əhatə edəcəyik:</p>
+<ul>
+<li><p>Modul arifmetikaya giriş (klassik şifrləri anlamaq üçün lazımi
+riyazi baza) <span class="citation"
+data-cites="stallings2017cryptography"></span></p></li>
+<li><p>Sezar şifrəsi və onun riyazi təsviri <span class="citation"
+data-cites="seutin2015caesar"></span></p></li>
+<li><p>Affin şifrəsi və onun riyazi əsasları</p></li>
+<li><p>Monoalfabetik əvəzetmə şifrələri</p></li>
+<li><p>Tezlik analizi (kriptoanalizə giriş) <span class="citation"
+data-cites="kahn1996codebreakers"></span></p></li>
+</ul>
+<div class="note">
+<p><span>Niyə klassik şifrləri öyrənirik?</span> Klassik şifrlər bu gün
+təhlükəsiz olmasa da, onları öyrənmək üçün mühüm səbəblər var <span
+class="citation" data-cites="schneier1996applied"></span>:</p>
+<ol>
+<li><p>Kriptoqrafiyanın əsas anlayışlarını sadə şəkildə öyrənmək üçün
+əla bazadır.</p></li>
+<li><p>Kriptoanalizin əsas prinsiplərini (məsələn, tezlik analizi) başa
+düşmək üçün idealdır <span class="citation"
+data-cites="singh1999code"></span>.</p></li>
+<li><p>Müasir şifrələrin niyə daha mürəkkəb olması lazım olduğunu
+anlamağa kömək edir.</p></li>
+<li><p>Tarixi perspektiv verir — kriptoqrafiyanın inkişafını görməyə
+imkan yaradır.</p></li>
+</ol>
+</div>
+<h1 id="əsas-anlayışlar">Əsas anlayışlar</h1>
+<p>Klassik şifrlərə keçməzdən əvvəl bəzi əsas anlayışları izah edək.</p>
+<h2 id="kriptosistem-anlayışı">Kriptosistem anlayışı</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Kriptosistem). Kriptosistem — açıq mətnləri
+şifrəli mətnlərə çevirən və tərsinə çevirən alqoritmlər toplusudur <span
+class="citation" data-cites="stinson2018cryptography"></span>. Formal
+olaraq, kriptosistem beşlikdən ibarətdir: <span
+class="math display">\[(\mathcal{P}, \mathcal{C}, \mathcal{K},
+\mathcal{E}, \mathcal{D})\]</span> burada:</p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{P}\)</span> — bütün mümkün
+açıq mətnlərin çoxluğu</p></li>
+<li><p><span class="math inline">\(\mathcal{C}\)</span> — bütün mümkün
+şifrəli mətnlərin çoxluğu</p></li>
+<li><p><span class="math inline">\(\mathcal{K}\)</span> — bütün mümkün
+açarların çoxluğu (açar fəzası)</p></li>
+<li><p><span class="math inline">\(\mathcal{E} = \{E_k : k \in
+\mathcal{K}\}\)</span> — şifrləmə funksiyaları çoxluğu</p></li>
+<li><p><span class="math inline">\(\mathcal{D} = \{D_k : k \in
+\mathcal{K}\}\)</span> — deşifrləmə funksiyaları çoxluğu</p></li>
+</ul>
+<p>və hər bir <span class="math inline">\(k \in \mathcal{K}\)</span>
+üçün <span class="math inline">\(D_k(E_k(m)) = m\)</span> tələbi
+ödənməlidir. Burada <span class="math inline">\(k\)</span> bir dəyişən
+ilə ifadə olunsa da o bir vektor ola bilər. Məsələn, asimmetrik
+kriptoqrafiyada açar iki hissədən ibarətdir - açıq açar və gizli
+açar.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Açar fəzası). Açar fəzası (<span
+class="math inline">\(\mathcal{K}\)</span>) — mümkün olan bütün
+açarların çoxluğudur. Klassik şifrlərin təhlükəsizliyi birbaşa açar
+fəzasının ölçüsü ilə bağlıdır <span class="citation"
+data-cites="paar2010understanding"></span>. Açar fəzası nə qədər
+böyükdürsə, tam axtarış hücumu bir o qədər çətinləşir.</p>
+</div>
+<h2 id="kriptoqrafiya-ancaq-şifrələmə-deyil">Kriptoqrafiya ancaq
+şifrələmə deyil</h2>
+<p>Birinci mühazirədə vurğuladığımız vacib bir məqamı xatırladaq:
+kriptoqrafiya təkcə şifrələmə deyil <span class="citation"
+data-cites="menezes1996handbook"></span>. Klassik şifrlər də eyni
+prinsiplərə tabedir:</p>
+<ul>
+<li><p><strong>Şifrləmə</strong> — məlumatı gizlədir. Sezar, Affin və
+monoalfabetik şifrlər yalnız bu xidməti təmin edir.</p></li>
+<li><p><strong>Bütövlük</strong> — klassik şifrlər bütövlük təmin etmir.
+Mesaj şifrələnsə belə, yol boyu dəyişdirilə bilər və bu dəyişiklik aşkar
+edilməz.</p></li>
+<li><p><strong>Autentifikasiya</strong> — klassik şifrlər mənbə
+autentifikasiyası təmin etmir. Hücumçu saxta mesaj göndərə
+bilər.</p></li>
+<li><p><strong>İnkar edilməzlik</strong> — klassik şifrlərdə mümkün
+deyil. Göndərən mesajı göndərdiyini inkar edə bilər.</p></li>
+</ul>
+<div class="warning">
+<p><span>Klassik şifrlərin məhdudiyyətləri</span> Klassik şifrlər yalnız
+<strong>gizlilük</strong> təmin edir. Bütövlük, autentifikasiya və
+inkarolunmazlıq kimi digər təhlükəsizlik xidmətlərini təmin etmirlər
+<span class="citation" data-cites="stinson2018cryptography"></span>.
+Buna görə də müasir tətbiqlərdə tək başına istifadə edilmirlər.</p>
+</div>
+<h2 id="əvəzetmə-və-yerdəyişmə-şifrələri">Əvəzetmə və yerdəyişmə
+şifrələri</h2>
+<p>Klassik şifrlər iki əsas kateqoriyaya bölünür <span class="citation"
+data-cites="stallings2017cryptography"></span>:</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Əvəzetmə şifrələri). Əvəzetmə şifrələrində
+hərflər başqa hərflərlə əvəz olunur, lakin onların mövqeyi dəyişmir.
+Sezar, Affin və monoalfabetik şifrələr bu kateqoriyaya aiddir.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Yerdəyişmə şifrələri). Yerdəyişmə
+şifrələrində hərflərin özü dəyişmir, ancaq onların yeri dəyişdirilir
+(permutasiya olunur). Məsələn, skitala şifrəsi <span class="citation"
+data-cites="singh1999code"></span>.</p>
+</div>
+<p>Bu mühazirədə yalnız əvəzetmə şifrələrini öyrənəcəyik. Yerdəyişmə
+şifrələri ilə gələcək mühazirələrdə tanış olacağıq.</p>
+<h2 id="kerckhoffs-prinsipi-və-klassik-şifrlər">Kerckhoffs prinsipi və
+klassik şifrlər</h2>
+<p>Birinci mühazirədə öyrəndiyimiz Kerckhoffs prinsipi klassik şifrlərə
+də aiddir:</p>
+<div class="keyconcept">
+<p><span>Kerckhoffs prinsipi klassik şifrlərdə</span> Klassik şifrlərin
+təhlükəsizliyi alqoritmin gizli olmasına deyil, yalnız açarın gizli
+olmasına əsaslanmalıdır.</p>
+</div>
+<p>Bu prinsipə görə:</p>
+<ul>
+<li><p>Sezar şifrəsinin alqoritmi (hərfləri sürüşdürmək) hər kəsə məlum
+ola bilər</p></li>
+<li><p>Yalnız <span class="math inline">\(k\)</span> açarı (sürüşdürmə
+miqdarı) gizli qalmalıdır</p></li>
+<li><p>Affin şifrəsində <span class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> parametrləri birlikdə açarı təşkil
+edir</p></li>
+<li><p>Monoalfabetik şifrələrdə əvəzetmə cədvəlinin özü açardır</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <span>Kerckhoffs prinsipinin
+tətbiqi:</span> Tutaq ki, Alis Boba Sezar şifrəsi ilə mesaj göndərir.
+Hücumçu Eva şifrləmə alqoritmini bilir (hərflərin sürüşdürüldüyünü
+bilir). Lakin o, <span class="math inline">\(k\)</span> açarını
+bilmədiyi üçün mesajı deşifrələyə bilmir. Kerckhoffs prinsipinə görə
+sistem təhlükəsizdir.</p>
+</div>
+<h2 id="klassik-şifrlər-və-təhlükəsizlik-xidmətləri">Klassik şifrlər və
+təhlükəsizlik xidmətləri</h2>
+<p>Klassik şifrlər əsasən <strong>konfidensiallıq</strong> təmin edir,
+lakin digər xidmətləri təmin etmir <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Şifrə</strong></th>
+<th style="text-align: center;"><strong>Konfidensiallıq</strong></th>
+<th style="text-align: center;"><strong>Bütövlük</strong></th>
+<th style="text-align: center;"><strong>Autentifikasiya</strong></th>
+<th style="text-align: center;"><strong>İnkar edilməzlik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sezar</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Affin</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Monoalfabetik</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Nəticə: Klassik şifrlərdən nə öyrəndik?</span> Klassik şifrlər
+müasir sistemlərin təməl daşıdır. Onlar bizə öyrətdi ki:</p>
+<ul>
+<li><p><strong>Gizlilik təhlükəsizlik deyil:</strong> Alqoritmi
+gizlətmək (Security by Obscurity) uzunmüddətli həll deyil.</p></li>
+<li><p><strong>Statistika ən böyük düşməndir:</strong> Dilin strukturu
+və hərflərin tezliyi zəif şifrləri dərhal ifşa edir.</p></li>
+<li><p><strong>Açar fəzası həlledicidir:</strong> Açar fəzası (key
+space) kiçik olduqda sistem tam axtarış (brute-force) qarşısında
+acizdir.</p></li>
+</ul>
+</div>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Klassik Şifrlər</strong></th>
+<th style="text-align: left;"><strong>Müasir Şifrlər (AES,
+RSA)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Vahid</td>
+<td style="text-align: left;">Hərflər (Simvollar)</td>
+<td style="text-align: left;">Bitlər və Baytlar</td>
+</tr>
+<tr>
+<td style="text-align: left;">Təhlükəsizlik</td>
+<td style="text-align: left;">Alqoritmin gizliliyinə meyilli</td>
+<td style="text-align: left;">Riyazi mürəkkəbliyə əsaslanır</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hücum növü</td>
+<td style="text-align: left;">Tezlik analizi, lüğət hücumları</td>
+<td style="text-align: left;">Diferensial və xətti kriptoanaliz</td>
+</tr>
+<tr>
+<td style="text-align: left;">İstifadə sahəsi</td>
+<td style="text-align: left;">Tarixi, təhsil məqsədli</td>
+<td style="text-align: left;">İnternet, Bank, Hərbi sistemlər</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="modul-arifmetikaya-giriş">Modul arifmetikaya giriş</h1>
+<p>Klassik şifrələrin əksəriyyəti modul arifmetikasına əsaslanır <span
+class="citation" data-cites="paar2010understanding"></span>. Bu səbəbdən
+əvvəlcə modul arifmetikanın əsas anlayışlarını öyrənməliyik.</p>
+<h2 id="saat-arifmetikası-anlayışı">Saat arifmetikası anlayışı</h2>
+<p>Modul arifmetikasını anlamaq üçün ən asan yol saat üzərində
+düşünməkdir. Tutaq ki, saat 10-dur və siz 5 saat sonra neçə olacağını
+bilmək istəyirsiniz. Adi hesabla 10+5=15 edir, amma saatda 15 yoxdur.
+Saatda 15 əslində 3-ə bərabərdir (çünki 15-12=3). Burada 12 modulu ilə
+işləyirik <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<div class="keyconcept">
+<p><span>Modul anlayışı</span> <span class="math inline">\(a \equiv b
+\pmod{m}\)</span> ifadəsi o deməkdir ki, <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> ədədlərinin <span
+class="math inline">\(m\)</span>-ə bölünməsindən alınan qalıqlar
+bərabərdir. Başqa sözlə, <span class="math inline">\(a - b\)</span>
+fərqi <span class="math inline">\(m\)</span>-ə tam bölünür <span
+class="citation" data-cites="hardy2008introduction"></span>.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <span>Modul nümunələri</span> <span
+class="math display">\[\begin{align*}
+    15 &amp;\equiv 3 \pmod{12} \quad (15 - 3 = 12 \text{, 12-yə
+bölünür}) \\
+    23 &amp;\equiv 2 \pmod{7} \quad (23 - 2 = 21 \text{, 7-yə bölünür})
+\\
+    100 &amp;\equiv 0 \pmod{10} \quad (100 - 0 = 100 \text{, 10-a
+bölünür}) \\
+    -1 &amp;\equiv 25 \pmod{26} \quad (25 - (-1) = 26,
+\text{26-ya  bölünür})
+\end{align*}\]</span></p>
+</div>
+<h2 id="modul-toplama-və-çıxma">Modul toplama və çıxma</h2>
+<p>Modul toplama adi toplama kimidir, sadəcə nəticə moduldan böyük
+olduqda modulu çıxırıq <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Modul toplama). <span
+class="math inline">\((a + b) \pmod m\)</span> əməliyyatı aşağıdakı kimi
+təyin olunur: <span class="math display">\[(a + b) \pmod m = (a + b) - k
+\cdot m\]</span> Burada <span class="math inline">\(k = \lfloor
+\frac{a+b}{m} \rfloor\)</span> elə bir tam ədədidir ki, nəticə <span
+class="math inline">\(r \in \{0, 1, \dots, m-1\}\)</span> diapazonunda
+qalır.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong>. <span>Modul toplama nümunələri</span>
+<span class="math display">\[\begin{align*}
+    (8 + 5) \pmod{12} &amp;= 13 \pmod{12} = 1 \\
+    (23 + 17) \pmod{26} &amp;= 40 \pmod{26} = 14 \\
+    (100 + 50) \pmod{26} &amp;= 150 \pmod{26} = 150 - (5 \cdot 26) = 20
+\end{align*}\]</span></p>
+</div>
+<div class="tip">
+<p><span>Mənfi ədədlərlə iş</span> Kriptoanaliz zamanı (məsələn, Sezar
+şifrəsini deşifrə edərkən) mənfi ədədlər tez-tez yaranır. Mənfi ədədin
+modulu üzərində işləmək üçün ən sadə qayda: nəticə <span
+class="math inline">\(0 \leq r &lt; m\)</span> diapazonuna düşənə qədər
+mənfi ədədin üzərinə <span class="math inline">\(m\)</span> modulu əlavə
+etməkdir.</p>
+<p>Riyazi olaraq: <span class="math display">\[-a \pmod m \equiv m - (a
+\pmod m)\]</span></p>
+<p><strong>Nümunə:</strong> <span class="math inline">\(-3 \pmod{26} =
+26 - 3 = 23\)</span>. Bu, əlifbada 3 addım geri getməyin (<span
+class="math inline">\(x-3\)</span>) 23 addım irəli getməklə (<span
+class="math inline">\(x+23\)</span>) eyni nəticəni verdiyini
+göstərir.</p>
+</div>
+<h2 id="niyə-klassik-şifrlər-üçün-modul-arifmetika-vacibdir">Niyə
+klassik şifrlər üçün modul arifmetika vacibdir?</h2>
+<p>Klassik şifrlər əlifba hərfləri üzərində işləyir. İngilis əlifbası 26
+hərfdən ibarətdir. Hərfləri rəqəmlərlə ifadə etdikdə (A=0, B=1, ...,
+Z=25), bütün əməliyyatlar mod 26 hesablanır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu, şifrləmə zamanı
+nəticənin həmişə 0-25 arasında qalmasını təmin edir.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Əlifba indeksləri</span> Bu mühazirədə biz A=0, B=1, …, Z=25
+qəbul edəcəyik. Bu, riyazi hesablamalar üçün daha əlverişlidir. Bəzi
+mənbələr A=1-dən başlaya bilər, lakin bizim yanaşmamız modul arifmetika
+və proqramlaşdırma dillərindəki (məsələn, Python və ya C++) massiv
+indeksləri ilə tam uyğundur.</p>
+<p><strong>Azərbaycan əlifbası üçün qeyd:</strong> Dilimizdə 32 hərf
+olduğu üçün, Azərbaycan dilində şifrələmə apararkən <span
+class="math inline">\(\pmod{32}\)</span> hesablamalarından istifadə
+edilməli və hərflər 0–31 aralığında indekslənməlidir.</p>
+</div>
+<h1 id="sezar-şifrəsi">Sezar şifrəsi</h1>
+<h2 id="tarixi-arayış">Tarixi arayış</h2>
+<p>Sezar şifrəsi tarixin ən məşhur klassik şifrlərindən biridir. Bu
+kriptosistem adını Roma imperatoru <strong>Qay Yuli Sezardan</strong>
+(e.ə. 100–44) almışdır <span class="citation"
+data-cites="seutin2015caesar"></span>.</p>
+<div class="history">
+<p><span>Yuli Sezar və ilk hərbi şifrə</span> Roma tarixçisi Svetoninin
+<em>"On iki Sezarın həyatı"</em> əsərində qeyd olunur ki, Sezar məxvi
+hərbi yazışmalarında hərfləri əlifbada üç mövqe sağa sürüşdürürdü <span
+class="citation" data-cites="seutin2015caesar"></span>. Məsələn, "A"
+hərfi "D", "B" hərfi "E" ilə əvəz olunurdu. Bu sadə üsul o dövr üçün
+kifayət qədər təhlükəsiz hesab olunurdu, çünki düşmən tərəfinin əksər
+əsgərləri, hətta bəzi sərkərdələri belə oxumağı bilmirdi <span
+class="citation" data-cites="singh1999code"></span>.</p>
+<p>Sezarın məşhur <em>"VENI VIDI VICI"</em> (gəldim, gördüm, qələbə
+çaldım) ifadəsi, bu metodla (açarı <span
+class="math inline">\(k=3\)</span> qəbul etməklə) aşağıdakı kimi
+şifrələnirdi:</p>
+<div class="center">
+<p><strong>VENI VIDI VICI</strong> <span
+class="math inline">\(\rightarrow\)</span>
+<code>YHQL YLGL YLFL</code></p>
+</div>
+</div>
+<h2 id="sezar-şifrəsinin-riyazi-təsviri">Sezar şifrəsinin riyazi
+təsviri</h2>
+<p>Sezar şifrəsində hər hərf əlifbada sabit sayda (<span
+class="math inline">\(k\)</span>) sürüşdürülür. Riyazi olaraq bunu belə
+ifadə edirik <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<div class="keyconcept">
+<p><span>Sezar şifrələmə və deşifrələmə</span>
+<strong>Şifrələmə:</strong> <span class="math inline">\(E(p) = (p + k)
+\mod 26\)</span><br />
+<strong>Deşifrələmə:</strong> <span class="math inline">\(D(c) = (c - k)
+\mod 26\)</span></p>
+<p>Burada:</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> — açıq mətn hərfinin rəqəm
+qiyməti (0-25 arası)</p></li>
+<li><p><span class="math inline">\(c\)</span> — şifrəli mətn hərfinin
+rəqəm qiyməti</p></li>
+<li><p><span class="math inline">\(k\)</span> — açar (sürüşdürmə
+miqdarı, 0-25 arası)</p></li>
+</ul>
+</div>
+<p>Sezar şifrəsinin açar fəzası <span class="math inline">\(\mathcal{K}
+= \{0, 1, 2, \ldots, 25\}\)</span> olmaqla, <span
+class="math inline">\(|\mathcal{K}| = 26\)</span>-dır <span
+class="citation" data-cites="paar2010understanding"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 4</strong>. <span>Sezar şifrəsi ilə "SALAM" sözünün
+şifrlənməsi</span> Tutaq ki, açar <span class="math inline">\(k =
+3\)</span> və "SALAM" sözünü şifrələmək istəyirik.</p>
+<p>Əvvəlcə hər hərfi rəqəmə çevirək:</p>
+<ul>
+<li><p>S = 18 (çünki A=0, B=1, ..., S=18)</p></li>
+<li><p>A = 0</p></li>
+<li><p>L = 11</p></li>
+<li><p>A = 0</p></li>
+<li><p>M = 12</p></li>
+</ul>
+<p>İndi şifrləmə düsturunu tətbiq edək: <span
+class="math display">\[\begin{align*}
+    S (18): &amp;\quad (18 + 3) \mod 26 = 21 \mod 26 = 21 \rightarrow
+\text{V} \\
+    A (0): &amp;\quad (0 + 3) \mod 26 = 3 \mod 26 = 3 \rightarrow
+\text{D} \\
+    L (11): &amp;\quad (11 + 3) \mod 26 = 14 \mod 26 = 14 \rightarrow
+\text{O} \\
+    A (0): &amp;\quad (0 + 3) \mod 26 = 3 \mod 26 = 3 \rightarrow
+\text{D} \\
+    M (12): &amp;\quad (12 + 3) \mod 26 = 15 \mod 26 = 15 \rightarrow
+\text{P}
+\end{align*}\]</span></p>
+<p>Nəticə: "SALAM" → "VDODP"</p>
+</div>
+<h2 id="sezar-şifrəsinin-kriptoanalizi">Sezar şifrəsinin
+kriptoanalizi</h2>
+<p>Sezar şifrəsinin ən böyük zəifliyi ondan ibarətdir ki, cəmi 25
+qeyri-trivial açar var <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu o deməkdir ki, hücumçu
+bütün açarları sınaya bilər (brute-force hücumu).</p>
+<div class="keyconcept">
+<p><span>Tam axtarış hücumu (Brute-force attack)</span> Tam axtarış
+hücumu — bütün mümkün açarları sınaqdan keçirərək doğru açarı tapmağa
+çalışmaq üsuludur <span class="citation"
+data-cites="paar2010understanding"></span>. Sezar şifrəsi üçün cəmi 26
+mümkün açar olduğundan, bu hücum çox asandır.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong>. <span>Sezar şifrəsinə tam axtarış
+hücumu</span> Tutaq ki, aşağıdakı şifrəli mətni ələ keçirmişik: "WKLV LV
+D VHFUHW PHVVDJH"</p>
+<p>Bütün 26 mümkün açarı sınayaq. <span
+class="math inline">\(k=3\)</span> olduqda mətn ingilis dilində mənalı
+ifadəyə çevrilir:</p>
+<p><code>Shift 3: THIS IS A SECRET MESSAGE</code></p>
+<p>Beləliklə, açar 3-dür və şifrə sındırıldı <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<div class="tip">
+<p><span>Tam axtarış hücumu</span> Tam axtarış hücumu ilə şifrəni
+sındırmaq üçün sadəcə bütün 26 variantı yoxlamaq kifayətdir. Mənalı
+çıxan variant düzgün açardır. Bu üsul bu gün də zəif şifrələrə qarşı
+istifadə olunur.</p>
+</div>
+<h1 id="affin-şifrəsi">Affin şifrəsi</h1>
+<p>Affin şifrəsi Sezar şifrəsinin ümumiləşdirilmiş formasıdır <span
+class="citation" data-cites="stinson2018cryptography"></span>. Sezar
+şifrəsində sadəcə toplama əməliyyatı var idi, affin şifrəsində isə həm
+toplama, həm də vurma əməliyyatı istifadə olunur.</p>
+<h2 id="affin-şifrəsinin-riyazi-təsviri">Affin şifrəsinin riyazi
+təsviri</h2>
+<div class="keyconcept">
+<p><span>Affin şifrələmə və deşifrələmə</span>
+<strong>Şifrələmə:</strong> <span class="math inline">\(E(p) = (a \cdot
+p + b) \mod 26\)</span><br />
+<strong>Deşifrələmə:</strong> <span class="math inline">\(D(c) = a^{-1}
+\cdot (c - b) \mod 26\)</span></p>
+<p>Burada:</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span> — açıq mətn hərfinin rəqəm
+qiyməti (0-25 arası)</p></li>
+<li><p><span class="math inline">\(c\)</span> — şifrəli mətn hərfinin
+rəqəm qiyməti</p></li>
+<li><p><span class="math inline">\(a\)</span> — vurma əmsalı (<span
+class="math inline">\(1 \leq a \leq 25\)</span>)</p></li>
+<li><p><span class="math inline">\(b\)</span> — toplama əmsalı (<span
+class="math inline">\(0 \leq b \leq 25\)</span>)</p></li>
+<li><p><span class="math inline">\(a^{-1}\)</span> — <span
+class="math inline">\(a\)</span>-nın mod 26-ya görə tərsi <span
+class="citation" data-cites="menezes1996handbook"></span></p></li>
+</ul>
+</div>
+<p>Affin şifrəsinin açar fəzası <span class="math inline">\(\mathcal{K}
+= \{(a,b) : a \in \{1,\ldots,25\}, b \in \{0,\ldots,25\},
+\gcd(a,26)=1\}\)</span> olmaqla, <span
+class="math inline">\(|\mathcal{K}| = 12 \times 26 = 312\)</span>-dir
+<span class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<h2 id="a-əmsalına-qoyulan-məhdudiyyətlər"><span
+class="math inline">\(a\)</span> əmsalına qoyulan məhdudiyyətlər</h2>
+<p><span class="math inline">\(b\)</span> əmsalı istənilən 0-25 arası
+ədəd ola bilər. Lakin <span class="math inline">\(a\)</span> əmsalı üçün
+xüsusi şərt var: <span class="math inline">\(a\)</span> və 26
+<strong>qarşılıqlı sadə</strong> olmalıdır, yəni <span
+class="math inline">\(\gcd(a, 26) = 1\)</span> <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<div class="note">
+<p><span>Niyə <span class="math inline">\(\gcd(a,26)=1\)</span> şərti
+vacibdir?</span> Affin şifrəsinin işləməsi üçün şifrləmə funksiyası
+mütləq <strong>biyektiv (bijective)</strong> olmalıdır. Bu o deməkdir
+ki, hər bir açıq mətn hərfi unikal bir şifrəli mətn hərfinə çevrilir və
+bütün şifrəli mətn hərflərinin tək bir orijinal qarşılığı olur.</p>
+<p>Əgər <span class="math inline">\(\gcd(a,26) \neq 1\)</span> olarsa,
+funksiya biyektivliyini itirir. Bu halda funksiya artıq
+<strong>inyektiv</strong> olmadığı üçün "toqquşmalar" (collisions)
+yaranır və deşifrləmə zamanı hansı hərfin orijinal olduğunu müəyyən
+etmək qeyri-mümkün olur.</p>
+</div>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Qarşılıqlı sadə <span
+class="math inline">\(a\)</span> dəyərləri</strong></th>
+<th style="text-align: center;"><strong>Qadağan olunmuş <span
+class="math inline">\(a\)</span> dəyərləri</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23,
+25</td>
+<td style="text-align: center;">2, 4, 6, 8, 10, 12, 13, 14, 16, 18, 20,
+22, 24</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="affin-şifrəsinə-nümunələr">Affin şifrəsinə nümunələr</h2>
+<div class="example">
+<p><strong>Nümunə 6</strong>. <span><span class="math inline">\(a=7,
+b=3\)</span> olan Affin şifrəsi ilə "SALAM" sözünün şifrlənməsi:</span>
+Əvvəlcə hərfləri rəqəmə çevirək:</p>
+<ul>
+<li><p>S = 18</p></li>
+<li><p>A = 0</p></li>
+<li><p>L = 11</p></li>
+<li><p>A = 0</p></li>
+<li><p>M = 12</p></li>
+</ul>
+<p>İndi <span class="math inline">\(E(p) = (7p + 3) \mod 26\)</span>
+düsturunu tətbiq edək:</p>
+<p><span class="math display">\[\begin{align*}
+    S (18): &amp;\quad (7\cdot 18 + 3) \mod 26 = (126 + 3) \mod 26 = 129
+\mod 26 \\
+    &amp;\quad 129 - 4\cdot 26 = 129 - 104 = 25 \rightarrow \text{Z} \\
+    A (0): &amp;\quad (7\cdot 0 + 3) \mod 26 = 3 \mod 26 = 3 \rightarrow
+\text{D} \\
+    L (11): &amp;\quad (7\cdot 11 + 3) \mod 26 = (77 + 3) \mod 26 = 80
+\mod 26 \\
+    &amp;\quad 80 - 3\cdot 26 = 80 - 78 = 2 \rightarrow \text{C} \\
+    A (0): &amp;\quad (7\cdot 0 + 3) \mod 26 = 3 \rightarrow \text{D} \\
+    M (12): &amp;\quad (7\cdot 12 + 3) \mod 26 = (84 + 3) \mod 26 = 87
+\mod 26 \\
+    &amp;\quad 87 - 3\cdot 26 = 87 - 78 = 9 \rightarrow \text{J}
+\end{align*}\]</span></p>
+<p>Nəticə: "SALAM" → "Z D C D J"</p>
+</div>
+<h2 id="affin-şifrəsində-deşifrləmə-üçün-modul-tərs">Affin şifrəsində
+deşifrləmə üçün modul tərs</h2>
+<p>Affin şifrəsində deşifrləmə üçün <span
+class="math inline">\(a\)</span>-nın mod 26-ya görə tərsini (<span
+class="math inline">\(a^{-1}\)</span>) tapmaq lazımdır <span
+class="citation" data-cites="menezes1996handbook"></span>. <span
+class="math inline">\(a^{-1}\)</span> elə bir ədəddir ki, <span
+class="math inline">\(a \cdot a^{-1} \equiv 1 \pmod{26}\)</span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(a\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(a^{-1} \mod
+26\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">19</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Modul tərs necə tapılır?</span> Modul tərs tapmaq üçün
+genişləndirilmiş Evklid alqoritmindən istifadə olunur <span
+class="citation" data-cites="menezes1996handbook"></span>. Bu alqoritmi
+gələcək mühazirələrdə ətraflı öyrənəcəyik. Hələlik yuxarıdakı cədvəldən
+istifadə edə bilərik.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 7</strong>. <span>Yuxarıdakı nümunənin
+deşifrlənməsi:</span> Şifrəli mətn: "Z D C D J" (<span
+class="math inline">\(a=7, b=3\)</span> üçün)</p>
+<p>Əvvəlcə hərfləri rəqəmə çevirək:</p>
+<ul>
+<li><p>Z = 25</p></li>
+<li><p>D = 3</p></li>
+<li><p>C = 2</p></li>
+<li><p>D = 3</p></li>
+<li><p>J = 9</p></li>
+</ul>
+<p><span class="math inline">\(a=7\)</span> üçün modul tərs cədvəldən
+<span class="math inline">\(7^{-1} \equiv 15 \pmod{26}\)</span>.</p>
+<p>Deşifrləmə düsturu: <span class="math inline">\(D(c) = 15 \cdot (c -
+3) \mod 26\)</span></p>
+<p><span class="math display">\[\begin{align*}
+    Z (25): &amp;\quad 15 \cdot (25 - 3) \mod 26 = 15 \cdot 22 \mod 26 =
+330 \mod 26 \\
+    &amp;\quad 330 - 12\cdot 26 = 330 - 312 = 18 \rightarrow \text{S} \\
+    D (3): &amp;\quad 15 \cdot (3 - 3) \mod 26 = 15 \cdot 0 \mod 26 = 0
+\rightarrow \text{A} \\
+    C (2): &amp;\quad 15 \cdot (2 - 3) \mod 26 = 15 \cdot (-1) \mod 26 =
+-15 \mod 26 = 11 \rightarrow \text{L} \\
+    D (3): &amp;\quad 15 \cdot 0 = 0 \rightarrow \text{A} \\
+    J (9): &amp;\quad 15 \cdot (9 - 3) \mod 26 = 15 \cdot 6 \mod 26 = 90
+\mod 26 \\
+    &amp;\quad 90 - 3\cdot 26 = 90 - 78 = 12 \rightarrow \text{M}
+\end{align*}\]</span></p>
+<p>Nəticə: "S A L A M" — orijinal mətn!</p>
+</div>
+<h1 id="monoalfabetik-əvəzetmə-şifrələri">Monoalfabetik əvəzetmə
+şifrələri</h1>
+<p>Sezar və Affin şifrələri monoalfabetik əvəzetmə şifrələrinin xüsusi
+hallarıdır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Monoalfabetik əvəzetmə
+şifrələrində əlifbanın hər bir hərfi başqa bir hərflə təkbətək əvəz
+olunur <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<h2 id="ümumi-tərif">Ümumi tərif</h2>
+<div class="keyconcept">
+<p><span>Monoalfabetik əvəzetmə şifrəsi</span> Monoalfabetik əvəzetmə
+şifrəsi — hər bir açıq mətn hərfinin bir şifrəli mətn hərfinə
+çevrildiyi, bu çevrilmənin bütün mesaj boyu dəyişmədiyi şifrə növüdür
+<span class="citation" data-cites="stinson2018cryptography"></span>.
+Riyazi olaraq, bu, əlifba üzərində bir permutasiyadır.</p>
+</div>
+<p>Sezar şifrəsi xüsusi bir permutasiyadır (sürüşdürmə). Affin şifrəsi
+də xüsusi bir permutasiyadır (xətti çevirmə). Ümumi monoalfabetik
+şifrədə isə ixtiyari permutasiya istifadə oluna bilər.</p>
+<h2 id="mümkün-açar-sayı">Mümkün açar sayı</h2>
+<p>Monoalfabetik əvəzetmə şifrələrində açar sayı çox böyükdür <span
+class="citation" data-cites="stinson2018cryptography"></span>. İngilis
+əlifbası üçün mümkün permutasiya sayı:</p>
+<p><span class="math display">\[26! = 26 \times 25 \times 24 \times
+\cdots \times 1 \approx 4.03 \times 10^{26}\]</span></p>
+<p>Bu, təxminən <span class="math inline">\(2^{88}\)</span>-ə
+bərabərdir. Bu qədər açarı tam axtarışla sınamaq mümkün deyil. Lakin bu
+şifrələr də təhlükəsiz deyil, çünki onlar <strong>tezlik
+analizi</strong> ilə asanlıqla sındırıla bilər <span class="citation"
+data-cites="kahn1996codebreakers"></span>.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Şifrə növü</strong></th>
+<th style="text-align: center;"><strong>Mümkün açar sayı</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sezar şifrəsi</td>
+<td style="text-align: center;">26</td>
+</tr>
+<tr>
+<td style="text-align: left;">Affin şifrəsi</td>
+<td style="text-align: center;">312</td>
+</tr>
+<tr>
+<td style="text-align: left;">Monoalfabetik əvəzetmə</td>
+<td style="text-align: center;"><span class="math inline">\(26! \approx
+4.03 \times 10^{26}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="warning">
+<p><span>Böyük açar sayı təhlükəsizlik demək deyil</span> Monoalfabetik
+əvəzetmə şifrələrinin açar sayı çox böyük olsa da, onlar təhlükəsiz
+deyil <span class="citation" data-cites="schneier1996applied"></span>.
+Çünki dilin statistik xüsusiyyətlərindən istifadə edərək (tezlik
+analizi) bu şifrləri sındırmaq olar. Bu, kriptoqrafiyada vacib bir
+dərsdir: böyük açar sayı təkbaşına təhlükəsizlik təmin etmir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 8</strong>. <span>Təsadüfi monoalfabetik
+əvəzetmə</span> Aşağıdakı kimi bir əvəzetmə cədvəli düşünək:</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+</tr>
+<tr>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+</tr>
+<tr>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">J</td>
+</tr>
+<tr>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Z</td>
+</tr>
+<tr>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+<td style="text-align: center;">↓</td>
+</tr>
+<tr>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">W</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Bu əvəzetmə ilə "SALAM" sözü "P X I X J" olur:</p>
+<ul>
+<li><p>S → P</p></li>
+<li><p>A → X</p></li>
+<li><p>L → I</p></li>
+<li><p>A → X</p></li>
+<li><p>M → J</p></li>
+</ul>
+<p>Beləliklə, "SALAM" → "PXIXJ"</p>
+</div>
+<h1 id="tezlik-analizi">Tezlik analizi</h1>
+<p>Tezlik analizi ən qədim kriptoanaliz üsullarından biridir <span
+class="citation" data-cites="kahn1996codebreakers"></span>. Bu üsul
+dillərdə hərflərin müəyyən tezliklərdə işlənməsi faktına əsaslanır.</p>
+<h2 id="tarixi-fon">Tarixi fon</h2>
+<div class="history">
+<p><span>Əl-Kindi və tezlik analizi</span> Tezlik analizinin kəşfi ərəb
+filosofu və alimi <strong>Əl-Kindiyə</strong> (801-873) aid edilir <span
+class="citation" data-cites="singh1999code"></span>. O, "Şifrələnmiş
+mesajların deşifrə edilməsi haqqında risalə" əsərində yazırdı:</p>
+<p><em>"Bir mətni təhlil etmək üçün onun içindəki hərflərin tezliyini
+bilmək lazımdır. Müxtəlif dillərdə bəzi hərflər digərlərindən daha çox
+işlənir."</em></p>
+<p>Əl-Kindi ərəb əlifbası üçün tezlik analizini tətbiq etmiş və bu
+üsulla bir çox şifrələri sındırmışdır. Avropada tezlik analizi yalnız XV
+əsrdə, İntibah dövründə məlum olmağa başladı <span class="citation"
+data-cites="kahn1996codebreakers"></span>.</p>
+</div>
+<h2 id="ingilis-dilində-hərf-tezlikləri">İngilis dilində hərf
+tezlikləri</h2>
+<p>İngilis dilində hərflərin işlənmə tezliyi təxminən aşağıdakı kimidir
+<span class="citation" data-cites="stinson2018cryptography"></span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Hərf</strong></th>
+<th style="text-align: center;"><strong>Tezlik (%)</strong></th>
+<th style="text-align: center;"><strong>Hərf</strong></th>
+<th style="text-align: center;"><strong>Tezlik (%)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">12.7</td>
+<td style="text-align: center;">M</td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">9.1</td>
+<td style="text-align: center;">W</td>
+<td style="text-align: center;">2.4</td>
+</tr>
+<tr>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">8.2</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">2.2</td>
+</tr>
+<tr>
+<td style="text-align: center;">O</td>
+<td style="text-align: center;">7.5</td>
+<td style="text-align: center;">G</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;">7.0</td>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">N</td>
+<td style="text-align: center;">6.7</td>
+<td style="text-align: center;">P</td>
+<td style="text-align: center;">1.9</td>
+</tr>
+<tr>
+<td style="text-align: center;">S</td>
+<td style="text-align: center;">6.3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">1.5</td>
+</tr>
+<tr>
+<td style="text-align: center;">H</td>
+<td style="text-align: center;">6.1</td>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;">1.0</td>
+</tr>
+<tr>
+<td style="text-align: center;">R</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">K</td>
+<td style="text-align: center;">0.8</td>
+</tr>
+<tr>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">4.3</td>
+<td style="text-align: center;">J</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr>
+<td style="text-align: center;">L</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">2.8</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr>
+<td style="text-align: center;">U</td>
+<td style="text-align: center;">2.8</td>
+<td style="text-align: center;">Z</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note">
+<p><span>Ən çox işlənən hərflər</span> İngilis dilində ən çox işlənən
+hərf <strong>E</strong>-dir (təxminən 12.7%). Sonra <strong>T</strong>,
+<strong>A</strong>, <strong>O</strong>, <strong>I</strong>,
+<strong>N</strong> gəlir. Bu altı hərf bütün mətnin təxminən 50%-ni
+təşkil edir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+</div>
+<h2 id="tezlik-analizinin-tətbiqi">Tezlik analizinin tətbiqi</h2>
+<p>Tezlik analizini monoalfabetik şifrələrə tətbiq etmək üçün aşağıdakı
+ardıcıllıq izlənilir <span class="citation"
+data-cites="paar2010understanding"></span>:</p>
+<ol>
+<li><p><strong>Hesablama:</strong> Şifrəli mətndəki hər bir simvolun
+mütləq tezliyi (sayı) hesablanır.</p></li>
+<li><p><strong>Sıralama:</strong> Simvollar azalan sıra ilə
+düzülür.</p></li>
+<li><p><strong>Eyniləşdirmə:</strong> Ən yüksək tezlikli simvollar hədəf
+dilin (məs. ingilis dili) xarakterik hərfləri (E, T, A) ilə müqayisə
+edilir.</p></li>
+<li><p><strong>Kontekstual Analiz:</strong> Qısa sözlər (the, is, and)
+və qoşa hərflər (ee, ll, tt) vasitəsilə təxminlər daraldılır.</p></li>
+<li><p><strong>Verifikasiya:</strong> Alınan açıq mətnin mənası
+yoxlanılır və zərurət olduqda addımlar təkrarlanır.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 9</strong>. <span>Praktik Nümunə: Uzun Mətnin
+Analizi</span></p>
+<p>Tutaq ki, aşağıdakı şifrəli mətn ələ keçirilmişdir (bu, Şekspirin
+məşhur monoloqunun ROT13 ilə şifrələnmiş versiyasıdır):</p>
+<div class="center">
+<p><code>JBNZ JBNZ VU JBNZ, GCRG VF GUR CHRFGBA. JURGURE ’G VF ABXYRE...</code></p>
+</div>
+<p><strong>1. Statistik Mərhələ:</strong> Mətn kifayət qədər uzun
+olduqda, hərfləri sayırıq. Tutaq ki, <strong>G</strong> hərfi ən yüksək
+tezliyə malikdir. İlkin fərziyyə: <strong>G <span
+class="math inline">\(\to\)</span> T</strong>.</p>
+<p><strong>2. Linqvistik Mərhələ:</strong> <strong>GCRG</strong> sözü
+<code>T??T</code> halına düşür. <strong>THAT</strong> sözü bura mükəmməl
+uyğunlaşır.</p>
+<ul>
+<li><p>Buradan: <strong>C <span class="math inline">\(\to\)</span> H, R
+<span class="math inline">\(\to\)</span> A</strong>.</p></li>
+</ul>
+<p><strong>3. Ziddiyyətin həlli (Kritik nöqtə):</strong> İndi
+<strong>GUR</strong> sözünə baxaq. Əgər <strong>G=T</strong> və
+<strong>R=A</strong> olsa, söz <code>T?A</code> olur. Amma ingilis
+dilində ən çox işlənən üçhərfli söz <strong>THE</strong>-dir. Əgər
+<strong>GUR = THE</strong> olarsa, onda <strong>R <span
+class="math inline">\(\to\)</span> E</strong> olmalıdır.</p>
+<p><em>Ziddiyyət:</em> <strong>R</strong> həm <strong>A</strong>
+(THAT-dan), həm də <strong>E</strong> (THE-dən) ola bilməz.
+<em>Düzəliş:</em> <strong>GCRG</strong> sözünü yenidən nəzərdən keçirək.
+<code>T??T</code> modelinə uyğun başqa hansı söz var? <strong>TART,
+TENT, THAT, TOOT</strong>. Bəlkə də <strong>G</strong> hərfi
+<strong>T</strong> deyil?</p>
+<p>Gəlin <strong>GUR = THE</strong> fərziyyəsini əsas götürək:</p>
+<ul>
+<li><p><strong>G <span class="math inline">\(\to\)</span> T, U <span
+class="math inline">\(\to\)</span> H, R <span
+class="math inline">\(\to\)</span> E</strong>.</p></li>
+</ul>
+<p>İndi <strong>GCRG</strong> sözünə qayıdaq: <code>T?HT</code>. Bu
+modelə uyğun ən məntiqli söz <strong>THAT</strong>-dır.</p>
+<ul>
+<li><p>Deməli: <strong>C <span class="math inline">\(\to\)</span>
+A</strong>. (Əvvəlki səhvimiz <strong>C</strong>-ni <strong>H</strong>
+hesab etmək idi).</p></li>
+</ul>
+<p><strong>4. Zəncirvari bərpa:</strong> İndi əlimizdə olanlar:
+<strong>G=T, U=H, R=E, C=A</strong>. Mətni yerinə qoyaq:
+<code>JBNZ JBNZ VU JBNZ, THAT IS THE QUESTION...</code></p>
+<ul>
+<li><p><strong>VF</strong> ikihərfli sözü <code>IS</code> ola bilər
+(<span class="math inline">\(\mathbf{V \to I, F \to
+S}\)</span>).</p></li>
+<li><p><strong>CHRFGBA</strong> sözü: <code>A Q E S T I O N</code> <span
+class="math inline">\(\to\)</span> <strong>QUESTION</strong> (Buradan
+<strong>H=Q, F=S, G=T, B=I, A=N</strong> olduğunu
+dəqiqləşdiririk).</p></li>
+</ul>
+<p><strong>Nəticə:</strong>
+<code>LOVE LOVE OR LOVE, THAT IS THE QUESTION. WHETHER ’T IS NOBLER...</code>
+(Qeyd: Nümunəvi mətndə "To be" yerinə "Love" istifadə olunsa da,
+struktur tam bərpa olundu).</p>
+</div>
+<div class="warning">
+<p><span>Qısa mətnlərin tələsi</span> Mətn qısa olduqda (məsələn, 5-10
+söz), statistik qanunauyğunluqlar çox vaxt pozulur (Standard Deviation).
+Belə hallarda <strong>E</strong> hərfi ən çox işlənən hərf olmaya
+bilər.</p>
+<ul>
+<li><p><strong>Problem:</strong> "A QUICK BROWN FOX..." cümləsində demək
+olar ki, hər hərfdən bir dənədir. Burada tezlik analizi "iflic"
+olur.</p></li>
+<li><p><strong>Həll yolu:</strong> Belə hallarda sırf riyazi tezlikdən
+imtina edib, dilin <strong>sintaktik xüsusiyyətlərinə</strong> (məsələn,
+ingilis dilində tək qalan hərfin ’A’ və ya ’I’ olması) fokuslanmaq
+lazımdır.</p></li>
+</ul>
+</div>
+<h2 id="tezlik-analizindən-qorunma">Tezlik analizindən qorunma</h2>
+<p>Monoalfabetik şifrələr tezlik analizinə qarşı həssasdır. Bu hücumdan
+qorunmaq üçün aşağıdakı üsullardan istifadə olunur <span
+class="citation" data-cites="stinson2018cryptography"></span>:</p>
+<ol>
+<li><p><strong>Polialfabetik şifrələr</strong>: Hər hərf üçün fərqli
+əvəzetmə cədvəli istifadə olunur (məsələn, Vijener şifrəsi). Bu, tezlik
+analizini çətinləşdirir <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Böyük bloklar</strong>: Simvolları deyil, daha böyük
+blokları şifrləmək.</p></li>
+<li><p><strong>Sıxılma</strong>: Mətni şifrləmədən əvvəl sıxmaq,
+statistik xüsusiyyətləri dəyişdirir.</p></li>
+</ol>
+<div class="note">
+<p><span>Tezlik analizinin əhəmiyyəti</span> Tezlik analizi bu gün də
+kriptoanalizdə mühüm rol oynayır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Müasir şifrələr tezlik
+analizinə qarşı davamlı olsa da, yan kanal hücumları və digər statistik
+analiz üsulları bu prinsipin müasir variantlarıdır <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</p>
+</div>
+<h1 class="unnumbered" id="kriptoanaliz-guşəsi-detektiv-üsulları">
+Kriptoanaliz Guşəsi: Detektiv Üsulları</h1>
+<p>Klassik şifrləri sındırmaq üçün yalnız riyaziyyat kifayət etmir, həm
+də dilin strukturuna dair "detektiv" duyğuları lazımdır. Budur sizə
+kömək edəcək bəzi peşəkar fəndlər:</p>
+<div class="keyconcept">
+<p><span>Birinci Addım: Söz Uzunluqları</span> Əgər şifrəli mətndə
+boşluqlar saxlanılıbsa, bu sizin üçün ən böyük ipucudur.</p>
+<ul>
+<li><p><strong>Birhərfli sözlər:</strong> İngilis dilində bunlar adətən
+yalnız "A" və "I" hərfləridir.</p></li>
+<li><p><strong>İkihərfli sözlər:</strong> "OF", "TO", "IN", "IS", "IT",
+"AS", "AT", "BE", "WE".</p></li>
+<li><p><strong>Üchhərfli sözlər:</strong> "THE" (ən çox işlənən), "AND",
+"FOR", "ARE".</p></li>
+</ul>
+</div>
+<div class="tip">
+<p><span>İkinci Addım: Qoşa Hərflər</span> Şifrəli mətndə yan-yana gələn
+eyni hərfləri (məsələn, "ZVV") axtarın. İngilis dilində ən çox rast
+gəlinən qoşa hərflər bunlardır: <strong>EE, SS, TT, LL, MM, OO</strong>.
+Əgər "ZVV" bir sözün sonundadırsa, bu böyük ehtimalla "SEE", "TOO" və ya
+"BEE" ola bilər.</p>
+</div>
+<div class="note">
+<p><span>Üçüncü Addım: Affin Şifrəsini Necə Tanımalı?</span> Sezar
+şifrəsində hərflər arasındakı məsafə (məsələn, A ilə C arasındakı
+məsafə) şifrələnəndən sonra da sabit qalır. Lakin affin şifrəsində bu
+məsafə dəyişir. Əgər hərflərin tezliyi "pərən-pərən" düşübsə, amma hələ
+də monoalfabetik əvəzetmə izləri varsa, bu böyük ehtimalla affin
+şifrəsidir.</p>
+</div>
+<div class="examplebox">
+<p><span>Kiçik bir hiylə: "THE" Kombinasiyası</span> İngilis dilində
+"THE" o qədər çox işlənir ki, şifrəli mətndə ən çox təkrar olunan
+üçhərfli kombinasiyanı tapıb onu "THE" ilə əvəz etsəniz, artıq 3 mühüm
+hərfi (T, H, E) tapmış olacaqsınız. Bu, qalan tapmacanı həll etmək üçün
+"domino effekti" yaradacaq.</p>
+</div>
+<h1 id="praktiki-tapşırıqlar">Praktiki Tapşırıqlar</h1>
+<h2 id="tapşırıq-1-modul-arifmetika">Tapşırıq 1: Modul arifmetika</h2>
+<p>Aşağıdakı hesablamaları aparın:</p>
+<ol>
+<li><p><span class="math inline">\((23 + 17) \bmod 26\)</span></p></li>
+<li><p><span class="math inline">\((15 - 22) \bmod 26\)</span></p></li>
+<li><p><span class="math inline">\((7 \times 11) \bmod
+26\)</span></p></li>
+<li><p><span class="math inline">\((13 \times 17) \bmod
+26\)</span></p></li>
+<li><p><span class="math inline">\((5 \times 21) \bmod
+26\)</span></p></li>
+</ol>
+<h2 id="tapşırıq-2-sezar-şifrəsi">Tapşırıq 2: Sezar şifrəsi</h2>
+<ol>
+<li><p><span class="math inline">\(k=5\)</span> açarı ilə
+<code>"KRIPTOQRAFIYA"</code> sözünü şifrləyin.</p></li>
+<li><p><span class="math inline">\(k=19\)</span> açarı ilə
+<code>"MABL"</code> şifrəli mətnini deşifrələyin.</p></li>
+<li><p>Aşağıdakı şifrəli mətnə tam axtarış (<em>Brute-Force</em>) hücumu
+tətbiq edin və açıq mətni tapın:</p>
+<div class="center">
+<p><code>"WKLV LV D VHFUHW PHVVDJH"</code></p>
+</div></li>
+</ol>
+<h2 id="tapşırıq-3-affin-şifrəsi">Tapşırıq 3: Affin şifrəsi</h2>
+<ol>
+<li><p><span class="math inline">\(a=5, b=8\)</span> açarı ilə
+<code>"KRIPTO"</code> sözünü şifrləyin.</p></li>
+<li><p><span class="math inline">\(a=7, b=11\)</span> açarı ilə
+şifrlənmiş <code>"XH"</code> mətnini deşifrələyin (İpucu: <span
+class="math inline">\(7^{-1} \bmod 26 = 15\)</span>).</p></li>
+<li><p>Aşağıdakı şifrəli mətn <span class="math inline">\(a=9,
+b=4\)</span> açarı ilə şifrlənib. Onu deşifrələyin:</p>
+<div class="center">
+<p><code>"ETTEWQ ET FEUR"</code></p>
+</div></li>
+</ol>
+<h2 id="tapşırıq-4-tezlik-analizi">Tapşırıq 4: Tezlik analizi</h2>
+<p>Aşağıdakı şifrəli mətn monoalfabetik şifrə ilə şifrlənib. Tezlik
+analizi apararaq orijinal mətni tapın:</p>
+<div class="center">
+<p><code>"GUR FRPERG ZRFFNTR VF UVQQRA VA GUVF GRKG"</code></p>
+</div>
+<p><strong>İpucu:</strong> Bu mətndə ən çox işlənən hərf
+<strong>R</strong>-dir. İngilis dilində ən çox işlənən hərf
+<strong>E</strong>-dir. Deməli, çox güman ki, <span
+class="math inline">\(R \rightarrow E\)</span>.</p>
+<h2 id="tapşırıq-5-əlavə-tapşırıq-affin-deşifrləmə">Tapşırıq 5: Əlavə
+tapşırıq (Affin deşifrləmə)</h2>
+<p>Aşağıdakı şifrəli mətn <span class="math inline">\(a=11, b=6\)</span>
+açarı ilə şifrlənib. Onu deşifrələyin:</p>
+<div class="center">
+<p><code>"OY GLY HE UE FEIY"</code></p>
+</div>
+<h1 id="praktiki-tapşırıqların-ətraflı-həlləri">Praktiki Tapşırıqların
+Ətraflı Həlləri</h1>
+<p><em>Qeyd: Bütün həllərdə İngilis əlifbasının 26 hərfindən istifadə
+olunur və indeksləmə <span class="math inline">\(A=0, B=1, C=2, \dots,
+Z=25\)</span> standartına əsaslanır.</em></p>
+<h2 id="tapşırıq-1-modul-arifmetikanın-həlli">Tapşırıq 1: Modul
+arifmetikanın həlli</h2>
+<ol>
+<li><p><span class="math inline">\((23 + 17) \bmod 26 = 40 \bmod 26 =
+14\)</span></p></li>
+<li><p><span class="math inline">\((15 - 22) \bmod 26 = -7 \bmod 26 = -7
++ 26 = 19\)</span></p></li>
+<li><p><span class="math inline">\((7 \times 11) \bmod 26 = 77 \bmod 26
+= 77 - 2 \times 26 = 77 - 52 = 25\)</span></p></li>
+<li><p><span class="math inline">\((13 \times 17) \bmod 26 = 221 \bmod
+26 = 221 - 8 \times 26 = 221 - 208 = 13\)</span></p></li>
+<li><p><span class="math inline">\((5 \times 21) \bmod 26 = 105 \bmod 26
+= 105 - 4 \times 26 = 105 - 104 = 1\)</span></p></li>
+</ol>
+<p><strong>Cavablar:</strong> (1) 14, (2) 19, (3) 25, (4) 13, (5) 1.</p>
+<h2 id="tapşırıq-2-sezar-şifrəsinin-həlli">Tapşırıq 2: Sezar şifrəsinin
+həlli</h2>
+<p>Sezar şifrəsində şifrləmə düsturu <span class="math inline">\(C = (P
++ k) \bmod 26\)</span>, deşifrləmə düsturu isə <span
+class="math inline">\(P = (C - k) \bmod 26\)</span> şəklindədir.</p>
+<ol>
+<li><p><strong><code>"KRIPTOQRAFIYA"</code> mətni üçün <span
+class="math inline">\(k=5\)</span> ilə şifrləmə:</strong></p>
+<ul>
+<li><p>K (10) <span class="math inline">\(\rightarrow (10+5) \bmod 26 =
+15 \rightarrow\)</span> <strong>P</strong></p></li>
+<li><p>R (17) <span class="math inline">\(\rightarrow (17+5) \bmod 26 =
+22 \rightarrow\)</span> <strong>W</strong></p></li>
+<li><p>I (8) <span class="math inline">\(\rightarrow (8+5) \bmod 26 = 13
+\rightarrow\)</span> <strong>N</strong></p></li>
+<li><p>P (15) <span class="math inline">\(\rightarrow (15+5) \bmod 26 =
+20 \rightarrow\)</span> <strong>U</strong></p></li>
+<li><p>T (19) <span class="math inline">\(\rightarrow (19+5) \bmod 26 =
+24 \rightarrow\)</span> <strong>Y</strong></p></li>
+<li><p>O (14) <span class="math inline">\(\rightarrow (14+5) \bmod 26 =
+19 \rightarrow\)</span> <strong>T</strong></p></li>
+<li><p>Q (16) <span class="math inline">\(\rightarrow (16+5) \bmod 26 =
+21 \rightarrow\)</span> <strong>V</strong></p></li>
+<li><p>R (17) <span class="math inline">\(\rightarrow (17+5) \bmod 26 =
+22 \rightarrow\)</span> <strong>W</strong></p></li>
+<li><p>A (0) <span class="math inline">\(\rightarrow (0+5) \bmod 26 = 5
+\rightarrow\)</span> <strong>F</strong></p></li>
+<li><p>F (5) <span class="math inline">\(\rightarrow (5+5) \bmod 26 = 10
+\rightarrow\)</span> <strong>K</strong></p></li>
+<li><p>I (8) <span class="math inline">\(\rightarrow (8+5) \bmod 26 = 13
+\rightarrow\)</span> <strong>N</strong></p></li>
+<li><p>Y (24) <span class="math inline">\(\rightarrow (24+5) \bmod 26 =
+29 \bmod 26 = 3 \rightarrow\)</span> <strong>D</strong></p></li>
+<li><p>A (0) <span class="math inline">\(\rightarrow (0+5) \bmod 26 = 5
+\rightarrow\)</span> <strong>F</strong></p></li>
+</ul>
+<p><strong>Şifrəli mətn:</strong> <code>"PWNUYTVWFKNDF"</code></p></li>
+<li><p><strong><code>"MABL"</code> mətni üçün <span
+class="math inline">\(k=19\)</span> ilə deşifrləmə (<span
+class="math inline">\(P = (C - 19) \bmod 26\)</span>):</strong></p>
+<ul>
+<li><p>M (12) <span class="math inline">\(\rightarrow (12 - 19) \bmod 26
+= -7 + 26 = 19 \rightarrow\)</span> <strong>T</strong></p></li>
+<li><p>A (0) <span class="math inline">\(\rightarrow (0 - 19) \bmod 26 =
+-19 + 26 = 7 \rightarrow\)</span> <strong>H</strong></p></li>
+<li><p>B (1) <span class="math inline">\(\rightarrow (1 - 19) \bmod 26 =
+-18 + 26 = 8 \rightarrow\)</span> <strong>I</strong></p></li>
+<li><p>L (11) <span class="math inline">\(\rightarrow (11 - 19) \bmod 26
+= -8 + 26 = 18 \rightarrow\)</span> <strong>S</strong></p></li>
+</ul>
+<p><strong>Açıq mətn:</strong> <code>"THIS"</code></p></li>
+<li><p><strong><code>"WKLV LV D VHFUHW PHVVDJH"</code> üçün Tam Axtarış
+(<em>Brute-Force</em>):</strong> <span
+class="math inline">\(k=3\)</span> üçün deşifrləmə (<span
+class="math inline">\(P = (C - 3) \bmod 26\)</span>) aparıldıqda mənalı
+ingilis dili mətni alınır:</p>
+<ul>
+<li><p>WKLV <span class="math inline">\(\rightarrow\)</span> T(19) H(7)
+I(8) S(18) = <strong>THIS</strong></p></li>
+<li><p>LV <span class="math inline">\(\rightarrow\)</span> I(8) S(18) =
+<strong>IS</strong></p></li>
+<li><p>D <span class="math inline">\(\rightarrow\)</span> A(0) =
+<strong>A</strong></p></li>
+<li><p>VHFUHW <span class="math inline">\(\rightarrow\)</span> S(18)
+E(4) C(2) R(17) E(4) T(19) = <strong>SECRET</strong></p></li>
+<li><p>PHVVDJH <span class="math inline">\(\rightarrow\)</span> M(12)
+E(4) S(18) S(18) A(0) G(6) E(4) = <strong>MESSAGE</strong></p></li>
+</ul>
+<p><strong>Açıq mətn:</strong> <code>"THIS IS A SECRET MESSAGE"</code>
+(Sürüşmə: <span class="math inline">\(k=3\)</span>).</p></li>
+</ol>
+<h2 id="tapşırıq-3-affin-şifrəsinin-həlli">Tapşırıq 3: Affin şifrəsinin
+həlli</h2>
+<p>Affin şifrəsində şifrləmə: <span class="math inline">\(C = (a \cdot P
++ b) \bmod 26\)</span>, deşifrləmə: <span class="math inline">\(P =
+a^{-1} \cdot (C - b) \bmod 26\)</span>.</p>
+<ol>
+<li><p><strong><span class="math inline">\(a=5, b=8\)</span> açarı ilə
+<code>"KRIPTO"</code> mətninin şifrlənməsi:</strong></p>
+<ul>
+<li><p>K (10): <span class="math inline">\((5 \times 10 + 8) \bmod 26 =
+58 \bmod 26 = 6 \rightarrow\)</span> <strong>G</strong></p></li>
+<li><p>R (17): <span class="math inline">\((5 \times 17 + 8) \bmod 26 =
+93 \bmod 26 = 15 \rightarrow\)</span> <strong>P</strong></p></li>
+<li><p>I (8): <span class="math inline">\((5 \times 8 + 8) \bmod 26 = 48
+\bmod 26 = 22 \rightarrow\)</span> <strong>W</strong></p></li>
+<li><p>P (15): <span class="math inline">\((5 \times 15 + 8) \bmod 26 =
+83 \bmod 26 = 5 \rightarrow\)</span> <strong>F</strong></p></li>
+<li><p>T (19): <span class="math inline">\((5 \times 19 + 8) \bmod 26 =
+103 \bmod 26 = 25 \rightarrow\)</span> <strong>Z</strong></p></li>
+<li><p>O (14): <span class="math inline">\((5 \times 14 + 8) \bmod 26 =
+78 \bmod 26 = 0 \rightarrow\)</span> <strong>A</strong></p></li>
+</ul>
+<p><strong>Şifrəli mətn:</strong> <code>"GPWFZA"</code></p></li>
+<li><p><strong><span class="math inline">\(a=7, b=11\)</span> ilə
+<code>"XH"</code> mətninin deşifrlənməsi:</strong> Əvvəlcə vurmaya görə
+tərs elementi tapaq: <span class="math inline">\(7^{-1} \bmod 26 =
+15\)</span> (çünki <span class="math inline">\(7 \times 15 = 105 \equiv
+1 \bmod 26\)</span>). Deşifrləmə düsturu: <span class="math inline">\(P
+= 15 \cdot (C - 11) \bmod 26\)</span>.</p>
+<ul>
+<li><p>X (23): <span class="math inline">\(15 \cdot (23 - 11) = 15 \cdot
+12 = 180 \bmod 26 = 24 \rightarrow\)</span> <strong>Y</strong></p></li>
+<li><p>H (7): <span class="math inline">\(15 \cdot (7 - 11) = 15 \cdot
+(-4) = -60 \bmod 26 = 18 \rightarrow\)</span>
+<strong>S</strong></p></li>
+</ul>
+<p><strong>Açıq mətn:</strong> <code>"YS"</code></p></li>
+<li><p><strong><span class="math inline">\(a=9, b=4\)</span> ilə
+<code>"ETTEWQ ET FEUR"</code> mətninin deşifrlənməsi:</strong> Tərs
+element: <span class="math inline">\(9^{-1} \bmod 26 = 3\)</span> (çünki
+<span class="math inline">\(9 \times 3 = 27 \equiv 1 \bmod 26\)</span>).
+Düstur: <span class="math inline">\(P = 3 \cdot (C - 4) \bmod
+26\)</span>.</p>
+<ul>
+<li><p>E (4) <span class="math inline">\(\rightarrow 3 \cdot (4 - 4) = 0
+\rightarrow\)</span> <strong>A</strong></p></li>
+<li><p>T (19) <span class="math inline">\(\rightarrow 3 \cdot (19 - 4) =
+45 \bmod 26 = 19 \rightarrow\)</span> <strong>T</strong></p></li>
+<li><p>W (22) <span class="math inline">\(\rightarrow 3 \cdot (22 - 4) =
+54 \bmod 26 = 2 \rightarrow\)</span> <strong>C</strong></p></li>
+<li><p>Q (16) <span class="math inline">\(\rightarrow 3 \cdot (16 - 4) =
+36 \bmod 26 = 10 \rightarrow\)</span> <strong>K</strong></p></li>
+<li><p>F (5) <span class="math inline">\(\rightarrow 3 \cdot (5 - 4) = 3
+\rightarrow\)</span> <strong>D</strong></p></li>
+<li><p>U (20) <span class="math inline">\(\rightarrow 3 \cdot (20 - 4) =
+48 \bmod 26 = 22 \rightarrow\)</span> <strong>W</strong></p></li>
+<li><p>R (17) <span class="math inline">\(\rightarrow 3 \cdot (17 - 4) =
+39 \bmod 26 = 13 \rightarrow\)</span> <strong>N</strong></p></li>
+</ul>
+<p><strong>Açıq mətn:</strong> <code>"ATTACK AT DAWN"</code></p></li>
+</ol>
+<h2 id="tapşırıq-4-tezlik-analizi-həlli">Tapşırıq 4: Tezlik analizi
+həlli</h2>
+<p>İpucunda qeyd edildiyi kimi, mətndə ən çox təkrar olunan hərf
+<strong>R</strong>-dir və ingilis dilində bu hərf <strong>E</strong>-yə
+uyğun gəlir (<span class="math inline">\(R \rightarrow E\)</span>).</p>
+<p>Hərflərin mövqelərinə baxaq:</p>
+<ul>
+<li><p><span class="math inline">\(R = 17\)</span>, <span
+class="math inline">\(E = 4\)</span>.</p></li>
+<li><p>Sürüşmə kəmiyyəti: <span class="math inline">\(k = (17 - 4) \bmod
+26 = 13\)</span> (Bu xüsusi hal ROT13 şifrəsi adlanır).</p></li>
+</ul>
+<p>Deşifrləmə düsturu: <span class="math inline">\(P = (C - 13) \bmod
+26\)</span>. Mətni deşifrə etdikdə:</p>
+<ul>
+<li><p><code>GUR</code> <span class="math inline">\(\rightarrow\)</span>
+G(6)-13 = -7 <span class="math inline">\(\equiv\)</span> 19(T), U(20)-13
+= 7(H), R(17)-13 = 4(E) <span class="math inline">\(\rightarrow\)</span>
+<strong>THE</strong></p></li>
+<li><p><code>FRPERG</code> <span
+class="math inline">\(\rightarrow\)</span>
+<strong>SECRET</strong></p></li>
+<li><p><code>ZRFFNTR</code> <span
+class="math inline">\(\rightarrow\)</span>
+<strong>MESSAGE</strong></p></li>
+<li><p><code>VF</code> <span class="math inline">\(\rightarrow\)</span>
+<strong>IS</strong></p></li>
+<li><p><code>UVQQRA</code> <span
+class="math inline">\(\rightarrow\)</span>
+<strong>HIDDEN</strong></p></li>
+<li><p><code>VA</code> <span class="math inline">\(\rightarrow\)</span>
+<strong>IN</strong></p></li>
+<li><p><code>GUVF</code> <span
+class="math inline">\(\rightarrow\)</span>
+<strong>THIS</strong></p></li>
+<li><p><code>GRKG</code> <span
+class="math inline">\(\rightarrow\)</span>
+<strong>TEXT</strong></p></li>
+</ul>
+<p><strong>Açıq mətn:</strong>
+<code>"THE SECRET MESSAGE IS HIDDEN IN THIS TEXT"</code></p>
+<h2 id="tapşırıq-5-əlavə-tapşırıq-affin-deşifrləmə-1">Tapşırıq 5: Əlavə
+tapşırıq (Affin deşifrləmə)</h2>
+<p>Verilənlər: <span class="math inline">\(a = 11, b = 6\)</span>.
+Şifrəli mətn: <code>"OY GLY HE UE FEIY"</code>.</p>
+<p><strong>1. Tərs elementin tapılması (<span
+class="math inline">\(a^{-1} \bmod 26\)</span>):</strong> <span
+class="math inline">\(11 \cdot a^{-1} \equiv 1 \bmod 26\)</span>
+tənliyini həll edək: <span class="math inline">\(11 \times 19 = 209 = 8
+\times 26 + 1 \equiv 1 \bmod 26\)</span>. Deməli, <span
+class="math inline">\(11^{-1} \bmod 26 = 19\)</span>.</p>
+<p><strong>2. Deşifrləmə düsturu:</strong> <span
+class="math display">\[P = 19 \cdot (C - 6) \bmod 26\]</span></p>
+<p><strong>3. Hərflərin tək-tək deşifrlənməsi:</strong></p>
+<ul>
+<li><p>O (14) <span class="math inline">\(\rightarrow 19 \cdot (14 - 6)
+= 19 \cdot 8 = 152 \bmod 26 = 22 \rightarrow\)</span>
+<strong>W</strong></p></li>
+<li><p>Y (24) <span class="math inline">\(\rightarrow 19 \cdot (24 - 6)
+= 19 \cdot 18 = 342 \bmod 26 = 4 \rightarrow\)</span>
+<strong>E</strong></p></li>
+<li><p>G (6) <span class="math inline">\(\rightarrow 19 \cdot (6 - 6) =
+0 \rightarrow\)</span> <strong>A</strong></p></li>
+<li><p>L (11) <span class="math inline">\(\rightarrow 19 \cdot (11 - 6)
+= 19 \cdot 5 = 95 \bmod 26 = 17 \rightarrow\)</span>
+<strong>R</strong></p></li>
+<li><p>H (7) <span class="math inline">\(\rightarrow 19 \cdot (7 - 6) =
+19 \bmod 26 = 19 \rightarrow\)</span> <strong>T</strong></p></li>
+<li><p>E (4) <span class="math inline">\(\rightarrow 19 \cdot (4 - 6) =
+19 \cdot (-2) = -38 \bmod 26 = 14 \rightarrow\)</span>
+<strong>O</strong></p></li>
+<li><p>U (20) <span class="math inline">\(\rightarrow 19 \cdot (20 - 6)
+= 19 \cdot 14 = 266 \bmod 26 = 6 \rightarrow\)</span>
+<strong>G</strong></p></li>
+<li><p>F (5) <span class="math inline">\(\rightarrow 19 \cdot (5 - 6) =
+19 \cdot (-1) = -19 \bmod 26 = 7 \rightarrow\)</span>
+<strong>H</strong></p></li>
+<li><p>I (8) <span class="math inline">\(\rightarrow 19 \cdot (8 - 6) =
+19 \cdot 2 = 38 \bmod 26 = 12 \rightarrow\)</span>
+<strong>M</strong></p></li>
+</ul>
+<p><strong>Açıq mətn:</strong> <code>"WE ARE TO GO HOME"</code></p>
+<div class="tip">
+<p><span>Tapşırıqların təhvil verilməsi</span> Tapşırıqları növbəti
+həftəyə qədər hazırlayın. Onlar qrup şəklində müzakirə olunacaq və
+yoxlanılacaq.</p>
+</div>
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu mühazirədə klassik şifrələr və onların riyazi əsasları haqqında
+öyrəndik <span class="citation"
+data-cites="stinson2018cryptography paar2010understanding"></span>:</p>
+<ul>
+<li><p><strong>Əsas anlayışlar</strong>: kriptosistem, açar fəzası,
+əvəzetmə və yerdəyişmə şifrələri <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Modul arifmetika</strong> — klassik şifrlərin riyazi
+təməli <span class="citation"
+data-cites="hardy2008introduction"></span>.</p></li>
+<li><p><strong>Sezar şifrəsi</strong> — ən sadə sürüşdürmə şifrəsi, cəmi
+26 mümkün açar <span class="citation"
+data-cites="seutin2015caesar"></span>.</p></li>
+<li><p><strong>Affin şifrəsi</strong> — vurma və toplama əməliyyatlarını
+birləşdirən şifrə, <span class="math inline">\(\gcd(a,26)=1\)</span>
+şərti ilə <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Monoalfabetik əvəzetmə</strong> — əlifbanın ixtiyari
+permutasiyası, <span class="math inline">\(26!\)</span> mümkün açar
+<span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Tezlik analizi</strong> — monoalfabetik şifrləri
+sındırmaq üçün əsas üsul <span class="citation"
+data-cites="kahn1996codebreakers singh1999code"></span>.</p></li>
+<li><p><strong>Kerckhoffs prinsipi</strong> — klassik şifrlərə də
+aiddir, təhlükəsizlik açarın gizliliyinə əsaslanmalıdır.</p></li>
+</ul>
+<p>Bu klassik şiflər bu gün təhlükəsiz olmasa da, onları öyrənmək
+kriptoqrafiyanın əsas prinsiplərini başa düşmək üçün vacibdir <span
+class="citation" data-cites="schneier1996applied"></span>. Növbəti
+mühazirədə daha mürəkkəb klassik şifrə olan Vijener şifrəsi və onun
+kriptoanalizi haqqında danışacağıq.</p>
+<div class="note">
+<p><span>Növbəti mühazirə</span> Həftə 3: Polialfabetik şifrələr və
+Vijener şifrəsi. Vijener şifrəsi 300 il boyunca "sındırılmaz" hesab
+edilmişdir. Onun necə işlədiyini və necə sındırıldığını öyrənəcəyik
+<span class="citation" data-cites="singh1999code"></span>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (10)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Seutin, 2015</span>
+                        <small class="text-muted">Cryptologia</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Caesar Cipher: Historical Context and Modern Applications</h6>
+                    <p class="small text-secondary mb-0">T. Seutin (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Kahn, 1996</span>
+                        <small class="text-muted">Scribner</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Codebreakers: The Comprehensive History of Secret Communication from Ancient Times to the Internet</h6>
+                    <p class="small text-secondary mb-0">David Kahn (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Schneier, 1996</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Applied Cryptography: Protocols, Algorithms, and Source Code in C</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Singh, 1999</span>
+                        <small class="text-muted">Doubleday</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography</h6>
+                    <p class="small text-secondary mb-0">Simon Singh (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Hardy &amp; Wright, 2008</span>
+                        <small class="text-muted">Oxford University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Introduction to the Theory of Numbers</h6>
+                    <p class="small text-secondary mb-0">G. H. Hardy and E. M. Wright (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

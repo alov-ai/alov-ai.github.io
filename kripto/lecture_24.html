@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_24</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 24</strong></p>
+<p><strong>Açar İdarəçiliyi və PKI</strong></p>
+<p>Bu mühazirə açar idarəçiliyinin əsas prinsiplərini, açar həyat
+dövrünü, PKI (Açıq Açar İnfrastrukturu) komponentlərini, X.509
+sertifikatlarını, sertifikat mərkəzlərini və ləğv mexanizmlərini əhatə
+edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni müvəffəqiyyətlə tamamladıqdan sonra tələbələr:</p>
+<ul>
+<li><p>verilmiş açar üçün generasiya, aktiv istifadə, rotasiya,
+arxivləşdirmə və ləğv (məhv) nəzarət mexanizmlərini açarın həyat dövrünə
+doğru inteqrasiya etməyi <span class="citation"
+data-cites="menezes1996handbook"></span>;</p></li>
+<li><p>PKI strukturu daxilində CA<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>, RA<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>,
+VA<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> və məlumat anbarının
+(<em>repository</em>) məsuliyyət zonalarını fərqləndirməyi <span
+class="citation" data-cites="ferguson2010cryptography"></span>;</p></li>
+<li><p>X.509 sertifikatında subyekt və SAN<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>,
+sertifikat verən (<em>Issuer</em>), etibarlılıq müddəti, açardan
+istifadə təyinatı və əsas məhdudiyyətlər sahələrini şərh etməyi <span
+class="citation" data-cites="katz2020introduction"></span>;</p></li>
+<li><p>sertifikat zənciri üzrə yolun doğrulanması (<em>path
+validation</em>) addımlarını və etibar zənciri üzrə qərar qəbulu
+prosesini mərhələli təhlil etməyi;</p></li>
+<li><p>CRL<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>, OCSP<a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> və
+OCSP birləşdirməsini (<em>OCSP stapling</em>) məlumatın aktuallığı,
+məxfilik və xəta anındakı reaksiya (<em>fail-open/fail-close</em>)
+xassələri üzrə müqayisə etməyi bacaracaqlar <span class="citation"
+data-cites="paar2024understanding rescorla2026rfc9846"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 23-cü mühazirə imzanın riyazi yoxlanması
+mexanizmini təqdim etdi.</p>
+<p><strong>İndi:</strong> PKI həmin təsdiqləmə açarını identiklik,
+siyasət və etibar qərarı ilə bağlayır.</p>
+<p><strong>Sonra:</strong> 25-ci mühazirə sertifikat zəncirinin TLS əl
+sıxması (<em>handshake</em>) daxilində necə istifadə olunduğunu
+göstərəcəkdir.</p>
+<p><strong>Kanon:</strong> <em>sertifikat zənciri</em> — ötürülən
+sertifikat obyektlərinin ardıcıllığıdır; <em>etibar zənciri</em> —
+etibar edən tərəfin təsdiqləmə qərarıdır; <em>OCSP bərkidilməsi (OCSP
+stapling)</em>; <em>seans açarı (sessiya açarı)</em>.</p>
+</div>
+<h1 id="giriş-açıq-açarların-həqiqiliyi-problemi">Giriş: Açıq Açarların
+Həqiqiliyi Problemi</h1>
+<p>Əvvəlki mühazirələrimizdə asimmetrik kriptoqrafiyanın fundamental
+riyazi alqoritmlərini — RSA-nın vuruqlara ayırma çətinliyini,
+Diffi-Hellman və ElGamal sxemlərinin multiplikativ qruplardakı diskret
+loqarifm problemini, həmçinin elliptik əyri kriptoqrafiyasını (ECC)
+ətraflı şəkildə öyrəndik. Bu alqoritmlər bir-biri ilə riyazi olaraq
+əlaqəli olan açıq və gizli açar cütlərindən istifadə edir. Lakin bu
+açarların real dünya informasiya sistemlərində etibarlı idarə edilməsi,
+təhlükəsiz paylanması və ən əsası, sahiblik statusunun təsdiqlənməsi
+riyazi alqoritmlərin özündən müstəqil, xüsusi bir kriptoqrafik
+problemdir.</p>
+<div class="tcolorbox">
+<p>Tutaq ki, Alis Boba asinxron olaraq öz açıq açarını (<span
+class="math inline">\(pk_A\)</span>) göndərmək istəyir. Bob bu açarı
+qəbul etdikdə, onun həqiqətən Alisə məxsus olduğunu və kanal üzərində
+modifikasiya olunmadığını riyazi olaraq necə sübut edə bilər?</p>
+<p>Əgər aktiv hücumçu Malori rabitə kanalına nəzarət edirsə, o, Alisin
+həqiqi <span class="math inline">\(pk_A\)</span> açarını tutur, onu
+özünün yaratdığı saxta <span class="math inline">\(pk_M\)</span> açarı
+ilə əvəzləyir və Boba ötürür. Bob daxil olan açarı Alisin açarı kimi
+qəbul edərək mesajları şifrələyir. Nəticədə Malori Bobun mesajlarını
+oxuyur; bu, ortadakı vasitəçi hücumudur.</p>
+</div>
+<p>Asimmetrik kriptoqrafiyanın riyazi cəhətdən mükəmməl olması, onun
+açıq kanallarda kimlik təsdiqlənməsi olmadan təhlükəsiz işləməsi üçün
+kifayət deyil. Məhz kimliyin açarla bağlanması problemini həll etmək
+üçün <strong>Açar İdarəçiliyi</strong> prinsipləri və bu prinsiplərin
+institusional tətbiqi olan <strong>PKI (Açıq Açar
+İnfrastrukturu)</strong> arxitekturası yaranmışdır. Bu mühazirədə
+açarların həyat dövrünü, rəqəmsal sertifikatların daxili verilənlər
+strukturunu, etibar zəncirlərini və müasir şəbəkə təhlükəsizliyi
+protokollarının əsasını təşkil edən etibar modellərini öyrənəcəyik.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>Açar idarəçiliyi nədir və sistemlərin kriptoqrafik çevikliyini
+necə təmin edir?</p></li>
+<li><p>Açarın həyat dövrü hansı kritik mərhələlərdən ibarətdir və bu
+mərhələlərin təhlükəsizlik tələbləri nələrdir?</p></li>
+<li><p>PKI arxitekturası nədir və onun mərkəzi komponentləri (CA, RA,
+CRL, VA) hansı funksiyaları yerinə yetirir?</p></li>
+<li><p>X.509 standartlı rəqəmsal sertifikat nədir və onun daxilindəki
+məlumatlar asimmetrik təhlükəsizliyi necə formalaşdırır?</p></li>
+<li><p>Sertifikat Mərkəzləri (CA) iyerarxiyası necə qurulur və etibar
+zənciri brauzerlər tərəfindən necə yoxlanılır?</p></li>
+<li><p>Ləğv edilmiş sertifikatların monitorinqi necə aparılır? CRL
+siyahılarının genişlənmə problemi və OCSP protokolunun real zamanlı
+sorğu mexanizmi necə işləyir?</p></li>
+<li><p><strong>OCSP bərkidilməsi</strong> nədir, o, istifadəçinin
+məxfiliyinə olan hücumları və veb-performans ləngimələrini necə həll
+edir?</p></li>
+<li><p>Mərkəzləşdirilmiş iyerarxik etibar modeli ilə paylanmış etibar
+şəbəkəsi arasındakı riyazi, sosial və funksional fərqlər
+nələrdir?</p></li>
+</ul>
+</div>
+<h1 id="açar-idarəçiliyi-problemi-və-arxitektur-çətinliklər">Açar
+İdarəçiliyi Problemi və Arxitektur Çətinliklər</h1>
+<p>Kriptoqrafik sistemlərin ümumi təhlükəsizliyi istifadə olunan
+alqoritmlərin riyazi mürəkkəbliyindən daha çox, bu alqoritmləri
+qidalandıran açar materiallarının necə idarə olunmasından asılıdır.
+Kerckhoffs prinsipinin fundamental fərziyyəsinə görə, hücumçu alqoritmin
+bütün daxili strukturuna bələddir; sistemin gizliliyi rəqəmsal olaraq
+yalnız və yalnız açarın gizliliyinə söykənir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<h2 id="açar-idarəçiliyinin-fundamental-təhlükəsizlik-məqsədləri">Açar
+İdarəçiliyinin Fundamental Təhlükəsizlik Məqsədləri</h2>
+<p>Effektiv bir açar idarəetmə sistemi (KMS) informasiya
+təhlükəsizliyinin klassik triadası ilə yanaşı, spesifik kriptoqrafik
+atributları da təmin etməlidir:</p>
+<ul>
+<li><p><strong>Məxfilik:</strong> Gizli və ya xüsusi açar materialları
+həyat dövrünün heç bir mərhələsində səlahiyyətsiz subyektlərə
+sızmamalıdır. Bu məqsədlə HSM və ya TEE kimi aparat səviyyəli təcrid
+mühitlərindən istifadə olunur.</p></li>
+<li><p><strong>Bütövlük və autentifikasiya:</strong> Açarların
+tərkibindəki bit ardıcıllığı icazəsiz dəyişikliklərdən qorunmalıdır.
+Açıq açarla identifikator arasındakı uyğunluq isə seçilmiş qeydiyyat və
+sertifikat siyasətinə əsasən sertifikat verənin imzaladığı iddia kimi
+yoxlanır; bu imza öz-özlüyündə fiziki şəxsin kimliyini riyazi olaraq
+sübut etmir və avtomatik hüquqi inkaredilməzlik yaratmır <span
+class="citation" data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>Mövcudluq və Davamlılıq:</strong> Şifrələnmiş
+məlumatların oxunması və ya rəqəmsal imzaların yoxlanılması üçün lazımi
+açar materialları zədələnməyə və sistem qəzalarına qarşı ehtiyatlı və
+yüksək əlçatan olmalıdır.</p></li>
+<li><p><strong>Kriptoqrafik Yoxlanıla Bilmə:</strong> Açarların
+generasiyası, paylanması, aktivləşdirilməsi və ləğvi kimi bütün kritik
+əməliyyatlar gələcək ekspertiza və təhlükəsizlik təhlilləri üçün
+kriptoqrafik olaraq qorunan, dəyişiklikləri aşkarlanan qeyd
+jurnallarında saxlanmalıdır.</p></li>
+</ul>
+<h2 id="sistem-səviyyəli-idarəetmə-çətinlikləri">Sistem Səviyyəli
+İdarəetmə Çətinlikləri</h2>
+<p>Açar idarəçiliyi infrastrukturlarının real dünya şəbəkələrində
+tətbiqi riyazi, logistik və arxitektur xarakterli bir sıra çətinliklərlə
+qarşılaşır:</p>
+<ol>
+<li><p><strong>Miqyaslanma Problemi:</strong> Sırf simmetrik
+kriptoqrafiyaya əsaslanan <span class="math inline">\(N\)</span> sayda
+istifadəçidən ibarət olan şəbəkədə hər istifadəçi cütü üçün unikal bir
+gizli açar tələb olunur ki, bu da cəmi <span
+class="math inline">\(N(N-1)/2\)</span> sayda açarın idarə edilməsi
+deməkdir (<span class="math inline">\(O(N^2)\)</span> mürəkkəblik).
+İstifadəçi sayı milyonlara çatdıqda bu model tamamilə iflas edir və
+idarəetmə mürəkkəbliyini <span class="math inline">\(O(N)\)</span>
+tərtibinə endirən asimmetrik infrastrukturlara (PKI) keçidi məcburi
+edir.</p></li>
+<li><p><strong>Açar Ömrü və Dövri Yenilənmə:</strong> Bir açarla
+həddindən artıq verilənlərin şifrələnməsi hücumçuya kriptoanaliz üçün
+kifayət qədər material (məsələn, statistik asılılıqlar) verir. Bu
+səbəbdən açarların mütəmadi olaraq dəyişilməsi lazımdır. Çətinlik isə
+köhnə açarla şifrələnmiş arxiv məlumatlarının əlçatanlığını qorumaqla
+yeni açara problemsiz keçməkdir.</p></li>
+<li><p><strong>Açarın ələ keçirilməsi və dinamik ləğv:</strong> Bir
+gizli açarın sızması və ya ələ keçirilməsi şübhəsi yarandıqda, həmin
+açarla bağlı bütün əməliyyatlar dərhal dayandırılmalıdır. Geniş
+paylanmış sistemlərdə bir açarın ləğv olunduğu barədə məlumatı bütün
+qovşaqlara cari vaxtda ötürmək ən böyük şəbəkə və sinxronizasiya
+çətinliklərindən biridir.</p></li>
+<li><p><strong>Açarın bərpası və etibarlı saxlayıcı ziddiyyəti:</strong>
+İstifadəçinin gizli açarı itdikdə şifrəli məlumatların həmişəlik
+əlçatmaz olmaması üçün xüsusi bərpa mexanizmi tələb oluna bilər. Lakin
+açarın üçüncü tərəfdə saxlanması daxili təhdid və arxa qapı riskini
+artırır.</p></li>
+<li><p><strong>İrəli məxfilik (FS):</strong> Müasir arxitekturalardan
+tələb olunur ki, bu gün sızan uzunmüddətli gizli açar keçmiş
+sessiyaların və ya verilənlərin açılmasına şərait yaratmasın. Bu
+prinsipin KMS səviyyəsində avtomatlaşdırılması hər sessiya üçün təzə
+müvəqqəti açar mexanizmləri tələb edir.</p></li>
+</ol>
+<h1 id="açar-həyat-dövrünün-riyazi-və-sistem-səviyyəli-analizi">Açar
+Həyat Dövrünün Riyazi və Sistem Səviyyəli Analizi</h1>
+<p>Kriptoqrafik açarlar statik verilənlər strukturu deyil; onlar
+yaradıldıqları andan etibarən tam məhv edilənə qədər ciddi şəkildə
+nizamlanmış və nəzarət olunan bir həyat dövrü keçirlər. Bu dövrün hər
+bir mərhələsi spesifik standartlar (məsələn, NIST SP 800-57) və hücum
+modelləri çərçivəsində idarə olunur <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<figure data-latex-placement="H">
+<div class="tcolorbox">
+<div class="large">
+<p><span class="math inline">\(\text{Generasiya (Entropiya)}
+\longrightarrow \text{Təhlükəsiz Paylanma} \longrightarrow \text{Aktiv
+İstifadə (Sessiya/Arxiv)}\)</span> <span
+class="math display">\[\downarrow\]</span> <span
+class="math inline">\(\text{Təhlükəsiz məhv} \longleftarrow
+\text{Arxivləşdirmə} \longleftarrow \text{Dövri dəyişmə /
+Ləğv}\)</span></p>
+</div>
+</div>
+<figcaption>Kriptoqrafik açar həyat dövrünün vəziyyət
+keçidləri.</figcaption>
+</figure>
+<h2 id="açar-generasiyası-və-entropiya-mənbələri">Açar Generasiyası və
+Entropiya Mənbələri</h2>
+<p>Açar generasiyası bütün kriptosistemin təhlükəsizlik təməlidir.
+Riyazi olaraq, bir açar fəzasından (<span
+class="math inline">\(K\)</span>) seçilən açarın hücumçu tərəfindən
+təxmin edilmə ehtimalı minimallaşdırılmalıdır <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<ul>
+<li><p><strong>Entropiya Tələbi:</strong> Sistemlərdə təsadüfiliyi təmin
+etmək üçün fiziki xaos əsaslı həqiqi təsadüfi ədədlər generatorlarından
+(TRNG; məsələn, istilik küyü və ya radioaktiv parçalanma) və ya NIST SP
+800-90A standartlı deterministik psevdo-təsadüfi ədədlər
+generatorlarından (DRBG/PRNG) istifadə edilməlidir.</p></li>
+<li><p><strong>Asimmetrik Açarların Spesifikası:</strong> RSA üçün
+generasiya prosesi təkcə təsadüfiliyi deyil, həm də böyük sadə ədədlərin
+(<span class="math inline">\(p, q\)</span>) generasiyasını tələb edir.
+Bu ədədlər təsadüfi seçildikdən sonra mütləq yüksək dərəcəli
+deterministik və ehtimallı Miller-Rabin sadəlik testlərindən
+keçirilməlidir <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+<h2 id="açar-paylanması-və-post-kvant-təhdidlər">Açar Paylanması və
+Post-kvant Təhdidlər</h2>
+<p>Yaradılmış açar materialının gizlilik və bütövlüyü qorunmaqla təyinat
+nöqtəsinə çatdırılması açar mübadiləsi problemini doğurur <span
+class="citation" data-cites="menezes1996handbook"></span>.</p>
+<ul>
+<li><p><strong>Simmetrik Arxitekturalarda:</strong> Paylanma ya fiziki
+olaraq tam təhlükəsiz mühitdə (məsələn, ağıllı kartlar, HSM
+daşıyıcıları) həyata keçirilir, ya da Diffi-Hellman (DH/ECDH) asimmetrik
+sxemləri vasitəsilə açıq kanal üzərində ortaq sessiya açarı
+formalaşdırılır. Böyük müəssisələrdə isə mərkəzləşdirilmiş Kerberos
+tipli açar paylama mərkəzlərindən (KDC) istifadə olunur.</p></li>
+<li><p><strong>Asimmetrik Arxitekturalarda:</strong> Açıq açarların
+(<span class="math inline">\(pk\)</span>) məxfiliyinə ehtiyac olmadığı
+üçün onlar sərbəst yayıla bilər, lakin onların autentifikasiyası
+mütləqdir. Bu məqsədlə rəqəmsal sertifikatlardan və ya
+mərkəzləşdirilməmiş açıq açar xidmətlərindən istifadə edilir.</p></li>
+</ul>
+<h2
+id="kriptoqrafik-dualizmin-qadağan-edilməsi-açar-istifadəsi">Kriptoqrafik
+Dualizmin Qadağan Edilməsi (Açar İstifadəsi)</h2>
+<p>Hər bir açar unikal kriptoqrafik istifadə siyasətinə malik
+olmalıdır.</p>
+<div class="warning">
+<p><span>Eyni Açarın Multi-Funksional İstifadəsi Riski</span> Bir
+asimmetrik açar cütünün həm rəqəmsal imza, həm də şifrələmə üçün eyni
+anda istifadə edilməsi yolverilməzdir.</p>
+<p><strong>Dərslilk RSA nümunəsi:</strong> Eyni dərslik RSA çevrilməsi
+həm imza, həm də deşifrələmə sorğuları üçün istifadə edilsəydi, hücumçu
+şifrəli mətn nümayəndəsini “mesaj” kimi imzaladaraq <span
+class="math inline">\(C^d\bmod n\)</span> ala bilərdi. Müasir RSASSA və
+RSAES/KEM sxemləri fərqli sahə ayırıcılarından, kodlaşdırmadan və
+proqram interfeyslərindən istifadə edir; imza interfeysi ixtiyari RSA
+nümayəndəsini qəbul etməməlidir. Açarların ayrılması səhv sazlamanın,
+protokollararası hücumun və açar sızmasının təsirini məhdudlaşdıran əsas
+mühəndislik qaydasıdır.</p>
+</div>
+<h2 id="kriptoqrafik-çeviklik-və-açar-rotasiyası">Kriptoqrafik Çeviklik
+və Açar Rotasiyası</h2>
+<p>Açarların müəyyən edilmiş istifadə müddətində dəyişdirilməsi
+prosesinə dövri yenilənmə deyilir. NIST SP 800-57 universal “açar növü →
+sabit il sayı” cədvəli vermir; istifadə müddəti açarın məqsədi, qorunan
+məlumatın ömrü, istifadə həcmi, kompromet təsiri və yenilənmə imkanları
+üzrə risk qiymətləndirməsi ilə seçilir <span class="citation"
+data-cites="nist2020keymanagement"></span>:</p>
+<table>
+<caption>Müasir standartlara uyğun kriptoqrafik açar ömürləri.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Obyekt</strong></th>
+<th style="text-align: left;"><strong>Seçim əsası</strong></th>
+<th style="text-align: left;"><strong>Qeyd</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sessiya açarı</td>
+<td style="text-align: left;">Sessiya/protokol limiti və məlumat
+həcmi</td>
+<td style="text-align: left;">Müvəqqəti sirr istifadə bitdikdə
+silinir</td>
+</tr>
+<tr>
+<td style="text-align: left;">Baş açar/KEK</td>
+<td style="text-align: left;">KMS risk təhlili, təftiş və yenidən bükmə
+imkanı</td>
+<td style="text-align: left;">Aktiv və yalnız deşifrələmə dövrləri ayrı
+ola bilər</td>
+</tr>
+<tr>
+<td style="text-align: left;">İmza və deşifrələmə açarı</td>
+<td style="text-align: left;">Təhlükəsizlik gücü, məlumat ömrü,
+kompromet təsiri</td>
+<td style="text-align: left;">Açarın istifadə müddəti sertifikatın
+etibarlılıq müddəti deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;">Publik TLS əbunəçi sertifikatı</td>
+<td style="text-align: left;">CA/Browser Forum-un Baza Tələbləri
+(<em>Baseline Requirements</em>)</td>
+<td style="text-align: left;">15 mart 2026-dan verilən sertifikat üçün
+maksimum 200 gün <span class="citation"
+data-cites="cabforum2026br"></span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dinamik-ləğv-mexanizmləri">Dinamik ləğv mexanizmləri</h2>
+<p>Ləğv prosesi — açarın təbii ömrünün bitməsini gözləmədən, onun
+etibarlılıq statusunun dərhal ləğv edilməsidir. Bu proses
+mərkəzləşdirilmiş sistemlərdə PKI-ın ən çətin infrastrukturu olan
+<strong>CRL</strong> və <strong>OCSP</strong> infrastrukturları
+tərəfindən idarə olunur. Bu mexanizmlərin daxili memarlığı növbəti
+bölmələrdə ətraflı təhlil ediləcəkdir.</p>
+<h2 id="aparat-səviyyəsində-təhlükəsiz-məhv">Aparat səviyyəsində
+təhlükəsiz məhv</h2>
+<p>Həyat dövrünün son mərhələsi açarın sistemdən tamamilə
+təmizlənməsidir. Sadə bir <code>free()</code> və ya <code>delete</code>
+əmri əməliyyat sistemi və RAM/qoşma yaddaş səviyyəsində qalıq verilənlər
+sıza bilər; bu isə soyuq yükləmə hücumu ilə açarın yaddaşdan bərpa
+olunmasına şərait yaradır <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<p><strong>Təhlükəsiz Məhv Standartları:</strong></p>
+<ul>
+<li><p><strong>Sıfırlama:</strong> FIPS 140-3 üzrə təsdiqlənmiş modul
+həssas təhlükəsizlik parametrlərini öz təhlükəsizlik siyasətində
+göstərilən və daşıyıcıya uyğun üsulla məhv etməlidir. Bir neçə dəfə
+sıfır və ya təsadüfi məlumat yazmaq bütün RAM, fleş yaddaş, SSD və
+HSM-lər üçün universal tələb deyil.</p></li>
+<li><p><strong>Aparat səviyyəli həll:</strong> Bəzi HSM və çip kartları
+fiziki müdaxilə hadisəsində açar materialını silir, lakin mexanizm və
+zəmanət konkret modulun dizaynı və təsdiqlənmiş təhlükəsizlik siyasəti
+ilə yoxlanmalıdır.</p></li>
+</ul>
+<h1 id="pki-açıq-açar-infrastrukturunun-arxitektur-modelləri">PKI – Açıq
+Açar İnfrastrukturunun Arxitektur Modelləri</h1>
+<p><strong>Açıq açar infrastrukturu (PKI)</strong> sertifikat verənin
+müəyyən yoxlama siyasətindən sonra subyekt və açıq açar barədə
+imzalanmış iddianı yayımladığı idarəetmə çərçivəsidir <span
+class="citation" data-cites="stallings2017cryptography"></span>. CA
+imzası iddianın bütövlüyünü qoruyur; inzibati identifikasiya prosesini
+riyazi fakta və ya avtomatik hüquqi inkaredilməzliyə çevirmir.</p>
+<h2 id="pki-nin-riyazi-və-funkional-məqsədi">PKI-nin Riyazi və Funkional
+Məqsədi</h2>
+<p>PKI formal olaraq aşağıdakı riyazi və sistem invariantlarını təmin
+etmək üçün layihələndirilir:</p>
+<ul>
+<li><p><strong>Açıq açar iddiası:</strong> Sertifikat verənin qayda və
+yoxlama proseduru daxilində <span class="math inline">\(ID_A\)</span>
+ilə <span class="math inline">\(pk_A\)</span> arasındakı bağın
+imzalanması və sertifikata güvənən tərəf tərəfindən
+qiymətləndirilməsi.</p></li>
+<li><p><strong>Audit və hüquqi sübut:</strong> Sertifikat, açara
+sahiblik sübutu, açar qorunması, zaman və audit qeydlərinin hüquqi və
+əməliyyat prosesinə dəlil verməsi; nəticə avtomatik deyil.</p></li>
+<li><p><strong>Kriptoqrafik Çeviklik və Həyat Dövrü
+Avtomatlaşdırılması:</strong> Milyonlarla istifadəçidən ibarət paylanmış
+şəbəkələrdə açarların generasiyası, paylanması və ləğvi proseslərinin
+vahid standartlar (məsələn, RFC 5280) əsasında avtomatlaşdırılması <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+<h2 id="pki-nin-nüvə-komponentləri-və-protokol-interfeysləri">PKI-nin
+Nüvə Komponentləri və Protokol İnterfeysləri</h2>
+<p>Müasir bir PKI arxitekturası sadəcə proqram təminatından ibarət
+deyil; o, funksional olaraq izolyasiya edilmiş alt sistemlərin
+koordinasiyalı fəaliyyətini tələb edir:</p>
+<ol>
+<li><p><strong>Sertifikat mərkəzi (CA):</strong> Açıq açar və kimlik
+məlumatı barədə iddianı öz gizli açarı ilə imzalayaraq rəqəmsal
+sertifikata çevirən orqan. Etibar lövbəri isə sertifikat yolunu yoxlayan
+sistemin əvvəlcədən güvəndiyi ayrıca başlanğıc nöqtəsidir.</p></li>
+<li><p><strong>Qeydiyyat Mərkəzi (RA):</strong> İstifadəçi ilə CA
+arasında inzibati interfeysdir. Kimlik yoxlamasını həyata keçirir, lakin
+kriptoqrafik imzalama səlahiyyəti yoxdur.</p></li>
+<li><p><strong>Status yoxlama mərkəzi (VA):</strong> Sertifikatların
+cari statusunu (etibarlı, ləğv edilmiş və ya naməlum) yoxlayan və
+müştərilərə OCSP/CRL vasitəsilə cavab verən komponent.</p></li>
+<li><p><strong>Repozitoriyalar və Qovluq Xidmətləri:</strong> Aktiv
+sertifikatların və CRL siyahılarının kütləvi əlçatanlığını təmin edən
+paylanmış verilənlər bazaları (məsələn, LDAP və ya HTTP
+serverləri).</p></li>
+<li><p><strong>Sertifikat siyasəti (CP) və sertifikatlaşdırma təcrübəsi
+bəyanatı (CPS):</strong> İnfrastrukturun hüquqi, texniki və əməliyyat
+sərhədlərini, eləcə də risk idarəçiliyini müəyyən edən formal siyasət
+sənədləri <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ol>
+<figure data-latex-placement="H">
+<div class="tcolorbox">
+<div class="center">
+
+</div>
+</div>
+<figcaption>PKI komponentləri arasında rəsmi müraciət və məlumat
+mübadiləsi topoqrafiyası.</figcaption>
+</figure>
+<h2
+id="sertifikat-mərkəzlərinin-ca-riyazi-funksionallığı-və-iyerarxiyası">Sertifikat
+Mərkəzlərinin (CA) Riyazi Funksionallığı və İyerarxiyası</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Sertifikat Mərkəzi). <em>Sertifikat Mərkəzi
+(<span class="math inline">\(CA\)</span>), bir subyektin kimlik
+məlumatlarını (<span class="math inline">\(ID_A\)</span>) və onun açıq
+açarını (<span class="math inline">\(pk_A\)</span>) ehtiva edən
+imzalanacaq <span class="math inline">\(TBS\)</span> verilənlər blokunu
+öz gizli açarı (<span class="math inline">\(sk_{CA}\)</span>) vasitəsilə
+kriptoqrafik olaraq imzalayan etibarlı bir kriptosistem qovşağıdır:
+<span class="math display">\[S_A =
+\text{Sign}_{sk_{CA}}(\text{TBSCertificate}(ID_A, pk_A,
+\text{Valid-Period}))\]</span></em></p>
+</div>
+<p><strong>CA-nın İyerarxik Topologiyası:</strong> Real dünya
+tətbiqlərində təhlükəsizlik risklərini bölüşdürmək üçün çoxsəviyyəli
+etibar zəncirlərindən istifadə olunur <span class="citation"
+data-cites="stallings2017cryptography"></span>:</p>
+<ul>
+<li><p><strong>Kök CA:</strong> Etibar zəncirinin zirvəsidir. Onun
+sertifikatı öz-özünü imzalayandır (<span
+class="math inline">\(sk_{\mathrm{kök}}\)</span> ilə imzalanır). Kök
+CA-nın gizli açarı demək olar ki, həmişə şəbəkədən tam təcrid olunmuş,
+fiziki olaraq ən yüksək səviyyədə qorunan HSM daxilində
+saxlanılır.</p></li>
+<li><p><strong>Aralıq CA:</strong> Kök CA və ya digər yuxarı səviyyəli
+aralıq CA tərəfindən imzalanan qurumlardır. Əməliyyat səviyyəsində son
+istifadəçilərə sertifikatların verilməsi və ləğvi birbaşa bu CA-lar
+tərəfindən icra olunur. Beləliklə, hər hansı bir aralıq CA kompromat
+olarsa, Kök CA sadəcə həmin budağı ləğv edir və ümumi infrastruktur
+qorunub saxlanılır.</p></li>
+</ul>
+<h2
+id="qeydiyyat-mərkəzlərinin-ra-administrativ-və-təhlükəsizlik-rolu">Qeydiyyat
+Mərkəzlərinin (RA) Administrativ və Təhlükəsizlik Rolu</h2>
+<p>RA qeydiyyat və inzibati yoxlama rolunu yerinə yetirir. İstifadəçinin
+yaratdığı imza açarlarında RA/CA yalnız açıq açarı və gizli açara
+sahiblik sübutunu görür. Mərkəzləşdirilmiş açar yaratma, etibarlı
+saxlama və bərpa profillərində isə səlahiyyətli sistem şifrələmə açarını
+yarada və ya qoruya bilər; imza və şifrələmə açarı siyasətləri
+ayrılmalıdır <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<p><strong>RA-nın Proses Modeli:</strong></p>
+<ul>
+<li><p>İstifadəçi öz mühitində (HSM, çip kartı və ya proqram təminatı)
+unikal <span class="math inline">\((pk, sk)\)</span> açar cütünü
+yaradır.</p></li>
+<li><p>İstifadəçi <span class="math inline">\(pk\)</span> açarını və
+kimlik məlumatlarını daxil edərək bir <strong>sertifikat imzalama
+sorğusu (CSR)</strong> faylı (məsələn, PKCS#10 standartında)
+formalaşdırır. Bu sorğu istifadəçinin gizli açarı ilə imzalanır və
+CA/RA-ya istifadəçinin həmin açara həqiqətən sahib olduğunu sübut edir
+(PoP).</p></li>
+<li><p>RA istifadəçinin hüquqi sənədlərini (şəxsiyyət vəsiqəsi, domen
+sahibliyi protokolları və s.) yoxlayır.</p></li>
+<li><p>Şəxsiyyət təsdiqləndikdən sonra RA bu CSR sorğusunu təhlükəsiz
+protokol (məsələn, CMP – RFC 4210) vasitəsilə CA-ya ötürür.</p></li>
+</ul>
+<h1
+id="x.509-rəqəmsal-sertifikat-standartı-və-məlumat-strukturları">X.509
+Rəqəmsal Sertifikat Standartı və Məlumat Strukturları</h1>
+<h2 id="x.509-standartının-taksonomiyası">X.509 Standartının
+Taksonomiyası</h2>
+<p>X.509 ITU-T tərəfindən idarə olunur və RFC 5280 İnternet PKI
+profilini müəyyən edir <span class="citation"
+data-cites="stallings2017cryptography"></span>. TLS, IPsec və S/MIME
+profillərində geniş istifadə olunur. SSH isə standart halda birbaşa
+qovşaq açarlarından, <code>known_hosts</code> faylından və öz sertifikat
+formatından istifadə edir; X.509 əsas SSH modelinin məcburi nüvəsi
+deyil.</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (X.509 Sertifikatı). <em>X.509 sertifikatı –
+bir subyektin real dünya kimlik atributlarını, yəni seçilən adını (DN),
+onun kriptoqrafik açıq açarı (<span class="math inline">\(pk\)</span>)
+ilə assosiasiya edən və bu assosiasiyanın bütövlüyünü etibarlı bir
+CA-nın rəqəmsal imzası (<span
+class="math inline">\(\text{Sign}_{sk_{CA}}\)</span>) vasitəsilə təmin
+edən formal, kriptoqrafik olaraq qorunan verilənlər
+strukturudur.</em></p>
+</div>
+<p>Akademik olaraq qeyd edilməlidir ki, X.509 sertifikatları maşın
+tərəfindən oxunub-anlaşıla bilən formal <strong>ASN.1</strong> dili
+vasitəsilə təsvir olunur və şəbəkə üzərindən ötürülməzdən və ya yaddaşda
+saxlanılmazdan əvvəl bayt ardıcıllığına çevrilmək üçün
+<strong>DER</strong> ikili kodlaşdırma qaydalarına tabe edilir.</p>
+<h2 id="x.509-sintaksisinin-fundamental-sahələri">X.509 Sintaksisinin
+Fundamental Sahələri</h2>
+<p>Müasir sistemlərdə istifadə olunan X.509 v3 formatı ciddi şəkildə
+iyerarxikləşdirilmiş sahələrdən ibarətdir <span class="citation"
+data-cites="ferguson2010cryptography"></span>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Sintaktik Sahə
+(ASN.1)</strong></th>
+<th style="text-align: left;"><strong>Terminoloji
+Qarşılığı</strong></th>
+<th style="text-align: left;"><strong>Kriptoqrafik və Sistem
+Rolu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>version</code></td>
+<td style="text-align: left;">Versiya</td>
+<td style="text-align: left;">Sertifikatın struktur arxitekturasını
+göstərir. Müasir sistemlərdə genişlənmələri dəstəkləyən Versiya 3 (<span
+class="math inline">\(0x02\)</span>) istifadə olunur.</td>
+</tr>
+<tr>
+<td style="text-align: left;">SerialNumber</td>
+<td style="text-align: left;">Seriya Nömrəsi</td>
+<td style="text-align: left;">CA tərəfindən hər bir sertifikata təyin
+edilən unikal tam ədəd (<span class="math inline">\(Integer\)</span>).
+Kriptoqrafik olaraq Entropiyalı təyin edilməlidir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>signature</code></td>
+<td style="text-align: left;">İmza alqoritmi</td>
+<td style="text-align: left;">Sertifikatın TBS strukturunu imzalamaq
+üçün CA-nın istifadə etdiyi kriptoqrafik alqoritm identifikatoru
+(məsələn, <code>sha256WithRSAEncryption</code>,
+<code>ecdsa-with-SHA256</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>issuer</code></td>
+<td style="text-align: left;">Sertifikat verən</td>
+<td style="text-align: left;">Sertifikatı yaradan və imzalayan CA-nın
+X.500 standartlı fərqləndirilmiş adı (DN).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Validity</td>
+<td style="text-align: left;">Etibarlılıq Müddəti</td>
+<td style="text-align: left;">Sertifikatın müvafiq olaraq aktivləşdiyi
+(<code>notBefore</code>) və qüvvədən düşdüyü (<code>notAfter</code>)
+zaman pəncərəsi.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;">Subyekt (sahib)</td>
+<td style="text-align: left;">Açıq açarın aid olduğu qurumun (məsələn,
+<code>CN=example.com</code>, <code>O=Universitet</code>,
+<code>C=AZ</code>) rəsmi kimliyi.</td>
+</tr>
+<tr>
+<td style="text-align: left;">subjectPublicKeyInfo</td>
+<td style="text-align: left;">Açıq Açar Məlumatı</td>
+<td style="text-align: left;">Ən kritik sahədir. Subyektin açıq açar
+bitlərini və bu açarın aid olduğu alqoritmin (məsələn, RSA, ECC)
+parametrlərini ehtiva edir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>issuerUniqueID</code> /
+<code>subjectUniqueID</code></td>
+<td style="text-align: left;">Unikal identifikatorlar</td>
+<td style="text-align: left;">Versiya 2-də təqdim edilmiş, eyni DN adına
+malik fərqli qurumları ayırd etmək üçün istifadə olunan, lakin v3-də
+demək olar ki, tətbiq edilməyən sahələr.</td>
+</tr>
+<tr>
+<td style="text-align: left;">extensions</td>
+<td style="text-align: left;">Genişləndirmələr</td>
+<td style="text-align: left;">Versiya 3-ün nüvəsidir. Sertifikata
+semantik və funksional məhdudiyyətlər/atributlar əlavə etməyə imkan
+verən dinamik struktur.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="versiya-3-genişləndirmələrinin-semantik-təhlili">Versiya 3
+Genişləndirmələrinin Semantik Təhlili</h2>
+<p>X.509 v3 genişlənmələri sertifikatın istifadə sahəsini
+məhdudlaşdırmaq və hücum vektorlarını minimallaşdırmaq üçün kritik
+əhəmiyyət kəsb edir. Hər bir genişlənmə <strong>kritik</strong> və ya
+<strong>qeyri-kritik</strong> olaraq işarələnir. Əgər tətbiq kritik
+olaraq işarələnmiş genişlənməni oxuya və ya emal edə bilmirsə, həmin
+sertifikatı dərhal rədd etməlidir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<ul>
+<li><p><strong>Əsas məhdudiyyətlər (kritik):</strong> Sertifikatın digər
+sertifikatları imzalamaq səlahiyyətinin (<code>isCA: TRUE/FALSE</code>)
+olub-olmadığını təyin edir. Həmçinin zəncirin maksimal dərinliyini
+(<code>pathLenConstraint</code>) məhdudlaşdırır.</p></li>
+<li><p><strong>Açar istifadəsi (kritik):</strong> Açarın kriptoqrafik
+səviyyədə hansı primitivlərə icazə verdiyini təyin edir:
+<code>digitalSignature</code> (kimlik təsdiqlənməsi),
+<code>keyEncipherment</code> (asimmetrik açar şifrələməsi) və ya
+<code>cRLSign</code> (ləğv siyahılarını imzalamaq).</p></li>
+<li><p><strong>Genişləndirilmiş açar istifadəsi (EKU):</strong> Açara
+daha konkret tətbiq rolları verir (məsələn, yalnız TLS veb-server
+autentifikasiyası və ya yalnız kod imzalama).</p></li>
+<li><p><strong>Alternativ subyekt adı (SAN):</strong> Klassik ümumi ad
+(<code>CN</code>) sahəsinin məhdudiyyətlərini aradan qaldırır;
+sertifikatın eyni anda bir neçə domen adına (DNS), IP ünvanına və ya
+e-poçt ünvanına bağlanmasını təmin edir.</p></li>
+<li><p><strong>Səlahiyyət açarı identifikatoru (AKI) və subyekt açarı
+identifikatoru (SKI):</strong> Uyğun olaraq imzalayan CA-nın və
+subyektin açar heşlərini saxlayır. Bu identifikatorlar nəhəng sertifikat
+bazalarında etibar zəncirinin qrafını qurmaq üçün indeks rolunu
+oynayır.</p></li>
+<li><p><strong>CRL paylama nöqtələri (CDP) və səlahiyyət məlumatına
+çıxış (AIA):</strong> Brauzerlərə bu sertifikatın vəziyyətini yoxlamaq
+üçün CRL yükləmə ünvanını və cari OCSP sorğularının göndəriləcəyi VA
+ünvanını göstərir.</p></li>
+</ul>
+<h2
+id="kriptoqrafik-sertifikat-zənciri-və-yoxlama-alqoritmi">Kriptoqrafik
+Sertifikat Zənciri və Yoxlama Alqoritmi</h2>
+<p>Real dünya PKI arxitekturalarında son istifadəçilər kök sertifikat
+mərkəzi tərəfindən birbaşa imzalanmır. Bunun əvəzinə, etibarın
+ötürülməsi prinsipinə söykənən bir iyerarxik zəncir formalaşdırılır
+<span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<figure data-latex-placement="H">
+<div class="tcolorbox">
+<div class="center">
+
+</div>
+</div>
+<figcaption>Kökdən yarpağa doğru kriptoqrafik imza zəncirinin
+formalaşması sxemi.</figcaption>
+</figure>
+<p><strong>Sertifikat yolunun qurulması və yoxlanması:</strong> Yolun
+qurulması mümkün sertifikat verəndən yerli etibar lövbərinə<a
+href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a> namizəd yol yaradır. RFC 5280 üzrə
+yol yoxlaması isə seçilmiş yolu tətbiqin giriş verilənləri və yerli
+siyasətlə yoxlayır <span class="citation"
+data-cites="cooper2008rfc5280"></span>:</p>
+<ol>
+<li><p>Etibar lövbəri sertifikat yolunun xaricində yerli giriş veriləni
+kimi seçilir; onun öz imzası etibar yaratmır və lövbər sertifikat
+biçimində olmaya bilər.</p></li>
+<li><p>Hər sertifikatın verən tərəf/subyekt əlaqəsi, imzası, etibarlılıq
+müddəti və tanınmayan kritik genişlənmələri yoxlanılır.</p></li>
+<li><p>Aralıq CA-lar üçün <code>basicConstraints</code>,
+<code>keyUsage</code>, <code>pathLenConstraint</code>, ad
+məhdudiyyətləri (<em>name constraints</em>) və qayda ağacı (<em>policy
+tree</em>) emal edilir; istifadə olunan alqoritm və açar uzunluğu yerli
+qayda tələblərinə cavab verməlidir.</p></li>
+<li><p>Yarpaq sertifikatının EKU və açar istifadəsi tətbiq məqsədinə
+uyğun olmalı, TLS üçün istənilən qovşaq adı SAN ilə
+yoxlanmalıdır.</p></li>
+<li><p>Ləğvetmə və xəta zamanı davam etmə davranışı sertifikat imzası
+yolundan ayrıca müştəri və ekosistem qaydası ilə tətbiq olunur.</p></li>
+</ol>
+<h1 id="sertifikat-ləğv-mexanizmləri-və-şəbəkə-arxitekturası">Sertifikat
+Ləğv Mexanizmləri və Şəbəkə Arxitekturası</h1>
+<p>Sertifikatın etibarlılıq müddətinin davam etməsinə baxmayaraq,
+subyektin gizli açarının kompromat olması, təşkilati dəyişikliklər və ya
+CA-nın öz fəaliyyətini dayandırması subyekt sertifikatının dərhal ləğv
+edilməsini tələb edir. PKI arxitekturasında ləğv statusunun paylanması
+paylanmış sistemlərin konsensus və gecikmə problemlərini doğurur <span
+class="citation" data-cites="paar2024understanding"></span>.</p>
+<h2
+id="sertifikat-ləğv-siyahısı-crl-və-asinxron-yenilənmə-gecikmələri">Sertifikat
+Ləğv Siyahısı (CRL) və Asinxron Yenilənmə Gecikmələri</h2>
+<div class="definition">
+<p><strong>Tərif 3</strong> (CRL). <em>Sertifikat ləğv siyahısı (CRL),
+RFC 5280 standartına uyğun olaraq, CA tərəfindən kriptoqrafik olaraq
+imzalanan, unikal seriya nömrələri vasitəsilə identifikasiya edilən və
+vaxtından əvvəl etibarsız sayılmış aktiv sertifikatların zaman damğalı
+siyahısıdır.</em></p>
+</div>
+<p><strong>CRL Arxitektur Sahələrinin Struktur Analizi:</strong></p>
+<ul>
+<li><p><code>thisUpdate</code>: Siyahının CA tərəfindən imzalandığı və
+qüvvəyə mindiyi dəqiq UTC zamanı.</p></li>
+<li><p><code>nextUpdate</code>: Növbəti periodik CRL-in yayımlanacağı
+son xətt. Müştərilər bu zamana qədər lokal keşdə olan CRL-i etibarlı
+sayırlar.</p></li>
+<li><p><code>cRLEntryExtensions</code>: Hər bir ləğv edilmiş sertifikat
+üçün spesifik metaməlumatlar, xüsusilə ləğv səbəbi kodu (məsələn,
+<code>keyCompromise</code>, <code>affiliationChanged</code>,
+<code>cessationOfOperation</code>).</p></li>
+</ul>
+<p><strong>Miqyaslana Bilmə Problemləri və Bölünmüş Modellər:</strong>
+Nəhəng infrastrukturlarda ləğv edilən sertifikatların sayı artdıqca CRL
+faylının həcmi meqabaytlarla ölçülür. Bu, şəbəkə trafikini
+optimallaşdırmaq üçün alternativ strukturların yaranmasına səbəb
+olmuşdur:</p>
+<ul>
+<li><p><strong>Fərq CRL-i:</strong> Yalnız son tam CRL-dən sonra ləğv
+edilmiş sertifikatları saxlayan kiçik verilənlər çoxluğudur. Müştəri
+əsas siyahını bir dəfə yükləyir və yalnız fərqi
+sinxronlaşdırır.</p></li>
+<li><p><strong>İndeksləşdirilmiş / Bölünmüş CRL (CDP):</strong>
+Sertifikatlar seriya nömrələrinə və ya ləğv səbəblərinə görə fərqli
+qovluqlara paylanır. Beləliklə, müştəri bütün PKI-ın deyil, yalnız
+müvafiq hissənin siyahısını yükləyir.</p></li>
+</ul>
+<div class="warning">
+<p><span>CRL-in Fundamental Təhlükəsizlik Boşluğu: Təhlükə
+Pəncərəsi</span> CRL mexanizmi <strong>asinxrondur</strong>. Əgər açar
+<span class="math inline">\(t_1\)</span> anında kompromat olarsa və CA
+bunu aşkar edib lokal bazasında ləğv etsə də, növbəti CRL yalnız <span
+class="math inline">\(t_2\)</span> anında (<code>nextUpdate</code>)
+yayımlanacaqdır. <span class="math inline">\(\Delta t = t_2 -
+t_1\)</span> zaman kəsiyində (hansı ki bu müddət günlərlə ölçülə bilər)
+hücumçu ləğv edilmiş sertifikatla sistemlərə sıza bilər. Bu boşluq
+kriptoqrafiyada <strong>təhlükə pəncərəsi</strong> adlanır.</p>
+</div>
+<h2 id="ocsp-və-real-zamanlı-təhlil">OCSP və Real Zamanlı Təhlil</h2>
+<p>CRL-in gətirdiyi asinxronluq və yüksək resurs sərfi problemini həll
+etmək üçün RFC 6960 standartı çərçivəsində OCSP protokolu yaradılmışdır
+<span class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 4</strong> (OCSP). <em>OCSP, müştərinin sorğusuna
+əsasən konkret bir sertifikatın cari vəziyyətini yoxlamaq üçün yoxlama
+mərkəzi (VA / OCSP cavabverəni) ilə qurulan müştəri-server
+protokoludur.</em></p>
+</div>
+<p><strong>Protokolun Riyazi Sorğu-Cavab Strukturu:</strong></p>
+<ul>
+<li><p><strong>Sorğu:</strong> Müştəri bütün sertifikatı göndərmir.
+Şəbəkə yükünü azaltmaq üçün sertifikatın verilənlərindən törəyən
+<code>CertID</code> strukturunu göndərir: <span
+class="math display">\[\text{CertID} = \left( \text{HashAlg},
+\text{IssuerNameHash}, \text{IssuerKeyHash}, \text{SerialNumber}
+\right)\]</span></p></li>
+<li><p><strong>Cavab:</strong> OCSP cavabverəni cavabı sertifikat
+verənin açarı və ya <code>id-kp-OCSPSigning</code> EKU-su olan
+səlahiyyət verilmiş cavabverən açarı ilə imzalaya bilər.
+<code>unknown</code> cavabverənin həmin sertifikat statusunu bilmədiyini
+göstərir; bu, “heç vaxt verilməyib” hökmü ilə eyni deyil. Bəzi profillər
+verilməmiş seriya nömrəsi üçün xüsusi <code>revoked</code>
+semantikasından istifadə edə bilər <span class="citation"
+data-cites="santesson2013rfc6960"></span>.</p></li>
+</ul>
+<p><strong>OCSP Arxitekturasının Çatışmazlıqları (Məxfilik və DDoS
+Riski):</strong> Real zamanlı yoxlama təmin edilsə də, OCSP iki ciddi
+problem yaradır: 1. <strong>Məxfilik itkisi:</strong> Brauzer hər hansı
+bir HTTPS saytına qoşulduqda, həmin saytın sertifikat seriya nömrəsini
+CA-ya sorğu olaraq göndərir. Bu, CA-ya istifadəçinin hansı
+veb-resursları ziyarət etdiyini izləmək imkanı verir. 2.
+<strong>İnfrastruktur Asılılığı:</strong> Əgər CA-nın OCSP cavabverəni
+DDoS hücumuna məruz qalarsa və ya əlçatmaz olarsa, brauzerlər ya
+təhlükəsizliyi qurban verib əlaqəyə davam etməli, ya da qanuni
+istifadəçiləri bloklamalıdır.</p>
+<h2 id="ocsp-bərkidilməsi-rfc-6066-və-kriptoqrafik-çeviklik">OCSP
+Bərkidilməsi (RFC 6066) və Kriptoqrafik Çeviklik</h2>
+<p>OCSP-nin yaratdığı həm məxfilik, həm də əlavə gediş-gəliş (RTT)
+gecikmələrini azaltmaq üçün TLS genişlənməsi olan <strong>OCSP
+bərkidilməsi</strong> tətbiq olunur <span class="citation"
+data-cites="rescorla2026rfc9846"></span>.</p>
+<figure data-latex-placement="H">
+<div class="tcolorbox">
+
+</div>
+<figcaption>OCSP bərkidilməsi vasitəsilə üçüncü tərəf asılılığının
+aradan qaldırılması sxemi.</figcaption>
+</figure>
+<p><strong>İş Mexanizmi:</strong></p>
+<ol>
+<li><p>Veb server dövri olaraq cavabverəndən imzalanmış,
+<code>thisUpdate</code>/<code>nextUpdate</code> pəncərəsi olan OCSP
+cavabı alır; imzalayan CA və ya səlahiyyət verilmiş cavabverən ola
+bilər.</p></li>
+<li><p>Müştəri serverə TLS əlaqəsi sorğusu (<code>ClientHello</code>)
+göndərdikdə <code>status_request</code> uzantısını
+aktivləşdirir.</p></li>
+<li><p>Server müştəriyə öz X.509 sertifikatını göndərərkən, CA-dan
+aldığı həmin imzalanmış OCSP cavabını da sertifikata əlavə edərək
+ötürür.</p></li>
+<li><p>Müştəri cavab imzasının səlahiyyətini, sertifikat
+identifikatorunu və zaman pəncərəsini yoxlayır, sonra lokal ləğv
+qaydasını tətbiq edir. OCSP bərkidilməsi əlavə sorğunu və məxfilik
+sızmasını azalda bilər, amma cavab keşlənmişdir və real vaxt zəmanəti
+deyil.</p></li>
+</ol>
+<h2 id="ləğv-mexanizmlərinin-müqayisəli-analizi">Ləğv Mexanizmlərinin
+Müqayisəli Analizi</h2>
+<p>Hər üç mexanizmin sistem təhlükəsizliyi və resurs menecmenti
+baxımından analitik korrelyasiyası aşağıdakı cədvəldə
+ümumiləşdirilmişdir:</p>
+<table id="tab:revocation_comparison_simple">
+<caption>Kriptoqrafik ləğv strukturlarının müqayisəli matrisi.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Sistem Atributu</strong></th>
+<th style="text-align: left;"><strong>CRL Metodologiyası</strong></th>
+<th style="text-align: left;"><strong>OCSP Protokolu</strong></th>
+<th style="text-align: left;"><strong>OCSP bərkidilməsi
+Sxemi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Statusun Təzəliyi</strong></td>
+<td style="text-align: left;">CRL-in yenilənmə intervalından
+asılıdır</td>
+<td style="text-align: left;">OCSP cavabının <code>thisUpdate</code>/
+<code>nextUpdate</code> intervalından asılıdır</td>
+<td style="text-align: left;">Serverin keşlədiyi imzalı cavabın
+etibarlılıq intervalından asılıdır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>İstifadəçi Məxfiliyi</strong></td>
+<td style="text-align: left;">Konkret sayt sorğusu görünmür</td>
+<td style="text-align: left;">Cavabverən sorğulanan sertifikatı görə
+bilər</td>
+<td style="text-align: left;">Müştərinin ayrıca cavabverən sorğusuna
+ehtiyacı azalır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Şəbəkə Gecikməsi
+(RTT)</strong></td>
+<td style="text-align: left;">Siyahının endirilməsi və yenilənməsi tələb
+olunur</td>
+<td style="text-align: left;">Ayrı sorğu əlavə gecikmə yarada bilər</td>
+<td style="text-align: left;">Cavab TLS mesajında ötürüldüyü üçün ayrıca
+OCSP RTT-si yoxdur</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Müştəri Tərəfi Resurs
+Sərfi</strong></td>
+<td style="text-align: left;">Yüksək (Yaddaşda siyahı analizi)</td>
+<td style="text-align: left;">Aşağı (Minimal paket emalı)</td>
+<td style="text-align: left;">Minimal (Yalnız imza təsdiqlənməsi)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CA Qovşağının Yükü</strong></td>
+<td style="text-align: left;">Aşağı (Statik fayl yayımı)</td>
+<td style="text-align: left;">Kritik səviyyədə Yüksək</td>
+<td style="text-align: left;">Çox aşağı (Serverlər yükləri bölüşür)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="etibar-modellərinin-topoloji-və-funksional-təhlili">Etibar
+Modellərinin Topoloji və Funksional Təhlili</h1>
+<p>Rəqəmsal kimliklərin və açıq açarların doğrulanması sistemlərində
+etibarın formalaşdırılması, ötürülməsi və miqyaslanması fərqli riyazi və
+struktur qraf modellərinə söykənir <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<h2 id="mərkəzləşdirilmiş-iyerarxik-pki-etibar-modeli">Mərkəzləşdirilmiş
+iyerarxik PKI etibar modeli</h2>
+<p>Mərkəzləşdirilmiş model, etibarın tranzitativliyi prinsipinə
+əsaslanan və kökündə qəti qaydalarla qorunan bir və ya bir neçə kök CA
+qovşağının dayandığı istiqamətlənmiş iyerarxik ağac strukturudur.</p>
+<p><strong>Arxitektur Xüsusiyyətləri:</strong></p>
+<ul>
+<li><p><strong>İyerarxik Atribut Ötürülməsi:</strong> Etibar yuxarı
+qovşaqdan (CA) aşağı qovşağa (Subyekt) rəqəmsal imza zənciri vasitəsilə
+ötürülür.</p></li>
+<li><p><strong>Deterministik Təsdiqləmə Anbarı:</strong> Brauzerlər və
+əməliyyat sistemləri istehsal zamanı daxili olaraq ciddi şəkildə
+yoxlanılmış etibarlı kök anbarı ilə təchiz edilir.</p></li>
+<li><p><strong>Mərkəzləşdirilmiş ləğv:</strong> Sertifikatların
+vaxtından əvvəl etibarsızlaşdırılması mərkəzi status yoxlama xidməti
+tərəfindən idarə olunur.</p></li>
+</ul>
+<p><strong>Kriptoqrafik Məhdudiyyətlər və Tək Nasazlıq Nöqtəsi
+Riski:</strong> Mərkəzləşdirilmiş model geniş miqyasda tətbiq və qlobal
+standartlaşdırma üçün unikal üstünlüklər təmin etsə də, ciddi bir
+zəifliyə malikdir: Əgər kök və ya yüksək səlahiyyətli aralıq CA-nın
+gizli açarı (<span class="math inline">\(sk_{CA}\)</span>) kompromat
+olarsa, həmin sub-ağac tərəfindən imzalanmış bütün rəqəmsal ekosistemin
+etibarlılığı dərhal çökür <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<h2 id="paylanmış-etibar-şəbəkəsi-wot">Paylanmış Etibar Şəbəkəsi
+(WoT)</h2>
+<p>Etibar şəbəkəsi (WoT), hər hansı bir mərkəzi avtoritetə və ya
+iyerarxiyaya ehtiyac duymayan, PGP və GPG protokollarında
+reallaşdırılan, mərkəzsizləşdirilmiş istiqamətlənmiş qraf modelidir.</p>
+<p><strong>Struktur Mexanizmləri:</strong></p>
+<ul>
+<li><p><strong>Qarşılıqlı Sertifikatlaşdırma:</strong> Hər bir
+istifadəçi həm subyekt, həm də kiçik CA rolunu oynayır. İstifadəçilər
+real dünyada kimliyini təsdiqlədikləri digər şəxslərin açıq açarlarını
+öz gizli açarları ilə imzalayırlar.</p></li>
+<li><p><strong>Etibar Dərəcələri:</strong> Etibar binar deyil,
+dərəcəlidir. PGP arxitekturasında bir açara qismən etibar, tam etibar və
+ya mütləq şəxsi etibar dərəcəsi təyin edilə bilər.</p></li>
+<li><p><strong>Yerli yoxlama qaydası:</strong> OpenPGP etibar şəbəkəsi
+modelində açarın etibarlılığı açar sahibinə yerli etibar dərəcələrindən,
+sertifikasiya yollarından və istifadəçinin sazladığı hədlərdən asılıdır.
+“Bir tam və ya iki qismən etibarlı imza” bəzi proqramlarda rast gəlinən
+standart parametrdir, universal kriptoqrafik tənlik deyil.</p></li>
+</ul>
+<figure data-latex-placement="H">
+<div class="tcolorbox">
+
+</div>
+<figcaption>Mərkəzləşdirilmiş iyerarxik etibar zənciri ilə
+mərkəzsizləşdirilmiş qarşılıqlı imzalama modelinin müqayisəli topoloji
+sxemi.</figcaption>
+</figure>
+<h2 id="praktik-tətbiq-sahələri-və-müasir-standartlar">Praktik Tətbiq
+Sahələri və Müasir Standartlar</h2>
+<h3 id="müasir-tlsssl-yoxlama-növləri-və-cari-vəziyyət">Müasir TLS/SSL
+yoxlama növləri və cari vəziyyət</h3>
+<ul>
+<li><p><strong>Domen yoxlamalı sertifikat (DV):</strong>
+Avtomatlaşdırılmış ACME protokolu (RFC 8555) vasitəsilə yalnız müvafiq
+domenin DNS və ya HTTP nəzarətinin sorğuçu tərəfində olub-olmadığını
+yoxlayan ən geniş yayılmış sertifikat növüdür.</p></li>
+<li><p><strong>Təşkilat yoxlamalı sertifikat (OV):</strong> CA
+tərəfindən subyektin hüquqi statusu və fiziki varlığının dövlət
+reyestrləri vasitəsilə rəsmi yoxlanıldığı sertifikat növüdür.</p></li>
+<li><p><strong>Genişləndirilmiş yoxlamalı sertifikat (EV):</strong> Daha
+geniş hüquqi və təşkilati yoxlama tələb edən sertifikat növüdür.
+<em>Akademik qeyd:</em> Müasir istifadəçi interfeysi qaydalarına əsasən,
+brauzerlər artıq EV sertifikatları üçün yaşıl ünvan sətrini və şirkət
+adını birbaşa göstərmir; buna görə EV-in istifadəçiyə görünən fərqi
+azalıb.</p></li>
+</ul>
+<h3 id="e-poçt-təhlükəsizliyi-və-kod-imzalama">E-Poçt Təhlükəsizliyi və
+Kod İmzalama</h3>
+<ul>
+<li><p><strong>S/MIME:</strong> Korporativ mühitdə istifadə olunur.
+Struktur olaraq mərkəzi X.509 iyerarxiyasına əsaslanır və istifadəçi
+kimliyini şirkət CA-sı vasitəsilə təsdiqləyir.</p></li>
+<li><p><strong>PGP/GPG:</strong> Fərdi və mərkəzsiz rabitədə istifadə
+olunur, etibar şəbəkəsi topologiyasına əsaslanır.</p></li>
+<li><p><strong>Kod imzalama:</strong> Əməliyyat sistemlərinin kənar
+proqram təminatını icra etməzdən əvvəl kodun bütövlüyünü və müəllifini
+yoxlamaq üçün istifadə etdiyi, zaman damğası genişlənməsi olan X.509
+profilidir.</p></li>
+</ul>
+<h1
+id="sənaye-səviyyəli-praktik-tövsiyələr-və-kriptoqrafik-çeviklik">Sənaye
+Səviyyəli Praktik Tövsiyələr və Kriptoqrafik Çeviklik</h1>
+<p>Müasir PKI idarəçiliyində və Milli Sertifikat Mərkəzlərinin (CA)
+layihələndirilməsində NIST və BSI təlimatlarına əsaslanan fundamental
+prinsiplər aşağıdakı cədvəldə sistemləşdirilmişdir:</p>
+<table id="tab:pki_recommendations">
+<caption>PKI və Açar İdarəçiliyi üçün Sənaye Standartları
+Matrixi.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Kategoriya</strong></th>
+<th style="text-align: left;"><strong>Sənaye Norması (Kvant
+Öncəsi)</strong></th>
+<th style="text-align: left;"><strong>Arxitektur Səbəb və Təhlükəsizlik
+Marjası</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Açar Uzunluğu</strong></td>
+<td style="text-align: left;">RSA-2048 təqribən 112-bit, RSA-3072
+təqribən 128-bit klassik təhlükəsizlik səviyyəsinə uyğunlaşdırılır; ECC
+üçün P-256 və ya Curve25519 ailəsi təqribən 128-bit səviyyə verir</td>
+<td style="text-align: left;">Ölçü təhlükə modeli, məlumatın qorunma
+müddəti, qarşılıqlı işləmə və tətbiq olunan normativ profil üzrə
+seçilməlidir; RSA-4096 universal tələb deyil.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sertifikat Ömrü</strong></td>
+<td style="text-align: left;">İctimai TLS əbunəçi sertifikatları üçün
+CA/Brouzer Forum qrafikinə uyğun olaraq 15 mart 2026-dan maksimum 200
+gün; özəl PKI profilləri ayrı qaydalarla idarə olunur</td>
+<td style="text-align: left;">Qısa ömür kompromatın təsir pəncərəsini
+azalda və avtomatlaşdırılmış yenilənməni təşviq edə bilər; kök və aralıq
+CA müddətləri ayrıca risk qiymətləndirilməsi tələb edir <span
+class="citation" data-cites="cabforum2026br"></span>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ləğv Strategiyası</strong></td>
+<td style="text-align: left;">Profilə görə CRL, OCSP, OCSP bərkidilməsi
+və ya qısaömürlü sertifikatlar</td>
+<td style="text-align: left;">Seçim relying-party davranışı, cavabın
+təzəliyi, fail-open/fail-closed qaydası, məxfilik və əlçatanlıq
+tələbləri ilə birlikdə qiymətləndirilməlidir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kök CA Rejimi</strong></td>
+<td style="text-align: left;">Riskə uyğun qorunan, adətən oflayn
+saxlanan kök açar; uyğun sertifikatlı HSM və çoxşəxsli əməliyyat
+nəzarəti</td>
+<td style="text-align: left;">Oflayn arxitektura uzaq şəbəkə hücumu
+səthini azaldır, lakin fiziki, əməliyyat və təchizat zənciri risklərini
+aradan qaldırmır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Audit və Monitorinq</strong></td>
+<td style="text-align: left;">İctimai TLS profilləri üçün
+<code>Certificate Transparency (CT)</code> jurnalları və müstəqil
+monitorinq</td>
+<td style="text-align: left;">CT buraxılışı avtomatik dayandırmır;
+sertifikatları müşahidə olunan edir və yanlış buraxılışın aşkarlanması
+və cavab tədbirləri üçün sübut yaradır.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Əvvəlcə sertifikat və yol yoxlaması sübutlarını özünüz qeyd edin;
+sadə termin siyahısı tam cavab sayılmır. Müəllim üçün cavab açarı yalnız
+ilkin cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em>Açar idarəçiliyinin əsas
+çətinliklərini sadalayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Açarın həyat dövrünün əsas
+mərhələlərini izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em>Brauzer <code>api.example.az</code>
+ünvanına qoşulur. Server sertifikatında
+<code>subjectAltName=DNS:www.example.az</code>,
+<code>basicConstraints=CA:FALSE</code>,
+<code>keyUsage=digitalSignature</code>,
+<code>extendedKeyUsage=serverAuth</code> və qüvvədə olan tarix intervalı
+verilib. Hansı yoxlamalar keçir, hansı yoxlama bağlantını rədd edir?
+Qərarı konkret sahələrlə əsaslandırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Sertifikat ləğv mexanizmləri olan CRL
+və OCSP strukturları arasında hansı fundamental fərqlər var?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>OCSP bərkidilməsi texnologiyasının
+arxitektur və təhlükəsizlik baxımından üstünlükləri nələrdir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>Kök CA və aralıq CA arasında hansı
+fərqlər var? İyerarxik PKI modelində aralıq CA-lardan istifadə
+edilməsinin səbəbi nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>Mərkəzləşdirilmiş PKI modelini və
+mərkəzsizləşdirilmiş etibar şəbəkəsi (WoT) modelini müqayisə
+edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>Server <code>Son → Aralıq-B</code>
+zəncirini göndərir; müştərinin anbarında <code>Kök-A</code> var.
+<code>Aralıq-B</code> sertifikatı <code>Kök-A</code> tərəfindən
+imzalanıb, lakin <code>basicConstraints=CA:FALSE</code> göstərir.
+Müştərinin path builder və yol yoxlaması addımlarını ayırın, yekun
+qəbul/rədd qərarını verin və etibar zənciri ilə sertifikat zəncirinin
+fərqini göstərin.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ol>
+<li><p><strong>Açar idarəçiliyinin əsas çətinlikləri:</strong> Genişlənə
+bilmə, kriptoqrafik təhlükəsizlik marjası, sistemin etibarlılığı,
+fəlakət anında açar itkisi riskləri, dövri açar yenilənməsi və effektiv
+ləğv mexanizmlərinin qurulması.</p></li>
+<li><p><strong>Açar həyat dövrünün mərhələləri:</strong> Yaradılma,
+təhlükəsiz paylanma, saxlanma və aktiv istifadə, yenilənmə, ləğv,
+arxivləşdirmə və məhv.</p></li>
+<li><p><strong>Sertifikat artefaktının təhlili:</strong> Tarix,
+<code>CA:FALSE</code>, <code>digitalSignature</code> və
+<code>serverAuth</code> serverin son sertifikatı üçün uyğundur. Lakin
+gözlənilən <code>api.example.az</code> adı SAN-dakı
+<code>www.example.az</code> ilə uyğun gəlmir; host adı yoxlaması
+bağlantını rədd edir. Subyekt/CN məlumatı SAN mövcud olduqda bu
+uyğunsuzluğu aradan qaldırmır.</p></li>
+<li><p><strong>CRL və OCSP arasındakı fərqlər:</strong></p>
+<ul>
+<li><p><strong>Sertifikat ləğv siyahısı (CRL):</strong> CA tərəfindən
+dövri olaraq imzalanıb yayımlanan statik bir ləğv siyahısıdır. Şəbəkənin
+oflayn olduğu ssenarilərdə işləyə bilər, lakin siyahı böyüdükcə böyük
+ölçü (trafik) problemi yaradır.</p></li>
+<li><p><strong>OCSP:</strong> Konkret sertifikat üçün imzalı status
+cavabı verən sorğu-cavab protokoludur. Cavabın təzəliyi
+<code>thisUpdate</code>/<code>nextUpdate</code> sahələri ilə
+məhdudlaşır; ayrıca sorğu əlaqə və məxfilik xərci yarada bilər.</p></li>
+</ul></li>
+<li><p><strong>OCSP bərkidilməsi üstünlükləri:</strong></p>
+<ul>
+<li><p><strong>Məxfilik:</strong> CA serveri istifadəçinin hansı resursa
+daxil olduğunu öyrənə bilmir.</p></li>
+<li><p><strong>Sürət və Performans:</strong> Müştəri tərəfində əlavə
+şəbəkə gecikməsi (+1 RTT) yaranmır, status birbaşa TLS bağlantısı
+daxilində gəlir.</p></li>
+<li><p><strong>Yükün Azaldılması:</strong> CA-in infrastrukturu
+milyonlarla müştərinin sorğusundan azad olur, çünki status cavabı server
+tərəfindən keşlənir.</p></li>
+</ul></li>
+<li><p><strong>Kök CA və Aralıq CA fərqləri:</strong> Kök CA PKI
+ierarxiyasının etibar lövbəridir və adətən nadir, çoxşəxsli mərasimlər
+üçün oflayn saxlanılır. Aralıq CA kök və ya başqa CA tərəfindən
+imzalanır və gündəlik sertifikat buraxılışını icra edə bilər. Bu
+arxitektura kök açarın istifadəsini azaltmağa, kompromat riskini
+lokallaşdırmağa və təşkilati seqmentasiya yaratmağa kömək edir; konkret
+rejim sertifikat siyasətindən asılıdır.</p></li>
+<li><p><strong>PKI və etibar şəbəkəsinin müqayisəsi:</strong> PKI modeli
+mərkəzləşdirilmişdir və tamamilə rəsmi Sertifikat Mərkəzlərinin (CA)
+etibarlılığına əsaslanır (məsələn, HTTPS/TLS). Etibar şəbəkəsi (WoT) isə
+mərkəzsizləşdirilmişdir; istifadəçilər bir-birlərinin rəqəmsal
+kimliklərini çarpaz şəkildə imzalayaraq etibar şəbəkəsi qururlar
+(məsələn, PGP/GPG). PKI qlobal miqyasda və sənayedə standartdır, WoT isə
+daha lokal və spesifik icmalarda istifadə olunur.</p></li>
+<li><p><strong>Sertifikat yolunun artefakt üzrə
+yoxlanılması:</strong></p>
+<ol>
+<li><p>Yol qurucusu serverin göndərdiyi son və Aralıq-B obyektlərini
+yerli Kök-A etibar lövbərinə bağlayan namizəd yol qurur; kök
+sertifikatın server tərəfindən göndərilməsi tələb olunmur.</p></li>
+<li><p>Yol yoxlaması imzaları və tarixləri yoxlasa da, sertifikat verən
+aralıq sertifikat üçün <code>basicConstraints=CA:TRUE</code> tələb
+edir.</p></li>
+<li><p>Aralıq-B-də <code>CA:FALSE</code> olduğuna görə yol rədd edilir;
+imzanın Kök-A ilə kriptoqrafik doğrulanması bu siyasət xətasını
+kompensasiya etmir.</p></li>
+<li><p><em>Sertifikat zənciri</em> ötürülən/qurulan obyektlərdir;
+<em>etibar zənciri</em> isə sertifikata güvənən tərəfin etibar lövbəri
+və siyasətə əsaslanan qərarıdır.</p></li>
+</ol></li>
+</ol>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə aşağıdakı əsas anlayışları öyrəndik:</p>
+<ul>
+<li><p><strong>Açar idarəçiliyi:</strong> Açarların generasiyası,
+paylanması, təhlükəsiz saxlanması, istifadəsi, rotasiyası, ləğvi və
+məhvi proseslərinin bütövlüyü <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>PKI (Açıq Açar İnfrastrukturu):</strong> Açıq açarların
+etibarlı şəkildə idarə edilməsi, paylanması və rəqəmsal sertifikatlarla
+bağlanması üçün lazım olan aparat, proqram təminatı və hüquqi qaydalar
+toplusu <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>X.509 sertifikatları:</strong> Müəyyən bir açıq açarı
+konkret şəxsin və ya serverin kimliyinə bağlayan, səlahiyyətli CA
+tərəfindən rəqəmsal olaraq imzalanmış standartlaşdırılmış sənəd <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p><strong>Sertifikat Mərkəzləri (CA):</strong> Rəqəmsal dünyada
+pasport idarəsi rolunu oynayan, sertifikatları imzalayan və verən yüksək
+təhlükəsizlikli etibarlı qurumlar <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Sertifikat zəncirləri:</strong> Son istifadəçi
+sertifikatından başlayaraq etibarlı Kök CA-ya qədər uzanan, etibarın
+ötürülməsini təmin edən sertifikatlar ardıcıllığı <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Ləğv mexanizmləri:</strong> Kompromat olunmuş açarla
+bağlı sertifikatın statusunu yaymaq üçün tətbiq edilən CRL, vaxtla
+məhdud imzalı cavab verən OCSP və ayrıca müştəri sorğusuna ehtiyacı
+azaldan OCSP bərkidilməsi mexanizmləri <span class="citation"
+data-cites="paar2024understanding rescorla2026rfc9846"></span>.</p></li>
+<li><p><strong>Etibar modelləri:</strong> CA iyerarxiyasına əsaslanan
+mərkəzləşdirilmiş (PKI) və qarşılıqlı zəmanətə əsaslanan paylanmış
+etibar şəbəkəsi arxitekturaları <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+<p><strong>Əsas nəticə:</strong> Asimmetrik kriptoqrafiya açıq açarların
+etibarlı şəkildə paylanmasını tələb edir. PKI bu problemi həll edərək
+açıq açarları sertifikatlar vasitəsilə istifadəçilərə bağlayır.
+Sertifikatların etibarlılığı CA-lar tərəfindən təmin edilir. Ləğv
+mexanizmləri (CRL, OCSP, OCSP bərkidilməsi) kompromat olunmuş
+sertifikatların istifadəsinin qarşısını alır. Müasir internetin
+təhlükəsiz işləməsi PKI-yə əsaslanır.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>CA (<em>Certificate Authority</em> — Sertifikat
+Mərkəzi): Rəqəmsal imza vasitəsilə açıq açarları subyektlərin
+identikliyi ilə bağlayan və X.509 sertifikatlarını imzalamaqla sistemdə
+əsas etibar nöqtəsi çıxış edən kök və ya aralıq qurumdur.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>RA (<em>Registration Authority</em> — Qeydiyyat
+Mərkəzi): Sertifikat müraciətçilərinin identikliyini və hüquqi müstəvidə
+səlahiyyətlərini yoxlayan inzibati qurumdur. RA müraciəti təsdiqlədikdən
+sonra imzalamaq üçün CA-ya ötürür, lakin özü birbaşa sertifikat
+imzalamır.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>VA (<em>Validation Authority</em> — Təsdiqləmə Mərkəzi):
+Təqdim edilən sertifikatın hal-hazırda etibarlı, yaxud ləğv edilmiş
+(<em>revoked</em>) olduğunu real-vaxt rejimində təsdiqləyən xidmətdir
+(əsasən OCSP serverləri və ya CRL paylama nöqtələri vasitəsilə).<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>SAN (<em>Subject Alternative Name</em> — Subyektin
+Alternativ Adı): X.509 sertifikatında tək bir rəqəmsal kimliyə birdən
+çox domenin (<em>FQDN</em>), IP ünvanının və ya e-poçtun bağlanmasına
+imkan verən standart genişlənmədir (<em>extension</em>). Müasir HTTPS
+təhlükəsizlik protokolları uyğunluq təsdiqlənməsi yalnız SAN sahəsi üzrə
+aparır.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>CRL (<em>Certificate Revocation List</em> —
+Sertifikatların Ləğv Siyahısı): CA tərəfindən vaxtından əvvəl ləğv
+edilmiş etibarsız sertifikatların seriya nömrələrini ehtiva edən,
+vaxtaşırı rəqəmsal imzalanaraq dərc edilən rəsmi siyahıdır.<a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>OCSP (<em>Online Certificate Status Protocol</em> —
+Onlayn Sertifikat Statusu Protokolu): İstemcinin konkret sertifikatın
+etibarlılıq və ləğv statusunu bütün siyahını endirmədən, VA/OCSP
+serverinə real-vaxt rejimində sorğu göndərərək yoxlamasına imkan verən
+protokoldur (RFC 6960).<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Etibar lövbəri (<em>Trust Anchor</em>): Sertifikat
+zəncirinin doğrulandığı və sistem tərəfindən ilkin olaraq tam etibarlı
+qəbul edilən kök sertifikat (<em>Root Certificate</em>) və ya açıq
+açardır.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (11)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Rescorla, 2026</span>
+                        <small class="text-muted">RFC Editor</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Barker, 2020</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recommendation for Key Management: Part 1 – General</h6>
+                    <p class="small text-secondary mb-0">Elaine Barker (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Forum, 2026</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates</h6>
+                    <p class="small text-secondary mb-0">CA/Browser Forum (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Cooper et al., 2008</span>
+                        <small class="text-muted">RFC 5280</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</h6>
+                    <p class="small text-secondary mb-0">D. Cooper and S. Santesson and S. Farrell and S. Boeyen and R. Housley and W. Polk (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Santesson et al., 2013</span>
+                        <small class="text-muted">RFC 6960</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP</h6>
+                    <p class="small text-secondary mb-0">S. Santesson and M. Myers and R. Ankney and A. Malpani and S. Galperin and C. Adams (2013)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

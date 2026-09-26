@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 1: Kriptoqrafiyaya Giriş</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 1: Əsas Anlayışlar və Prinsiplər</p></div>
+<h1 id="giriş">Giriş</h1>
+<p>Kriptoqrafiya — qədim yunan sözlərindən yaranan bir termindir:
+<em>kryptós</em> (gizli) və <em>gráphein</em> (yazmaq). Bu gün
+kriptoqrafiya dedikdə, informasiyanın qorunması üçün istifadə olunan
+riyazi üsullar və protokollar toplusu başa düşülür <span
+class="citation"
+data-cites="stinson2018cryptography katz2020introduction"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Kriptologiya). Kriptologiya —
+konfidensiallığın, bütövlüyün və həqiqiliyin təmin edilməsi məqsədilə
+məlumatların şifrələnməsi və deşifrələnməsi üsullarını öyrənən elmdir.
+Bu termin yunan mənşəli iki sözün birləşməsindən yaranıb:
+<em>kryptos</em> (gizli) və <em>logos</em> (elm).</p>
+</div>
+<p>Kriptologiya adətən iki əsas qola bölünür:
+<strong>kriptoqrafiya</strong> və <strong>kriptoanaliz</strong>.
+Əslində, bu iki sahə bir-biri ilə sıx əlaqədardır və birinin inkişafı
+digərinin təkmilləşməsinə birbaşa təsir göstərir.</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Kriptoqrafiya). Kriptoqrafiya — məlumatın
+konfidensiallığın, bütövlüyünü, autentikliyini və inkarolunmazlığını
+təmin etmək üçün istifadə olunan riyazi üsullar və protokollar
+toplusudur <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+</div>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Kriptoanaliz). Kriptoanaliz — şifrələnmiş
+sistemləri analiz edən, onların zəif tərəflərini tapan və məxfi açarı
+bilmədən məlumatı əldə etməyə çalışan sahədir. Sadə dildə desək,
+kriptoqrafiya "qıfıl hazırlamaqdırsa", kriptoanaliz "qıfılı açmağa
+çalışmaqdır".</p>
+</div>
+<p>Bu mühazirələr silsiləsi əsasən kriptoqrafiyanı əhatə edəcək, lakin
+kriptoanalizin də bir sıra mühüm məqamlarına toxunulacaqdır. İlk
+mühazirədə kriptoqrafiyanın əsas anlayışları, gündəlik həyatdakı
+tətbiqləri, təhlükəsizlik xidmətləri, Kerckhoffs prinsipi, təhdid
+modelləri və iki əsas kriptoqrafiya növü (simmetrik və asimmetrik)
+haqqında danışacağıq.</p>
+<div class="note">
+<p><span>Mühazirənin məqsədi</span> Bu mühazirəni bitirdikdən sonra
+siz:</p>
+<ul>
+<li><p>Kriptoqrafiyanın nə olduğunu və gündəlik həyatda harada istifadə
+olunduğunu izah edə biləcəksiniz;</p></li>
+<li><p>Dörd əsas təhlükəsizlik xidmətini (<strong>konfidensiallıq,
+bütövlük, autentikasiya, inkarolunmazlıq</strong>) izah edə biləcəksiniz
+<span class="citation"
+data-cites="stallings2017cryptography"></span>;</p></li>
+<li><p>Kerckhoffs prinsipini başa düşəcək və mahiyyətini izah edə
+biləcəksiniz;</p></li>
+<li><p>Təhdid modeli anlayışını və müxtəlif hücumçu modellərini
+xarakterizə edə biləcəksiniz;</p></li>
+<li><p>Simmetrik və asimmetrik kriptoqrafiya arasındakı fundamental
+fərqləri sadalaya biləcəksiniz <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+</ul>
+</div>
+<h1 id="kriptoqrafiyanın-gündəlik-tətbiqləri">Kriptoqrafiyanın Gündəlik
+Tətbiqləri</h1>
+<p>Gündəlik həyatda fərqinə varmadan kriptoqrafiyadan daim istifadə
+edirik. Aşağıdakı nümunələr kriptoqrafiyanın müasir dünyada nə dərəcədə
+həlledici rol oynadığını göstərir <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<h2 id="e-poçt-təhlükəsizliyi">E-poçt Təhlükəsizliyi</h2>
+<p>Elektron poçt vasitəsilə göndərilən məlumatların qorunması üçün
+müxtəlif kriptoqrafik protokollardan istifadə olunur <span
+class="citation" data-cites="callas2007rfc4880"></span>:</p>
+<ul>
+<li><p><strong>PGP (Kifayət qədər yaxşı məxfilik - Pretty Good
+Privacy)</strong> və <strong>S/MIME</strong> protokolları e-poçtların
+şifrələnməsini və rəqəmsal imzalanmasını təmin edir <span
+class="citation" data-cites="garfinkel1995pgp"></span>.</p></li>
+<li><p><strong>Şifrələmə:</strong> E-poçtun məzmununun yalnız göndərən
+və alan tərəfindən oxuna bilməsini təmin edir.</p></li>
+<li><p><strong>Rəqəmsal imza:</strong> Məktubu alan şəxs onun həqiqətən
+iddia olunan göndərəndən gəldiyini və yol boyu manipulyasiya
+edilmədiyini (bütövlüyünü) yoxlaya bilir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 1</strong>. Tutaq ki, mühasibinizə konfidensial
+maliyyə hesabatı göndərirsiniz. Əgər e-poçt şifrələnməyibsə, bu məlumat
+İnternet provayderiniz və ya şəbəkə trafikini izləyən hər hansı kənar
+şəxs tərəfindən oxuna bilər. PGP ilə şifrələnmiş mesaj isə yalnız
+mühasibinizin gizli açarı ilə deşifrə oluna bilən "anlaşılmaz simvollar
+yığınına" çevrilir.</p>
+</div>
+<h2 id="mesajlaşma-tətbiqləri-whatsapp-signal">Mesajlaşma Tətbiqləri
+(WhatsApp, Signal)</h2>
+<p>WhatsApp, Signal və Telegram (Secret Chat rejimində) kimi tətbiqlər
+<strong>uçdan-uca şifrələmə</strong> (end-to-end encryption)
+texnologiyasından istifadə edir <span class="citation"
+data-cites="marlinspike2013signal"></span>:</p>
+<ul>
+<li><p>Mesajlar göndərən cihazda şifrələnir və yalnız qəbul edən cihazda
+açılır.</p></li>
+<li><p><span>İnternet üzərindən ötürülən müddətdə mesajlar şifrələnmiş
+vəziyyətdə olur.</span></p></li>
+<li><p>Hətta xidməti təmin edən şirkət (məsələn, Meta) belə
+serverlərindən keçən mesajların məzmununu oxuya bilməz.</p></li>
+<li><p>Bu sistem adətən mürəkkəb <em>Signal Protocol</em> əsasında
+işləyir <span class="citation"
+data-cites="perrin2016double"></span>.</p></li>
+</ul>
+<div class="keyconcept">
+<p><span>Uçdan-uca (End-to-end) şifrələmə</span> Uçdan-uca şifrələmə —
+məlumatın yalnız iki son nöqtədə (göndərən və alan cihazda) açıq mətndə
+olması deməkdir. Aradakı heç bir vasitəçi (server, provayder və ya
+hücumçu) məlumatı deşifrə edə bilmir.</p>
+</div>
+<h2 id="bank-kartları-və-emv-texnologiyası">Bank Kartları və EMV
+Texnologiyası</h2>
+<p>Bank kartlarındakı çiplər EMV (Europay, MasterCard, Visa) standartı
+çərçivəsində kriptoqrafik əməliyyatlar həyata keçirir <span
+class="citation" data-cites="emv2008book"></span>:</p>
+<ul>
+<li><p><strong>Dinamik kriptoqram:</strong> Hər əməliyyat üçün unikal
+bir kod yaradılır. Bu, kartın klonlaşdırılmasının qarşısını alır —
+hücumçu köhnə əməliyyat məlumatını ələ keçirsə belə, onu təkrar istifadə
+edə bilməz.</p></li>
+<li><p><strong>PIN-in təsdiqi:</strong> PIN (Personal İdentification
+Number - Şəxsi identifikasiya nömrəsi) kodunuz terminala daxil
+edildikdə, o, açıq şəkildə deyil, kart çipi daxilində kriptoqrafik
+olaraq yoxlanılır.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 2</strong>. Ödəniş zamanı POS (Point of Sale - Satış
+nöqtəsi) terminalı kart çipinə təsadüfi bir sorğu (challenge) göndərir.
+Kart bu sorğunu öz daxilindəki gizli açarla imzalayır. Bu proses
+"şifrəli sübut" rolunu oynayır və kartın saxta olmadığını
+təsdiqləyir.</p>
+</div>
+<h2 id="onlayn-bankçılıq">Onlayn bankçılıq</h2>
+<p>İnternet üzərindən bank əməliyyatları apararkən bir neçə kriptoqrafik
+mexanizm işləyir <span class="citation"
+data-cites="rescorla2018rfc8446"></span>:</p>
+<ul>
+<li><p><strong>HTTPS</strong> (Hypertext Transfer Protocol Secure — veb
+brauzer ilə sayt arasında məlumatın şifrələnmiş şəkildə ötürülməsi)
+protokolu (TLS/SSL əsasında) veb səhifə ilə brauzer arasındakı trafiki
+şifrələyir.</p></li>
+<li><p>Bu, onlayn bankçılıq məlumatlarınızın kənar şəxslər tərəfindən
+oxunmasının qarşısını alır.</p></li>
+<li><p>Banklar əməliyyatları təsdiqləmək üçün SMS (Short Message Service
+- Qısa mesaj xidməti) vasitəsilə göndərilən bir dəfəlik kodlardan (OTP -
+One Time Password - birdəfəlik parol) istifadə edir.</p></li>
+</ul>
+<h2 id="kriptovalyutalar">Kriptovalyutalar</h2>
+<p>Bitcoin, Ethereum və digər kriptovalyutalar tamamilə kriptoqrafiya
+üzərində qurulub <span class="citation"
+data-cites="nakamoto2008bitcoin"></span>:</p>
+<ul>
+<li><p><strong>Rəqəmsal imzalar</strong> — sikkələrin yalnız sahibi
+tərəfindən xərclənə bilməsini təmin edir.</p></li>
+<li><p><strong>Heş funksiyaları</strong> — blokların bir-birinə
+bağlanmasını və məlumatların dəyişdirilməzliyini təmin edir.</p></li>
+<li><p><strong>Proof of Work</strong> (İş Sübutu) — yeni blokların
+yaradılması üçün mürəkkəb riyazi məsələlərin həllini tələb edir <span
+class="citation" data-cites="back2002hashcash"></span>.</p></li>
+</ul>
+<h2 id="wifi-şəbəkələri">WiFi şəbəkələri</h2>
+<p>Simsiz şəbəkələr də kriptoqrafiyadan istifadə edir <span
+class="citation" data-cites="ieee2004wifi"></span>:</p>
+<ul>
+<li><p><strong>WPA2 (Wi-Fi Protected Access 2)</strong> və
+<strong>WPA3</strong> standartları simsiz trafiki şifrələyir.</p></li>
+<li><p>Bu, qonşularınızın və ya kafenizdəki digər müştərilərin İnternet
+trafikinizi dinləməsinin qarşısını alır.</p></li>
+<li><p>WiFi şəbəkəsinə qoşularkən daxil etdiyiniz şifrə, əslində,
+şifrələmə açarını törətmək üçün istifadə olunur.</p></li>
+</ul>
+<div class="tip">
+<p>Ev şəbəkəniz üçün mütləq WPA2 və ya WPA3 təhlükəsizlik protokolunu
+aktivləşdirin. Köhnə WEP protokolu asanlıqla sındırıla bilər və
+təhlükəsiz deyil <span class="citation"
+data-cites="beck2007practical"></span>.</p>
+</div>
+<h1 id="təhlükəsizlik-xidmətləri">Təhlükəsizlik xidmətləri</h1>
+<p>Kriptoqrafiyanın dörd əsas təhlükəsizlik xidməti var. Bunlar
+İnformasiya Təhlükəsizliyinin təməl daşlarıdır <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<h2 id="konfidensiallıq-confidentiality">Konfidensiallıq
+(Confidentiality)</h2>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Konfidensiallıq). Konfidensiallıq —
+məlumatın icazəsiz şəxslər tərəfindən oxunmasının qarşısını alan
+xüsusiyyətdir. Başqa sözlə, məlumat yalnız icazəsi olanlar üçün əlçatan
+olmalıdır.</p>
+</div>
+<p>Konfidensiallıq əsasən <strong>şifrələmə</strong> (encryption) ilə
+təmin edilir. Şifrələmə prosesində oxuna bilən məlumat (açıq mətn)
+oxunmayan formata (şifrəli mətn) çevrilir. Yalnız düzgün açara sahib
+olanlar şifrəli mətni deşifrələyib orijinal məlumatı əldə edə bilər.</p>
+<div class="example">
+<p><strong>Nümunə 3</strong>. Alis Boba "Salam" mesajı göndərir. Əgər bu
+mesaj şifrələnməyibsə, şəbəkəni dinləyən Eva bu mesajı asanlıqla oxuya
+bilər. Lakin mesaj şifrələnibsə, Eva ancaq mənasız simvollar
+görəcək.</p>
+</div>
+<figure data-latex-placement="h!">
+
+<figcaption>Konfidensiallıq nümunəsi</figcaption>
+</figure>
+<p>Konfidensiallıq təmin etmək üçün istifadə olunan üsullar <span
+class="citation" data-cites="paar2010understanding"></span>:</p>
+<ul>
+<li><p><strong>Simmetrik şifrələmə:</strong> (məs. AES, ChaCha20) — Eyni
+açar həm şifrələmə, həm də deşifrələmə üçün istifadə olunur.</p></li>
+<li><p><strong>Asimmetrik şifrələmə:</strong> (məs. RSA, ECC) — İctimai
+və gizli açar cütlərindən istifadə olunur.</p></li>
+<li><p><strong>Girişə nəzarət mexanizmləri:</strong> — Məlumata daxil
+olmaq səlahiyyətlərinin idarə edilməsi.</p></li>
+</ul>
+<h2 id="bütövlük-integrity">Bütövlük (Integrity)</h2>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Bütövlük). Bütövlük — məlumatın icazəsiz
+dəyişdirilməsinin qarşısını alan və ya hər hansı dəyişikliyi aşkar edən
+xüsusiyyətdir. Məlumat ötürülmə zamanı dəyişdirilməməlidir.</p>
+</div>
+<p>Bütövlük adətən <strong>heş funksiyaları</strong> (hash functions) və
+<strong>Mesaj Autentikasiya Kodu</strong> (MAC) ilə təmin edilir <span
+class="citation" data-cites="bellare1996hmac"></span>. Heş funksiyaları
+məlumatın "barmaq izi"ni çıxarır — məlumatda hər hansı dəyişiklik heş
+dəyərində tamamilə fərqli nəticə verir.</p>
+<div class="example">
+<p><strong>Nümunə 4</strong>. Alis Boba "100 AZN ödə" mesajı göndərir.
+Əgər bütövlük qorunmursa, aktiv hücumçu, Mallory, mesajı ələ keçirib
+"1000 AZN ödə" olaraq dəyişdirə bilər. Bütövlük mexanizmi olduqda, Bob
+mesajın dəyişdirildiyini aşkar edə bilər.</p>
+</div>
+<p>Tamlığı təmin edən mexanizmlər:</p>
+<ul>
+<li><p>Heş funksiyaları (SHA-256, SHA-3) <span class="citation"
+data-cites="nist2015hash"></span></p></li>
+<li><p>MAC (HMAC, CMAC) <span class="citation"
+data-cites="krawczyk1997hmac"></span></p></li>
+<li><p>Rəqəmsal imzalar <span class="citation"
+data-cites="rivest1978method"></span></p></li>
+</ul>
+<h2 id="autentikasiya-authentication">Autentikasiya
+(Authentication)</h2>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Autentikasiya). Autentikasiya — tərəfin
+həqiqətən iddia etdiyi şəxs olduğunu təsdiqləmə prosesidir. Mesaj
+kontekstində isə, mesajın həqiqətən müəyyən göndərəndən gəldiyinə
+əminlikdir.</p>
+</div>
+<p>Autentikasiya iki formada ola bilər:</p>
+<ul>
+<li><p><strong>Mənbə autentikasiyası</strong> — mesajın doğru
+göndərəndən gəldiyini təsdiqləyir</p></li>
+<li><p><strong>İstifadəçi autentikasiyası</strong> — istifadəçinin
+həqiqətən kim olduğunu təsdiqləyir (şifrə, barmaq izi və s.)</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 5</strong>. Alis Boba mesaj göndərir. Bob əmin
+olmalıdır ki, bu mesaj doğrudan Alisdən gəlib, Ceyrandan yox.
+Autentikasiya mexanizmi olmadan, Ceyran Alis kimi görünüb saxta mesaj
+göndərə bilər.</p>
+</div>
+<div class="remark">
+<p><em>Qeyd 1</em> (Vacib Qeyd). Kriptoqrafik heş funksiyası təkbaşına
+autentikasiya təmin etmir. Autentikasiya üçün gizli açar istifadə edən
+mesaj autentikasiya kodu (MAC) və ya rəqəmsal imza tələb olunur.</p>
+</div>
+<p>Autentikasiya üsulları:</p>
+<ul>
+<li><p>MAC (simmetrik açarla) <span class="citation"
+data-cites="bellare1996hmac"></span></p></li>
+<li><p>Rəqəmsal imzalar (asimetrik açarla) <span class="citation"
+data-cites="rivest1978method"></span></p></li>
+<li><p>Şifrələr, biometrik məlumatlar</p></li>
+</ul>
+<h2 id="inkar-edilməzlik-non-repudiation">İnkar edilməzlik
+(Non-repudiation)</h2>
+<div class="definition">
+<p><strong>Tərif 7</strong> (İnkar edilməzlik). İnkar edilməzlik —
+göndərənin sonradan mesajı göndərdiyini inkar edə bilməməsi
+xüsusiyyətidir. Bu, xüsusilə hüquqi əhəmiyyətli əməliyyatlarda vacibdir
+<span class="citation" data-cites="stinson2018cryptography"></span>.</p>
+</div>
+<p>İnkar edilməzlik adətən <strong>rəqəmsal imzalar</strong> ilə təmin
+edilir. Rəqəmsal imza, göndərənin gizli açarı ilə yaradılır və hər kəs
+onun açıq açarı ilə imzanı yoxlaya bilər <span class="citation"
+data-cites="rivest1978method"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 6</strong>. Alis Boba "1000 AZN borc ver" mesajı
+göndərir. Sonra deyir: "Mən belə bir mesaj göndərməmişəm!" Rəqəmsal imza
+varsa, Bob imzanı göstərərək Alisin yalan danışdığını sübut edə
+bilər.</p>
+</div>
+<div class="remark">
+<p><em>Qeyd 2</em>. Simmetrik kriptoqrafiya (eyni açarla şifrələmə)
+inkar edilməzlik təmin etmir. Çünki açar həm göndərəndə, həm də alıcıda
+olduğu üçün, alıcı da həmin imzanı özü yarada bilər. İnkar edilməzlik
+üçün mütləq asimmetrik kriptoqrafiya (açıq açar - gizli açar) lazımdır
+<span class="citation" data-cites="diffie1976new"></span>.</p>
+</div>
+<h2 id="dörd-xidmətin-müqayisəsi">Dörd xidmətin müqayisəsi</h2>
+<p>Aşağıdakı cədvəl dörd təhlükəsizlik xidmətini ümumiləşdirir:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xidmət</strong></th>
+<th style="text-align: left;"><strong>Məqsəd</strong></th>
+<th style="text-align: left;"><strong>Əsas texnika</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Konfidensiallıq</td>
+<td style="text-align: left;">Gizlilik</td>
+<td style="text-align: left;">Şifrələmə</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bütövlük</td>
+<td style="text-align: left;">Dəyişdirilməzlik</td>
+<td style="text-align: left;">Heş, MAC, imza</td>
+</tr>
+<tr>
+<td style="text-align: left;">Autentikasiya</td>
+<td style="text-align: left;">Mənbə təsdiqi</td>
+<td style="text-align: left;">MAC, imza</td>
+</tr>
+<tr>
+<td style="text-align: left;">İnkar edilməzlik</td>
+<td style="text-align: left;">İnkarın qarşısı</td>
+<td style="text-align: left;">Rəqəmsal imza</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip">
+<p> Bu xidmətləri yadda saxlamaq üçün İngilis dilində "CIAAN"
+abbreviaturasından istifadə edə bilərsiniz:</p>
+<ul>
+<li><p><strong>C</strong>onfidentiality (Konfidensiallıq)</p></li>
+<li><p><strong>I</strong>ntegrity (Bütövlük)</p></li>
+<li><p><strong>A</strong>vailibility (Əlçatanlıq) - Bu kursda bu məqama
+biz toxunmuruq</p></li>
+<li><p><strong>A</strong>uthentication (Autentikasiya)</p></li>
+<li><p><strong>N</strong>on-repudiation (İnkar edilməzlik)</p></li>
+</ul>
+</div>
+<h1 id="kriptoqrafiya-ancaq-şifrələmə-deyil">Kriptoqrafiya ancaq
+şifrələmə deyil</h1>
+<p>Çox vaxt kriptoqrafiya deyildikdə insanların ağlına ilk olaraq
+şifrələmə gəlir. Lakin kriptoqrafiya daha geniş bir sahədir və şifrələmə
+onun yalnız bir hissəsidir <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<div class="keyconcept">
+<p><span>Kriptoqrafiya təkcə şifrələmə deyil</span> Kriptoqrafiya
+məlumatın gizlədilməsi (şifrələmə) ilə yanaşı, onun tamlığının
+qorunması, mənbəyinin təsdiqlənməsi, müəllifliyinin inkar edilməməsi və
+tərəflər arasında təhlükəsiz əlaqənin qurulması kimi geniş spektrli
+məsələləri əhatə edir.</p>
+</div>
+<h2 id="kriptoqrafiyanın-əhatə-etdiyi-sahələr">Kriptoqrafiyanın əhatə
+etdiyi sahələr</h2>
+<ul>
+<li><p><strong>Şifrələmə (Encryption)</strong>: Məlumatın gizliliyini
+təmin edir. Konfidensiallıq xidmətinin əsas alətidir.</p></li>
+<li><p><strong>Heş funksiyaları (Hash functions)</strong>: İxtiyari
+ölçülü məlumatdan sabit ölçülü "barmaq izi" çıxarır. Məlumatın tamlığını
+yoxlamaq, parolların saxlanması, rəqəmsal imzaların sürətləndirilməsi
+kimi sahələrdə istifadə olunur <span class="citation"
+data-cites="nist2015hash"></span>.</p></li>
+<li><p><strong>Mesaj Autentikasiya Kodları (MAC)</strong>: Simmetrik
+açarla məlumatın həm tamlığını, həm də mənbə autentikasiyasını təmin
+edir <span class="citation"
+data-cites="bellare1996hmac"></span>.</p></li>
+<li><p><strong>Rəqəmsal imzalar (Digital signatures)</strong>:
+Asimmetrik kriptoqrafiya əsasında işləyərək məlumatın mənbəyini
+təsdiqləyir və inkar edilməzlik təmin edir <span class="citation"
+data-cites="rivest1978method"></span>.</p></li>
+<li><p><strong>Açar mübadiləsi protokolları (Key exchange)</strong>: İki
+tərəfin təhlükəsiz olmayan kanal üzərindən ortaq gizli açar
+razılaşdırmasını təmin edir. Diffi-Hellman protokolu buna ən məşhur
+nümunədir <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+<li><p><strong>Kriptoqrafik protokollar</strong>: TLS/SSL (təhlükəsiz
+veb əlaqə), SSH (təhlükəsiz uzaq bağlantı), Signal protokolu (təhlükəsiz
+mesajlaşma) kimi mürəkkəb sistemlər <span class="citation"
+data-cites="rescorla2018rfc8446 perrin2016double"></span>.</p></li>
+<li><p><strong>Sıfır bilik sübutları (Zero-knowledge proofs)</strong>:
+Bir tərəfin digər tərəfə bir məlumatı bildiyini, lakin bu məlumatın
+özünü açıqlamadan sübut etməsinə imkan verir.</p></li>
+<li><p><strong>Homomorf şifrələmə (Homomorphic encryption)</strong>:
+Şifrələnmiş məlumat üzərində onu deşifrələmədən riyazi əməliyyatlar
+aparmağa imkan verir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 7</strong> (Şifrələmədən başqa kriptoqrafik alətlərin
+istifadəsi).  </p>
+<ul>
+<li><p>Veb səhifələrdə şifrənizi daxil edərkən, server bu şifrənin heş
+dəyərini saxlayır. Siz daxil etdikdə, daxil etdiyiniz şifrənin heşi ilə
+serverdəki heş müqayisə edilir. Burada şifrələmə yox, heş funksiyası
+istifadə olunur.</p></li>
+<li><p>Bitcoin və digər kriptovalyutalarda sikkələrin sahibliyini sübut
+etmək üçün rəqəmsal imzalar istifadə olunur, şifrələmə deyil <span
+class="citation" data-cites="nakamoto2008bitcoin"></span>.</p></li>
+<li><p>WhatsApp mesajlarınız end-to-end şifrələnir, lakin bunun üçün ilk
+növbədə tərəflər arasında açarların razılaşdırılması lazımdır. Bu
+mərhələdə açar mübadiləsi protokolları işləyir <span class="citation"
+data-cites="marlinspike2013signal"></span>.</p></li>
+</ul>
+</div>
+<h2 id="niyə-bu-geniş-anlayış-vacibdir">Niyə bu geniş anlayış
+vacibdir?</h2>
+<p>Kriptoqrafiyanı ancaq şifrələmə kimi başa düşmək bir neçə səbəbdən
+yanlışdır:</p>
+<div class="warning">
+<p><span>Kriptoqrafiyanı ancaq şifrələmə kimi başa düşməyin
+riskləri</span></p>
+<ol>
+<li><p><strong>Təhlükəsizlik zəiflikləri</strong>: Şifrələmə məlumatı
+gizlədir, lakin onun dəyişdirilmədiyini təmin etmir. Məsələn,
+şifrələnmiş bank əməliyyatı ələ keçirilib təkrar göndərilə bilər (replay
+attack). Bunun qarşısını almaq üçün bütövlük mexanizmləri (MAC, rəqəmsal
+imza) lazımdır.</p></li>
+<li><p><strong>Hüquqi nəticələr</strong>: Şifrələnmiş bir müqavilə
+göndərdinizsə, amma rəqəmsal imza yoxdursa, qarşı tərəf sonradan "bu
+müqaviləni mən göndərməmişəm" deyə bilər. İnkar edilməzlik olmadan
+hüquqi mübahisələrdə çətinlik yaranar.</p></li>
+<li><p><strong>Praktiki məhdudiyyətlər</strong>: Şifrələmə tək başına
+təhlükəsiz əlaqə qurmaq üçün kifayət deyil. Tərəflər əvvəlcə ortaq açar
+razılaşdırmalı, bir-birlərini tanımalı (autentikasiya), mesajların
+dəyişdirilmədiyinə əmin olmalı (bütövlük) və s.</p></li>
+</ol>
+</div>
+<div class="remark">
+<p><em>Qeyd 3</em> (Düzgün baxış). Kriptoqrafiya — məlumat
+təhlükəsizliyinin riyazi əsaslarını öyrənən elmdir. Şifrələmə bu elmin
+yalnız bir alətidir. Təhlükəsiz sistem qurmaq üçün bütün bu alətləri
+birgə və düzgün istifadə etmək lazımdır <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+</div>
+<div class="tip">
+<p><span>Yadda saxla</span> Təhlükəsiz bir sistem qurarkən özünüzə sual
+verin:</p>
+<ul>
+<li><p>Məlumat gizli qalmalıdırmı? → Şifrələmə lazımdır</p></li>
+<li><p>Məlumat dəyişdirilə bilərmi? → Bütövlük mexanizmi (MAC/heş)
+lazımdır</p></li>
+<li><p>Məlumatın kimdən gəldiyi vacibdirmi? → Autentikasiya
+lazımdır</p></li>
+<li><p>Göndərən sonradan inkar edə bilərmi? → Rəqəmsal imza
+lazımdır</p></li>
+</ul>
+<p>Çox vaxt bu sualların hamısına "bəli" cavabı verilir və buna görə də
+müasir təhlükəsiz sistemlər birdən çox kriptoqrafik aləti bir yerdə
+istifadə edir.</p>
+</div>
+<h1 id="kerckhoffs-prinsipi">Kerckhoffs prinsipi</h1>
+<h2 id="tarixi-fon">Tarixi fon</h2>
+<p>1883-cü ildə holland əsilli dilçi və kriptoqraf <strong>Ağust
+Kerckhoffs</strong> (1835-1903) hərbi kriptoqrafiya haqqında yazdığı
+məqalədə altı prinsip irəli sürdü. Bunlardan ən məşhuru ikinci
+prinsipdir və bu gün "Kerckhoffs prinsipi" kimi tanınır.</p>
+<div class="keyconcept">
+<p><span>Kerckhoffs prinsipi</span> <em>"Kriptosistem, sistem haqqında
+hər şey (alqoritm, protokol, şifrə və s.) ictimai olsa belə, yalnız
+açarın gizli qalması şərti ilə təhlükəsiz olmalıdır."</em></p>
+</div>
+<p>Başqa sözlə, sistemin təhlükəsizliyi gizli saxlanılan alqoritmlərdən
+asılı olmamalıdır. Yeganə gizli kəmiyyət açar olmalıdır <span
+class="citation" data-cites="shannon1949communication"></span>.</p>
+<h2 id="prinsipin-izahı">Prinsipin izahı</h2>
+<p>Kerckhoffs prinsipini bir nümunə ilə izah edək:</p>
+<p>Tutaq ki, iki fərqli şifrələmə sistemi var:</p>
+<ol>
+<li><p><strong>Gizli alqoritm</strong>: Alqoritmin özü gizli saxlanılır.
+Şirkət daxilində işlənib və heç yerdə dərc olunmayıb.</p></li>
+<li><p><strong>Açıq alqoritm</strong>: Alqoritm tamamilə açıqdır,
+istənilən kriptoqraf onu təhlil edə bilər. Yalnız açar
+gizlidir.</p></li>
+</ol>
+<p>Hansı daha təhlükəsizdir? Kerckhoffs prinsipinə görə, ikincisi daha
+təhlükəsizdir. Çünki:</p>
+<ul>
+<li><p>Gizli alqoritmin zəiflikləri aşkar edilməyə bilər (çünki heç kim
+onu analiz etmir).</p></li>
+<li><p>Alqoritm uzun müddət ərzində gizli qalmır — əks mühəndislik
+(reverse engineering) həmişə mümkündür <span class="citation"
+data-cites="anderson2008security"></span>.</p></li>
+<li><p>Gizlilik pozulanda bütün sistem çökür, açarları dəyişmək kifayət
+etmir.</p></li>
+<li><p>Açıq alqoritmlər minlərlə mütəxəssis tərəfindən analiz edilir,
+zəifliklər aşkarlanır və aradan qaldırılır.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 8</strong> (Tarixi uğursuzluq: CSS sistemi). DVD-ləri
+qeyri-qanuni kopyalanmaqdan qorumaq üçün hazırlanmış <strong>CSS
+(Content Scrambling System - Məzmunun Qarışdırılması Sistemi)</strong>
+alqoritmi uzun müddət gizli saxlanılırdı. Lakin 1999-cu ildə 15 yaşlı
+bir proqramçı tərəfindən bu gizli alqoritm əks-mühəndislik (reverse
+engineering) vasitəsilə sındırıldı və bütün sistem iflic oldu <span
+class="citation" data-cites="schneier2000secrets"></span>.</p>
+<p>Əgər CSS sistemi Kerckhoff prinsipinə uyğun hazırlansaydı:</p>
+<ul>
+<li><p>Alqoritm ictimaiyyətə açıq olardı və kriptoqraflar tərəfindən
+sınaqdan keçirilərək zəif tərəfləri əvvəlcədən müəyyən
+edilərdi;</p></li>
+<li><p>Sistem sındırıldıqda bütün arxitekturanı dəyişməyə ehtiyac
+qalmazdı, sadəcə açarları yeniləmək kifayət edərdi.</p></li>
+</ul>
+</div>
+<h2 id="müasir-kriptoqrafiyada-tətbiqi">Müasir kriptoqrafiyada
+tətbiqi</h2>
+<p>Kerckhoffs prinsipi müasir kriptoqrafiyanın təməl daşıdır. Bütün
+standartlaşdırılmış alqoritmlər (AES, SHA-256, RSA, ECC) tamamilə
+açıqdır. İstənilən şəxs onların spesifikasiyasını oxuya, təhlil edə,
+hətta öz implementasiyasını yaza bilər <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<div class="remark">
+<p><em>Qeyd 4</em>. Açıq alqoritmlərin üstünlükləri:</p>
+<ul>
+<li><p><strong>Kollektiv analiz</strong>: Minlərlə kriptoqraf alimləri
+açıq alqoritmləri analiz edir, zəifliklər aşkar olunan kimi
+düzəldilir.</p></li>
+<li><p><strong>Standartlaşma</strong>: Açıq alqoritmlər beynəlxalq
+standartlara çevrilir, müxtəlif sistemlər bir-biri ilə uyğun işləyə
+bilir.</p></li>
+<li><p><strong>Etibar</strong>: Açıq alqoritmlərə etibar daha yüksəkdir,
+çünki heç bir gizli arxa qapı (backdoor) olmadığından əmin olmaq olar
+<span class="citation"
+data-cites="schneier2015surveillance"></span>.</p></li>
+</ul>
+</div>
+<div class="tip">
+<p><span>Kriptoqrafın qızıl qaydası</span> Əgər kimsə sizə "tamamilə
+gizli, heç kimin bilmədiyi və sındırılması qeyri-mümkün olan xüsusi
+alqoritm" təklif edirsə, bu ciddi şübhə doğurmalıdır. Həqiqi
+təhlükəsizlik — gizlilikdə deyil, ictimaiyyətə açıq olan, dünya
+kriptoqrafları tərəfindən illərlə analiz edilmiş və zamanın sınağından
+keçmiş alqoritmlərdədir.</p>
+<p><strong>Heç vaxt öz fərdi şifrələmə alqoritminizi yaratmağa və tətbiq
+etməyə çalışmayın</strong> — ən təcrübəli mütəxəssislər belə bu yolda
+kritik səhvlər edirlər <span class="citation"
+data-cites="schneier1996applied"></span>. Əgər yeni bir alqoritm
+hazırlamısınızsa, onun təhlükəsizliyinə əmin olmağın yeganə yolu onu
+elmi ictimaiyyətə təqdim (nəşr) etmək və analiz olunmasına icazə
+verməkdir.</p>
+</div>
+<h1 id="simmetrik-vs-asimmetrik-kriptoqrafiya">Simmetrik vs Asimmetrik
+kriptoqrafiya</h1>
+<p>Kriptoqrafiya iki əsas növə bölünür: simmetrik və asimmetrik (açıq
+açarlı) kriptoqrafiya <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<h2 id="simmetrik-kriptoqrafiya">Simmetrik kriptoqrafiya</h2>
+<div class="definition">
+<p><strong>Tərif 8</strong> (Simmetrik kriptoqrafiya). Simmetrik
+kriptoqrafiyada şifrələmə və deşifrələmə üçün <strong>eyni açar</strong>
+istifadə olunur <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+</div>
+<p>Simmetrik kriptoqrafiyanın iş prinsipi sadədir: Alis gizli bir açar
+seçir, bu açarla mesajı şifrələyir və Boba göndərir. Bob da eyni açarla
+mesajı deşifrələyir.</p>
+<p>Formal olaraq, simmetrik şifrələmə sistemi üçlükdən ibarətdir: <span
+class="math display">\[\Pi = (\mathsf{Gen}, \mathsf{Enc},
+\mathsf{Dec})\]</span> burada:</p>
+<ul>
+<li><p><span class="math inline">\(\mathsf{Gen}\)</span> — təhlükəsizlik
+parametrindən açar <span class="math inline">\(k\)</span> yaradan
+alqoritm</p></li>
+<li><p><span class="math inline">\(\mathsf{Enc}_k(m) = c\)</span> —
+<span class="math inline">\(k\)</span> açarı ilə <span
+class="math inline">\(m\)</span> mesajını şifrələyib <span
+class="math inline">\(c\)</span> şifrəli mətnini yaradan
+alqoritm</p></li>
+<li><p><span class="math inline">\(\mathsf{Dec}_k(c) = m\)</span> —
+<span class="math inline">\(k\)</span> açarı ilə <span
+class="math inline">\(c\)</span> şifrəli mətnini deşifrələyib <span
+class="math inline">\(m\)</span> mesajını bərpa edən alqoritm</p></li>
+</ul>
+<p>və <span class="math inline">\(\mathsf{Dec}_k(\mathsf{Enc}_k(m)) =
+m\)</span> tələbi ödənməlidir. Yəni ki, <span
+class="math inline">\(\mathsf{Dec}\)</span> funksiyasi <span
+class="math inline">\(\mathsf{Enc}\)</span> funksiyasinin tərsidir.</p>
+<h3 id="simmetrik-kriptoqrafiyanın-üstünlükləri">Simmetrik
+kriptoqrafiyanın üstünlükləri</h3>
+<ul>
+<li><p><strong>Sürət</strong>: Simmetrik alqoritmlər asimmetrik
+alqoritmlərdən 100-1000 dəfə sürətlidir <span class="citation"
+data-cites="paar2010understanding"></span>. Bu, onları böyük həcmli
+məlumatların şifrələnməsi üçün ideal edir.</p></li>
+<li><p><strong>Təhlükəsizlik</strong>: AES-256 kimi müasir simmetrik
+alqoritmlər bu günə qədər sındırılmayıb və yaxın gələcəkdə sındırılması
+gözlənilmir.</p></li>
+<li><p><strong>Sadəlik</strong>: Tək açar idarə etmək
+kifayətdir.</p></li>
+<li><p><strong>Açar uzunluğu</strong>: 128-256 bit kimi qısa açarlar
+kifayət edir.</p></li>
+</ul>
+<h3 id="simmetrik-kriptoqrafiyanın-çatışmazlıqları">Simmetrik
+kriptoqrafiyanın çatışmazlıqları</h3>
+<ul>
+<li><p><strong>Açar paylanması problemi</strong>: Açar təhlükəsiz
+şəkildə necə ötürülməlidir? <span class="citation"
+data-cites="diffie1976new"></span></p></li>
+<li><p><strong>Miqyaslılıq problemi</strong>: <span
+class="math inline">\(n\)</span> istifadəçi üçün <span
+class="math inline">\(\frac{n(n-1)}{2}\)</span> açar lazımdır. 1000
+istifadəçi üçün təxminən 500,000 açar!</p></li>
+<li><p><strong>İnkar edilməzlik təmin etmir</strong>: Açar hər iki
+tərəfdə olduğu üçün, alıcı da eyni imzanı yarada bilər.</p></li>
+<li><p><strong>Rəqəmsal imza mümkün deyil</strong>: Rəqəmsal imza üçün
+asimmetrik kriptoqrafiya lazımdır <span class="citation"
+data-cites="rivest1978method"></span>.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 9</strong> (Açar paylanması problemi). Alis və Bob
+təhlükəsiz bir kanal üzərindən danışmaq istəyirlər. Simmetrik şifrələmə
+üçün ortaq bir açar lazımdır. Bəs bu açar necə ötürülməlidir? Əgər açarı
+İnternet üzərindən göndərsələr, hücumçu onu ələ keçirə bilər. Əgər açarı
+əl ilə çatdırsalar, bu praktiki deyil.</p>
+</div>
+<h3 id="simmetrik-alqoritmlərə-nümunələr">Simmetrik alqoritmlərə
+nümunələr</h3>
+<ul>
+<li><p><strong>AES (Advanced Encryption Standard)</strong> — müasir
+simmetrik şifrələmə standartı <span class="citation"
+data-cites="nist2001aes"></span></p></li>
+<li><p><strong>ChaCha20</strong> — sürətli axın şifrəsi, mobil
+cihazlarda geniş istifadə olunur <span class="citation"
+data-cites="bernstein2008chacha"></span></p></li>
+<li><p><strong>DES (Data Encryption Standard)</strong> — köhnə standart,
+indi təhlükəsiz deyil <span class="citation"
+data-cites="nist1977des"></span></p></li>
+<li><p><strong>Blowfish</strong> — dəyişən açar uzunluqlu şifrə <span
+class="citation" data-cites="schneier1994blowfish"></span></p></li>
+</ul>
+<div class="remark">
+<p><em>Qeyd 5</em> (Vacib Qeyd). Müasir simmetrik şifrələmə alqoritmləri
+(AES, ChaCha20) özlüyündə deterministik olsa da, praktikada müxtəlif iş
+rejimləri (CBC, CTR, GCM) və təsadüfi başlanğıc vektorları (IV) və ya
+nonce istifadə etməklə eyni açıq mətn eyni açar altında müxtəlif şifrəli
+mətnlərə çevrilə bilər. Bu xüsusiyyət statistik hücumların qarşısını
+alır və semantik təhlükəsizliyi təmin edir.</p>
+</div>
+<h2 id="asimmetrik-kriptoqrafiya-açıq-açarlı-kriptoqrafiya">Asimmetrik
+kriptoqrafiya (Açıq açarlı kriptoqrafiya)</h2>
+<div class="definition">
+<p><strong>Tərif 9</strong> (Asimmetrik kriptoqrafiya). Asimmetrik
+kriptoqrafiyada hər istifadəçinin iki açarı var: <strong>açıq
+açar</strong> (public key) və <strong>gizli açar</strong> (private key).
+Açıq açar hamı ilə paylaşılır, gizli açar isə yalnız sahibində olur
+<span class="citation" data-cites="diffie1976new"></span>.</p>
+</div>
+<p>Asimmetrik kriptoqrafiyada şifrələmə belə işləyir: Alis Boba gizli
+mesaj göndərmək istəyir. Alis Bobun <strong>açıq açarı</strong> ilə
+mesajı şifrələyir və göndərir. Bob öz <strong>gizli açarı</strong> ilə
+mesajı deşifrələyir. Heç kim Bobun gizli açarı olmadan mesajı
+deşifrələyə bilməz.</p>
+<p>Formal olaraq, asimmetrik şifrələmə sistemi üçlükdən ibarətdir: <span
+class="math display">\[\Pi = (\mathsf{Gen}, \mathsf{Enc},
+\mathsf{Dec})\]</span> burada:</p>
+<ul>
+<li><p><span class="math inline">\(\mathsf{Gen}\)</span> — təhlükəsizlik
+parametrindən açar cütü <span class="math inline">\((pk, sk)\)</span>
+yaradan alqoritm (<span class="math inline">\(pk\)</span> açıq açar,
+<span class="math inline">\(sk\)</span> gizli açar)</p></li>
+<li><p><span class="math inline">\(\mathsf{Enc}_{pk}(m) = c\)</span> —
+<span class="math inline">\(pk\)</span> açıq açarı ilə <span
+class="math inline">\(m\)</span> mesajını şifrələyib <span
+class="math inline">\(c\)</span> şifrəli mətnini yaradan
+alqoritm</p></li>
+<li><p><span class="math inline">\(\mathsf{Dec}_{sk}(c) = m\)</span> —
+<span class="math inline">\(sk\)</span> gizli açarı ilə <span
+class="math inline">\(c\)</span> şifrəli mətnini deşifrələyib <span
+class="math inline">\(m\)</span> mesajını bərpa edən alqoritm</p></li>
+</ul>
+<p>və <span
+class="math inline">\(\mathsf{Dec}_{sk}(\mathsf{Enc}_{pk}(m)) =
+m\)</span> tələbi ödənməlidir.</p>
+<h3 id="asimmetrik-kriptoqrafiyanın-üstünlükləri">Asimmetrik
+kriptoqrafiyanın üstünlükləri</h3>
+<ul>
+<li><p><strong>Açar paylanması problemi həll olunur</strong>: Açıq
+açarlar açıq şəkildə paylaşıla bilər <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+<li><p><strong>Miqyaslılıq problemi yoxdur</strong>: <span
+class="math inline">\(n\)</span> istifadəçi üçün cəmi <span
+class="math inline">\(2n\)</span> açar lazımdır (hər kəsə bir cüt). 1000
+istifadəçi üçün 2000 açar.</p></li>
+<li><p><strong>İnkar edilməzlik təmin edir</strong>: Gizli açar yalnız
+sahibində olduğu üçün, imzanı başqası yarada bilməz <span
+class="citation" data-cites="rivest1978method"></span>.</p></li>
+<li><p><strong>Rəqəmsal imza mümkündür</strong>: İmzalama və imza
+yoxlama üçün idealdır.</p></li>
+</ul>
+<div class="remark">
+<p><em>Qeyd 6</em>. Asimmetrik kriptoqrafiya açar paylanması problemini
+həll etsə də, açıq açarın həqiqətən iddia edilən şəxsə məxsus olduğunu
+təsdiqləmək ayrıca problemdir (açıq açarın autentikasiyası). Bu məqsədlə
+sertifikat infrastrukturu (PKI) istifadə olunur.</p>
+</div>
+<h3 id="asimmetrik-kriptoqrafiyanın-çatışmazlıqları">Asimmetrik
+kriptoqrafiyanın çatışmazlıqları</h3>
+<ul>
+<li><p><strong>Yavaşlıq</strong>: Simmetrik şifrələmədən 100-1000 dəfə
+yavaşdır <span class="citation"
+data-cites="paar2010understanding"></span>. Böyük həcmli məlumatları
+birbaşa asimmetrik şifrələmək praktiki deyil.</p></li>
+<li><p><strong>Böyük açar uzunluğu</strong>: RSA-2048 açarı 256 bayt,
+AES-256 açarı isə cəmi 32 baytdır.</p></li>
+<li><p><strong>Kvant təhlükəsi</strong>: Şor alqoritmi ilə kvant
+kompüterlər RSA və ECC kimi asimmetrik sistemləri sındıra bilər <span
+class="citation" data-cites="shor1997polynomial"></span>.</p></li>
+</ul>
+<h3 id="asimmetrik-alqoritmlərə-nümunələr">Asimmetrik alqoritmlərə
+nümunələr</h3>
+<ul>
+<li><p><strong>RSA</strong> — Rivest-Shamir-Adleman (1977),
+faktorizasiya probleminə əsaslanır <span class="citation"
+data-cites="rivest1978method"></span></p></li>
+<li><p><strong>ECC</strong> — Elliptik əyri kriptoqrafiyası, daha qısa
+açarlarla eyni təhlükəsizlik <span class="citation"
+data-cites="koblitz1987elliptic miller1985use"></span></p></li>
+<li><p><strong>Diffi-Hellman</strong> — açar mübadiləsi protokolu <span
+class="citation" data-cites="diffie1976new"></span></p></li>
+<li><p><strong>ElGamal</strong> — diskret loqarifm əsaslı şifrələmə
+<span class="citation" data-cites="elgamal1985public"></span></p></li>
+</ul>
+<h2 id="simmetrik-və-asimmetrik-kriptoqrafiyanın-müqayisəsi">Simmetrik
+və asimmetrik kriptoqrafiyanın müqayisəsi</h2>
+<p>Aşağıdakı cədvəl hər iki yanaşmanı müqayisə edir:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Simmetrik</strong></th>
+<th style="text-align: left;"><strong>Asimmetrik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açar sayı</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2 (açıq + gizli)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sürət</td>
+<td style="text-align: left;">Çox sürətli</td>
+<td style="text-align: left;">Yavaş</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar uzunluğu</td>
+<td style="text-align: left;">128-256 bit</td>
+<td style="text-align: left;">2048-4096 bit (RSA)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar paylanması</td>
+<td style="text-align: left;">Böyük problem</td>
+<td style="text-align: left;">Asan</td>
+</tr>
+<tr>
+<td style="text-align: left;">Miqyaslılıq</td>
+<td style="text-align: left;"><span
+class="math inline">\(O(n^2)\)</span> açar</td>
+<td style="text-align: left;"><span class="math inline">\(O(n)\)</span>
+açar</td>
+</tr>
+<tr>
+<td style="text-align: left;">İnkar edilməzlik</td>
+<td style="text-align: left;">Yox</td>
+<td style="text-align: left;">Var</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rəqəmsal imza</td>
+<td style="text-align: left;">Mümkün deyil</td>
+<td style="text-align: left;">Mümkündür</td>
+</tr>
+<tr>
+<td style="text-align: left;">İstifadə sahəsi</td>
+<td style="text-align: left;">Məlumat şifrələmə</td>
+<td style="text-align: left;">Açar mübadiləsi, imzalar</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunələr</td>
+<td style="text-align: left;">AES, ChaCha20, DES</td>
+<td style="text-align: left;">RSA, ECC, ElGamal</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="real-dünyada-istifadə-hibrid-yanaşma">Real dünyada istifadə:
+Hibrid yanaşma</h2>
+<p>Real dünyada həm simmetrik, həm də asimmetrik kriptoqrafiyanın
+üstünlüklərindən istifadə edən <strong>hibrid yanaşma</strong> tətbiq
+olunur <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 10</strong> (Hibrid şifrələmə). Hibrid şifrələmə —
+asimmetrik kriptoqrafiyanın təhlükəsiz açar paylanması üstünlüyü ilə
+simmetrik kriptoqrafiyanın sürət üstünlüyünü birləşdirən üsuldur.</p>
+</div>
+<p>Hibrid şifrələmə prosesi belə işləyir:</p>
+<ol>
+<li><p><strong>Sessiya açarı yaradılır</strong>: Alis təsadüfi bir
+simmetrik açar yaradır (sessiya açarı).</p></li>
+<li><p><strong>Sessiya açarı asimmetrik şifrələnir</strong>: Alis bu
+sessiya açarını Bobun açıq açarı ilə şifrələyir və Boba
+göndərir.</p></li>
+<li><p><strong>Məlumat simmetrik şifrələnir</strong>: Alis əsl mesajı
+yaratdığı sessiya açarı ilə simmetrik şifrələyir və Boba
+göndərir.</p></li>
+<li><p><strong>Bob deşifrələyir</strong>: Bob əvvəlcə öz gizli açarı ilə
+sessiya açarını deşifrələyir, sonra bu açarla mesajı
+deşifrələyir.</p></li>
+</ol>
+<p>Bu yanaşma <strong>rəqəmsal zərf</strong> (digital envelope) adlanır
+<span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 10</strong> (TLS protokolunda hibrid şifrələmə). HTTPS
+bağlantısı qurarkən (TLS protokolu) məhz bu hibrid yanaşma istifadə
+olunur <span class="citation"
+data-cites="rescorla2018rfc8446"></span>:</p>
+<ol>
+<li><p>Müştəri və server əvvəlcə asimmetrik kriptoqrafiya (RSA və ya
+ECDH) ilə ortaq bir sessiya açarı razılaşdırır.</p></li>
+<li><p>Sonra bütün trafik bu sessiya açarı ilə simmetrik şifrələnir (AES
+və ya ChaCha20).</p></li>
+</ol>
+<p>Bu yanaşma həm təhlükəsiz, həm də sürətlidir.</p>
+</div>
+<div class="remark">
+<p><em>Qeyd 7</em> (Praktik qeyd). Asimmetrik alqoritmlər hesablama
+baxımından simmetrik alqoritmlərdən daha ağırdır. Bu səbəbdən onlar
+əsasən açar mübadiləsi üçün, simmetrik alqoritmlər isə böyük həcmli
+məlumatın şifrələnməsi üçün istifadə olunur.</p>
+</div>
+<h1 id="təhdid-modeli-threat-model">Təhdid modeli (Threat Model)</h1>
+<p>Kriptoqrafik sistem dizayn edərkən ilk sual belədir:</p>
+<div class="center">
+<p><em>Biz kimdən qorunuruq?</em></p>
+</div>
+<p>Bu sualın cavabı <strong>təhdid modeli</strong> (threat model)
+adlanır.</p>
+<div class="definition">
+<p><strong>Tərif 11</strong> (Təhdid modeli). Təhdid modeli — sistemə
+qarşı mümkün hücumların və hücumçunun imkanlarının formal
+təsviridir.</p>
+</div>
+<p>Kriptoqrafiyada təhlükəsizlik mütləq anlayış deyil. Sistem yalnız
+müəyyən edilmiş hücum modelinə qarşı təhlükəsiz ola bilər.</p>
+<h2 id="hücumçu-modelləri">Hücumçu modelləri</h2>
+<p>Kriptoqrafiyada ənənəvi olaraq aşağıdakı obrazlardan istifadə
+olunur:</p>
+<ul>
+<li><p><strong>Alis (Alice)</strong> — göndərən</p></li>
+<li><p><strong>Bob</strong> — qəbul edən</p></li>
+<li><p><strong>Eva (Eavesdropper)</strong> — passiv dinləyici</p></li>
+<li><p><strong>Mallory</strong> — aktiv hücumçu</p></li>
+<li><p><strong>Trent</strong> — etibarlı üçüncü tərəf</p></li>
+</ul>
+<h2 id="passiv-və-aktiv-hücumçu">Passiv və aktiv hücumçu</h2>
+<div class="definition">
+<p><strong>Tərif 12</strong> (Passiv hücumçu). Passiv hücumçu yalnız
+trafiki müşahidə edir, lakin mesajları dəyişdirə bilmir.</p>
+</div>
+<p>Məsələn, Eva şəbəkəni dinləyir, lakin müdaxilə etmir.</p>
+<div class="definition">
+<p><strong>Tərif 13</strong> (Aktiv hücumçu). Aktiv hücumçu mesajları
+dəyişdirə, silə, əlavə edə və ya saxta mesaj göndərə bilər.</p>
+</div>
+<p>Mallory mesajı ələ keçirib dəyişdirə bilər.</p>
+<h2 id="real-dünya-hücumçuları">Real dünya hücumçuları</h2>
+<p>Praktikada hücumçu aşağıdakılardan biri ola bilər:</p>
+<ul>
+<li><p>Şəbəkə administratoru</p></li>
+<li><p>WiFi üzərindən dinləyən qonşu</p></li>
+<li><p>Daxili işçi</p></li>
+<li><p>Dövlət səviyyəli aktor</p></li>
+<li><p>Kvant kompüterə malik gələcək hücumçu</p></li>
+</ul>
+<div class="remark">
+<p><em>Qeyd 8</em> (Konservativ dizayn prinsipi). Kriptosistemlər hər
+zaman "ən pis ssenari" (worst-case scenario) nəzərə alınaraq dizayn
+edilir. Bu o deməkdir ki, hücumçunun istifadə olunan alqoritmi,
+protokolun detallarını və sistemin işləmə mexanizmini tam bildiyi qəbul
+edilir (Kerckhoffs prinsipi). Sistemin təhlükəsizliyi gizli alqoritmlərə
+deyil, yalnız gizli saxlanılan açarların möhkəmliyinə
+əsaslanmalıdır.</p>
+</div>
+<div class="remark">
+<p><em>Qeyd 9</em> (Təhlükəsizliyin nisbiliyi). Kriptoqrafik
+təhlükəsizlik mütləq bir anlayış deyil. Bir sistemin "təhlükəsiz"
+olub-olmaması həmişə konkret müəyyən edilmiş <strong>hücum
+modelinə</strong> və ya <strong>təhdid modelinə</strong> qarşı təyin
+edilir. Başqa sözlə, bir sistem müəyyən bir hücumçu tipinə (məsələn,
+yalnız ötürülən məlumatı dinləyən) qarşı tam təhlükəsiz ola bildiyi
+halda, daha güclü bir hücumçuya (məsələn, məlumatı dəyişdirə bilən)
+qarşı zəif ola bilər.</p>
+</div>
+
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu ilk mühazirədə kriptoqrafiyanın əsas anlayışlarını öyrəndik:</p>
+<ul>
+<li><p>Kriptoqrafiya gündəlik həyatımızın hər yerində istifadə olunur —
+e-poçtdan tutmuş bank kartlarına, WhatsApp-dan tutmuş WiFi-ya qədər
+<span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p>Dörd əsas təhlükəsizlik xidməti var: konfidensiallıq, bütövlük,
+autentikasiya və inkar edilməzlik <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p>Kerckhoffs prinsipi deyir: sistem təhlükəsizliyi alqoritmin gizli
+olmasına deyil, yalnız açarın gizli olmasına əsaslanmalıdır.</p></li>
+<li><p>Təhdid modeli — hücumçunun imkanlarını və sistemə qarşı mümkün
+hücumları təsvir edən formal anlayışdır.</p></li>
+<li><p>Simmetrik kriptoqrafiya sürətlidir, lakin açar paylanması
+problemi var <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p>Asimmetrik kriptoqrafiya açar paylanmasını həll edir, lakin
+yavaşdır <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+<li><p>Real dünyada hibrid yanaşma istifadə olunur: asimmetrik
+kriptoqrafiya ilə simmetrik açar ötürülür, sonra məlumat simmetrik
+şifrələnir <span class="citation"
+data-cites="rescorla2018rfc8446"></span>.</p></li>
+</ul>
+<div class="note">
+<p><span>Növbəti mühazirə</span> Növbəti həftə klassik şifrələr (Sezar,
+Affin) və onların kriptoanalizi (tezlik analizi) haqqında
+danışacağıq.</p>
+</div>
+<h1 id="məşğələ-tapşırıqları">Məşğələ Tapşırıqları</h1>
+<h2 id="tapşırıq-1-terminologiya">Tapşırıq 1: Terminologiya</h2>
+<p>Aşağıdakı terminləri öz sözlərinizlə izah edin (hər biri üçün 2-3
+cümlə kifayətdir):</p>
+<ol>
+<li><p>Kriptoqrafiya</p></li>
+<li><p>Məxfilik (Confidentiality)</p></li>
+<li><p>Bütövlük (Integrity)</p></li>
+<li><p>Autentikasiya (Həqiqiliyin təsdiqi)</p></li>
+<li><p>İnkarolunmazlıq (Non-repudiation)</p></li>
+<li><p>Kerckhoffs prinsipi</p></li>
+<li><p>Təhdid modeli (Threat model)</p></li>
+<li><p>Simmetrik kriptoqrafiya</p></li>
+<li><p>Asimmetrik kriptoqrafiya</p></li>
+<li><p>Hibrid şifrələmə</p></li>
+</ol>
+<h2 id="tapşırıq-2-gündəlik-həyatda-kriptoqrafiya">Tapşırıq 2: Gündəlik
+həyatda kriptoqrafiya</h2>
+<p>Gündəlik həyatda istifadə etdiyiniz 5 texnologiya və ya xidmət seçin
+(məsələn: WhatsApp, onlayn bankçılıq, ev Wi-Fi şəbəkəsi, e-poçt,
+biometrik pasport və s.). Hər biri üçün hansı kriptoqrafik xidmətlərin
+(konfidensiallıq, bütövlük və s.) necə təmin olunduğunu araşdırın.</p>
+<h2 id="tapşırıq-3-kerckhoffs-prinsipi-üzərində-analiz">Tapşırıq 3:
+Kerckhoffs prinsipi üzərində analiz</h2>
+<p>Bir şirkət "yalnız daxili istifadə üçün" nəzərdə tutulan və alqoritmi
+gizli saxlanılan bir şifrələmə sistemi hazırlayıb. Onlar iddia edirlər
+ki, alqoritm gizli olduğu üçün onu sındırmaq daha çətindir.</p>
+<ul>
+<li><p>Bu yanaşmanın (<em>Security by Obscurity</em>) 3 potensial zəif
+tərəfini yazın.</p></li>
+<li><p>Kerckhoffs prinsipi bu ssenaridə niyə vacibdir?</p></li>
+</ul>
+<h2 id="tapşırıq-4-təhdid-modelinin-qurulması">Tapşırıq 4: Təhdid
+modelinin qurulması</h2>
+<p>Ev Wi-Fi şəbəkəniz üçün sadə bir təhdid modeli yaradın:</p>
+<ul>
+<li><p>Kimlərdən və hansı məlumatları qorumaq istəyirsiniz?</p></li>
+<li><p>Hücumçuların potensial imkanları nələrdir?</p></li>
+<li><p>Passiv (dinləmə) və aktiv (məlumatı dəyişdirmə) hücum
+ssenarilərini fərqləndirin.</p></li>
+</ul>
+<h2
+id="tapşırıq-5-simmetrik-və-asimmetrik-sistemlərin-müqayisəsi">Tapşırıq
+5: Simmetrik və Asimmetrik sistemlərin müqayisəsi</h2>
+<p>Aşağıdakı cədvəli müvafiq məlumatlarla doldurun:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Simmetrik</strong></th>
+<th style="text-align: left;"><strong>Asimmetrik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açar sayı</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Hesablama sürəti</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar uzunluğu (tipik)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Açarların paylanması</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">İnkarolunmazlıq</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunə alqoritmlər</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="tapşırıq-6-hibrid-şifrələmə-digital-envelope">Tapşırıq 6: Hibrid
+şifrələmə (Digital Envelope)</h2>
+<p>"Rəqəmsal zərf" (<em>Digital Envelope</em>) prosesini addım-addım
+izah edin. Hər addımda hansı kriptoqrafiya növündən (simmetrik və ya
+asimmetrik) istifadə olunduğunu və bunun üstünlüyünü qeyd edin.</p>
+<div class="tip">
+<p><span>Tapşırıqların təhvil verilməsi</span> Tapşırıqları növbəti
+məşğələ dərsinə qədər hazırlayın. Seminar zamanı tapşırıqlar əsasında
+diskussiya aparılacaqdır.</p>
+</div>
+<h1 id="məşğələ-tapşırıqlarının-ətraflı-və-tam-cavabları">Məşğələ
+Tapşırıqlarının Ətraflı və Tam Cavabları</h1>
+<p>Bu bölmədə mühazirə tapşırıqları üçün genişləndirilmiş, tam akademik
+və təfərrüatlı cavablar verilmişdir.</p>
+<h2 id="tapşırıq-1-terminologiya-1">Tapşırıq 1: Terminologiya</h2>
+<dl>
+<dt>Kriptoqrafiya:</dt>
+<dd>
+<p>Məlumatın konfidensiallığını, bütövlüyünü, autentikliyi və
+inkarolunmazlığını təmin etmək üçün riyazi üsullar və protokollar
+toplusunu öyrənən elmdir. O, açıq mətni oxunmaz formata salmaq və ya
+məlumatın mənbəyini sübut etmək üçün mürəkkəb riyazi alqoritmlərdən
+istifadə edir.</p>
+</dd>
+<dt>Məxfilik (Confidentiality):</dt>
+<dd>
+<p>Məlumatın yalnız icazəsi və müvafiq deşifrələmə açarı olan şəxslər
+tərəfindən oxuna bilməsini təmin edən təhlükəsizlik xidmətidir. Bu
+xidmət şəbəkəni dinləyən kənar şəxslərin məlumatın məzmununu ələ
+keçirməsinin qarşısını alır.</p>
+</dd>
+<dt>Bütövlük (Integrity):</dt>
+<dd>
+<p>Məlumatın ötürülməsi və ya saxlanılması zamanı icazəsiz şəxslər
+tərəfindən dəyişdirilmədiyini, silinmədiyini və ya əlavələr edilmədiyini
+zəmanət edən xüsusiyyətdir. Adətən kriptoqrafik heş funksiyaları və MAC
+mexanizmləri ilə yoxlanılır.</p>
+</dd>
+<dt>Autentikasiya:</dt>
+<dd>
+<p>Göndərilən mesajın mənbəyinin və ya sistemə daxil olmaq istəyən
+tərəfin həqiqətən iddia etdiyi subyekt olduğunu doğrulama prosesidir.
+Məlumatın saxta tərəf tərəfindən deyil, dürüst göndərən tərəfindən
+yaradıldığını təsdiqləyir.</p>
+</dd>
+<dt>İnkarolunmazlıq (Non-repudiation):</dt>
+<dd>
+<p>Məlumatı göndərən və ya əməliyyatı yerinə yetirən tərəfin sonradan bu
+əməliyyatı özünün etmədiyini iddia edə bilməməsidir. Əsasən rəqəmsal
+imzalar vasitəsilə təmin edilir və hüquqi baxımdan böyük əhəmiyyət kəsb
+edir.</p>
+</dd>
+<dt>Kerckhoffs prinsipi:</dt>
+<dd>
+<p>Kriptosistemin təhlükəsizliyinin alqoritmin gizli saxlanılmasına
+deyil, yalnız və yalnız gizli açarın məxfiliyinə əsaslanmalı olduğunu
+bildirən təməl prinsipdir. Alqoritm hər kəsə bəlli olsa belə, açar
+bilinmədiyi müddətcə sistem sındırılamaz qalmalıdır.</p>
+</dd>
+<dt>Təhdid modeli (Threat model):</dt>
+<dd>
+<p>Müəyyən bir sistemə yönələ biləcək potensial hücumçuları, onların
+malik olduqları resursları, imkanları və sistemin zəif tərəflərini
+müəyyənləşdirən analiz çərçivəsidir. Təhlükəsizlik sistemlərinin doğru
+layihələndirilməsi üçün ilkin şərtdir.</p>
+</dd>
+<dt>Simmetrik kriptoqrafiya:</dt>
+<dd>
+<p>Məlumatın şifrələnməsi və deşifrələnməsi üçün eyni bir gizli açardan
+istifadə edən kriptoqrafiya sahəsidir. Yüksək hesablama sürətinə
+malikdir, lakin açarın təhlükəsiz ötürülməsi və idarə edilməsi çətinlik
+yaradır.</p>
+</dd>
+<dt>Asimmetrik kriptoqrafiya:</dt>
+<dd>
+<p>şifrələmə və deşifrələmə üçün bir-biri ilə riyazi bağlı olan iki
+fərqli açardan (açıq və gizli) istifadə edən sistemdir. Açıq açar hamı
+ilə paylaşılır, gizli açar isə yalnız sahibində qalır; bu da açar
+mübadiləsi problemini həll edir.</p>
+</dd>
+<dt>Hibrid şifrələmə:</dt>
+<dd>
+<p>Simmetrik və asimmetrik kriptoqrafiyanın üstün cəhətlərini
+birləşdirən metodologiyadır. Məlumatın özü sürətli simmetrik alqoritmlə,
+simmetrik seans açarı isə təhlükəsiz asimmetrik alqoritmlə şifrələnərək
+ötürülür.</p>
+</dd>
+</dl>
+<h2 id="tapşırıq-2-gündəlik-həyatda-kriptoqrafiya-1">Tapşırıq 2:
+Gündəlik həyatda kriptoqrafiya</h2>
+<p>Gündəlik istifadə olunan 5 texnologiya və onların təmin etdiyi
+təhlükəsizlik xidmətləri:</p>
+<ol>
+<li><p><strong>WhatsApp (Messencer):</strong></p>
+<ul>
+<li><p><em>Məxfilik:</em> Signal protokolu əsasında Uçdan-Uca şifrələmə
+(<em>End-to-End Encryption</em>) vasitəsilə təmin edilir. Mesajlar
+göndərən cihazda simmetrik alqoritmlə şifrələnir və yalnız qəbul edənin
+cihazında deşifrə olunur.</p></li>
+<li><p><em>Autentikasiya və Bütövlük:</em> Tərəflərin identifikasiya
+açarları (Identity Keys) və HMAC/HKDF mexanizmləri ilə mesajların
+dəyişdirilmədiyi və doğru şəxsdən gəldiyi təsdiqlənir.</p></li>
+</ul></li>
+<li><p><strong>Onlayn Bankçılıq (HTTPS / TLS):</strong></p>
+<ul>
+<li><p><em>Məxfilik:</em> TLS protokolu çərçivəsində AES simmetrik
+şifrələməsi ilə brauzer və bank serveri arasındakı bütün trafik
+şifrələnir.</p></li>
+<li><p><em>Autentikasiya:</em> Bankın serveri X.509 rəqəmsal
+sertifikatları (RSA/ECC) vasitəsilə autentifikasiya olunur. İstifadəçi
+isə parol və SMS/App 2FA (OTP) ilə təsdiqlənir.</p></li>
+<li><p><em>Bütövlük:</em> TLS Record Protocol daxilində MAC (Message
+Authentication Code) istifadə edilərək maliyyə sorğularının yolda
+dəyişdirilməsinin qarşısı alınır.</p></li>
+</ul></li>
+<li><p><strong>Ev Wi-Fi Şəbəkəsi (WPA2 / WPA3):</strong></p>
+<ul>
+<li><p><em>Məxfilik:</em> WPA2-də AES-CCMP, WPA3-də isə AES-GCMP
+simmetrik alqoritmləri vasitəsilə havadan ötürülən bütün Radio Tezlik
+(RF) paketləri şifrələnir.</p></li>
+<li><p><em>Autentikasiya:</em> WPA3-də SAE (<em>Simultaneous
+Authentication of Equals</em>) protokolu ilə router və cihaz arasında
+parol əsaslı autentikasiya aparılır.</p></li>
+</ul></li>
+<li><p><strong>E-poçt Təhlükəsizliyi (PGP / S/MIME):</strong></p>
+<ul>
+<li><p><em>Məxfilik:</em> Məktubun məzmunu təsadüfi seans açarı ilə
+(simmetrik), seans açarı isə qəbul edənin açıq açarı ilə (asimmetrik)
+şifrələnir.</p></li>
+<li><p><em>İnkarolunmazlıq və Bütövlük:</em> Göndərən məktubu öz gizli
+açarı ilə rəqəmsal imzalayır (RSA/ECDSA). Qəbul edən bu imzanı
+yoxlayaraq məktubun dəyişdirilmədiyini və göndərənin onu inkar edə
+bilməyəcəyini sübut edir.</p></li>
+</ul></li>
+<li><p><strong>Biometrik Pasport (e-Passport):</strong></p>
+<ul>
+<li><p><em>Autentikasiya və Bütövlük:</em> Pasport çipindəki məlumatlar
+dövlətin rəqəmsal imzası ilə təsdiqlənir (<em>Passive
+Authentication</em>). Sərhəd keçid məntəqəsində çipin həqiqiliyi
+RSA/ECDSA sorğu-cavab (<em>Active Authentication</em>) mexanizmi ilə
+yoxlanılır.</p></li>
+<li><p><em>Məxfilik:</em> BAC/EAC (<em>Basic/Extended Access
+Control</em>) protokolları ilə pasport çipindəki fərdi məlumatların
+kənardan icazəsiz oxunmasının (skan edilməsinin) qarşısı
+alınır.</p></li>
+</ul></li>
+</ol>
+<h2 id="tapşırıq-3-kerckhoffs-prinsipi-üzərində-analiz-1">Tapşırıq 3:
+Kerckhoffs prinsipi üzərində analiz</h2>
+<p><strong>"Security by Obscurity" (Gizlilik vasitəsilə təhlükəsizlik)
+yanaşmasının 3 potensial zəif tərəfi:</strong></p>
+<ol>
+<li><p><strong>Əks-mühəndislik (Reverse Engineering) riski:</strong>
+Proqram təminatı və ya avadanlıq hücumçunun əlinə keçdikdə, təcrübəli
+mütəxəssislər dekompilyasiya və disassemblesiya üsulları ilə gizli
+alqoritmin işləmə prinsipini qısa müddətdə bərpa edə bilərlər.</p></li>
+<li><p><strong>Kollektiv analizin və ekspertiza yoxlanışının
+olmaması:</strong> Qapalı alqoritmlər müstəqil akademik icma və
+kriptoanalitiklər tərəfindən sınaqdan keçirilmədiyi üçün, onların
+tərkibində layihələndirmə səhvləri, riyazi zəifliklər və ya təsadüfi
+boşluqlar qalır.</p></li>
+<li><p><strong>Kompromis halında bərpanın son dərəcə baha
+olması:</strong> Əgər alqoritm sızarsa və ya sındırılarsa, bütün sistem
+müdafiəsiz qalır. Bu halda yalnız açarları dəyişmək kifayət etmir; bütün
+proqram və ya avadanlıq infrastrukturunu tamamilə yenidən
+layihələndirmək lazımdır.</p></li>
+</ol>
+<p><strong>Kerckhoffs prinsipinin bu ssenaridə vacibliyi:</strong>
+Kerckhoffs prinsipi bildirir ki, sistemin təhlükəsizliyi sabit və
+dəyişdirilməsi çətin olan alqoritmin gizliliyinə deyil, asanlıqla
+dəyişdirilə bilən dinamik kəmiyyətə — gizli açara dayanmalıdır. Bu
+prinsipi tətbiq etməklə şirkət alqoritmi ictimaiyyətə açır, onun
+kriptoqraflar tərəfindən zərbələrə dözümlülüyünü test etdirir və
+alqoritm bəlli olsa belə, yalnız açarı gizli saxlamaqla uzunmüddətli və
+etibarlı təhlükəsizlik əldə edir.</p>
+<h2
+id="tapşırıq-4-təhdid-modelinin-qurulması-ev-wi-fi-şəbəkəsi">Tapşırıq 4:
+Təhdid modelinin qurulması (Ev Wi-Fi şəbəkəsi)</h2>
+<ul>
+<li><p><strong>Kimlərdən və hansı məlumatları qorumaq
+istəyirik?</strong></p>
+<ul>
+<li><p><em>Qorunan subyektlər (Aktivlər):</em> Şəxsi cihazların IP/MAC
+ünvanları, şifrələnməmiş veb trafik (HTTP), şəxsi şifrələr, onlayn
+bankçılıq sessiyaları, evdəki IoT cihazlarına (kamera, smart TV) giriş
+hüquqları.</p></li>
+<li><p><em>Potensial hücumçular:</em> Pulsuz İnternet istifadə etmək
+istəyən qonşular, küçədən şəbəkəni dinləyən kənar şəxslər
+(<em>wardrivers</em>), şəbəkə trafikini ələ keçirib şəxsi məlumatları
+oğurlamaq istəyən kiberquldurlar.</p></li>
+</ul></li>
+<li><p><strong>Hücumçuların potensial imkanları:</strong></p>
+<ul>
+<li><p>Şəbəkə paketlərini dinləmək (<em>Promiscuous mode</em>
+dəstəkləyən Wi-Fi kartları vasitəsilə).</p></li>
+<li><p>Deautentikasiya (<em>Deauth</em>) paketləri göndərərək cihazları
+şəbəkədən üzmək və hand-shake paketlərini tutmaq.</p></li>
+<li><p>Wi-Fi şifrəsini sındırmaq üçün sözlük (<em>dictionary
+attack</em>) və ya kobud güc (<em>brute-force</em>) hücumları həyata
+keçirmək.</p></li>
+<li><p>Saxta giriş nöqtəsi (<em>Rogue AP / Evil Twin</em>) yaradaraq
+istifadəçiləri aldatmaq.</p></li>
+</ul></li>
+<li><p><strong>Passiv və Aktiv hücum ssenariləri:</strong></p>
+<ul>
+<li><p><em>Passiv hücum (Dinləmə):</em> Hücumçu Wi-Fi şəbəkəsinə
+qoşulmadan, sadəcə havada gəzən paketləri (<em>monitoring mode</em> ilə)
+tutur. O, şəbəkənin trafik həcmini, qoşulan cihazların MAC ünvanlarını
+və əgər şifrələnməmiş daxil olunubsa, baxılan veb saytların ünvanlarını
+analiz edir. Şəbəkəyə heç bir müdaxilə etmədiyi üçün onu aşkar etmək
+demək olar ki, qeyri-mümkündür.</p></li>
+<li><p><em>Aktiv hücum (Məlumatı dəyişdirmə/Müdaxilə):</em> Hücumçu
+şəbəkəyə qoşulur və ya araya girərək (<em>Man-in-the-Middle - MitM</em>)
+trafiki dəyişdirir. Məsələn, ARP Spoofing vasitəsilə router ilə cihaz
+arasına girir, istifadəçinin daxil olduğu veb səhifələrə saxta kodlar
+yerləşdirir və ya router-in DNS parametrlərini dəyişərək istifadəçini
+saxta bank saytına yönləndirir.</p></li>
+</ul></li>
+</ul>
+<h2
+id="tapşırıq-5-simmetrik-və-asimmetrik-sistemlərin-müqayisəsi-1">Tapşırıq
+5: Simmetrik və Asimmetrik sistemlərin müqayisəsi</h2>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Simmetrik</strong></th>
+<th style="text-align: left;"><strong>Asimmetrik</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Açar sayı</td>
+<td style="text-align: left;">1 ədəd (həm şifrələmə, həm deşifrələmə
+üçün ortaq gizli açar)</td>
+<td style="text-align: left;">2 ədəd (bir-biri ilə bağlı Açıq açar və
+Gizli açar cütü)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hesablama sürəti</td>
+<td style="text-align: left;">Çox sürətlidir (aparat səviyyəsində
+dəstəklənir, Gbit/s)</td>
+<td style="text-align: left;">Nisbətən yavaşdır (mürəkkəb riyazi
+əməliyyatlar tələb edir)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açar uzunluğu (tipik)</td>
+<td style="text-align: left;">Qısa: 128 bit, 192 bit, 256 bit</td>
+<td style="text-align: left;">Uzun: RSA üçün 2048–4096 bit, ECC üçün
+256–384 bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Açarların paylanması</td>
+<td style="text-align: left;">Çətindir (açarın təhlükəsiz kanalla
+əvvəlcədən ötürülməsi lazımdır)</td>
+<td style="text-align: left;">Asandır (açıq açar hər kəsə sərbəst
+paylana bilər)</td>
+</tr>
+<tr>
+<td style="text-align: left;">İnkarolunmazlıq</td>
+<td style="text-align: left;">Təmin etmir (açar hər iki tərəfdə olduğu
+üçün qarşı tərəf saxtalaşdıra bilər)</td>
+<td style="text-align: left;">Təmin edir (yalnız sahibinə məxsus gizli
+açarla rəqəmsal imza vasitəsilə)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nümunə alqoritmlər</td>
+<td style="text-align: left;">AES, ChaCha20, DES, 3DES, Blowfish</td>
+<td style="text-align: left;">RSA, ECC (ECDSA/ECDH), Diffie-Hellman,
+ElGamal</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="tapşırıq-6-hibrid-şifrələmə-digital-envelope-addımları">Tapşırıq
+6: Hibrid şifrələmə (Digital Envelope) addımları</h2>
+<p>"Rəqəmsal zərf" (<em>Digital Envelope</em>) böyük həcmli məlumatları
+həm sürətli, həm də təhlükəsiz şəkildə ötürmək üçün tətbiq edilir.
+Prosesin addım-addım izahı:</p>
+<ol>
+<li><p><strong>Seans açarının yaradılması və Məlumatın şifrələnməsi
+(Simmetrik mərhələ):</strong></p>
+<ul>
+<li><p><em>Əməliyyat:</em> Göndərən (Alis) təsadüfi generator vasitəsilə
+birdəfəlik simmetrik açar (Seans açarı — <em>Session Key</em>) yaradır.
+Göndəriləcək əsas məlumat bu seans açarı ilə simmetrik alqoritm
+(məsələn, AES-256) vasitəsilə şifrələnir.</p></li>
+<li><p><em>Səbəb/Üstünlük:</em> Simmetrik şifrələmə son derece
+sürətlidir və böyük faylları anında şifrələyə bilir.</p></li>
+</ul></li>
+<li><p><strong>Seans açarının "Zərfə" salınması (Asimmetrik
+mərhələ):</strong></p>
+<ul>
+<li><p><em>Əməliyyat:</em> Alis qəbul edənin (Bobun) <strong>Açıq
+açarını</strong> (<em>Public Key</em>) götürür və 1-ci addımda istifadə
+etdiyi <em>Seans açarını</em> bu açıq açarla asimmetrik olaraq (məsələn,
+RSA ilə) şifrələyir. Bu şifrələnmiş seans açarı "Rəqəmsal Zərf"
+adlanır.</p></li>
+<li><p><em>Səbəb/Üstünlük:</em> Açarın təhlükəsiz kanal olmadan İnternet
+üzərindən ötürülməsi problemini ortadan qaldırır.</p></li>
+</ul></li>
+<li><p><strong>Ötürmə (Kanal mərhələsi):</strong></p>
+<ul>
+<li><p><em>Əməliyyat:</em> Alis şifrələnmiş əsas məlumatı və şifrələnmiş
+seans açarını (Rəqəmsal zərfi) bir yerdə Boba göndərir.</p></li>
+</ul></li>
+<li><p><strong>Zərfin açılması və Məlumatın Deşifrələnməsi (Qəbul etmə
+mərhələsi):</strong></p>
+<ul>
+<li><p><em>Əməliyyat:</em> Bob mesajı aldıqda, əvvəlcə özünün
+<strong>Gizli açarı</strong> (<em>Private Key</em>) vasitəsilə rəqəmsal
+zərfi deşifrə edir və orijinal <em>Seans açarını</em> əldə edir. Sonra
+həmin seans açarı ilə simmetrik şifrələnmiş əsas məlumatı deşifrələyib
+oxuyur.</p></li>
+</ul></li>
+</ol>
+<p><strong>Hibrid Şifrələmənin Ümumi Üstünlüyü:</strong> Bu metod
+asimmetrik kriptoqrafiyanın yavaşlığını simmetrik kriptoqrafiyanın açar
+paylanması problemi ilə kompensasiya edir. Nəticədə böyük məlumatlar
+hesablama resurslarını yükləmədən yüksək sürətlə və tam təhlükəsiz
+şəkildə ötürülür.</p>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (34)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Diffie &amp; Hellman, 1976</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">New Directions in Cryptography</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Martin E. Hellman (1976)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Callas et al., 2007</span>
+                        <small class="text-muted">RFC 4880</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">OpenPGP Message Format</h6>
+                    <p class="small text-secondary mb-0">J. Callas and L. Donnerhacke and H. Finney and D. Shaw and R. Thayer (2007)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Garfinkel, 1995</span>
+                        <small class="text-muted">O&#x27;Reilly Media</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">PGP: Pretty Good Privacy</h6>
+                    <p class="small text-secondary mb-0">Simson Garfinkel (1995)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Marlinspike &amp; Perrin, 2013</span>
+                        <small class="text-muted">Open Whisper Systems</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Signal Protocol</h6>
+                    <p class="small text-secondary mb-0">Moxie Marlinspike and Trevor Perrin (2013)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Perrin &amp; Marlinspike, 2016</span>
+                        <small class="text-muted">Open Whisper Systems</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Double Ratchet Algorithm</h6>
+                    <p class="small text-secondary mb-0">Trevor Perrin and Moxie Marlinspike (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] EMVCo, 2008</span>
+                        <small class="text-muted">EMVCo</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">EMV Integrated Circuit Card Specifications for Payment Systems</h6>
+                    <p class="small text-secondary mb-0">EMVCo (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Rescorla, 2018</span>
+                        <small class="text-muted">RFC 8446</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Nakamoto, 2008</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Bitcoin: A Peer-to-Peer Electronic Cash System</h6>
+                    <p class="small text-secondary mb-0">Satoshi Nakamoto (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Back, 2002</span>
+                        <small class="text-muted">USENIX Technical Conference</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Hashcash - A Denial of Service Counter-Measure</h6>
+                    <p class="small text-secondary mb-0">Adam Back (2002)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] IEEE, 2004</span>
+                        <small class="text-muted">Institute of Electrical and Electronics Engineers</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">IEEE Standard for Information Technology - Telecommunications and Information Exchange Between Systems - Local and Metropolitan Area Networks - Specific Requirements - Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications</h6>
+                    <p class="small text-secondary mb-0">IEEE (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Beck &amp; Tews, 2009</span>
+                        <small class="text-muted">Proceedings of the Second ACM Conference on Wireless Network Security</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Practical attacks against WEP and WPA</h6>
+                    <p class="small text-secondary mb-0">M. Beck and E. Tews (2009)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[17] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[18] Bellare et al., 1996</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;96</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Keying Hash Functions for Message Authentication</h6>
+                    <p class="small text-secondary mb-0">Mihir Bellare and Ran Canetti and Hugo Krawczyk (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[19] NIST, 2015</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secure Hash Standard (SHS)</h6>
+                    <p class="small text-secondary mb-0">NIST (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[20] Krawczyk et al., 1997</span>
+                        <small class="text-muted">RFC 2104</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">HMAC: Keyed-Hashing for Message Authentication</h6>
+                    <p class="small text-secondary mb-0">H. Krawczyk and M. Bellare and R. Canetti (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[21] Rivest et al., 1978</span>
+                        <small class="text-muted">Communications of the ACM</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Method for Obtaining Digital Signatures and Public-Key Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">Ronald L. Rivest and Adi Shamir and Leonard M. Adleman (1978)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[22] Shannon, 1949</span>
+                        <small class="text-muted">Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Communication Theory of Secrecy Systems</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1949)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[23] Anderson, 2008</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Security Engineering: A Guide to Building Dependable Distributed Systems</h6>
+                    <p class="small text-secondary mb-0">Ross J. Anderson (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[24] Schneier, 2000</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secrets and Lies: Digital Security in a Networked World</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (2000)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[25] Schneier, 2015</span>
+                        <small class="text-muted">W.W. Norton &amp; Company</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Data and Goliath: The Hidden Battles to Collect Your Data and Control Your World</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[26] Schneier, 1996</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Applied Cryptography: Protocols, Algorithms, and Source Code in C</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[27] NIST, 2001</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[28] Bernstein, 2008</span>
+                        <small class="text-muted">University of Illinois at Chicago</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">ChaCha, a variant of Salsa20</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[29] Standards, 1977</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">National Bureau of Standards (1977)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[30] Schneier, 1994</span>
+                        <small class="text-muted">Fast Software Encryption (FSE &#x27;93)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Description of a New Variable-Length Key, 64-bit Block Cipher (Blowfish)</h6>
+                    <p class="small text-secondary mb-0">Bruce Schneier (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[31] Shor, 1997</span>
+                        <small class="text-muted">SIAM Journal on Computing</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</h6>
+                    <p class="small text-secondary mb-0">Peter W. Shor (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[32] Koblitz, 1987</span>
+                        <small class="text-muted">Mathematics of Computation</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Elliptic Curve Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">Neal Koblitz (1987)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[33] Miller, 1985</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;85</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Use of Elliptic Curves in Cryptography</h6>
+                    <p class="small text-secondary mb-0">Victor S. Miller (1985)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[34] Elgamal, 1985</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms</h6>
+                    <p class="small text-secondary mb-0">Taher Elgamal (1985)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

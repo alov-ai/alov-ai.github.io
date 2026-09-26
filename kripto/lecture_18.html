@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_18</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 18</strong></p>
+<p><strong>Eyler Funksiyası, Çin Qalıqlar Teoremi və Sadəlik
+Testləri</strong></p>
+<p>Bu mühazirə asimmetrik kriptoqrafiyanın əsas riyazi anlayışlarını —
+Eyler <span class="math inline">\(\varphi\)</span> funksiyası, Fermanın
+kiçik teoremi, Eyler teoremi, Çin qalıqlar teoremi, Qarner alqoritmi və
+sadəlik testlərini — əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>Eylerin <span class="math inline">\(\varphi\)</span> funksiyasını
+ədədin sadə vuruqlarına ayrılışı vasitəsilə hesablamağı və onun
+multiplikativlik xassəsini tətbiq etməyi <span class="citation"
+data-cites="katz2020introduction"></span>;</p></li>
+<li><p>Ferma və Eyler teoremlərinin tətbiq şərtlərini yoxlayaraq uyğun
+modul müqayisələrini çıxarmağı <span class="citation"
+data-cites="katz2020introduction"></span>;</p></li>
+<li><p>eyni xətti tənliklər sistemini klassik Çin Qalıqlar Teoremi (CRT)
+və Qarner (<em>Garner</em>) alqoritmi ilə həll edərək aralıq
+hesablamaları müqayisə etməyi <span class="citation"
+data-cites="menezes1996handbook paar2024understanding"></span>;</p></li>
+<li><p>Ferma, Miller–Rabin və AKS sadəlik testlərini dəqiqlik zəmanəti,
+xəta ehtimalı və praktiki hesablama mürəkkəbliyi üzrə fərqləndirməyi
+<span class="citation"
+data-cites="stinson2018cryptography"></span>;</p></li>
+<li><p>Karmaykl (<em>Carmichael</em>) ədədlərinin Ferma testinə mənfi
+təsirini Korselt (<em>Korselt</em>) kriteriyası vasitəsilə
+əsaslandırmağı bacaracaqlar <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 17-ci mühazirədə modul üzrə tərs element və
+sürətli qüvvətə yüksəltmə alqoritmləri öyrənildi.</p>
+<p><strong>İndi:</strong> Eylerin <span
+class="math inline">\(\varphi\)</span> funksiyası, Çin Qalıqlar Teoremi
+(CRT/Qarner) və sadəlik testləri ilə bu hesablama alətləri
+genişləndirilir və strukturlaşdırılır.</p>
+<p><strong>Sonra:</strong> 19-ci mühazirədə bu anlayışlar nəzəri tərif
+kimi deyil, birbaşa RSA açarlarının generasiyası və CRT
+optimallaşdırmasında praktiki olaraq tətbiq ediləcək.</p>
+<p><strong>Kanon:</strong> <em>Eylerin <span
+class="math inline">\(\varphi\)</span> funksiyası</em>; <em>Qarner
+alqoritmi</em>; <em>Karmaykl (<em>Carmichael</em>) ədədi</em>; <em>Ferma
+(<em>Fermat</em>) teoremi</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Müasir asimmetrik kriptoqrafiyanın əsasını təşkil edən RSA,
+Diffi-Hellman və El-Camal kimi fundamental alqoritmlər xüsusi riyazi
+funksiyaların və ədədlər nəzəriyyəsinin teoremləri üzərində qurulmuşdur.
+Bu mühazirədə asimmetrik kriptoqrafik sistemlərin riyazi əsaslarını —
+Eyler funksiyasını, Çin qalıqlar teoremini və böyük ədədlərin sadəliyini
+yoxlayan testləri ətraflı şəkildə nəzərdən keçirəcəyik.</p>
+<div class="history">
+<p><span>Riyazi əsasların tarixi</span> Eyler <span
+class="math inline">\(\varphi\)</span> funksiyası 1763-cü ildə dahi
+riyaziyyatçı Leonard Eyler tərəfindən elmə daxil edilmişdir <span
+class="citation" data-cites="katz2020introduction"></span>. Fermanın
+kiçik teoremi isə bundan əvvəl, 1640-cı ildə Pyer de Ferma tərəfindən
+ifadə olunsa da, teoremin ilk isbatı müəllif tərəfindən təqdim
+edilməmişdir <span class="citation"
+data-cites="katz2020introduction"></span>. Çin qalıqlar teoreminin ilkin
+formasına hələ qədim mənbələrdə rast gəlinir, lakin onun sistemli şərhi
+1247-ci ildə Çin riyaziyyatçısı Sin Ciuşao tərəfindən verilmişdir <span
+class="citation" data-cites="stinson2018cryptography"></span>. Sadəlik
+testləri isə müasir hesablama texnikasının və kriptoqrafiyanın
+tələblərinə uyğun olaraq inkişaf etmiş və nəhayət, 2002-ci ildə Aqraval,
+Kayal və Saksena (AKS) alqoritminin kəşfi ilə deterministik polinomial
+sadəlik testinin mövcudluğu sübut edilmişdir <span class="citation"
+data-cites="agrawal2004primes"></span>.</p>
+</div>
+<p>Mühazirə çərçivəsində aşağıdakı əsas istiqamətlər əhatə
+olunacaqdır:</p>
+<ul>
+<li><p><strong>I hissə:</strong> Eyler <span
+class="math inline">\(\varphi\)</span> funksiyası və onun
+xassələri</p></li>
+<li><p><strong>II hissə:</strong> Fermanın kiçik teoremi və Eyler
+teoremi</p></li>
+<li><p><strong>III hissə:</strong> Çin qalıqlar teoremi (CRT)</p></li>
+<li><p><strong>IV hissə:</strong> Qarner alqoritmi</p></li>
+<li><p><strong>V hissə:</strong> Sadəlik testləri</p></li>
+<li><p><strong>VI hissə:</strong> Praktik tövsiyələr və
+çalışmalar</p></li>
+</ul>
+<div class="tcolorbox">
+<ul>
+<li><p>Eyler <span class="math inline">\(\varphi\)</span> funksiyası
+nəyi ifadə edir və praktiki olaraq necə hesablanır?</p></li>
+<li><p>Fermanın kiçik teoremi ilə Eyler teoremi arasında hansı riyazi
+əlaqə var?</p></li>
+<li><p>Çin qalıqlar teoreminin kriptoqrafik hesablamaların
+sürətləndirilməsindəki rolu nədən ibarətdir?</p></li>
+<li><p>Qarner alqoritmi ənənəvi Çin qalıqlar teoremi metodundan hansı
+hesablama üstünlükləri ilə seçilir?</p></li>
+<li><p>Böyük ədədlərin sadəliyi necə yoxlanılır və Miller-Rabin
+alqoritminin iş prinsipi nəyə əsaslanır?</p></li>
+<li><p>Karmaykl ədədləri nədir və onlar Ferma testində niyə yalançı
+müsbət nəticələr yaradır?</p></li>
+<li><p>AKS alqoritmi nə üçün nəzəri cəhətdən mühüm kəşf hesab olunur,
+lakin praktik tətbiqlərdə geniş istifadə edilmir?</p></li>
+</ul>
+</div>
+<h1 id="eyler-varphi-funksiyası">Eyler <span
+class="math inline">\(\varphi\)</span> funksiyası</h1>
+<h2 id="tərif-və-əsas-anlayışlar">Tərif və əsas anlayışlar</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Eyler <span
+class="math inline">\(\varphi\)</span> funksiyası <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>).
+<em>Eylerin <span class="math inline">\(\varphi\)</span> funksiyası (və
+ya Eylerin totient funksiyası) <span class="math inline">\(n\)</span>
+müsbət tam ədədi üçün <span class="math inline">\(1 \leq k \leq
+n\)</span> şərtini ödəyən və <span class="math inline">\(\gcd(k,n) =
+1\)</span> olan <span class="math inline">\(k\)</span> ədədlərinin
+sayını göstərir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 1</strong> (<span
+class="math inline">\(\varphi\)</span> funksiyasının qiymətləri).
+<em><span class="math display">\[\begin{align*}
+\varphi(1) &amp;= 1 \quad (\text{1 özü ilə qarşılıqlı sadədir}) \\
+\varphi(2) &amp;= 1 \quad (\{1\}) \\
+\varphi(3) &amp;= 2 \quad (\{1, 2\}) \\
+\varphi(4) &amp;= 2 \quad (\{1, 3\}) \\
+\varphi(5) &amp;= 4 \quad (\{1, 2, 3, 4\}) \\
+\varphi(6) &amp;= 2 \quad (\{1, 5\}) \\
+\varphi(7) &amp;= 6 \quad (\{1, 2, 3, 4, 5, 6\}) \\
+\varphi(8) &amp;= 4 \quad (\{1, 3, 5, 7\}) \\
+\varphi(9) &amp;= 6 \quad (\{1, 2, 4, 5, 7, 8\}) \\
+\varphi(10) &amp;= 4 \quad (\{1, 3, 7, 9\})
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="sadə-ədədlər-üçün-varphi-funksiyası">Sadə ədədlər üçün <span
+class="math inline">\(\varphi\)</span> funksiyası</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Sadə ədədlər üçün). <em>Əgər <span
+class="math inline">\(p\)</span> sadə ədəddirsə, onda: <span
+class="math display">\[\varphi(p) = p-1\]</span> Çünki <span
+class="math inline">\(1,2,\ldots,p-1\)</span> ədədlərinin hamısı <span
+class="math inline">\(p\)</span> ilə qarşılıqlı sadədir.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (Sadə ədədin qüvvəti üçün). <em>Əgər <span
+class="math inline">\(p\)</span> sadə ədəd və <span
+class="math inline">\(k \geq 1\)</span> olarsa, onda: <span
+class="math display">\[\varphi(p^k) = p^k - p^{k-1} =
+p^{k-1}(p-1)\]</span></em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> <span class="math inline">\(1\)</span> ilə <span
+class="math inline">\(p^k\)</span> arasında <span
+class="math inline">\(p^k\)</span> ədəd var. Bunlardan <span
+class="math inline">\(p\)</span> ilə bölünənlər: <span
+class="math inline">\(p, 2p, 3p, \ldots, p^{k-1}p = p^k\)</span>. Yəni
+<span class="math inline">\(p^{k-1}\)</span> sayda ədəd <span
+class="math inline">\(p\)</span> ilə bölünür. Qalan ədədlər <span
+class="math inline">\(p^k - p^{k-1} = p^{k-1}(p-1)\)</span> saydadır və
+bunların hamısı <span class="math inline">\(p^k\)</span> ilə qarşılıqlı
+sadədir.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (<span
+class="math inline">\(\varphi(27)\)</span>). <em><span
+class="math inline">\(27 = 3^3\)</span>, ona görə: <span
+class="math display">\[\varphi(27) = 3^3 - 3^2 = 27 - 9 = 18\]</span>
+Doğrudan da, 1–26 arasında 3-ə bölünməyən 18 ədəd var.</em></p>
+</div>
+<h2 id="multiplikativ-xüsusiyyət">Multiplikativ xüsusiyyət</h2>
+<div class="theorem">
+<p><strong>Teorem 3</strong> (Multiplikativlik). <em>Əgər <span
+class="math inline">\(\gcd(m,n) = 1\)</span> olarsa, onda: <span
+class="math display">\[\varphi(m \cdot n) = \varphi(m) \cdot
+\varphi(n)\]</span> Yəni <span class="math inline">\(\varphi\)</span>
+funksiyası qarşılıqlı sadə ədədlər üçün multiplikativdir <span
+class="citation" data-cites="hardy2008introduction"></span>.</em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> <span class="math inline">\(a\)</span> ədədi <span
+class="math inline">\(m\)</span> ilə qarşılıqlı sadə olsun, <span
+class="math inline">\(b\)</span> ədədi <span
+class="math inline">\(n\)</span> ilə qarşılıqlı sadə olsun. Çin qalıqlar
+teoreminə görə elə <span class="math inline">\(x\)</span> ədədi var ki,
+<span class="math inline">\(x \equiv a \pmod{m}\)</span> və <span
+class="math inline">\(x \equiv b \pmod{n}\)</span>.</p>
+<p>Bu uyğunluq <span class="math inline">\(1 \leq a \leq m\)</span>,
+<span class="math inline">\(1 \leq b \leq n\)</span> üçün <span
+class="math inline">\(mn\)</span> müxtəlif <span
+class="math inline">\(x\)</span> ədədi verir. <span
+class="math inline">\(x\)</span>-in <span
+class="math inline">\(mn\)</span> ilə qarşılıqlı sadə olması üçün <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(m\)</span> qarşılıqlı sadə, <span
+class="math inline">\(b\)</span> və <span
+class="math inline">\(n\)</span> qarşılıqlı sadə olmalıdır.</p>
+<p>Belə cütlərin sayı <span
+class="math inline">\(\varphi(m)\varphi(n)\)</span>-dir. Deməli, <span
+class="math inline">\(\varphi(mn) = \varphi(m)\varphi(n)\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong> (<span
+class="math inline">\(\varphi(77)\)</span>). <em><span
+class="math inline">\(77 = 7 \times 11\)</span>, 7 və 11 qarşılıqlı
+sadədir: <span class="math display">\[\varphi(77) = \varphi(7) \cdot
+\varphi(11) = 6 \times 10 = 60\]</span></em></p>
+</div>
+<h2 id="ixtiyari-ədədlər-üçün-hesablama-düsturu">İxtiyari ədədlər üçün
+hesablama düsturu</h2>
+<div class="theorem">
+<p><strong>Teorem 4</strong> (<span
+class="math inline">\(\varphi\)</span> funksiyasının ümumi düsturu).
+<em>Əgər <span class="math inline">\(n = p_1^{k_1} \cdot p_2^{k_2}
+\cdots p_r^{k_r}\)</span> şəklində sadə vuruqlarına ayrılırsa, onda:
+<span class="math display">\[\varphi(n) = n \cdot \prod_{i=1}^{r}
+\left(1 - \frac{1}{p_i}\right) = \prod_{i=1}^r p_i^{k_i-1}
+(p_i-1)\]</span></em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> Multiplikativ xassə və sadə ədədin qüvvətləri üçün
+çıxarılmış düsturdan istifadə etsək: <span
+class="math display">\[\begin{align*}
+\varphi(n) &amp;= \prod_{i=1}^{r} \varphi(p_i^{k_i}) \\
+&amp;= \prod_{i=1}^{r} p_i^{k_i-1}(p_i-1) \\
+&amp;= \prod_{i=1}^{r} p_i^{k_i} \left(1 - \frac{1}{p_i}\right) \\
+&amp;= n \prod_{i=1}^{r} \left(1 - \frac{1}{p_i}\right)
+\end{align*}\]</span></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong> (<span
+class="math inline">\(\varphi(360)\)</span>). <em><span
+class="math inline">\(360 = 2^3 \cdot 3^2 \cdot 5\)</span> olduğunu
+nəzərə alsaq: <span class="math display">\[\begin{align*}
+\varphi(360) &amp;= 360 \cdot \left(1 - \frac{1}{2}\right) \cdot \left(1
+- \frac{1}{3}\right) \cdot \left(1 - \frac{1}{5}\right) \\
+&amp;= 360 \cdot \frac{1}{2} \cdot \frac{2}{3} \cdot \frac{4}{5} \\
+&amp;= 360 \cdot \frac{8}{30} = 96
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="varphi-funksiyasının-xüsusiyyətləri"><span
+class="math inline">\(\varphi\)</span> funksiyasının xüsusiyyətləri</h2>
+<div class="theorem">
+<p><strong>Teorem 5</strong> (<span
+class="math inline">\(\varphi\)</span> funksiyasının digər xassələri<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>). <em>İstənilən <span
+class="math inline">\(n \in \mathbb{N}\)</span> üçün aşağıdakı
+bərabərliklər doğrudur:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(\sum_{d \mid n} \varphi(d) =
+n\)</span> <span class="citation"
+data-cites="hardy2008introduction"></span></em></p></li>
+<li><p><em><span class="math inline">\(n &gt; 2\)</span> üçün <span
+class="math inline">\(\varphi(n)\)</span> həmişə cüt
+ədəddir.</em></p></li>
+<li><p><em>Əgər <span class="math inline">\(n\)</span> tək ədəddirsə,
+<span class="math inline">\(\varphi(2n) = \varphi(n)\)</span>
+olur.</em></p></li>
+<li><p><em>Əgər <span class="math inline">\(n\)</span> cüt ədəddirsə,
+<span class="math inline">\(\varphi(2n) = 2\varphi(n)\)</span>
+olur.</em></p></li>
+</ol>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> <strong>1-ci xassənin isbatı (Qaus teoremili/Eyler
+eyniliyi):</strong><br />
+<span class="math inline">\(S = \{1, 2, \dots, n\}\)</span> çoxluğuna
+baxaq. Bu çoxluğun elementlərini <span class="math inline">\(d = \gcd(k,
+n)\)</span> qiymətlərinə görə alt çoxluqlara bölək. Aydın məsələdir ki,
+<span class="math inline">\(d\)</span> ədədi <span
+class="math inline">\(n\)</span>-in müsbət bölənidir (<span
+class="math inline">\(d \mid n\)</span>).</p>
+<p>Hər bir <span class="math inline">\(d \mid n\)</span> üçün <span
+class="math inline">\(S_d = \{k \in S : \gcd(k, n) = d\}\)</span>
+çoxluğunu təyin edək. <span class="math display">\[\gcd(k, n) = d \iff
+\gcd\left(\frac{k}{d}, \frac{n}{d}\right) = 1 \quad \text{və} \quad 1
+\le \frac{k}{d} \le \frac{n}{d}\]</span> Buradan görünür ki, <span
+class="math inline">\(S_d\)</span> çoxluğunun elementlərinin sayı <span
+class="math inline">\(\frac{n}{d}\)</span> ədədindən kiçik və onunla
+qarşılıqlı sadə olan ədədlərin sayına, yəni <span
+class="math inline">\(\varphi(n/d)\)</span>-yə bərabərdir (<span
+class="math inline">\(|S_d| = \varphi(n/d)\)</span>).</p>
+<p><span class="math inline">\(S\)</span> çoxluğu kəsişməyən <span
+class="math inline">\(S_d\)</span> alt çoxluqlarının birlaşməsi
+olduğundan: <span class="math display">\[n = |S| = \sum_{d \mid n} |S_d|
+= \sum_{d \mid n} \varphi\left(\frac{n}{d}\right)\]</span> <span
+class="math inline">\(d\)</span> ədədi <span
+class="math inline">\(n\)</span>-in bütün bölənlərini gəzdikdə, <span
+class="math inline">\(\frac{n}{d}\)</span> nisbəti də <span
+class="math inline">\(n\)</span>-in bütün bölənlərini gəzir. Deməli,
+<span class="math inline">\(\sum_{d \mid n} \varphi(n/d) = \sum_{d \mid
+n} \varphi(d) = n\)</span>.</p>
+<p><strong>2-ci xassənin isbatı (<span class="math inline">\(n &gt;
+2\)</span> üçün <span class="math inline">\(\varphi(n)\)</span>-in cüt
+olması):</strong><br />
+Eyler funksiyasının sadə vuruqlar üzrə düsturundan istifadə edək: <span
+class="math display">\[\varphi(n) = \prod_{i=1}^{m} p_i^{a_i - 1}(p_i -
+1)\]</span></p>
+<ul>
+<li><p>Əgər <span class="math inline">\(n\)</span>-in tək sadə vuruğu
+varsa (yəni hər hansı <span class="math inline">\(p_i &gt; 2\)</span>),
+onda <span class="math inline">\((p_i - 1)\)</span> cüt ədəd olduğundan
+hasilin nəticəsi, yəni <span class="math inline">\(\varphi(n)\)</span>
+cütdür.</p></li>
+<li><p>Əgər <span class="math inline">\(n\)</span>-in tək sadə vuruğu
+yoxdursa, <span class="math inline">\(n &gt; 2\)</span> olduğundan o
+yalnız 2-nin <span class="math inline">\(k \ge 2\)</span> qüvvətidir
+(<span class="math inline">\(n = 2^k\)</span>). Bu halda <span
+class="math inline">\(\varphi(2^k) = 2^{k-1}\)</span> olur və <span
+class="math inline">\(k-1 \ge 1\)</span> üçün <span
+class="math inline">\(2^{k-1}\)</span> ifadəsi də cüt ədəddir.</p></li>
+</ul>
+<p><strong>3-cü və 4-cü xassələrin isbatı (<span
+class="math inline">\(\varphi(2n)\)</span> ifadəsi):</strong><br />
+Eyler funksiyasının multiplikativlik xassəsindən bilirik ki, əgər <span
+class="math inline">\(\gcd(a, b) = 1\)</span> olarsa, <span
+class="math inline">\(\varphi(ab) = \varphi(a)\varphi(b)\)</span>
+ödənilir.</p>
+<ul>
+<li><p><strong>3-cü xassə:</strong> Əgər <span
+class="math inline">\(n\)</span> tək ədəddirsə, <span
+class="math inline">\(\gcd(2, n) = 1\)</span> olur. Multiplikativlik
+xassəsinə görə: <span class="math display">\[\varphi(2n) = \varphi(2)
+\cdot \varphi(n)\]</span> <span class="math inline">\(\varphi(2) =
+1\)</span> olduğundan, <span class="math inline">\(\varphi(2n) = 1 \cdot
+\varphi(n) = \varphi(n)\)</span> alınır.</p></li>
+<li><p><strong>4-cü xassə:</strong> Əgər <span
+class="math inline">\(n\)</span> cüt ədəddirsə, onu <span
+class="math inline">\(n = 2^k \cdot m\)</span> kimi yaza bilərik (burada
+<span class="math inline">\(k \ge 1\)</span> və <span
+class="math inline">\(m\)</span> tək ədəddir, <span
+class="math inline">\(\gcd(2^k, m) = 1\)</span>). Onda <span
+class="math inline">\(2n = 2^{k+1} \cdot m\)</span> olar.
+Multiplikativlik xassəsini tətbiq etsək: <span
+class="math display">\[\varphi(n) = \varphi(2^k \cdot m) = \varphi(2^k)
+\cdot \varphi(m) = 2^{k-1} \cdot \varphi(m)\]</span> <span
+class="math display">\[\varphi(2n) = \varphi(2^{k+1} \cdot m) =
+\varphi(2^{k+1}) \cdot \varphi(m) = 2^k \cdot \varphi(m)\]</span>
+Buradan görünür ki, <span class="math inline">\(\varphi(2n) = 2 \cdot
+\left(2^{k-1} \cdot \varphi(m)\right) = 2\varphi(n)\)</span>.</p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong> (<span class="math inline">\(\sum_{d|6}
+\varphi(d)\)</span>). <em>6-nın bölənləri: 1, 2, 3, 6. <span
+class="math inline">\(\varphi(1)=1\)</span>, <span
+class="math inline">\(\varphi(2)=1\)</span>, <span
+class="math inline">\(\varphi(3)=2\)</span>, <span
+class="math inline">\(\varphi(6)=2\)</span>. Cəmi: <span
+class="math inline">\(1+1+2+2 = 6\)</span>.</em></p>
+</div>
+<h2 id="kriptoqrafik-tətbiqlər">Kriptoqrafik tətbiqlər</h2>
+<p>Eyler <span class="math inline">\(\varphi\)</span> funksiyası müasir
+asimmetrik kriptoqrafiyanın (açıq açarlı kriptoqrafiya) əsas
+sütunlarından biridir:</p>
+<ul>
+<li><p><strong>RSA:</strong> İki böyük sadə <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> ədədi üçün modul <span
+class="math inline">\(n = p \cdot q\)</span> və <span
+class="math inline">\(\varphi(n) = (p-1)(q-1)\)</span> hesablanır. Açıq
+açar <span class="math inline">\(e\)</span> ədədi <span
+class="math inline">\(\gcd(e, \varphi(n)) = 1\)</span> şərtindən
+seçilir. Gizli açar <span class="math inline">\(d\)</span> isə modulyar
+tərs element kimi hesablanır: <span class="math display">\[d \equiv
+e^{-1} \pmod{\varphi(n)}\]</span></p></li>
+<li><p><strong>ElGamal:</strong> Təhlükəsizlik seçilmiş qrupda diskret
+loqarifm və konkret sxem üçün DDH kimi fərziyyələrə əsaslanır. Praktik
+sonlu-meydan profillərində <span class="math inline">\(g\)</span> çox
+vaxt <span class="math inline">\(q\mid(p-1)\)</span> sadə tərtibli
+altqrupu generasiya edir; gizli eksponentlər və açıq elementlərin
+yoxlanması həmin <span class="math inline">\(q\)</span> altqrupuna görə
+aparılır.</p></li>
+<li><p><strong>Diffi-Hellman:</strong> Sonlu meydan variantında böyük
+<span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\mid(p-1)\)</span> seçilir, <span
+class="math inline">\(g\)</span> isə <span
+class="math inline">\(q\)</span> tərtibli altqrupu generasiya edir.
+Qarşı tərəfin açıq elementi altqrupa aidlik və qadağan olunmuş qiymətlər
+üzrə yoxlanır. Təhlükəsizlik sadəcə <span
+class="math inline">\(\varphi(p)=p-1\)</span> bərabərliyindən deyil,
+seçilmiş qrupdakı DLP/CDH/DDH fərziyyələrindən və protokolun
+autentifikasiya/KDF quruluşundan asılıdır.</p></li>
+</ul>
+<h1 id="fermanın-kiçik-teoremi-və-eyler-teoremi">Fermanın kiçik teoremi
+və Eyler teoremi</h1>
+<h2 id="fermanın-kiçik-teoremi">Fermanın kiçik teoremi</h2>
+<div class="theorem">
+<p><strong>Teorem 6</strong> (Fermanın kiçik teoremi). <em>Əgər <span
+class="math inline">\(p\)</span> sadə ədəd və <span
+class="math inline">\(\gcd(a,p) = 1\)</span> olarsa, onda: <span
+class="math display">\[a^{p-1} \equiv 1 \pmod{p}\]</span></em></p>
+</div>
+<div class="proofbox">
+<p><span>Riyazi induksiya ilə isbat</span> <span
+class="math inline">\(a\)</span> müsbət tam ədədi üzrə induksiya aparaq.
+<span class="math inline">\(a=1\)</span> üçün təklif doğrudur (<span
+class="math inline">\(1^{p-1} \equiv 1 \pmod{p}\)</span>). Tutaq ki,
+iddia <span class="math inline">\(a\)</span> üçün doğrudur, yəni <span
+class="math inline">\(a^p \equiv a \pmod{p}\)</span>. İndi <span
+class="math inline">\((a+1)\)</span> halını yoxlayaq. Nyuton binom
+düsturuna görə: <span class="math display">\[(a+1)^p = \sum_{k=0}^{p}
+\binom{p}{k} a^k = a^p + \binom{p}{1}a^{p-1} + \dots + \binom{p}{p-1}a +
+1\]</span> <span class="math inline">\(1 \leq k \leq p-1\)</span>
+şərtini ödəyən bütün <span class="math inline">\(k\)</span>
+qiymətlərində kombinizon əmsalları <span
+class="math inline">\(p\)</span> sadə ədədinə qalıqsız bölünür, yəni
+<span class="math inline">\(\binom{p}{k} \equiv 0 \pmod{p}\)</span>.</p>
+<p>Ona görə də <span class="math inline">\((a+1)^p \equiv a^p + 1
+\pmod{p}\)</span> alırıq. İnduksiya fərziyyəsinə (<span
+class="math inline">\(a^p \equiv a\)</span>) əsasən: <span
+class="math display">\[(a+1)^p \equiv a + 1 \pmod{p}\]</span> Deməli,
+ixtiyari <span class="math inline">\(a\)</span> üçün <span
+class="math inline">\(a^p \equiv a \pmod{p}\)</span> iddiası doğrudur.
+Şərtə görə <span class="math inline">\(\gcd(a,p)=1\)</span> olduğundan,
+bu bərabərliyin hər iki tərəfindən <span
+class="math inline">\(a\)</span>-ya ixtisar edə bilərik: <span
+class="math display">\[a^{p-1} \equiv 1 \pmod{p}\]</span></p>
+</div>
+<div class="corollary">
+<p><strong>Nəticə 1</strong> (Fermanın kiçik teoreminin nəticəsi).
+<em>İxtiyari <span class="math inline">\(a\)</span> tam ədədi və sadə
+<span class="math inline">\(p\)</span> ədədi üçün: <span
+class="math display">\[a^p \equiv a \pmod{p}\]</span> Bu bərabərlik
+<span class="math inline">\(\gcd(a,p)=1\)</span> olmasa da (yəni <span
+class="math inline">\(a\)</span> ədədi <span
+class="math inline">\(p\)</span>-yə bölündükdə də) doğrudur.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 6</strong> (Fermanın kiçik teoreminə aid nümunə).
+<em><span class="math inline">\(p=7\)</span> və <span
+class="math inline">\(a=3\)</span> üçün <span
+class="math inline">\(\gcd(3,7)=1\)</span> olduğundan: <span
+class="math display">\[3^{6} = 729 \equiv 1 \pmod{7}\]</span> Çünki
+<span class="math inline">\(7 \times 104 = 728\)</span> edir və qalıq 1
+qalır.</em></p>
+</div>
+<h2 id="eyler-teoremi">Eyler teoremi</h2>
+<div class="theorem">
+<p><strong>Teorem 7</strong> (Eyler teoremi). <em>Əgər <span
+class="math inline">\(\gcd(a,n) = 1\)</span> olarsa, onda: <span
+class="math display">\[a^{\varphi(n)} \equiv 1
+\pmod{n}\]</span></em></p>
+</div>
+<p>Bu teorem Fermanın kiçik teoreminin ümumiləşdirilməsidir. Əgər <span
+class="math inline">\(n = p\)</span> sadə ədəddirsə, <span
+class="math inline">\(\varphi(p) = p-1\)</span> olur və Eyler teoremi
+birbaşa Fermanın kiçik teoreminə çevrilir.</p>
+<div class="proofbox">
+<p><span>İsbat</span> <span class="math inline">\(n\)</span>-dən kiçik
+və <span class="math inline">\(n\)</span> ilə qarşılıqlı sadə olan
+müsbət tam ədədlərin çoxluğunu <span class="math inline">\(U = \{u_1,
+u_2, \ldots, u_{\varphi(n)}\}\)</span> ilə işarə edək. <span
+class="math inline">\(\gcd(a,n) = 1\)</span> olduğu üçün <span
+class="math inline">\(\{au_1, au_2, \ldots, au_{\varphi(n)}\}\)</span>
+çoxluğunun elementləri də mod <span class="math inline">\(n\)</span>
+üzrə bir-birindən fərqlidir və <span class="math inline">\(n\)</span>
+ilə qarşılıqlı sadədir.</p>
+<p>Deməli, bu çoxluq mod <span class="math inline">\(n\)</span>
+qalıqlarına görə elə <span class="math inline">\(U\)</span> çoxluğunun
+özünə bərabərdir (sadəcə elementlərin ardıcıllığı fərqli ola bilər).
+Onda onların hasilləri də mod <span class="math inline">\(n\)</span>
+üzrə konqruent olmalıdır: <span
+class="math display">\[\prod_{i=1}^{\varphi(n)} (au_i) \equiv
+\prod_{i=1}^{\varphi(n)} u_i \pmod{n}\]</span> <span
+class="math display">\[a^{\varphi(n)} \prod_{i=1}^{\varphi(n)} u_i
+\equiv \prod_{i=1}^{\varphi(n)} u_i \pmod{n}\]</span> Hər bir <span
+class="math inline">\(u_i\)</span> ədədi <span
+class="math inline">\(n\)</span> ilə qarşılıqlı sadə olduğundan, onların
+hasili olan <span class="math inline">\(\prod u_i\)</span> ifadəsi də
+<span class="math inline">\(n\)</span> ilə qarşılıqlı sadədir. Bu
+səbəbdən, hasil ifadəsini müqayisənin hər iki tərəfindən ixtisar edə
+bilərik: <span class="math display">\[a^{\varphi(n)} \equiv 1
+\pmod{n}\]</span></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 7</strong> (Eyler teoreminə aid nümunə). <em><span
+class="math inline">\(n=10\)</span>, <span
+class="math inline">\(\varphi(10)=4\)</span> və <span
+class="math inline">\(a=3\)</span> götürək (<span
+class="math inline">\(\gcd(3,10)=1\)</span>): <span
+class="math display">\[3^4 = 81 \equiv 1 \pmod{10}\]</span></em></p>
+</div>
+<h1 id="çin-qalıqlar-teoremi">Çin qalıqlar teoremi</h1>
+<h2 id="tarixi-fon">Tarixi fon</h2>
+<p>Çin qalıqlar teoremi (CRT) adını qədim Çin riyaziyyatından almışdır.
+Teoremin ilk forması III əsrə aid "Sunzi Suanjing" (Sunzının hesab
+kitabı) əsərində bir tapmaca şəklində rast gəlinir <span
+class="citation" data-cites="libbrecht1973chinese"></span>. XIII əsrdə
+Çin riyaziyyatçısı Qin Jiushao "Shu-shu chiu-chang" əsərində bu teoremin
+ümumi riyazi həll üsulunu vermişdir <span class="citation"
+data-cites="libbrecht1973chinese"></span>. Avropada isə bu teorem yalnız
+XIX əsrdə Karl Fridrix Qaussun işlərindən sonra geniş yayılmışdır.</p>
+<h2 id="teoremin-ifadəsi">Teoremin ifadəsi</h2>
+<div class="theorem">
+<p><strong>Teorem 8</strong> (Çin qalıqlar teoremi). <em>Tutaq ki, <span
+class="math inline">\(n_1, n_2, \ldots, n_k\)</span> ədədləri cüt-cüt
+qarşılıqlı sadə müsbət tam ədədlərdir (yəni <span
+class="math inline">\(i \neq j\)</span> üçün <span
+class="math inline">\(\gcd(n_i, n_j) = 1\)</span>). Onda ixtiyari <span
+class="math inline">\(a_1, a_2, \ldots, a_k\)</span> tam ədədləri üçün
+verilmiş: <span class="math display">\[\begin{align*}
+x &amp;\equiv a_1 \pmod{n_1} \\
+x &amp;\equiv a_2 \pmod{n_2} \\
+&amp;\vdots \\
+x &amp;\equiv a_k \pmod{n_k}
+\end{align*}\]</span> sisteminin <span class="math inline">\(N = n_1 n_2
+\cdots n_k\)</span> modulu üzrə yeganə həlli var (yəni sistemin ixtiyari
+iki <span class="math inline">\(x_1\)</span> və <span
+class="math inline">\(x_2\)</span> həlli üçün <span
+class="math inline">\(x_1 \equiv x_2 \pmod{N}\)</span> şərti ödənilir)
+<span class="citation"
+data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<h2 id="həllin-tapılması-klassik-konstruktiv-üsul">Həllin tapılması
+(Klassik konstruktiv üsul)</h2>
+<p>Sistemin həllini tapmaq üçün aşağıdakı prosedurlar ardıcıl yerinə
+yetirilir:</p>
+<ol>
+<li><p><strong>Ümumi modulun tapılması:</strong> Bütün modulların hasili
+hesablanır: <span class="math display">\[N = n_1 n_2 \cdots
+n_k\]</span></p></li>
+<li><p><strong>Hər bir modul üçün qismətlərin tapılması:</strong> Hər
+bir <span class="math inline">\(i\)</span> indeksi üçün <span
+class="math inline">\(N_i = N / n_i\)</span> qiymətləri tapılır. Burada
+<span class="math inline">\(N_i\)</span> ədədi <span
+class="math inline">\(n_i\)</span> ədədindən başqa bütün digər
+modulların hasilinə bərabərdir.</p></li>
+<li><p><strong>Modulyar tərs elementlərin hesablanması:</strong> Hər bir
+<span class="math inline">\(i\)</span> üçün <span
+class="math inline">\(N_i\)</span> ədədinin <span
+class="math inline">\(n_i\)</span> moduluna görə tərs elementi olan
+<span class="math inline">\(M_i\)</span> tapılır, yəni: <span
+class="math display">\[M_i \equiv N_i^{-1} \pmod{n_i} \implies N_i M_i
+\equiv 1 \pmod{n_i}\]</span></p></li>
+<li><p><strong>Yekun xətti kombinasiyanın qurulması:</strong> Sistemin
+yeganə həlli aşağıdakı düsturla tapılır: <span class="math display">\[x
+= \sum_{i=1}^k a_i \cdot N_i \cdot M_i \pmod{N}\]</span></p></li>
+</ol>
+<div class="proofbox">
+<p><span>İsbat</span> İxtiyari <span class="math inline">\(i \neq
+j\)</span> üçün <span class="math inline">\(N_i \equiv 0
+\pmod{n_j}\)</span> olur, çünki <span class="math inline">\(N_i\)</span>
+hasilinin tərkibində <span class="math inline">\(n_j\)</span> vuruğu
+mütləq mövcuddur. Lakin <span class="math inline">\(i = j\)</span>
+olduqda, <span class="math inline">\(N_i\)</span> ədədi <span
+class="math inline">\(n_i\)</span> ilə qarşılıqlı sadədir. <span
+class="math inline">\(M_i\)</span> elə seçilib ki, <span
+class="math inline">\(N_i M_i \equiv 1 \pmod{n_i}\)</span> şərti
+ödənir.</p>
+<p>İndi bu qiymətləri yekun <span class="math inline">\(x\)</span>
+cəmində yerinə qoyub mod <span class="math inline">\(n_i\)</span> üzrə
+yoxlayaq: <span class="math display">\[x = a_1 N_1 M_1 + \dots + a_i N_i
+M_i + \dots + a_k N_k M_k \equiv a_i N_i M_i \equiv a_i \cdot 1 \equiv
+a_i \pmod{n_i}\]</span> Bu isə o deməkdir ki, tapılan <span
+class="math inline">\(x\)</span> ədədi sistemdəki bütün müqayisələri
+eyni anda ödəyir.</p>
+<p><strong>Yeganəlik:</strong> Əgər sistemin <span
+class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> kimi iki fərqli həlli olarsa, onda hər
+bir <span class="math inline">\(i\)</span> üçün <span
+class="math inline">\(x \equiv y \pmod{n_i}\)</span> olmalıdır. Modullar
+cüt-cüt qarşılıqlı sadə olduğundan, buradan <span
+class="math inline">\(x \equiv y \pmod{N}\)</span> alınır, yəni həll
+<span class="math inline">\(N\)</span> modulu üzrə yeganədir.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 8</strong> (Klassik üsulla CRT həlli). <em>Aşağıdakı
+tənliklər sisteminə baxaq: <span class="math display">\[\begin{align*}
+x &amp;\equiv 2 \pmod{3} \\
+x &amp;\equiv 3 \pmod{5} \\
+x &amp;\equiv 2 \pmod{7}
+\end{align*}\]</span></em></p>
+<p><em>Burada <span class="math inline">\(a_1=2, a_2=3, a_3=2\)</span>
+və <span class="math inline">\(n_1=3, n_2=5, n_3=7\)</span>-dir. Ardıcıl
+olaraq hesablayaq:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(N = 3 \times 5 \times 7 =
+105\)</span></em></p></li>
+<li><p><em><span class="math inline">\(N_1 = 105/3 = 35, \quad N_2 =
+105/5 = 21, \quad N_3 = 105/7 = 15\)</span></em></p></li>
+<li><p><em>Modulyar tərs ədədlərin tapılması:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(M_1 = 35^{-1} \pmod{3} \implies
+2^{-1} \pmod{3} = 2 \quad (\text{çünki } 2 \times 2 = 4 \equiv
+1)\)</span></em></p></li>
+<li><p><em><span class="math inline">\(M_2 = 21^{-1} \pmod{5} \implies
+1^{-1} \pmod{5} = 1 \quad (\text{çünki } 1 \times 1 = 1 \equiv
+1)\)</span></em></p></li>
+<li><p><em><span class="math inline">\(M_3 = 15^{-1} \pmod{7} \implies
+1^{-1} \pmod{7} = 1 \quad (\text{çünki } 1 \times 1 = 1 \equiv
+1)\)</span></em></p></li>
+</ul></li>
+<li><p><em>Yekun həll: <span class="math display">\[x = (2 \times 35
+\times 2) + (3 \times 21 \times 1) + (2 \times 15 \times 1) = 140 + 63 +
+30 = 233\]</span> <span class="math display">\[233 \equiv 23
+\pmod{105}\]</span></em></p></li>
+</ol>
+<p><em>Cavabın yoxlanılması: <span class="math inline">\(23 \equiv 2
+\pmod{3}\)</span>, <span class="math inline">\(23 \equiv 3
+\pmod{5}\)</span> və <span class="math inline">\(23 \equiv 2
+\pmod{7}\)</span> şərtləri tam ödənir.</em></p>
+</div>
+<h2 id="kriptoqrafiyada-tətbiqləri">Kriptoqrafiyada tətbiqləri</h2>
+<h3 id="rsa-nın-riyazi-əsası">RSA-nın riyazi əsası</h3>
+<div class="theorem">
+<p><strong>Teorem 9</strong> (RSA algoritminin düzgünlüyü). <em><span
+class="math inline">\(n = p \cdot q\)</span>, <span
+class="math inline">\(\varphi(n) = (p-1)(q-1)\)</span> və <span
+class="math inline">\(e \cdot d \equiv 1 \pmod{\varphi(n)}\)</span>
+olarsa, ixtiyari <span class="math inline">\(m\)</span> mesajı üçün:
+<span class="math display">\[(m^e)^d \equiv m \pmod{n}\]</span></em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> <span class="math inline">\(e \cdot d \equiv 1
+\pmod{\varphi(n)}\)</span> şərtindən çıxır ki, elə bir <span
+class="math inline">\(k\)</span> tam ədədi var ki, <span
+class="math inline">\(e \cdot d = 1 + k\varphi(n)\)</span> bərabərliyi
+ödənir. Onda şifrələnmiş mesajın açılması prosesini belə yaza bilərik:
+<span class="math display">\[(m^e)^d \equiv m^{ed} \equiv m^{1 +
+k\varphi(n)} \equiv m \cdot (m^{\varphi(n)})^k \pmod{n}\]</span></p>
+<p>Əgər <span class="math inline">\(\gcd(m,n)=1\)</span> olarsa, Eyler
+teoreminə görə <span class="math inline">\(m^{\varphi(n)} \equiv 1
+\pmod{n}\)</span> olur. Buradan: <span class="math display">\[m \cdot
+(m^{\varphi(n)})^k \equiv m \cdot 1^k \equiv m \pmod{n}\]</span></p>
+<p><span class="math inline">\(m=0\)</span> halında <span
+class="math inline">\(m^{ed}\equiv m\pmod n\)</span> bərabərliyi
+trivially doğrudur. İndi <span
+class="math inline">\(0&lt;m&lt;n\)</span> və <span
+class="math inline">\(\gcd(m,n)\ne1\)</span> olsun. <span
+class="math inline">\(n=pq\)</span> olduğuna görə <span
+class="math inline">\(m\)</span> bu iki sadə vuruqdan yalnız birinə
+bölünə bilər; ümumiliyi pozmadan <span
+class="math inline">\(m\equiv0\pmod p\)</span> fərz edək.</p>
+<p>Onda <span class="math inline">\(m^{ed} \equiv 0 \equiv m
+\pmod{p}\)</span> olar. Digər tərəfdən, <span
+class="math inline">\(\gcd(m,q)=1\)</span> olduğu üçün Fermanın kiçik
+teoreminə görə <span class="math inline">\(m^{q-1} \equiv 1
+\pmod{q}\)</span> alınır. Bu isə: <span
+class="math display">\[m^{\varphi(n)} = (m^{q-1})^{p-1} \equiv 1^{p-1}
+\equiv 1 \pmod{q}\]</span> olmasını təmin edir. Buradan da <span
+class="math inline">\(m^{ed} \equiv m \cdot (m^{\varphi(n)})^k \equiv m
+\cdot 1^k \equiv m \pmod{q}\)</span> çıxır.</p>
+<p>Beləliklə, müqayisə həm mod <span class="math inline">\(p\)</span>,
+həm də mod <span class="math inline">\(q\)</span> üzrə doğru olduğundan,
+<strong>Çin qalıqlar teoreminə</strong> görə o, mod <span
+class="math inline">\(n = p \cdot q\)</span> üzrə də doğrudur: <span
+class="math display">\[(m^e)^d \equiv m \pmod{n}\]</span></p>
+</div>
+<h3 id="rsa-sürətləndirməsi">RSA sürətləndirməsi</h3>
+<p>RSA deşifrələməsi normal halda <span class="math inline">\(m = c^d
+\mod n\)</span> böyük modulyar eksponentasiya əməliyyatını tələb edir.
+Çin qalıqlar teoremini tətbiq etməklə bu hesablama prosesini təxminən 4
+dəfə sürətləndirmək mümkündür <span class="citation"
+data-cites="quisquater1982fast"></span>. Modul <span
+class="math inline">\(n = p \cdot q\)</span> şəklində iki sadə ədədin
+hasili olduğu üçün proses aşağıdakı kimi bölünür:</p>
+<ol>
+<li><p><span class="math inline">\(m_p = c^{d \mod (p-1)} \mod
+p\)</span> hesablanır</p></li>
+<li><p><span class="math inline">\(m_q = c^{d \mod (q-1)} \mod
+q\)</span> hesablanır</p></li>
+<li><p>CRT düsturu vasitəsilə <span class="math inline">\(m\)</span>
+mesajı bərpa olunur: <span class="math display">\[\begin{align*}
+    m &amp;\equiv m_p \pmod{p} \\
+    m &amp;\equiv m_q \pmod{q}
+\end{align*}\]</span></p></li>
+</ol>
+<p><strong>Qeyd:</strong> CRT əsaslı RSA deşifrələməsinin səmərəliliyi
+ondan irəli gəlir ki, <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> modulları <span
+class="math inline">\(n\)</span>-dən təxminən yarıbayarı kiçikdir
+(məsələn, 2048 bit yerinə 1024 bit). Modulyar eksponentasiyanın
+mürəkkəbliyi bit ölçüsünün kubu (<span
+class="math inline">\(O(k^3)\)</span>) ilə mütənasib dəyişdiyindən,
+kiçik modulla işləmək həm əməliyyat sayını azaldır, həm də sürəti nəzəri
+olaraq 4 dəfə artırır.</p>
+<div class="example">
+<p><strong>Nümunə 9</strong> (CRT ilə sürətləndirilmiş RSA
+deşifrələməsi). <em><span class="math inline">\(p=61\)</span>, <span
+class="math inline">\(q=53\)</span>, <span
+class="math inline">\(n=3233\)</span>, <span
+class="math inline">\(d=2753\)</span> və şifrəli mətn <span
+class="math inline">\(c=123\)</span> olsun.</em></p>
+<p><em><span class="math display">\[\begin{align*}
+d_p &amp;= 2753 \mod 60 = 53 \implies m_p = 123^{53} \equiv 1^{53}
+\equiv 1 \pmod{61} \\
+d_q &amp;= 2753 \mod 52 = 49 \implies m_q = 123^{49} \equiv 17^{49}
+\equiv 40 \pmod{53}
+\end{align*}\]</span></em></p>
+<p><em>İndi mod <span class="math inline">\(p=61\)</span> və mod <span
+class="math inline">\(q=53\)</span> qalıqlarına görə <span
+class="math inline">\(m\)</span> ədədini bərpa edək:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(N_1 = 53, \quad M_1 = 53^{-1}
+\pmod{61} = 45\)</span></em></p></li>
+<li><p><em><span class="math inline">\(N_2 = 61, \quad M_2 = 61^{-1}
+\pmod{53} = 20\)</span></em></p></li>
+<li><p><em><span class="math inline">\(m = (1 \times 53 \times 45) + (40
+\times 61 \times 20) = 2385 + 48800 = 51185\)</span></em></p></li>
+<li><p><em><span class="math inline">\(51185 \equiv 2640
+\pmod{3233}\)</span></em></p></li>
+</ul>
+<p><em>Yekun olaraq orijinal mesaj <span class="math inline">\(m =
+2640\)</span> tapılır.</em></p>
+</div>
+<h1 id="qarner-alqoritmi">Qarner alqoritmi</h1>
+<h2 id="alqoritmin-təsviri-və-iş-prinsipi">Alqoritmin təsviri və iş
+prinsipi</h2>
+<p>Qarner alqoritmi Çin qalıqlar teoreminin (CRT) həllini tapmaq üçün
+xüsusilə kompüter arxitekturasında daha səmərəli və çevik hesablama
+üsuludur <span class="citation" data-cites="garner1959residue"></span>.
+Klassik üsuldan fərqli olaraq, bu alqoritm ardıcıl birləşdirmə prinsipi
+ilə işləyir. Bu isə o deməkdir ki, hesablama prosesində böyük <span
+class="math inline">\(N = n_1 n_2 \cdots n_k\)</span> ədədini əvvəlcədən
+hesablamağa və onun üzərində böyük modulyar əməliyyatlar aparmağa
+ehtiyac qalmır.</p>
+<p>Alqoritm axtarılan <span class="math inline">\(x\)</span> həllini
+qarışığı-radiks (mixed-radix) formasında qurur: <span
+class="math display">\[x = v_1 + v_2 \cdot n_1 + v_3 \cdot n_1 n_2 +
+\dots + v_k \cdot n_1 n_2 \cdots n_{k-1}\]</span></p>
+<p>Burada <span class="math inline">\(v_i\)</span> əmsalları
+(birləşdirmə sabitləri) aşağıdakı rekurrent addımlarla ardıcıl olaraq
+təyin edilir:</p>
+<ol>
+<li><p><span class="math inline">\(x_1 = a_1 \implies v_1 = a_1\)</span>
+(birinci tənlikdən)</p></li>
+<li><p><span class="math inline">\(x_2 = v_1 + v_2 \cdot n_1\)</span>,
+burada <span class="math inline">\(v_2\)</span> elə seçilir ki, <span
+class="math inline">\(x_2 \equiv a_2 \pmod{n_2}\)</span> şərti
+ödənilsin.</p></li>
+<li><p><span class="math inline">\(x_3 = x_2 + v_3 \cdot n_1
+n_2\)</span>, burada <span class="math inline">\(v_3\)</span> elə
+seçilir ki, <span class="math inline">\(x_3 \equiv a_3
+\pmod{n_3}\)</span> şərti ödənilsin.</p></li>
+<li><p>Bu qayda ilə proses <span class="math inline">\(k\)</span>-cı
+addıma qədər davam etdirilir.</p></li>
+</ol>
+<p>Ümumi halda, hər bir <span class="math inline">\(v_i\)</span> əmsalı
+aşağıdakı düsturla hesablanır: <span class="math display">\[v_i = \left(
+(a_i - x_{i-1}) \cdot (n_1 n_2 \cdots n_{i-1})^{-1} \right)
+\pmod{n_i}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 10</strong> (Qarner alqoritminin tətbiqi). <em>Əvvəlki
+bölmədə baxdığımız müqayisələr sistemini indi də Qarner alqoritmi ilə
+həll edək: <span class="math display">\[\begin{align*}
+x &amp;\equiv 2 \pmod{3} \\
+x &amp;\equiv 3 \pmod{5} \\
+x &amp;\equiv 2 \pmod{7}
+\end{align*}\]</span></em></p>
+<p><em>Burada <span class="math inline">\(n_1=3, n_2=5, n_3=7\)</span>
+və <span class="math inline">\(a_1=2, a_2=3,
+a_3=2\)</span>-dir.</em></p>
+<ul>
+<li><p><em><strong>Addım 1 (<span
+class="math inline">\(i=1\)</span>):</strong> Birinci modul üçün birbaşa
+<span class="math inline">\(v_1 = a_1 = 2\)</span> götürülür. Cari həll:
+<span class="math inline">\(x_1 = 2\)</span>. Multiplikativ vuruq: <span
+class="math inline">\(f_1 = n_1 = 3\)</span>.</em></p></li>
+<li><p><em><strong>Addım 2 (<span
+class="math inline">\(i=2\)</span>):</strong> İkinci modul <span
+class="math inline">\(n_2=5\)</span> və qalıq <span
+class="math inline">\(a_2=3\)</span> üçün: <span
+class="math display">\[v_2 = (a_2 - x_1) \cdot n_1^{-1} \pmod{n_2} = (3
+- 2) \cdot 3^{-1} \pmod{5}\]</span> <span class="math inline">\(3^{-1}
+\pmod{5} = 2\)</span> olduğunu bilərək (çünki <span
+class="math inline">\(3 \times 2 = 6 \equiv 1\)</span>): <span
+class="math display">\[v_2 = 1 \times 2 \pmod{5} = 2\]</span> Yenilənmiş
+həll: <span class="math inline">\(x_2 = x_1 + v_2 \cdot n_1 = 2 + 2
+\times 3 = 8\)</span>.<br />
+Yeni vuruq: <span class="math inline">\(f_2 = n_1 \cdot n_2 = 3 \times 5
+= 15\)</span>.</em></p></li>
+<li><p><em><strong>Addım 3 (<span
+class="math inline">\(i=3\)</span>):</strong> Üçüncü modul <span
+class="math inline">\(n_3=7\)</span> və qalıq <span
+class="math inline">\(a_3=2\)</span> üçün: <span
+class="math display">\[v_3 = (a_3 - x_2) \cdot (n_1 n_2)^{-1} \pmod{n_3}
+= (2 - 8) \cdot 15^{-1} \pmod{7}\]</span> <span class="math inline">\(15
+\equiv 1 \pmod{7} \implies 15^{-1} \equiv 1^{-1} \equiv 1
+\pmod{7}\)</span> olduğundan: <span class="math display">\[v_3 = (-6)
+\times 1 \pmod{7} \equiv 1 \pmod{7}\]</span> Yekun həll: <span
+class="math inline">\(x_3 = x_2 + v_3 \cdot (n_1 n_2) = 8 + 1 \times 15
+= 23\)</span>.</em></p></li>
+</ul>
+<p><em>Nəticə: Sistemin minimal müsbət həlli <span
+class="math inline">\(x = 23\)</span> tapılır.</em></p>
+</div>
+<h2 id="qarner-alqoritminin-üstünlükləri">Qarner alqoritminin
+üstünlükləri</h2>
+<p>Klassik Çin qalıqlar teoremi həlli ilə müqayisədə Qarner metodunun
+əsas üstünlükləri aşağıdakılardır:</p>
+<ul>
+<li><p><strong>Böyük ədədlərlə işləməkdən qaçınma:</strong> Hesablamalar
+hər bir kiçik <span class="math inline">\(n_i\)</span> modulu daxilində
+aparılır. Böyük <span class="math inline">\(N\)</span> hasilinə yalnız
+ən son addımda ehtiyac yaranır.</p></li>
+<li><p><strong>Dinamik artırıla bilmə (Ardıcıl hesablama):</strong> Əgər
+sistemə yeni bir <span class="math inline">\(x \equiv a_{k+1}
+\pmod{n_{k+1}}\)</span> müqayisəsi əlavə olunarsa, bütün hesablamaları
+sıfırdan başlamağa ehtiyac yoxdur. Sadəcə əvvəlki həllin üzərinə bir
+dənə yeni <span class="math inline">\(v_{k+1}\)</span> addımı əlavə
+etmək kifayətdir.</p></li>
+<li><p><strong>Yaddaş səmərəliliyi:</strong> Kompüterin RAM yaddaşında
+böyük çoxrəqəmli ədədləri (BigInt) saxlamaq və emal etmək ehtiyacını
+minimuma endirir.</p></li>
+</ul>
+<h2 id="rsa-da-qarner-alqoritminin-tətbiqi">RSA-da Qarner alqoritminin
+tətbiqi</h2>
+<p>Asimmetrik kriptoqrafiyada, xüsusilə RSA deşifrələməsi zamanı Qarner
+alqoritminin xüsusi bir halından istifadə olunur. Modul həmişə iki sadə
+ədədin hasilindən (<span class="math inline">\(n = p \cdot q\)</span>)
+ibarət olduğundan, sistem yalnız iki müqayisədən ibarət olur.</p>
+<p><span class="math inline">\(m_p = c^{d \mod (p-1)} \mod p\)</span> və
+<span class="math inline">\(m_q = c^{d \mod (q-1)} \mod q\)</span>
+qiymətləri hesablandıqdan sonra, Qarner birləşdirməsi aşağıdakı düsturla
+aparılır: <span class="math display">\[h = q_{inv} \cdot (m_p - m_q + p)
+\pmod{p}\]</span> <span class="math display">\[m = m_q + h \cdot
+q\]</span></p>
+<p>Burada <span class="math inline">\(q_{inv} = q^{-1} \pmod{p}\)</span>
+əmsalı açarların generasiyası zamanı əvvəlcədən bir dəfə hesablanıb
+yaddaşda saxlanılır. Düsturdakı <span class="math inline">\(+p\)</span>
+həddi isə proqramlaşdırma dillərində <span class="math inline">\(m_p
+&lt; m_q\)</span> olduqda yarana biləcək mənfi qalıq xətasının qarşısını
+almaq üçün riyazi təhlükəsizlik təmin edir. Bu optimal struktur RSA
+standartlarında (məsələn, PKCS#1 v2.2) Qarner metodunu əvəzedilməz
+edir.</p>
+<h1 id="sadəlik-testləri">Sadəlik testləri</h1>
+<h2 id="sadə-ədədlər-və-onların-paylanması">Sadə ədədlər və onların
+paylanması</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Sadə ədəd). <em>Sadə ədəd — yalnız <span
+class="math inline">\(1\)</span>-ə və özünə qalıqsız bölünən, <span
+class="math inline">\(1\)</span>-dən böyük natural ədəddir. Başqa sözlə,
+sadə ədədin <span class="math inline">\(1\)</span> və özündən başqa heç
+bir müsbət tam böleni yoxdur.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Teorem 10</strong> (Sadə ədədlərin paylanması teoremi).
+<em><span class="math inline">\(n\)</span> müsbət tam ədədindən kiçik və
+ya bərabər olan sadə ədədlərin sayı <span
+class="math inline">\(\pi(n)\)</span> funksiyası ilə işarə olunur və
+<span class="math inline">\(n \to \infty\)</span> şərtində aşağıdakı
+asimptotik qanunauyğunluqla təyin edilir: <span
+class="math display">\[\pi(n) \sim \frac{n}{\ln n}\]</span></em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 11</strong>. <em><span>Sadə ədədlərin sıxlığı və
+kriptoqrafik miqyası</span></em></p>
+<ul>
+<li><p><em><span class="math inline">\(n = 10^6\)</span> üçün real sadə
+ədədlərin sayı <span class="math inline">\(\pi(10^6) =
+78\,498\)</span>-dir (sıxlıq təxminən <span
+class="math inline">\(7.85\%\)</span>).</em></p></li>
+<li><p><em><span class="math inline">\(n = 10^{12}\)</span> üçün real
+sadə ədədlərin sayı <span class="math inline">\(\pi(10^{12}) \approx
+37.6 \times 10^9\)</span>-dur (sıxlıq təxminən <span
+class="math inline">\(3.76\%\)</span>).</em></p></li>
+<li><p><em>2048-bitlik RSA modulunun iki balanslı sadə vuruğunun hər
+biri adətən təxminən 1024 bit olur. <span
+class="math inline">\(2^{1024}\)</span> ətrafında bütün tam ədədlər
+arasında sadəlik sıxlığı təxminən <span
+class="math inline">\(1/\ln(2^{1024})\approx1/710\)</span>-dur; yalnız
+tək namizədlər seçildikdə orta sınaq sayı təxminən iki dəfə azalır. Bu
+asimptotik gözləntidir, konkret generatorun əlavə məhdudiyyətləri
+nəticəni dəyişə bilər.</em></p></li>
+</ul>
+</div>
+<h2 id="ferma-sadəlik-testi">Ferma sadəlik testi</h2>
+<h3 id="testin-riyazi-asası">Testin riyazi asası</h3>
+<p>Ferma testi Fermanın Kiçik Teoreminin tərs mülahizəsinə əsaslanır.
+Əgər <span class="math inline">\(n\)</span> sadə ədəddirsə, <span
+class="math inline">\(\gcd(a,n)=1\)</span> şərtini ödəyən ixtiyari <span
+class="math inline">\(a\)</span> əsası üçün <span
+class="math inline">\(a^{n-1} \equiv 1 \pmod{n}\)</span> olmalıdır.
+Alqoritm təsadüfi <span class="math inline">\(a\)</span> əsasları
+seçərək bu bərabərliyin ödənib-ödənmədiyini sınaqdan keçirir. Əgər hər
+hansı bir <span class="math inline">\(a\)</span> üçün <span
+class="math inline">\(a^{n-1} \not\equiv 1 \pmod{n}\)</span> alınarsa,
+<span class="math inline">\(n\)</span> mütləq mürəkkəb ədəddir və bu
+<span class="math inline">\(a\)</span> ədədi <em>mürəkkəbliyin
+şahidi</em> adlanır.</p>
+<h3 id="karmaykl-ədədləri">Karmaykl ədədləri</h3>
+<p>Ferma testinin ən böyük çatışmazlığı, əslində mürəkkəb olan bəzi
+ədədlərin özünü sadə ədəd kimi apararaq testi aldada bilməsidir. Bu cür
+xüsusi ədədlərə Karmaykl ədədləri deyilir.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Karmaykl ədədi). <em>Özü mürəkkəb ədəd
+olan, lakin onunla qarşılıqlı sadə olan (<span
+class="math inline">\(\gcd(a,n)=1\)</span>) bütün <span
+class="math inline">\(a\)</span> əsasları üçün <span
+class="math inline">\(a^{n-1} \equiv 1 \pmod{n}\)</span> şərtini ödəyən
+ədədlərə Karmaykl ədədləri və ya <em>mütləq psevdosadə ədədlər</em>
+deyilir <span class="citation"
+data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 12</strong> (Ən kiçik Karmaykl ədədləri). <em><span
+class="math display">\[\begin{align*}
+561 &amp;= 3 \times 11 \times 17 \\
+1105 &amp;= 5 \times 13 \times 17 \\
+1729 &amp;= 7 \times 13 \times 19
+\end{align*}\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Teorem 11</strong> (Korselt kriteriyası). <em>Mürəkkəb <span
+class="math inline">\(n\)</span> tam ədədinin Karmaykl ədədi olması üçün
+aşağıdakı iki şərtin eyni anda ödənilməsi zəruri və kafidir <span
+class="citation" data-cites="katz2020introduction"></span>:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(n\)</span> ədədi kvadratlardan
+azaddır (yəni heç bir sadə ədədin kvadratına qalıqsız
+bölünmür).</em></p></li>
+<li><p><em><span class="math inline">\(n\)</span> ədədinin bölündüyü hər
+bir fərqli <span class="math inline">\(p\)</span> sadə vuruğu üçün <span
+class="math inline">\((p-1) \mid (n-1)\)</span> şərti
+ödənilir.</em></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>Proof.</em> <strong>I Hissə: Kafi şərtin isbatı (<span
+class="math inline">\(\Leftarrow\)</span>)</strong></p>
+<p>Teoremin kafi şartını — yəni verilən iki şart ödəndikdə mürəkkəb
+<span class="math inline">\(n\)</span> ədədinin Karmaykl ədədi olduğunu
+isbat edək.</p>
+<p>1. <span class="math inline">\(n\)</span> ədədi kvadratlardan azad
+olduğu üçün onu müxtəlif sadə ədədlərin hasili kimi yaza bilərik: <span
+class="math display">\[n = p_1 p_2 \dots p_k \quad (p_i \neq
+p_j)\]</span> 2. Şərtə əsasən, hər bir <span
+class="math inline">\(p_i\)</span> sadə vuruğu üçün <span
+class="math inline">\((p_i - 1) \mid (n - 1)\)</span> münasibəti
+doğrudur. Yəni elə bir <span class="math inline">\(m_i \in
+\mathbb{Z}^+\)</span> ədədi var ki: <span class="math display">\[n - 1 =
+m_i (p_i - 1)\]</span> 3. İxtiyari <span class="math inline">\(\gcd(a,
+n) = 1\)</span> şərtini ödəyən <span class="math inline">\(a\)</span>
+əsası götürək. Buradan hər bir <span class="math inline">\(i\)</span>
+üçün <span class="math inline">\(\gcd(a, p_i) = 1\)</span> şərti çıxır.
+Fermanın kiçik teoreminə əsasən: <span class="math display">\[a^{p_i -
+1} \equiv 1 \pmod{p_i}\]</span> 4. Hər iki tərəfi <span
+class="math inline">\(m_i\)</span> dərəcəsinə yüksəldək: <span
+class="math display">\[a^{n-1} = a^{m_i(p_i - 1)} = \left(a^{p_i -
+1}\right)^{m_i} \equiv 1^{m_i} \equiv 1 \pmod{p_i}\]</span> 5. Bu
+müqayisə bütün <span class="math inline">\(p_1, p_2, \dots, p_k\)</span>
+sadə modulları üçün ödənilir. Bu ədədlər cüt-cüt qarşılıqlı sadə
+olduğundan, Çin qalıqlar teoreminə (ÇQT) əsasən müqayisə onların hasili
+üçün də doğrudur: <span class="math display">\[a^{n-1} \equiv 1
+\pmod{p_1 p_2 \dots p_k} \implies a^{n-1} \equiv 1 \pmod n\]</span>
+Deməli, <span class="math inline">\(n\)</span> ədədi Karmaykl
+ədədidir.</p>
+<p><strong>II Hissə: Zəruri şərtin isbatı (<span
+class="math inline">\(\Rightarrow\)</span>)</strong></p>
+<p>Tutaq ki, <span class="math inline">\(n\)</span> ədədi Karmaykl
+ədədidir. Yəni <span class="math inline">\(\gcd(a, n) = 1\)</span>
+şərtini ödəyən hər bir <span class="math inline">\(a\)</span> üçün <span
+class="math inline">\(a^{n-1} \equiv 1 \pmod n\)</span> müqayisəsi
+ödənilir.</p>
+<p><strong>1. <span class="math inline">\(n\)</span> ədədi kvadratlardan
+azad olmalıdır:</strong></p>
+<ul>
+<li><p>Əksini fərz edək: Tutaq ki, <span
+class="math inline">\(n\)</span> ədədi kvadratlardan azad deyil, yəni
+elə bir <span class="math inline">\(p\)</span> sadə ədədi var ki, <span
+class="math inline">\(p^2 \mid n\)</span>.</p></li>
+<li><p>ÇQT-nə əsasən, aşağıdakı xətti müqayisələr sistemini ödəyən <span
+class="math inline">\(a\)</span> ədədi seçək: <span
+class="math display">\[\begin{cases}
+    a \equiv 1 + p \pmod{p^2} \\
+    a \equiv 1 \pmod{n/p^2}
+    \end{cases}\]</span> Buradan <span class="math inline">\(\gcd(a, n)
+= 1\)</span> olduğu alınır.</p></li>
+<li><p><span class="math inline">\(n\)</span> Karmaykl ədədi olduğundan
+<span class="math inline">\(a^{n-1} \equiv 1 \pmod n\)</span> olmalıdır,
+bu da <span class="math inline">\(a^{n-1} \equiv 1 \pmod{p^2}\)</span>
+deməkdir.</p></li>
+<li><p>Binom açılışını modul <span class="math inline">\(p^2\)</span>-yə
+görə tətbiq etsək: <span class="math display">\[a^{n-1} \equiv (1 +
+p)^{n-1} \equiv 1 + (n - 1)p \pmod{p^2}\]</span> <span
+class="math display">\[1 + (n - 1)p \equiv 1 \pmod{p^2} \implies (n -
+1)p \equiv 0 \pmod{p^2} \implies p \mid (n - 1)\]</span></p></li>
+<li><p>Lakin <span class="math inline">\(p \mid n\)</span> və <span
+class="math inline">\(p \mid (n - 1)\)</span> olması qeyri-mümkündür
+(çünki <span class="math inline">\(\gcd(n, n-1) = 1\)</span>). Ziddiyyət
+aldıq. Deməli, <span class="math inline">\(n\)</span> kvadratlardan azad
+olmalıdır.</p></li>
+</ul>
+<p><strong>2. Hər bir <span class="math inline">\(p \mid n\)</span> üçün
+<span class="math inline">\((p-1) \mid (n-1)\)</span>
+olmalıdır:</strong></p>
+<ul>
+<li><p>Tutaq ki, <span class="math inline">\(p\)</span> ədədi <span
+class="math inline">\(n\)</span>-in ixtiyari sadə vuruğudur (<span
+class="math inline">\(p \mid n\)</span>).</p></li>
+<li><p><span class="math inline">\(\mathbb{Z}_p^*\)</span> qrupunda
+tərtibi <span class="math inline">\(p - 1\)</span> olan <span
+class="math inline">\(g\)</span> ibtidai kökünü seçək (<span
+class="math inline">\(\text{ord}_p(g) = p - 1\)</span>).</p></li>
+<li><p>ÇQT-nə əsasən aşağıdakı sistemi ödəyən <span
+class="math inline">\(a\)</span> ədədini tapa bilərik: <span
+class="math display">\[\begin{cases}
+    a \equiv g \pmod p \\
+    a \equiv 1 \pmod{n/p}
+    \end{cases}\]</span> Burada da <span class="math inline">\(\gcd(a,
+n) = 1\)</span> şərti ödənilir.</p></li>
+<li><p>Karmaykl tərifinə görə <span class="math inline">\(a^{n-1} \equiv
+1 \pmod n \implies a^{n-1} \equiv 1 \pmod p\)</span> alınır.</p></li>
+<li><p><span class="math inline">\(a \equiv g \pmod p\)</span>
+olduğundan <span class="math inline">\(g^{n-1} \equiv 1 \pmod p\)</span>
+olur.</p></li>
+<li><p>Elementin tərtib xassəsinə görə (<span
+class="math inline">\(\text{ord}_p(g) = p - 1\)</span>), bu bərabərlik
+ancaq və ancaq <span class="math inline">\((p - 1) \mid (n - 1)\)</span>
+olduqda mümkündür.</p></li>
+</ul>
+<p>İsbat tamamlandı. ◻</p>
+</div>
+<h2 id="miller-rabin-sadəlik-testi">Miller-Rabin sadəlik testi</h2>
+<h3 id="riyazi-əsas">Riyazi əsas</h3>
+<p>Miller-Rabin testi Ferma testindəki Karmaykl ədədləri problemini
+aradan qaldırmaq üçün modulyar kvadrat köklərin xassələrindən istifadə
+edir.</p>
+<div class="lemma">
+<p><strong>Lemma 1</strong> (Vahid elementin kvadrat kökləri). <em>Əgər
+<span class="math inline">\(p\)</span> sadə ədəddirsə, onda halqa
+daxilində <span class="math inline">\(x^2 \equiv 1 \pmod{p}\)</span>
+müqayisəsinin yalnız iki həlli var: <span class="math inline">\(x \equiv
+1 \pmod{p}\)</span> və ya <span class="math inline">\(x \equiv -1
+\pmod{p}\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Modulyar müqayisənin tərifinə əsasən, <span
+class="math inline">\(x^2 \equiv 1 \pmod{p}\)</span> münasibəti o
+deməkdir ki, <span class="math inline">\(x^2 - 1\)</span> fərqi <span
+class="math inline">\(p\)</span> sadə ədədinə qalıqsız bölünür: <span
+class="math display">\[p \mid (x^2 - 1)\]</span></p>
+<p>Sol tərəfi vuruqlara ayırsaq, aşağıdakı ifadəni alarıq: <span
+class="math display">\[p \mid (x - 1)(x + 1)\]</span></p>
+<p>Ədədlər nəzəriyyəsindəki Evklid lemasına görə, əgər bir <span
+class="math inline">\(p\)</span> sadə ədədi iki tam ədədin hasilini
+bölürsə, o, bu vuruqlardan mütləq ən azı birini bölməlidir. Bu xassəni
+yuxarıdakı ifadəyə tətbiq etdikdə iki fərqli hal yaranır:</p>
+<ol>
+<li><p><span class="math inline">\(p \mid (x - 1) \implies x - 1 \equiv
+0 \pmod{p} \implies x \equiv 1 \pmod{p}\)</span></p></li>
+<li><p><span class="math inline">\(p \mid (x + 1) \implies x + 1 \equiv
+0 \pmod{p} \implies x \equiv -1 \pmod{p}\)</span></p></li>
+</ol>
+<p>Beləliklə, <span class="math inline">\(p\)</span> sadə ədəd olduqda,
+<span class="math inline">\(x^2 \equiv 1 \pmod{p}\)</span> müqayisəsinin
+<span class="math inline">\(x \equiv 1 \pmod{p}\)</span> və <span
+class="math inline">\(x \equiv -1 \pmod{p}\)</span> (və ya <span
+class="math inline">\(x \equiv n-1 \pmod{p}\)</span>) başqa həlli mövjud
+deyil. ◻</p>
+</div>
+<h3 id="testin-alqoritmi">Testin alqoritmi</h3>
+<p>Tək <span class="math inline">\(n\)</span> mürəkkəb ədədini yoxlamaq
+üçün alqoritm aşağıdakı ardıcıllıqla işləyir:</p>
+<ol>
+<li><p><span class="math inline">\(n - 1\)</span> cüt ədədi <span
+class="math inline">\(2^s \cdot d\)</span> şəklində vuruqlara ayrılır
+(burada <span class="math inline">\(d\)</span> mütləq tək tam
+ədəddir).</p></li>
+<li><p><span class="math inline">\(1 &lt; a &lt; n-1\)</span>
+intervalından təsadüfi bir <span class="math inline">\(a\)</span> əsası
+seçilir.</p></li>
+<li><p>Ardıcıllığın ilk elementi hesablanır: <span
+class="math inline">\(x_0 = a^d \pmod{n}\)</span>.</p></li>
+<li><p>Əgər <span class="math inline">\(x_0 \equiv 1 \pmod{n}\)</span>
+və ya <span class="math inline">\(x_0 \equiv -1 \pmod{n}\)</span>
+olarsa, <span class="math inline">\(n\)</span> ədədi <span
+class="math inline">\(a\)</span> əsasına görə <strong>güclü
+psevdosadə</strong> ədəd hesab olunur və cari addım uğurla
+keçir.</p></li>
+<li><p>Əks halda, ardıcıl olaraq kvadratik zəncir qurulur: <span
+class="math inline">\(x_{i} = x_{i-1}^2 \pmod{n}\)</span> (burada <span
+class="math inline">\(1 \le i \le s-1\)</span>).</p></li>
+<li><p>Əgər hər hansı bir <span class="math inline">\(i\)</span>
+mərhələsində <span class="math inline">\(x_i \equiv -1 \pmod{n}\)</span>
+şərti ödənərsə, test dayandırılır və <span
+class="math inline">\(n\)</span> güclü psevdosadə elan edilir.</p></li>
+<li><p>Zəncirin sonuna qədər heç bir element <span
+class="math inline">\(-1\)</span>-ə ekvivalent olmasa, <span
+class="math inline">\(n\)</span> mütləq mürəkkəb ədəddir.</p></li>
+</ol>
+<h3 id="ehtimal-xarakteri">Ehtimal xarakteri</h3>
+<div class="theorem">
+<p><strong>Teorem 12</strong> (Miller-Rabin səhv ehtimalı). <em>Əgər
+<span class="math inline">\(n\)</span> mürəkkəb ədəddirsə, ixtiyari
+təsadüfi seçilmiş <span class="math inline">\(a\)</span> əsası üçün
+Miller-Rabin testinin həmin ədədi səhvən sadə (psevdosadə) kimi qəbul
+etmə ehtimalı maksimum <span class="math inline">\(\frac{1}{4}\)</span>
+ola bilər.</em></p>
+</div>
+<p>Əgər test bir-birindən asılı olmayan <span
+class="math inline">\(k\)</span> fərqli təsadüfi əsas üçün
+təkrarlanarsa, mürəkkəb ədədin bütün sınaqlardan uğurla keçib "sadə"
+kimi qeyd edilməsi (yalançı müsbət nəticə) ehtimalı <span
+class="math inline">\((\frac{1}{4})^k\)</span> həddindən kiçik olur.</p>
+<table>
+<caption>Müxtəlif <span class="math inline">\(k\)</span> sınaq sayları
+üçün Miller-Rabin alqoritminin üst limit səhv ehtimalları</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Sınaq sayı (<span
+class="math inline">\(k\)</span>)</strong></th>
+<th style="text-align: left;"><strong>Maksimum səhv
+ehtimalı</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(&lt; 2.5
+\times 10^{-1}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><span class="math inline">\(&lt; 9.7
+\times 10^{-4}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><span class="math inline">\(&lt; 9.5
+\times 10^{-7}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;"><span class="math inline">\(&lt; 9.0
+\times 10^{-13}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">40</td>
+<td style="text-align: left;"><span class="math inline">\(&lt; 8.2
+\times 10^{-25}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="aks-alqoritmi">AKS alqoritmi</h2>
+<p>2002-ci ildə Hindistan Texnologiya İnstitutunun üç tədqiqatçısı —
+<strong>Manindra Agrawal</strong>, <strong>Neeraj Kayal</strong> və
+<strong>Nitin Saxena</strong> — riyaziyyat dünyasında çoxdan axtarılan,
+tamamilə deterministik və polinomial zamanda işləyən ilk ümumi sadəlik
+testini kəşf etdilər <span class="citation"
+data-cites="agrawal2004primes"></span>. Bu nailiyyət sadə ədədlər
+çoxluğunun P mürəkkəblik sinfinə daxil olduğunu göstərən teorem kimi
+riyaziyyat tarixinə keçmişdir.</p>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Multiplikativ tərtib). <em><span
+class="math inline">\(\gcd(n, r) = 1\)</span> şərtini ödəyən <span
+class="math inline">\(n\)</span> və <span
+class="math inline">\(r\)</span> tam ədədləri üçün, <span
+class="math display">\[n^k \equiv 1 \pmod r\]</span> konqruensiyasını
+ödəyən <strong>ən kiçik müsbət <span class="math inline">\(k\)</span>
+tam ədədinə</strong> <span class="math inline">\(n\)</span> ədədinin
+modul <span class="math inline">\(r\)</span>-ə görə multiplikativ
+tərtibi deyilir və <span class="math inline">\(O_r(n) = k\)</span> (və
+ya <span class="math inline">\(\text{ord}_r(n) = k\)</span>) kimi işarə
+olunur.</em></p>
+</div>
+<div class="tcolorbox">
+<p><span class="math inline">\(n\ge2\)</span> üçün sadələşdirilmiş,
+lakin məntiqi tam AKS proseduru:</p>
+<ol>
+<li><p>Əgər <span class="math inline">\(n=a^b\)</span> formasında tam
+qüvvədirsə (<span class="math inline">\(a&gt;1\)</span>, <span
+class="math inline">\(b&gt;1\)</span>), <strong>mürəkkəb</strong>
+qaytar.</p></li>
+<li><p><span class="math inline">\(\operatorname{ord}_r(n)&gt;4(\log_2
+n)^2\)</span> şərtini ödəyən ilk uyğun <span
+class="math inline">\(r\)</span>-i tap.</p></li>
+<li><p><span class="math inline">\(2\le a\le r\)</span> üçün <span
+class="math inline">\(d=\gcd(a,n)\)</span> hesabla; <span
+class="math inline">\(1&lt;d&lt;n\)</span> tapılarsa
+<strong>mürəkkəb</strong> qaytar.</p></li>
+<li><p>Əgər <span class="math inline">\(n\le r\)</span> olarsa,
+<strong>sadə</strong> qaytar.</p></li>
+<li><p><span class="math display">\[1\le
+a\le\left\lfloor\sqrt{\varphi(r)}\log_2 n\right\rfloor\]</span> üçün
+<span class="math display">\[(X+a)^n\equiv
+X^n+a\pmod{X^r-1,\,n}\]</span> müqayisələrini yoxla. Hər hansı müqayisə
+pozularsa <strong>mürəkkəb</strong>, hamısı ödənərsə
+<strong>sadə</strong> qaytar.</p></li>
+</ol>
+</div>
+<p><strong>Qeyd.</strong> Polinomial müqayisə AKS-in yalnız son
+addımıdır; tam qüvvə, gcd və <span class="math inline">\(n\le r\)</span>
+yoxlamaları olmadan o, tam sadəlik testi deyil. <span
+class="math inline">\(X^r-1\)</span> modulu çoxhədlilərin dərəcəsini
+məhdudlaşdırır və prosedurun giriş bit uzunluğuna görə polinomial
+qalmasına imkan verir. Dəqiq asimptotik sərhəd alqoritmin variantından
+və çoxhədli vurma modelindən asılıdır; burada əsas nəticə <span
+class="smallcaps">Primes</span> probleminin <span
+class="math inline">\(\mathrm{P}\)</span> sinfində olmasıdır <span
+class="citation" data-cites="agrawal2004primes"></span>.</p>
+<h2 id="sadəlik-testlərinin-müqayisəli-analizi">Sadəlik testlərinin
+müqayisəli analizi</h2>
+<p>Aşağıdakı cədvəldə kriptoqrafiyada və hesablama riyaziyyatında geniş
+istifadə olunan əsas sadəlik testlərinin müqayisəli xarakteristikaları
+verilmişdir:</p>
+<table>
+<caption>Əsas sadəlik testlərinin müqayisəli xarakteristikası</caption>
+<thead>
+<tr>
+<th
+style="text-align: left;"><strong><strong>Xüsusiyyət</strong></strong></th>
+<th style="text-align: left;"><strong>Ferma testi</strong></th>
+<th style="text-align: left;"><strong>Miller–Rabin</strong></th>
+<th style="text-align: left;"><strong>AKS alqoritmi</strong></th>
+<th style="text-align: left;"><strong>Sınaq bölməsi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Alqoritm Növü</strong></td>
+<td style="text-align: left;">Ehtimallı</td>
+<td style="text-align: left;">Ehtimallı</td>
+<td style="text-align: left;">Deterministik</td>
+<td style="text-align: left;">Deterministik</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Asimptotik
+mürəkkəblik</strong></td>
+<td style="text-align: left;">Arifmetik modeldən asılı</td>
+<td style="text-align: left;"><span class="math inline">\(k\)</span> və
+arifmetik modeldən asılı</td>
+<td style="text-align: left;">Polinomial; variantdan asılı</td>
+<td style="text-align: left;"><span
+class="math inline">\(O(\sqrt{n})\)</span> bölmə</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Səhv Ehtimalı</strong></td>
+<td style="text-align: left;">Karmaykl üçün <span
+class="math inline">\(1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\le
+(1/4)^k\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Praktiki tətbiqi</strong></td>
+<td style="text-align: left;">Çox sürətli</td>
+<td style="text-align: left;">Çox sürətli</td>
+<td style="text-align: left;">Olduqca yavaş</td>
+<td style="text-align: left;">Effektiv deyil</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Praktik zaman</strong></td>
+<td style="text-align: left;">Reallaşdırma və əsaslardan asılı</td>
+<td style="text-align: left;">Reallaşdırma və raundlardan asılı</td>
+<td style="text-align: left;">Adətən praktik generatorlardan
+yavaşdır</td>
+<td style="text-align: left;">Böyük girişlər üçün yararsız</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kriptoqrafiyada rolu</strong></td>
+<td style="text-align: left;">İlkin süzgəc kimi məhdud</td>
+<td style="text-align: left;">Parametrli ehtimallı test kimi geniş</td>
+<td style="text-align: left;">Nəzəri və xüsusi tətbiqlər</td>
+<td style="text-align: left;">Kiçik bölənlərin süzgəci</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tövsiyələr">Praktik tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>RSA açarlarının generasiyası:</strong></p>
+<ul>
+<li><p>Namizəd ədədlərin yoxlanılması zamanı Miller-Rabin testini ən azı
+<span class="math inline">\(k=40\)</span> sınaq sayı ilə icra
+edin.</p></li>
+<li><p>Müasir kriptoqrafik kitabxanalar (məsələn, OpenSSL) sınaq sayını
+elə tənzimləyir ki, mürəkkəb ədədin səhvən buraxılma (yalançı müsbət)
+ehtimalı <span class="math inline">\(2^{-128}\)</span> təhlükəsizlik
+limitindən kiçik olsun.</p></li>
+<li><p>Böyük resurs itkisinin qarşısını almaq üçün Miller-Rabin
+testindən öncə ədədi kiçik sadə ədədlərə (<span class="math inline">\(2,
+3, 5, 7, \dots\)</span>) sınaq bölməsi üsulu ilə yoxlayın.</p></li>
+</ul></li>
+<li><p><strong>Çin Qalıqlar Teoreminin (CRT) tətbiqi:</strong></p>
+<ul>
+<li><p>RSA deşifrələmə prosesində standart modulyar qüvvətə yüksəltmə
+əvəzinə CRT-dən istifadə etməklə hesablama sürətini təxminən 4 dəfə
+artırın.</p></li>
+<li><p>Səmərəli yaddaş idarəetməsi və ardıcıl emal üçün CRT-nin Qarner
+alqoritmi modifikasiyasına üstünlük verin.</p></li>
+<li><p>Gizli CRT parametrlərini (<span class="math inline">\(d_p, d_q,
+q_{inv}\)</span>) ciddi şəkildə qoruyun — bu kənar məlumatların sızması
+<span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> vuruqlarının birbaşa aşkar olunmasına
+şərait yaradır.</p></li>
+</ul></li>
+<li><p><strong>Eyler funksiyasının gizliliyi:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\varphi(n)\)</span> dəyərini tamamilə
+məxfi saxlayın. <span class="math inline">\(\varphi(n)\)</span> bəlli
+olduğu təqdirdə <span class="math inline">\(n = p \cdot q\)</span>
+modulunun faktorizasiyası (vuruqlara ayrılması) sadə kvadrat tənliyin
+həllinə çevrilir.</p></li>
+<li><p><span class="math inline">\(\varphi(n)\)</span> sızarsa, RSA
+gizli açarı (<span class="math inline">\(d\)</span>) asanlıqla bərpa
+olunur və sistem tamamilə sındırılır.</p></li>
+</ul></li>
+<li><p><strong>Sadəlik testlərinin seçimi:</strong></p>
+<ul>
+<li><p>Miller–Rabin alqoritmi müstəqil təsadüfi əsaslar, kifayət qədər
+raund, namizədin düzgün generasiyası və tələb olunan əlavə yoxlamalarla
+praktik sadə ədəd generatorlarında geniş istifadə olunur.</p></li>
+<li><p><span class="math inline">\(2^{64}\)</span> limitinə qədər olan
+ədədlər üçün Miller-Rabin testinin bəlli sabit əsaslar üzrə təyin
+olunmuş deterministik (səhv ehtimalı sıfır olan) modifikasiyalarından
+istifadə etmək olar.</p></li>
+<li><p>AKS alqoritmi böyük nəzəri əhəmiyyətə malikdir; praktik açar
+generasiyasında isə adətən daha sürətli ehtimallı testlər
+seçilir.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="tcolorbox">
+<p>Tapşırıqları əvvəlcə həll və müqayisə cədvəlinə baxmadan yerinə
+yetirin. Hər hesablamada yalnız nəticəni deyil, seçilən teoremi və onun
+şərtlərini yazın. Cavab açarı ayrıca müəllim əlavəsində verilir və ilkin
+cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em><span
+class="math inline">\(\varphi(100)\)</span> dəyərini hesablayın. <span
+class="math inline">\(100 = 2^2 \cdot 5^2\)</span> kanonik ayrılışından
+istifadə edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em><span
+class="math inline">\(5^{12} \pmod{13}\)</span> ifadəsinin qiymətini
+Fermanın kiçik teoremi ilə tapın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>Eyler teoremi ilə <span
+class="math inline">\(7^{222} \pmod{40}\)</span> ifadəsini
+sadələşdirməyin mümkün olub-olmadığını əvvəlcə şərtlərlə yoxlayın. Sonra
+uyğun teorem və kvadratlaşdır-vur izindən istifadə edərək nəticəni
+hesablayın; iki yanaşmanın əməliyyat yükünü müqayisə edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>Aşağıdakı konqruensiyalar
+sistemini Çin Qalıqlar Teoremi (CRT) ilə həll edin: <span
+class="math display">\[\begin{align*}
+x &amp;\equiv 3 \pmod{4} \\
+x &amp;\equiv 4 \pmod{5} \\
+x &amp;\equiv 1 \pmod{3}
+\end{align*}\]</span></em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>Aşağıdakı sistemi həm klassik CRT
+konstruksiyası, həm də ardıcıl Qarner üsulu ilə həll edin: <span
+class="math display">\[\begin{align*}
+x &amp;\equiv 2 \pmod{3}, &amp; x &amp;\equiv 3 \pmod{5}, &amp; x
+&amp;\equiv 2 \pmod{7}.
+\end{align*}\]</span> Hər üsulda yaranan ən böyük aralıq ədədi qeyd edin
+və hansı üsulun axın emalına daha uyğun olduğunu əsaslandırın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em><span
+class="math inline">\(p=17\)</span>, <span
+class="math inline">\(q=19\)</span> və <span
+class="math inline">\(d=275\)</span> olarsa, CRT əsaslı RSA
+deşifrələməsi üçün tələb olunan <span class="math inline">\(d_p\)</span>
+və <span class="math inline">\(d_q\)</span> parametrlərini
+tapın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>Qarner alqoritminin köməyi ilə
+aşağıdakı sistemi həll edin: <span class="math display">\[\begin{align*}
+x &amp;\equiv 2 \pmod{3} \\
+x &amp;\equiv 3 \pmod{5}
+\end{align*}\]</span></em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em><span
+class="math inline">\(561\)</span> ədədinin Karmaykl ədədi olduğunu
+Korselt kriteriyası ilə sübut edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 9</strong> (9). <em>Miller-Rabin alqoritmini tətbiq
+edərək <span class="math inline">\(n=221\)</span> ədədini <span
+class="math inline">\(a=174\)</span> əsasına görə test edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 10</strong> (10). <em>AKS alqoritminin nəzəri
+cəhətdən deterministik olmasına baxmayaraq, praktik kriptoqrafiyada
+tətbiq edilməməsinin fundamental səbəbini açıqlayın.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p>Eyler funksiyasının düsturuna əsasən: <span
+class="math display">\[\varphi(100) = 100 \cdot
+\left(1-\frac{1}{2}\right) \cdot \left(1-\frac{1}{5}\right) = 100 \cdot
+\frac{1}{2} \cdot \frac{4}{5} = 40\]</span></p></li>
+<li><p>Fermanın kiçik teoreminə görə, əgər <span
+class="math inline">\(p\)</span> sadə ədəddirsə və <span
+class="math inline">\(\gcd(a,p)=1\)</span> şərti ödənirsə, <span
+class="math inline">\(a^{p-1} \equiv 1 \pmod{p}\)</span> olur. Burada
+<span class="math inline">\(p=13\)</span> sadə ədəd, <span
+class="math inline">\(a=5\)</span> və <span
+class="math inline">\(\gcd(5,13)=1\)</span>-dir. Qüvvət <span
+class="math inline">\(12 = 13-1\)</span> olduğu üçün birbaşa teoremdən
+alırıq: <span class="math inline">\(5^{12} \equiv 1
+\pmod{13}\)</span>.</p></li>
+<li><p>Əvvəlcə <span class="math inline">\(\gcd(7,40)=1\)</span>
+olduğuna görə Eyler teoremini tətbiq etmək olar. <span
+class="math inline">\(\varphi(40)=16\)</span> və <span
+class="math inline">\(222\equiv14\pmod{16}\)</span>, deməli <span
+class="math inline">\(7^{222}\equiv7^{14}\pmod{40}\)</span>.
+Kvadratlaşdır-vur izi <span class="math inline">\(7^2\equiv9\)</span>,
+<span class="math inline">\(7^4\equiv1\)</span>, <span
+class="math inline">\(7^8\equiv1\)</span> verir və <span
+class="math inline">\(7^{14}=7^8 7^4 7^2\equiv9\pmod{40}\)</span>.
+Teorem eksponenti azaldır, kvadratlaşdır-vur isə qalan hesablamanı
+loqarifmik sayda vurma ilə tamamlayır.</p></li>
+<li><p>Modulların hasili <span class="math inline">\(N = 4 \times 5
+\times 3 = 60\)</span>. Hər bir modul üçün qismətləri və onların
+modulyar tərs elementlərini hesablayaq: <span
+class="math display">\[\begin{align*}
+    N_1 = \frac{60}{4} = 15, &amp;\quad M_1 = 15^{-1} \pmod 4 = 3^{-1}
+\pmod 4 = 3 \\
+    N_2 = \frac{60}{5} = 12, &amp;\quad M_2 = 12^{-1} \pmod 5 = 2^{-1}
+\pmod 5 = 3 \\
+    N_3 = \frac{60}{3} = 20, &amp;\quad M_3 = 20^{-1} \pmod 3 = 2^{-1}
+\pmod 3 = 2
+\end{align*}\]</span> Sistemin ümumi həlli: <span
+class="math display">\[x = (3 \cdot 15 \cdot 3) + (4 \cdot 12 \cdot 3) +
+(1 \cdot 20 \cdot 2) = 135 + 144 + 40 = 319\]</span> Alınan nəticəni
+əsas modul daxilinə gətirsək: <span class="math inline">\(319 \equiv 19
+\pmod{60}\)</span>.</p></li>
+<li><p>Klassik CRT üçün <span class="math inline">\(N=105\)</span>,
+<span class="math inline">\(N_i=(35,21,15)\)</span> və uyğun tərslər
+<span class="math inline">\((2,1,1)\)</span> alınır: <span
+class="math display">\[x\equiv2\cdot35\cdot2+3\cdot21+2\cdot15=233\equiv23\pmod{105}.\]</span>
+Qarner birləşdirməsində əvvəl <span
+class="math inline">\(x\equiv8\pmod{15}\)</span>, sonra <span
+class="math inline">\(8+15t\equiv2\pmod7\)</span> şərtindən <span
+class="math inline">\(t\equiv1\pmod7\)</span> və yenə <span
+class="math inline">\(x\equiv23\pmod{105}\)</span> alınır. Klassik
+konstruksiyada <span class="math inline">\(233\)</span>, ardıcıl üsulda
+isə bu nümunədə <span class="math inline">\(23\)</span> ən böyük əsas
+aralıq nəticədir; Qarner yeni modulları mərhələli əlavə etməyə daha
+uyğundur.</p></li>
+<li><p>CRT əsaslı RSA deşifrələmə parametrləri: <span
+class="math display">\[d_p = d \pmod{p-1} = 275 \pmod{16} = 3\]</span>
+<span class="math display">\[d_q = d \pmod{q-1} = 275 \pmod{18} =
+5\]</span></p></li>
+<li><p>Qarner alqoritminin iki modullu xüsusi halı tətbiq olunur. Burada
+<span class="math inline">\(m_p = 2\)</span>, <span
+class="math inline">\(m_q = 3\)</span>, <span class="math inline">\(p =
+3\)</span>, <span class="math inline">\(q = 5\)</span>. Öncə tərs əmsal
+hesablanır: <span class="math inline">\(q_{inv} = q^{-1} \pmod p =
+5^{-1} \pmod 3 = 2^{-1} \pmod 3 = 2\)</span>. Düstura əsasən mənfi qalıq
+xətasından qorunmaq üçün aralıq <span class="math inline">\(h\)</span>
+dəyərini tapaq: <span class="math display">\[h = q_{inv} \cdot (m_p -
+m_q + p) \pmod p = 2 \cdot (2 - 3 + 3) \pmod 3 = 4 \equiv 1 \pmod
+3\]</span> Yekun cavab: <span class="math inline">\(x = m_q + h \cdot q
+= 3 + 1 \cdot 5 = 8\)</span>.</p></li>
+<li><p><span class="math inline">\(561 = 3 \times 11 \times 17\)</span>
+şəklində vuruqlara ayrılır. Korselt kriteriyasının şərtlərini yoxlayaq:
+1) <span class="math inline">\(561\)</span> kvadratlardan azaddır, çünki
+heç bir sadə vuruğun kvadratı onu bölmür. 2) Hər bir <span
+class="math inline">\(p\)</span> sadə vuruğu üçün <span
+class="math inline">\((p-1) \mid (n-1)\)</span> şərti yoxlanılır (<span
+class="math inline">\(n-1 = 560\)</span>): <span
+class="math display">\[(3-1) = 2 \mid 560 \quad (\text{doğrudur}), \quad
+(11-1) = 10 \mid 560 \quad (\text{doğrudur}), \quad (17-1) = 16 \mid 560
+\quad (560/16 = 35, \text{doğrudur}).\]</span> Hər iki şərt ödənildiyi
+üçün <span class="math inline">\(561\)</span> mütləq Karmaykl
+ədədidir.</p></li>
+<li><p><span class="math inline">\(n-1 = 220 = 2^2 \times 55 \implies
+d=55, s=2\)</span>. Miller-Rabin ardıcıllığını quraq:</p>
+<ul>
+<li><p><span class="math inline">\(x_0 = a^d \pmod n = 174^{55}
+\pmod{221} = 47\)</span></p></li>
+<li><p><span class="math inline">\(x_1 = x_0^2 \pmod n = 47^2 \pmod{221}
+= 220 \equiv -1 \pmod{221}\)</span></p></li>
+</ul>
+<p><span class="math inline">\(x_1 \equiv -1 \pmod{221}\)</span> şərti
+ödənildiyi üçün alqoritm <span class="math inline">\(221\)</span>
+ədədini <span class="math inline">\(a=174\)</span> əsasına görə
+<strong>güclü psevdosadə</strong> ədəd elan edir. Lakin realda <span
+class="math inline">\(221 = 13 \times 17\)</span> mürəkkəb ədəddir. Bu
+nümunə Miller-Rabin testinin tək bir sınaq əsasında yalançı müsbət
+nəticə vermə ehtimalını nümayiş etdirir və sınaq sayının (<span
+class="math inline">\(k\)</span>) artırılmasının vacibliyini sübut
+edir.</p></li>
+<li><p>AKS-in əsas nəzəri əhəmiyyəti ümumi sadəlik qərar probleminin
+deterministik polinomial zamanda həll olunduğunu göstərməsidir. Praktik
+açar generasiyasında polinomial müqayisələrin sabitləri və çoxhədli
+hesablamalar adətən parametrli Miller–Rabin kimi testlərdən baha olur.
+Konkret vaxt platforma, reallaşdırma və namizəd ölçüsündən asılı
+olduğuna görə “saatlar/günlər” və “saniyələr” universal qiymət
+deyil.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu sənəddə müasir asimmetrik kriptoqrafiyanın əsasını təşkil edən
+fundamental riyazi strukturları və alqoritmləri nəzərdən keçirdik:</p>
+<ul>
+<li><p><strong>Eyler <span class="math inline">\(\varphi\)</span>
+funksiyası:</strong> Verilmiş ədəddən kiçik və onunla qarşılıqlı sadə
+olan müsbət tam ədədlərin sayını təyin edir. Multiplikativ xassəsi
+sayəsində RSA modulunun gizli tərəfini formalaşdırır.</p></li>
+<li><p><strong>Fermanın kiçik teoremi və Eyler teoremi:</strong>
+Modulyar qüvvətlərin periodikliyini idarə edən fundamental qanunlardır.
+Bu teoremlər həm sadəlik testlərinin asasını təşkil edir, həm də RSA-da
+şifrələmə və deşifrələmə əməliyyatlarının bir-birini qarşılıqlı olaraq
+ləğv etməsini (düzgünlüyünü) sübut edir.</p></li>
+<li><p><strong>Çin Qalıqlar Teoremi (CRT) və Qarner alqoritmi:</strong>
+Böyük modullarda aparılan ağır hesablamaları kiçik vuruqlara
+parçalayaraq asimmetrik sistemlərin deşifrələmə sürətini 4 dəfəyə qədər
+artırmağa imkan verən cəbri optimallaşdırma üsullarıdır <span
+class="citation"
+data-cites="libbrecht1973chinese garner1959residue"></span>.</p></li>
+<li><p><strong>Sadəlik testləri:</strong> Kriptoqrafik açarların
+generasiyasında istifadə olunan mexanizmlərdir. Ferma testi Karmaykl
+ədədlərinə qarşı zəif olduğu üçün müasir sistemlərdə rolunu tamamilə
+itirmişdir. AKS alqoritmi deterministik olsa da, praktik əhəmiyyət
+daşımır <span class="citation" data-cites="agrawal2004primes"></span>.
+Miller-Rabin testi isə yüksək sürəti və idarə oluna bilən səhv ehtimalı
+ilə müasir informasiya təhlükəsizliyinin qəbul edilmiş həlledici
+standartıdır.</p></li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Əvvəlki mühazirədə də Eyler funksiyasından istifadə
+edilirdi. Bu mühazirədə bu funksiya daha geniş şərh edilir<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Burada <span class="math inline">\(d \mid n\)</span>
+yazılışı <span class="math inline">\(d\)</span>-nin <span
+class="math inline">\(n\)</span>-in böləni olduğunu bildirir.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (10)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Agrawal et al., 2004</span>
+                        <small class="text-muted">Annals of Mathematics</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">PRIMES is in P</h6>
+                    <p class="small text-secondary mb-0">Agrawal, Manindra and Kayal, Neeraj and Saxena, Nitin (2004)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Hardy &amp; Wright, 2008</span>
+                        <small class="text-muted">Oxford University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Introduction to the Theory of Numbers</h6>
+                    <p class="small text-secondary mb-0">G. H. Hardy and E. M. Wright (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Libbrecht, 1973</span>
+                        <small class="text-muted">MIT Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Chinese Mathematics in the Thirteenth Century: The Shu-shu chiu-chang of Ch&#x27;in Chiu-shao</h6>
+                    <p class="small text-secondary mb-0">Ulrich Libbrecht (1973)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Quisquater &amp; Couvreur, 1982</span>
+                        <small class="text-muted">Electronics Letters</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Fast Decipherment Algorithm for RSA Public-Key Cryptosystem</h6>
+                    <p class="small text-secondary mb-0">Jean-Jacques Quisquater and C. Couvreur (1982)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Garner, 1959</span>
+                        <small class="text-muted">IRE Transactions on Electronic Computers</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Residue Number System</h6>
+                    <p class="small text-secondary mb-0">Harvey L. Garner (1959)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

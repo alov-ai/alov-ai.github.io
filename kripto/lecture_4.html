@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_4</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 4</strong></p>
+<p><strong>Diskret ehtimal paylanmaları və ad günü
+paradoksu</strong></p>
+<p>Bu mühazirə kriptoqrafiyanın əsasını təşkil edən ehtimal nəzəriyyəsi
+anlayışlarını - bircins paylanma, binomial paylanma, Puasson paylanması,
+şərti ehtimal, Bayes teoremi və ad günü paradoksunu əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbə:</p>
+<ul>
+<li><p>Diskret ehtimal paylanmalarının əsas növlərini (bircins,
+binomial, Puasson) izah edə biləcək <span class="citation"
+data-cites="feller1968introduction ross2014introduction"></span></p></li>
+<li><p>Hər bir paylanmanın əsas xüsusiyyətlərini, gözlənilən dəyər və
+dispersiyasını hesablaya biləcək <span class="citation"
+data-cites="grimmett2001probability bertsekas2008introduction"></span></p></li>
+<li><p>Şərti ehtimal və Bayes teoremini kriptoqrafik problemlərə tətbiq
+edə biləcək <span class="citation"
+data-cites="bayes1763essay box1973bayesian"></span></p></li>
+<li><p>Ad günü paradoksunu riyazi olaraq izah edə və hesablaya biləcək
+<span class="citation"
+data-cites="mckinney1966birthday dasgupta2005birthday"></span></p></li>
+<li><p>Ad günü hücumunun (birthday attack) prinsipini başa düşəcək <span
+class="citation"
+data-cites="stinson2018cryptography paar2010understanding"></span></p></li>
+<li><p>Heş funksiyalarında toqquşma ehtimalını hesablaya biləcək <span
+class="citation"
+data-cites="katz2020introduction smart2016cryptography"></span></p></li>
+<li><p><span class="math inline">\(2^{n/2}\)</span> mürəkkəbliyinin
+praktik əhəmiyyətini anlayacaq <span class="citation"
+data-cites="ferguson2010cryptography"></span></p></li>
+</ul>
+<h1 id="giriş-kriptoqrafiyada-ehtimalın-rolu">Giriş: Kriptoqrafiyada
+ehtimalın rolu</h1>
+<p>Kriptoqrafiya təhlükəsizliklə bağlı bir elmdir və təhlükəsizlik
+anlayışının özü ehtimallarla ifadə olunur <span class="citation"
+data-cites="shannon1949communication"></span>. Hər hansı bir
+kriptosistemin "təhlükəsiz" olması o deməkdir ki, onu sındırmaq ehtimalı
+son dərəcə kiçikdir — adətən <span
+class="math inline">\(2^{-128}\)</span> və ya daha az.</p>
+<p>Bu dərəcədə kiçik bir ehtimal praktik olaraq sıfıra bərabərdir. Bu
+rəqəmin miqyasını təsəvvür etmək üçün aşağıdakı müqayisəyə diqqət
+yetirək:</p>
+<div class="center">
+<div class="small">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hadisə</strong></th>
+<th style="text-align: left;"><strong>Təxmini ehtimal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Bir insanın həyatı boyu ildırım vurma
+ehtimalı</td>
+<td style="text-align: left;"><span class="math inline">\(\approx
+10^{-6}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Piyada gedərkən meteorit düşməsi
+ehtimalı</td>
+<td style="text-align: left;"><span class="math inline">\(\approx
+10^{-10}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>128-bitlik açarın təsadüfən
+tapılma ehtimalı</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(\mathbf{\approx 2^{-128} \approx
+10^{-38}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Göründüyü kimi, müasir şifrləri sındırmaq ehtimalı təbiətdəki ən
+nadir hadisələrdən belə milyardlarla dəfə kiçikdir <span
+class="citation" data-cites="ferguson2010cryptography"></span>.</p>
+<div class="history">
+<p><span>Ehtimal nəzəriyyəsi və kriptoqrafiya</span> Ehtimal nəzəriyyəsi
+ilə kriptoqrafiya arasındakı əlaqə 20-ci əsrin ortalarında <strong>Klod
+Şannonun</strong> işləri ilə başlamışdır. Şannon 1948-ci ildə <em>"A
+Mathematical Theory of Communication"</em> əsərində informasiya
+nəzəriyyəsinin əsasını qoydu <span class="citation"
+data-cites="shannon1948mathematical"></span>. 1949-cu ildə isə
+<em>"Communication Theory of Secrecy Systems"</em> əsərində bu
+nəzəriyyəni kriptoqrafiyaya tətbiq edərək <strong>mükəmməl
+məxfilik</strong> anlayışını təqdim etdi <span class="citation"
+data-cites="shannon1949communication"></span>. Bu gün ehtimal
+nəzəriyyəsi olmadan müasir kriptoqrafiyanı təsəvvür etmək mümkün
+deyil.</p>
+</div>
+<p>Ehtimal nəzəriyyəsi kriptoqrafiyanın demək olar ki, hər bir sahəsində
+tətbiq olunur <span class="citation"
+data-cites="stinson2018cryptography katz2020introduction"></span>:</p>
+<ul>
+<li><p><strong>Açar generasiyası:</strong> Açarlar tamamilə təsadüfi
+seçilməlidir. Əgər açarlar <strong>bircins (uniform)</strong>
+paylanmazsa, hücumçu daha yüksək ehtimallı açarlardan başlayaraq axtarış
+sahəsini daralda bilər <span class="citation"
+data-cites="knuth1997art"></span>.</p></li>
+<li><p><strong>Kriptoanaliz:</strong> Hücumların uğur ehtimalı riyazi
+olaraq hesablanır. Məsələn, tam axtarış (<em>brute-force</em>) zamanı
+düzgün açarın tapılma ehtimalı sınaqların sayı ilə düz mütənasibdir
+<span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Protokol dizaynı:</strong> Təhlükəsizlik parametrləri elə
+seçilməlidir ki, hər hansı bir hücumun uğur ehtimalı müəyyən edilmiş
+kritik həddi (məsələn, <span class="math inline">\(2^{-80}\)</span>)
+keçməsin <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p><strong>Heş funksiyaları:</strong> Toqquşma (<em>collision</em>)
+ehtimalı təhlükəsizlik səviyyəsini təyin edir. <strong>Ad günü
+paradoksu</strong> göstərir ki, heş funksiyalarında toqquşma tapmaq,
+ilkin obrazın tapılmasından qat-qat asandır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Şifrələmə sxemləri:</strong> Şannon tərəfindən müəyyən
+edilmiş mükəmməl məxfilik prinsipinə görə, şifrəli mətni (<span
+class="math inline">\(C\)</span>) müşahidə etmək açıq mətn (<span
+class="math inline">\(M\)</span>) haqqında heç bir yeni məlumat
+verməməlidir: <span class="math display">\[\begin{equation}
+        P(M = m | C = c) = P(M = m)
+\end{equation}\]</span> Yəni, açıq mətnin şifrəli mətnə nəzərən şərti
+ehtimalı, şifrəli mətndən asılı deyildir <span class="citation"
+data-cites="shannon1949communication"></span>.</p></li>
+</ul>
+<p>Bu mühazirədə biz kriptoqrafiya üçün fundamental olan ehtimal
+anlayışlarını və onların praktik tətbiqlərini ətraflı öyrənəcəyik.</p>
+<h1 id="diskret-ehtimal-paylanmaları">Diskret ehtimal paylanmaları</h1>
+<h2 id="təriflər-və-əsas-anlayışlar">Təriflər və əsas anlayışlar</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Təsadüfi dəyişən). <em>Təsadüfi dəyişən
+<span class="math inline">\(X\)</span> — elementar hadisələr çoxluğundan
+həqiqi ədədlər çoxluğuna təyin olunmuş funksiyadır <span
+class="citation" data-cites="feller1968introduction"></span>.
+<strong>Diskret</strong> təsadüfi dəyişən sonlu və ya sayıla bilən
+(məsələn, tam ədədlər) qiymətlər alır.</em></p>
+</div>
+<p><strong>Nümunə:</strong> Bir sikkə atılır. Nəticə "yazı" və ya "tura"
+ola bilər. Bu hadisəni ədədi ifadə etmək üçün <span
+class="math inline">\(X\)</span> təsadüfi dəyişənini belə təyin edə
+bilərik: <span class="math display">\[X =
+\begin{cases}
+1, &amp; \text{əgər nəticə &quot;yazı&quot; olarsa} \\
+0, &amp; \text{əgər nəticə &quot;tura&quot; olarsa}
+\end{cases}\]</span></p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Ehtimal kütlə funksiyası (PMF)).
+<em>Diskret təsadüfi dəyişən <span class="math inline">\(X\)</span> üçün
+<em>ehtimal kütlə funksiyası</em> (Probability Mass Function) <span
+class="math inline">\(p(x)\)</span> aşağıdakı kimi təyin olunur <span
+class="citation" data-cites="ross2014introduction"></span>: <span
+class="math display">\[p(x) = P(X = x)\]</span> Bu funksiya iki əsas
+aksiomu ödəməlidir:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(0 \leq p(x) \leq 1\)</span> (hər
+bir fərdi ehtimal 0 ilə 1 arasındadır)</em></p></li>
+<li><p><em><span class="math inline">\(\sum_{x \in \mathcal{X}} p(x) =
+1\)</span> (bütün mümkün nəticələrin ehtimalları cəmi vahidə
+bərabərdir)</em></p></li>
+</ol>
+</div>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Kumulyativ paylanma funksiyası (CDF)).
+<em><span class="math inline">\(F(x) = P(X \leq x) = \sum_{t \leq x}
+p(t)\)</span> <span class="citation"
+data-cites="grimmett2001probability"></span>. Bu funksiya təsadüfi
+dəyişənin <span class="math inline">\(x\)</span>-dən kiçik və ya bərabər
+qiymət alma ehtimalını göstərən pilləvari funksiyadır.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Gözlənilən dəyər (Ortalama)). <em>Diskret
+təsadüfi dəyişənin <em>gözlənilən dəyəri</em> (və ya riyazi gözləməsi)
+<span class="math inline">\(\mu\)</span> hər bir qiymətin öz ehtimalı
+ilə çəkili cəmidir <span class="citation"
+data-cites="bertsekas2008introduction"></span>: <span
+class="math display">\[E[X] = \sum_{x} x \cdot p(x)\]</span></em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Dispersiya və Standart Meyl).
+<em><strong>Dispersiya</strong> (dispersiya) təsadüfi dəyişənin
+qiymətlərinin ortalama (<span class="math inline">\(\mu\)</span>)
+ətrafında nə dərəcədə yayıldığını ölçür <span class="citation"
+data-cites="casella2002statistical"></span>: <span
+class="math display">\[Var(X) = E[(X - E[X])^2] = E[X^2] -
+(E[X])^2\]</span> <strong>Orta kvadratik meyl</strong> (standart meyl)
+isə dispersiyanın kvadrat köküdür: <span class="math inline">\(\sigma =
+\sqrt{Var(X)}\)</span>.</em></p>
+</div>
+<h2 id="bircins-uniform-paylanma">Bircins (Uniform) paylanma</h2>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Bircins paylanma). <em><span
+class="math inline">\(X\)</span> təsadüfi dəyişəni <span
+class="math inline">\(\{1, 2, \ldots, n\}\)</span> çoxluğundan qiymətlər
+alırsa və bütün qiymətlərin ehtimalı eynidirsə, onda <span
+class="math inline">\(X\)</span> bircins paylanmaya malikdir <span
+class="citation" data-cites="feller1968introduction"></span>: <span
+class="math display">\[P(X = i) = \frac{1}{n}, \quad i = 1, 2, \ldots,
+n\]</span></em></p>
+</div>
+<p><strong>Xüsusiyyətləri:</strong></p>
+<ul>
+<li><p>Gözlənilən dəyər: <span class="math inline">\(E[X] =
+\frac{n+1}{2}\)</span> <span class="citation"
+data-cites="ross2014introduction"></span></p></li>
+<li><p>Dispersiya: <span class="math inline">\(Var(X) = \frac{n^2 -
+1}{12}\)</span> <span class="citation"
+data-cites="grimmett2001probability"></span></p></li>
+<li><p>Bərabərsizlil: bircins paylanma maksimal entropiyaya malikdir
+(maksimum qeyri-müəyyənlik) <span class="citation"
+data-cites="shannon1948mathematical"></span> <a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p></li>
+</ul>
+<p><strong>İsbat:</strong> Gözlənilən dəyərin hesablanması: <span
+class="math display">\[E[X] = \sum_{i=1}^n i \cdot \frac{1}{n} =
+\frac{1}{n} \sum_{i=1}^n i = \frac{1}{n} \cdot \frac{n(n+1)}{2} =
+\frac{n+1}{2}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Kriptoqrafiyada bircins paylanma).
+<em>Kriptoqrafiyada açarlar adətən bircins paylanma ilə seçilir <span
+class="citation" data-cites="knuth1997art"></span>. Tutaq ki, 128-bitlik
+açar istifadə edirik. Onda mümkün açarlar sayı <span
+class="math inline">\(2^{128}\)</span>-dir və hər bir açarın seçilmə
+ehtimalı: <span class="math display">\[P(K = k) = \frac{1}{2^{128}},
+\quad \forall k \in \{0,1\}^{128}\]</span> Bu o deməkdir ki, heç bir
+açar digərindən daha çox ehtimallı deyil - bu, təhlükəsizlik üçün vacib
+şərtdir <span class="citation"
+data-cites="ferguson2010cryptography"></span>. Əgər açarlar bircins
+paylanmasa, bəzi açarlar daha çox ehtimallı olar və hücumçu ilk növbədə
+bu açarları sınayar.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (Zər atma). <em>Adi altıüzlü zar atılır.
+Nəticə <span class="math inline">\(X \in \{1,2,3,4,5,6\}\)</span>
+bircins paylanır <span class="citation"
+data-cites="bertsekas2008introduction"></span>: <span
+class="math display">\[P(X=i) = \frac{1}{6}, \quad i=1,\ldots,6\]</span>
+Gözlənilən dəyər: <span class="math inline">\(E[X] =
+\frac{1+2+3+4+5+6}{6} = \frac{21}{6} = 3.5\)</span></em></p>
+</div>
+<h2 id="binomial-paylanma">Binomial paylanma</h2>
+<div class="definition">
+<p><strong>Tərif 7</strong> (Binomial paylanma). <em>Tutaq ki, müstəqil
+<span class="math inline">\(n\)</span> sınaq aparılır, hər sınaqda uğur
+ehtimalı <span class="math inline">\(p\)</span>-dir. <span
+class="math inline">\(X\)</span> uğurların sayı olsun. Onda <span
+class="math inline">\(X\)</span> binomial paylanmaya malikdir <span
+class="citation"
+data-cites="bernoulli1713ars feller1968introduction"></span>: <span
+class="math display">\[P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k
+= 0, 1, \ldots, n\]</span> Burada <span
+class="math inline">\(\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span> -
+kombinasiyaların sayıdır.</em></p>
+</div>
+<div class="history">
+<p><span>Yakob Bernulli</span> Binomial paylanmanın əsası 1713-cü ildə
+İsveçrə riyaziyyatçısı <strong>Yakob Bernulli</strong> tərəfindən
+qoyulmuşdur. Onun ölümündən sonra nəşr edilən "Ars Conjectandi" (Təxmin
+etmə sənəti) əsəri ehtimal nəzəriyyəsinin inkişafında mühüm rol
+oynamışdır <span class="citation" data-cites="bernoulli1713ars"></span>.
+Bernulli sınaqları anlayışı bu gün də ehtimal nəzəriyyəsində vacib rol
+oynayır.</p>
+</div>
+<p><strong>Xüsusiyyətləri:</strong></p>
+<ul>
+<li><p>Gözlənilən dəyər: <span class="math inline">\(E[X] = n \
+p\)</span> <span class="citation"
+data-cites="ross2014introduction"></span></p></li>
+<li><p>Dispersiya: <span class="math inline">\(Var(X) = np(1-p)\)</span>
+<span class="citation"
+data-cites="grimmett2001probability"></span></p></li>
+<li><p>Ən çox ehtimallı dəyər (mod): <span class="math inline">\(\lfloor
+(n+1)p \rfloor\)</span> və ya <span class="math inline">\(\lceil (n+1)p
+- 1 \rceil\)</span> <span class="citation"
+data-cites="casella2002statistical"></span></p></li>
+</ul>
+<p><strong>İsbat:</strong> Gözlənilən dəyərin hesablanması. Hər sınaq
+üçün indikator dəyişəni təyin edək: <span class="math inline">\(I_j =
+1\)</span> əgər <span class="math inline">\(j\)</span>-ci sınaq
+uğurludursa, əks halda <span class="math inline">\(0\)</span>. Onda
+<span class="math inline">\(X = \sum_{j=1}^n I_j\)</span>. <span
+class="math inline">\(E[I_j] = p\)</span>. Xəttilik xüsusiyyətinə görə
+<span class="citation" data-cites="bertsekas2008introduction"></span>:
+<span class="math display">\[E[X] = E\left[\sum_{j=1}^n I_j\right] =
+\sum_{j=1}^n E[I_j] = np\]</span></p>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Yazı-tura atma). <em>Bir sikkə 10 dəfə
+atılır. Yazı gəlmə ehtimalı <span class="math inline">\(p=0.5\)</span>.
+6 dəfə yazı gəlmə ehtimalı <span class="citation"
+data-cites="feller1968introduction"></span>: <span
+class="math display">\[P(X=6) = \binom{10}{6} (0.5)^6 (0.5)^4 =
+\binom{10}{6} (0.5)^{10} = 210 \cdot \frac{1}{1024} \approx
+0.205\]</span> Gözlənilən yazı sayı: <span class="math inline">\(E[X] =
+10 \cdot 0.5 = 5\)</span></em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong> (Kriptoqrafiyada binomial paylanma).
+<em>Tutaq ki, hücumçu 1000 mümkün açardan 50-sini sınayır. Hər hansı bir
+açarın düzgün olma ehtimalı digər açarın düzgün olma ehtimalına
+bərabərdir (<span class="math inline">\(p = 1/1000\)</span>). Sınaq
+edilən açarlar arasında düzgün açarın olma ehtimalı <span
+class="citation" data-cites="paar2010understanding"></span>: <span
+class="math display">\[P(\text{düzgün açar sınaqda}) = 1 - P(\text{heç
+biri düzgün deyil}) = 1 - \left(1 - \frac{1}{1000}\right)^{50} \approx
+0.0488\]</span></em></p>
+<p><em>Bu ehtimalı binomial paylanma ilə də hesablamaq olar: <span
+class="math inline">\(P(X \geq 1) = 1 - P(X=0) = 1 - (0.999)^{50}
+\approx 0.0488\)</span></em></p>
+</div>
+<h2 id="puasson-paylanması">Puasson paylanması</h2>
+<div class="definition">
+<p><strong>Tərif 8</strong> (Puasson paylanması). <em>Puasson paylanması
+nadir hadisələrin sayını modelləşdirir <span class="citation"
+data-cites="poisson1837recherches"></span>. Əgər <span
+class="math inline">\(X\)</span> Puasson paylanmasına malikdirsə, onda:
+<span class="math display">\[P(X = k) = \frac{e^{-\lambda}
+\lambda^k}{k!}, \quad k = 0, 1, 2, \ldots\]</span> burada <span
+class="math inline">\(\lambda &gt; 0\)</span> - intensivlik parametridir
+(orta hadisə sayı) <span class="citation"
+data-cites="haight1967handbook"></span>.</em></p>
+</div>
+<div class="history">
+<p><span>Simeon Deni Puasson</span> Fransız riyaziyyatçısı
+<strong>Simeon Deni Puasson</strong> (1781-1840) bu paylanmanı 1837-ci
+ildə nəşr etdirdiyi "Recherches sur la probabilité des jugements"
+əsərində təqdim etmişdir <span class="citation"
+data-cites="poisson1837recherches"></span>. O, nadir hadisələrin
+ehtimalını öyrənərək bu paylanmanı kəşf etmişdir. Maraqlıdır ki, Puasson
+özü bu paylanmanı binomial paylanmanın limit halı kimi deyil, müstəqil
+bir kəşf kimi təqdim etmişdir.</p>
+</div>
+<p><strong>Xüsusiyyətləri:</strong></p>
+<ul>
+<li><p>Gözlənilən dəyər: <span class="math inline">\(E[X] =
+\lambda\)</span> <span class="citation"
+data-cites="cameron2013regression"></span></p></li>
+<li><p>Dispersiya: <span class="math inline">\(Var(X) = \lambda\)</span>
+(bu, Puasson paylanmasının xarakterik xüsusiyyətidir) <span
+class="citation" data-cites="kingman1993poisson"></span></p></li>
+<li><p>Puasson paylanması binomial paylanmanın limit halıdır: əgər <span
+class="math inline">\(n \to \infty\)</span>, <span
+class="math inline">\(p \to 0\)</span> və <span class="math inline">\(np
+= \lambda\)</span> sabitdirsə <span class="citation"
+data-cites="feller1968introduction"></span></p></li>
+</ul>
+<p><strong>Puasson yaxınlaşması:</strong> Əgər <span
+class="math inline">\(n\)</span> böyük, <span
+class="math inline">\(p\)</span> kiçikdirsə (<span
+class="math inline">\(n \geq 20\)</span>, <span class="math inline">\(p
+\leq 0.05\)</span>), binomial ehtimalları Puassonla aproksimasiya etmək
+olar <span class="citation" data-cites="arratia1991poisson"></span>:
+<span class="math display">\[\binom{n}{k} p^k (1-p)^{n-k} \approx
+\frac{e^{-np} (np)^k}{k!}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 5</strong> (Nadir hadisələr). <em>Bir şəhərdə gündə
+ortalama 2 qəza baş verir. Müəyyən bir gündə heç qəza olmama ehtimalı
+<span class="citation" data-cites="haight1967handbook"></span>: <span
+class="math display">\[P(X=0) = \frac{e^{-2} \cdot 2^0}{0!} = e^{-2}
+\approx 0.1353\]</span></em></p>
+<p><em>3 qəza olma ehtimalı: <span class="math display">\[P(X=3) =
+\frac{e^{-2} \cdot 2^3}{3!} = \frac{e^{-2} \cdot 8}{6} \approx
+0.1804\]</span></em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 6</strong> (Kriptoqrafiyada Puasson paylanması).
+<em>Tutaq ki, 1 milyon istifadəçi var və hər birinin açarının sındırılma
+ehtimalı <span class="math inline">\(10^{-6}\)</span>-dır. Sındırılan
+açarların sayı təqribən Puasson paylanmasına malikdir, <span
+class="math inline">\(\lambda = 10^6 \cdot 10^{-6} = 1\)</span> <span
+class="citation" data-cites="stinson2018cryptography"></span>: <span
+class="math display">\[P(\text{heç bir açar sındırılmadı}) \approx
+e^{-1} \approx 0.368\]</span> <span class="math display">\[P(\text{1
+açar sındırıldı}) \approx e^{-1} \approx 0.368\]</span> <span
+class="math display">\[P(\text{2 açar sındırıldı}) \approx
+\frac{e^{-1}}{2} \approx 0.184\]</span></em></p>
+</div>
+<div class="note">
+<p><span>Puasson paylanmasının mənşəyi</span> Bu paylanma <em>Puasson
+prosesi</em> ilə bağlıdır. Hadisələrin bir-birindən asılı olmadığı və
+müəyyən intensivliklə (<span class="math inline">\(\lambda\)</span>) baş
+verdiyi sistemləri təsvir edir. Məsələn, bir serverə saniyədə gələn
+sorğu sayı və ya proqram təminatındakı kritik xətaların aşkarlanması
+tezliyi bu proseslə modelləşdirilir.</p>
+</div>
+<h2 id="paylanmaların-müqayisəsi">Paylanmaların müqayisəsi</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Bircins</strong></th>
+<th style="text-align: left;"><strong>Binomial</strong></th>
+<th style="text-align: left;"><strong>Puasson</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Ehtimal kütlə funksiyası</td>
+<td style="text-align: left;"><span class="math inline">\(P(X=i) =
+\frac{1}{n}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(P(X=k) =
+\binom{n}{k}p^k(1-p)^{n-k}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(P(X=k) =
+\frac{e^{-\lambda}\lambda^k}{k!}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Parametrlər</td>
+<td style="text-align: left;"><span class="math inline">\(n\)</span> -
+qiymət sayı</td>
+<td style="text-align: left;"><span class="math inline">\(n\)</span> -
+sınaq sayı, <span class="math inline">\(p\)</span> - uğur ehtimalı</td>
+<td style="text-align: left;"><span
+class="math inline">\(\lambda\)</span> - ortalama</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gözlənilən dəyər</td>
+<td style="text-align: left;"><span
+class="math inline">\(\frac{n+1}{2}\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(np\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Dispersiya</td>
+<td style="text-align: left;"><span
+class="math inline">\(\frac{n^2-1}{12}\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(np(1-p)\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Tətbiq sahəsi</td>
+<td style="text-align: left;">Açar generasiyası, təsadüfi seçim</td>
+<td style="text-align: left;">Hücum ehtimalları, sınaqlar</td>
+<td style="text-align: left;">Nadir hadisələr, toqquşma ehtimalı</td>
+</tr>
+</tbody>
+</table>
+<h1 id="şərti-ehtimal-və-bayes-teoremi">Şərti ehtimal və Bayes
+teoremi</h1>
+<h2 id="şərti-ehtimal-anlayışı">Şərti ehtimal anlayışı</h2>
+<h1 id="şərti-ehtimal-və-tam-ehtimal-düsturu">Şərti ehtimal və Tam
+ehtimal düsturu</h1>
+<div class="definition">
+<p><strong>Tərif 9</strong> (Şərti ehtimal). <em><span
+class="math inline">\(A\)</span> hadisəsinin <span
+class="math inline">\(B\)</span> hadisəsinin baş verməsi şərti daxilində
+ehtimalı aşağıdakı kimi təyin olunur <span class="citation"
+data-cites="feller1968introduction"></span>: <span
+class="math display">\[\begin{equation}
+P(A|B) = \frac{P(A \cap B)}{P(B)}, \quad \text{əgər } P(B) &gt; 0
+\end{equation}\]</span> Bu düstur <span class="math inline">\(B\)</span>
+hadisəsi haqqında məlumatın (və ya müşahidənin) <span
+class="math inline">\(A\)</span> hadisəsinin baş vermə inancını necə
+dəyişdiyini ifadə edir.</em></p>
+</div>
+<div class="tcolorbox">
+<p>Şərti ehtimal zamanı bizim <strong>nümunə fəzamız (sample
+space)</strong> daralır. <span class="math inline">\(B\)</span>
+hadisəsinin baş verdiyini bildiyimiz üçün, artıq bütün mümkün nəticələr
+çoxluğu deyil, yalnız <span class="math inline">\(B\)</span>-nin
+daxilindəki nəticələr bizi maraqlandırır. Bu halda <span
+class="math inline">\(A\)</span>-nın baş verməsi yalnız <span
+class="math inline">\(A \cap B\)</span> kəsişməsinin hesabına mümkündür.
+Yəni ki, <span class="math inline">\(A\)</span> hadisəsi yalnız <span
+class="math inline">\(B\)</span> ilə kəsişdiyi nöqtələrdə mövcud
+olur.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 7</strong> (Zər nümunəsi). <em>Tutaq ki, bir zər
+atılır. Aşağıdakı hadisələrə baxaq:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(A = \{2, 4, 6\}\)</span> (Cüt
+ədəd düşməsi)</em></p></li>
+<li><p><em><span class="math inline">\(B = \{1, 2, 3\}\)</span> (4-dən
+kiçik ədəd düşməsi)</em></p></li>
+</ul>
+<p><em>Onda <span class="math inline">\(A \cap B = \{2\}\)</span>.
+Ehtimallar: <span class="math display">\[P(A) = \frac{3}{6} =
+\frac{1}{2}, \quad P(B) = \frac{3}{6} = \frac{1}{2}, \quad P(A \cap B) =
+\frac{1}{6}\]</span> Şərti ehtimal: <span class="math display">\[P(A|B)
+= \frac{P(A \cap B)}{P(B)} = \frac{1/6}{1/2} = \frac{1}{3}\]</span>
+<em>Nəticə:</em> Ədədin 4-dən kiçik olduğu məlumdursa, onun cüt olma
+ehtimalı <span class="math inline">\(1/2\)</span>-dən <span
+class="math inline">\(1/3\)</span>-ə düşür.</em></p>
+</div>
+<h2 id="ehtimalların-vurulması-və-zəncir-qaydası">Ehtimalların vurulması
+və Zəncir qaydası</h2>
+<p><strong>Vurma qaydası:</strong> Şərti ehtimalın tərifindən birbaşa
+çıxır ki, iki hadisənin eyni anda baş vermə ehtimalı (kəsişməsi),
+birinin baş vermə ehtimalı ilə digərinin həmin hadisə şərti daxilindəki
+ehtimalının hasilinə bərabərdir: <span
+class="math display">\[\begin{equation}
+P(A \cap B) = P(A|B)P(B) = P(B|A)P(A)
+\end{equation}\]</span></p>
+<div class="tip">
+<p><span>Kriptoqrafik Qeyd</span> Əgər <span
+class="math inline">\(A\)</span> və <span
+class="math inline">\(B\)</span> hadisələri
+<strong>müstəqildirsə</strong>, onda <span class="math inline">\(P(A|B)
+= P(A)\)</span> olur və düstur sadələşir: <span
+class="math inline">\(P(A \cap B) = P(A)P(B)\)</span>. Kriptoqrafiyada
+biz çox vaxt sistemlərin bu müstəqillik şərtini ödəyib-ödəmədiyini
+yoxlayırıq.</p>
+</div>
+<p><strong>Zəncir qaydası (Chain Rule):</strong> Bu qayda hadisələrin
+sayını istənilən qədər artırmağa imkan verir <span class="citation"
+data-cites="grimmett2001probability"></span>. Üç hadisə üçün: <span
+class="math display">\[\begin{equation}
+P(A \cap B \cap C) = P(A | B \cap C) \cdot P(B | C) \cdot P(C)
+\end{equation}\]</span></p>
+<p>Ümumi şəkildə <span class="math inline">\(n\)</span> sayda hadisə
+üçün zəncir qaydası belə ifadə olunur: <span
+class="math display">\[\begin{equation}
+P(A_n \cap A_{n-1} \cap \dots \cap A_1) = P(A_n | A_{n-1} \cap \dots
+\cap A_1) \dots P(A_2 | A_1) P(A_1)
+\end{equation}\]</span></p>
+<h2 id="tam-ehtimal-düsturu">Tam ehtimal düsturu</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Tam ehtimal düsturu). <em>Əgər <span
+class="math inline">\(B_1, B_2, \dots, B_n\)</span> hadisələri nümunə
+fəzasının bir <strong>bölünməsini</strong> (tam sistemini) təşkil edirsə
+(yəni onlar cüt-cüt kəsişmir və birləşmələri bütün fəzanı verir), onda
+ixtiyari <span class="math inline">\(A\)</span> hadisəsi üçün <span
+class="citation" data-cites="feller1968introduction"></span>: <span
+class="math display">\[\begin{equation}
+P(A) = \sum_{i=1}^{n} P(A|B_i)P(B_i)
+\end{equation}\]</span></em></p>
+</div>
+<h2 id="bayes-teoremi">Bayes teoremi</h2>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (Bayes teoremi). <em>Əgər <span
+class="math inline">\(B_1, B_2, \dots, B_n\)</span> hadisələri tam
+bölünməsini təşkil edirsə, onda <span class="citation"
+data-cites="bayes1763essay laplace1812theorie"></span>: <span
+class="math display">\[\begin{equation}
+P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^n P(A|B_j)P(B_j)} =
+\frac{P(A|B_i)P(B_i)}{P(A)}
+\end{equation}\]</span></em></p>
+</div>
+<div class="history">
+<p><span>Tomas Bayes</span> İngilis riyaziyyatçısı və ilahiyyatçısı
+<strong>Tomas Bayes</strong> (1701–1761) bu teoremi kəşf etmiş, lakin
+sağlığında nəşr etdirməmişdir. Onun ölümündən sonra dostu Riçard Prays
+1763-cü ildə bu əsəri nəşr etdirmişdir <span class="citation"
+data-cites="bayes1763essay"></span>. Maraqlıdır ki, Laplas bu teoremdən
+xəbərsiz olaraq onu yenidən kəşf etmiş və 1812-ci ildə nəşr etdirdiyi
+<em>"Théorie analytique des probabilités"</em> əsərində
+ümumiləşdirmişdir <span class="citation"
+data-cites="laplace1812theorie"></span>.</p>
+</div>
+<p>Bayes teoremi, yeni məlumat (<span class="math inline">\(A\)</span>)
+əldə edildikdən sonra hipotez (<span class="math inline">\(B_i\)</span>)
+haqqında inancımızı necə yeniləməli olduğumuzu göstərir <span
+class="citation" data-cites="box1973bayesian"></span>.</p>
+<p><strong>Komponentlər:</strong></p>
+<ul>
+<li><p><span class="math inline">\(P(B_i)\)</span> — <strong>aprior
+ehtimal</strong>: hipotezə ilkin inanc (müşahidədən əvvəl) <span
+class="citation" data-cites="gelman2013bayesian"></span>;</p></li>
+<li><p><span class="math inline">\(P(A|B_i)\)</span> — <strong>oxşarlıq
+(likelihood)</strong>: hipotez doğru olduqda <span
+class="math inline">\(A\)</span>-nı müşahidə etmə ehtimalı <span
+class="citation" data-cites="casella2002statistical"></span>;</p></li>
+<li><p><span class="math inline">\(P(B_i|A)\)</span> —
+<strong>aposterior ehtimal</strong>: <span
+class="math inline">\(A\)</span>-nı müşahidə etdikdən sonra yenilənmiş
+inanc <span class="citation"
+data-cites="lehmann1998theory"></span>.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 8</strong> (Kriptoqrafiyada Bayes teoremi). <em>Tutaq
+ki, əlimizdə iki fərqli şifrələmə cihazı var. <span
+class="math inline">\(B_1\)</span> cihazı müasir
+<strong>AES-256</strong> standartından, <span
+class="math inline">\(B_2\)</span> isə artıq köhnəlmiş və zəifliyi məlum
+olan bir metoddan istifadə edir. Aprior olaraq hansı cihazın hansı
+olduğunu bilmirik: <span class="math inline">\(P(B_1) = P(B_2) =
+0.5\)</span>.</em></p>
+<p><em>Məlumdur ki:</em></p>
+<ul>
+<li><p><em>Güclü şifrə (<span class="math inline">\(B_1\)</span>) üçün
+hücumun uğur ehtimalı (məsələn, kənar kanal hücumu ilə): <span
+class="math inline">\(P(A|B_1) = 2^{-40} \approx
+0\)</span></em></p></li>
+<li><p><em>Zəif şifrə (<span class="math inline">\(B_2\)</span>) üçün
+hücumun uğur ehtimalı: <span class="math inline">\(P(A|B_2) =
+0.8\)</span> (çox yüksək)</em></p></li>
+</ul>
+<p><em>Bir hücum sınağı keçirilir və hücum <strong>uğurlu olur</strong>
+(<span class="math inline">\(A\)</span>). Bu məlumatdan sonra cihazın
+AES-256 (güclü) olma ehtimalını tapın.</em></p>
+<p><em><strong>Həll:</strong> Tam ehtimal (<span
+class="math inline">\(P(A|B_1) \approx 0\)</span> qəbul etsək): <span
+class="math display">\[P(A) = P(A|B_1)P(B_1) + P(A|B_2)P(B_2) = 0 \cdot
+0.5 + 0.8 \cdot 0.5 = 0.4\]</span></em></p>
+<p><em>Bayes düsturu: <span class="math display">\[P(B_1|A) =
+\frac{P(A|B_1)P(B_1)}{P(A)} = \frac{0 \cdot 0.5}{0.4} =
+0\]</span></em></p>
+<p><em><strong>Nəticə:</strong> Hücumun uğurlu olması faktı bizə aprior
+inancımızı tamamilə dəyişməyə əsas verir. Əgər hücum uğurludursa, bu
+cihazın AES (güclü) olma ehtimalı praktik olaraq sıfıra düşür.</em></p>
+</div>
+<h2 id="kriptoqrafiyada-şərti-ehtimal-tətbiqləri">Kriptoqrafiyada şərti
+ehtimal tətbiqləri</h2>
+<p><strong>1. Mükəmməl məxfilik:</strong> Şannonun mükəmməl məxfilik
+tərifi <span class="citation"
+data-cites="shannon1949communication"></span>: <span
+class="math display">\[P(M = m|C = c) = P(M = m), \quad \forall m,
+c\]</span> Yəni, şifrəli mətni görən hücumçu orijinal mesaj haqqında heç
+bir yeni məlumat əldə etmir.</p>
+<p><strong>2. Açarın a posteriori ehtimalı:</strong> Müəyyən şifrəli
+mətn müşahidə edildikdən sonra müxtəlif açarların ehtimalı <span
+class="citation" data-cites="katz2020introduction"></span>: <span
+class="math display">\[P(K = k|C = c) = \frac{P(C = c|K = k)P(K =
+k)}{\sum_{k&#39;} P(C = c|K = k&#39;)P(K = k&#39;)}\]</span></p>
+<p><strong>3. Kriptoanalizdə Bayes üsulları:</strong> Bayes teoremi
+kriptoanalizdə müxtəlif hipotezlərin ehtimallarını yeniləmək üçün
+istifadə olunur <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<h1 id="ad-günü-paradoksu">Ad günü paradoksu</h1>
+<h2 id="problemin-qoyuluşu">Problemin qoyuluşu</h2>
+<p>Ad günü paradoksu ehtimal nəzəriyyəsinin tətbiqinin ən məşhur
+nümunələrindən biridir <span class="citation"
+data-cites="feller1968introduction"></span>. Sual belədir:</p>
+<blockquote>
+<p><em>Bir otaqda <span class="math inline">\(n\)</span> nəfər varsa, ən
+azı iki nəfərin ad gününün eyni olma ehtimalı nədir?</em></p>
+</blockquote>
+<p>İntuitiv olaraq çoxları bu ehtimalın kiçik olduğunu düşünür, amma
+əslində nisbətən kiçik <span class="math inline">\(n\)</span> üçün belə
+bu ehtimal olduqca böyükdür <span class="citation"
+data-cites="mckinney1966birthday"></span>. Buna görə də buna "paradoks"
+deyilir.</p>
+<p><strong>Paradoksun mahiyyəti:</strong></p>
+<ul>
+<li><p>23 nəfər üçün ehtimal &gt; 0.5 <span class="citation"
+data-cites="dasgupta2005birthday"></span></p></li>
+<li><p>57 nəfər üçün ehtimal &gt; 0.99 <span class="citation"
+data-cites="flajolet1995birthday"></span></p></li>
+<li><p>70 nəfər üçün ehtimal &gt; 0.999</p></li>
+</ul>
+<p>Yəni, cəmi 23 nəfər toplaşdıqda, ona onların ən azı ikisinin ad
+gününün eyni olması ehtimal 0.5-dən çoxdur. Bu, insanın ilk baxışda
+gözləmədiyi bir nəticədir.</p>
+<h1 id="ad-günü-paradoksu-və-toqquşmalar">Ad günü paradoksu və
+Toqquşmalar</h1>
+<p>Ad günü paradoksu kriptoqrafiyada heş funksiyalarının təhlükəsizlik
+həddini müəyyən edən fundamental anlayışdır. Paradoksun mahiyyəti ondan
+ibarətdir ki, toqquşma ehtimalı bizim intuitiv təsəvvür etdiyimizdən çox
+daha sürətlə artır.</p>
+<h2 id="riyazi-çıxarış">Riyazi çıxarış</h2>
+<p>Ad günü paradoksunun ehtimalını hesablamaq üçün əks hadisəyə — bütün
+ad günlərinin fərqli olma ehtimalına baxaq <span class="citation"
+data-cites="ross2014introduction"></span>. Fərz edək ki, ilin <span
+class="math inline">\(N = 365\)</span> günü var və ad günləri müstəqil,
+bircins (uniform) paylanıb.</p>
+<p><span class="math inline">\(n\)</span> nəfərlik qrupda hər kəsin ad
+gününün fərqli olması ehtimalı (<span
+class="math inline">\(P_{\text{fərqli}}\)</span>) aşağıdakı kimi
+hesablanır: <span class="math display">\[\begin{align}
+P_{\text{fərqli}} &amp;= 1 \cdot \left(1 - \frac{1}{N}\right) \cdot
+\left(1 - \frac{2}{N}\right) \dots \left(1 - \frac{n-1}{N}\right) \\
+&amp;= \prod_{i=0}^{n-1} \left(1 - \frac{i}{N}\right) = \frac{N!}{
+(N-n)! \cdot N^n }
+\end{align}\]</span></p>
+<p>Onda, ən azı bir toqquşmanın (iki nəfərin ad gününün eyni olması) baş
+vermə ehtimalı: <span class="math display">\[\begin{equation}
+P_{\text{toqquşma}} = 1 - P_{\text{fərqli}}
+\end{equation}\]</span></p>
+<h2 id="aproksimasiya-və-kriptoqrafik-əhəmiyyət">Aproksimasiya və
+Kriptoqrafik Əhəmiyyət</h2>
+<p>Böyük <span class="math inline">\(N\)</span> qiymətləri üçün
+(məsələn, heş funksiyalarında <span class="math inline">\(N =
+2^{160}\)</span> və ya <span class="math inline">\(2^{256}\)</span>)
+faktorialları hesablamaq qeyri-mümkündür. Bu zaman Taylor ayrılışından
+gələn <span class="math inline">\(e^{-x} \approx 1 - x\)</span> (kiçik
+<span class="math inline">\(x\)</span> üçün) yaxınlaşmasından istifadə
+edirik <span class="citation"
+data-cites="dasgupta2005birthday"></span>:</p>
+<p><span class="math display">\[\begin{equation}
+P_{\text{fərqli}} \approx \prod_{i=0}^{n-1} e^{-i/N} =
+e^{-\frac{n(n-1)}{2N}} \approx e^{-n^2/2N}
+\end{equation}\]</span></p>
+<p>Beləliklə, toqquşma ehtimalı üçün <strong>aproksimasiya
+düsturu</strong>: <span class="math display">\[\begin{equation}
+P_{\text{toqquşma}} \approx 1 - e^{-n^2/2N}
+\end{equation}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 9</strong> (Ehtimalın sürətli artımı). <em>İlin
+günlərinin sayı <span class="math inline">\(N=365\)</span>
+olduqda:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(n=23\)</span> üçün: <span
+class="math inline">\(P \approx 1 - e^{-23^2/730} \approx 0.507\)</span>
+(<span class="math inline">\(50\%\)</span>-dən çox!)</em></p></li>
+<li><p><em><span class="math inline">\(n=50\)</span> üçün: <span
+class="math inline">\(P \approx 1 - e^{-50^2/730} \approx
+0.970\)</span></em></p></li>
+<li><p><em><span class="math inline">\(n=100\)</span> üçün: <span
+class="math inline">\(P \approx 1 - e^{-10000/730} \approx
+0.999999\)</span></em></p></li>
+</ul>
+</div>
+<div class="tcolorbox">
+<p>Əgər bir heş funksiyasının çıxış fəzası <span
+class="math inline">\(N\)</span> ölçüsündədirsə, toqquşma tapmaq üçün
+təxminən <span class="math inline">\(n \approx \sqrt{N}\)</span> sayda
+sınaq kifayətdir. Məsələn, 128-bitlik bir heş funksiyasında toqquşma
+tapmaq üçün <span class="math inline">\(2^{128}\)</span> deyil, cəmi
+<span class="math inline">\(2^{64}\)</span> əməliyyat lazımdır. Bu,
+<strong>Ad günü hücumu (Birthday Attack)</strong> adlanır.</p>
+</div>
+<h2 id="tələb-olunan-sayın-təyini">Tələb olunan sayın təyini</h2>
+<p>Verilmiş ehtimal <span class="math inline">\(p\)</span> üçün tələb
+olunan <span class="math inline">\(n\)</span>-i tapmaq üçün düsturdan
+<span class="math inline">\(n\)</span>-i ifadə edək <span
+class="citation" data-cites="flajolet1995birthday"></span>: <span
+class="math display">\[p = 1 - e^{-n^2/(2N)} \Rightarrow e^{-n^2/(2N)} =
+1-p \Rightarrow -\frac{n^2}{2N} = \ln(1-p)\]</span> <span
+class="math display">\[n^2 = -2N \ln(1-p) \Rightarrow n = \sqrt{2N
+\ln\left(\frac{1}{1-p}\right)}\]</span></p>
+<p><strong>Xüsusi hallar:</strong></p>
+<ul>
+<li><p><span class="math inline">\(p = 0.5\)</span> üçün: <span
+class="math inline">\(n \approx \sqrt{2N \ln(2)} \approx \sqrt{2N \cdot
+0.693} \approx 1.177\sqrt{N}\)</span></p></li>
+<li><p><span class="math inline">\(p = 0.99\)</span> üçün: <span
+class="math inline">\(n \approx \sqrt{2N \ln(100)} \approx \sqrt{2N
+\cdot 4.605} \approx 3.035\sqrt{N}\)</span></p></li>
+</ul>
+<p><span class="math inline">\(N = 365\)</span> üçün:</p>
+<ul>
+<li><p><span class="math inline">\(p = 0.5\)</span>: <span
+class="math inline">\(n \approx 1.177 \cdot \sqrt{365} \approx 1.177
+\cdot 19.105 \approx 22.5\)</span> (23)</p></li>
+<li><p><span class="math inline">\(p = 0.99\)</span>: <span
+class="math inline">\(n \approx 3.035 \cdot 19.105 \approx 58.0\)</span>
+(58)</p></li>
+</ul>
+<h1 id="ad-günü-hücumu-birthday-attack">Ad günü hücumu (Birthday
+Attack)</h1>
+<h2 id="əsas-prinsip">Əsas prinsip</h2>
+<p>Ad günü paradoksu kriptoqrafiyada mühüm tətbiqə malikdir - <strong>ad
+günü hücumu</strong> <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu hücum heş
+funksiyalarında toqquşma (collision) tapmaq üçün istifadə olunur.</p>
+<h1 id="heş-funksiyaları-və-ad-günü-hücumu">Heş funksiyaları və Ad günü
+hücumu</h1>
+<div class="definition">
+<p><strong>Tərif 10</strong> (Toqquşma (collision)). <em>Əgər <span
+class="math inline">\(x \neq y\)</span> olmasına baxmayaraq <span
+class="math inline">\(H(x) = H(y)\)</span> olarsa, onda heş funksiyası
+<span class="math inline">\(H\)</span> üçün <strong>toqquşma</strong>
+baş verdiyi deyilir <span class="citation"
+data-cites="katz2020introduction"></span>.</em></p>
+</div>
+<p>Tutaq ki, <span class="math inline">\(H: \{0,1\}^* \to
+\{0,1\}^m\)</span> heş funksiyasıdır. Burada <span
+class="math inline">\(\{0,1\}^*\)</span> ixtiyari uzunluqlu girişləri,
+<span class="math inline">\(m\)</span> isə çıxış bitlərinin sayını ifadə
+edir. Mümkün heş dəyərlərinin ümumi sayı <span class="math inline">\(N =
+2^m\)</span>-dir.</p>
+<p><strong>Ad günü hücumunun əsas ideyası:</strong> Təsadüfi seçilmiş
+<span class="math inline">\(q\)</span> sayda girişin heş dəyərlərini
+hesablasaq, bu heşlər arasında ən azı bir toqquşmanın yaranma ehtimalı
+<span class="math inline">\(q\)</span> artdıqca sürətlə böyüyür.
+Toqquşma ehtimalı <span class="math inline">\(q \approx \sqrt{N} =
+2^{m/2}\)</span> tərtibində olduqda artıq kritik həddə çatır <span
+class="citation" data-cites="paar2010understanding"></span>.</p>
+<p>Aproksimasiya düsturuna əsasən: <span
+class="math display">\[P_{\text{toqquşma}} \approx 1 -
+e^{-\frac{q(q-1)}{2N}}\]</span></p>
+<p>Toqquşma ehtimalının təxminən <span
+class="math inline">\(0.5\)</span> (<span
+class="math inline">\(50\%\)</span>) olması üçün tələb olunan sorğu
+sayı: <span class="math display">\[q \approx \sqrt{2N \ln 2} \approx
+1.177\sqrt{N} \approx 1.177 \cdot 2^{m/2}\]</span></p>
+<h2 id="mürəkkəblik-müqayisəsi">Mürəkkəblik müqayisəsi</h2>
+<p>Kriptoqrafik heş funksiyaları üçün iki əsas hücum növü və onların
+tələb etdiyi əməliyyat sayı (mürəkkəbliyi) fərqlidir:</p>
+<table>
+<caption>Heş funksiyalarına hücumların mürəkkəblik müqayisəsi.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hücum növü</strong></th>
+<th style="text-align: center;"><strong>Mürəkkəblik</strong></th>
+<th style="text-align: left;"><strong>Məqsəd</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>İlkin (Ön) görüntünün
+tapılması</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathcal{O}(2^m)\)</span></td>
+<td style="text-align: left;">Verilmiş konkret <span
+class="math inline">\(h\)</span> üçün <span
+class="math inline">\(H(x)=h\)</span> tapmaq</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Toqquşma axtarışı</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathcal{O}(2^{m/2})\)</span></td>
+<td style="text-align: left;">İstənilən <span class="math inline">\(x
+\neq y\)</span> üçün <span class="math inline">\(H(x)=H(y)\)</span>
+tapmaq</td>
+</tr>
+</tbody>
+</table>
+<div class="important">
+<p><strong>Nəticə:</strong> Heş funksiyalarının çıxış ölçüsü seçilərkən
+ad günü paradoksu mütləq nəzərə alınmalıdır. Məsələn, 80-bitlik
+təhlükəsizlik səviyyəsi təmin etmək üçün heş funksiyasının çıxışı ən azı
+160-bit (məsələn, SHA-1) olmalıdır. Müasir standartlarda 128-bitlik
+toqquşma müqaviməti üçün ən azı 256-bitlik (SHA-256) heş funksiyaları
+tövsiyə olunur.</p>
+</div>
+<h2 id="riyazi-əsas">Riyazi əsas</h2>
+<p><span class="math inline">\(q\)</span> sayda təsadüfi heş dəyəri
+arasında toqquşma olmama ehtimalı <span class="citation"
+data-cites="smart2016cryptography"></span>: <span
+class="math display">\[P_{\text{fərqli}} \approx
+e^{-q^2/(2N)}\]</span></p>
+<p>Onda toqquşma ehtimalı: <span
+class="math display">\[P_{\text{toqquşma}} \approx 1 -
+e^{-q^2/(2N)}\]</span></p>
+<p><span class="math inline">\(q = \sqrt{N}\)</span> üçün: <span
+class="math display">\[P \approx 1 - e^{-N/(2N)} = 1 - e^{-1/2} \approx
+0.393\]</span></p>
+<p><span class="math inline">\(q = \sqrt{2N}\)</span> üçün: <span
+class="math display">\[P \approx 1 - e^{-2N/(2N)} = 1 - e^{-1} \approx
+0.632\]</span></p>
+<p><span class="math inline">\(q = 2\sqrt{N}\)</span> üçün: <span
+class="math display">\[P \approx 1 - e^{-4N/(2N)} = 1 - e^{-2} \approx
+0.865\]</span></p>
+<table>
+<caption>Müxtəlif <span class="math inline">\(q\)</span> dəyərləri üçün
+toqquşma ehtimalı <span class="citation"
+data-cites="stinson2018cryptography"></span></caption>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(q\)</span></th>
+<th style="text-align: center;">Toqquşma ehtimalı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(2^{m/2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.393\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(\sqrt{2}
+\cdot 2^{m/2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.632\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(2 \cdot
+2^{m/2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.865\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(3 \cdot
+2^{m/2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+0.989\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nümunələr">Nümunələr</h2>
+<div class="example">
+<p><strong>Nümunə 10</strong> (MD5 heş funksiyası). <em>MD5 128-bit heş
+dəyəri verir: <span class="math inline">\(m = 128\)</span>, <span
+class="math inline">\(N = 2^{128}\)</span> <span class="citation"
+data-cites="rivest1992md5"></span>.</em></p>
+<ul>
+<li><p><em>Tam axtarış mürəkkəbliyi: <span
+class="math inline">\(2^{128}\)</span> əməliyyat (praktik
+qeyri-mümkün)</em></p></li>
+<li><p><em>Ad günü hücumu mürəkkəbliyi: <span
+class="math inline">\(2^{64}\)</span> əməliyyat (nəzəri olaraq
+mümkün)</em></p></li>
+</ul>
+<p><em>2004-cü ildə MD5 üçün praktik toqquşmalar tapıldı <span
+class="citation" data-cites="wang2005collisions"></span>. 2009-cu ildə
+saniyələr ərzində toqquşma tapmaq mümkün oldu.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 11</strong> (SHA-1 heş funksiyası). <em>SHA-1 160-bit
+heş dəyəri verir: <span class="math inline">\(m = 160\)</span>, <span
+class="math inline">\(N = 2^{160}\)</span> <span class="citation"
+data-cites="nist1995sha1"></span>.</em></p>
+<ul>
+<li><p><em>Tam axtarış mürəkkəbliyi: <span
+class="math inline">\(2^{160}\)</span> əməliyyat
+(qeyri-mümkün)</em></p></li>
+<li><p><em>Ad günü hücumu mürəkkəbliyi: <span
+class="math inline">\(2^{80}\)</span> əməliyyat</em></p></li>
+</ul>
+<p><em>2017-ci ildə SHAttered hücumu ilə praktik toqquşma tapıldı <span
+class="citation" data-cites="stevens2017shattered"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 12</strong> (SHA-256 heş funksiyası). <em>SHA-256
+256-bit heş dəyəri verir: <span class="math inline">\(m = 256\)</span>,
+<span class="math inline">\(N = 2^{256}\)</span> <span class="citation"
+data-cites="nist2015hash"></span>.</em></p>
+<ul>
+<li><p><em>Ad günü hücumu mürəkkəbliyi: <span
+class="math inline">\(2^{128}\)</span> əməliyyat</em></p></li>
+<li><p><em>Bu günün texnologiyası ilə qeyri-mümkün hesab olunur <span
+class="citation"
+data-cites="ferguson2010cryptography"></span></em></p></li>
+</ul>
+</div>
+<h2 id="praktik-tətbiqlər">Praktik tətbiqlər</h2>
+<p><strong>1. Rəqəmsal imzalar:</strong> Rəqəmsal imza sxemlərində
+adətən mesajın heşi imzalanır <span class="citation"
+data-cites="katz2020introduction"></span>. Əgər hücumçu eyni heş
+dəyərinə malik iki mesaj tapa bilsə (biri zərərsiz, digəri zərərli), o,
+zərərsiz mesajın imzasını götürüb zərərli mesaja aid edə bilər <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<p><strong>2. Sertifikat saxtalaşdırma:</strong> Hücumçu eyni heş
+dəyərinə malik iki sertifikat yarada bilər - biri həqiqi sertifikat
+orqanı tərəfindən imzalanacaq, digəri isə saxta sertifikat <span
+class="citation" data-cites="smart2016cryptography"></span>.</p>
+<p><strong>3. Parol saxlanması:</strong> Parolların heşləri saxlanılır.
+Ad günü hücumu ilə iki fərqli parolun eyni heşə malik olması tapıla
+bilər (collision) <span class="citation"
+data-cites="ferguson2010cryptography"></span>. Bu, toqquşma
+dayanıqlılığının vacibliyini göstərir.</p>
+<h2 id="m2-mürəkkəbliyi-və-təhlükəsizlik-parametrləri"><span
+class="math inline">\(2^{m/2}\)</span> mürəkkəbliyi və təhlükəsizlik
+parametrləri</h2>
+<p>Ad günü hücumu kriptoqrafik sistemlərin təhlükəsizlik parametrlərinin
+seçiminə birbaşa təsir edir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<p><strong>Təhlükəsizlik səviyyəsi:</strong> Bir alqoritmin <span
+class="math inline">\(k\)</span>-bit təhlükəsizliyinə malik olması o
+deməkdir ki, onu sındırmaq üçün təxminən <span
+class="math inline">\(2^k\)</span> sayda əməliyyat tələb olunur <span
+class="citation" data-cites="katz2020introduction"></span>.</p>
+<p>Heş funksiyaları üçün üç əsas dayanıqlılıq meyarı mövcuddur:</p>
+<ul>
+<li><p><strong>İlkin görüntüyə dayanıqlılıq (preimage
+resistance):</strong> Verilmiş heş dəyəri üçün ona uyğun girişi tapmaq
+<span class="math inline">\(2^m\)</span> mürəkkəblik tələb edir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>İkinci ilkin obraza dayanıqlılıq:</strong> Verilmiş giriş
+üçün eyni heş dəyərinə malik ikinci bir girişi tapmaq <span
+class="math inline">\(2^m\)</span> mürəkkəblik tələb edir <span
+class="citation" data-cites="smart2016cryptography"></span>.</p></li>
+<li><p><strong>Toqquşmaya dayanıqlılıq (collision resistance):</strong>
+Eyni heş dəyərinə malik ixtiyari iki girişi tapmaq <strong>ad günü
+hücumu</strong> səbəbindən <span class="math inline">\(2^{m/2}\)</span>
+mürəkkəblik tələb edir <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ul>
+<p>Buna görə də, <span class="math inline">\(m\)</span>-bitlik çıxışa
+malik bir heş funksiyası toqquşmalara qarşı maksimum <span
+class="math inline">\(m/2\)</span> bitlik təhlükəsizlik təmin edir.</p>
+<table>
+<caption>Müxtəlif heş funksiyalarının nəzəri və praktik təhlükəsizlik
+səviyyələri.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Heş funksiyası</strong></th>
+<th style="text-align: left;"><strong>Çıxış uzunluğu (<span
+class="math inline">\(m\)</span>)</strong></th>
+<th style="text-align: left;"><strong>Toqquşma təhlükəsizliyi (<span
+class="math inline">\(m/2\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MD5</td>
+<td style="text-align: left;">128-bit</td>
+<td style="text-align: left;">64-bit (sındırılıb <span class="citation"
+data-cites="wang2005collisions"></span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-1</td>
+<td style="text-align: left;">160-bit</td>
+<td style="text-align: left;">80-bit (sındırılıb <span class="citation"
+data-cites="stevens2017shattered"></span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-256</td>
+<td style="text-align: left;">256-bit</td>
+<td style="text-align: left;">128-bit (təhlükəsiz) <span
+class="citation" data-cites="nist2015hash"></span></td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-512</td>
+<td style="text-align: left;">512-bit</td>
+<td style="text-align: left;">256-bit (təhlükəsiz) <span
+class="citation" data-cites="nist2015hash"></span></td>
+</tr>
+</tbody>
+</table>
+<h1 id="kriptoqrafiyada-əlavə-tətbiqlər">Kriptoqrafiyada əlavə
+tətbiqlər</h1>
+<h2 id="parolların-saxlanması-və-təhlükəsizlik">Parolların saxlanması və
+Təhlükəsizlik</h2>
+<p>Parollar verilənlər bazasında heç vaxt açıq şəkildə
+saxlanılmamalıdır. Bunun əvəzinə heş funksiyalarından istifadə olunur
+<span class="citation" data-cites="ferguson2010cryptography"></span>.
+Sistem istifadəçi parolunu (<span class="math inline">\(P\)</span>)
+deyil, onun heş dəyərini (<span class="math inline">\(H(P)\)</span>)
+saxlayır.</p>
+<p><strong>Autentikasiya prosesi:</strong></p>
+<ol>
+<li><p>İstifadəçi parol daxil edir.</p></li>
+<li><p>Sistem daxil edilən parolun heşini hesablayır.</p></li>
+<li><p>Alınan nəticə verilənlər bazasındakı heşlə müqayisə
+edilir.</p></li>
+</ol>
+<p><strong>Ad günü hücumunun yaratdığı risklər:</strong> Ad günü hücumu
+nəticəsində toqquşmanın (<span class="math inline">\(x \neq y, H(x) =
+H(y)\)</span>) tapılması o deməkdir ki, hücumçu istifadəçinin əsl
+parolunu bilmədən, eyni heş dəyərini verən başqa bir simvollar
+ardıcıllığı ilə sistemə daxil ola bilər. Bu, "yalançı müsbət" (<em>false
+positive</em>) autentikasiyaya yol açır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<h3 id="duzlama-salting-texnikası">Duzlama (Salting) Texnikası</h3>
+<p>Ad günü hücumlarından və "Göyqurşağı cədvəlləri" (Rainbow tables)
+kimi əvvəlcədən hesablanmış hücumlardan qorunmaq üçün <strong>"salt"
+(duz)</strong> texnikasından istifadə edilir <span class="citation"
+data-cites="katz2020introduction"></span>:</p>
+<p><span class="math display">\[\begin{equation}
+\text{Saxlanılan dəyər} = H(P \parallel \text{salt})
+\end{equation}\]</span></p>
+<p><strong>Niyə "salt" lazımdır?</strong></p>
+<ul>
+<li><p><strong>Toqquşmaları çətinləşdirir:</strong> İki istifadəçi eyni
+parolu seçsə belə, onların duz dəyərləri fərqli olduğu üçün heşləri də
+fərqli olur.</p></li>
+<li><p><strong>Lüğət hücumlarının qarşısını alır:</strong> Hücumçu hər
+bir istifadəçi üçün ehtimalları fərdi şəkildə yenidən hesablamalı olur,
+bu da kütləvi hücumların mürəkkəbliyini artırır.</p></li>
+</ul>
+<h2 id="blokçeyn-və-kriptovalyutalar">Blokçeyn və kriptovalyutalar</h2>
+<p>Bitcoin və digər kriptovalyutalar ad günü paradoksuna əsaslanan mühüm
+xüsusiyyətə malikdir <span class="citation"
+data-cites="nakamoto2008bitcoin"></span>:</p>
+<ul>
+<li><p>Bitcoin-də "mədənçilik" (mining) prosesi, heş dəyəri müəyyən
+həddən kiçik olan bir blok tapmaqdan ibarətdir <span class="citation"
+data-cites="antonopoulos2017mastering"></span></p></li>
+<li><p>Bu, <span class="math inline">\(2^{m/2}\)</span> yox, <span
+class="math inline">\(2^m\)</span> mürəkkəblik tələb edir (çünki xüsusi
+bir dəyər axtarılır)</p></li>
+<li><p>Lakin, eyni heş dəyərinə malik iki fərqli blok tapmaq (toqquşma)
+blokçeyn təhlükəsizliyini poza bilər <span class="citation"
+data-cites="antonopoulos2017mastering"></span></p></li>
+</ul>
+<h2 id="zəif-açarların-yaranması-ehtimalı">Zəif açarların yaranması
+ehtimalı</h2>
+<p>Tutaq ki, <span class="math inline">\(n\)</span> istifadəçi təsadüfi
+açar seçir. Ən azı iki istifadəçinin eyni açarı seçmə ehtimalı ad günü
+paradoksu ilə hesablanır <span class="citation"
+data-cites="paar2010understanding"></span>: <span
+class="math display">\[P \approx 1 - e^{-n^2/(2 \cdot 2^m)}\]</span></p>
+<p><span class="math inline">\(n = 2^{m/2}\)</span> olduqda bu ehtimal
+təxminən 0.39-dur. Bu səbəbdən, <span class="math inline">\(m\)</span>
+bitlik açarlar üçün istifadəçi sayı <span
+class="math inline">\(2^{m/2}\)</span>-dən çox olmamalıdır <span
+class="citation" data-cites="ferguson2010cryptography"></span>.
+Praktikada <span class="math inline">\(m\)</span> elə seçilməlidir ki,
+konkret tətbiq üçün <span class="math inline">\(P\)</span> kifayət qədər
+kiçik olsun.</p>
+<h1 id="nümunə-məsələlər">Nümunə məsələlər</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>Bir qabda 5 qırmızı, 3 mavi və 2
+yaşıl top var. Təsadüfi bir top seçilir. Topun rənginin paylanmasını
+yazın <span class="citation"
+data-cites="bertsekas2008introduction"></span>.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>Bir sikkə 8 dəfə atılır. 5 dəfə
+yazı gəlmə ehtimalını tapın. Sikkə qərəzsizdir <span class="citation"
+data-cites="feller1968introduction"></span>.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>Bir serverə dəqiqədə ortalama 3
+sorğu gəlir. Bir dəqiqədə 5 sorğu gəlmə ehtimalını Puasson paylanması
+ilə hesablayın <span class="citation"
+data-cites="haight1967handbook"></span>.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>Bir şifrələmə sistemində
+açarların 60%-i təhlükəsiz, 40%-i isə zəifdir. Təhlükəsiz açarlarla
+şifrələnmiş mesajların 1%-i, zəif açarlarla şifrələnmiş mesajların isə
+10%-i sındırıla bilir. Bir mesaj sındırıldısa, onun təhlükəsiz açarla
+şifrələnmə ehtimalı nədir? <span class="citation"
+data-cites="stinson2018cryptography"></span></em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>30 nəfərlik qrupda ən azı iki
+nəfərin ad gününün eyni olma ehtimalını hesablayın <span
+class="citation" data-cites="mckinney1966birthday"></span>.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>160-bitlik heş funksiyasında 0.5
+ehtimalla toqquşma tapmaq üçün neçə heş dəyəri hesablamaq lazımdır?
+<span class="citation"
+data-cites="stinson2018cryptography"></span></em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>Bitcoin şəbəkəsində heş
+funksiyası SHA-256-dır. 1 milyard (<span
+class="math inline">\(10^9\)</span>) istifadəçi varsa, ən azı iki
+istifadəçinin eyni açarı seçmə ehtimalını hesablayın (açar uzunluğu
+256-bit) <span class="citation"
+data-cites="antonopoulos2017mastering"></span>.</em></p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların həlli</h1>
+<ul>
+<li><p><span class="math inline">\(P(qırmızı) = 5/10 = 0.5\)</span>,
+<span class="math inline">\(P(mavi) = 3/10 = 0.3\)</span>, <span
+class="math inline">\(P(yaşıl) = 2/10 = 0.2\)</span></p></li>
+<li><p><span class="math inline">\(P(X=5) = \binom{8}{5} (0.5)^5 (0.5)^3
+= \binom{8}{5} (0.5)^8 = 56 \cdot \frac{1}{256} =
+0.21875\)</span></p></li>
+<li><p><span class="math inline">\(P(X=5) = \frac{e^{-3} \cdot 3^5}{5!}
+= \frac{e^{-3} \cdot 243}{120} \approx \frac{0.0498 \cdot 243}{120}
+\approx 0.1008\)</span></p></li>
+<li><p><span class="math inline">\(P(A|B_1) = 0.01\)</span>, <span
+class="math inline">\(P(A|B_2) = 0.1\)</span>, <span
+class="math inline">\(P(B_1)=0.6\)</span>, <span
+class="math inline">\(P(B_2)=0.4\)</span> <span
+class="math display">\[P(A) = 0.01 \cdot 0.6 + 0.1 \cdot 0.4 = 0.006 +
+0.04 = 0.046\]</span> <span class="math display">\[P(B_1|A) = \frac{0.01
+\cdot 0.6}{0.046} = \frac{0.006}{0.046} \approx 0.1304\]</span></p></li>
+<li><p><span class="math inline">\(P \approx 1 - e^{-30^2/(2 \cdot 365)}
+= 1 - e^{-900/730} \approx 1 - e^{-1.233} \approx 1 - 0.291 =
+0.709\)</span></p></li>
+<li><p><span class="math inline">\(m = 160\)</span>, <span
+class="math inline">\(N = 2^{160}\)</span>, <span
+class="math inline">\(p = 0.5\)</span> üçün <span
+class="math inline">\(q = \sqrt{2N \ln(2)} \approx 1.177 \cdot 2^{80}
+\approx 1.177 \cdot 1.21 \times 10^{24} \approx 1.42 \times
+10^{24}\)</span></p></li>
+<li><p><span class="math inline">\(n = 10^9\)</span>, <span
+class="math inline">\(m = 256\)</span>, <span class="math inline">\(N =
+2^{256} \approx 1.16 \times 10^{77}\)</span> <span
+class="math display">\[P \approx 1 - e^{-n^2/(2N)} \approx 1 -
+e^{-(10^9)^2/(2 \cdot 1.16 \times 10^{77})} \approx 1 -
+e^{-10^{18}/(2.32 \times 10^{77})} \approx 1 - e^{-4.31 \times 10^{-60}}
+\approx 4.31 \times 10^{-60}\]</span> Bu ehtimal praktik olaraq
+sıfırdır.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə aşağıdakı əsas anlayışları öyrəndik:</p>
+<ul>
+<li><p><strong>Diskret ehtimal paylanmaları:</strong></p>
+<ul>
+<li><p>Bircins paylanma: bütün qiymətlər bərabər ehtimallı <span
+class="citation" data-cites="feller1968introduction"></span></p></li>
+<li><p>Binomial paylanma: müstəqil sınaqlarda uğur sayı <span
+class="citation" data-cites="bernoulli1713ars"></span></p></li>
+<li><p>Puasson paylanması: nadir hadisələrin sayı <span class="citation"
+data-cites="poisson1837recherches"></span></p></li>
+</ul></li>
+<li><p><strong>Şərti ehtimal və Bayes teoremi:</strong> Yeni məlumat
+əsasında ehtimalların yenilənməsi <span class="citation"
+data-cites="bayes1763essay"></span></p></li>
+<li><p><strong>Ad günü paradoksu:</strong> Nisbətən kiçik qruplarda belə
+toqquşma ehtimalının böyük olması <span class="citation"
+data-cites="mckinney1966birthday"></span></p></li>
+<li><p><strong>Ad günü hücumu:</strong> Heş funksiyalarında toqquşma
+tapmaq üçün effektiv üsul (<span class="math inline">\(2^{m/2}\)</span>
+mürəkkəblik) <span class="citation"
+data-cites="stinson2018cryptography"></span></p></li>
+<li><p><strong>Kriptoqrafik tətbiqlər:</strong> Heş funksiyalarının
+təhlükəsizlik parametrləri, parol saxlanması, rəqəmsal imzalar <span
+class="citation" data-cites="katz2020introduction"></span></p></li>
+</ul>
+<p><strong>Əsas nəticə:</strong> Ad günü paradoksu kriptoqrafiyada heş
+funksiyalarının təhlükəsizlik parametrlərinin seçiminə birbaşa təsir
+edir <span class="citation" data-cites="paar2010understanding"></span>.
+Toqquşma dayanıqlılığı üçün <span class="math inline">\(m\)</span>
+bitlik heş funksiyası cəmi <span class="math inline">\(m/2\)</span> bit
+təhlükəsizlik təmin edir. Buna görə də müasir kriptoqrafiyada 256-bit və
+ya daha böyük heş funksiyaları (SHA-256, SHA-3) istifadə olunur <span
+class="citation" data-cites="nist2015hash nist2015sha3"></span>.</p>
+<div class="tcolorbox">
+<p>Bu mühazirədə biz ehtimal nəzəriyyəsinin təməl prinsiplərini və
+onların heş funksiyalarına tətbiqini öyrəndik. Növbəti dərsdə isə bu
+fundament üzərində daha dərin anlayışları araşdıracağıq:</p>
+<ul>
+<li><p><strong>İnformasiya Entropiyası:</strong> Məlumatın
+qeyri-müəyyənliyini riyazi olaraq necə ölçmək olar?</p></li>
+<li><p><strong>Şannon Teoremi:</strong> Bir şifrənin sındırılmasının
+riyazi olaraq qeyri-mümkün olması üçün hansı şərtlər
+ödənməlidir?</p></li>
+<li><p><strong>Mükəmməl Məxfilik (Perfect Secrecy):</strong> Niyə
+"One-Time Pad" (bir-dəfəlik bloknot) mütləq şəkildə sındırılmaz hesab
+olunur?</p></li>
+</ul>
+</div>
+<h1 id="əlavə-oxu-üçün-materiallar">Əlavə oxu üçün materiallar</h1>
+<ol>
+<li><p>Feller, W. (1968). "An Introduction to Probability Theory and Its
+Applications", Volume 1. - Ehtimal nəzəriyyəsinin klassik dərsliyi <span
+class="citation" data-cites="feller1968introduction"></span></p></li>
+<li><p>Ross, S. (2014). "Introduction to Probability Models" - Müasir
+yanaşma ilə ehtimal modelləri <span class="citation"
+data-cites="ross2014introduction"></span></p></li>
+<li><p>Stinson, D. (2018). "Cryptography: Theory and Practice" -
+Kriptoqrafiyada ehtimal tətbiqləri <span class="citation"
+data-cites="stinson2018cryptography"></span></p></li>
+<li><p>Paar, C. &amp; Pelzl, J. (2010). "Understanding Cryptography" -
+Ad günü hücumunun praktik izahı <span class="citation"
+data-cites="paar2010understanding"></span></p></li>
+<li><p>Katz, J. &amp; Lindell, Y. (2020). "Introduction to Modern
+Cryptography" - Müasir kriptoqrafiyada ehtimalın rolu <span
+class="citation" data-cites="katz2020introduction"></span></p></li>
+<li><p>Boneh, D. Stanford CS255 dərsləri: <a
+href="https://crypto.stanford.edu/~dabo/cs255/"
+class="uri">https://crypto.stanford.edu/~dabo/cs255/</a> <span
+class="citation" data-cites="stanford2019cs255"></span></p></li>
+</ol>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Entropiyanın tərifi üçün növbəti mühazirəyə bax<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (36)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Feller, 1968</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Introduction to Probability Theory and Its Applications</h6>
+                    <p class="small text-secondary mb-0">William Feller (1968)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Ross, 2014</span>
+                        <small class="text-muted">Academic Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Probability Models</h6>
+                    <p class="small text-secondary mb-0">Sheldon M. Ross (2014)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Grimmett &amp; Stirzaker, 2001</span>
+                        <small class="text-muted">Oxford University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Probability and Random Processes</h6>
+                    <p class="small text-secondary mb-0">Geoffrey Grimmett and David Stirzaker (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Bertsekas &amp; Tsitsiklis, 2008</span>
+                        <small class="text-muted">Athena Scientific</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Probability</h6>
+                    <p class="small text-secondary mb-0">Dimitri P. Bertsekas and John N. Tsitsiklis (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Bayes, 1763</span>
+                        <small class="text-muted">Philosophical Transactions of the Royal Society of London</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Essay towards solving a Problem in the Doctrine of Chances</h6>
+                    <p class="small text-secondary mb-0">Thomas Bayes (1763)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Box &amp; Tiao, 1973</span>
+                        <small class="text-muted">Addison-Wesley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Bayesian Inference in Statistical Analysis</h6>
+                    <p class="small text-secondary mb-0">George E. P. Box and George C. Tiao (1973)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] McKinney, 1966</span>
+                        <small class="text-muted">The American Mathematical Monthly</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Generalized Birthday Problem</h6>
+                    <p class="small text-secondary mb-0">E. H. McKinney (1966)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Dasgupta et al., 2005</span>
+                        <small class="text-muted">McGraw-Hill</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Algorithms</h6>
+                    <p class="small text-secondary mb-0">Sanjoy Dasgupta and Christos H. Papadimitriou and Umesh V. Vazirani (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Smart, 2016</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Made Simple</h6>
+                    <p class="small text-secondary mb-0">Nigel P. Smart (2016)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[14] Shannon, 1949</span>
+                        <small class="text-muted">Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Communication Theory of Secrecy Systems</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1949)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[15] Shannon, 1948</span>
+                        <small class="text-muted">The Bell System Technical Journal</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Mathematical Theory of Communication</h6>
+                    <p class="small text-secondary mb-0">Claude E. Shannon (1948)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[16] Knuth, 1997</span>
+                        <small class="text-muted">Addison-Wesley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Art of Computer Programming</h6>
+                    <p class="small text-secondary mb-0">Donald E. Knuth (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[17] Casella &amp; Berger, 2002</span>
+                        <small class="text-muted">Duxbury Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Statistical Inference</h6>
+                    <p class="small text-secondary mb-0">George Casella and Roger L. Berger (2002)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[18] Bernoulli, 1713</span>
+                        <small class="text-muted">Thurnisius</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Ars Conjectandi</h6>
+                    <p class="small text-secondary mb-0">Jacob Bernoulli (1713)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[19] Poisson, 1837</span>
+                        <small class="text-muted">Bachelier</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Recherches sur la probabilité des jugements en matière criminelle et en matière civile</h6>
+                    <p class="small text-secondary mb-0">Siméon Denis Poisson (1837)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[20] Haight, 1967</span>
+                        <small class="text-muted">John Wiley &amp; Sons</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of the Poisson Distribution</h6>
+                    <p class="small text-secondary mb-0">Frank A. Haight (1967)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[21] Cameron &amp; Trivedi, 2013</span>
+                        <small class="text-muted">Cambridge University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Regression Analysis of Count Data</h6>
+                    <p class="small text-secondary mb-0">A. Colin Cameron and Pravin K. Trivedi (2013)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[22] Kingman, 1993</span>
+                        <small class="text-muted">Oxford University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Poisson Processes</h6>
+                    <p class="small text-secondary mb-0">J. F. C. Kingman (1993)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[23] Arratia et al., 1991</span>
+                        <small class="text-muted">Statistical Science</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Poisson approximation and the Chen-Stein method</h6>
+                    <p class="small text-secondary mb-0">Richard Arratia and Larry Goldstein and Louis Gordon (1991)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[24] Laplace, 1812</span>
+                        <small class="text-muted">Courcier</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Théorie analytique des probabilités</h6>
+                    <p class="small text-secondary mb-0">Pierre-Simon Laplace (1812)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[25] Gelman et al., 2013</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Bayesian Data Analysis</h6>
+                    <p class="small text-secondary mb-0">Andrew Gelman and John B. Carlin and Hal S. Stern and David B. Dunson and Aki Vehtari and Donald B. Rubin (2013)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[26] Lehmann &amp; Casella, 1998</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Theory of Point Estimation</h6>
+                    <p class="small text-secondary mb-0">E. L. Lehmann and George Casella (1998)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[27] Flajolet et al., 1995</span>
+                        <small class="text-muted">Random Structures &amp; Algorithms</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Birthday paradox for register allocations</h6>
+                    <p class="small text-secondary mb-0">Philippe Flajolet and Danièle Gardy and Loÿs Thimonier (1995)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[28] Rivest, 1992</span>
+                        <small class="text-muted">RFC 1321</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The MD5 Message-Digest Algorithm</h6>
+                    <p class="small text-secondary mb-0">Ronald L. Rivest (1992)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[29] Wang &amp; Yu, 2005</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT 2005</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">How to Break MD5 and Other Hash Functions</h6>
+                    <p class="small text-secondary mb-0">Xiaoyun Wang and Hongbo Yu (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[30] NIST, 1995</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secure Hash Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (1995)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[31] Stevens et al., 2017</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO 2017</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The First Collision for Full SHA-1</h6>
+                    <p class="small text-secondary mb-0">Marc Stevens and Elie Bursztein and Pierre Karpman and Ange Albertini and Yarik Markov (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[32] NIST, 2015</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secure Hash Standard (SHS)</h6>
+                    <p class="small text-secondary mb-0">NIST (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[33] Nakamoto, 2008</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Bitcoin: A Peer-to-Peer Electronic Cash System</h6>
+                    <p class="small text-secondary mb-0">Satoshi Nakamoto (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[34] Antonopoulos, 2017</span>
+                        <small class="text-muted">O&#x27;Reilly Media</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Mastering Bitcoin: Programming the Open Blockchain</h6>
+                    <p class="small text-secondary mb-0">Andreas M. Antonopoulos (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[35] NIST, 2015</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions</h6>
+                    <p class="small text-secondary mb-0">NIST (2015)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[36] Boneh, 2019</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Stanford CS255: Cryptography - Lecture 4: Collision Resistance and Birthday Attacks</h6>
+                    <p class="small text-secondary mb-0">Dan Boneh (2019)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

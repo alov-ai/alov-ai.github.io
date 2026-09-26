@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 10: AES (Advanced Encryption Standard)</strong></p>
+<p>Ətraflı mühazirə qeydləri</p>
+<p>Həftə 10: Müasir Blok Şifrələrin Zirvəsi</p></div>
+<h1 id="giriş-aes-ə-keçid">Giriş: AES-ə Keçid</h1>
+<p>Əvvəlki mühazirələrimizdə DES və 3DES alqoritmlərini təhlil etdik.
+DES-in 56-bitlik açar uzunluğunun tam axtarış hücumlarına qarşı zəifliyi
+və 3DES-in proqram təminatında yavaş işləməsi, həmçinin 64-bitlik blok
+ölçüsünün yaratdığı məhdudiyyətlər yeni bir standartın yaradılmasını
+zəruri etdi <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+<p>1997-ci ildə ABŞ Milli Standartlar və Texnologiya İnstitutu (NIST)
+gələcəyin təhlükəsizlik ehtiyaclarını qarşılayacaq yeni bir şifrələmə
+standartı üçün (AES) beynəlxalq müsabiqə elan etdi <span
+class="citation" data-cites="nechvatal2000report"></span>.</p>
+<div class="history">
+<p><span>AES-in Seçim Prosesi</span> Müsabiqəyə 12 müxtəlif ölkədən 15
+namizəd alqoritm təqdim edilmişdi. 1999-cu ildə elan edilən 5 finalçı
+(MARS, RC6, Rijndael, Serpent, Twofish) arasından belçikalı
+kriptoqraflar Joan Daemen və Vincent Rijmen tərəfindən hazırlanmış
+<strong>Rijndael</strong> alqoritmi qalib seçildi <span class="citation"
+data-cites="daemen2002design"></span>. Seçim zamanı aşağıdakı meyarlar
+əsas götürülmüşdür:</p>
+<ul>
+<li><p><strong>Yüksək təhlükəsizlik:</strong> Məlum olan bütün
+kriptoanalitik hücumlara dözümlülük.</p></li>
+<li><p><strong>Effektivlik:</strong> Həm aparat (hardware), həm də
+proqram (software) səviyyəsində yüksək sürət.</p></li>
+<li><p><strong>Çeviklik:</strong> Müxtəlif cihazlarda (smart-kartlardan
+superkompüterlərə qədər) işləmə qabiliyyəti.</p></li>
+</ul>
+</div>
+<div class="keyconcept">
+<p><span>AES-in Texniki Parametrləri</span> AES simmetrik blok şifrədir.
+Rijndael alqoritminin orijinal versiyası fərqli blok ölçülərini
+dəstəkləsə də, AES standartı yalnız 128-bitlik sabit blok ölçüsünü qəbul
+etmişdir. Açarların uzunluğundan asılı olaraq raundların sayı dəyişir
+<span class="citation"
+data-cites="nist2001aes paar2010understanding"></span>:</p>
+</div>
+<table>
+<caption>AES Variantları və Parametrləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Açar Uzunluğu (<span
+class="math inline">\(k\)</span>)</strong></th>
+<th style="text-align: center;"><strong>Blok Ölçüsü (<span
+class="math inline">\(n\)</span>)</strong></th>
+<th style="text-align: center;"><strong>Raund Sayı (<span
+class="math inline">\(N_r\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">AES-128</td>
+<td style="text-align: center;">128 bit (4 word)</td>
+<td style="text-align: center;">128 bit</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-192</td>
+<td style="text-align: center;">192 bit (6 word)</td>
+<td style="text-align: center;">128 bit</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-256</td>
+<td style="text-align: center;">256 bit (8 word)</td>
+<td style="text-align: center;">128 bit</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><span>DES-dən Fərqi</span> DES-dən fərqli olaraq, AES Feystel
+şəbəkəsi strukturundan istifadə etmir. O, hər raundda blokun bütün
+bitlərini paralel şəkildə dəyişdirən <strong>Əvəzetmə-Permutasiya
+Şəbəkəsi - Substitution-Permutation Network (SPN)</strong> strukturuna
+əsaslanır.</p>
+</div>
+<h1 id="aes-in-ümumi-quruluşu">AES-in Ümumi Quruluşu</h1>
+<p>AES alqoritmi **Substitution-Permutation Network (SPN)** dizaynına
+əsaslanır. DES-də istifadə olunan Feystel şəbəkəsindən fərqli olaraq,
+AES-də hər raundda məlumatın yalnız yarısı deyil, bütün blok (128 bit)
+emal edilir. Bu, alqoritmin paralel emal qabiliyyətini və kriptoqrafik
+yayılma sürətini artırır <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="hal-state-matrisi">Hal (State) Matrisi</h2>
+<p>AES daxilində bütün əməliyyatlar 128-bitlik məlumatın 4<span
+class="math inline">\(\times\)</span>4 baytlıq bir matris şəklində
+təşkil olunmuş forması üzərində aparılır. Bu matris <strong>hal
+(state)</strong> adlanır <span class="citation"
+data-cites="nist2001aes"></span>. 16 baytdan ibarət giriş məlumatı sütun
+üzrə matrisə yerləşdirilir:</p>
+<p><span class="math display">\[s_{r,c} = \text{input}[r + 4c] \quad
+\text{burada } 0 \leq r, c &lt; 4\]</span></p>
+<p><span class="math display">\[\text{State} = \begin{bmatrix}
+s_{0,0} &amp; s_{0,1} &amp; s_{0,2} &amp; s_{0,3} \\
+s_{1,0} &amp; s_{1,1} &amp; s_{1,2} &amp; s_{1,3} \\
+s_{2,0} &amp; s_{2,1} &amp; s_{2,2} &amp; s_{2,3} \\
+s_{3,0} &amp; s_{3,1} &amp; s_{3,2} &amp; s_{3,3}
+\end{bmatrix}\]</span></p>
+<h2 id="şifrləmə-mərhələləri">Şifrləmə Mərhələləri</h2>
+<p>AES-in şifrləmə prosesi bir-birini izləyən transformasiyalardan
+ibarətdir. Prosesi üç əsas hissəyə bölmək olar <span class="citation"
+data-cites="paar2010understanding"></span>:</p>
+<ol>
+<li><p><strong>İlkin Transformasiya (Pre-round)</strong>:</p>
+<ul>
+<li><p><strong>AddRoundKey</strong>: Hal matrisi ilkin açar (<span
+class="math inline">\(K_0\)</span>) ilə XOR edilir.</p></li>
+</ul></li>
+<li><p><strong>Əsas Raundlar</strong> (<span
+class="math inline">\(N_r-1\)</span> dəfə təkrarlanır):</p>
+<ul>
+<li><p><strong>SubBytes</strong>: Hər bir bayt S-qutusu
+(<em>Substitution Box</em>) vasitəsilə qeyri-xətti əvəzlənir.</p></li>
+<li><p><strong>ShiftRows</strong>: Matrisin sətirləri sola doğru fərqli
+miqdarda dövri sürüşdürülür.</p></li>
+<li><p><strong>MixColumns</strong>: Sütunlar Qalua meydanı <span
+class="math inline">\(GF(2^8)\)</span> üzərində xüsusi bir matrislə
+vurularaq qarışdırılır.</p></li>
+<li><p><strong>AddRoundKey</strong>: Raund açarı (<span
+class="math inline">\(K_i\)</span>) ilə XOR əməliyyatı tətbiq
+olunur.</p></li>
+</ul></li>
+<li><p><strong>Sonuncu Raund (Final Round)</strong>:</p>
+<ul>
+<li><p><strong>SubBytes</strong>, <strong>ShiftRows</strong> və
+<strong>AddRoundKey</strong> tətbiq olunur. <strong>MixColumns</strong>
+əməliyyatı sonuncu raundda icra edilmir.</p></li>
+</ul></li>
+</ol>
+<div class="note">
+<p><span>MixColumns-un İstisnası</span> Final raundda
+<strong>MixColumns</strong> əməliyyatının olmaması şifrləmə və
+deşifrləmə alqoritmlərinin simmetrikliyini təmin etmək və tərs prosesi
+(inverse) eyni strukturla həyata keçirmək məqsədi daşıyır <span
+class="citation" data-cites="stallings2017cryptography"></span>.</p>
+</div>
+<h1 id="subbytes-transformasiyası">SubBytes Transformasiyası</h1>
+<p><strong>SubBytes</strong> mərhələsi AES-in yeganə qeyri-xətti
+komponentidir. Bu transformasiya <em>State</em> matrisindəki hər bir
+baytı bir-birindən asılı olmayaraq S-qutusu (<em>Substitution Box</em>)
+vasitəsilə əvəz edir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<h2 id="aes-s-qutusunun-riyazi-quruluşu">AES S-qutusunun Riyazi
+Quruluşu</h2>
+<p>AES S-qutusu "sadə axtarış cədvəli" deyil, ciddi cəbri struktura
+malikdir və iki ardıcıl addımla formalaşır <span class="citation"
+data-cites="daemen2002design"></span>:</p>
+<ol>
+<li><p><strong>Multiplikativ Tərs Element:</strong> Hal matrisindəki hər
+bir <span class="math inline">\(a\)</span> baytının <span
+class="math inline">\(GF(2^8)\)</span> meydanında <span
+class="math inline">\(m(x) = x^8 + x^4 + x^3 + x + 1\)</span>
+<strong>sadələşdirilməyən</strong> (<em>irreducible</em>) çoxhədlisi
+üzrə tərsi (<span class="math inline">\(a^{-1}\)</span>) hesablanır.</p>
+<ul>
+<li><p><strong>Qeyri-xəttilik:</strong> <span class="math inline">\(f(x)
+= x^{-1}\)</span> çevirməsi yüksək dərəcəli qeyri-xətti funksiyadır və
+alqoritmin xətti kriptoanalizə qarşı dözümlülüyünü təmin edir.</p></li>
+<li><p><em>Qeyd:</em> <span class="math inline">\(00_{16}\)</span>
+elementinin tərsi riyazi olaraq mövcud olmasa da, AES-də o özünə (<span
+class="math inline">\(00_{16}\)</span>) çevrilir.</p></li>
+</ul></li>
+<li><p><strong>Affin Çevirmə:</strong> Alınmış tərs element (<span
+class="math inline">\(a\)</span>) aşağıdakı matris tənliyi ilə emal
+olunur (bütün əməliyyatlar <span class="math inline">\(GF(2)\)</span>
+üzərində aparılır): <span class="math display">\[\begin{bmatrix} b_0 \\
+b_1 \\ b_2 \\ b_3 \\ b_4 \\ b_5 \\ b_6 \\ b_7 \end{bmatrix} =
+    \begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+    1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \\
+    1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\
+    1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+    1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1
+    \end{bmatrix}
+    \begin{bmatrix} a_0 \\ a_1 \\ a_2 \\ a_3 \\ a_4 \\ a_5 \\ a_6 \\ a_7
+\end{bmatrix} +
+    \begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 1 \\ 0
+\end{bmatrix}\]</span> Burada çıxışa əlavə olunan sabit vektor <span
+class="math inline">\(0x63\)</span> (<span
+class="math inline">\(01100011_2\)</span>) qiymətinə uyğundur (<span
+class="math inline">\(c_0=1, c_1=1, c_2=0, c_3=0, c_4=0, c_5=1, c_6=1,
+c_7=0\)</span>).</p></li>
+</ol>
+<div class="note">
+<p><span>Affin Çevirmənin Məqsədi</span> Affin çevirmə xətti bir
+əməliyyat olsa da, onun tətbiq edilməsi S-qutusunun riyazi təsvirini
+daha da mürəkkəbləşdirir. Bu, alqoritmi cəbri hücumlardan (algebraic
+attacks) qorumaq və tərs elementin sadə cəbri strukturunu "pərdələmək"
+üçün lazımdır <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p>
+</div>
+<p>Bu bölmə AES-in S-qutusunun həm kriptoqrafik gücünü, həm də praktik
+tətbiq üsullarını çox yaxşı xülasə edir. Xüsusilə "Kompozit Meydan
+Hesablaması" qeydi aparat səviyyəsində (FPGA və ya ASIC) dizayn edənlər
+üçün vacib detaldır.</p>
+<p>LaTeX sənədiniz üçün mətni bir qədər də cilalayıb, bir neçə texniki
+izah əlavə etdim: Code snippet</p>
+<h2 id="s-qutusunun-xüsusiyyətləri">S-qutusunun Xüsusiyyətləri</h2>
+<div class="note">
+<p><span>Kriptoqrafik Üstünlüklər</span> AES S-qutusu xüsusi olaraq
+aşağıdakı hücumlara qarşı müqavimət üçün optimallaşdırılmışdır:</p>
+<ul>
+<li><p><strong>Qeyri-xəttilik:</strong> Giriş və çıxış arasındakı xətti
+asılılığı aradan qaldıraraq şifri xətti kriptoanalizə qarşı dayanıqlı
+edir.</p></li>
+<li><p><strong>Tərsinirlik:</strong> Şifrləmə prosesinin tam tərsinə
+çevrilməsini təmin edir. Deşifrləmə zamanı əvvəlcə tərs affin çevirmə,
+sonra isə <span class="math inline">\(GF(2^8)\)</span> meydanında tərs
+element tapılır.</p></li>
+<li><p><strong>Sabit nöqtələrin olmaması:</strong> <span
+class="math inline">\(S(a) = a\)</span> (sabit nöqtə) və ya <span
+class="math inline">\(S(a) = \overline{a}\)</span> (əks-sabit nöqtə)
+hallarının olmaması şifrin daxili strukturunun proqnozlaşdırılmasının
+qarşısını alır.</p></li>
+</ul>
+</div>
+<h2 id="implementasiya-metodları">İmplementasiya Metodları</h2>
+<p>S-qutusu tətbiq olunduğu platformadan asılı olaraq iki əsas yolla
+reallaşdırılır <span class="citation"
+data-cites="xilinx2019aes good2005aes"></span>:</p>
+<ul>
+<li><p><strong>Axtarış Cədvəli (Look-up Table - LUT):</strong> 256
+baytlıq (16x16) hazır qiymətlər cədvəli yaddaşda saxlanılır. Proqram
+təminatında (C, Python və s.) ən yüksək sürəti bu üsul təmin
+edir.</p></li>
+<li><p><strong>Kompozit Meydan Hesablaması (Combinational
+Logic):</strong> S-qutusu yaddaşda saxlanılmır, hər dəfə riyazi olaraq
+hesablanır. <span class="math inline">\(GF(2^8)\)</span> əməliyyatları
+daha kiçik alt meydanlara (<span class="math inline">\(GF(2^4)
+\rightarrow GF(2^2)\)</span>) parçalanır. Bu metod aparat
+reallaşdırmasında (hardware) tranzistor sayını və enerji sərfiyyatını
+kəskin azaldır.</p></li>
+</ul>
+<h1 id="shiftrows-transformasiyası">ShiftRows Transformasiyası</h1>
+<p><strong>ShiftRows</strong> mərhələsi <em>State</em> (hal) matrisinin
+sətirlərini fərqli miqdarda sola dövri sürüşdürməklə blok daxilində
+baytların yerini dəyişir. Bu proses baytlar arası yayılmanı
+(<em>diffusion</em>) təmin edən əsas mexanizmlərdən biridir <span
+class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<ul>
+<li><p><strong>0-cı sətir:</strong> 0 bayt sola sürüşdürülür
+(dəyişmir).</p></li>
+<li><p><strong>1-ci sətir:</strong> 1 bayt sola dövri
+sürüşdürülür.</p></li>
+<li><p><strong>2-ci sətir:</strong> 2 bayt sola dövri
+sürüşdürülür.</p></li>
+<li><p><strong>3-cü sətir:</strong> 3 bayt sola dövri
+sürüşdürülür.</p></li>
+</ul>
+<p><span class="math display">\[\begin{equation}
+\begin{bmatrix}
+s_{0,0} &amp; s_{0,1} &amp; s_{0,2} &amp; s_{0,3} \\
+s_{1,0} &amp; s_{1,1} &amp; s_{1,2} &amp; s_{1,3} \\
+s_{2,0} &amp; s_{2,1} &amp; s_{2,2} &amp; s_{2,3} \\
+s_{3,0} &amp; s_{3,1} &amp; s_{3,2} &amp; s_{3,3}
+\end{bmatrix} \xrightarrow{\text{ShiftRows}}
+\begin{bmatrix}
+s_{0,0} &amp; s_{0,1} &amp; s_{0,2} &amp; s_{0,3} \\
+s_{1,1} &amp; s_{1,2} &amp; s_{1,3} &amp; s_{1,0} \\
+s_{2,2} &amp; s_{2,3} &amp; s_{2,0} &amp; s_{2,1} \\
+s_{3,3} &amp; s_{3,0} &amp; s_{3,1} &amp; s_{3,2}
+\end{bmatrix}
+\end{equation}\]</span></p>
+<p>Bu transformasiyanın əsas məqsədi bir sütunda yerləşən baytların
+növbəti mərhələdə fərqli sütunlara paylanmasını təmin etməkdir. Bu,
+<strong>MixColumns</strong> mərhələsi ilə birlikdə bir baytlıq
+dəyişikliyin sürətlə bütün bloka yayılmasına (lavina effekti) səbəb olur
+<span class="citation" data-cites="daemen2002design"></span>.</p>
+<div class="note">
+<p><span>Deşifrləmədə ShiftRows</span> Deşifrləmə zamanı
+<strong>InvShiftRows</strong> (Tərs ShiftRows) transformasiyası tətbiq
+olunur. Bu zaman sətirlər sola deyil, eyni miqdarda
+<strong>sağa</strong> dövri sürüşdürülür <span class="citation"
+data-cites="nist2001aes"></span>.</p>
+</div>
+<h1 id="mixcolumns-transformasiyası">MixColumns Transformasiyası</h1>
+<p><strong>MixColumns</strong> mərhələsi AES-in əsas "qarışdırıcı"
+təbəqəsidir. Bu mərhələdə <em>State</em> matrisinin hər bir sütunu
+müstəqil olaraq xətti çevirməyə məruz qalır. Bu transformasiya
+<strong>ShiftRows</strong> ilə birlikdə bir neçə raunddan sonra tam
+yayılmanı (<em>full diffusion</em>) təmin edir <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="riyazi-əsaslar">Riyazi Əsaslar</h2>
+<p>Hər bir sütuna <span class="math inline">\(GF(2^8)\)</span> meydanı
+üzərində əmsalları olan 3-cü dərəcəli çoxhədli kimi baxılır. Bu çoxhədli
+sabit <span class="math inline">\(a(x) = \{03\}x^3 + \{01\}x^2 + \{01\}x
++ \{02\}\)</span> çoxhədlisinə vurulur (<span
+class="math inline">\(\pmod{x^4+1}\)</span>). Bu əməliyyat matris
+formasında aşağıdakı kimi təsvir olunur <span class="citation"
+data-cites="daemen2002design"></span>:</p>
+<p><span class="math display">\[\begin{bmatrix}
+s&#39;_{0,c} \\
+s&#39;_{1,c} \\
+s&#39;_{2,c} \\
+s&#39;_{3,c}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\{02\} &amp; \{03\} &amp; \{01\} &amp; \{01\} \\
+\{01\} &amp; \{02\} &amp; \{03\} &amp; \{01\} \\
+\{01\} &amp; \{01\} &amp; \{02\} &amp; \{03\} \\
+\{03\} &amp; \{01\} &amp; \{01\} &amp; \{02\}
+\end{bmatrix}
+\begin{bmatrix}
+s_{0,c} \\
+s_{1,c} \\
+s_{2,c} \\
+s_{3,c}
+\end{bmatrix}\]</span></p>
+<h2 id="gf28-arifmetikası-və-sadələşmə"><span
+class="math inline">\(GF(2^8)\)</span> Arifmetikası və Sadələşmə</h2>
+<p>AES-də bütün əməliyyatlar 8-bitlik baytlar üzərində aparıldığı üçün
+nəticənin həmişə <span class="math inline">\([0, 255]\)</span>
+aralığında qalması tələb olunur. Bunun üçün <span
+class="math inline">\(m(x) = x^8 + x^4 + x^3 + x + 1\)</span>
+<strong>sadələşdirilməyən</strong> (<em>irreducible</em>) çoxhədlisi ilə
+təyin olunan Qalua meydanından istifadə edilir <span class="citation"
+data-cites="paar2010understanding"></span>.</p>
+<h3 id="toplama-və-vurma-məntiqi">Toplama və Vurma Məntiqi</h3>
+<p><span class="math inline">\(GF(2^8)\)</span> meydanında toplama
+əməliyyatı sadəcə bit-bit <strong>XOR</strong> (<span
+class="math inline">\(\oplus\)</span>) əməliyyatıdır (çünki <span
+class="math inline">\(1+1=0 \pmod 2\)</span>). Vurma isə çoxhədlilərin
+vurulması və ardınca <span class="math inline">\(m(x)\)</span> moduluna
+görə qalığın tapılmasıdır.</p>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span>02-yə Vurma və Sadələşmə
+(<em>xtime</em> funksiyası)</span> AES-də <span
+class="math inline">\(02\)</span>-yə (<span
+class="math inline">\(x\)</span> çoxhədlisinə) vurma ən səmərəli şəkildə
+<em>xtime</em> alqoritmi ilə yerinə yetirilir. Bu proses iki addımdan
+ibarətdir:</em></p>
+<ol>
+<li><p><em><strong>Sola Sürüşdürmə:</strong> Bayt 1 bit sola
+sürüşdürülür (bu, dərəcəni bir vahid artırır).</em></p></li>
+<li><p><em><strong>Şərti Reduksiya:</strong> Əgər sürüşdürmədən əvvəl ən
+yüksək bit (MSB) <span class="math inline">\(1\)</span> idisə, bu,
+vurmadan sonra dərəcənin <span class="math inline">\(x^8\)</span>
+olduğunu və 8-bitlik sərhədin aşıldığını göstərir. Bu halda nəticə <span
+class="math inline">\(0x1B\)</span> (<span
+class="math inline">\(00011011_2\)</span>) ilə XOR edilir.</em></p></li>
+</ol>
+</div>
+<ul>
+<li><p><strong>Nümunə 1 (Sadələşməsiz):</strong> <span
+class="math inline">\(0x57 \cdot 02\)</span></p>
+<ul>
+<li><p><span class="math inline">\(0x57 = 01010111_2\)</span>. MSB <span
+class="math inline">\(= 0\)</span>.</p></li>
+<li><p>Sola sürüşdürmə: <span class="math inline">\(10101110_2 =
+0xAE\)</span>. (Nəticə 8 bitə sığdığı üçün sadələşməyə ehtiyac
+yoxdur).</p></li>
+</ul></li>
+<li><p><strong>Nümunə 2 (Sadələşmə ilə):</strong> <span
+class="math inline">\(0x83 \cdot 02\)</span></p>
+<ul>
+<li><p><span class="math inline">\(0x83 = \mathbf{1}0000011_2\)</span>.
+MSB <span class="math inline">\(= 1\)</span>.</p></li>
+<li><p>Sola sürüşdürmə: <span class="math inline">\(100000110_2
+\rightarrow 0x06\)</span> (8-bitlik çərçivədə 9-cu bit itir).</p></li>
+<li><p>Reduksiya: <span class="math inline">\(0x06 \oplus 0x1B =
+0x1D\)</span>.</p></li>
+</ul></li>
+</ul>
+<div class="note">
+<p><span>Niyə məhz 0x1B?</span> <span
+class="math inline">\(m(x)\)</span> çoxhədlisi onluq sistemdə <span
+class="math inline">\(283\)</span>, onaltılıq sistemdə isə <span
+class="math inline">\(0x11B\)</span> (<span class="math inline">\(1 \
+0001 \ 1011_2\)</span>) edir. Sola sürüşdürmə zamanı 9-cu bit (yəni
+<span class="math inline">\(x^8\)</span>) yaddaşdan daşdığı üçün, biz
+yerdə qalan hissəni (<span class="math inline">\(x^4 + x^3 + x +
+1\)</span>), yəni <span class="math inline">\(0x1B\)</span> dəyərini XOR
+edirik.</p>
+</div>
+<h2 id="mixcolumns-un-optimallaşdırılması">MixColumns-un
+Optimallaşdırılması</h2>
+<p>Praktik tətbiqlərdə matris vurulmasını sürətləndirmək üçün <span
+class="math inline">\(03 = 02 \oplus 01\)</span> xassəsindən istifadə
+edilir. Bu, hər sütun üçün hesablama yükünü minimuma endirir. Məsələn,
+matrisin ilk sətri üçün çıxış baytı belə qruplaşdırılır: <span
+class="math display">\[s&#39;_{0,c} = 02 \cdot (s_{0,c} \oplus s_{1,c})
+\oplus s_{1,c} \oplus s_{2,c} \oplus s_{3,c}\]</span> Bu yanaşmanı bütün
+sətirlərə tətbiq etdikdə, proqram təminatı üçün daha səmərəli olan
+aşağıdakı düsturlar əldə edilir <span class="citation"
+data-cites="gladman2003implementing"></span>:</p>
+<p><span class="math display">\[\begin{align*}
+s&#39;_{0,c} &amp;= \text{xtime}(s_{0,c} \oplus s_{1,c}) \oplus s_{1,c}
+\oplus s_{2,c} \oplus s_{3,c} \\
+s&#39;_{1,c} &amp;= \text{xtime}(s_{1,c} \oplus s_{2,c}) \oplus s_{2,c}
+\oplus s_{3,c} \oplus s_{0,c} \\
+s&#39;_{2,c} &amp;= \text{xtime}(s_{2,c} \oplus s_{3,c}) \oplus s_{3,c}
+\oplus s_{0,c} \oplus s_{1,c} \\
+s&#39;_{3,c} &amp;= \text{xtime}(s_{3,c} \oplus s_{0,c}) \oplus s_{0,c}
+\oplus s_{1,c} \oplus s_{2,c}
+\end{align*}\]</span></p>
+<p>Burada <em>xtime</em> funksiyası yalnız <span
+class="math inline">\(02\)</span>-yə vurmanı (sola sürüşdürmə və şərti
+XOR) icra edir. Bu optimallaşdırma sayəsində hər çıxış baytı üçün cəmi
+bir <em>xtime</em> və bir neçə XOR əməliyyatı kifayət edir.</p>
+<div class="note">
+<p><span>Deşifrləmənin Mürəkkəbliyi (InvMixColumns)</span> Deşifrləmə
+zamanı istifadə olunan tərs matrisin əmsalları (<span
+class="math inline">\(\{0E, 0B, 0D, 09\}\)</span>) daha böyük olduğu
+üçün hər əməliyyat bir neçə ardıcıl <em>xtime</em> çağırışı tələb edir
+(məsələn, <span class="math inline">\(0E \cdot x = 8x \oplus 4x \oplus
+2x\)</span>). Bu səbəbdən AES-də deşifrləmə prosesi şifrləməyə nisbətən
+hesablama baxımından daha ağırdır <span class="citation"
+data-cites="daemen2002design"></span>.</p>
+</div>
+<h1 id="addroundkey-transformasiyası">AddRoundKey Transformasiyası</h1>
+<p><strong>AddRoundKey</strong> AES alqoritminin məlumatı gizli açarla
+birləşdirən yeganə mərhələsidir. Bu prosesdə <em>State</em> (hal)
+matrisindəki hər bir bayt, açarın genişləndirilməsi (<em>Key
+Expansion</em>) nəticəsində əldə edilmiş raund açarının
+(<em>RoundKey</em>) uyğun baytı ilə bit-bit <strong>XOR</strong> edilir
+<span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="əməliyyatın-mahiyyəti">Əməliyyatın Mahiyyəti</h2>
+<p>Riyazi olaraq bu transformasiya matrislərin cəmi kimi ifadə olunur:
+<span class="math display">\[\text{state}&#39; = \text{state} \oplus
+\text{RoundKey}\]</span> Və ya hər bir element üçün: <span
+class="math display">\[s&#39;_{i,j} = s_{i,j} \oplus k_{i,j}\]</span>
+Burada <span class="math inline">\(s_{i,j}\)</span> hal matrisinin,
+<span class="math inline">\(k_{i,j}\)</span> isə raund açarının
+elementləridir.</p>
+<h2 id="kriptoqrafik-önəmi">Kriptoqrafik Önəmi</h2>
+<p>AddRoundKey-in bəzi mühüm xüsusiyyətləri aşağıdakılardır <span
+class="citation" data-cites="daemen2002design"></span>:</p>
+<ul>
+<li><p><strong>Açardan asılılıq:</strong> Bu, AES-də məxfi açarın
+birbaşa tətbiq olunduğu yeganə mərhələdir. Digər üç mərhələ (SubBytes,
+ShiftRows, MixColumns) yalnız açarın yaratdığı qeyri-müəyyənliyi yaymaq
+və mürəkkəbləşdirmək funksiyasını daşıyır.</p></li>
+<li><p><strong>Tərsinirlik:</strong> XOR əməliyyatı özünün tərsidir
+(<span class="math inline">\(A \oplus B \oplus B = A\)</span>). Buna
+görə də deşifrləmə zamanı eyni raund açarı ilə yenidən XOR əməliyyatı
+aparılır.</p></li>
+<li><p><strong>İlkin Raund:</strong> AES həmişə bir AddRoundKey
+mərhələsi ilə başlayır. Bu, "açar ağardılması" (<em>key whitening</em>)
+adlanır və şifrləmənin ilk addımından məlumatın gizli açardan asılı
+olmasını təmin edir.</p></li>
+</ul>
+<p>Açar Genişləndirmə (Key Expansion) bölməsi AES-in təhlükəsizlik
+arxitekturasının onurğa sütunudur. Sizin təqdim etdiyiniz bu struktur
+AES-128, 192 və 256 arasındakı fərqləri və daxili funksiyaları (RotWord,
+SubWord, Rcon) çox dəqiq əks etdirir.</p>
+<p>LaTeX sənədinizdə bir neçə kiçik redaktə, terminoloji dəqiqləşdirmə
+(invertibl → tərsinən) və vizual olaraq alqoritmi daha anlaşıqlı edən
+formatlama əlavə etdim: Code snippet</p>
+<h1 id="açarın-genişləndirilməsi-key-expansion">Açarın Genişləndirilməsi
+(Key Expansion)</h1>
+<p>AES alqoritmi şifrləmə və deşifrləmə prosesində hər raund üçün fərqli
+açarlardan istifadə edir. Bu açarlar vahid əsas açardan (<em>Cipher
+Key</em>) xüsusi bir alqoritm vasitəsilə törədilir. Bu prosesə
+<strong>açarın genişləndirilməsi</strong> deyilir <span class="citation"
+data-cites="paar2010understanding stallings2017cryptography"></span>.</p>
+<h2 id="aes-128-üçün-açar-genişləndirmə-alqoritmi">AES-128 üçün Açar
+Genişləndirmə Alqoritmi</h2>
+<p>AES-128-də 128-bitlik (4 söz) əsas açardan cəmi 44 sözlük (11 raund
+açarı) bir massiv yaradılır. Hər bir söz (<span
+class="math inline">\(W[i]\)</span>) 4 baytdan ibarətdir. Yeni sözlərin
+yaradılması qaydası aşağıdakı kimidir <span class="citation"
+data-cites="nist2001aes"></span>:</p>
+<ol>
+<li><p><strong>Xətti törəmə:</strong> Əgər <span
+class="math inline">\(i\)</span> 4-ə bölünmürsə, söz özündən bir əvvəlki
+və dörd əvvəlki sözün XOR cəmidir: <span class="math display">\[W[i] =
+W[i-4] \oplus W[i-1]\]</span></p></li>
+<li><p><strong>Qeyri-xətti transformasiya (<span
+class="math inline">\(g\)</span> funksiyası):</strong> Əgər <span
+class="math inline">\(i\)</span> 4-ə bölünürsə, qeyri-xətti <span
+class="math inline">\(g\)</span> funksiyası tətbiq olunur:</p>
+<ul>
+<li><p><span class="math inline">\(\text{temp} =
+\text{SubWord}(\text{RotWord}(W[i-1])) \oplus
+\text{Rcon}[i/4]\)</span></p></li>
+<li><p><span class="math inline">\(W[i] = W[i-4] \oplus
+\text{temp}\)</span></p></li>
+</ul></li>
+</ol>
+<h2 id="qeyri-xətti-transformasiya-g-funksiyası">Qeyri-xətti
+Transformasiya (<span class="math inline">\(g\)</span> funksiyası)</h2>
+<p>Açar genişləndirmə alqoritminin əsasını <span class="math inline">\(i
+\bmod 4 = 0\)</span> olduqda tətbiq edilən və <em>temp</em> dəyişənini
+hesablayan <span class="math inline">\(g\)</span> funksiyası təşkil
+edir. Bu funksiya aşağıdakı ardıcıl əməliyyatlardan ibarətdir:</p>
+<p><span class="math display">\[\begin{equation}
+\text{temp} = \text{SubWord}(\text{RotWord}(W[i-1])) \oplus
+\text{Rcon}[i/4]
+\end{equation}\]</span></p>
+<ul>
+<li><p><strong>RotWord (Dövri Sürüşdürmə):</strong> 4-baytlıq sözün
+elementləri sola dövri sürüşdürülür (<span class="math inline">\([b_0,
+b_1, b_2, b_3] \rightarrow [b_1, b_2, b_3, b_0]\)</span>). Bu, açar
+baytlarının fərqli mövqelərə təsir etməsini təmin edir.</p></li>
+<li><p><strong>SubWord (S-qutusu tətbiqi):</strong> Sürüşdürülmüş sözün
+hər bir baytı fərdi olaraq AES S-qutusundan keçirilir. Bu addım açar
+cədvəlinə <strong>qeyri-xəttilik</strong> gətirir və şifrin cəbri
+hücumlara qarşı dözümlülüyünü artırır.</p></li>
+<li><p><strong>Rcon ilə XOR (Simmetriyanın pozulması):</strong> Əldə
+edilmiş nəticə raund sabiti (<em>Rcon</em>) ilə XOR edilir. Rcon yalnız
+sözün <strong>ilk baytına</strong> təsir edir. Bu, eyni və ya oxşar
+açarların istifadəsi zamanı yarana biləcək dövrü simmetriyaları və
+qanunauyğunluqları aradan qaldırmaq üçün vacibdir.</p></li>
+</ul>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span>temp-in hesablanması</span>
+Tutaq ki, <span class="math inline">\(W[i-1] = [09, CF, 4F, 3C]\)</span>
+və <span class="math inline">\(Rcon = [01, 00, 00,
+00]\)</span>:</em></p>
+<ol>
+<li><p><em><strong>RotWord:</strong> <span class="math inline">\([CF,
+4F, 3C, 09]\)</span></em></p></li>
+<li><p><em><strong>SubWord:</strong> <span class="math inline">\([S(CF),
+S(4F), S(3C), S(09)] = [8A, 84, EB, 01]\)</span></em></p></li>
+<li><p><em><strong>Rcon XOR:</strong> <span class="math inline">\([8A
+\oplus 01, 84, EB, 01] = [8B, 84, EB, 01]\)</span></em></p></li>
+</ol>
+</div>
+<h3 id="istifadə-olunan-funksiyalar">İstifadə olunan funksiyalar</h3>
+<ul>
+<li><p><strong>RotWord:</strong> Sözün baytlarını sola dövri sürüşdürür
+(<span class="math inline">\([b_0, b_1, b_2, b_3] \rightarrow [b_1, b_2,
+b_3, b_0]\)</span>).</p></li>
+<li><p><strong>SubWord:</strong> Sözün hər bir baytını S-qutusu
+vasitəsilə əvəzləyir (qeyri-xəttiliyi təmin edir).</p></li>
+<li><p><strong>Rcon (Round Constant):</strong> Hər bir raund üçün fərqli
+olan sabit vektor. <span class="math inline">\(Rcon[i] = (rc_i, 00, 00,
+00)\)</span> şəklindədir və burada <span class="math inline">\(rc_i =
+2^{i-1}\)</span> <span class="math inline">\(GF(2^8)\)</span> meydanında
+hesablanır.</p></li>
+</ul>
+<table>
+<caption>Rcon sabitləri (Onluq və Onaltılıq)</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">\(i\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">rc<span
+class="math inline">\(_i\)</span> (hex)</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">02</td>
+<td style="text-align: center;">04</td>
+<td style="text-align: center;">08</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">1B</td>
+<td style="text-align: center;">36</td>
+</tr>
+</tbody>
+</table>
+<h2 id="aes-192-və-aes-256-fərqləri">AES-192 və AES-256 fərqləri</h2>
+<p>Daha uzun açarlar üçün raund sayı və açar genişləndirmə parametrləri
+dəyişir:</p>
+<ul>
+<li><p><strong>AES-192:</strong> 6 sözlük əsas açar, cəmi 52 söz (13
+raund açarı).</p></li>
+<li><p><strong>AES-256:</strong> 8 sözlük əsas açar, cəmi 60 söz (15
+raund açarı).</p></li>
+<li><p><strong>Əlavə Transformasiya (AES-256):</strong> AES-256-da hər 8
+sözdən bir (yəni <span class="math inline">\(i \bmod 8 = 4\)</span>
+olduqda) əlavə bir <em>SubWord</em> əməliyyatı tətbiq olunur ki, bu da
+təhlükəsizliyi artırır.</p></li>
+</ul>
+<div class="note">
+<p><span>Kriptoqrafik Xüsusiyyətlər</span></p>
+<ul>
+<li><p><strong>Tərsi olması:</strong> Açar genişləndirmə prosesinin
+tərsi var (<em>invertible</em>). Yəni, bir raund açarını bilən hücumçu,
+alqoritmi geri işlədərək əsas açarı bərpa edə bilər (buna görə raund
+açarları gizli saxlanmalıdır).</p></li>
+<li><p><strong>Zəif açarların olmaması:</strong> DES-dən fərqli olaraq,
+AES-də məlum olan "zəif açarlar" (weak keys) yoxdur <span
+class="citation" data-cites="daemen2002design"></span>.</p></li>
+</ul>
+</div>
+<h1 id="aes-in-təhlükəsizliyi-və-performans-analizi">AES-in
+Təhlükəsizliyi və Performans Analizi</h1>
+<h2 id="kriptoqrafik-hücumlara-qarşı-müqavimət">Kriptoqrafik Hücumlara
+Qarşı Müqavimət</h2>
+<p>AES dizayn mərhələsində DES və digər sələflərinə qarşı effektiv olan
+müasir hücum metodları nəzərə alınaraq qurulmuşdur <span
+class="citation"
+data-cites="daemen2002design stallings2017cryptography"></span>:</p>
+<ul>
+<li><p><strong>Diferensial Kriptoanaliz:</strong> S-qutusunun
+qeyri-xətti xassələri və MixColumns mərhələsinin yayılma effekti
+sayəsində AES yüksək dərəcəli diferensial xüsusiyyətlərə malikdir. 4
+raunddan sonra diferensial izlərin (<em>differential
+characteristics</em>) ehtimalı <span
+class="math inline">\(2^{-150}\)</span>-dən aşağı düşür ki, bu da
+praktik hücumu qeyri-mümkün edir.</p></li>
+<li><p><strong>Xətti Kriptoanaliz:</strong> S-qutusunun giriş və çıxış
+bitləri arasındakı maksimum xətti korrelyasiya çox aşağıdır. 4 raund
+üçün bu göstərici təxminən <span class="math inline">\(2^{-75}\)</span>
+səviyyəsindədir.</p></li>
+<li><p><strong>Əlaqəli Açar Hücumları (<em>Related-key
+Attacks</em>):</strong> AES-256-nın açar genişləndirmə cədvəlinə qarşı
+bəzi nəzəri hücumlar mövcud olsa da, bu hücumlar yalnız çox xüsusi
+şərtlərdə mümkündür və real tətbiqlərdə ciddi təhlükə yaratmır <span
+class="citation" data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>Biclique Hücumu:</strong> AES-in tam raundlarına qarşı
+məlum olan ən yaxşı hücumdur. AES-128 üçün <span
+class="math inline">\(2^{126.1}\)</span> mürəkkəblik tələb edir. Bu, tam
+axtarışdan (<em>brute-force</em>) cəmi 4 dəfə sürətli olduğu üçün şifrin
+hələ də "sındırılmaz" olduğunu sübut edir.</p></li>
+</ul>
+<h2 id="aparat-və-proqram-səmərəliliyi">Aparat və Proqram
+Səmərəliliyi</h2>
+<p>AES həm proqram təminatında (CPU-ların AES-NI instruksiyaları
+vasitəsilə), həm də aparat səviyyəsində (FPGA/ASIC) yüksək səmərəlilik
+nümayiş etdirir <span class="citation"
+data-cites="xilinx2019aes oukili2017high"></span>.</p>
+<table>
+<caption>AES Performans Göstəriciləri (FPGA nümunəsi)</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Raundlar</strong></th>
+<th style="text-align: center;"><strong>LUT</strong></th>
+<th style="text-align: center;"><strong>BRAM</strong></th>
+<th style="text-align: center;"><strong>Tezlik (MHz)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">AES-128</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">9,109</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">391</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-192</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">13,321</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">336</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-256</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">15,112</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">358</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p><span>Performans Göstəricilərinin İzahı</span> AES-in aparat
+reallaşdırmasında (məsələn, FPGA) səmərəlilik iki əsas resursla
+ölçülür:</p>
+<ul>
+<li><p><strong>LUT (Look-Up Table):</strong> FPGA-nın əsas məntiq
+hüceyrəsidir. AES-dəki XOR əməliyyatları, bit sürüşdürmələri və digər
+məntiqi funksiyalar LUT-lar vasitəsilə icra edilir. LUT sayı alqoritmin
+cihazda nə qədər "fiziki sahə" tutduğunu göstərir.</p></li>
+<li><p><strong>BRAM (Block RAM):</strong> Cihazın daxili sürətli yaddaş
+bloklarıdır. AES-də S-qutusu (S-box) kimi hazır cədvəllər çox vaxt
+hesablama yükünü azaltmaq üçün BRAM-larda saxlanılır.</p></li>
+<li><p><strong>Maksimum Tezlik (MHz):</strong> Alqoritmin bir saniyədə
+neçə milyon takt işləyə bildiyini göstərir. Bu göstərici birbaşa
+şifrləmə sürətinə (<em>throughput</em>) təsir edir.</p></li>
+</ul>
+</div>
+<h2 id="aes-128-və-aes-256-müqayisəsi">AES-128 və AES-256
+Müqayisəsi</h2>
+<ul>
+<li><p><strong>Kvant Təhlükəsizliyi:</strong> Kvant kompüterlərinin
+(Qrover alqoritmi vasitəsilə) axtarış sürətini kvadratik artırdığını
+nəzərə alsaq, AES-256 gələcəkdə kvant hücumlarına qarşı daha dözümlü
+hesab edilir.</p></li>
+<li><p><strong>Resurs Tələbi:</strong> AES-128 daha az raund sayı (10
+raund) səbəbindən AES-256-ya nisbətən təxminən 40% daha yüksək keçirmə
+qabiliyyətinə (<em>throughput</em>) malikdir.</p></li>
+<li><p><strong>Tətbiq Sahəsi:</strong> Mobil cihazlar və IoT sensorlar
+kimi enerji məhdudiyyəti olan sahələrdə AES-128, dövlət sirri və kritik
+infrastrukturun qorunmasında isə AES-256 tövsiyə olunur.</p></li>
+</ul>
+<h1 id="aes-in-tətbiq-sahələri-və-gələcəyi">AES-in Tətbiq Sahələri və
+Gələcəyi</h1>
+<p>AES (Advanced Encryption Standard) bu gün rəqəmsal dünyanın "qızıl
+standartı" hesab olunur və demək olar ki, bütün müasir rabitə
+protokollarının əsasını təşkil edir <span class="citation"
+data-cites="paar2010understanding"></span>:</p>
+<ul>
+<li><p><strong>Şəbəkə Təhlükəsizliyi (TLS/SSL):</strong> HTTPS protokolu
+vasitəsilə veb-saytlarla qurulan bağlantılarda məlumatların məxfiliyini
+təmin edir.</p></li>
+<li><p><strong>Simsiz Rabitə (Wi-Fi):</strong> WPA2 və WPA3
+standartlarında əsas şifrləmə mexanizmi kimi istifadə olunur.</p></li>
+<li><p><strong>VPN və Şəbəkə Tunelləri:</strong> IPsec və OpenVPN
+protokollarında korporativ məlumatların ötürülməsi üçün tətbiq
+edilir.</p></li>
+<li><p><strong>Məlumatların Saxlanılması:</strong> BitLocker (Windows),
+FileVault (macOS) və LUKS (Linux) kimi tam disk şifrləmə sistemlərinin
+mərkəzində dayanır.</p></li>
+<li><p><strong>Fayl Arxivləri və Bulud Texnologiyaları:</strong> 7-Zip,
+WinRAR kimi proqramlar və Google Drive, Dropbox kimi xidmətlər
+AES-256-dan istifadə edir.</p></li>
+<li><p><strong>Maliyyə Sektoru:</strong> EMV çipli kredit kartları və
+onlayn bankçılıq sistemlərində əməliyyatların təhlükəsizliyini təmin
+edir.</p></li>
+</ul>
+<div class="note">
+<p><span>Post-Kvant Dövründə AES</span> Kvant kompüterlərinin inkişafı
+bir çox asimmetrik alqoritmləri (məsələn, RSA) yararsız hala salsa da,
+AES-in simmetrik strukturu buna qarşı daha dözümlüdür. Grover alqoritmi
+tam axtarış (<em>brute-force</em>) hücumlarını kvadratik dərəcədə
+sürətləndirir <span class="citation"
+data-cites="fowler2022aes"></span>:</p>
+<ul>
+<li><p><strong>AES-256:</strong> Effektiv təhlükəsizlik səviyyəsi <span
+class="math inline">\(2^{256}\)</span>-dan <span
+class="math inline">\(2^{128}\)</span>-ə düşür. Bu, hələ də bütün məlum
+fiziki qanunlar çərçivəsində sındırılmaz hesab olunur.</p></li>
+<li><p><strong>AES-128:</strong> Təhlükəsizlik səviyyəsi <span
+class="math inline">\(2^{64}\)</span>-ə qədər azalır. Bu, nəzəri olaraq
+riskli görünsə də, praktikada kvant kompüterləri üçün hələ də çox böyük
+bir rəqəmdir.</p></li>
+</ul>
+<p>Buna görə də, post-kvant təhlükəsizliyi üçün kritik sistemlərdə
+<strong>AES-256</strong> standart olaraq tövsiyə edilir.</p>
+</div>
+<h1 id="praktiki-tapşırıqlar">Praktiki Tapşırıqlar</h1>
+<h2 id="tapşırıq-1-s-qutusunun-riyazi-hesablanması">Tapşırıq 1:
+S-qutusunun Riyazi Hesablanması</h2>
+<p>AES S-qutusunun qurulma prinsiplərini tətbiq edərək, <span
+class="math inline">\(a=0x53\)</span> girişi üçün çıxış dəyərini
+hesablayın. <em>İpucu:</em> Əvvəlcə <span
+class="math inline">\(GF(2^8)\)</span> meydanında multiplikativ tərsi
+tapın, sonra affin çevirməni tətbiq edin.</p>
+<h2 id="tapşırıq-2-mixcolumns-əməliyyatı">Tapşırıq 2: MixColumns
+Əməliyyatı</h2>
+<p>Verilmiş <span class="math inline">\([0x87, 0x6E, 0x46,
+0xA6]^T\)</span> sütun vektoru üçün MixColumns transformasiyasını icra
+edin. Hesablamalar zamanı <em>xtime</em> optimallaşdırmasından istifadə
+edin.</p>
+<h2 id="tapşırıq-3-açar-genişləndirmə-key-expansion">Tapşırıq 3: Açar
+Genişləndirmə (Key Expansion)</h2>
+<p><span
+class="math inline">\(K=0x2B7E151628AED2A6ABF7158809CF4F3C\)</span> əsas
+açarı üçün AES-128 cədvəlinin ilk addımını yerinə yetirin və <span
+class="math inline">\(W[4]\)</span> sözünü (növbəti raundun ilk sözü)
+tapın. <em>İpucu:</em> <span class="math inline">\(g\)</span>
+funksiyasını (<em>RotWord</em>, <em>SubWord</em> və <em>Rcon</em>)
+tətbiq etməyi unutmayın.</p>
+<h2 id="tapşırıq-4-tam-aes-raundunun-simulyasiyası">Tapşırıq 4: Tam AES
+Raundunun Simulyasiyası</h2>
+<p>Verilmiş ixtiyari bir <em>State</em> matrisi və raund açarı üzərində
+bir tam AES raundunu (<em>SubBytes</em>, <em>ShiftRows</em>,
+<em>MixColumns</em>, <em>AddRoundKey</em>) kağız üzərində simulyasiya
+edin. <em>İpucu:</em> Hər bir addımdan sonra <em>State</em> matrisinin
+dəyişmə ardıcıllığını izləyin.</p>
+<h2 id="tapşırıq-5-mini-aes-s-aes-implementasiyası">Tapşırıq 5: Mini-AES
+(S-AES) İmplementasiyası</h2>
+<p>Tədris məqsədli sadələşdirilmiş 16-bitlik AES (S-AES) variantı üçün
+Python funksiyaları hazırlayın. Bu tapşırıqda 4-bitlik 4 nibble-dan
+ibarət <span class="math inline">\(2\times2\)</span> matris
+strukturundan istifadə edilməlidir.</p>
+<h2 id="tapşırıq-6-müasir-kitabxanalarla-aes-128">Tapşırıq 6: Müasir
+Kitabxanalarla AES-128</h2>
+<p>Python-un <code>pycryptodome</code> kitabxanasından istifadə edərək,
+CBC rejimində işləyən fayl şifrləmə və deşifrləmə skripti yazın.</p>
+<div class="sourceCode" id="cb1" data-language="Python"
+data-caption="AES-CBC implementasiyası (pycryptodome)"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Crypto.Cipher <span class="im">import</span> AES</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Crypto.Util.Padding <span class="im">import</span> pad, unpad</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aes_encrypt(plaintext, key):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Hər şifrləmə üçün unikal 16-baytlıq IV yaradılır</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    iv <span class="op">=</span> os.urandom(<span class="dv">16</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    cipher <span class="op">=</span> AES.new(key, AES.MODE_CBC, iv)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ciphertext <span class="op">=</span> cipher.encrypt(pad(plaintext, AES.block_size))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> iv <span class="op">+</span> ciphertext</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aes_decrypt(data, key):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    iv <span class="op">=</span> data[:<span class="dv">16</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    cipher <span class="op">=</span> AES.new(key, AES.MODE_CBC, iv)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    plaintext <span class="op">=</span> unpad(cipher.decrypt(data[<span class="dv">16</span>:]), AES.block_size)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> plaintext</span></code></pre></div>
+<div class="tip">
+<p><span>Əlavə Oxu və Resurslar</span> AES alqoritminin dərinliklərini
+öyrənmək üçün aşağıdakı mənbələrə müraciət edə bilərsiniz:</p>
+<ul>
+<li><p><span class="citation" data-cites="daemen2002design"></span> —
+Rijndael-in müəlliflərindən fundamental izahlar.</p></li>
+<li><p><span class="citation" data-cites="paar2010understanding"></span>
+— 4-cü fəsil: "The Advanced Encryption Standard".</p></li>
+<li><p><span class="citation" data-cites="nist2001aes"></span> — FIPS
+197 rəsmi standart sənədi.</p></li>
+</ul>
+</div>
+<h1 id="tapşırıqların-həlli-və-izahı">Tapşırıqların Həlli və İzahı</h1>
+<h2 id="həll-1-s-qutusu-hesablanması-a-0x53">Həll 1: S-qutusu
+Hesablanması (<span class="math inline">\(a = 0x53\)</span>)</h2>
+<p>AES S-qutusunda əvəzləmə iki mərhələdən ibarətdir:</p>
+<ol>
+<li><p><strong>Multiplikativ Tərs Element:</strong> <span
+class="math inline">\(0x53 = x^6 + x^4 + x + 1\)</span> çoxhədlisinin
+<span class="math inline">\(GF(2^8)\)</span> meydanında (<span
+class="math inline">\(\bmod m(x)\)</span>) tərsi <span
+class="math inline">\(0xCA\)</span>-dır.</p></li>
+<li><p><strong>Affin Çevirmə:</strong> <span class="math inline">\(0xCA
+= 11001010_2\)</span> baytı üzərində matris vurulması və sabit <span
+class="math inline">\(0x63\)</span> (<span
+class="math inline">\(01100011_2\)</span>) baytının əlavə edilməsi
+(<span class="math inline">\(\oplus\)</span>) icra olunur: <span
+class="math display">\[S(0x53) = \text{AffineTrans}(0xCA) \oplus 0x63 =
+0xED\]</span></p></li>
+</ol>
+<h2 id="həll-2-mixcolumns-hesablanması">Həll 2: MixColumns
+Hesablanması</h2>
+<p>Verilmiş sütun: <span class="math inline">\([0x87, 0x6E, 0x46,
+0xA6]^T\)</span>. İlk çıxış baytının (<span
+class="math inline">\(s&#39;_{0,c}\)</span>) hesablanması: <span
+class="math display">\[s&#39;_{0,c} = (\{02\} \cdot 0x87) \oplus (\{03\}
+\cdot 0x6E) \oplus (\{01\} \cdot 0x46) \oplus (\{01\} \cdot
+0xA6)\]</span></p>
+<p><strong>Addımlar:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\{02\} \cdot 0x87\)</span>: <span
+class="math inline">\(0x87 = 10000111_2\)</span>. MSB <span
+class="math inline">\(1\)</span> olduğu üçün: <span
+class="math inline">\((0x87 \ll 1) \oplus 0x1B = 0x0E \oplus 0x1B =
+0x15\)</span>.</p></li>
+<li><p><span class="math inline">\(\{03\} \cdot 0x6E\)</span>: <span
+class="math inline">\((\{02\} \cdot 0x6E) \oplus 0x6E = 0xDC \oplus 0x6E
+= 0xB2\)</span>.</p></li>
+<li><p><strong>Yekun XOR:</strong> <span class="math inline">\(0x15
+\oplus 0xB2 \oplus 0x46 \oplus 0xA6 = 0x47\)</span>.</p></li>
+</ul>
+<p>Bütün sütun üçün nəticə: <span class="math inline">\([0x47, 0x37,
+0x94, 0xED]^T\)</span>.</p>
+<h2 id="həll-3-açar-genişləndirmə-w4">Həll 3: Açar Genişləndirmə (<span
+class="math inline">\(W[4]\)</span>)</h2>
+<p><span class="math inline">\(W[4]\)</span> yeni raundun ilk sözüdür və
+<span class="math inline">\(W[4] = W[0] \oplus g(W[3])\)</span> düsturu
+ilə hesablanır. Verilənlər: <span class="math inline">\(W[0] = [2B, 7E,
+15, 16]\)</span>, <span class="math inline">\(W[3] = [09, CF, 4F,
+3C]\)</span>.</p>
+<p><strong><span class="math inline">\(g(W[3])\)</span> funksiyasının
+tətbiqi:</strong></p>
+<ol>
+<li><p><strong>RotWord:</strong> <span class="math inline">\([CF, 4F,
+3C, 09]\)</span></p></li>
+<li><p><strong>SubWord:</strong> <span class="math inline">\([S(CF),
+S(4F), S(3C), S(09)] = [8A, 84, EB, 01]\)</span></p></li>
+<li><p><strong>Rcon XOR:</strong> <span class="math inline">\([8A \oplus
+01, 84, EB, 01] = [8B, 84, EB, 01]\)</span></p></li>
+</ol>
+<p><strong>Yekun XOR:</strong> <span class="math display">\[W[4] = [2B,
+7E, 15, 16] \oplus [8B, 84, EB, 01] = [A0, FA, FE, 17]\]</span></p>
+<h2 id="həll-4-tam-aes-raundunun-simulyasiya-şablonu">Həll 4: Tam AES
+Raundunun Simulyasiya Şablonu</h2>
+<p>Bir raund daxilində <em>State</em> matrisinin dəyişmə
+ardıcıllığı:</p>
+<ol>
+<li><p><span class="math inline">\(\text{State}_1 =
+\text{SubBytes}(\text{State}_0)\)</span> — Bütün baytlar S-Box
+vasitəsilə qeyri-xətti əvəzlənir.</p></li>
+<li><p><span class="math inline">\(\text{State}_2 =
+\text{ShiftRows}(\text{State}_1)\)</span> — 1-ci sətir 1, 2-ci sətir 2,
+3-cü sətir 3 bayt sola sürüşdürülür.</p></li>
+<li><p><span class="math inline">\(\text{State}_3 =
+\text{MixColumns}(\text{State}_2)\)</span> — Hər sütun <span
+class="math inline">\(GF(2^8)\)</span> matrisi ilə vurulur (sonuncu
+raundda tətbiq edilmir).</p></li>
+<li><p><span class="math inline">\(\text{State}_4 =
+\text{AddRoundKey}(\text{State}_3, K_i)\)</span> — Nəticə cari raundun
+açarı ilə bit-bit XOR edilir.</p></li>
+</ol>
+<h2 id="həll-5-mini-aes-s-aes-kod-struktur-izahı">Həll 5: Mini-AES
+(S-AES) Kod Struktur İzahı</h2>
+<p>16-bitlik S-AES üçün əsas funksional struktur aşağıdakı kimi təşkil
+olunur:</p>
+<ul>
+<li><p><strong>State Təşkili:</strong> 16 bitlik məlumat <span
+class="math inline">\(2\times2\)</span> nibble (her biri 4 bit) matrisi
+şəklində saxlanılır.</p></li>
+<li><p><strong>NibbleSub:</strong> 16 dəyərli (4-bitlik) S-Box
+vasitəsilə dəyişdirmə aparılır.</p></li>
+<li><p><strong>ShiftRows:</strong> 2-ci sətir (1 nibble) sola
+sürüşdürülür.</p></li>
+<li><p><strong>MixColumns:</strong> <span
+class="math inline">\(GF(2^4)\)</span> meydanı üzərində <span
+class="math inline">\(x^4 + x + 1\)</span> irreducible çoxhədlisindən
+istifadə edilərək matris vurulması tətbiq olunur.</p></li>
+</ul>
+<h2 id="həll-6-python-kodu-izahı">Həll 6: Python Kodu İzahı</h2>
+<p>Təqdim olunan implementasiyada aşağıdakı məntiq izlənilir:</p>
+<ul>
+<li><p><strong>IV (Başlanğıc vektoru):</strong> Şifrləmənin hər dəfə
+unikal olması üçün <code>os.urandom(16)</code> istifadə edilir.</p></li>
+<li><p><strong>Padding:</strong> AES 16-baytlıq bloklarla işləyir. Əgər
+mətn tam bölünmürsə, PKCS7 standartı ilə doldurulur.</p></li>
+<li><p><strong>CBC Rejimi:</strong> Hər bir məlumat bloku şifrlənməzdən
+əvvəl özündən əvvəlki şifrəli blokla XOR edilir.</p></li>
+</ul>
+<h1 id="nəticə">Nəticə</h1>
+<p>Bu mühazirə çərçivəsində müasir kriptoqrafiyanın sütunlarından biri
+hesab olunan <strong>AES (Advanced Encryption Standard)</strong>
+alqoritmini həm nəzəri, həm də praktiki aspektdən təhlil etdik.
+Öyrəndiyimiz əsas məqamlar aşağıdakılardır:</p>
+<ul>
+<li><p><strong>AES-in Tarixi və Standartlaşma:</strong> Rijndael
+alqoritminin DES-i əvəz edərək necə qlobal standart halına gəlməsi <span
+class="citation" data-cites="wright2001advanced"></span>.</p></li>
+<li><p><strong>Alqoritmin Arxitekturası:</strong> Dəyişən raund saylı
+(10, 12, 14) Substitution-Permutation Network (SPN) strukturu və
+<em>State</em> matrisi <span class="citation"
+data-cites="nist2001aes"></span>.</p></li>
+<li><p><strong>SubBytes:</strong> S-box vasitəsilə təmin edilən
+qeyri-xəttilik və diferensial hücumlara qarşı müqavimət <span
+class="citation" data-cites="daemen2002design"></span>.</p></li>
+<li><p><strong>ShiftRows:</strong> Sətirlərin dövri sürüşdürülməsi ilə
+baytlararası qarışdırmanın (diffusion) təmini <span class="citation"
+data-cites="paar2010understanding"></span>.</p></li>
+<li><p><strong>MixColumns:</strong> <span
+class="math inline">\(GF(2^8)\)</span> meydanı üzərində matris vurulması
+ilə sütundaxili yüksək dərəcəli yayılma <span class="citation"
+data-cites="ebooks2021aes"></span>.</p></li>
+<li><p><strong>AddRoundKey:</strong> Gizli açarın raund açarları
+şəklində məlumatla birləşdirilməsi.</p></li>
+<li><p><strong>Key Expansion (Açarın Genişləndirilməsi):</strong> Rcon
+sabitləri və qeyri-xətti funksiyalar vasitəsilə vahid açardan raund
+açarlarının törədilməsi <span class="citation"
+data-cites="stallings2017cryptography"></span>.</p></li>
+<li><p><strong>Təhlükəsizlik və Tətbiq:</strong> Diferensial və xətti
+kriptoanalizə dözümlülük, həmçinin TLS, Wi-Fi (WPA3) və disk şifrləmə
+sistemlərindəki kritik rolu.</p></li>
+</ul>
+<p>Yekun olaraq qeyd edə bilərik ki, AES həm səmərəliliyi, həm də riyazi
+dözümlülüyü sayəsində yaxın gələcəkdə də (post-kvant dövrü daxil
+olmaqla) ən etibarlı simmetrik şifrələmə alqoritmi olaraq
+qalacaqdır.</p>
+<div class="note">
+<p><span>Növbəti Mühazirə</span> <strong>Həftə 11:</strong> Blok
+şifrələrin iş rejimləri (Modes of Operation). ECB, CBC, CFB, OFB və CTR
+rejimlərinin təhlükəsizlik xüsusiyyətlərini və onların müxtəlif şəbəkə
+protokollarındakı tətbiqini araşdıracağıq.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (12)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stallings, 2017</span>
+                        <small class="text-muted">Pearson</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography and Network Security: Principles and Practice</h6>
+                    <p class="small text-secondary mb-0">William Stallings (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Nechvatal et al., 2001</span>
+                        <small class="text-muted">Journal of Research of the National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Report on the Development of the Advanced Encryption Standard (AES)</h6>
+                    <p class="small text-secondary mb-0">James Nechvatal and Elaine Barker and Lawrence Bassham and William Burr and Morris Dworkin and James Foti and Edward Roback (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Daemen &amp; Rijmen, 2002</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Design of Rijndael: AES - The Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Joan Daemen and Vincent Rijmen (2002)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] NIST, 2001</span>
+                        <small class="text-muted">U.S. Department of Commerce</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Paar &amp; Pelzl, 2010</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Inc., 2019</span>
+                        
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">AES Encryption Algorithms</h6>
+                    <p class="small text-secondary mb-0">Xilinx Inc. (2019)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Good &amp; Benaissa, 2005</span>
+                        <small class="text-muted">Field-Programmable Logic and Applications</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">AES on FPGA: ASIP vs. PicoBlaze implementations</h6>
+                    <p class="small text-secondary mb-0">T. Good and M. Benaissa (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Gladman, 2003</span>
+                        <small class="text-muted">Cryptography and Coding</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Implementing AES</h6>
+                    <p class="small text-secondary mb-0">Brian Gladman (2003)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Oukili &amp; others, 2017</span>
+                        <small class="text-muted">TELKOMNIKA</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">High throughput FPGA implementation of Advanced Encryption Standard algorithm</h6>
+                    <p class="small text-secondary mb-0">Soufiane Oukili and others (2017)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Fowler, 2022</span>
+                        <small class="text-muted">IACR Transactions on Symmetric Cryptology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">AES-GCM-SIV: Specification and Analysis</h6>
+                    <p class="small text-secondary mb-0">Fowler, M. (2022)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Wright, 2001</span>
+                        <small class="text-muted">Network Security</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Advanced Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Wright, M. (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Series, 2021</span>
+                        <small class="text-muted">Digital Education Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Advanced Encryption Standard: Theory and Implementation</h6>
+                    <p class="small text-secondary mb-0">Cyber Security Series (2021)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

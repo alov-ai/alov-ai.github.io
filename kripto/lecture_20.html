@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_20</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 20</strong></p>
+<p><strong>Diffi-Hellman və ElGamal</strong></p>
+<p>Bu mühazirə Diffi-Hellman açar razılaşdırılması protokolunu, diskret
+loqarifm problemini, ElGamal kriptosistemini və onların təhlükəsizlik
+xüsusiyyətlərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>DLP, CDH və DDH problemlərini giriş/çıxış parametrləri və hücum
+məqsədləri üzrə fərqləndirməyi <span class="citation"
+data-cites="stinson2018cryptography"></span>;</p></li>
+<li><p>Diffi–Hellman (<em>Diffie–Hellman</em>) açar razılaşdırılması
+alqoritminin mesaj axınını hesablamağı və emal edilməmiş ortaq məxfi
+qiymətdən Açar Törətmə Funksiyası (KDF) vasitəsilə sessiya açarı almağı
+<span class="citation" data-cites="diffie1976new"></span>;</p></li>
+<li><p>Autentifikasiya olunmayan şəbəkə axınında aralıqdakı adam
+(<em>MITM</em>) hücumunu təhlil etməyi və uyğun autentifikasiya qatını
+seçməyi <span class="citation"
+data-cites="katz2020introduction menezes1996handbook"></span>;</p></li>
+<li><p>ElGamal açar generasiyası, şifrələmə və deşifrələmə
+əməliyyatlarını müvafiq dövri qrupda hesablamağı <span class="citation"
+data-cites="elgamal1985public"></span>;</p></li>
+<li><p>Müvəqqəti (efemer) məxfi parametri təkrar istifadə etməyin DH və
+ElGamal sxemlərində yarada biləcəyi təhlükəsizlik fəsadlarını təhlil
+etməyi və protokol tələblərini əsaslandırmağı bacaracaqlar <span
+class="citation" data-cites="paar2024understanding"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 19-cu mühazirədə RSA alqoritmi və vuruqlara
+ayrılma (faktorizasiya) fərziyyəsinə əsaslanan şifrələmə mexanizmləri
+öyrənildi.</p>
+<p><strong>İndi:</strong> Diskret Loqarifm Problemi (DLP) ailəsinə
+əsaslanan Diffi–Hellman açar razılaşdırılması və ElGamal şifrələmə
+sxemləri təhlil olunur.</p>
+<p><strong>Sonra:</strong> 21-ci mühazirə eyni diskret loqarifm
+məntiqini elliptik əyrilər qrupuna (<em>ECC</em>) keçirəcək; ElGamal
+rəqəmsal imza sxeminin tam analizi isə 23-cü mühazirədəki imza
+modellərinə körpü rolunu oynayacaq.</p>
+<p><strong>Kanon:</strong> <em>açar razılaşdırılması</em>; <em>müvəqqəti
+(efemer) açar</em>; <em>sessiya açarı</em>; <em>irəli məxfilik
+(<em>forward secrecy</em>)</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Əvvəlki mühazirələrimizdə asimmetrik kriptoqrafiyanın fundamental
+prinsiplərini və təhlükəsizliyi böyük tam ədədlərin vuruqlara
+ayrılmasının (faktorizasiya probleminin) çətinliyinə əsaslanan RSA
+kriptosistemini təhlil etdik. Müasir asimmetrik kriptoqrafiya yalnız
+faktorizasiya problemi ilə məhdudlaşmır; onun digər mühüm sütunu
+multiplikativ qruplar üzərində təyin olunmuş <strong>diskret loqarifm
+probleminin (DLP)</strong> hesablama birtərəfliliyinə söykənir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<p>Bu mühazirə çərçivəsində diskret loqarifm fəzasında qurulmuş iki
+fundamental və tarixi mexanizm təhlil ediləcəkdir. Bunlardan birincisi,
+1976-cı ildə Whitfield Diffie və Martin Hellman tərəfindən nəşr olunmuş
+və açıq açar kriptoqrafiyası erasını praktik olaraq başladan
+<strong>Diffi-Hellman açar razılaşdırılması protokoludur</strong> <span
+class="citation" data-cites="diffie1976new"></span>. Bu protokol iki
+tərəfə əvvəlcədən heç bir gizli məlumat paylaşmadıqları halda,
+təhlükəsiz olmayan rabitə kanalı üzərindən ortaq simmetrik gizli açar
+formalaşdırmağa imkan verir.</p>
+<p>İkinci böyük sistem isə 1985-ci ildə Taher ElGamal tərəfindən təklif
+edilmiş və Diffi-Hellman riyazi prinsiplərini şifrələmə və rəqəmsal imza
+arxitekturasına çevirən <strong>ElGamal kriptosistemidir</strong> <span
+class="citation"
+data-cites="elgamal1985public ferguson2010cryptography"></span>. ElGamal
+sistemi şifrələmə prosesinə daxili təsadüfilik gətirməklə eyni mesajın
+hər dəfə fərqli şifrəli mətnlərə çevrilməsini təmin edən ehtimallı
+şifrələmə modelinin klassik nümunələrindən biridir.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>Diffi-Hellman açar razılaşdırılması hansı riyazi qrup
+strukturları üzərində qurulur və açıq kanalda təhlükəsizliyi necə təmin
+edir?</p></li>
+<li><p>Diskret loqarifm problemi (DLP) nədir və onu klassik kompüterlər
+üçün hesablama baxımından çətin edən faktorlar hansılardır?</p></li>
+<li><p>Diffi-Hellman protokolu niyə ilkin variantda “ortada adam” (MITM)
+hücumlarına qarşı zəifdir və bu zəiflik hansı autentifikasiya metodları
+ilə aradan qaldırılır?</p></li>
+<li><p>ElGamal kriptosisteminin açar generasiyası, şifrələmə və
+deşifrələmə mexanizmlərinin arxasında hansı modulyar riyaziyyat
+dayanır?</p></li>
+<li><p>ElGamalın ehtimallı (probabilistic) olması şifrəli mətnin
+semantik təhlükəsizliyinə necə təsir göstərir?</p></li>
+<li><p>ElGamal rəqəmsal imza sxemi imzanın saxtalaşdırılmasının
+qarşısını necə alır?</p></li>
+</ul>
+</div>
+<h1 id="diskret-loqarifm-problemi-dlp">Diskret Loqarifm Problemi
+(DLP)</h1>
+<p>Həm Diffi–Hellman açar razılaşdırılması protokolunun, həm də ElGamal
+kriptosisteminin təhlükəsizlik memarlığı sonlu dövri qruplar<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> üzərində təyin olunmuş aşağıdakı
+riyazi problemin hesablama mürəkkəbliyinə əsaslanır:</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Diskret Loqarifm Problemi — DLP). <em>Tutaq
+ki, <span class="math inline">\(p\)</span> böyük sadə ədəd, <span
+class="math inline">\(\mathbb{Z}_p^* = \{1, 2, \dots, p-1\}\)</span> isə
+modula görə multiplikativ qrupdur. <span
+class="math inline">\(g\)</span> ədədi bu qrupun generatorudur (primitiv
+kökü), qrupun ixtiyari <span class="math inline">\(h \in
+\mathbb{Z}_p^*\)</span> elementi verilmişdir. Bu şərtlər daxilində <span
+class="math display">\[g^x \equiv h \pmod{p}\]</span> bərabərliyini
+ödəyən ən kiçik qeyri-mənfi <span class="math inline">\(x\)</span> tam
+ədədinin tapılması <strong>Diskret Loqarifm Problemi</strong> adlanır.
+Tapılmış <span class="math inline">\(x\)</span> qiyməti <span
+class="math inline">\(h\)</span> elementinin <span
+class="math inline">\(g\)</span> əsasına görə diskret loqarifmi hesab
+olunur və <span class="math inline">\(x = \log_g h\)</span> şəklində
+işarə edilir.</em></p>
+</div>
+<p>Asimmetrik sistemlərin təməlini təşkil edən birtərəfli funksiya
+xassəsi bu problemdə özünü iki formada göstərir:</p>
+<ul>
+<li><p><strong>Hesablama asanlığı (düzünə funksiya):</strong> <span
+class="math inline">\(g\)</span>, <span class="math inline">\(x\)</span>
+və <span class="math inline">\(p\)</span> parametrləri verildikdə,
+modulyar qüvvətə yüksəltmə (<span class="math inline">\(g^x \bmod
+p\)</span>) əməliyyatını hesablamaq asandır. Bu proses <strong>ardıcıl
+kvadratlaşdırma və modulyar vurma alqoritmi</strong> vasitəsilə
+loqarifmik zaman mürəkkəbliyində (<span class="math inline">\(O(\log
+x)\)</span>) icra olunur.</p></li>
+<li><p><strong>Hesablama çətinliyi (tərs funksiya):</strong> <span
+class="math inline">\(g\)</span>, <span class="math inline">\(p\)</span>
+və <span class="math inline">\(h\)</span> elementləri verildikdə <span
+class="math inline">\(x\)</span> ədədinin tapılması, kifayət qədər böyük
+modullar üçün, klassik kompüterlərdə praktik olaraq həlli çətin qəbul
+edilir <span class="citation"
+data-cites="diffie1976new stinson2018cryptography"></span>.</p></li>
+</ul>
+<p><strong>Hesablama mürəkkəbliyinin analizi:</strong> Sonlu meydanların
+multiplikativ qruplarında diskret loqarifm problemini həll edən ən güclü
+klassik alqoritmlər seçilmiş meydanın strukturundan asılıdır. Məsələn,
+sadə tərtibli sonlu meydanlarda (<span
+class="math inline">\(\mathbb{F}_p\)</span>) Cəbri Ədədlər Meydanı
+Ələyinin Diskret Loqarifm variantı (<em>NFS-DL</em>) tətbiq olunur. Qeyd
+edək ki, ümumi Cəbri Ədədlər Meydanı Ələyi (<em>GNFS</em>) alqoritmi tam
+ədədlərin vuruqlara ayrılması (faktorizasiya) üçün nəzərdə tutulmuşdur
+və DLP üçün alqoritm deyil. Təhlükəsizlik hədləri qrupun quruluşu və
+həmin qrupa tətbiq edilə bilən ən effektiv alqoritmlərin mürəkkəbliyi
+nəzərə alınaraq müəyyən edilir <span class="citation"
+data-cites="katz2020introduction"></span>.</p>
+<div class="example">
+<p><strong>Nümunə 1</strong> (Diskret loqarifmin kiçik modul üzrə
+hesablama modeli). <em>Metodun mahiyyətini əyani şəkildə nümayiş
+etdirmək üçün kiçik ölçülü parametrlər seçək. Tutaq ki, <span
+class="math inline">\(p=13\)</span> və qrupun generatoru <span
+class="math inline">\(g=2\)</span> verilmişdir (<span
+class="math inline">\(2\)</span> ədədi <span
+class="math inline">\(\mathbb{Z}_{13}^*\)</span> qrupunun primitiv
+köküdür: onun ardıcıl qüvvətləri qrupun bütün <span
+class="math inline">\(12\)</span> elementini generasiya edir). Bizə
+<span class="math inline">\(h = 9\)</span> qiyməti verilmişdir və <span
+class="math inline">\(2^x \equiv 9 \pmod{13}\)</span> modulyar tənliyini
+həll etməliyik: <span class="math display">\[\begin{align*}
+2^1 &amp;= 2 \equiv 2 \pmod{13}, &amp;
+2^2 &amp;= 4 \equiv 4 \pmod{13}, \\
+2^3 &amp;= 8 \equiv 8 \pmod{13}, &amp;
+2^4 &amp;= 16 \equiv 3 \pmod{13}, \\
+2^5 &amp;= 32 \equiv 6 \pmod{13}, &amp;
+2^6 &amp;= 64 \equiv 12 \pmod{13}, \\
+2^7 &amp;= 128 \equiv 11 \pmod{13}, &amp;
+2^8 &amp;= 256 \equiv 9 \pmod{13},
+\end{align*}\]</span> burada sonuncu addımda <span
+class="math inline">\(256 = 19 \cdot 13 + 9\)</span> olduğundan qalıq
+<span class="math inline">\(9\)</span>-dur. Axtarılan ən kiçik tam ədəd
+tapıldı. Beləliklə, <span class="math inline">\(\log_2 9 = 8\)</span>
+nəticəsi əldə edilir <span class="citation"
+data-cites="stinson2018cryptography"></span>. Kiçik ədədlərdə sadə
+axtarışla tapılan bu proses böyük kriptoqrafik ölçülü qruplarda praktik
+baxımdan hesablana bilməyəcək qədər çətin olur.</em></p>
+</div>
+<h1 id="diffi-hellman-açar-razılaşdırılması">Diffi-Hellman Açar
+Razılaşdırılması</h1>
+<h2 id="tarixi-əhəmiyyəti">Tarixi Əhəmiyyəti</h2>
+<p>1976-cı ildə Vitfild Diffi və Martin Hellman tərəfindən nəşr edilən
+“Kriptoqrafiyada yeni istiqamətlər” məqaləsi kriptoqrafiya tarixində
+dönüş nöqtəsidir <span class="citation"
+data-cites="diffie1976new"></span>. Müəlliflər bu əsas işdə açıq açar
+kriptoqrafiyası konsepsiyasını elmi müstəviyə gətirmiş və bunun praktik
+tətbiqi olan ilk asimmetrik açar razılaşdırılması protokolunu təsvir
+etmişlər <span class="citation"
+data-cites="stinson2018cryptography katz2020introduction"></span>.
+Protokol iki tərəfə əvvəlcədən məxfi məlumat paylaşmadan, təhlükəsiz
+olmayan rabitə kanalı üzərindən ortaq gizli sessiya açarı
+formalaşdırmağa imkan verir. Əldə olunan bu açar daha sonra simmetrik
+şifrələmə alqoritmlərində, məsələn AES-də, sessiya açarı kimi istifadə
+olunur.</p>
+<h2 id="protokolun-riyazi-əsası-və-alqoritmik-addımları">Protokolun
+Riyazi Əsası və Alqoritmik Addımları</h2>
+<p>Diffi-Hellman protokolu multiplikativ qruplarda modulyar qüvvətə
+yüksəltmə əməliyyatının xassələrinə və diskret loqarifm probleminin
+hesablama çətinliyinə əsaslanır. Alis və Bob təhlükəsiz açar
+formalaşdırmaq üçün aşağıdakı mərhələləri icra edirlər:</p>
+<ol>
+<li><p><strong>Qlobal ictimai parametrlərin seçimi:</strong></p>
+<ul>
+<li><p>böyük sadə ədəd <span class="math inline">\(p\)</span> (müasir
+standartlarda ən azı 2048 bit);</p></li>
+<li><p><span class="math inline">\(\mathbb{Z}_p^*\)</span> qrupunda
+uyğun generator və ya böyük sadə tərtibli altqrupun generatoru olan
+<span class="math inline">\(g\)</span>.</p></li>
+</ul>
+<p>Bu parametrlər açıqdır və hər kəs tərəfindən bilinə bilər.</p></li>
+<li><p><strong>Gizli açarların generasiyası:</strong></p>
+<ul>
+<li><p>Alis təsadüfi gizli ədəd seçir: <span class="math inline">\(a \in
+\{2, \dots, p-2\}\)</span>;</p></li>
+<li><p>Bob təsadüfi gizli ədəd seçir: <span class="math inline">\(b \in
+\{2, \dots, p-2\}\)</span>.</p></li>
+</ul>
+<p>Bu gizli eksponentlər yalnız tərəflərin özlərinə məlumdur və şəbəkə
+ilə ötürülmür.</p></li>
+<li><p><strong>Açıq komponentlərin hesablanması və
+mübadiləsi:</strong></p>
+<ul>
+<li><p>Alis hesablayır: <span class="math inline">\(A = g^a
+\pmod{p}\)</span>;</p></li>
+<li><p>Bob hesablayır: <span class="math inline">\(B = g^b
+\pmod{p}\)</span>.</p></li>
+</ul>
+<p>Alis <span class="math inline">\(A\)</span> qiymətini Boba, Bob isə
+<span class="math inline">\(B\)</span> qiymətini Alisə açıq kanal
+vasitəsilə göndərir.</p></li>
+<li><p><strong>Ortaq gizli sessiya açarının hasil edilməsi:</strong></p>
+<ul>
+<li><p>Alis Bobdan aldığı <span class="math inline">\(B\)</span>
+dəyərini öz gizli <span class="math inline">\(a\)</span> qüvvətinə
+yüksəldir: <span class="math display">\[s = B^a \equiv (g^b)^a \equiv
+g^{ba} \pmod{p}.\]</span></p></li>
+<li><p>Bob Alisdən aldığı <span class="math inline">\(A\)</span>
+dəyərini öz gizli <span class="math inline">\(b\)</span> qüvvətinə
+yüksəldir: <span class="math display">\[s = A^b \equiv (g^a)^b \equiv
+g^{ab} \pmod{p}.\]</span></p></li>
+</ul>
+<p><span class="math inline">\(g^{ab} \equiv g^{ba} \pmod{p}\)</span>
+olduğuna görə hər iki tərəf eyni <span class="math inline">\(s\)</span>
+qiymətini əldə edir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+</ol>
+<p><strong>Protokolun addımlarının strukturlaşdırılmış
+icmalı:</strong></p>
+<figure id="fig:dh_tikz_functional" data-latex-placement="htbp">
+
+<figcaption>Diffi-Hellman açar razılaşdırılması protokolunun funksional
+və riyazi ardıcıllığı.</figcaption>
+</figure>
+<div class="example">
+<p><strong>Nümunə 2</strong> (Diffi-Hellman protokolunun kiçik
+parametrlər üzrə modeli). <em>İctimai parametrlər <span
+class="math inline">\(p=23\)</span> və <span
+class="math inline">\(g=5\)</span> olsun. Alis <span
+class="math inline">\(a=6\)</span>, Bob isə <span
+class="math inline">\(b=15\)</span> seçir.</em></p>
+<ul>
+<li><p><em>Alisin açıq komponenti: <span class="math display">\[A = 5^6
+\pmod{23} = 15625 \pmod{23} = 8.\]</span></em></p></li>
+<li><p><em>Bobun açıq komponenti <span class="math inline">\(B = 5^{15}
+\pmod{23}\)</span> ardıcıl kvadratlaşdırma və vurma ilə hesablanır:
+<span class="math display">\[5^2 = 25 \equiv 2, \qquad 5^4 \equiv 2^2 =
+4, \qquad 5^8 \equiv 4^2 = 16 \pmod{23},\]</span> <span
+class="math display">\[5^{15} = 5^8 \cdot 5^4 \cdot 5^2 \cdot 5^1 \equiv
+16 \cdot 4 \cdot 2 \cdot 5 = 640 \equiv 19
+\pmod{23}.\]</span></em></p></li>
+<li><p><em>Tərəflər <span class="math inline">\(A=8\)</span> və <span
+class="math inline">\(B=19\)</span> dəyərlərini mübadilə
+edirlər.</em></p></li>
+<li><p><em>Alis ortaq açarı hesablayır (<span class="math inline">\(19
+\equiv -4 \pmod{23}\)</span> sadələşdirməsindən istifadə edərək): <span
+class="math display">\[19^2 \equiv 16, \qquad 19^4 \equiv 16^2 = 256
+\equiv 3, \qquad
+    s = 19^6 = 19^4 \cdot 19^2 \equiv 3 \cdot 16 = 48 \equiv 2
+\pmod{23}.\]</span></em></p></li>
+<li><p><em>Bob ortaq açarı hesablayır: <span class="math display">\[8^2
+\equiv 18, \qquad 8^4 \equiv 18^2 = 324 \equiv 2, \qquad 8^8 \equiv 2^2
+= 4 \pmod{23},\]</span> <span class="math display">\[s = 8^{15} = 8^8
+\cdot 8^4 \cdot 8^2 \cdot 8^1 \equiv 4 \cdot 2 \cdot 18 \cdot 8 = 1152
+\equiv 2 \pmod{23}.\]</span></em></p></li>
+</ul>
+<p><em>Hər iki tərəf eyni <span class="math inline">\(s=2\)</span> gizli
+sessiya açarını formalaşdırır.</em></p>
+</div>
+<h2 id="təhlükəsizlik-fərziyyələri">Təhlükəsizlik Fərziyyələri</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Hesablama Diffi-Hellman — CDH). <em><span
+class="math inline">\(\mathbb{Z}_p^*\)</span> multiplikativ qrupunun
+<span class="math inline">\(g\)</span> generatoru, <span
+class="math inline">\(A = g^a \pmod{p}\)</span> və <span
+class="math inline">\(B = g^b \pmod{p}\)</span> açıq dəyərləri
+verildikdə, <span class="math inline">\(a\)</span> və ya <span
+class="math inline">\(b\)</span> gizli eksponentlərini tapmadan birbaşa
+<span class="math inline">\(g^{ab} \pmod{p}\)</span> qiymətinin
+hesablanması <strong>Hesablama Diffi-Hellman (CDH)</strong> problemi
+adlanır.</em></p>
+</div>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Qərar Diffi-Hellman — DDH). <em><span
+class="math inline">\(g\)</span> generatoru və <span
+class="math inline">\(g^a\)</span>, <span
+class="math inline">\(g^b\)</span>, <span class="math inline">\(Z \in
+\mathbb{Z}_p^*\)</span> elementləri verildikdə, <span
+class="math inline">\(Z\)</span> elementinin <span
+class="math inline">\(g^{ab} \pmod{p}\)</span> olub-olmadığını (və ya
+qrupdan bərabər ehtimalla seçilmiş təsadüfi element olduğunu) ayırd
+etmək <strong>Qərar Diffi-Hellman (DDH)</strong> problemi adlanır. DDH
+fərziyyəsi CDH fərziyyəsindən güclüdür: hücumçudan yalnız <span
+class="math inline">\(g^{ab}\)</span>-ni <em>hesablaya</em> bilməmək
+deyil, onu təsadüfi elementdən heç <em>fərqləndirə</em> də bilməmək
+tələb olunur. ElGamal şifrələməsinin semantik təhlükəsizliyi (IND-CPA),
+uyğun sadə tərtibli altqrup modelində, məhz DDH fərziyyəsi ilə
+əsaslandırılır.</em></p>
+</div>
+<p>Passiv hücumçu <span class="math inline">\(g\)</span>, <span
+class="math inline">\(p\)</span>, <span class="math inline">\(A\)</span>
+və <span class="math inline">\(B\)</span> parametrlərini ələ keçirə
+bilsə də, diskret loqarifm problemini və ya CDH problemini həll etmədən
+ortaq <span class="math inline">\(g^{ab}\)</span> açarını hesablaya
+bilməz <span class="citation"
+data-cites="diffie1976new katz2020introduction"></span>.</p>
+<h2 id="ortada-adam-mitm-hücumu">“Ortada Adam” (MITM) Hücumu</h2>
+<p>Diffi-Hellman protokolunun ilkin strukturunda autentifikasiya
+mexanizmi yoxdur. Bu səbəbdən protokol aktiv şəbəkə hücumlarına,
+xüsusilə “Ortada Adam” hücumuna qarşı müdafiəsizdir <span
+class="citation" data-cites="katz2020introduction"></span>.</p>
+<ol>
+<li><p>Fərz edək ki, aktiv hücumçu Malori Alis ilə Bob arasındakı rabitə
+kanalına nəzarət edir.</p></li>
+<li><p>Alis Boba öz açıq komponentini (<span class="math inline">\(A =
+g^a\)</span>) göndərir. Malori bu mesajı bloklayır, öz gizli <span
+class="math inline">\(m\)</span> ədədini seçir və <span
+class="math inline">\(M = g^m \pmod{p}\)</span> hesablayaraq Boba Alisin
+adından <span class="math inline">\(M\)</span> göndərir.</p></li>
+<li><p>Bob gələn <span class="math inline">\(M\)</span> dəyərini Alisin
+açıq komponenti kimi qəbul edərək öz açıq komponentini (<span
+class="math inline">\(B = g^b\)</span>) geri göndərir. Malori bu mesajı
+da ələ keçirir və Alisə Bobun adından yenə öz <span
+class="math inline">\(M\)</span> dəyərini göndərir.</p></li>
+<li><p>Nəticədə iki müstəqil Diffi-Hellman seansı qurulur:</p>
+<ul>
+<li><p>Alis Malori ilə ortaq açar formalaşdırır: <span
+class="math inline">\(s_{AM} = M^a \equiv g^{ma}
+\pmod{p}\)</span>;</p></li>
+<li><p>Bob Malori ilə ortaq açar formalaşdırır: <span
+class="math inline">\(s_{BM} = M^b \equiv g^{mb}
+\pmod{p}\)</span>.</p></li>
+</ul></li>
+<li><p>Malori həm <span class="math inline">\(s_{AM} = A^m\)</span>, həm
+də <span class="math inline">\(s_{BM} = B^m\)</span> açarlarını
+hesablaya bilir. Beləliklə, o, Alis və Bob arasındakı mesajları oxuya,
+dəyişdirə və yenidən şifrələyə bilər <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+</ol>
+<h2
+id="autentifikasiya-edilmiş-diffi-hellman-protokolları">Autentifikasiya
+Edilmiş Diffi-Hellman Protokolları</h2>
+<p>MITM hücumlarının əsas həlli açıq Diffi-Hellman komponentlərinin
+qarşılıqlı şəkildə autentifikasiya edilməsidir. Bu proses müasir
+sistemlərdə əsasən rəqəmsal imzalar, sertifikatlar və ya ayrıca
+autentifikasiya edilmiş açar razılaşdırılması protokolları ilə həyata
+keçirilir <span class="citation"
+data-cites="menezes1996handbook katz2020introduction"></span>.</p>
+<ul>
+<li><p><strong>Rəqəmsal imzalar və sertifikatlar:</strong> MITM
+hücumunun fundamental səbəbi Alis və Bobun qarşı tərəfdən gələn açıq
+komponentin həqiqətən kimə aid olduğunu yoxlaya bilməməsidir. Bu
+problemi həll etmək üçün tərəflər Diffi-Hellman komponentlərini rəqəmsal
+imza ilə autentifikasiya edə bilərlər. Əgər Malori <span
+class="math inline">\(A\)</span> dəyərini özünün <span
+class="math inline">\(M\)</span> dəyəri ilə əvəzləmək istəsə, Alisin
+imzasını saxtalaşdıra bilməz. TLS 1.2-nin DHE/ECDHE dəstlərində serverin
+imzası <code>ServerKeyExchange</code> daxilində efemer parametrləri və
+əlaqəli əl sıxma dəyərlərini bağlayırdı. TLS 1.3-də isə
+<code>key_share</code> dəyərləri əl sıxma transkriptinə daxil edilir və
+<code>CertificateVerify</code> sertifikat açarı ilə kontekst sətrini və
+transkript heşini imzalayır; efemer parametr ayrıca həmin mesajda
+imzalanmır. Düzgün sertifikat, transkript və <code>Finished</code>
+yoxlamaları ilə bu bağlama aktiv MITM dəyişikliklərini aşkarlayır <span
+class="citation" data-cites="rescorla2026rfc9846"></span>.</p></li>
+<li><p><strong>Stansiyadan Stansiyaya — Station-to-Station (STS)
+protokolu:</strong> Station-to-Station (STS) protokolu Whitfield Diffie,
+Paul C. van Oorschot və Michael J. Wiener tərəfindən təklif edilmiş və
+1992-ci ildə dərc olunmuşdur <span class="citation"
+data-cites="diffie1992authentication"></span>; protokolun ilkin forması
+hələ 1987-ci ildə ISDN təhlükəsizliyi kontekstində təqdim edilmişdi. STS
+klassik Diffi-Hellman açar razılaşdırılmasını rəqəmsal imza mexanizmi
+ilə birləşdirərək qarşılıqlı autentifikasiya olunmuş açar
+razılaşdırılmasını təmin edir <span class="citation"
+data-cites="diffie1992authentication menezes1996handbook"></span>.</p>
+<p>STS protokolunun əsas məqsədi Diffi-Hellman razılaşdırılmasına
+qarşılıqlı autentifikasiya əlavə etməklə MITM hücumunun qarşısını
+almaqdır. STS-in bəzi variantlarında imzalar sessiya açarı ilə
+şifrələndiyi üçün passiv dinləyiciyə qarşı müəyyən identifikasiya
+məxfiliyi də təmin edilə bilər; lakin bu xüsusiyyət protokolun konkret
+variantından və sertifikatların necə ötürülməsindən asılıdır.</p>
+<p>Protokolun sadələşdirilmiş mexanizmi belədir:</p>
+<ol>
+<li><p><strong>Alisdən Boba:</strong> Alis təsadüfi gizli <span
+class="math inline">\(a\)</span> seçir və <span class="math inline">\(A
+= g^a \pmod{p}\)</span> dəyərini Boba göndərir.</p></li>
+<li><p><strong>Bobdan Alisə:</strong> Bob təsadüfi gizli <span
+class="math inline">\(b\)</span> seçir, <span class="math inline">\(B =
+g^b \pmod{p}\)</span> hesablayır və ortaq <span class="math inline">\(s
+= A^b = g^{ab} \pmod{p}\)</span> açarını əldə edir. Daha sonra Bob <span
+class="math inline">\((B,A)\)</span> cütünü imzalayır və bu imzanı <span
+class="math inline">\(s\)</span> ilə şifrələyir: <span
+class="math display">\[S_{Bob} = \text{Sign}_{K_{Bob}^{-1}}(B,A), \qquad
+Y = E_s(S_{Bob}).\]</span> Bob Alisə <span
+class="math inline">\((B,Y)\)</span> göndərir.</p></li>
+<li><p><strong>Alisdən Boba:</strong> Alis <span class="math inline">\(s
+= B^a = g^{ab} \pmod{p}\)</span> hesablayır, <span
+class="math inline">\(Y\)</span> paketini deşifrə edir və Bobun imzasını
+yoxlayır. Sonra Alis də <span class="math inline">\((A,B)\)</span>
+cütünü imzalayır, imzanı <span class="math inline">\(s\)</span> ilə
+şifrələyir və Boba göndərir: <span class="math display">\[X =
+E_s(\text{Sign}_{K_{Alis}^{-1}}(A,B)).\]</span></p></li>
+</ol>
+<p><strong>Təhlükəsizlik təhlili:</strong> Malori araya girib <span
+class="math inline">\(A\)</span> və <span
+class="math inline">\(B\)</span> dəyərlərini dəyişdirsə belə, düzgün
+<span class="math inline">\(s\)</span> açarını hesablaya və tərəflərin
+imzalarını saxtalaşdıra bilmədiyi üçün hücum uğursuz olur. İmzalanan
+obyektlərin Diffi-Hellman komponentlərini əhatə etməsi açar
+razılaşdırılmasının autentifikasiyasını təmin edir <span
+class="citation"
+data-cites="diffie1992authentication menezes1996handbook"></span>.</p></li>
+</ul>
+<h1 id="elgamal-kriptosistemi">ElGamal Kriptosistemi</h1>
+<p>1985-ci ildə Taher ElGamal tərəfindən təklif edilən bu kriptosistem
+Diffi-Hellman açar razılaşdırılmasının fundamental ideyalarına və
+diskret loqarifm probleminin mürəkkəbliyinə əsaslanır <span
+class="citation" data-cites="elgamal1985public"></span>. ElGamal həm
+açıq açarlı şifrələmə, həm də rəqəmsal imza mexanizmlərini dəstəkləyən
+asimmetrik kriptosistemdir.</p>
+<h2 id="elgamal-açar-generasiyası">ElGamal Açar Generasiyası</h2>
+<p>ElGamal-da hər bir istifadəçi üçün riyazi əlaqəli açıq və gizli açar
+cütü yaradılır:</p>
+<ol>
+<li><p>Kriptoqrafik cəhətdən təhlükəsiz böyük sadə ədəd <span
+class="math inline">\(p\)</span> seçilir.</p></li>
+<li><p><span class="math inline">\(\mathbb{Z}_p^*\)</span> multiplikativ
+qrupunda generator <span class="math inline">\(g\)</span>
+seçilir.</p></li>
+<li><p>Təsadüfi gizli eksponent <span class="math inline">\(x\)</span>
+seçilir.</p></li>
+<li><p>Açıq komponent hesablanır: <span class="math display">\[y = g^x
+\pmod{p}.\]</span></p></li>
+<li><p>Açıq açar <span class="math inline">\((p,g,y)\)</span>, gizli
+açar isə <span class="math inline">\(x\)</span>-dir.</p></li>
+</ol>
+<p>Səmərəliliyi artırmaq üçün <span class="math inline">\(p\)</span> və
+<span class="math inline">\(g\)</span> parametrləri sistem daxilində
+qlobal olaraq ortaq istifadə edilə bilər.</p>
+<h2 id="elgamal-şifrələməsi">ElGamal Şifrələməsi</h2>
+<p>ElGamal <strong>ehtimallı</strong> (probabilistic) şifrələmə
+sxemidir. Deterministik sistemlərdən fərqli olaraq, eyni açıq mətn eyni
+açıq açarla şifrələndikdə belə, hər dəfə fərqli şifrəli mətnlər istehsal
+edir. Bu ehtimallılıq semantik təhlükəsizliyin (IND-CPA) zəruri
+şərtidir; ElGamal-ın IND-CPA təhlükəsizliyi uyğun sadə tərtibli altqrup
+modelində DDH fərziyyəsi ilə əsaslandırılır (bax: Tərif 4.2).</p>
+<p>Tutaq ki, Alis Boba <span class="math inline">\(m\)</span> mesajını
+göndərmək istəyir. Bobun açıq açarı <span
+class="math inline">\((p,g,y)\)</span>-dir.</p>
+<ol>
+<li><p>Alis mesajı multiplikativ qrupun elementi kimi kodlaşdırır: <span
+class="math inline">\(m \in \mathbb{Z}_p^*\)</span>. Praktik sistemlərdə
+böyük mesajlar birbaşa ElGamal ilə deyil, adətən hibrid şifrələmə sxemi
+ilə qorunur.</p></li>
+<li><p>Alis təsadüfi və gizli efemer açar <span
+class="math inline">\(k\)</span> seçir: <span class="math display">\[1
+&lt; k &lt; p-1.\]</span> Bu <span class="math inline">\(k\)</span> hər
+şifrələmə əməliyyatı üçün yeni və təkrar olunmayan şəkildə seçilməlidir.
+Qeyd edək ki, <span class="math inline">\(\gcd(k,p-1)=1\)</span> şərti
+ElGamal şifrələməsi üçün deyil, ElGamal imza sxemi üçün tələb
+olunur.</p></li>
+<li><p>Alis şifrəli mətn cütünü hesablayır: <span
+class="math display">\[\begin{align*}
+        c_1 &amp;= g^k \pmod{p},\\
+        c_2 &amp;= m \cdot y^k \pmod{p}.
+\end{align*}\]</span></p></li>
+<li><p>Alis Boba <span class="math inline">\(C=(c_1,c_2)\)</span>
+şifrəli mətnini göndərir.</p></li>
+</ol>
+<h2 id="elgamal-deşifrələməsi">ElGamal Deşifrələməsi</h2>
+<p>Bob <span class="math inline">\(C=(c_1,c_2)\)</span> şifrəli mətnini
+aldıqdan sonra öz gizli açarı <span class="math inline">\(x\)</span>
+vasitəsilə mesajı aşağıdakı addımlarla bərpa edir:</p>
+<ol>
+<li><p>Ortaq maskalama açarını hesablayır: <span
+class="math display">\[s = c_1^x \pmod{p}.\]</span> Qeyd edək ki, <span
+class="math inline">\(s=(g^k)^x=g^{kx}\pmod{p}\)</span>.</p></li>
+<li><p><span class="math inline">\(s\)</span>-in mod <span
+class="math inline">\(p\)</span>-yə görə multiplikativ tərsini tapır:
+<span class="math display">\[s \cdot s^{-1} \equiv 1
+\pmod{p}.\]</span></p></li>
+<li><p>Orijinal mesajı bərpa edir: <span class="math display">\[m = c_2
+\cdot s^{-1} \pmod{p}.\]</span></p></li>
+</ol>
+<p><strong>Riyazi doğruluq:</strong> <span class="math display">\[c_2
+\cdot s^{-1}
+\equiv (m \cdot y^k) \cdot (c_1^x)^{-1}
+\equiv (m \cdot (g^x)^k) \cdot (g^{kx})^{-1}
+\equiv m \cdot g^{xk} \cdot g^{-xk}
+\equiv m \pmod{p}.\]</span></p>
+<div class="example">
+<p><strong>Nümunə 3</strong> (ElGamal şifrələməsi və deşifrələməsi).
+<em>Kiçik ədədlərlə prosesi addım-addım simulyasiya edək:</em></p>
+<ul>
+<li><p><em><strong>Açar generasiyası:</strong> <span
+class="math inline">\(p=23\)</span>, <span
+class="math inline">\(g=5\)</span> seçilir. Bob gizli açar olaraq <span
+class="math inline">\(x=7\)</span> seçir. Açıq komponent <span
+class="math inline">\(y = 5^7 \pmod{23}\)</span> hesablanır: <span
+class="math display">\[5^2 = 25 \equiv 2, \qquad 5^4 \equiv 2^2 = 4,
+\qquad
+    5^7 = 5^4 \cdot 5^2 \cdot 5^1 \equiv 4 \cdot 2 \cdot 5 = 40 \equiv
+17 \pmod{23}.\]</span> Bobun açıq açarı <span
+class="math inline">\((p=23,\, g=5,\, y=17)\)</span>-dir.</em></p></li>
+<li><p><em><strong>Şifrələmə (Alis tərəfi):</strong> Alis <span
+class="math inline">\(m=10\)</span> mesajını göndərmək üçün efemer <span
+class="math inline">\(k=3\)</span> seçir: <span
+class="math display">\[c_1 = 5^3 = 125 \equiv 10 \pmod{23},\]</span>
+<span class="math display">\[y^3 = 17^3 \pmod{23}: \quad 17^2 = 289
+\equiv 13, \qquad 17^3 = 13 \cdot 17 = 221 \equiv 14 \pmod{23},\]</span>
+<span class="math display">\[c_2 = m \cdot y^k \equiv 10 \cdot 14 = 140
+\equiv 2 \pmod{23}.\]</span> Şifrəli mətn <span
+class="math inline">\((c_1,c_2)=(10,2)\)</span> olur.</em></p></li>
+<li><p><em><strong>Deşifrələmə (Bob tərəfi):</strong> Bob gizli açarı
+<span class="math inline">\(x=7\)</span> ilə əvvəlcə maskalama açarını
+hesablayır: <span class="math display">\[10^2 = 100 \equiv 8, \qquad
+10^4 \equiv 8^2 = 64 \equiv 18 \pmod{23},\]</span> <span
+class="math display">\[s = 10^7 = 10^4 \cdot 10^2 \cdot 10^1 \equiv 18
+\cdot 8 \cdot 10 = 1440 \equiv 14 \pmod{23}\]</span> (çünki <span
+class="math inline">\(23 \times 62 = 1426\)</span> və <span
+class="math inline">\(1440 - 1426 = 14\)</span>). Sonra tərs elementi
+tapır: <span class="math inline">\(14 \times 5 = 70 = 3 \cdot 23 + 1
+\equiv 1 \pmod{23}\)</span>, deməli <span class="math inline">\(s^{-1} =
+5\)</span>. Nəhayət: <span class="math display">\[m = c_2 \cdot s^{-1}
+\equiv 2 \cdot 5 = 10 \pmod{23}.\]</span></em></p></li>
+</ul>
+<p><em>Orijinal mesaj <span class="math inline">\(m=10\)</span> uğurla
+bərpa olunur.</em></p>
+</div>
+<h2
+id="kritik-təhlükəsizlik-xəbərdarlığı-efemer-açardan-k-təkrar-istifadə-riski">Kritik
+Təhlükəsizlik Xəbərdarlığı: Efemer Açardan (<span
+class="math inline">\(k\)</span>) Təkrar İstifadə Riski</h2>
+<p>ElGamal-ın ehtimallı strukturu hər şifrələmə üçün yeni təsadüfi
+seçilən <span class="math inline">\(k\)</span> ədədindən asılıdır. Əgər
+eyni <span class="math inline">\(k\)</span> parametrindən iki fərqli
+<span class="math inline">\(m_1\)</span> və <span
+class="math inline">\(m_2\)</span> mesajını şifrələmək üçün istifadə
+olunarsa, bu, ciddi təhlükəsizlik boşluğu yaradır.</p>
+<p>Tutaq ki, Malori şəbəkədən eyni <span
+class="math inline">\(k\)</span> ilə şifrələnmiş iki paket tutur: <span
+class="math inline">\(C_A=(c_1,c_2)\)</span> və <span
+class="math inline">\(C_B=(c_1,c_2&#39;)\)</span>. <span
+class="math display">\[\begin{align*}
+    c_2 &amp;= m_1 \cdot y^k \pmod{p},\\
+    c_2&#39; &amp;= m_2 \cdot y^k \pmod{p}.
+\end{align*}\]</span> Malori bu iki şifrəli mətnin nisbətini
+hesablamaqla gizli <span class="math inline">\(y^k\)</span> maskasını
+ləğv edə bilər: <span class="math display">\[c_2\cdot (c_2&#39;)^{-1}
+\equiv m_1 \cdot m_2^{-1} \pmod{p}.\]</span> Əgər mesajlardan biri
+məlumdursa, Malori ikinci mesajı hesablaya bilər: <span
+class="math display">\[m_2 \equiv m_1 \cdot c_2&#39; \cdot c_2^{-1}
+\pmod{p}.\]</span> Bu hücum şifrələmə sxemində mesajların məxfiliyini
+poza bilər, lakin ümumi halda birbaşa gizli açar <span
+class="math inline">\(x\)</span>-in tapılması demək deyil. Gizli açarın
+bərpası riski əsasən ElGamal imza sxemində <span
+class="math inline">\(k\)</span>-nın təkrar istifadəsi zamanı ortaya
+çıxır.</p>
+<h2 id="elgamal-rəqəmsal-imza-sxemi">ElGamal Rəqəmsal İmza Sxemi</h2>
+<p>ElGamal imza sxemi şifrələmə ilə oxşar riyazi struktura malik olsa
+da, modulyar hesablamaları fərqlidir. İmza atılarkən əsas tənliklər mod
+<span class="math inline">\(p-1\)</span> üzrə aparılır və doğrulama
+Fermanın Kiçik Teoreminə əsaslanır <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p>
+<p>İmzalayan tərəfin gizli açarı <span class="math inline">\(x\)</span>,
+açıq açarı isə <span class="math inline">\((p,g,y=g^x \bmod
+p)\)</span>-dir.</p>
+<p><strong>İmzanın yaradılması:</strong></p>
+<ol>
+<li><p>İmzalayan təsadüfi efemer <span class="math inline">\(k\)</span>
+seçir və <span class="math inline">\(\gcd(k,p-1)=1\)</span> şərti
+ödənməlidir.</p></li>
+<li><p>Birinci komponent hesablanır: <span class="math display">\[r =
+g^k \pmod{p}.\]</span></p></li>
+<li><p><span class="math inline">\(k^{-1}\pmod{p-1}\)</span> tapılır və
+ikinci komponent hesablanır: <span class="math display">\[s =
+(H(m)-x\cdot r)\cdot k^{-1} \pmod{p-1}.\]</span> Burada <span
+class="math inline">\(H(m)\)</span> mesajın kriptoqrafik heş dəyəridir
+(heş çıxışı <span class="math inline">\(\mathbb{Z}_{p-1}\)</span>
+daxilində tam ədəd kimi emal edilir).</p>
+<div class="note">
+<p><span>Vacib qeyd</span> Əgər <span class="math inline">\(s=0\)</span>
+alınarsa, yeni təsadüfi <span class="math inline">\(k\)</span> seçilərək
+proses təkrarlanmalıdır. <span class="math inline">\(k\)</span> dəyəri
+hər imza üçün yeni və unikal olmalıdır. Həmçinin qeyd edək ki, mod <span
+class="math inline">\(p-1\)</span> əməliyyatı mənfi aralıq nəticələri
+avtomatik olaraq <span class="math inline">\(\{0,\dots,p-2\}\)</span>
+intervalındakı müsbət qalığa gətirir: məsələn, <span
+class="math inline">\(-224 + (23 \cdot 10) = 6 \pmod{10}\)</span>, çünki
+<span class="math inline">\(-224 + 230 = 6\)</span>.</p>
+</div>
+<p>Yekun rəqəmsal imza <span class="math inline">\((r,s)\)</span>
+cütüdür.</p></li>
+</ol>
+<p><strong>İmzanın yoxlanılması:</strong> Mesajı və onun <span
+class="math inline">\((r,s)\)</span> imzasını qəbul edən şəxs açıq açar
+<span class="math inline">\(y\)</span> vasitəsilə aşağıdakı bərabərliyi
+yoxlayır: <span class="math display">\[g^{H(m)} \equiv y^r \cdot r^s
+\pmod{p}.\]</span> Əgər bərabərlik ödənirsə və <span
+class="math inline">\(0&lt;r&lt;p\)</span>, <span
+class="math inline">\(0&lt;s&lt;p-1\)</span> şərtləri doğrudursa, imza
+etibarlı qəbul edilir.</p>
+<p><strong>Riyazi əsaslandırma:</strong> <span class="math display">\[s
+\equiv (H(m)-x r)k^{-1} \pmod{p-1}.\]</span> Hər iki tərəfi <span
+class="math inline">\(k\)</span>-ya vursaq: <span
+class="math display">\[sk \equiv H(m)-xr \pmod{p-1}.\]</span> Buradan:
+<span class="math display">\[H(m) \equiv xr+sk \pmod{p-1}.\]</span>
+Fermanın Kiçik Teoreminə əsasən (<span class="math inline">\(\alpha
+\equiv \beta \pmod{p-1} \implies g^\alpha \equiv g^\beta
+\pmod{p}\)</span>): <span class="math display">\[g^{H(m)} \equiv
+g^{xr+sk} \equiv (g^x)^r(g^k)^s \equiv y^r r^s \pmod{p}.\]</span></p>
+<h1 id="diffi-hellman-və-elgamal-ın-müqayisəsi">Diffi-Hellman və
+ElGamal-ın Müqayisəsi</h1>
+<p>Hər iki sistem diskret loqarifm mühitinə əsaslansa da, onların
+məqsədləri və praktik tətbiqləri fərqlidir.</p>
+<table id="tab:dh_elgamal_comparison">
+<caption>Diffi-Hellman və ElGamal sistemlərinin struktur və funksional
+müqayisəsi.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Diffi-Hellman
+Protokolu</strong></th>
+<th style="text-align: left;"><strong>ElGamal
+Kriptosistemi</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Əsas funksionallıq</strong></td>
+<td style="text-align: left;">Açar razılaşdırılması: iki tərəf arasında
+ortaq gizli sessiya açarı hasil etmək.</td>
+<td style="text-align: left;">Açıq açarlı şifrələmə və rəqəmsal imza
+mexanizmləri.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Təhlükəsizlik
+fərziyyəsi</strong></td>
+<td style="text-align: left;">CDH və ya DDH problemlərinin
+çətinliyi.</td>
+<td style="text-align: left;">Riyazi əsası diskret loqarifm mühitinə
+bağlıdır; semantik təhlükəsizlik, uyğun qrup modelində, adətən DDH
+fərziyyəsi ilə əsaslandırılır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Açarın ömrü</strong></td>
+<td style="text-align: left;">Efemer variantlarda açarlar hər sessiya
+üçün müvəqqəti yaradılır və silinir.</td>
+<td style="text-align: left;">İstifadəçilərin uzunmüddətli açıq/gizli
+açar cütləri mövcud ola bilər.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Şifrələmə təbiəti</strong></td>
+<td style="text-align: left;">Şifrələmə funksiyası daşımır; ortaq sirr
+hasil edir.</td>
+<td style="text-align: left;">Ehtimallıdır. Fərqli <span
+class="math inline">\(k\)</span> sayəsində eyni mesaj fərqli şifrəli
+mətnlərə çevrilir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Məlumat genişlənməsi</strong></td>
+<td style="text-align: left;">Şifrəli mətn yaratmadığı üçün bu mənada
+genişlənmə yoxdur.</td>
+<td style="text-align: left;">Şifrəli mətn iki qrup elementindən
+ibarətdir: <span class="math inline">\((c_1,c_2)\)</span>. Əgər mesaj
+bir qrup elementi kimi kodlaşdırılıbsa, genişlənmə təxminən <span
+class="math inline">\(2\times\)</span> olur; praktik hibrid sxemlərdə
+isə bu nisbət formatdan asılıdır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MITM həssaslığı</strong></td>
+<td style="text-align: left;">Autentifikasiya yoxdursa, MITM hücumlarına
+qarşı müdafiəsizdir.</td>
+<td style="text-align: left;">Açıq açarların saxtalaşdırılmasının
+qarşısını almaq üçün PKI və ya etibarlı açar autentifikasiyası
+lazımdır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Praktik tətbiqlər</strong></td>
+<td style="text-align: left;">TLS/SSL, IPsec, SSH və PGP/GPG kimi
+sistemlərdə sessiya açarlarının razılaşdırılması.</td>
+<td style="text-align: left;">GPG-də və bəzi kriptoqrafik protokollarda
+açıq açarlı şifrələmə; ayrıca ElGamal tipli imza sxemləri.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-tövsiyələr">Praktik Tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Diffi-Hellman üçün:</strong></p>
+<ul>
+<li><p><span class="math inline">\(p\)</span>, <span
+class="math inline">\(q\)</span> və <span
+class="math inline">\(g\)</span> parametrləri standartlaşdırılmış
+təhlükəsiz qruplardan seçilməli (burada <span
+class="math inline">\(q\)</span> — <span
+class="math inline">\(g\)</span>-nin generasiya etdiyi altqrupun böyük
+sadə tərtibidir; məsələn, <span class="math inline">\(p = 2q+1\)</span>
+formalı təhlükəsiz sadə ədədlərdə), <span
+class="math inline">\(p\)</span> müasir standartlarda ən azı 2048 bit
+olmalı, <span class="math inline">\(g\)</span> isə böyük sadə tərtibli
+altqrupun generatoru olmalıdır. Qarşı tərəfdən gələn açıq Diffi-Hellman
+dəyərləri də doğrulanmalıdır <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+<li><p>MITM hücumlarından qorunmaq üçün ilkin protokolun autentifikasiya
+edilmiş variantlarından, məsələn STS, TLS-də sertifikat və rəqəmsal
+imzalarla birləşdirilmiş DHE/ECDHE mexanizmlərindən istifadə edilməlidir
+<span class="citation"
+data-cites="diffie1992authentication menezes1996handbook"></span>.</p></li>
+<li><p><strong>DHE (efemer Diffi-Hellman)</strong> variantına üstünlük
+verilməlidir; bu variant hər sessiya üçün yeni efemer açarlar yaradaraq
+<strong>irəli məxfilik</strong> (FS) təmin edir.</p></li>
+</ul></li>
+<li><p><strong>ElGamal üçün:</strong></p>
+<ul>
+<li><p>Hər şifrələmə əməliyyatı üçün yeni təsadüfi efemer açar <span
+class="math inline">\(k\)</span> seçilməlidir. <span
+class="math inline">\(k\)</span>-nın təkrar istifadəsi mesajlar arasında
+riyazi əlaqəni üzə çıxara və məlum açıq mətn olduqda digər mesajın
+bərpasına səbəb ola bilər <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p>Şifrələnən <span class="math inline">\(m\)</span> mesajı sadə
+multiplikativ qrup modelində <span class="math inline">\(m \in
+\mathbb{Z}_p^*\)</span> elementi kimi kodlaşdırılmalıdır. Böyük həcmli
+mesajlar üçün ElGamal birbaşa yox, <strong>hibrid şifrələmə</strong>
+sxemlərində istifadə edilməlidir.</p></li>
+<li><p>ElGamal imza sxemi hər imza əməliyyatı üçün yeni, unikal və
+təsadüfi <span class="math inline">\(k\)</span> parametri tələb edir
+(<span class="math inline">\(\gcd(k,p-1)=1\)</span> şərti ilə). İmza
+sxemində <span class="math inline">\(k\)</span>-nın təkrar istifadəsi
+gizli imza açarı <span class="math inline">\(x\)</span>-in bərpasına
+səbəb ola bilər.</p></li>
+<li><p>Müasir praktik tətbiqlərdə klassik multiplikativ qrup üzərində
+ElGamal əvəzinə çox vaxt elliptik əyri əsaslı mexanizmlərdən istifadə
+olunur. Şifrələmə üçün EC ElGamal və ya ECIES, rəqəmsal imza üçün isə
+ECDSA və ya EdDSA nümunə göstərilə bilər <span class="citation"
+data-cites="katz2020introduction"></span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Əvvəlcə protokol axınını və hücumçunun gördüyü dəyərləri özünüz qeyd
+edin. Müəllim üçün cavab açarı yalnız ilkin cəhddən sonra
+açılmalıdır.</p>
+</div>
+<p>Təqdim olunan məsələlər klassik Diffi-Hellman və ElGamal
+alqoritmlərinin riyazi prinsiplərini kiçik ədədlər üzərində anlamaq üçün
+nəzərdə tutulmuşdur.</p>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (Diffi-Hellman protokolu). <em><span
+class="math inline">\(p=11\)</span> sadə ədədi və <span
+class="math inline">\(\mathbb{Z}_{11}^*\)</span> qrupunun generatoru
+<span class="math inline">\(g=2\)</span> verilmişdir. Alis gizli açar
+olaraq <span class="math inline">\(a=5\)</span>, Bob isə <span
+class="math inline">\(b=4\)</span> seçərsə, Diffi-Hellman protokolunun
+riyazi addımlarını izah edin və formalaşan ortaq sessiya açarını
+tapın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (MITM hücumu simulyasiyası).
+<em>Yuxarıdakı <span class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span> parametrləri üzrə MITM hücumunu
+təsvir edin. Fərz edək ki, hücumçu Malori təsadüfi eksponent olaraq
+<span class="math inline">\(m=3\)</span> seçir. Bu halda Alis və Malori,
+eləcə də Bob və Malori arasında hansı ortaq sessiya açarları
+formalaşacaq? Tərəflərin bir-biri ilə ortaq açar formalaşdıra
+bilməməsini riyazi olaraq göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (ElGamal şifrələməsi). <em>ElGamal
+kriptosistemi üçün <span class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span> və Bobun gizli açarı <span
+class="math inline">\(x=5\)</span> verilmişdir.</em></p>
+<ol>
+<li><p><em>Bobun açıq açarını <span
+class="math inline">\((p,g,y)\)</span> hesablayın.</em></p></li>
+<li><p><em>Alis <span class="math inline">\(m=7\)</span> mesajını
+göndərmək üçün <span class="math inline">\(k=3\)</span> efemer açarını
+seçir. Şifrəli mətn cütünü <span
+class="math inline">\((c_1,c_2)\)</span> hesablayın.</em></p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (ElGamal deşifrələməsi). <em>Yuxarıdakı
+3-cü məsələdə hasil olunan <span class="math inline">\((8,4)\)</span>
+şifrəli mətnini Bobun gizli açarı <span
+class="math inline">\(x=5\)</span> vasitəsilə deşifrə edin və orijinal
+mesajın <span class="math inline">\(m=7\)</span> olduğunu
+göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (ElGamal rəqəmsal imza sxemi). <em>ElGamal
+imza sxemi üçün <span class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span>, <span
+class="math inline">\(x=5\)</span> parametrlərini istifadə edin. Mesajın
+heş dəyəri <span class="math inline">\(H(m)=8\)</span> və seçilmiş
+təsadüfi efemer açar <span class="math inline">\(k=3\)</span> (<span
+class="math inline">\(\gcd(3,10)=1\)</span>) olarsa, rəqəmsal imza <span
+class="math inline">\((r,s)\)</span> cütünü hesablayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (Təhlükəsizlik analizi). <em>ElGamal
+kriptosistemində həm şifrələmə, həm də imza üçün təsadüfi <span
+class="math inline">\(k\)</span> parametrinin təkrar istifadəsinin niyə
+kritik təhlükəsizlik boşluğu yaratdığını izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (Protokolun şəffaflığı). <em>Diffi-Hellman
+protokolunda qlobal parametrlərin (<span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(g\)</span>) açıq kanal üzərindən ötürülməsi niyə
+təhlükəsizlik boşluğu yaratmır? Təhlükəsizliyin riyazi təməli nəyə
+əsaslanır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (İrəli məxfilik). <em>İrəli məxfilik (FS)
+anlayışını izah edin. Diffi-Hellman protokolunun efemer variantı
+uzunmüddətli açarlar ələ keçirilsə belə, keçmiş sessiyaların ortaq
+sessiya açarlarının bərpasına necə mane olur?</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<p>Aşağıda kiçik ədədlərlə aparılan modulyar hesablamaların addım-addım
+icmalı təqdim olunmuşdur.</p>
+<ul>
+<li><p><strong>Diffi-Hellman həlli.</strong> İctimai parametrlər <span
+class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span> olsun.</p>
+<ul>
+<li><p>Alis: <span class="math display">\[A = 2^5 \pmod{11} = 32
+\pmod{11} = 10.\]</span></p></li>
+<li><p>Bob: <span class="math display">\[B = 2^4 \pmod{11} = 16
+\pmod{11} = 5.\]</span></p></li>
+<li><p>Alis, ardıcıl kvadratlaşdırma ilə: <span
+class="math display">\[5^2 = 25 \equiv 3, \qquad 5^4 \equiv 3^2 = 9
+\pmod{11}, \qquad
+        s = B^a = 5^5 = 5^4 \cdot 5^1 \equiv 9 \cdot 5 = 45 \equiv 1
+\pmod{11}.\]</span></p></li>
+<li><p>Bob, modulyar sadələşdirmə ilə (<span class="math inline">\(10
+\equiv -1 \pmod{11}\)</span>): <span class="math display">\[s = A^b =
+10^4 \equiv (-1)^4 = 1 \pmod{11}.\]</span></p></li>
+</ul>
+<p>Nəticə: <span class="math inline">\(s=1\)</span>.</p>
+<p><strong>Qeyd:</strong> Burada <span class="math inline">\(a \cdot b =
+20\)</span> hasili <span class="math inline">\(g=2\)</span>
+generatorunun tərtibinə (<span
+class="math inline">\(\mathrm{ord}_{11}(2)=10\)</span>) bölündüyü üçün
+ortaq açar trivial <span class="math inline">\(s = g^{20} = (g^{10})^2
+\equiv 1\)</span> alınır. Real sistemlərdə <span
+class="math inline">\(s=1\)</span> kimi zəif dəyərlər açar kimi
+yararsızdır — məhz buna görə praktikada qarşı tərəfdən gələn açıq
+dəyərlər doğrulanır və böyük sadə tərtibli altqruplardan istifadə olunur
+(bax: Praktik Tövsiyələr).</p></li>
+<li><p><strong>MITM hücumu həlli.</strong> <span
+class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span>, Malorinin gizli eksponenti <span
+class="math inline">\(m=3\)</span> olsun. Malori: <span
+class="math display">\[M = 2^3 \pmod{11} = 8\]</span> hesablayır və həm
+Alisə, həm də Boba öz <span class="math inline">\(M\)</span> dəyərini
+göndərir.</p>
+<ul>
+<li><p>Alis: <span class="math display">\[8^2 = 64 \equiv 9, \qquad 8^4
+\equiv 9^2 = 81 \equiv 4 \pmod{11}, \qquad
+        s_{AM} = M^a = 8^5 = 8^4 \cdot 8^1 \equiv 4 \cdot 8 = 32 \equiv
+10 \pmod{11}.\]</span></p></li>
+<li><p>Bob: <span class="math display">\[s_{BM} = M^b = 8^4 \equiv 4
+\pmod{11}.\]</span></p></li>
+<li><p>Malori Alis ilə (<span class="math inline">\(10 \equiv -1
+\pmod{11}\)</span>): <span class="math display">\[s_{MA} = A^m = 10^3
+\equiv (-1)^3 = -1 \equiv 10 \pmod{11} \quad \text{(Alis ilə açar uyğun
+gəlir).}\]</span></p></li>
+<li><p>Malori Bob ilə: <span class="math display">\[s_{MB} = B^m = 5^3 =
+125 \equiv 4 \pmod{11} \quad \text{(çünki } 125 = 11 \times 11 +
+4\text{; Bob ilə açar uyğun gəlir).}\]</span></p></li>
+</ul>
+<p>Nəticə: Alis və Bob bir-biri ilə deyil, Malori ilə ayrı-ayrı <span
+class="math inline">\(s_{AM}=10\)</span> və <span
+class="math inline">\(s_{BM}=4\)</span> sessiya açarları
+formalaşdırırlar. <span class="math inline">\(s_{AM} \neq
+s_{BM}\)</span> olduğundan tərəflər arasında birbaşa ortaq açar
+yaranmır; bütün rabitə Malorinin üzərindən keçir.</p></li>
+<li><p><strong>ElGamal şifrələməsi həlli.</strong> <span
+class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span>, <span
+class="math inline">\(x=5\)</span>. <span class="math display">\[y = g^x
+\pmod{p} = 2^5 = 32 \equiv 10 \pmod{11}.\]</span> Alis <span
+class="math inline">\(m=7\)</span>, <span
+class="math inline">\(k=3\)</span> seçir: <span
+class="math display">\[c_1 = g^k = 2^3 = 8 \pmod{11},\]</span> <span
+class="math display">\[y^k = 10^3 \equiv (-1)^3 = -1 \equiv 10
+\pmod{11},\]</span> <span class="math display">\[c_2 = m \cdot y^k
+\equiv 7 \cdot 10 = 70 \equiv 4 \pmod{11} \quad (70 = 11 \times 6 +
+4).\]</span> Nəticə: <span
+class="math inline">\((c_1,c_2)=(8,4)\)</span>.</p></li>
+<li><p><strong>ElGamal deşifrələməsi həlli.</strong> <span
+class="math inline">\((c_1,c_2)=(8,4)\)</span> və <span
+class="math inline">\(x=5\)</span>. <span class="math display">\[s =
+c_1^x = 8^5 \equiv 10 \pmod{11}\]</span> (2-ci məsələdəki hesablamaya
+əsasən). <span class="math inline">\(10 \equiv -1 \pmod{11}\)</span>
+olduğundan <span class="math inline">\(s^{-1} \equiv -1 \equiv 10
+\pmod{11}\)</span> (yoxlama: <span class="math inline">\(10 \times 10 =
+100 = 9 \times 11 + 1 \equiv 1\)</span>). Buna görə: <span
+class="math display">\[m = c_2 \cdot s^{-1} \equiv 4 \cdot 10 = 40
+\equiv 7 \pmod{11} \quad (40 = 11 \times 3 + 7).\]</span> Orijinal mesaj
+<span class="math inline">\(m=7\)</span>-dir.</p></li>
+<li><p><strong>ElGamal rəqəmsal imza həlli.</strong> <span
+class="math inline">\(p=11\)</span>, <span
+class="math inline">\(g=2\)</span>, <span
+class="math inline">\(x=5\)</span>, <span
+class="math inline">\(H(m)=8\)</span>, <span
+class="math inline">\(k=3\)</span>. <span class="math display">\[k^{-1}
+\equiv 7 \pmod{10},\]</span> çünki <span class="math inline">\(3 \cdot 7
+= 21 \equiv 1 \pmod{10}\)</span>. <span class="math display">\[r = g^k
+\pmod{p} = 2^3 = 8 \pmod{11}.\]</span> <span class="math display">\[s =
+(H(m)-xr)k^{-1} \pmod{p-1} = (8 - 5 \cdot 8) \cdot 7 = (-32) \cdot 7 =
+-224 \pmod{10}.\]</span> Mənfi ədədin müsbət qalığa gətirilməsi: <span
+class="math inline">\(-224 + (23 \cdot 10) = -224 + 230 = 6\)</span>,
+deməli <span class="math inline">\(s = 6\)</span>.</p>
+<p>Nəticə: imza <span class="math inline">\((r,s)=(8,6)\)</span>-dır.
+Yoxlama: <span class="math display">\[g^{H(m)} = 2^8 = 256 \equiv 3
+\pmod{11},\]</span> <span class="math display">\[y^r r^s = 10^8 \cdot
+8^6 \equiv (-1)^8 \cdot (8^2)^3 \equiv 1 \cdot 9^3 = 729 \equiv 3
+\pmod{11} \quad (729 = 66 \times 11 + 3).\]</span> Bərabərlik
+ödənir.</p></li>
+<li><p><strong>Təhlükəsizlik analizi.</strong> Eyni <span
+class="math inline">\(k\)</span> ilə şifrələnmiş iki paket üçün: <span
+class="math display">\[c_2 = m_1 y^k, \qquad c_2&#39; = m_2
+y^k.\]</span> Buna görə: <span class="math display">\[c_2
+(c_2&#39;)^{-1} \equiv m_1 m_2^{-1} \pmod{p}.\]</span> Əgər bir mesaj
+məlumdursa, digər mesaj aşkar edilə bilər. İmza sxemində isə eyni <span
+class="math inline">\(k\)</span>-nın təkrar istifadəsi gizli <span
+class="math inline">\(x\)</span> açarının bərpasına imkan verə bilər
+<span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Protokolun şəffaflığı.</strong> <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(g\)</span> qlobal parametrləri kənar dinləyiciyə
+məlum olsa belə, o, tərəflərin göndərdiyi <span
+class="math inline">\(A=g^a \pmod{p}\)</span> və <span
+class="math inline">\(B=g^b \pmod{p}\)</span> açıq komponentlərindən
+gizli eksponentləri və ya <span class="math inline">\(g^{ab}\)</span>
+ortaq sirrini hesablaya bilməz. Təhlükəsizlik DLP/CDH tipli problemlərin
+çətinliyinə əsaslanır <span class="citation"
+data-cites="diffie1976new menezes1996handbook"></span>.</p></li>
+<li><p><strong>İrəli məxfilik.</strong> İrəli Məxfilik o deməkdir ki,
+sistemin uzunmüddətli gizli açarı gələcəkdə ələ keçirilsə belə, keçmiş
+sessiyaların sessiya açarları bərpa edilə bilməməlidir <span
+class="citation" data-cites="menezes1996handbook"></span>. DHE bu
+xüsusiyyəti belə təmin edir: hər yeni sessiya üçün tərəflər təsadüfi və
+müvəqqəti <span class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> eksponentləri yaradır, sessiya açarını
+hasil edir və sessiya bitdikdən sonra bu efemer eksponentləri silirlər.
+Uzunmüddətli açar yalnız efemer Diffi-Hellman komponentlərini
+<strong>imzalamaq</strong> üçün istifadə olunur; buna görə uzunmüddətli
+imzalama açarı sonradan ələ keçirilsə belə, keçmiş sessiyaların silinmiş
+<span class="math inline">\(a,b\)</span> eksponentlərini bərpa etmək
+mümkün olmur.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə asimmetrik kriptoqrafiyanın iki fundamental mexanizmini
+öyrəndik: Diffi-Hellman açar razılaşdırılması protokolu və ElGamal
+kriptosistemi. Bu sistemlərin təhlükəsizlik arxitekturası modulyar
+multiplikativ qruplarda <strong>Diskret Loqarifm Probleminin
+(DLP)</strong> və əlaqəli Diffi-Hellman problemlərinin hesablama
+çətinliyinə söykənir.</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Diskret Loqarifm Problemi (DLP):</strong> Böyük
+multiplikativ qruplarda <span
+class="math inline">\(\alpha,\beta\)</span> verildikdə <span
+class="math inline">\(\alpha^x\equiv \beta\pmod{p}\)</span> tənliyindən
+<span class="math inline">\(x\)</span> eksponentini tapmaq praktik
+olaraq çətindir.</p></li>
+<li><p><strong>Diffi-Hellman Açar Razılaşdırılması (1976):</strong>
+Tərəflərə təhlükəsiz olmayan kanal üzərindən ortaq gizli simmetrik
+sessiya açarı formalaşdırmağa imkan verən fundamental açar
+razılaşdırılması protokoludur <span class="citation"
+data-cites="diffie1976new"></span>.</p></li>
+<li><p><strong>MITM hücumu:</strong> Diffi-Hellman protokolunun ilkin
+autentifikasiyasız variantı MITM hücumlarına qarşı müdafiəsizdir.
+Praktik tətbiqlərdə tərəflər bir-birinin həqiqiliyini rəqəmsal imzalar,
+sertifikatlar və ya STS kimi protokollar vasitəsilə doğrulamalıdırlar
+<span class="citation"
+data-cites="diffie1992authentication menezes1996handbook katz2020introduction"></span>.</p></li>
+<li><p><strong>İrəli Məxfilik (FS):</strong> Efemer Diffi-Hellman hər
+seans üçün efemer açarlar istifadə edərək keçmiş sessiyaların gələcək
+açar komprometasiya hallarından qorunmasına kömək edir <span
+class="citation" data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>ElGamal Kriptosistemi (1985):</strong> Diskret loqarifm
+mühitinə əsaslanan ehtimallı asimmetrik sistemdir. ElGamal həm açıq
+açarlı şifrələmə, həm də rəqəmsal imza mexanizmlərini təqdim edir <span
+class="citation" data-cites="elgamal1985public"></span>.</p></li>
+<li><p><strong>Praktik tətbiqlər:</strong> Diffi-Hellman TLS, IPsec, SSH
+və PGP/GPG kimi protokollarda sessiya açarlarının razılaşdırılması üçün
+geniş istifadə olunur. ElGamal isə GPG və bəzi kriptoqrafik
+protokollarda açıq açarlı şifrələmə və imza mexanizmləri üçün istifadə
+edilə bilər <span class="citation"
+data-cites="stinson2018cryptography menezes1996handbook"></span>.</p></li>
+</ul>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Klassik olaraq <span
+class="math inline">\(\mathbb{Z}_p^*\)</span> cəbrində multiplikativ
+yazılışla təqdim edilsə də, bu sistemlər Diskret Loqarifm Probleminin
+mürəkkəb olduğu ixtiyari sonlu dövri qrup (məsələn, elliptik əyrilərin
+additiv qrupları) üzərində qurula bilər.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (9)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Diffie &amp; Hellman, 1976</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">New Directions in Cryptography</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Martin E. Hellman (1976)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Elgamal, 1985</span>
+                        <small class="text-muted">IEEE Transactions on Information Theory</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms</h6>
+                    <p class="small text-secondary mb-0">Taher Elgamal (1985)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Rescorla, 2026</span>
+                        <small class="text-muted">RFC Editor</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Diffie et al., 1992</span>
+                        <small class="text-muted">Design, Codes and Cryptography</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Authentication and Authenticated Key Codes</h6>
+                    <p class="small text-secondary mb-0">Whitfield Diffie and Paul C. van Oorschot and Michael J. Wiener (1992)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

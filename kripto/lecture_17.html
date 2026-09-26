@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_17</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 17</strong></p>
+<p><strong>Modul Arifmetika, Evklid Alqoritmi və Kvadrat
+Yüksəlt-Vur</strong></p>
+<p>Bu mühazirə asimmetrik kriptoqrafiyanın riyazi əsaslarını — modul
+arifmetikası, qalıq sinifləri, genişləndirilmiş Evklid alqoritmi, Bezu
+eyniliyi, modul tərs element və kvadrat yüksəlt-vur alqoritmini — əhatə
+edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni uğurla başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>modul arifmetikası çərçivəsində qalıq sinifləri üzərində toplama,
+vurma və qüvvətə yüksəltmə əməliyyatlarını yerinə yetirməyi <span
+class="citation" data-cites="paar2024understanding"></span>;</p></li>
+<li><p>Evklid alqoritminin invariantını izah etməyi, eləcə də addım sayı
+ilə bit mürəkkəbliyi arasındakı fərqi təhlil etməyi <span
+class="citation"
+data-cites="stinson2018cryptography knuth1997art"></span>;</p></li>
+<li><p>genişləndirilmiş Evklid alqoritmi vasitəsilə Bezu
+(<em>Bézout</em>) əmsallarını və modul üzrə ters elementi hesablamağı
+<span class="citation"
+data-cites="menezes1996handbook"></span>;</p></li>
+<li><p>soldan-sağa və sağdan-sola “kvadrata yüksəlt və vur”
+(<em>square-and-multiply</em>) alqoritmlərinin icra izlərini
+(<em>execution trace</em>) müqayisə etməyi <span class="citation"
+data-cites="ferguson2010cryptography"></span>;</p></li>
+<li><p>məxfi məlumatdan asılı idarəetmə axınının yan kanal
+(<em>side-channel</em>) riskləri yaratdığını müəyyən etməyi və kitabxana
+səviyyəsində sabit-zamanlı (<em>constant-time</em>) müdafiə tələbini
+əsaslandırmağı bacaracaqlar <span class="citation"
+data-cites="montgomery1985modular"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 16-cı mühazirədə açıq açarlı primitivləri və
+onların təhlükəsizlik fərziyyələrini izah etdik.</p>
+<p><strong>İndi:</strong> həmin sistemlərin hesablama dilini — modul
+arifmetikasını qururuq.</p>
+<p><strong>Sonra:</strong> 18-ci mühazirədə Eylerin <span
+class="math inline">\(\varphi\)</span> funksiyası, Çin Qalıq Teoremi
+(CRT) və sadəlik testləri ilə bu alətlər dəstini genişləndirəcəyik. Yan
+kanal anlayışı burada yalnız Montqomeri nərdivanı nümunəsi üzərində
+göstərilir; tam hücum modeli isə 27-ci mühazirədə təqdim olunacaq və
+həmin dərsdə bu nümunəyə yenidən qayıdacağıq.</p>
+<p><strong>Kanon:</strong> <em>modul arifmetikası</em>; <em>Bezu
+(<em>Bézout</em>) əmsalları</em>; <em>kvadrata yüksəlt və vur
+(<em>square-and-multiply</em>)</em>; <em>Montqomeri
+(<em>Montgomery</em>) nərdivanı</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Asimmetrik kriptoqrafiya alqoritmləri (RSA, Diffi-Hellman, ElGamal,
+ECC) müəyyən riyazi problemlərin həllinin çətin olmasına əsaslanır. Bu
+hesablama əməliyyatlarının hamısı <strong>modul arifmetikası</strong>
+ilə aparılır.</p>
+<p>Məsələn, RSA alqoritmində şifrələmə <span class="math inline">\(c =
+m^e \pmod n\)</span> düsturu ilə, Diffi-Hellman açar mübadiləsində isə
+ötürülən dəyərlər <span class="math inline">\(A = g^a \pmod p\)</span>
+tənliyi ilə hesablanır. Bir sözlə, bu sistemlərin təhlükəsizliyi birbaşa
+modul arifmetikasına əsaslanır.</p>
+<div class="tcolorbox">
+<p>Modul arifmetikası və Evklid alqoritmi əslində çox qədim riyazi
+anlayışlar olsa da, müasir kompüter elmlərində və informasiya
+təhlükəsizliyində tamamilə yeni bir nəfəs qazanmışdır. Ferma və Eyler
+teoremləri kimi fundamental qaydalar bu gün asimmetrik şifrələmənin əsas
+mexanizmini təşkil edir <span class="citation"
+data-cites="paar2024understanding"></span>. Müasir kriptoqrafik
+dərsliklərdə bu riyazi anlayışlar tələbələr üçün daha sadə dildə və
+birbaşa təhlükəsizlik protokolları ilə əlaqələndirilərək təqdim olunur
+<span class="citation"
+data-cites="katz2020introduction stinson2018cryptography"></span>. Bu
+gün istifadə etdiyimiz heç bir asimmetrik təhlükəsizlik sistemini bu
+riyazi təməllər olmadan qurmaq mümkün deyil.</p>
+</div>
+<p>Bu mühazirə çərçivəsində asimmetrik kriptoqrafiyanın əsasını təşkil
+edən riyazi prinsipləri aşağıdakı struktur üzrə ətraflı şəkildə təhlil
+edəcəyik:</p>
+<ul>
+<li><p><strong>I hissə:</strong> Modul arifmetikasının əsas
+anlayışları</p></li>
+<li><p><strong>II hissə:</strong> Klassik Evklid alqoritmi və onun
+riyazi isbatı</p></li>
+<li><p><strong>III hissə:</strong> Genişləndirilmiş Evklid alqoritmi və
+Bezu eyniliyi</p></li>
+<li><p><strong>IV hissə:</strong> Modul üzrə tərs elementin tapılması
+mexanizmləri</p></li>
+<li><p><strong>V hissə:</strong> Səmərəli hesablama üçün “Kvadrat
+yüksəlt və vur” alqoritmi</p></li>
+<li><p><strong>VI hissə:</strong> Praktik tövsiyələr, nümunə məsələlər
+və çalışmalar</p></li>
+</ul>
+<div class="tcolorbox">
+<ul>
+<li><p>Modul arifmetikası nədir və niyə kriptoqrafiyanın əsasını təşkil
+edir?</p></li>
+<li><p>İki böyük ədədin ƏBOB-unu necə tapırıq və Evklid alqoritmi necə
+sübut olunur?</p></li>
+<li><p>Genişləndirilmiş Evklid alqoritmi və Bezu əmsalları bizə nə üçün
+lazımdır?</p></li>
+<li><p>Modul üzrə tərs element nədir və o, hansı halda mövcud
+olur?</p></li>
+<li><p>Böyük ədədləri qüvvətə yüksəldərkən vaxta necə qənaət edə
+bilərik? (Kvadrat yüksəlt və vur metodu)</p></li>
+<li><p>Cihazlardan sızan bəzi məlumatlara (zaman, enerji sərfiyyatı)
+əsaslanan yan kanal hücumlarından necə qorunmaq olar?</p></li>
+</ul>
+</div>
+<h1 id="modul-arifmetikasının-əsasları">Modul Arifmetikasının
+Əsasları</h1>
+<h2 id="bölmə-teoremi">Bölmə Teoremi</h2>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (Bölmə teoremi). <em>İstənilən <span
+class="math inline">\(a\)</span> tam ədədi və <span
+class="math inline">\(n &gt; 0\)</span> müsbət tam ədədi üçün aşağıdakı
+şərti ödəyən yeganə <span class="math inline">\(q\)</span> və <span
+class="math inline">\(r\)</span> tam ədədləri mövcuddur: <span
+class="math display">\[a = qn + r, \quad 0 \leq r &lt; n\]</span> Burada
+<span class="math inline">\(q\)</span> qismət, <span
+class="math inline">\(r\)</span> isə qalıq adlanır <span
+class="citation" data-cites="hardy2008introduction"></span>.</em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> Qisməti aşağı yuvarlaqlaşdırma funksiyası ilə
+<span class="math inline">\(q = \lfloor a/n \rfloor\)</span> və qalığı
+<span class="math inline">\(r = a - qn\)</span> kimi götürsək, <span
+class="math inline">\(0 \leq r &lt; n\)</span> şərti təbii olaraq
+ödənir.</p>
+<p>İndi isə bu ədədlərin yeganə olduğunu sübut edək. Tutaq ki, eyni
+şərti ödəyən başqa bir cüt də var: <span class="math inline">\(a = q_1n
++ r_1\)</span> və <span class="math inline">\(a = q_2n + r_2\)</span>.
+Bu tənlikləri tərəf-tərəfə çıxsaq, <span class="math inline">\((q_1 -
+q_2)n = r_2 - r_1\)</span> alarıq. Burada sağ tərəf <span
+class="math inline">\(-n &lt; r_2 - r_1 &lt; n\)</span> aralığındadır və
+eyni zamanda <span class="math inline">\(n\)</span>-ə tam bölünməlidir.
+Bu aralıqda <span class="math inline">\(n\)</span>-ə bölünən yeganə ədəd
+0-dır. Deməli, <span class="math inline">\(r_2 - r_1 = 0 \Rightarrow r_1
+= r_2\)</span> və buradan da <span class="math inline">\(q_1 =
+q_2\)</span> alınır.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 1</strong>. <em><span class="math inline">\(a =
+27\)</span> və <span class="math inline">\(n = 5\)</span> olduqda: <span
+class="math inline">\(27 = 5 \cdot 5 + 2\)</span> olur. Yəni qismət
+<span class="math inline">\(q = 5\)</span>, qalıq <span
+class="math inline">\(r = 2\)</span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong>. <em><span class="math inline">\(a =
+-17\)</span> və <span class="math inline">\(n = 5\)</span> olduqda:
+<span class="math inline">\(-17 = -4 \cdot 5 + 3\)</span> olur. Yəni
+qismət <span class="math inline">\(q = -4\)</span>, qalıq <span
+class="math inline">\(r = 3\)</span>. <strong>Diqqət:</strong> Qalıq heç
+vaxt mənfi ola bilməz, həmişə <span class="math inline">\(0 \leq r &lt;
+n\)</span> şərtini ödəməlidir.</em></p>
+</div>
+<h2 id="kongruens-anlayışı">Kongruens Anlayışı</h2>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Kongruens). <em><span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> tam ədədlərinin fərqi (<span
+class="math inline">\(a - b\)</span>) <span
+class="math inline">\(n\)</span> moduluna qalıqsız bölünürsə, bu ədədlər
+<span class="math inline">\(n\)</span> moduluna görə
+<strong>kongruentdir</strong> (<em>müqayisəolunandır</em>) deyilir. Bu
+münasibət belə yazılır: <span class="math display">\[a \equiv b
+\pmod{n}\]</span></em></p>
+</div>
+<div class="note">
+<p><span>Əsas xassələr</span> Kongruens münasibəti aşağıdakı üç vacib
+xassəyə malikdir:</p>
+<ul>
+<li><p><strong>Refleksivlik:</strong> Hər bir ədəd özü ilə kongruentdir:
+<span class="math inline">\(a \equiv a \pmod{n}\)</span>.</p></li>
+<li><p><strong>Simmetriklik:</strong> Əgər <span class="math inline">\(a
+\equiv b \pmod{n}\)</span> olarsa, onda <span class="math inline">\(b
+\equiv a \pmod{n}\)</span>.</p></li>
+<li><p><strong>Tranzitivlik:</strong> Əgər <span class="math inline">\(a
+\equiv b \pmod{n}\)</span> və <span class="math inline">\(b \equiv c
+\pmod{n}\)</span> olarsa, onda <span class="math inline">\(a \equiv c
+\pmod{n}\)</span>.</p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 3</strong>. <em>Gəlin bir neçə sadə nümunəyə baxaq:
+<span class="math display">\[\begin{align*}
+17 &amp;\equiv 5 \pmod{12} \quad \text{çünki} \quad 17 - 5 = 12 \quad
+\text{(12-yə bölünür)} \\
+23 &amp;\equiv 2 \pmod{7} \quad \text{çünki} \quad 23 - 2 = 21 \quad
+\text{(7-yə bölünür)} \\
+100 &amp;\equiv 0 \pmod{10} \quad \text{çünki} \quad 100 - 0 = 100 \quad
+\text{(10-a bölünür)} \\
+-1 &amp;\equiv 25 \pmod{26} \quad \text{çünki} \quad -1 - 25 = -26 \quad
+\text{(26-ya bölünür)}
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="modul-arifmetikasının-xassələri">Modul Arifmetikasının
+Xassələri</h2>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (Modul arifmetikasının əsas xassələri).
+<em>Əgər <span class="math inline">\(a \equiv b \pmod{n}\)</span> və
+<span class="math inline">\(c \equiv d \pmod{n}\)</span> olarsa, onda
+aşağıdakılar doğrudur:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(a + c \equiv b + d
+\pmod{n}\)</span></em></p></li>
+<li><p><em><span class="math inline">\(a - c \equiv b - d
+\pmod{n}\)</span></em></p></li>
+<li><p><em><span class="math inline">\(ac \equiv bd
+\pmod{n}\)</span></em></p></li>
+<li><p><em><span class="math inline">\(a^k \equiv b^k \pmod{n}\)</span>
+(istənilən <span class="math inline">\(k \geq 0\)</span> tam ədədi
+üçün)</em></p></li>
+</ol>
+</div>
+<div class="proofbox">
+<p><span>İsbat (toplama üçün)</span> Şərtə görə <span
+class="math inline">\(a \equiv b \pmod{n}\)</span> və <span
+class="math inline">\(c \equiv d \pmod{n}\)</span> olduğundan, onları
+<span class="math inline">\(a = b + kn\)</span> və <span
+class="math inline">\(c = d + ln\)</span> şəklində yaza bilərik (burada
+<span class="math inline">\(k\)</span> və <span
+class="math inline">\(l\)</span> tam ədədlərdir). Onları tərəf-tərəfə
+toplasaq: <span class="math display">\[a + c = (b + kn) + (d + ln) = (b
++ d) + (k + l)n\]</span> Alınan bu ifadə isə <span
+class="math inline">\(a + c \equiv b + d \pmod{n}\)</span> deməkdir.</p>
+<p>Fərq üçün isbat eyni üsul ilə aparılır</p>
+</div>
+<div class="proofbox">
+<p><span>İsbat (vurma üçün)</span> Eyni qayda ilə <span
+class="math inline">\(a = b + kn\)</span> və <span
+class="math inline">\(c = d + ln\)</span> ifadələrini bir-birinə vursaq:
+<span class="math display">\[\begin{align*}
+ac &amp;= (b + kn)(d + ln) = bd + bln + dkn + kln^2 \\
+   &amp;= bd + n(bl + dk + kln)
+\end{align*}\]</span> Mötərizənin xaricində <span
+class="math inline">\(n\)</span> vuruğu olduğu üçün sağ tərəf bizə <span
+class="math inline">\(ac \equiv bd \pmod{n}\)</span> olduğunu sübut
+edir.</p>
+<p>4-cü xassəni 3-cü xassədən <span class="math inline">\(c=a\)</span>
+və <span class="math inline">\(d=b\)</span> istifadə edərək ardıcıl
+tədbiq etmək ilə almaq olar.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 4</strong> (Modul hesablamaları). <em>12 modulu üzrə
+(<em>yəni saat arifmetikasında</em>) bəzi hesablama nümunələri: <span
+class="math display">\[\begin{align*}
+7 + 8 &amp;= 15 \equiv 3 \pmod{12} \\
+7 \cdot 8 &amp;= 56 \equiv 8 \pmod{12} \quad (\text{çünki } 56 = 4 \cdot
+12 + 8) \\
+5 \cdot 6 &amp;= 30 \equiv 6 \pmod{12} \quad (\text{çünki } 30 = 2 \cdot
+12 + 6)
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="qalıq-sinifləri">Qalıq Sinifləri</h2>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Qalıq sinifləri). <em><span
+class="math inline">\(n\)</span> moduluna görə alına biləcək bütün
+mümkün qalıqların çoxluğuna <strong>qalıq sinifləri</strong> deyilir və
+<span class="math inline">\(Z_n\)</span> ilə işarə olunur. Bu çoxluq
+aşağıdakı kimi göstərilir: <span class="math display">\[\mathbb{Z}_n =
+\{0, 1, 2, \ldots, n-1\}\]</span> Hər bir tam ədəd bu çoxluqdakı yeganə
+bir elementə (<em>qalığa</em>) bərabərdir <span class="citation"
+data-cites="paar2024understanding"></span>.</em></p>
+</div>
+<div class="note">
+<p><span>Əməliyyatlar</span> <span
+class="math inline">\(\mathbb{Z}_n\)</span> çoxluğu üzərində toplama və
+vurma icra edərkən, adi riyazi toplama və ya vurma edirik, və sonra
+aldığımız nəticəni <span class="math inline">\(n\)</span>-ə bölüb qalığı
+yazırıq.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 5</strong> (<span
+class="math inline">\(\mathbb{Z}_{12}\)</span> qalıq sinifləri).
+<em><span class="math inline">\(\mathbb{Z}_{12} =
+\{0,1,2,3,4,5,6,7,8,9,10,11\}\)</span>. Məsələn, 13, 25 və 37
+ədədlərinin hamısı 12-yə bölündükdə 1 qalığını verir (<span
+class="math inline">\(13 \equiv 1\)</span>, <span
+class="math inline">\(25 \equiv 1\)</span>, <span
+class="math inline">\(37 \equiv 1\)</span>). Deməli, bu ədədlərin hamısı
+<span class="math inline">\(\mathbb{Z}_{12}\)</span> sistemində eyni
+elementə — <span class="math inline">\(1\)</span> sinfinə
+bərabərdir.</em></p>
+</div>
+<h2 id="qarşılıqlı-sadə-ədədlər">Qarşılıqlı Sadə Ədədlər</h2>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Qarşılıqlı sadə ədədlər). <em>Əgər iki
+<span class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> tam ədədinin 1-dən başqa ortaq böləni
+yoxdursa, yəni <span class="math inline">\(\gcd(a, b) = 1\)</span>
+olarsa, bu ədədlər <strong>qarşılıqlı sadədir</strong> <span
+class="citation" data-cites="menezes1996handbook"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 6</strong>. <em>8 və 15 qarşılıqlı sadədir, çünki
+<span class="math inline">\(\gcd(8, 15) = 1\)</span>. Lakin 12 və 18
+qarşılıqlı sadə deyil, çünki hər ikisi 6-ya bölünür, yəni <span
+class="math inline">\(\gcd(12, 18) = 6\)</span>.</em></p>
+</div>
+<h2 id="eyler-funksiyası-varphi-funksiyası">Eyler Funksiyası (<span
+class="math inline">\(\varphi\)</span> funksiyası)</h2>
+<p>Modul arifmetikasında və asimmetrik kriptoqrafiyada mühüm rol oynayan
+anlayışlardan biri də Eyler funksiyasıdır.</p>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Eyler funksiyası). <em>Müsbət tam <span
+class="math inline">\(n\)</span> ədədi üçün <span
+class="math inline">\(1\)</span>-dən <span
+class="math inline">\(n\)</span>-ə qədər olan ədədlər içərisindən <span
+class="math inline">\(n\)</span> ilə qarşılıqlı sadə olan tam ədədlərin
+sayını göstərən funksiyaya <strong>Eyler funksiyası</strong> deyilir və
+<span class="math inline">\(\varphi(n)\)</span> ilə işarə
+olunur.</em></p>
+</div>
+<p>Əgər <span class="math inline">\(n\)</span> ədədinin kanonik ayrılışı
+(sadə vuruqlara ayrılışı) <span class="math inline">\(n = p_1^{a_1}
+p_2^{a_2} \cdots p_k^{a_k}\)</span> şəklindədirsə, Eyler funksiyasının
+qiyməti aşağıdakı düsturla hesablanır: <span
+class="math display">\[\varphi(n) = n \cdot \left(1 -
+\frac{1}{p_1}\right) \cdot \left(1 - \frac{1}{p_2}\right) \cdots \left(1
+- \frac{1}{p_k}\right)\]</span></p>
+<div class="corollary">
+<p><strong>Nəticə 1</strong>. <em>Eyler funksiyasının aşağıdakı iki
+xüsusi halı kriptoqrafiyada çox tez-tez istifadə olunur:</em></p>
+<ol>
+<li><p><em>Əgər <span class="math inline">\(p\)</span> sadə ədəddirsə,
+özündən kiçik bütün müsbət ədədlərlə qarşılıqlı sadədir: <span
+class="math display">\[\varphi(p) = p - 1\]</span></em></p></li>
+<li><p><em>Əgər <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> iki müxtəlif sadə ədəddirsə,
+funksiyanın multiplikativlik xassəsinə görə: <span
+class="math display">\[\varphi(p \cdot q) = \varphi(p) \cdot \varphi(q)
+= (p - 1)(q - 1)\]</span></em></p></li>
+</ol>
+</div>
+<div class="note">
+<p><span>Kriptoqrafik əhəmiyyət</span> Eyler funksiyası və qarşılıqlı
+sadə ədədlər anlayışı asimmetrik kriptoqrafiyada çox vacibdir. Məsələn,
+RSA alqoritmində <span class="math inline">\(e\)</span> açıq açarı
+mütləq <span class="math inline">\(\varphi(n)\)</span> dəyəri ilə
+qarşılıqlı sadə olmalıdır, əks halda şifrəni açmaq mümkün olmaz.</p>
+</div>
+<h2 id="modul-arifmetikasının-kriptoqrafik-tətbiqləri">Modul
+Arifmetikasının Kriptoqrafik Tətbiqləri</h2>
+<p>Müasir asimmetrik alqoritmlər bu prinsiplərdən birbaşa istifadə
+edir:</p>
+<ul>
+<li><p><strong>RSA:</strong> Şifrələmə <span class="math inline">\(c =
+m^e \pmod n\)</span>, şifrəaçma <span class="math inline">\(m = c^d
+\pmod n\)</span> düsturu ilə aparılır.</p></li>
+<li><p><strong>Diffi-Hellman:</strong> Ötürülən dəyərlər <span
+class="math inline">\(A = g^a \pmod p\)</span>, <span
+class="math inline">\(B = g^b \pmod p\)</span> kimi hesablanır. Ortaq
+sirr belə hesablanır: <span class="math display">\[s = B^a \equiv A^b
+\equiv g^{ab} \pmod p.\]</span> Protokolda bu qrup elementi birbaşa açar
+kimi işlədilmir; yoxlanılmış açıq parametrlər və protokol konteksti ilə
+birlikdə KDF-dən keçirilərək açar materialı törədilir.</p></li>
+<li><p><strong>ElGamal:</strong> Şifrəli mətn iki hissədən ibarət olur:
+<span class="math inline">\(c_1 = g^k \pmod p\)</span> və <span
+class="math inline">\(c_2 = m \cdot y^k \pmod p\)</span>.</p></li>
+<li><p><strong>ECC (Elliptik Əyri Kriptoqrafiyası):</strong> Nöqtələrin
+toplanması həndəsi görünsə də, bütün koordinat hesablamaları modul
+arifmetikası ilə icra olunur.</p></li>
+</ul>
+<h2 id="mənfi-ədədlərlə-iş">Mənfi Ədədlərlə İş</h2>
+<div class="tip">
+<p><span>Mənfi ədədlərlə iş prinsipləri</span> Kompüter proqramlarında
+və ya riyazi hesablarda mənfi ədədin modulunu tapmaq üçün, həmin ədəd
+müsbət olana qədər üzərinə modulun özünü (<span
+class="math inline">\(n\)</span>) əlavə etmək ən sadə yoldur.</p>
+</div>
+<div class="example">
+<p><strong>Nümunə 7</strong>. <em><span class="math inline">\(-3
+\pmod{26}\)</span> tapmaq üçün sadəcə <span class="math inline">\(-3 +
+26 = 23\)</span> hesablayırıq. Eyni şəkillə, <span
+class="math inline">\(-7 \pmod{12} \Rightarrow -7 + 12 = 5\)</span>
+olur.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 8</strong>. <em><span class="math inline">\(-17 \pmod
+5\)</span> qalığını tapaq. <span class="math inline">\(-17\)</span>-nin
+üzərinə 5-in misllərini (məsələn, 20) əlavə etsək: <span
+class="math inline">\(-17 + 20 = 3\)</span> alarıq. Doğrudan da, bölmə
+teoreminə görə <span class="math inline">\(-17 = -4 \cdot 5 + 3\)</span>
+şəklində ifadə olunur və qalıq 3-dür.</em></p>
+</div>
+<h1 id="evklid-alqoritmi">Evklid Alqoritmi</h1>
+<h2 id="tərif-və-əsas-xassələr">Tərif və Əsas Xassələr</h2>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Ən böyük ortaq bölən - ƏBOB). <em>İki və ya
+daha çox tam ədədin (hamısı eyni vaxtda sıfır olmamaq şərtilə) hər
+birini qalıqsız bölən ən böyük müsbət tam ədədə onların <strong>ən böyük
+ortaq böləni</strong> deyilir və <span class="math inline">\(\gcd(a,
+b)\)</span> kimi işarə olunur <span class="citation"
+data-cites="hardy2008introduction"></span>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Teorem 3</strong> (ƏBOB-un əsas xassələri). <em>İstənilən tam
+ədədlər üçün aşağıdakı xassələr doğrudur:</em></p>
+<ol>
+<li><p><em><strong>Yerdəyişmə:</strong> Ədədlərin yeri dəyişdikdə ƏBOB
+dəyişmir: <span class="math inline">\(\gcd(a,b) =
+\gcd(b,a)\)</span>.</em></p></li>
+<li><p><em><strong>İşarədən asılı olmama:</strong> Mənfi ədədlərin
+ƏBOB-u onların modullarının ƏBOB-una bərabərdir: <span
+class="math inline">\(\gcd(a,b) = \gcd(|a|,|b|)\)</span>.</em></p></li>
+<li><p><em><strong>Sıfır xassəsi:</strong> İstənilən ədədin sıfırla
+ƏBOB-u həmin ədədin moduluna bərabərdir: <span
+class="math inline">\(\gcd(a,0) = |a|\)</span>.</em></p></li>
+<li><p><em><strong>Qalıq xassəsi (Evklid alqoritminin təməli):</strong>
+Böyük ədədi kiçik ədədə böldükdə alınan qalıqla kiçik ədədin ƏBOB-u,
+ilkin ədədlərin ƏBOB-una bərabərdir: <span
+class="math inline">\(\gcd(a,b) = \gcd(b, a
+\pmod{b})\)</span>.</em></p></li>
+<li><p><em><strong>Bölünmə şərti:</strong> Əgər <span
+class="math inline">\(d = \gcd(a,b)\)</span> olarsa, onda <span
+class="math inline">\(d\)</span> ədədi həm <span
+class="math inline">\(a\)</span>-nı, həm də <span
+class="math inline">\(b\)</span>-ni qalıqsız bölür (<span
+class="math inline">\(d \mid a\)</span> və <span class="math inline">\(d
+\mid b\)</span>).</em></p></li>
+<li><p><em><strong>Maksimallıq:</strong> Əgər hər hansı bir <span
+class="math inline">\(c\)</span> ədədi həm <span
+class="math inline">\(a\)</span>-nı, həm də <span
+class="math inline">\(b\)</span>-ni bölürsə, onda o, mütləq onların
+ƏBOB-unu da bölməlidir (<span class="math inline">\(c \mid
+\gcd(a,b)\)</span>).</em></p></li>
+</ol>
+</div>
+<h2 id="evklid-alqoritminin-riyazi-əsası">Evklid Alqoritminin Riyazi
+Əsası</h2>
+<div class="theorem">
+<p><strong>Teorem 4</strong> (Evklid teoremi). <em>İstənilən <span
+class="math inline">\(a \geq b &gt; 0\)</span> tam ədədləri üçün
+aşağıdakı bərabərlik həmişə doğrudur: <span
+class="math display">\[\gcd(a, b) = \gcd(b, a
+\pmod{b})\]</span></em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> Tutaq ki, bu iki ədədin ƏBOB-u hər hansı bir <span
+class="math inline">\(d\)</span> ədədidir, yəni <span
+class="math inline">\(d = \gcd(a, b)\)</span>. Bölmə teoreminə görə
+<span class="math inline">\(a\)</span> ədədini <span
+class="math inline">\(a = qb + r\)</span> kimi yaza bilərik. Burada
+<span class="math inline">\(r = a \pmod{b}\)</span> bizim qalığımızdır.
+Tənliyi qalığa görə qruplaşdırsaq: <span class="math inline">\(r = a -
+qb\)</span> alarıq.</p>
+<p><span class="math inline">\(d\)</span> ədədi həm <span
+class="math inline">\(a\)</span>-nı, həm də <span
+class="math inline">\(b\)</span>-ni böldüyü üçün, o, mütləq onların
+xətti kombinasiyası olan <span class="math inline">\((a - qb)\)</span>
+ifadəsini, yəni <span class="math inline">\(r\)</span> qalığını da
+bölməlidir. Deməli, <span class="math inline">\(d\)</span> ədədi həm
+<span class="math inline">\(b\)</span>-nin, həm də <span
+class="math inline">\(r\)</span>-nin ortaq bölənidir. Buradan belə çıxır
+ki, <span class="math inline">\(d \leq \gcd(b, r)\)</span>.</p>
+<p>İndi isə tərsinə baxaq. Tutaq ki, <span
+class="math inline">\(b\)</span> və <span
+class="math inline">\(r\)</span> ədədlərinin ƏBOB-u başqa bir <span
+class="math inline">\(d&#39;\)</span> ədədidir, yəni <span
+class="math inline">\(d&#39; = \gcd(b, r)\)</span>. Bu halda <span
+class="math inline">\(d&#39;\)</span> ədədi həm <span
+class="math inline">\(b\)</span>-ni, həm də <span
+class="math inline">\(r\)</span>-i böldüyü üçün, onların cəmi olan <span
+class="math inline">\((qb + r)\)</span> ifadəsini, yəni <span
+class="math inline">\(a\)</span> ədədini də tam bölməlidir. Deməli,
+<span class="math inline">\(d&#39;\)</span> ədədi həm də <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span>-nin ortaq bölənidir. Buradan da <span
+class="math inline">\(d&#39; \leq \gcd(a, b)\)</span>, yəni <span
+class="math inline">\(d&#39; \leq d\)</span> nəticəsini alırıq.</p>
+<p>Həm <span class="math inline">\(d \leq d&#39;\)</span>, həm də <span
+class="math inline">\(d&#39; \leq d\)</span> şərtləri eyni vaxtda
+ödəndiyi üçün mütləq <span class="math inline">\(d = d&#39;\)</span>
+olmalıdır. Bununla da teorem isbat olunur.</p>
+</div>
+<h2 id="alqoritmin-struktur-təsviri">Alqoritmin Struktur Təsviri</h2>
+<p>Evklid alqoritmi yuxarıda isbat etdiyimiz prinsipi qalıq sıfıra
+bərabər olana qədər ardıcıl şəkildə təkrarlayır. Alqoritmin riyazi
+addımları həm rekursiv, həm də iterativ (dövrü) formada aşağıdakı kimi
+müəyyən edilir:</p>
+<h3 id="rekursiv-addımlar">Rekursiv Addımlar</h3>
+<ol>
+<li><p><strong>Giriş:</strong> İki tam ədəd <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span>.</p></li>
+<li><p><strong>Baza Şərti:</strong> Əgər <span class="math inline">\(b =
+0\)</span> olarsa, prosesi dayandır və nəticə olaraq <span
+class="math inline">\(a\)</span> dəyərini qaytar.</p></li>
+<li><p><strong>Rekursiya:</strong> Əgər <span class="math inline">\(b
+\neq 0\)</span> olarsa, alqoritmi növbəti addım üçün <span
+class="math inline">\(a \leftarrow b\)</span> və <span
+class="math inline">\(b \leftarrow a \pmod b\)</span> başlanğıc şərtləri
+ilə yenidən çağır.</p></li>
+</ol>
+<h3 id="iterativ-dövrü-addımlar">İterativ (Dövrü) Addımlar</h3>
+<ol>
+<li><p><strong>Giriş:</strong> İki tam ədəd <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span>.</p></li>
+<li><p><strong>Dövrün İcrası:</strong> <span class="math inline">\(b =
+0\)</span> olana qədər aşağıdakı əvəzləməni təkrarla: <span
+class="math display">\[\begin{align*}
+        \text{Müvəqqəti dəyişən: } t &amp;\leftarrow b \\
+        \text{Yeni qalıq: } b &amp;\leftarrow a \pmod b \\
+        \text{Yeni bölən: } a &amp;\leftarrow t
+\end{align*}\]</span></p></li>
+<li><p><strong>Nəticə:</strong> Dövr bitdikdə (yəni <span
+class="math inline">\(b = 0\)</span> olduqda) <span
+class="math inline">\(a\)</span> dəyərini yekun cavab olaraq
+qaytar.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 9</strong> (<span class="math inline">\(\gcd(240,
+46)\)</span> hesablanması). <em>Alqoritmin addım-addım işləmə mexanizmi:
+<span class="math display">\[\begin{align*}
+240 &amp;= 46 \times 5 + 10 \quad \rightarrow \text{yeni cütlük: } (46,
+10) \\
+46 &amp;= 10 \times 4 + 6 \quad \rightarrow \text{yeni cütlük: } (10, 6)
+\\
+10 &amp;= 6 \times 1 + 4 \quad \rightarrow \text{yeni cütlük: } (6, 4)
+\\
+6 &amp;= 4 \times 1 + 2 \quad \rightarrow \text{yeni cütlük: } (4, 2) \\
+4 &amp;= 2 \times 2 + 0 \quad \rightarrow \text{qalıq 0 oldu,
+dayanırıq.}
+\end{align*}\]</span> Sıfırdan fərqli ən son qalıq 2 olduğu üçün <span
+class="math inline">\(\gcd(240, 46) = 2\)</span> olur.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 10</strong> (<span class="math inline">\(\gcd(1071,
+462)\)</span> hesablanması). <em>Daha böyük ədədlər üzərində yoxlayaq:
+<span class="math display">\[\begin{align*}
+1071 &amp;= 462 \times 2 + 147 \\
+462 &amp;= 147 \times 3 + 21 \\
+147 &amp;= 21 \times 7 + 0
+\end{align*}\]</span> Qalıq sıfırlanmazdan əvvəlki sonuncu dəyər 21-dir,
+deməli <span class="math inline">\(\gcd(1071, 462) =
+21\)</span>.</em></p>
+</div>
+<h2 id="lamé-teoremi-zaman-mürəkkəbliyi">Lamé Teoremi (Zaman
+Mürəkkəbliyi)</h2>
+<p>Kriptoqrafiyada minlərlə bitlik ədədlərlə işlədiyimiz üçün alqoritmin
+nə qədər sürətli işləməsi kritik əhəmiyyət kəsb edir.</p>
+<div class="theorem">
+<p><strong>Teorem 5</strong> (Lamé teoremi, 1844). <em>Evklid
+alqoritmində icra olunan bölmə əməliyyatlarının (<em>addımların</em>)
+ümumi sayı, kiçik ədədin onluq sistemdəki rəqəmlərinin sayının 5
+qatından çox ola bilməz <span class="citation"
+data-cites="knuth1997art"></span>.</em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbatın məntiqi</span> Evklid alqoritminin ən yavaş işlədiyi
+hal ardıcıl gələn Fibonaççi ədədləridir (<span class="math inline">\(1,
+1, 2, 3, 5, 8, 13, 21 \ldots\)</span>) <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+Çünki bu ədədləri ardıcıl bir-birinə böldükdə qismət həmişə <span
+class="math inline">\(1\)</span> olur və qalıq növbəti addımda çox az
+azalır (məsələn: <span class="math inline">\(55 = 34 \times 1 +
+21\)</span>).</p>
+<p>Tutaq ki, alqoritm <span class="math inline">\(k\)</span> sayda addım
+çəkir. Bu halda riyazi olaraq sübut olunub ki, kiçik ədəd mütləq <span
+class="math inline">\(k\)</span>-cı Fibonaççi ədədindən (<span
+class="math inline">\(F_k\)</span>) böyük və ya bərabər olmalıdır: <span
+class="math display">\[b \geq F_k\]</span></p>
+<p>Fibonaççi ədədləri isə təqribən <span class="math inline">\(\varphi =
+\frac{1+\sqrt{5}}{2} \approx 1.618\)</span> (qızıl nisbət) vuruğu ilə
+həndəsi silsilə şəklində böyüyür: <span class="math inline">\(F_k &gt;
+\varphi^{k-2}\)</span>. Deməli: <span class="math display">\[b &gt;
+\varphi^{k-2}\]</span></p>
+<p>İndi isə hər iki tərəfi 10 əsasına görə loqarifmləyək (<span
+class="math inline">\(\log_{10}\)</span>): <span
+class="math display">\[\log_{10}b &gt; (k-2) \cdot
+\log_{10}(1.618)\]</span></p>
+<p>Kalkulyatorda hesablasaq, <span
+class="math inline">\(\log_{10}(1.618) \approx 0.208\)</span> edir ki,
+bu da <span class="math inline">\(1/5\)</span>-dən böyükdür (<span
+class="math inline">\(\frac{1}{5} = 0.2\)</span>). Tənliyi
+sadələşdirsək: <span class="math display">\[\log_{10}b &gt;
+\frac{k-2}{5} \implies k-2 &lt; 5 \cdot \log_{10}b \implies k &lt; 5
+\cdot \log_{10}b + 2\]</span></p>
+<p>Müsbət <span class="math inline">\(b\)</span> tam ədədinin onluq
+yazılışındakı rəqəmlərin sayı <span
+class="math inline">\(\lfloor\log_{10}b\rfloor+1\)</span>-dir.
+Beləliklə, Evklid alqoritmində bölmə addımlarının sayı girişin rəqəm və
+ya bit uzunluğuna görə xətti artır.</p>
+<p>Bu loqarifmik asılılıq ədədlərin qiymətinə görə <span
+class="math inline">\(O(\log n)\)</span> sayda bölmə addımı deməkdir.
+Bu, vahid-maya modelində addım sayıdır; böyük tam ədədlər üzərində hər
+bölmənin bit qiyməti ayrıca nəzərə alındıqda ümumi bit mürəkkəbliyi
+istifadə olunan çoxdəqiqlikli arifmetika alqoritmindən asılıdır.</p>
+</div>
+<div class="corollary">
+<p><strong>Nəticə 2</strong>. <em>Əgər ədədlərimiz kompüterin yaddaşında
+<span class="math inline">\(k\)</span> bit yer tutursa, Evklid alqoritmi
+ən çoxu <span class="math inline">\(O(k)\)</span> sayda addımda (xətti
+zaman ərzində) mütləq yekunlaşacaq.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 11</strong> (Ən pis hal ssenarisi — Fibonaççi
+ədədləri). <em>Gəlin <span class="math inline">\(\gcd(55, 34)\)</span>
+cütünün hesablanmasına baxaq (hər ikisi Fibonaççi ədədidir): <span
+class="math display">\[\begin{align*}
+55 &amp;= 34 \times 1 + 21 \\
+34 &amp;= 21 \times 1 + 13 \\
+21 &amp;= 13 \times 1 + 8 \\
+13 &amp;= 8 \times 1 + 5 \\
+8 &amp;= 5 \times 1 + 3 \\
+5 &amp;= 3 \times 1 + 2 \\
+3 &amp;= 2 \times 1 + 1 \\
+2 &amp;= 1 \times 2 + 0
+\end{align*}\]</span> Cəmi 8 addım tələb olundu. Diqqət yetirsəniz,
+qalıqlar ardıcıllıqla geriyə doğru Fibonaççi ədədləridir.</em></p>
+</div>
+<h2 id="alqoritmin-düzgünlüyünün-formal-sübutu">Alqoritmin Düzgünlüyünün
+Formal Sübutu</h2>
+<div class="proofbox">
+<p><span>Riyazi induksiya ilə tam sübut</span> Alqoritmin hər zaman
+doğru nəticə verdiyini və sonsuz dövrə girmədiyini ədədlərin cəmi (<span
+class="math inline">\(a+b\)</span>) üzrə riyazi induksiya metodu ilə
+sübut edək.</p>
+<p><strong>İnduksiyanın bazası:</strong> Əgər <span
+class="math inline">\(b=0\)</span> olarsa, alqoritm elə ilk addımda
+dövrə girmədən <span class="math inline">\(a\)</span> dəyərini qaytarır.
+<span class="math inline">\(\gcd(a,0) = a\)</span> olduğu üçün baza
+şərti tam doğrudur.</p>
+<p><strong>İnduksiya addımı:</strong> Tutaq ki, cəmləri <span
+class="math inline">\(a+b\)</span>-dən kiçik olan bütün ədəd cütləri
+üçün alqoritm tam doğru işləyir. İndi <span
+class="math inline">\(a+b\)</span> cəmi üçün yoxlayaq. İlk bölmədən
+sonra <span class="math inline">\(a = qb + r\)</span> alırıq, burada
+<span class="math inline">\(0 \leq r &lt; b\)</span>. Alqoritm növbəti
+addımda <span class="math inline">\(\gcd(b, r)\)</span> funksiyasını
+çağırır.</p>
+<p>Aydındır ki, <span class="math inline">\(r &lt; b \leq a\)</span>
+olduğu üçün yeni cütlüyün cəmi ilkin cəmdən kiçikdir: <span
+class="math inline">\(b + r &lt; a + b\)</span>. Bizim fərziyyəmizə
+görə, cəmi kiçik olan cütlüklər üçün alqoritm mütləq doğru işləyir.
+Evklid teoreminə görə də <span class="math inline">\(\gcd(a,b) =
+\gcd(b,r)\)</span> olduğundan, alqoritmin tapdığı nəticə ilkin cütlük
+üçün də tamamilə doğrudur.</p>
+</div>
+<h1 id="genişləndirilmiş-evklid-alqoritmi">Genişləndirilmiş Evklid
+Alqoritmi</h1>
+<h2 id="bezu-eyniliyi">Bezu Eyniliyi</h2>
+<p>Kriptoqrafiyada (xüsusilə RSA alqoritmində modul üzrə tərs elementin
+tapılmasında) bizə sadəcə iki ədədin ƏBOB-unu tapmaq kifayət etmir. Bizə
+həm də bu ƏBOB-u ilkin ədədlərin xətti kombinasiyası şəklində göstərmək
+lazım gəlir.</p>
+<div class="theorem">
+<p><strong>Teorem 6</strong> (Bezu eyniliyi). <em>İxtiyari <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span> tam ədədləri üçün elə <span
+class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> tam ədədləri (<em>mənfi və ya sıfır da
+ola bilərlər</em>) var ki, aşağıdakı bərabərlik həmişə ödənir: <span
+class="math display">\[ax + by = \gcd(a, b)\]</span> Buradakı <span
+class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> ədədlərinə <strong>Bezu
+əmsalları</strong> deyilir <span class="citation"
+data-cites="menezes1996handbook"></span>.</em></p>
+</div>
+<div class="tcolorbox">
+<p>Fransız riyaziyyatçısı Etyen Bezu (Étienne Bézout, 1730–1783) bu
+teoremi çoxhədlilər üçün isbat etmişdir. Tam ədədlər üçün analoji nəticə
+daha əvvəl fransız riyaziyyatçısı Klod Qaspar Başe de Meziriak (Claude
+Gaspard Bachet de Méziriac) tərəfindən kəşf edilmişdi <span
+class="citation" data-cites="shoup2009computational"></span>.</p>
+</div>
+<h2 id="alqoritmin-riyazi-çıxarılışı-və-rekursiv-variant">Alqoritmin
+Riyazi Çıxarılışı və Rekursiv Variant</h2>
+<p>Genişləndirilmiş Evklid alqoritmi həm <span
+class="math inline">\(\gcd(a,b)\)</span>-ni tapır, həm də rekursiv
+geriyə qayıdış zamanı <span class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> Bezu əmsallarını hesablayır. Bunun
+riyazi çıxarılışı aşağıdakı kimidir:</p>
+<p>Tutaq ki, biz növbəti addımın nəticəsini (<span
+class="math inline">\(\gcd, x_1, y_1\)</span>) artıq bilirik, yəni:
+<span class="math display">\[b \cdot x_1 + (a \bmod b) \cdot y_1 =
+\gcd(a,b)\]</span> Bilirik ki, <span class="math inline">\(a \bmod b = a
+- \lfloor a/b \rfloor \cdot b\)</span>. Bunu yuxarıdakı tənlikdə yerinə
+yazsaq: <span class="math display">\[b \cdot x_1 + \left(a - \lfloor a/b
+\rfloor \cdot b\right) \cdot y_1 = \gcd(a,b)\]</span> Mötərizələri açıb
+<span class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span>-yə görə qruplaşdırsaq: <span
+class="math display">\[a \cdot (y_1) + b \cdot \left(x_1 - \lfloor a/b
+\rfloor \cdot y_1\right) = \gcd(a,b)\]</span> Bu tənliyi ilkin <span
+class="math inline">\(ax + by = \gcd(a,b)\)</span> eyniliyi ilə müqayisə
+etdikdə, cari addımın əmsallarını rahatlıqla alırıq: <span
+class="math display">\[x = y_1, \quad y = x_1 - \lfloor a/b \rfloor
+\cdot y_1\]</span></p>
+<h3 id="rekursiv-alqoritmin-addımları">Rekursiv Alqoritmin
+Addımları</h3>
+<ol>
+<li><p><strong>Giriş:</strong> İki tam ədəd <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span>.</p></li>
+<li><p><strong>Baza Şərti:</strong> Əgər <span class="math inline">\(b =
+0\)</span> olarsa, <span class="math inline">\(a \cdot 1 + 0 \cdot 0 =
+a\)</span> tənliyindən <span class="math inline">\(\gcd = a\)</span>,
+<span class="math inline">\(x = 1\)</span>, <span
+class="math inline">\(y = 0\)</span> təyin et və prosesi
+yekunlaşdır.</p></li>
+<li><p><strong>Rekursiv Addım:</strong> Əgər <span
+class="math inline">\(b \neq 0\)</span> olarsa, alqoritmi <span
+class="math inline">\((\gcd, x_1, y_1) \leftarrow
+\operatorname{ExtendedGCD}(b, a \bmod b)\)</span> şəklində
+çağır.</p></li>
+<li><p><strong>Əmsalların Yenilənməsi:</strong> Rekursiv geridönüş
+zamanı cari addımın əmsallarını hesabla: <span
+class="math display">\[\begin{align*}
+        x &amp;\leftarrow y_1 \\
+        y &amp;\leftarrow x_1 - \lfloor a/b \rfloor \cdot y_1
+\end{align*}\]</span></p></li>
+<li><p><strong>Nəticə:</strong> Mərhələnin yekunu olaraq <span
+class="math inline">\((\gcd, x, y)\)</span> üçlüyünü qaytar.</p></li>
+</ol>
+<h2 id="alqoritmin-iterativ-iş-prinsipi-cədvəl-üsulu">Alqoritmin
+İterativ İş Prinsipi (Cədvəl Üsulu)</h2>
+<p>Alqoritmi dövrü (iterativ) şəkildə icra etmək üçün hər addımda
+qalıqlar (<span class="math inline">\(r_i\)</span>), qismətlər (<span
+class="math inline">\(q_i\)</span>) və iki köməkçi ardıcıllığı (<span
+class="math inline">\(s_i\)</span> və <span
+class="math inline">\(t_i\)</span>) yadda saxlamalıyıq. Alqoritm hər
+addımda bu invariantı qoruyur: <span class="math display">\[a \cdot s_i
++ b \cdot t_i = r_i\]</span></p>
+<p><strong>Başlanğıc şərtlər:</strong> <span
+class="math display">\[\begin{align*}
+r_0 &amp;= a, &amp; s_0 &amp;= 1, &amp; t_0 &amp;= 0 \quad (\text{çünki
+} a \cdot 1 + b \cdot 0 = a) \\
+r_1 &amp;= b, &amp; s_1 &amp;= 0, &amp; t_1 &amp;= 1 \quad (\text{çünki
+} a \cdot 0 + b \cdot 1 = b)
+\end{align*}\]</span></p>
+<p><strong>Hər <span class="math inline">\(i \geq 1\)</span> addımı üçün
+yenilənmə qaydaları:</strong> <span
+class="math display">\[\begin{align*}
+q_i &amp;= \lfloor r_{i-1} / r_i \rfloor \\
+r_{i+1} &amp;= r_{i-1} - q_i r_i \\
+s_{i+1} &amp;= s_{i-1} - q_i s_i \\
+t_{i+1} &amp;= t_{i-1} - q_i t_i
+\end{align*}\]</span></p>
+<div class="example">
+<p><strong>Nümunə 12</strong> (<span class="math inline">\(240x + 46y =
+\gcd(240,46)\)</span> tənliyinin həlli). <em>Gəlin yuxarıdakı iterativ
+düsturları cədvəl üzərində tətbiq edək:</em></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><span
+class="math inline">\(i\)</span></em></th>
+<th style="text-align: center;"><em><span
+class="math inline">\(q_i\)</span></em></th>
+<th style="text-align: center;"><em><span
+class="math inline">\(r_i\)</span></em></th>
+<th style="text-align: center;"><em><span
+class="math inline">\(s_i\)</span></em></th>
+<th style="text-align: center;"><em><span
+class="math inline">\(t_i\)</span></em></th>
+<th style="text-align: left;"><em>İnvariantın yoxlanılması: <span
+class="math inline">\(240s_i + 46t_i = r_i\)</span></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: center;"><em>—</em></td>
+<td style="text-align: center;"><em>240</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+1 + 46 \cdot 0 = 240\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>—</em></td>
+<td style="text-align: center;"><em>46</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+0 + 46 \cdot 1 = 46\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>5</em></td>
+<td style="text-align: center;"><em>10</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>-5</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+1 + 46 \cdot (-5) = 240 - 230 = 10\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>3</em></td>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>6</em></td>
+<td style="text-align: center;"><em>-4</em></td>
+<td style="text-align: center;"><em>21</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+(-4) + 46 \cdot 21 = -960 + 966 = 6\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>5</em></td>
+<td style="text-align: center;"><em>-26</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+5 + 46 \cdot (-26) = 1200 - 1196 = 4\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>5</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>-9</em></td>
+<td style="text-align: center;"><em>47</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+(-9) + 46 \cdot 47 = -2160 + 2162 = 2\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>6</em></td>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: center;"><em>23</em></td>
+<td style="text-align: center;"><em>-120</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(240 \cdot
+23 + 46 \cdot (-120) = 0\)</span> (<em>dayanırıq</em>)</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Qalıq (<span class="math inline">\(r_i\)</span>) sıfır olmadan
+əvvəlki sonuncu sətir (<span class="math inline">\(i=5\)</span>) bizə
+axtarılan nəticələri verir: <span class="math display">\[\gcd(240, 46) =
+2, \quad x = -9, \quad y = 47\]</span> Həqiqətən də: <span
+class="math inline">\(240 \cdot (-9) + 46 \cdot 47 = -2160 + 2162 =
+2\)</span>.</em></p>
+</div>
+<h2 id="iterativ-variantın-addımları">İterativ Variantın Addımları</h2>
+<p>Cədvəldə gördüyümüz məntiqi yaddaşda çox yer tutmasın deyə yalnız son
+iki addımı saxlayan köməkçi dəyişənlərlə iterativ olaraq belə
+strukturlaşdırırıq:</p>
+<ol>
+<li><p><strong>Giriş:</strong> İki tam ədəd <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(b\)</span>.</p></li>
+<li><p><strong>Başlanğıc Dəyərlərin Təyini:</strong> <span
+class="math display">\[\begin{align*}
+        s &amp;\leftarrow 0, \quad \text{old\_s} \leftarrow 1 \\
+        t &amp;\leftarrow 1, \quad \text{old\_t} \leftarrow 0 \\
+        r &amp;\leftarrow b, \quad \text{old\_r} \leftarrow a
+\end{align*}\]</span></p></li>
+<li><p><strong>Dövrün İcrası:</strong> <span class="math inline">\(r =
+0\)</span> olana qədər aşağıdakı yeniləmələri yerinə yetir: <span
+class="math display">\[\begin{align*}
+        \text{Qismət: } q &amp;\leftarrow \lfloor \text{old\_r} / r
+\rfloor \\
+        \text{Qalıqların yenilənməsi: } (\text{old\_r}, r)
+&amp;\leftarrow (r, \text{old\_r} - q \cdot r) \\
+        \text{s əmsallarının yenilənməsi: } (\text{old\_s}, s)
+&amp;\leftarrow (s, \text{old\_s} - q \cdot s) \\
+        \text{t əmsallarının yenilənməsi: } (\text{old\_t}, t)
+&amp;\leftarrow (t, \text{old\_t} - q \cdot t)
+\end{align*}\]</span></p></li>
+<li><p><strong>Nəticə:</strong> Dövr bitdikdə yekun dəyərlər olaraq
+<span class="math inline">\((\text{old\_r}, \text{old\_s},
+\text{old\_t})\)</span> üçlüyünü qaytar. Bu dəyərlər müvafiq olaraq
+<span class="math inline">\(\gcd(a,b)\)</span>, <span
+class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> əmsallarıdır.</p></li>
+</ol>
+<h2 id="bezu-əmsallarının-yeganəliyi">Bezu Əmsallarının Yeganəliyi</h2>
+<p>Diqqət yetirmək lazımdır ki, Bezu əmsalları yeganə deyil. Bir
+tənliyin sonsuz sayda <span class="math inline">\((x,y)\)</span> tam
+həllər cütü ola bilər.</p>
+<div class="theorem">
+<p><strong>Teorem 7</strong> (Ümumi həllər çoxluğu). <em>Əgər <span
+class="math inline">\((x_1, y_1)\)</span> cütü <span
+class="math inline">\(ax + by = d\)</span> tənliyinin hər hansı bir
+xüsusi həllidirsə (<span class="math inline">\(d = \gcd(a,b)\)</span>),
+onda tənliyin bütün digər tam həlləri aşağıdakı formadadır: <span
+class="math display">\[x_k = x_1 + k \cdot \frac{b}{d}, \quad y_k = y_1
+- k \cdot \frac{a}{d}\]</span> burada <span class="math inline">\(k \in
+\mathbb{Z}\)</span> ixtiyari tam ədəddir.</em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> Tutaq ki, <span class="math inline">\((x_2,
+y_2)\)</span> eyni tənliyin başqa bir ixtiyari həllidir. Onda: <span
+class="math display">\[ax_1 + by_1 = d \quad \text{və} \quad ax_2 + by_2
+= d\]</span> Bu iki ifadəni bir-birinə bərabərləşdirib qruplaşdırsaq:
+<span class="math display">\[a(x_2 - x_1) = b(y_1 - y_2)\]</span> Hər
+iki tərəfi <span class="math inline">\(d\)</span>-yə bölək. <span
+class="math inline">\(A = a/d\)</span> və <span class="math inline">\(B
+= b/d\)</span> olsun. <span class="math inline">\(\gcd(a,b)=d\)</span>
+olduğu üçün, <span class="math inline">\(\gcd(A,B)=1\)</span> olmalıdır
+(<em>yəni ortaq bölənləri ixtisar etmişik</em>). Tənliyimiz bu formaya
+düşür: <span class="math display">\[A(x_2 - x_1) = B(y_1 - y_2)\]</span>
+Buradan görünür ki, <span class="math inline">\(A\)</span> ədədi sağ
+tərəfi, yəni <span class="math inline">\(B(y_1 - y_2)\)</span> ifadəsini
+qalıqsız bölməlidir. <span class="math inline">\(\gcd(A,B)=1\)</span>
+olduğundan, Evklid lemmasına görə <span class="math inline">\(A\)</span>
+mütləq <span class="math inline">\((y_1 - y_2)\)</span> fərqini
+bölməlidir. Deməli, elə bir <span class="math inline">\(k\)</span> tam
+ədədi var ki, <span class="math inline">\(y_1 - y_2 = kA\)</span> yaza
+bilərik.</p>
+<p>Bu ifadəni yuxarıdakı tənlikdə yerinə yazsaq: <span
+class="math inline">\(A(x_2 - x_1) = BkA \implies x_2 - x_1 =
+kB\)</span> alarıq. Buradan da axtarılan ümumi düsturlar törəyir: <span
+class="math display">\[x_2 = x_1 + kB = x_1 + k \cdot
+\frac{b}{d}\]</span> <span class="math display">\[y_2 = y_1 - kA = y_1 -
+k \cdot \frac{a}{d}\]</span> İsbat tamamlandı.</p>
+</div>
+<h1 id="modul-üzrə-tərs-element">Modul üzrə Tərs Element</h1>
+<h2 id="tərif-və-əsas-xassələr-1">Tərif və Əsas Xassələr</h2>
+<p>Klassik arifmetikada hər hansı bir <span
+class="math inline">\(a\)</span> ədədinin tərsi <span
+class="math inline">\(1/a\)</span> (və ya <span
+class="math inline">\(a^{-1}\)</span>) hesab olunur, çünki <span
+class="math inline">\(a \cdot (1/a) = 1\)</span>. Modul arifmetikasında
+kəsr ədədlər olmadığı üçün biz bu anlayışı kongruensiya köməyi ilə təyin
+edirik.</p>
+<div class="definition">
+<p><strong>Tərif 6</strong> (Modul üzrə tərs element). <em><span
+class="math inline">\(a\)</span> tam ədədinin <span
+class="math inline">\(n\)</span> moduluna görə tərsi elə bir <span
+class="math inline">\(x\)</span> tam ədədidir ki, onların hasili <span
+class="math inline">\(n\)</span> modulunda <span
+class="math inline">\(1\)</span>-ə bərabər olsun: <span
+class="math display">\[a \cdot x \equiv 1 \pmod{n}\]</span> Bu şərti
+ödəyən <span class="math inline">\(x\)</span> ədədi <span
+class="math inline">\(a^{-1} \pmod{n}\)</span> kimi işarə olunur <span
+class="citation" data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 13</strong> (Qalıq siniflərində tərs elementlər).
+<em><span class="math inline">\(\mathbb{Z}_{26}\)</span> çoxluğunda bəzi
+elementlərin tərsinə baxaq:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(3\)</span>-ün tərsi <span
+class="math inline">\(9\)</span>-dur, çünki <span
+class="math inline">\(3 \times 9 = 27 \equiv 1 \pmod{26}\)</span>.
+Deməli, <span class="math inline">\(3^{-1} \equiv 9
+\pmod{26}\)</span>.</em></p></li>
+<li><p><em><span class="math inline">\(7\)</span>-nin tərsi <span
+class="math inline">\(15\)</span>-dir, çünki <span
+class="math inline">\(7 \times 15 = 105 = 4 \times 26 + 1 \equiv 1
+\pmod{26}\)</span>. Deməli, <span class="math inline">\(7^{-1} \equiv 15
+\pmod{26}\)</span>.</em></p></li>
+<li><p><em><span class="math inline">\(13\)</span> ədədinin isə <span
+class="math inline">\(\mathbb{Z}_{26}\)</span>-da heç bir tərsi yoxdur.
+Çünki <span class="math inline">\(13\)</span>-ü hansı tam ədədə vursaq
+da, <span class="math inline">\(26\)</span>-ya bölündükdə qalıq həmişə
+ya <span class="math inline">\(0\)</span> ya da <span
+class="math inline">\(13\)</span> olacaq, heç vaxt <span
+class="math inline">\(1\)</span> alına bilməz. Diqqət yetirsəniz, <span
+class="math inline">\(\gcd(13,26) = 13 \neq 1\)</span>.</em></p></li>
+</ul>
+</div>
+<h2 id="mövcudluq-şərti">Mövcudluq Şərti</h2>
+<p>Bir ədədin verilmiş modulda tərsini axtarmazdan əvvəl, onun
+ümumiyyətlə mövcud olub-olmadığını yoxlamaq lazımdır.</p>
+<div class="theorem">
+<p><strong>Teorem 8</strong> (Tərs elementin mövcudluq şərti). <em><span
+class="math inline">\(a\)</span> ədədinin <span
+class="math inline">\(n\)</span> moduluna görə tərs elementinin
+mövcudluğu üçün <strong>zəruri və kafi</strong> şərt bu ədədlərin
+qarşılıqlı sadə olması, yəni <span class="math inline">\(\gcd(a, n) =
+1\)</span> bərabərliyinin ödənilməsidir <span class="citation"
+data-cites="menezes1996handbook"></span>.</em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> <strong>Zərurilik (<span
+class="math inline">\(\Rightarrow\)</span>):</strong> Tutaq ki, <span
+class="math inline">\(a\)</span> ədədinin mod <span
+class="math inline">\(n\)</span> üzrə <span
+class="math inline">\(a^{-1}\)</span> tərsi mövcuddur. Tərifə görə <span
+class="math inline">\(a \cdot a^{-1} \equiv 1 \pmod{n}\)</span>. Bölmə
+teoreminə əsasən elə bir <span class="math inline">\(k\)</span> tam
+ədədi var ki, <span class="math inline">\(a \cdot a^{-1} = 1 +
+kn\)</span> yaza bilərik. Bu tənliyi yenidən qruplaşdırsaq: <span
+class="math display">\[a \cdot (a^{-1}) + n \cdot (-k) = 1\]</span> Bu
+bərabərlik bizə <span class="math inline">\(1\)</span> ədədinin <span
+class="math inline">\(a\)</span> və <span
+class="math inline">\(n\)</span>-in xətti kombinasiyası olduğunu
+göstərir. Bezu eyniliyinə görə iki ədədin xətti kombinasiyası ilə alına
+bilən ən kiçik müsbət ədəd onların ƏBOB-udur. Deməli, mütləq <span
+class="math inline">\(\gcd(a, n) = 1\)</span> olmalıdır.</p>
+<p><strong>Kafilik (<span
+class="math inline">\(\Leftarrow\)</span>):</strong> İndi isə fərz edək
+ki, <span class="math inline">\(\gcd(a, n) = 1\)</span>. Bezu eyniliyinə
+görə elə <span class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> tam ədədləri tapmaq olar ki, <span
+class="math inline">\(ax + ny = 1\)</span> ödənsin. Bu bərabərliyin hər
+iki tərəfinə mod <span class="math inline">\(n\)</span> modulunu tətbiq
+etsək, <span class="math inline">\(ny \equiv 0 \pmod{n}\)</span>
+olduğundan tənlik bu formaya düşər: <span class="math display">\[ax
+\equiv 1 \pmod{n}\]</span> Bu isə o deməkdir ki, tapdığımız həmin <span
+class="math inline">\(x\)</span> əmsalı məhz <span
+class="math inline">\(a\)</span> ədədinin mod <span
+class="math inline">\(n\)</span> üzrə tərsidir (<span
+class="math inline">\(x = a^{-1} \pmod{n}\)</span>).</p>
+</div>
+<h2
+id="genişləndirilmiş-evklid-alqoritmi-ilə-hesablama">Genişləndirilmiş
+Evklid Alqoritmi ilə Hesablama</h2>
+<p>Bezu eyniliyinin isbatından göründüyü kimi, Genişləndirilmiş Evklid
+alqoritminin tapdığı <span class="math inline">\(x\)</span> əmsalı
+birbaşa olaraq bizə modul üzrə tərs elementi verir. Lakin alqoritmdən
+çıxan <span class="math inline">\(x\)</span> dəyəri mənfi ola biləcəyi
+üçün sonda onun modul üzrə müsbət qalığını hesablayırıq.</p>
+<h3 id="modul-üzrə-tərs-elementin-tapılması-alqoritmi">Modul üzrə Tərs
+Elementin Tapılması Alqoritmi</h3>
+<ol>
+<li><p><strong>Giriş:</strong> Hər hansı tam ədəd <span
+class="math inline">\(a\)</span> və modul <span
+class="math inline">\(n\)</span>.</p></li>
+<li><p><strong>ƏBOB və Əmsalların Tapılması:</strong> <span
+class="math inline">\((\text{gcd}, x, y) \leftarrow
+\text{Genişləndirilmiş Evklid}(a, n)\)</span> prosesini icra
+et.</p></li>
+<li><p><strong>Mövcudluq Yoxlanışı:</strong> Əgər <span
+class="math inline">\(\text{gcd} \neq 1\)</span> olarsa, modul üzrə tərs
+element mövcud deyil, xəta bildirişi ver və prosesi dayandır.</p></li>
+<li><p><strong>Müsbət Qalığa Gətirmə:</strong> Əgər <span
+class="math inline">\(\text{gcd} = 1\)</span> olarsa, Bezu əmsalı olan
+<span class="math inline">\(x\)</span>-in <span
+class="math inline">\(n\)</span> moduluna görə müsbət ekvivalentini tap:
+<span class="math display">\[x_{\text{müsbət}} = x \pmod
+n\]</span></p></li>
+<li><p><strong>Nəticə:</strong> Modul üzrə tərs element kimi <span
+class="math inline">\(x_{\text{müsbət}}\)</span> dəyərini
+qaytar.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 14</strong> (RSA Kriptosistemində Gizli Açarı (<span
+class="math inline">\(d\)</span>) tapılması). <em>RSA alqoritmində <span
+class="math inline">\(e\)</span> açıq açarı və şifrələmə modulunun Eyler
+funksiyası <span class="math inline">\(\varphi(n)\)</span> verildikdə,
+deşifrələmə üçün istifadə olunacaq <span
+class="math inline">\(d\)</span> gizli açarı <span
+class="math inline">\(d = e^{-1} \pmod{\varphi(n)}\)</span> düsturu ilə
+hesablanır.</em></p>
+<p><em>Tutaq ki, sadə ədədlərimiz <span
+class="math inline">\(p=61\)</span> və <span
+class="math inline">\(q=53\)</span>-dür. Onda modul <span
+class="math inline">\(n = p \cdot q = 3233\)</span>, Eyler funksiyası
+isə <span class="math inline">\(\varphi(n) = (p-1)(q-1) = 60 \times 52 =
+3120\)</span> olar. Açıq açar olaraq <span
+class="math inline">\(e=17\)</span> seçək (<span
+class="math inline">\(\gcd(17, 3120)=1\)</span>). Öyrəndiyimiz Evklid
+addımları ilə <span class="math inline">\(17\)</span>-nin mod <span
+class="math inline">\(3120\)</span> üzrə tərsini tapaq:</em></p>
+<p><em><span class="math display">\[\begin{align*}
+3120 &amp;= 17 \times 183 + 9 \\
+17 &amp;= 9 \times 1 + 8 \\
+9 &amp;= 8 \times 1 + 1 \\
+8 &amp;= 1 \times 8 + 0
+\end{align*}\]</span></em></p>
+<p><em>İndi isə geriyə doğru əvəzləmə edərək <span
+class="math inline">\(1\)</span> qalığını <span
+class="math inline">\(17\)</span> və <span
+class="math inline">\(3120\)</span>-nin xətti kombinasiyası şəklində
+yazaq: <span class="math display">\[\begin{align*}
+1 &amp;= 9 - 8 \times 1 \\
+  &amp;= 9 - (17 - 9 \times 1) \times 1 = 9 \times 2 - 17 \times 1 \\
+  &amp;= (3120 - 17 \times 183) \times 2 - 17 \times 1 \\
+  &amp;= 3120 \times 2 - 17 \times 366 - 17 \times 1 \\
+  &amp;= 3120 \times 2 - 17 \times 367
+\end{align*}\]</span></em></p>
+<p><em>Bezu eyniliyinə görə: <span class="math inline">\(17 \times
+(-367) + 3120 \times 2 = 1\)</span>. Deməli, <span
+class="math inline">\(17\)</span>-nin tərsi <span
+class="math inline">\(-367\)</span>-dir. Onu müsbət qalıq sinfinə
+gətirmək üçün mod <span class="math inline">\(3120\)</span> əlavə
+edirik: <span class="math display">\[d = -367 \pmod{3120} \equiv -367 +
+3120 = 2753\]</span> RSA gizli açarımız <span class="math inline">\(d =
+2753\)</span> olaraq tapılır.</em></p>
+</div>
+<h2 id="alternativ-nəzəri-üsullar-sadə-və-ümumi-modullar">Alternativ
+Nəzəri Üsullar (Sadə və Ümumi Modullar)</h2>
+<p>Əgər modul xüsusi xassəyə malikdirsə (məsələn, sadə ədəddirsə), tərs
+elementi Genişləndirilmiş Evklid alqoritmi olmadan da modulyar qüvvətə
+yüksəltmə ilə tapmaq olar.</p>
+<h3 id="fermanın-kiçik-teoremi-sadə-modullar-üçün">Fermanın Kiçik
+Teoremi (Sadə modullar üçün)</h3>
+<div class="theorem">
+<p><strong>Teorem 9</strong> (Fermanın kiçik teoremi). <em>Əgər <span
+class="math inline">\(p\)</span> sadə ədəddirsə və <span
+class="math inline">\(a\)</span> ədədi <span
+class="math inline">\(p\)</span>-yə bölünmürsə (<span
+class="math inline">\(\gcd(a, p) = 1\)</span>), onda: <span
+class="math display">\[a^{p-1} \equiv 1 \pmod{p}\]</span></em></p>
+</div>
+<div class="corollary">
+<p><strong>Nəticə 3</strong> (Ferma üsulu ilə tərs element).
+<em>Yuxarıdakı tənliyin hər iki tərəfini <span
+class="math inline">\(a^{-1}\)</span>-ə vursaq, sadə modulda tərs
+elementin tapılması birbaşa qüvvət üstünə gəlir: <span
+class="math display">\[a^{-1} \equiv a^{p-2} \pmod{p}\]</span></em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 15</strong>. <em><span
+class="math inline">\(p=13\)</span> (sadə ədəd) və <span
+class="math inline">\(a=5\)</span> üçün <span
+class="math inline">\(5\)</span>-in tərsini tapaq. Düstura görə <span
+class="math inline">\(5^{-1} \equiv 5^{13-2} = 5^{11}
+\pmod{13}\)</span>. Böyük qüvvəti mod daxilində parçalayaq: <span
+class="math display">\[5^2 = 25 \equiv -1 \pmod{13} \implies 5^{10} =
+(5^2)^5 \equiv (-1)^5 = -1 \pmod{13}\]</span> Onda <span
+class="math inline">\(5^{11} = 5^{10} \cdot 5 \equiv (-1) \cdot 5 = -5
+\equiv 8 \pmod{13}\)</span>. Həqiqətən də, <span class="math inline">\(5
+\times 8 = 40 \equiv 1 \pmod{13}\)</span>.</em></p>
+</div>
+<h3 id="eyler-teoremi-ixtiyari-modullar-üçün">Eyler Teoremi (İxtiyari
+modullar üçün)</h3>
+<p>Fermanın kiçik teoreminin mürəkkəb ədədlər üçün ümumiləşdirilmiş
+variantıdır.</p>
+<div class="theorem">
+<p><strong>Teorem 10</strong> (Eyler teoremi). <em>Əgər <span
+class="math inline">\(\gcd(a, n) = 1\)</span> olarsa, onda: <span
+class="math display">\[a^{\varphi(n)} \equiv 1 \pmod{n}\]</span> Buradan
+da istənilən modul üçün alternativ tərs element düsturu alınır: <span
+class="math inline">\(a^{-1} \equiv a^{\varphi(n)-1}
+\pmod{n}\)</span>.</em></p>
+</div>
+<h2 id="hesablama-üsullarının-müqayisəsi">Hesablama Üsullarının
+Müqayisəsi</h2>
+<p>Kompüter elmlərində bu üsulların seçilməsi modulun növündən və
+yaddaş/zaman mürəkkəbliyindən asılıdır.</p>
+<table>
+<caption>Modul üzrə tərs elementin hesablanma üsulları (<em>Qeyd:
+Mürəkkəblik bit əməliyyatlarına görə verilmişdir. Addım sayı olaraq
+Evklid loqarifmikdir.</em>)</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Üsul</strong></th>
+<th style="text-align: center;"><strong>Şərt</strong></th>
+<th style="text-align: center;"><strong>Zaman Mürəkkəbliyi</strong></th>
+<th style="text-align: left;"><strong>Praktik Qeyd</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Genişləndirilmiş Evklid</td>
+<td style="text-align: center;">İstənilən <span
+class="math inline">\(n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(O(\log^2
+n)\)</span> bit əməliyyatı</td>
+<td style="text-align: left;">Ən sürətli və universaldır.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ferma Metodu</td>
+<td style="text-align: center;">Yalnız sadə <span
+class="math inline">\(p\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(O(\log^3
+n)\)</span> bit əməliyyatı</td>
+<td style="text-align: left;">Bit ölçüsü böyük olduqda zəifdir.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Eyler Metodu</td>
+<td style="text-align: center;">İstənilən <span
+class="math inline">\(n\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(O(\log^3
+n)\)</span> bit əməliyyatı</td>
+<td style="text-align: left;">Əvvəlcə <span
+class="math inline">\(\varphi(n)\)</span> vuruqları bilinməlidir.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="böyük-modullarda-sürətli-qüvvətə-yüksəltmə">Böyük Modullarda
+Sürətli Qüvvətə Yüksəltmə</h1>
+<h2 id="problem-böyük-eksponentlərin-hesablama-çətinliyi">Problem: Böyük
+Eksponentlərin Hesablama Çətinliyi</h2>
+<p>Asimmetrik kriptoqrafiyada (məsələn, RSA, Diffi-Hellman, ElGamal) ən
+çox icra olunan fundamental əməliyyat <span class="math inline">\(g^x
+\pmod{p}\)</span> şəklindəki modulyar qüvvətə yüksəltmədir. Müasir
+kriptoqrafik təhlükəsizlik standartlarına görə <span
+class="math inline">\(x\)</span> və <span
+class="math inline">\(p\)</span> ədədləri 2048 və ya 4096 bit
+uzunluğunda böyük tam ədədlərdir.</p>
+<p>Əgər biz bu əməliyyatı ənənəvi üsulla, yəni <span
+class="math inline">\(g\)</span> ədədini öz-özünə <span
+class="math inline">\(x\)</span> dəfə vurmaqla yerinə yetirsək,
+alqoritmin zaman mürəkkəbliyi <span class="math inline">\(O(x)\)</span>
+olar. 2048-bitlik bir eksponent üçün bu, təqribən <span
+class="math inline">\(2^{2048}\)</span> sayda modul vurma əməliyyatı
+deməkdir. Müqayisə üçün qeyd edək ki, kainatdakı ümumi atomların sayı
+təxminən <span class="math inline">\(2^{270}\)</span>, kainatın yaşı isə
+saniyə ile <span class="math inline">\(10^{17} \approx
+2^{56}\)</span>-dır. Dünyanın ən sürətli superkompüteri belə bu üsulla
+hesablama aparsa, kainatın ömrü kifayət etməz. Bu səbəbdən qüvvətə
+yüksəltmə əməliyyatını loqarifmik zamana endirən xüsusi metodlara
+ehtiyac yaranır.</p>
+<h2 id="alqoritmin-riyazi-əsası">Alqoritmin Riyazi Əsası</h2>
+<p>Kvadrat yüksəlt-vur alqoritmi elementar cəbrin dərəcəyə yüksəltmə
+qaydalarına əsaslanır: <span class="math display">\[g^{y+z} = g^y \cdot
+g^z \quad \text{və} \quad g^{y \cdot z} = (g^y)^z\]</span></p>
+<p>İxtiyari <span class="math inline">\(x\)</span> tam ədədini ikilik
+say sistemində yazaq: <span class="math display">\[x = (x_{k-1} x_{k-2}
+\ldots x_1 x_0)_2 = \sum_{i=0}^{k-1} x_i 2^i, \quad x_i \in
+\{0,1\}\]</span> Burada <span class="math inline">\(k\)</span> ədədin
+ikilik sistemdəki bit sayıdır. Bu halda <span
+class="math inline">\(g^x\)</span> ifadəsini aşağıdakı kimi parçalaya
+bilərik: <span class="math display">\[g^x = g^{\sum_{i=0}^{k-1} x_i 2^i}
+= \prod_{i=0}^{k-1} g^{x_i 2^i} = \prod_{i: x_i=1} g^{2^i}\]</span></p>
+<p>Bu riyazi açılış göstərir ki, biz ilkin olaraq <span
+class="math inline">\(g^{2^i}\)</span> dəyərlərini (<em>ardıcıl kvadrat
+yüksəltməklə</em>) hazırlasaq, yalnız bit qiyməti <span
+class="math inline">\(1\)</span> olan mövqelərdəki dəyərləri bir-birinə
+vurmaqla nəticəni çox sürətlə ala bilərik. Bu prinsipi iki fərqli
+istiqamətdə tətbiq etmək olar.</p>
+<h2 id="soldan-sağa-böyük-bitdən-kiçiyə-alqoritmi">Soldan-Sağa (Böyük
+Bitdən Kiçiyə) Alqoritmi</h2>
+<p>Bu yanaşmada eksponentin ikilik yazılışı ən yüksək mərtəbəli bitdən
+(soldan) başlanaraq oxunur. Cari nəticəni ifadə edən <span
+class="math inline">\(R\)</span> dəyişəni başlanğıcda <span
+class="math inline">\(1\)</span> götürülür. Hər bir bit üçün ardıcıl
+olaraq aşağıdakı proses icra edilir:</p>
+<h3 id="soldan-sağa-eksponentasiya-addımları">Soldan-Sağa Eksponentasiya
+Addımları</h3>
+<ol>
+<li><p><strong>Kvadrat yüksəltmə addımı:</strong> İstisnasız olaraq hər
+bir bit üçün mövcud nəticənin kvadratı götürülür: <span
+class="math display">\[R \leftarrow R^2 \pmod{p}\]</span></p></li>
+<li><p><strong>Vurma addımı:</strong> Əgər oxunan cari bit <span
+class="math inline">\(1\)</span>-ə bərabərdirsə, nəticə əlavə olaraq
+əsasa (<span class="math inline">\(g\)</span>) vurulur: <span
+class="math display">\[R \leftarrow R \cdot g \pmod{p}\]</span> Bit
+<span class="math inline">\(0\)</span> olduqda isə bu addım
+ötürülür.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 16</strong> (Soldan-Sağa üsulu ilə <span
+class="math inline">\(g^{26} \pmod{p}\)</span> hesablanması). <em>Qüvvət
+üstünün ikilik yazılışı: <span class="math inline">\(26_{10} =
+(11010)_2\)</span>. Bitləri soldan sağa doğru izləyək (<span
+class="math inline">\(k=5\)</span> bit):</em></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Addım</strong></em></th>
+<th style="text-align: center;"><em><strong>Bit</strong></em></th>
+<th style="text-align: left;"><em><strong>Kvadrat
+Yüksəltmə</strong></em></th>
+<th style="text-align: left;"><em><strong>Vurma (Əgər <span
+class="math inline">\(\text{bit}=1\)</span>)</strong></em></th>
+<th style="text-align: center;"><em><strong>Cari Nəticə (<span
+class="math inline">\(R\)</span>)</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(1^2 =
+1\)</span></em></td>
+<td style="text-align: left;"><em><span class="math inline">\(1 \cdot g
+= g\)</span></em></td>
+<td style="text-align: center;"><em><span
+class="math inline">\(g\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span
+class="math inline">\(g^2\)</span></em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g^2 \cdot
+g = g^3\)</span></em></td>
+<td style="text-align: center;"><em><span
+class="math inline">\(g^3\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>3</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: left;"><em><span class="math inline">\((g^3)^2 =
+g^6\)</span></em></td>
+<td style="text-align: left;"><em>Ötürülür</em></td>
+<td style="text-align: center;"><em><span
+class="math inline">\(g^6\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span class="math inline">\((g^6)^2 =
+g^{12}\)</span></em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g^{12}
+\cdot g = g^{13}\)</span></em></td>
+<td style="text-align: center;"><em><span
+class="math inline">\(g^{13}\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>5</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: left;"><em><span class="math inline">\((g^{13})^2
+= g^{26}\)</span></em></td>
+<td style="text-align: left;"><em>Ötürülür</em></td>
+<td style="text-align: center;"><em><span
+class="math inline">\(g^{26}\)</span></em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Göründüyü kimi, cəmi 5 kvadrat yüksəltmə və 3 vurma əməliyyatı
+ilə hədəfə çatdıq.</em></p>
+</div>
+<h2 id="sağdan-sola-kiçik-bitdən-böyüyə-alqoritmi">Sağdan-Sola (Kiçik
+Bitdən Böyüyə) Alqoritmi</h2>
+<p>Bu yanaşmada bitlər ən kiçik mərtəbədən (sağdan) başlanaraq oxunur.
+Burada iki komponent paralel idarə olunur: cari nəticə (<span
+class="math inline">\(R\)</span>) və qüvvət əsası (<span
+class="math inline">\(B\)</span>). Başlanğıcda <span
+class="math inline">\(R = 1\)</span> və <span class="math inline">\(B =
+g\)</span> təyin edilir.</p>
+<h3 id="sağdan-sola-eksponentasiya-addımları">Sağdan-Sola Eksponentasiya
+Addımları</h3>
+<ol>
+<li><p><strong>Nəticənin yenilənməsi:</strong> Əgər baxılan bit <span
+class="math inline">\(1\)</span>-dirsə, cari baza nəticəyə vurulur:
+<span class="math display">\[R \leftarrow R \cdot B
+\pmod{p}\]</span></p></li>
+<li><p><strong>Bazanın miqyası:</strong> Bitin qiymətindən asılı
+olmayaraq, növbəti addım üçün bazanın kvadratı alınır: <span
+class="math display">\[B \leftarrow B^2 \pmod{p}\]</span></p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 17</strong> (Sağdan-Sola üsulu ilə <span
+class="math inline">\(g^{26} \pmod{p}\)</span> hesablanması).
+<em>Eksponent yenə <span class="math inline">\(26_{10} =
+(11010)_2\)</span>. Bitləri sağdan sola doğru oxuyuruq: <span
+class="math inline">\(x_0=0, x_1=1, x_2=0, x_3=1,
+x_4=1\)</span>.</em></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Addım</strong></em></th>
+<th style="text-align: center;"><em><strong>Bit</strong></em></th>
+<th style="text-align: left;"><em><strong>Nəticənin Yenilənməsi (<span
+class="math inline">\(R\)</span>)</strong></em></th>
+<th style="text-align: left;"><em><strong>Bazanın Kvadratı (<span
+class="math inline">\(B\)</span>)</strong></em></th>
+<th style="text-align: center;"><em><strong>Növbəti Baza
+Dəyəri</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>—</em></td>
+<td style="text-align: center;"><em>—</em></td>
+<td style="text-align: left;"><em>Başlanğıc: <span
+class="math inline">\(R = 1\)</span></em></td>
+<td style="text-align: left;"><em>—</em></td>
+<td style="text-align: center;"><em><span class="math inline">\(B =
+g\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: left;"><em>Ötürülür (<span
+class="math inline">\(R = 1\)</span>)</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g \cdot
+g\)</span></em></td>
+<td style="text-align: center;"><em><span class="math inline">\(B =
+g^2\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>2</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(R = 1
+\cdot g^2 = g^2\)</span></em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g^2 \cdot
+g^2\)</span></em></td>
+<td style="text-align: center;"><em><span class="math inline">\(B =
+g^4\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>3</em></td>
+<td style="text-align: center;"><em>0</em></td>
+<td style="text-align: left;"><em>Ötürülür (<span
+class="math inline">\(R = g^2\)</span>)</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g^4 \cdot
+g^4\)</span></em></td>
+<td style="text-align: center;"><em><span class="math inline">\(B =
+g^8\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>4</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(R = g^2
+\cdot g^8 = g^{10}\)</span></em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g^8 \cdot
+g^8\)</span></em></td>
+<td style="text-align: center;"><em><span class="math inline">\(B =
+g^{16}\)</span></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>5</em></td>
+<td style="text-align: center;"><em>1</em></td>
+<td style="text-align: left;"><em><span class="math inline">\(R = g^{10}
+\cdot g^{16} = g^{26}\)</span></em></td>
+<td style="text-align: left;"><em><span class="math inline">\(g^{16}
+\cdot g^{16}\)</span></em></td>
+<td style="text-align: center;"><em><span class="math inline">\(B =
+g^{32}\)</span></em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Yekun nəticə yenə tam dəqiqliklə <span class="math inline">\(R =
+g^{26}\)</span> olaraq əldə edilir.</em></p>
+</div>
+<h2 id="mürəkkəblik-analizi">Mürəkkəblik Analizi</h2>
+<div class="theorem">
+<p><strong>Teorem 11</strong> (Zaman Mürəkkəbliyi). <em>Eksponentin bit
+uzunluğu <span class="math inline">\(k \approx \log_2 x\)</span> olarsa,
+kvadrat yüksəlt-vur alqoritminin ümumi zaman mürəkkəbliyi modulun bit
+ölçüsünə görə <span class="math inline">\(O(\log x \cdot \log^2
+p)\)</span> xətti-kvadratik asılılığındadır.</em></p>
+</div>
+<div class="proofbox">
+<p><span>İsbat</span> <span class="math inline">\(k\)</span> bitlik bir
+ədədin emalı zamanı alqoritm hər bit üçün dəqiq 1 dəfə kvadrat yüksəltmə
+aparır (cəmi <span class="math inline">\(k\)</span> kvadrat yüksəltmə).
+Vurma əməliyyatı isə yalnız bit <span class="math inline">\(1\)</span>
+olduqda icra edilir. Təsadüfi seçilmiş eksponentdə bitlərin ortalama
+yarısının <span class="math inline">\(1\)</span> olduğunu fərz etsək
+(<em>orta hal analizi</em>), təxminən <span
+class="math inline">\(k/2\)</span> sayda vurma tələb olunur. Beləliklə,
+ümumi əməliyyat sayı <span class="math inline">\(1.5k\)</span>-dır. Hər
+bir modulyar vurma/kvadrat əməliyyatı kompüter yaddaşında <span
+class="math inline">\(O(\log^2 p)\)</span> zaman aldığı üçün, yekun
+mürəkkəblik <span class="math inline">\(O(\log x \cdot \log^2
+p)\)</span> olar.</p>
+</div>
+<table>
+<caption>Modulyar eksponentasiya üsullarının müqayisəsi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Riyazi Modul Vurma
+Sayı</strong></th>
+<th style="text-align: center;"><strong>1024-bit Eksponent üçün
+Sürət</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Sadə alqoritm</td>
+<td style="text-align: center;"><span class="math inline">\(x\)</span>
+sayda vurma</td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+2^{1024}\)</span> əməliyyat (Qeyri-mümkün)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kvadrat yüksəlt-vur</td>
+<td style="text-align: center;">Ən pis halda <span
+class="math inline">\(2k\)</span>, ortalama <span
+class="math inline">\(1.5k\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\approx
+1536\)</span> əməliyyat (Bir neçə millisaniyə)</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="montqomeri-nərdivanı-yan-kanal-hücumlarına-davamlılıq">Montqomeri
+Nərdivanı — Yan Kanal Hücumlarına Davamlılıq</h2>
+<p>Kvadrat yüksəlt-vur alqoritminin əsas zəifliyi onun <strong>yan kanal
+hücumlarına</strong>, xüsusilə də vaxt hücumlarına qarşı həssas
+olmasıdır. Kriptoanalitik qurğunun enerji istehlakını və ya hesablama
+müddətini ölçməklə hansı addımda vurma əməliyyatının icra olunduğunu
+(yəni cari bitin <span class="math inline">\(1\)</span>-ə bərabər
+olduğunu) müəyyən edə bilər.</p>
+<p>Bu riski azaltmaq üçün <strong>Montqomeri nərdivanı</strong> metodu
+tətbiq oluna bilər. Alqoritmdə bitin qiymətindən (<span
+class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span>) asılı olmayaraq hər dövrdə bir kvadrat
+yüksəltmə və bir vurma planlaşdırılır. Lakin eyni əməliyyat sayının
+olması təkbaşına Sabit-zamanlı icraya zəmanət vermir: registrlərin
+seçilməsi sabit-zamanlı şərti dəyişmə ilə aparılmalı, gizli bitdən asılı
+budaqlanma və yaddaş müraciəti olmamalı, istifadə olunan arifmetikanın
+yolları da zaman baxımından fərqlənməməlidir.</p>
+<h3 id="montqomeri-nərdivanı-alqoritminin-strukturu">Montqomeri
+Nərdivanı Alqoritminin Strukturu</h3>
+<p>Hesablama zamanı iki müvəqqəti registr təyin edilir. Başlanğıc şərt
+olaraq <span class="math inline">\(R_0 = 1\)</span> və <span
+class="math inline">\(R_1 = g\)</span> götürülür. Eksponentin bitləri
+soldan sağa doğru oxunduqca aşağıdakı keçidlər icra olunur:</p>
+<ul>
+<li><p><strong>Cari bit <span class="math inline">\(0\)</span>
+olduqda:</strong> <span class="math display">\[R_1 \leftarrow R_0 \cdot
+R_1 \pmod{p}, \quad R_0 \leftarrow R_0^2 \pmod{p}\]</span></p></li>
+<li><p><strong>Cari bit <span class="math inline">\(1\)</span>
+olduqda:</strong> <span class="math display">\[R_0 \leftarrow R_0 \cdot
+R_1 \pmod{p}, \quad R_1 \leftarrow R_1^2 \pmod{p}\]</span></p></li>
+</ul>
+<p>Hər iki halda əməliyyat cədvəlinin eyni saxlanması sadə zaman və
+enerji izlərindəki asimmetriyanı azalda bilər. Bununla belə, konkret
+reallaşdırma yaddaş, mikroarxitektura, güc və nasazlıq kanallarına qarşı
+ayrıca yoxlanmalıdır; nərdivan bütün yan-kanal sızmalarını avtomatik
+aradan qaldırmır.</p>
+<h2 id="praktik-nümunə-rsa-şifrələmə-addımı">Praktik Nümunə: RSA
+Şifrələmə addımı</h2>
+<div class="example">
+<p><strong>Nümunə 18</strong> (RSA Modulyar Şifrələməsi). <em>Kiçik
+parametrlər üzərində prosesi vizuallaşdıraq. Şifrələmə modulu <span
+class="math inline">\(n = 143\)</span>, açıq açar <span
+class="math inline">\(e = 7\)</span> və şifrələnəcək mətn <span
+class="math inline">\(m = 9\)</span> olsun. Kriptoqrafik düsturumuz:
+<span class="math inline">\(c = 9^7 \pmod{143}\)</span>.</em></p>
+<p><em>Qüvvət üstü <span class="math inline">\(7_{10} = (111)_2\)</span>
+şəklindədir (3 bit: bitlər hamısı 1-dir). Soldan-sağa alqoritmini tətbiq
+edirik (<span class="math inline">\(R=1\)</span> ilə
+başlayırıq):</em></p>
+<ol>
+<li><p><em><strong>1-ci bit (<span
+class="math inline">\(1\)</span>):</strong></em></p>
+<ul>
+<li><p><em>Kvadrat addımı: <span class="math inline">\(R = 1^2 =
+1\)</span></em></p></li>
+<li><p><em>Vurma addımı: <span class="math inline">\(R = 1 \cdot 9 =
+9\)</span></em></p></li>
+</ul></li>
+<li><p><em><strong>2-ci bit (<span
+class="math inline">\(1\)</span>):</strong></em></p>
+<ul>
+<li><p><em>Kvadrat addımı: <span class="math inline">\(R = 9^2 = 81
+\pmod{143}\)</span></em></p></li>
+<li><p><em>Vurma addımı: <span class="math inline">\(R = 81 \cdot 9 =
+729 \pmod{143} \implies R = 14\)</span></em></p></li>
+</ul></li>
+<li><p><em><strong>3-cü bit (<span
+class="math inline">\(1\)</span>):</strong></em></p>
+<ul>
+<li><p><em>Kvadrat addımı: <span class="math inline">\(R = 14^2 = 196
+\pmod{143} \implies R = 53\)</span></em></p></li>
+<li><p><em>Vurma addımı: <span class="math inline">\(R = 53 \cdot 9 =
+477 \pmod{143} \implies R = 48\)</span></em></p></li>
+</ul></li>
+</ol>
+<p><em>Şifrəli mətn <span class="math inline">\(c = 48\)</span> olaraq
+tapılır.</em></p>
+</div>
+<h1 id="praktik-sistem-dizaynı-üçün-tövsiyələr">Praktik Sistem Dizaynı
+üçün Tövsiyələr</h1>
+<div class="note">
+<p>Asimmetrik kriptosistemlərin reallaşdırılması zamanı riyazi
+səmərəliliyi və təhlükəsizliyi təmin etmək üçün aşağıdakı mühəndislik
+prinsiplərinə diqqət yetirilməlidir:</p>
+<ul>
+<li><p><strong>Böyük Tam Ədədlərin Emalı:</strong> Kriptoqrafik
+hesablamalarda standart verilənlər tipləri yetərsizdir. Çox böyük
+ədədlərlə işləyərkən C dilində optimallaşdırılmış və çox yüksək sürətə
+malik GNU MP (GMP) tipli riyazi nüvələrdən və ya platformaya uyğun
+yüksək səviyyəli asılılıqlardan istifadə edilməlidir.</p></li>
+<li><p><strong>Əsas əməliyyatın seçimi:</strong> RSA, sonlu meydan
+Diffi–Hellman və ElGamal sistemlərində əsas yük modulyar qüvvətə
+yüksəltmədir; ECC-də isə əsas əməliyyat əyri nöqtəsinin skalyara
+vurulmasıdır. Hər iki halda yalnız yoxlanılmış, sabit-zamanlı
+kriptoqrafik kitabxananın uyğun alqoritmi seçilməlidir.</p></li>
+<li><p><strong>Yan Kanal Hücumlarından Müdafiə:</strong> Təhlükəsizlik
+baxımından kritik sistemlərdə (məsələn, aparat təhlükəsizlik modulları
+və ağıllı kartlar) standart kvadratlaşdır-vur alqoritmi əməliyyat vaxtı
+fərqi sızdırdığı üçün Montqomeri nərdivanı variantına üstünlük verilməli
+və icra müddətinin sabit-zamanlı olması təmin edilməlidir.</p></li>
+<li><p><strong>Modul Tərs Hesablamaları:</strong> Modul tərs elementin
+tapılması üçün ən səmərəli üsul Genişləndirilmiş Evklid alqoritmidir.
+Fermanın kiçik teoremi ilə tərs elementin tapılması yalnız modul sadə
+ədəd olduqda keçərlidir və hesablama baxımından daha yavaşdır.</p></li>
+<li><p><strong>Sertifikatlaşdırılmış Kriptoqrafik Nüvələr:</strong>
+Sənaye tətbiqlərində kriptoqrafik alqoritmlər sıfırdan yazılmamalıdır.
+Bunun əvəzinə, riyazi və kriptoanalitik cəhətdən ciddi şəkildə
+yoxlanılmış, optimallaşdırılmış və yan kanal hücumlarına qarşı daxili
+müdafiə mexanizmləri olan sənaye standartlı nüvələrə (OpenSSL, GMP,
+PyCryptodome və s.) etibar edilməlidir.</p></li>
+<li><p><strong>Parametrlərin seçimi:</strong> Ölçülər tələb olunan
+təhlükəsizlik səviyyəsi, istifadə müddəti və standartlaşdırılmış profilə
+görə seçilir. NIST müqayisəsində RSA-2048 təxminən 112-bit, RSA-3072
+təxminən 128-bit klassik təhlükəsizlik səviyyəsinə uyğundur; ECC üçün
+isə yalnız “256 bit” demək əvəzinə konkret təsdiqlənmiş əyri, altqrup və
+protokol göstərilməlidir.</p></li>
+<li><p><strong>Çin Qalıqlar Teoremi (CRT) ilə Sürətləndirmə:</strong>
+RSA deşifrələməsi və rəqəmsal imza yaradılması prosesində böyük <span
+class="math inline">\(n\)</span> modulu əvəzinə <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə vuruqları üzərində Çin qalıqlar
+teoremi ilə hesablama aparmaq riyazi mürəkkəbliyi təxminən 4 dəfə
+azaldır. (CRT-nı növbəti mühazirədə öyrənəcəyik)</p></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Əvvəlcə hər hesablamanın alqoritm izini özünüz yazın. Cavab açarı
+ayrıca müəllim bölməsindədir və yalnız ilkin nəticə, şərtlər və
+əməliyyat sayı qeyd edildikdən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em><span class="math inline">\(\gcd(123,
+456)\)</span> dəyərini klassik Evklid alqoritmi ilə tapın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Genişləndirilmiş Evklid alqoritmindən
+istifadə edərək <span class="math inline">\(123x + 456y =
+\gcd(123,456)\)</span> xətti kombinasiyasını ödəyən <span
+class="math inline">\(x\)</span> və <span
+class="math inline">\(y\)</span> Bezu əmsallarını müəyyən edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em><span class="math inline">\(7^{-1}
+\pmod{19}\)</span> modul tərs elementinin dəyərini genişləndirilmiş
+Evklid alqoritmi vasitəsilə hesablayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Soldan-sağa kvadrat yüksəlt-vur
+alqoritmini tətbiq edərək <span class="math inline">\(3^{20}
+\pmod{11}\)</span> ifadəsinin qiymətini tapın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em><span class="math inline">\(5^{13}
+\pmod{17}\)</span> ifadəsini kvadrat yüksəlt-vur metodu ilə hesablayın.
+Qüvvət üstünün ikilik qarşılığının <span class="math inline">\(13_{10} =
+(1101)_2\)</span> olduğunu nəzərə alın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em><span
+class="math inline">\(37^{-1}\pmod{101}\)</span> tərsini
+genişləndirilmiş Evklid alqoritmi ilə hesablayın və nəticəni <span
+class="math inline">\(37d\equiv1\pmod{101}\)</span> yoxlaması ilə
+təsdiqləyin. Bu tərsin açar generasiyasında hansı tip tənliyi həll
+etdiyini bir cümlə ilə göstərin; RSA parametrlərinin tam tətbiqi 19-cu
+mühazirəyə saxlanılır.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>Montqomeri nərdivanı alqoritminin
+riyazi strukturunun standart kvadratlaşdır-vur alqoritmi ilə müqayisədə
+yan kanal riskini necə azaltdığını və niyə təkbaşına sabit-zamanlı icra
+zəmanəti vermədiyini izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>Kvadrat yüksəlt-vur alqoritminin
+zaman mürəkkəbliyini sadə multiplikativ üsulla müqayisə edin. Eksponent
+<span class="math inline">\(1024\)</span> bitlik bir ədəd olduqda hər
+iki hal üçün tələb olunan vurma əməliyyatlarının sayını
+göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 9</strong>. <em><span class="math inline">\(2^{100}
+\pmod{13}\)</span> ifadəsinin qiymətini kvadrat yüksəlt-vur alqoritmi
+ilə tapın. Eyni zamanda nəticəni Fermanın kiçik teoremi ilə analitik
+olaraq yoxlayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 10</strong>. <em><span
+class="math inline">\(p=17\)</span>, <span
+class="math inline">\(q=19\)</span> sadə ədədləri və <span
+class="math inline">\(e=5\)</span> açıq eksponenti verilmişdir. RSA
+alqoritminin açar generasiyası addımlarını yerinə yetirərək <span
+class="math inline">\(n\)</span>, <span
+class="math inline">\(\varphi(n)\)</span> və <span
+class="math inline">\(d\)</span> parametrlərini hesablayın.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p><span class="math inline">\(\gcd(123,456)\)</span> tapılması üçün
+ardıcıl qalıqlı bölmə addımları: <span
+class="math display">\[\begin{align*}
+    456 &amp;= 123 \times 3 + 87 \\
+    123 &amp;= 87 \times 1 + 36 \\
+    87 &amp;= 36 \times 2 + 15 \\
+    36 &amp;= 15 \times 2 + 6 \\
+    15 &amp;= 6 \times 2 + 3 \\
+    6 &amp;= 3 \times 2 + 0
+\end{align*}\]</span> Sıfırdan fərqli ən son qalıq <span
+class="math inline">\(3\)</span> olduğu üçün <span
+class="math inline">\(\gcd(123, 456) = 3\)</span> olur.</p></li>
+<li><p>Tapılmış qalıqları geriyə doğru əvəzləmə üsulu ilə zəncirvari
+şəkildə yazaq: <span class="math display">\[\begin{align*}
+    3 &amp;= 15 - 6 \times 2 \\
+      &amp;= 15 - (36 - 15 \times 2) \times 2 = 15 \times 5 - 36 \times
+2 \\
+      &amp;= (87 - 36 \times 2) \times 5 - 36 \times 2 = 87 \times 5 -
+36 \times 12 \\
+      &amp;= 87 \times 5 - (123 - 87 \times 1) \times 12 = 87 \times 17
+- 123 \times 12 \\
+      &amp;= (456 - 123 \times 3) \times 17 - 123 \times 12 = 456 \times
+17 - 123 \times 63
+\end{align*}\]</span> Buradan tənliyin tam həlləri üçün <span
+class="math inline">\(x = -63\)</span> və <span class="math inline">\(y
+= 17\)</span> əmsalları tapılır. Yoxlama: <span
+class="math inline">\(123 \times (-63) + 456 \times 17 = -7749 + 7752 =
+3\)</span>.</p></li>
+<li><p><span class="math inline">\(19\)</span> və <span
+class="math inline">\(7\)</span> ədədlərinə Evklid alqoritmini tətbiq
+edək: <span class="math display">\[\begin{align*}
+    19 &amp;= 7 \times 2 + 5 \\
+    7 &amp;= 5 \times 1 + 2 \\
+    5 &amp;= 2 \times 2 + 1
+\end{align*}\]</span> İndi isə <span class="math inline">\(1\)</span>
+qalığını geriyə doğru ifadə edək: <span
+class="math display">\[\begin{align*}
+    1 &amp;= 5 - 2 \times 2 \\
+      &amp;= 5 - (7 - 5 \times 1) \times 2 = 5 \times 3 - 7 \times 2 \\
+      &amp;= (19 - 7 \times 2) \times 3 - 7 \times 2 = 19 \times 3 - 7
+\times 8
+\end{align*}\]</span> Bərabərliyin hər iki tərəfini mod <span
+class="math inline">\(19\)</span> ilə qiymətləndirsək: <span
+class="math inline">\(1 \equiv -7 \times 8 \pmod{19} \implies 7^{-1}
+\equiv -8 \pmod{19}\)</span>. Mənfi qalığı müsbət siniflə əvəzləsək:
+<span class="math inline">\(-8 + 19 = 11\)</span>. Beləliklə, <span
+class="math inline">\(7^{-1} \equiv 11 \pmod{19}\)</span>.</p></li>
+<li><p><span class="math inline">\(3^{20} \pmod{11}\)</span>
+hesablanması. Eksponentin ikilik kodu: <span
+class="math inline">\(20_{10} = (10100)_2\)</span>. Soldan-sağa kvadrat
+yüksəlt-vur cədvəli (<span class="math inline">\(R=1\)</span>):</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Addım</strong></th>
+<th style="text-align: center;"><strong>Bit</strong></th>
+<th style="text-align: left;"><strong>Kvadrat Yüksəltmə</strong></th>
+<th style="text-align: left;"><strong>Vurma (Əgər <span
+class="math inline">\(\text{bit}=1\)</span>)</strong></th>
+<th style="text-align: center;"><strong>Cari Nəticə (<span
+class="math inline">\(R\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1^2 =
+1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1 \cdot 3 =
+3\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(3^2 =
+9\)</span></td>
+<td style="text-align: left;">Ötürülür</td>
+<td style="text-align: center;"><span
+class="math inline">\(9\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(9^2 = 81
+\equiv 4 \pmod{11}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4 \cdot 3 = 12
+\equiv 1 \pmod{11}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(1^2 =
+1\)</span></td>
+<td style="text-align: left;">Ötürülür</td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(1^2 =
+1\)</span></td>
+<td style="text-align: left;">Ötürülür</td>
+<td style="text-align: center;"><span
+class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nəticə: <span class="math inline">\(3^{20} \equiv 1
+\pmod{11}\)</span>.</p></li>
+<li><p><span class="math inline">\(5^{13} \pmod{17}\)</span>
+hesablanması. Eksponentin ikilik kodu: <span
+class="math inline">\(13_{10} = (1101)_2\)</span>. Soldan-sağa kvadrat
+yüksəlt-vur cədvəli (<span class="math inline">\(R=1\)</span>):</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Addım</strong></th>
+<th style="text-align: center;"><strong>Bit</strong></th>
+<th style="text-align: left;"><strong>Kvadrat Yüksəltmə</strong></th>
+<th style="text-align: left;"><strong>Vurma (Əgər <span
+class="math inline">\(\text{bit}=1\)</span>)</strong></th>
+<th style="text-align: center;"><strong>Cari Nəticə (<span
+class="math inline">\(R\)</span>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1^2 =
+1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1 \cdot 5 =
+5\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(5\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(5^2 = 25
+\equiv 8 \pmod{17}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(8 \cdot 5 = 40
+\equiv 6 \pmod{17}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(6^2 = 36
+\equiv 2 \pmod{17}\)</span></td>
+<td style="text-align: left;">Ötürülür</td>
+<td style="text-align: center;"><span
+class="math inline">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(2^2 =
+4\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4 \cdot 5 = 20
+\equiv 3 \pmod{17}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(3\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Nəticə: <span class="math inline">\(5^{13} \equiv 3
+\pmod{17}\)</span>.</p></li>
+<li><p>Evklid addımları <span
+class="math inline">\(101=2\cdot37+27\)</span>, <span
+class="math inline">\(37=1\cdot27+10\)</span>, <span
+class="math inline">\(27=2\cdot10+7\)</span>, <span
+class="math inline">\(10=1\cdot7+3\)</span>, <span
+class="math inline">\(7=2\cdot3+1\)</span> verir. Geriyə əvəzləmə ilə
+<span class="math inline">\(1=11\cdot101-30\cdot37\)</span>, deməli
+<span class="math inline">\(d\equiv-30\equiv71\pmod{101}\)</span>.
+Yoxlama: <span
+class="math inline">\(37\cdot71=2627\equiv1\pmod{101}\)</span>. Açar
+generasiyasında bu, açıq eksponentin uyğun qrup tərtibinə görə tərsini
+tapmaq tipli tənlikdir; tam RSA domeni və parametrləri 19-cu mühazirədə
+tətbiq olunur.</p></li>
+<li><p>Standart kvadrat yüksəlt-vur alqoritmində emal olunan bit <span
+class="math inline">\(0\)</span> olduqda yalnız kvadrat, bit <span
+class="math inline">\(1\)</span> olduqda isə kvadrat və əlavə vurma icra
+edilməsi zaman/güc izində bitdən asılı fərq yarada bilər. Montqomeri
+nərdivanı hər dövrdə bir vurma və bir kvadrat planlaşdırmaqla bu fərqi
+azaldır. Lakin təhlükəsiz reallaşdırma üçün sabit-zamanlı şərti dəyişmə,
+gizli bitdən asılı olmayan idarəetmə və yaddaş müraciətləri və uyğun
+yan-kanal yoxlaması da tələb olunur.</p></li>
+<li><p><span class="math inline">\(1024\)</span> bitlik eksponent üçün
+müqayisə:</p>
+<ul>
+<li><p><strong>Sadə alqoritm:</strong> <span class="math inline">\(x
+\approx 2^{1024}\)</span> sayda ardıcıl modulyar vurma tələb edir. Bu
+rəqəm fiziki olaraq hesablana bilməyəcək qədər böyükdür.</p></li>
+<li><p><strong>Kvadrat yüksəlt-vur alqoritmi:</strong> Hər bit üçün 1
+kvadrat (cəmi 1024) və statistik olaraq bitlərin yarısı üçün 1 vurma
+(təxminən 512) aparır. Cəmi əməliyyat sayı təqribən <span
+class="math inline">\(1536\)</span>-dır.</p></li>
+</ul>
+<p>Bu, eksponensial mürəkkəbliyin (<span
+class="math inline">\(O(2^k)\)</span>) loqarifmik mürəkkəbliyə (<span
+class="math inline">\(O(k)\)</span>) endirilməsi sayəsində milyardlarla
+illik hesablama müddətinin millisaniyələrə endirilməsi
+deməkdir.</p></li>
+<li><p><span class="math inline">\(2^{100} \pmod{13}\)</span> ifadəsinin
+analizi:</p>
+<ul>
+<li><p><strong>Fermanın kiçik teoremi ilə:</strong> 13 sadə ədəd olduğu
+üçün <span class="math inline">\(2^{13-1} = 2^{12} \equiv 1
+\pmod{13}\)</span> şərti ödənir. Eksponenti parçalayaq: <span
+class="math inline">\(100 = 12 \times 8 + 4\)</span>. Onda: <span
+class="math display">\[2^{100} \equiv (2^{12})^8 \cdot 2^4 \equiv 1^8
+\cdot 16 \equiv 16 \equiv 3 \pmod{13}\]</span></p></li>
+<li><p><strong>Kvadrat yüksəlt-vur ilə:</strong> Qüvvət üstü <span
+class="math inline">\(100_{10} = (1100100)_2\)</span>. Alqoritmin
+ardıcıl addımları icra olunduqda riyazi invariantlar bizi eyni ilə <span
+class="math inline">\(3 \pmod{13}\)</span> nəticəsinə götürür.</p></li>
+</ul></li>
+<li><p>RSA açar generasiyası addımları (<span
+class="math inline">\(p=17\)</span>, <span
+class="math inline">\(q=19\)</span>, <span
+class="math inline">\(e=5\)</span>):</p>
+<ol>
+<li><p>Şifrələmə modulu: <span class="math inline">\(n = 17 \times 19 =
+323\)</span>.</p></li>
+<li><p>Eyler funksiyası: <span class="math inline">\(\varphi(n) = (17-1)
+\times (19-1) = 16 \times 18 = 288\)</span>.</p></li>
+<li><p>Gizli açar <span class="math inline">\(d = 5^{-1}
+\pmod{288}\)</span>. Genişləndirilmiş Evklid alqoritmini tətbiq edək:
+<span class="math display">\[\begin{align*}
+        288 &amp;= 5 \times 57 + 3 \\
+        5 &amp;= 3 \times 1 + 2 \\
+        3 &amp;= 2 \times 1 + 1
+\end{align*}\]</span> Geriyə əvəzləmə: <span
+class="math display">\[\begin{align*}
+        1 &amp;= 3 - 2 \times 1 \\
+          &amp;= 3 - (5 - 3 \times 1) = 3 \times 2 - 5 \\
+          &amp;= (288 - 5 \times 57) \times 2 - 5 = 288 \times 2 - 5
+\times 115
+\end{align*}\]</span> Mod 288-ə görə: <span class="math inline">\(5
+\times (-115) \equiv 1 \pmod{288} \implies d \equiv -115
+\pmod{288}\)</span>. Gizli eksponentin müsbət qiyməti: <span
+class="math inline">\(d = -115 + 288 = 173\)</span>.</p></li>
+</ol></li>
+</ul>
+<h1 id="mühazirənin-xülasəsi">Mühazirənin Xülasəsi</h1>
+<p>Bu mühazirə çərçivəsində asimmetrik kriptoqrafiyanın əsasını təşkil
+edən aşağıdakı fundamental sütunlar öyrənilmişdir:</p>
+<ul>
+<li><p><strong>Modul Arifmetikası:</strong> <span
+class="math inline">\(\mathbb{Z}_n\)</span> qalıq sinifləri halqasında
+riyazi əməliyyatların xassələri analiz edilmiş və bu strukturların
+kriptoqrafik protokollarda məlumatın gizliliyi üçün rolu
+əsaslandırılmışdır <span class="citation"
+data-cites="paar2024understanding"></span>.</p></li>
+<li><p><strong>Evklid Alqoritmi:</strong> İki böyük tam ədədin ən böyük
+ortaq bölənini loqarifmik zaman mürəkkəbliyində (<span
+class="math inline">\(O(\log \min(a,b))\)</span>) tapdığı göstərilmiş və
+alqoritm nümunələrdə tətbiq edilmişdir <span class="citation"
+data-cites="stinson2018cryptography"></span>.</p></li>
+<li><p><strong>Genişləndirilmiş Evklid Alqoritmi:</strong> Bézout
+eyniliyinin (<span class="math inline">\(ax + by = \gcd(a,b)\)</span>)
+xətti əmsallarını hesablayan və asimmetrik açar cütlərinin tapılmasında
+birbaşa rol oynayan alqoritmik mexanizm tədqiq edilmişdir <span
+class="citation" data-cites="menezes1996handbook"></span>.</p></li>
+<li><p><strong>Modul Tərs Element:</strong> Bir elementin mod <span
+class="math inline">\(n\)</span>-ə görə multiplikativ tərsinin (<span
+class="math inline">\(a \cdot a^{-1} \equiv 1 \pmod{n}\)</span>)
+mövcudluq şərtləri (<span
+class="math inline">\(\text{gcd}(a,n)=1\)</span>) və RSA-da gizli
+komponentlərin generasiyasındakı rolu göstərilmişdir <span
+class="citation" data-cites="katz2020introduction"></span>.</p></li>
+<li><p><strong>Kvadrat Yüksəlt-Vur Alqoritmi:</strong> Böyük eksponentli
+qüvvətə yüksəltmə əməliyyatını loqarifmik zaman mürəkkəbliyinə endirən
+soldan-sağa və sağdan-sola hesablama sxemləri riyazi invariantları ilə
+izah edilmişdir <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p></li>
+<li><p><strong>Montqomeri nərdivanı texnikası:</strong> Modulyar
+eksponentasiyada əməliyyat cədvəlini bərabərləşdirən Montqomeri
+nərdivanı öyrənilmişdir. Onun real sabit-zamanlılıq xassəsi şərti
+dəyişmə, yaddaş müraciətləri və istifadə olunan arifmetikanın konkret
+reallaşdırılmasından asılıdır <span class="citation"
+data-cites="montgomery1985modular"></span>.</p></li>
+</ul>
+<p><strong>Yekun Nəticə:</strong> Modul arifmetikası, Evklid
+alqoritmləri və sürətli qüvvətə yüksəltmə prinsipləri müasir asimmetrik
+kriptoqrafiyanın əsas təməl daşlarıdır. Bu riyazi aparat olmadan müasir
+internet təhlükəsizliyinin nüvəsi olan RSA, Diffi-Hellman açar
+razılaşdırılması və ECC sistemlərinin effektiv tətbiqi qeyri-mümkündür.
+Sistemlərin qurulmasında isə nəzəri alqoritmlərin yan kanal hücumlarına
+qarşı optimallaşdırılmış sənaye kitabxanaları səviyyəsində tətbiqi əsas
+şərtdir.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Fibonaççi ədədləri belə təyin olunur: <span
+class="math inline">\(F_0=1\)</span>, <span class="math inline">\(F_1 =
+1\)</span>, <span class="math inline">\(F_{n+1} = F_n +
+F_{n-1}\)</span>. Buradan görürük ki: 1) <span class="math inline">\(F_n
+\ge F_{n-1}\)</span> və 2: <span class="math inline">\(F_{n+1} = F_{n-1}
+\pmod{F_n}\)</span>.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (9)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Paar et al., 2024</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Understanding Cryptography: A Textbook for Students and Practitioners</h6>
+                    <p class="small text-secondary mb-0">Christof Paar and Jan Pelzl and Tim Güneysu (2024)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Knuth, 1997</span>
+                        <small class="text-muted">Addison-Wesley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Art of Computer Programming</h6>
+                    <p class="small text-secondary mb-0">Donald E. Knuth (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Montgomery, 1985</span>
+                        <small class="text-muted">Mathematics of Computation</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Modular Multiplication Without Trial Division</h6>
+                    <p class="small text-secondary mb-0">Peter L. Montgomery (1985)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Hardy &amp; Wright, 2008</span>
+                        <small class="text-muted">Oxford University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">An Introduction to the Theory of Numbers</h6>
+                    <p class="small text-secondary mb-0">G. H. Hardy and E. M. Wright (2008)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Shoup, 2009</span>
+                        <small class="text-muted">Cambridge University Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">A Computational Introduction to Number Theory and Algebra</h6>
+                    <p class="small text-secondary mb-0">Shoup, Victor (2009)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

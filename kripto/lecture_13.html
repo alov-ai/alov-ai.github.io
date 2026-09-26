@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_13</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 13</strong></p>
+<p><strong>MD5, SHA-1, SHA-2</strong></p>
+<p>Bu mühazirə ən geniş yayılmış heş funksiyalarını — MD5, SHA-1 və
+SHA-2 ailəsini — onların quruluşunu, təhlükəsizlik xüsusiyyətlərini,
+onlara qarşı aparılmış hücumları və hazırkı vəziyyətini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbə:</p>
+<ul>
+<li><p>MD5, SHA-1 və SHA-2 heş funksiyalarının tarixini və
+xüsusiyyətlərini izah edə biləcək.</p></li>
+<li><p>MD5 və SHA-1-ə qarşı aparılmış hücumların mahiyyətini başa
+düşəcək.</p></li>
+<li><p>SHA-256 və SHA-512-nin daxili quruluşunu təhlil edə
+biləcək.</p></li>
+<li><p>Müxtəlif heş funksiyalarının təhlükəsizlik və performans
+xüsusiyyətlərini müqayisə edə biləcək.</p></li>
+<li><p>Müasir tətbiqlər üçün uyğun heş funksiyasını seçə
+biləcək.</p></li>
+</ul>
+<h1 id="giriş">Giriş</h1>
+<p>Heş funksiyaları müasir kriptoqrafiyanın ayrılmaz hissəsidir. Əvvəlki
+mühazirədə heş funksiyalarının nəzəri əsaslarını, təhlükəsizlik
+xüsusiyyətlərini və quruluşlarını öyrəndik. Bu mühazirədə ən geniş
+yayılmış heş funksiyalarını — <strong>MD5</strong>,
+<strong>SHA-1</strong> və <strong>SHA-2</strong> ailəsini — ətraflı
+şəkildə tədqiq edəcəyik.</p>
+<p>Bu heş funksiyalarının hər biri öz dövrünün standartı olmuş, geniş
+tətbiq sahələrində istifadə edilmişdir. Lakin zaman keçdikcə onların
+bəzilərində ciddi təhlükəsizlik zəiflikləri aşkar edilmişdir. Bu
+mühazirədə hər bir heş funksiyasının quruluşunu, güclü və zəif
+tərəflərini, onlara qarşı aparılmış hücumları və hazırkı vəziyyətini
+öyrənəcəyik.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>MD5 niyə bu qədər uzun müddət istifadə olundu və niyə indi
+təhlükəsiz deyil?</p></li>
+<li><p>SHA-1-i sındırmaq üçün hansı hücumlar aparıldı və SHAttered
+nədir?</p></li>
+<li><p>SHA-256 və SHA-512 arasında hansı fərqlər var?</p></li>
+<li><p>Hansı heş funksiyaları müasir tətbiqlər üçün
+təhlükəsizdir?</p></li>
+<li><p>Köhnə heş funksiyalarından yeni sistemlərə keçid necə
+aparılmalıdır?</p></li>
+</ul>
+</div>
+<h1 id="md5-heş-funksiyası">MD5 Heş Funksiyası</h1>
+<h2 id="md5-in-tarixi-və-yaranması">MD5-in Tarixi və Yaranması</h2>
+<p>MD5 (<em>Message Digest 5</em>) — <strong>Ron Rivest</strong>
+tərəfindən 1991-ci ildə hazırlanmış 128-bit çıxışlı heş funksiyasıdır.
+MD5, əvvəlki versiyalar olan MD2 (1989) və MD4-ün (1990)
+təkmilləşdirilmiş variantıdır.</p>
+<table>
+<caption>MD ailəsinin inkişaf tarixi</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Heş funksiyası</strong></th>
+<th style="text-align: center;"><strong>İl</strong></th>
+<th style="text-align: center;"><strong>Müəllif</strong></th>
+<th style="text-align: center;"><strong>Çıxış uzunluğu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MD2</td>
+<td style="text-align: center;">1989</td>
+<td style="text-align: center;">Ron Rivest</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">MD4</td>
+<td style="text-align: center;">1990</td>
+<td style="text-align: center;">Ron Rivest</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">MD5</td>
+<td style="text-align: center;">1991</td>
+<td style="text-align: center;">Ron Rivest</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+</tbody>
+</table>
+<p>MD5 tez bir zamanda geniş yayıldı və İnternetdə ən populyar heş
+funksiyasına çevrildi. O, fayl bütövlüyünün yoxlanması, proqram təminatı
+yükləmələri, parol saxlanması və rəqəmsal imzalar kimi müxtəlif
+sahələrdə geniş tətbiq olunmuşdur.</p>
+<h2 id="md5-in-daxili-quruluşu-və-iş-mexanizmi">MD5-in Daxili Quruluşu
+və İş Mexanizmi</h2>
+<p>MD5 alqoritmi <strong>Merkl-Damqord quruluşuna</strong> əsaslanır və
+mesajın hər 512-bitlik bloku üçün 64 raunddan ibarət transformasiya
+tətbiq edir. Alqoritmin daxili vəziyyəti (state) dörd ədəd 32-bitlik
+registrdən (<span class="math inline">\(A, B, C, D\)</span>)
+ibarətdir.</p>
+<h3 id="registrlərin-yenilənmə-tənlikləri">Registrlərin Yenilənmə
+Tənlikləri</h3>
+<p>MD5-də hər bir addımda dörd registrdən biri yenilənir. Bir tam dövr
+(4 addım) ərzində registrlər ardıcıl olaraq aşağıdakı riyazi tənliklərlə
+transformasiya olunur:</p>
+<p><span class="math display">\[\begin{align*}
+1. \quad A &amp;= B + \text{ROTL}_s(A + f(B,C,D) + M_i + K_i) \\
+2. \quad D &amp;= A + \text{ROTL}_s(D + f(A,B,C) + M_j + K_j) \\
+3. \quad C &amp;= D + \text{ROTL}_s(C + f(D,A,B) + M_k + K_k) \\
+4. \quad B &amp;= C + \text{ROTL}_s(B + f(C,D,A) + M_l + K_l)
+\end{align*}\]</span></p>
+<p>Burada istifadə olunan əməliyyatların və simvolların mənası:</p>
+<ul>
+<li><p><strong><span class="math inline">\(A, B, C, D\)</span>:</strong>
+32-bitlik registrlər. Hər addımda onlardan biri (məsələn, birinci
+addımda <span class="math inline">\(A\)</span>, dördüncü addımda <span
+class="math inline">\(B\)</span>) hədəf registr kimi yenilənir.</p></li>
+<li><p><strong><span class="math inline">\(f\)</span>:</strong> Raundun
+nömrəsindən asılı olaraq dəyişən qeyri-xətti məntiq funksiyası.</p></li>
+<li><p><strong><span class="math inline">\(M_i, M_j, M_k,
+M_l\)</span>:</strong> Mesajın 512-bitlik blokundan götürülmüş 32-bitlik
+alt-bloklar.</p></li>
+<li><p><strong><span class="math inline">\(K_i\)</span>:</strong> Hər
+bir raund üçün unikal olan və sinus funksiyasına əsasən təyin edilən
+32-bitlik sabit.</p></li>
+<li><p><strong><span
+class="math inline">\(\text{ROTL}_s(x)\)</span>:</strong> <span
+class="math inline">\(x\)</span> dəyərinin bitlərini <span
+class="math inline">\(s\)</span> mövqe sola dövri sürüşdürən (Rotate
+Left) əməliyyat.</p></li>
+</ul>
+<h3 id="mərhələlər-üzrə-məntiqi-funksiyalar">Mərhələlər üzrə Məntiqi
+Funksiyalar</h3>
+<p>MD5 cəmi 64 raunddan ibarətdir və bu raundlar hər biri 16 raund
+olmaqla 4 əsas mərhələyə bölünür. Hər mərhələdə fərqli bir qeyri-xətti
+<span class="math inline">\(f\)</span> funksiyası istifadə olunur:</p>
+<ol>
+<li><p><strong>1–16-cı raundlar (F funksiyası):</strong> <span
+class="math display">\[\begin{equation*}
+        F(X,Y,Z) = (X \land Y) \lor (\lnot X \land Z)
+\end{equation*}\]</span> Bu funksiya <span
+class="math inline">\(X\)</span> bitinə əsasən seçim edir: əgər <span
+class="math inline">\(X\)</span> doğrudursa <span
+class="math inline">\(Y\)</span>, deyilse <span
+class="math inline">\(Z\)</span> bitini götürür.</p></li>
+<li><p><strong>17–32-ci raundlar (G funksiyası):</strong> <span
+class="math display">\[\begin{equation*}
+        G(X,Y,Z) = (X \land Z) \lor (Y \land \lnot Z)
+\end{equation*}\]</span> Bu funksiya <span
+class="math inline">\(Z\)</span> bitinə əsasən seçim edir: əgər <span
+class="math inline">\(Z\)</span> doğrudursa <span
+class="math inline">\(X\)</span>, deyilse <span
+class="math inline">\(Y\)</span> bitini götürür.</p></li>
+<li><p><strong>33–48-ci raundlar (H funksiyası):</strong> <span
+class="math display">\[\begin{equation*}
+        H(X,Y,Z) = X \oplus Y \oplus Z
+\end{equation*}\]</span> Bu, bit-bit XOR əməliyyatıdır və daxili
+vəziyyətin xətti şəkildə qarışdırılmasını təmin edir.</p></li>
+<li><p><strong>49–64-cü raundlar (I funksiyası):</strong> <span
+class="math display">\[\begin{equation*}
+        I(X,Y,Z) = Y \oplus (X \lor \lnot Z)
+\end{equation*}\]</span> Bu funksiya daha mürəkkəb qeyri-xətti əlaqə
+yaradaraq diferensial analizə qarşı dayanıqlığı artırır.</p></li>
+</ol>
+<h3 id="sola-dövri-sürüşdürmə-rotl">Sola Dövri Sürüşdürmə (ROTL)</h3>
+<p>ROTL əməliyyatı MD5-in sürətli və effektiv olmasını təmin edən əsas
+bit əməliyyatıdır. 32-bitlik arifmetikada o aşağıdakı kimi təyin olunur:
+<span class="math display">\[\begin{equation*}
+    \text{ROTL}_s(x) = (x \ll s) \lor (x \gg (32-s))
+\end{equation*}\]</span> Burada bitlər sola <span
+class="math inline">\(s\)</span> qədər sürüşdürülür və soldan çıxan
+bitlər sağ tərəfə əlavə olunur. Bu, heç bir bitin itməməsini və bütün
+bitlərin sonrakı hesablamalara təsir etməsini təmin edir.</p>
+<h2 id="md5-ə-qarşı-hücumlar">MD5-ə qarşı hücumlar</h2>
+<p>MD5-ə qarşı ilk ciddi kriptoqrafik hücumlar 1990-cı illərin
+ortalarında başlamışdır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Bu hücumlar zaman keçdikcə
+funksiyanın nəzəri davamlılığını tamamilə sarsıtmışdır:</p>
+<ul>
+<li><p><strong>1993-cü il:</strong> B. den Boer və A. Bosselaers MD5-in
+sıxışdırma funksiyasında toqquşma tapdılar. Bu, tam heş funksiyasında
+toqquşma olmasa da, ilk ciddi siqnal idi.</p></li>
+<li><p><strong>1996-cı il:</strong> Hans Dobbertin MD5-in sıxışdırma
+funksiyasında toqquşma taparaq funksiyanın tam versiyasının da
+təhlükəsiz olmaya biləcəyini göstərdi.</p></li>
+<li><p><strong>2004-cü il:</strong> Xiaoyun Wang və digərləri MD5-də tam
+toqquşma tapdıqlarını elan etdilər <span class="citation"
+data-cites="wang2005collisions"></span>.</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Teorem 1</strong> (MD5-in toqquşma mürəkkəbliyi). <em>2004-cü
+ildə Wang və digərləri göstərdilər ki, MD5 üçün toqquşma tapmaq
+mürəkkəbliyi ad günü paradoksuna əsaslanan <span
+class="math inline">\(2^{64}\)</span> əməliyyatdan <span
+class="math inline">\(2^{39}\)</span> əməliyyata qədər endirilə bilər
+<span class="citation" data-cites="wang2005collisions"></span>.</em></p>
+</div>
+<h2 id="md5-in-praktik-sındırılması">MD5-in praktik sındırılması</h2>
+<p>2004-cü ildən sonra aparılan tədqiqatlar MD5-in sındırılmasını
+laboratoriya şəraitindən praktik sferaya keçirdi <span class="citation"
+data-cites="stinson2018cryptography"></span>:</p>
+<ul>
+<li><p><strong>2005-ci il:</strong> Vlastimil Klima MD5-də cəmi bir neçə
+saat ərzində toqquşma tapmağı mümkün edən alqoritm hazırladı.</p></li>
+<li><p><strong>2007-ci il:</strong> Marc Stevens toqquşma tapmaq üçün
+tələb olunan müddəti saniyələr səviyyəsinə endirdi.</p></li>
+<li><p><strong>2008-ci il:</strong> Alexander Sotirov və digərləri eyni
+MD5 heşinə malik fərqli SSL sertifikatları yaratmağa nail oldular <span
+class="citation" data-cites="stevens2009short"></span>.</p></li>
+<li><p><strong>2012-ci il:</strong> "Flame" zərərli proqram təminatı
+MD5-in toqquşma zəifliyindən istifadə edərək Microsoft-un rəsmi yeniləmə
+sertifikatlarını saxtalaşdırdı.</p></li>
+</ul>
+<div class="importantbox">
+<p>MD5 hazırda toqquşmaya qarşı tamamilə dayanıqsız hesab olunur.
+Rəqəmsal imzalar və ya bütövlüyün yoxlanılması tələb olunan yeni
+sistemlərdə MD5-in istifadəsi qətiyyən tövsiyə edilmir.</p>
+</div>
+<h2 id="md5-in-hazırkı-vəziyyəti">MD5-in hazırkı vəziyyəti</h2>
+<p>Bu gün MD5 <strong>tamamilə sındırılmış</strong> hesab edilir və
+təhlükəsizlik tələb edən heç bir sistemdə istifadə edilməməlidir. MD5-in
+rəqəmsal imzaların saxtalaşdırılmasına və sertifikatların
+təkrarlanmasına yol açması onu etibarsız edir.</p>
+<ul>
+<li><p><strong>ABŞ CERT:</strong> 2008-ci ildə MD5-in istifadəsini
+rəsmən tövsiyə etmədiyini bildirdi.</p></li>
+<li><p><strong>NIST:</strong> Federal İnformasiya Emalı Standartlarından
+(FIPS) MD5-i çıxardı.</p></li>
+<li><p><strong>IETF:</strong> RFC 6151 sənədində MD5-in təhlükəsizlik
+problemləri və onun artıq təhlükəsiz hesab edilmədiyi rəsmən
+sənədləşdirildi.</p></li>
+<li><p><strong>Platformalar:</strong> Google Chrome, Mozilla Firefox və
+Microsoft Edge kimi müasir brauzerlər MD5 əsaslı rəqəmsal sertifikatları
+qəbul etmirlər.</p></li>
+</ul>
+<p>MD5 hazırda yalnız <strong>qeyri-kriptoqrafik</strong> tətbiqlərdə,
+məsələn, məlumat bütövlüyünün qeyri-kritik yoxlanılması (checksum) və ya
+verilənlər bazasında sürətli indeksləşdirmə üçün istifadə oluna bilər.
+Lakin məlumat bütövlüyünün pozulması kritik nəticələrə yol aça biləcəyi
+hallarda MD5-dən qaçınmaq lazımdır.</p>
+<h1 id="sha-1-heş-funksiyası">SHA-1 heş funksiyası</h1>
+<h2 id="sha-1-in-tarixi-və-yaranması">SHA-1-in tarixi və yaranması</h2>
+<p>SHA (<em>Secure Hash Algorithm</em>) — <strong>ABŞ Milli
+Təhlükəsizlik Agentliyi (NSA)</strong> tərəfindən hazırlanmış və
+<strong>Milli Standartlar və Texnologiya İnstitutu (NIST)</strong>
+tərəfindən yayımlanmış heş funksiyaları ailəsidir.</p>
+<ul>
+<li><p><strong>SHA-0:</strong> 1993-cü ildə FIPS PUB 180 standartı
+olaraq yayımlanmışdır. Lakin daxili zəifliklərin aşkar edilməsi
+səbəbindən 1995-ci ildə geri çəkilmişdir.</p></li>
+<li><p><strong>SHA-1:</strong> 1995-ci ildə FIPS PUB 180-1 olaraq təqdim
+edilmişdir. Bu versiyada SHA-0-dakı müəyyən struktur zəiflikləri
+düzəldilmişdir.</p></li>
+<li><p><strong>Çıxış uzunluğu:</strong> 160-bit (5 ədəd 32-bitlik
+söz).</p></li>
+</ul>
+<p>SHA-1 alqoritmi MD5-dəki zəifliklərin fonunda sürətlə populyarlıq
+qazanmış və İnternet infrastrukturunda ən çox istifadə olunan heş
+funksiyasına çevrilmişdir. O, uzun müddət TLS/SSL sertifikatlarının
+yaradılmasında, SSH protokollarında, PGP rəqəmsal imzalarında, Git
+versiya idarəetmə sistemində və bir çox digər kritik tətbiqlərdə əsas
+komponent kimi istifadə olunmuşdur.</p>
+<h2 id="sha-1-in-quruluşu">SHA-1-in Quruluşu</h2>
+<p>SHA-1 alqoritmi də <strong>Merkl-Damqord quruluşuna</strong>
+əsaslanır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Onun əsas texniki
+parametrləri aşağıdakılardır:</p>
+<ul>
+<li><p><strong>Çıxış uzunluğu:</strong> 160-bit (5 <span
+class="math inline">\(\times\)</span> 32-bit söz: <span
+class="math inline">\(A, B, C, D, E\)</span>).</p></li>
+<li><p><strong>Blok ölçüsü:</strong> 512-bit (16 <span
+class="math inline">\(\times\)</span> 32-bit söz).</p></li>
+<li><p><strong>Daxili vəziyyət (Internal State):</strong> 5 <span
+class="math inline">\(\times\)</span> 32-bit söz (<span
+class="math inline">\(A, B, C, D, E\)</span>).</p></li>
+<li><p><strong>Raund sayı:</strong> 80 raund (hər biri 20 raunddan
+ibarət 4 mərhələ).</p></li>
+</ul>
+<p>SHA-1-də hər raundda aşağıdakı transformasiya əməliyyatları yerinə
+yetirilir <span class="citation" data-cites="nist1995sha1"></span>:</p>
+<p><span class="math display">\[\begin{align*}
+T &amp;= \text{ROTL}_5(A) + f_t(B,C,D) + E + W_t + K_t \\
+E &amp;= D \\
+D &amp;= C \\
+C &amp;= \text{ROTL}_{30}(B) \\
+B &amp;= A \\
+A &amp;= T
+\end{align*}\]</span></p>
+<p>Burada <span class="math inline">\(f_t\)</span> raundun nömrəsindən
+(<span class="math inline">\(t\)</span>) asılı olan qeyri-xətti məntiq
+funksiyasıdır:</p>
+<ul>
+<li><p><strong>0 <span class="math inline">\(\leq t \leq 19\)</span>
+(Mərhələ 1):</strong> <span class="math inline">\(f_t(B,C,D) = (B \land
+C) \lor (\lnot B \land D)\)</span></p></li>
+<li><p><strong>20 <span class="math inline">\(\leq t \leq 39\)</span>
+(Mərhələ 2):</strong> <span class="math inline">\(f_t(B,C,D) = B \oplus
+C \oplus D\)</span></p></li>
+<li><p><strong>40 <span class="math inline">\(\leq t \leq 59\)</span>
+(Mərhələ 3):</strong> <span class="math inline">\(f_t(B,C,D) = (B \land
+C) \lor (B \land D) \lor (C \land D)\)</span></p></li>
+<li><p><strong>60 <span class="math inline">\(\leq t \leq 79\)</span>
+(Mərhələ 4):</strong> <span class="math inline">\(f_t(B,C,D) = B \oplus
+C \oplus D\)</span></p></li>
+</ul>
+<p><strong>Mesajın genişləndirilməsi (<span
+class="math inline">\(W_t\)</span>):</strong> İlkin 512-bitlik mesaj
+bloku 16 ədəd 32-bitlik sözdən ibarət olur. Bu blok aşağıdakı qayda ilə
+80 raunda çatdırılmaq üçün genişləndirilir:</p>
+<p><span class="math display">\[\begin{equation*}
+W_t =
+\begin{cases}
+M_t &amp; 0 \leq t \leq 15 \\
+\text{ROTL}_1(W_{t-3} \oplus W_{t-8} \oplus W_{t-14} \oplus W_{t-16})
+&amp; 16 \leq t \leq 79
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Burada <span class="math inline">\(\text{ROTL}_1\)</span> əməliyyatı
+SHA-0 ilə SHA-1 arasındakı fundamental fərqdir və alqoritmi diferensial
+kriptoanalizə qarşı daha dayanıqlı edir.</p>
+<h2 id="sha-1-ə-qarşı-hücumlar">SHA-1-ə qarşı hücumlar</h2>
+<p>SHA-1 alqoritminə qarşı kriptoqrafik hücumlar zaman keçdikcə nəzəri
+səviyyədən praktik sındırılma səviyyəsinə qədər inkişaf etmişdir <span
+class="citation" data-cites="stinson2018cryptography"></span>:</p>
+<ul>
+<li><p><strong>2005-ci il:</strong> Rijmen və Oswald SHA-1-in 53
+raundluq azaldılmış versiyasına qarşı uğurlu hücum metodikasını təklif
+etdilər.</p></li>
+<li><p><strong>2005-ci il:</strong> Wang, Yin və Yu tərəfindən SHA-1-in
+tam 80 raundluq versiyasına qarşı <span
+class="math inline">\(2^{69}\)</span> mürəkkəbliyində olan ilk nəzəri
+toqquşma hücumu təqdim edildi.</p></li>
+<li><p><strong>2011-ci il:</strong> Marc Stevens SHA-1 üçün toqquşma
+tapmaq mürəkkəbliyini <span class="math inline">\(2^{60}\)</span>
+əməliyyat səviyyəsinə endirərək alqoritmin zəifliyini daha da
+qabartdı.</p></li>
+<li><p><strong>2015-ci il:</strong> Pierre Karpman, Thomas Peyrin və
+Marc Stevens SHA-1-in 76 addımlı azaldılmış sıxışdırma funksiyası üçün
+praktik sərbəst-başlanğıclı toqquşma (free-start collision) toqquşma
+göstərdilər. Bu nəticə tam heş funksiyası üçün praktik toqquşma olmasa
+da, alqoritmin daxili strukturunun artıq etibarlı olmadığını sübut
+etdi.</p></li>
+</ul>
+<h2 id="shattered-hücumu-2017">SHAttered hücumu (2017)</h2>
+<p>2017-ci ildə <strong>Google</strong> və <strong>CWI
+Amsterdam</strong> tədqiqatçıları SHA-1 üçün ilk praktik toqquşmanı
+nümayiş etdirdilər. Bu tarixi hücum <strong>SHAttered</strong>
+adlandırılmışdır.</p>
+<div class="theorem">
+<p><strong>Teorem 2</strong> (SHAttered hücumu). <em>SHAttered hücumu
+SHA-1 üçün tam toqquşma tapmaq mürəkkəbliyini <span
+class="math inline">\(2^{63}\)</span> əməliyyat səviyyəsinə endirmişdir.
+Bu hesablamanı həyata keçirmək üçün təxminən 110 il GPU vaxtı (və ya
+ 6500 CPU il) tələb olunur.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 1</strong> (SHAttered toqquşma nümunəsi).
+<em>Tədqiqatçılar məzmunu fərqli olan (məsələn, biri göy, digəri isə
+qırmızı fonlu) iki fərqli PDF sənədi hazırlamışlar. Bu sənədlərin hər
+ikisi üçün hesablanmış SHA-1 heş dəyəri tamamilə eynidir:</em></p>
+<div class="center">
+<p><em><code>1eacb25ed5970d10f17369635771bc3a17b48ac5</code></em></p>
+</div>
+<p><em>Bu nümunə sübut edir ki, təcavüzkar rəqəmsal imza prosesində
+orijinal sənədi onunla eyni heşə malik olan saxta sənədlə əvəz edə
+bilər, çünki sistem hər iki sənədi eyni identifikatorla
+tanıyacaqdır.</em></p>
+</div>
+<p><strong>SHAttered hücumunun əhəmiyyəti:</strong></p>
+<ul>
+<li><p>İlk dəfə SHA-1 üçün tam praktik toqquşmanın mümkünlüyü sübut
+edildi.</p></li>
+<li><p>Hücumun bulud hesablama resursları ilə xərci təxminən $110,000
+təşkil etmişdir.</p></li>
+<li><p>Git və SVN kimi versiya idarəetmə sistemlərinin strukturuna bu
+zəiflik təsir etdi.</p></li>
+<li><p>Sertifikat Mərkəzləri (CA) SHA-1 əsaslı rəqəmsal imzaların və
+sertifikatların istifadəsini dərhal dayandırdılar.</p></li>
+</ul>
+<h2 id="sha-1-in-hazırkı-vəziyyəti">SHA-1-in hazırkı vəziyyəti</h2>
+<p>SHAttered hücumundan sonra SHA-1 alqoritmi bütün kritik
+infrastrukturda <strong>etibarsız</strong> hesab edilir:</p>
+<ul>
+<li><p><strong>NIST:</strong> 2011-ci ildən etibarən rəqəmsal imzalarda
+SHA-1-in istifadəsini rəsmən tövsiyə etmir.</p></li>
+<li><p><strong>CA/Browser Forum:</strong> 2017-ci ildən bəri ictimai
+etibarlı SSL sertifikatlarında SHA-1-in istifadəsi qadağan
+edilmişdir.</p></li>
+<li><p><strong>Müasir Brauzerlər:</strong> Chrome, Firefox və Safari
+SHA-1 istifadə edən sertifikatları "təhlükəli" kimi işarələyir və ya
+bloklayır.</p></li>
+<li><p><strong>Git versiya idarəetmə sistemi:</strong> Git v2.29-a qədər
+daxili identifikatorlar üçün SHA-1-dən istifadə edirdi və toqquşmaların
+qarşısını almaq üçün xüsusi yoxlama mexanizmləri tətbiq olunur.
+v2.29-dan etibarən SHA-256 istifadə olunur.</p></li>
+<li><p><strong>Ümumi tövsiyə:</strong> SHA-1 yalnız köhnə sistemlərlə
+geriyə uyğunluq (legacy support) məqsədilə və təhlükəsizlik tələb
+olunmayan qeyri-kritik hallarda istifadə edilə bilər.</p></li>
+</ul>
+<h1 id="sha-2-ailəsi">SHA-2 ailəsi</h1>
+<h2 id="sha-2-nin-tarixi-və-yaranması">SHA-2-nin tarixi və
+yaranması</h2>
+<p>SHA-2 (<em>Secure Hash Algorithm 2</em>) — NSA tərəfindən hazırlanmış
+və 2001-ci ildə NIST FIPS PUB 180-2 standartı ilə rəsmiləşdirilmiş heş
+funksiyaları ailəsidir. Bu ailə SHA-1 alqoritmində müşahidə olunan
+struktur zəifliklərini aradan qaldırmaq və MD5-ə qarşı tətbiq edilən
+hücum metodlarına qarşı daha yüksək davamlılıq nümayiş etdirmək üçün
+dizayn edilmişdir.</p>
+<h2 id="sha-2-variantları">SHA-2 variantları</h2>
+<p>SHA-2 ailəsi çıxış uzunluğu və blok ölçüsünə görə fərqlənən 6 əsas
+variantdan ibarətdir:</p>
+<table>
+<caption>SHA-2 ailəsinin variantları</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Çıxış uzunluğu</strong></th>
+<th style="text-align: center;"><strong>Daxili vəziyyət</strong></th>
+<th style="text-align: center;"><strong>Blok ölçüsü</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">SHA-224</td>
+<td style="text-align: center;">224-bit</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">512-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-256</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">512-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-384</td>
+<td style="text-align: center;">384-bit</td>
+<td style="text-align: center;">512-bit</td>
+<td style="text-align: center;">1024-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-512</td>
+<td style="text-align: center;">512-bit</td>
+<td style="text-align: center;">512-bit</td>
+<td style="text-align: center;">1024-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-512/224</td>
+<td style="text-align: center;">224-bit</td>
+<td style="text-align: center;">512-bit</td>
+<td style="text-align: center;">1024-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-512/256</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">512-bit</td>
+<td style="text-align: center;">1024-bit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sha-256-nın-quruluşu">SHA-256-nın quruluşu</h2>
+<p>SHA-256 bu ailənin ən geniş tətbiq olunan variantıdır. Onun əməliyyat
+strukturu aşağıdakı kimidir:</p>
+<ul>
+<li><p><strong>Çıxış uzunluğu:</strong> 256-bit (8 <span
+class="math inline">\(\times\)</span> 32-bit söz: <span
+class="math inline">\(A, B, C, D, E, F, G, H\)</span>).</p></li>
+<li><p><strong>Blok ölçüsü:</strong> 512-bit (16 <span
+class="math inline">\(\times\)</span> 32-bit söz).</p></li>
+<li><p><strong>Daxili vəziyyət:</strong> 8 <span
+class="math inline">\(\times\)</span> 32-bit söz.</p></li>
+<li><p><strong>Raund sayı:</strong> 64 raund.</p></li>
+</ul>
+<p>Hər bir raundda daxili vəziyyət registrləri aşağıdakı tənliklər
+sistemi ilə yenilənir:</p>
+<p><span class="math display">\[\begin{align*}
+T_1 &amp;= H + \Sigma_1(E) + Ch(E,F,G) + K_t + W_t \\
+T_2 &amp;= \Sigma_0(A) + Maj(A,B,C) \\
+H &amp;= G; \quad G = F; \quad F = E; \quad E = D + T_1 \\
+D &amp;= C; \quad C = B; \quad B = A; \quad A = T_1 + T_2
+\end{align*}\]</span></p>
+<p>Raund daxilində istifadə olunan köməkçi funksiyalar:</p>
+<p><span class="math display">\[\begin{align*}
+Ch(x,y,z) &amp;= (x \land y) \oplus (\lnot x \land z) \\
+Maj(x,y,z) &amp;= (x \land y) \oplus (x \land z) \oplus (y \land z) \\
+\Sigma_0(x) &amp;= \text{ROTR}_2(x) \oplus \text{ROTL}_{13}(x) \oplus
+\text{ROTL}_{22}(x) \\
+\Sigma_1(x) &amp;= \text{ROTR}_6(x) \oplus \text{ROTR}_{11}(x) \oplus
+\text{ROTR}_{25}(x)
+\end{align*}\]</span></p>
+<p><strong>Mesaj Genişləndirilməsi (<span
+class="math inline">\(W_t\)</span>):</strong> 512-bitlik ilkin blok 64
+ədəd 32-bitlik sözə genişləndirilir:</p>
+<p><span class="math display">\[\begin{equation*}
+W_t =
+\begin{cases}
+M_t &amp; 0 \leq t \leq 15 \\
+\sigma_1(W_{t-2}) + W_{t-7} + \sigma_0(W_{t-15}) + W_{t-16} &amp; 16
+\leq t \leq 63
+\end{cases}
+\end{equation*}\]</span></p>
+<p>Burada <span class="math inline">\(\sigma_0(x)\)</span> və <span
+class="math inline">\(\sigma_1(x)\)</span> funksiyaları aşağıdakı
+kimidir: <span class="math display">\[\begin{align*}
+\sigma_0(x) &amp;= \text{ROTR}_7(x) \oplus \text{ROTR}_{18}(x) \oplus
+\text{SHR}_3(x) \\
+\sigma_1(x) &amp;= \text{ROTR}_{17}(x) \oplus \text{ROTR}_{19}(x) \oplus
+\text{SHR}_{10}(x)
+\end{align*}\]</span></p>
+<p><span class="math inline">\(K_t\)</span> sabitləri ilk 64 sadə ədədin
+kvadrat kökünün kəsr hissəsindən təyin edilmişdir.</p>
+<h2 id="sha-2-nin-təhlükəsizliyi">SHA-2-nin təhlükəsizliyi</h2>
+<p>SHA-2 ailəsi hazırda kriptoqrafik baxımdan
+<strong>təhlükəsiz</strong> hesab edilir və sənaye standartı olaraq
+geniş istifadə olunur. Onun təhlükəsizlik göstəriciləri aşağıdakı
+kimidir:</p>
+<ul>
+<li><p><strong>İlkin obraz tapılmasına (Pre-image)
+dayanıqlılığı:</strong> <span class="math inline">\(2^n\)</span>
+(məsələn, SHA-256 üçün <span class="math inline">\(2^{256}\)</span>
+əməliyyat).</p></li>
+<li><p><strong>İkinci ilkin obraz tapılmasına dayanıqlılığı:</strong>
+<span class="math inline">\(2^n\)</span> mürəkkəblik tələb
+edir.</p></li>
+<li><p><strong>Toqquşma (Collision) dayanıqlılığı:</strong> Ad günü
+paradoksuna əsasən <span class="math inline">\(2^{n/2}\)</span>
+mürəkkəblik (SHA-256 üçün <span
+class="math inline">\(2^{128}\)</span>).</p></li>
+<li><p><strong>Uzunluq genişləndirmə (Length extension) hücumu:</strong>
+SHA-2 Merkl-Damqord quruluşuna əsaslandığı üçün bu spesifik hücum növünə
+qarşı həssasdır. Bu hücumun qarşısını almaq üçün HMAC strukturlarından
+və ya SHA-512/256 variantından istifadə edilir.</p></li>
+</ul>
+<p>SHA-2 alqoritminin tam versiyasına qarşı indiyə qədər heç bir praktik
+toqquşma və ya sındırılma nümayiş etdirilməmişdir. Mövcud nəzəri
+hücumlar yalnız raund sayı azaldılmış versiyaları əhatə edir:</p>
+<ul>
+<li><p><strong>2008-ci il:</strong> SHA-256-nın 31 raundluq (tam 64
+raunddan) versiyasına qarşı nəzəri hücum təsvir edilmişdir.</p></li>
+<li><p><strong>2011-ci il:</strong> SHA-512-nin 24 raundluq (tam 80
+raunddan) versiyasına qarşı nəzəri hücum nümayiş etdirilmişdir.</p></li>
+<li><p><strong>2016-cı il:</strong> SHA-256-nın 28 raundluq versiyasına
+qarşı təkmilləşdirilmiş nəzəri hücum metodikası təklif
+edilmişdir.</p></li>
+</ul>
+<div class="importantbox">
+<p>Nəzəri hücumların raund sayının yarısından belə az hissəsini əhatə
+etməsi SHA-2-nin yüksək təhlükəsizlik marjasına malik olduğunu sübut
+edir.</p>
+</div>
+<h1 id="heş-funksiyalarının-müqayisəsi">Heş funksiyalarının
+müqayisəsi</h1>
+<h2 id="təhlükəsizlik-müqayisəsi">Təhlükəsizlik müqayisəsi</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: center;"><strong>MD5</strong></th>
+<th style="text-align: center;"><strong>SHA-1</strong></th>
+<th style="text-align: center;"><strong>SHA-256</strong></th>
+<th style="text-align: center;"><strong>SHA-512</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Çıxış uzunluğu</td>
+<td style="text-align: center;">128-bit</td>
+<td style="text-align: center;">160-bit</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;">512-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ön görüntü dayanıqlılığı</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{128}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{160}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{256}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{512}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Toqquşma dayanıqlılığı (nəzəri)</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{64}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{80}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{128}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{256}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Praktik toqquşma?</td>
+<td style="text-align: center;">Bəli (2004)</td>
+<td style="text-align: center;">Bəli (2017)</td>
+<td style="text-align: center;">Xeyr</td>
+<td style="text-align: center;">Xeyr</td>
+</tr>
+<tr>
+<td style="text-align: left;">Uzunluq genişləndirmə hücumu</td>
+<td style="text-align: center;">Həssas</td>
+<td style="text-align: center;">Həssas</td>
+<td style="text-align: center;">Həssas</td>
+<td style="text-align: center;">Həssas</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hazırkı status</td>
+<td style="text-align: center;">Sındırılmış</td>
+<td style="text-align: center;">Etibarsız</td>
+<td style="text-align: center;">Təhlükəsiz</td>
+<td style="text-align: center;">Təhlükəsiz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="performans-müqayisəsi">Performans müqayisəsi</h2>
+<p>Performans testləri göstərir ki, alqoritmin mürəkkəbliyi artdıqca
+proqram təminatı səviyyəsində sürət azalır, lakin aparat
+sürətləndiriciləri (Hardware Extensions) bu fərqi aradan qaldırır:</p>
+<table>
+<caption>Performans müqayisəsi (MB/s göstəriciləri təxminidir və
+arxitekturadan asılıdır)</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Proqram (Sürət)</strong></th>
+<th style="text-align: center;"><strong>Aparat (Intel/AMD
+SHA-NI)</strong></th>
+<th style="text-align: center;"><strong>Daxili vəziyyət
+(State)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MD5</td>
+<td style="text-align: center;"> 450–500 MB/s</td>
+<td style="text-align: center;">Dəstəklənmir</td>
+<td style="text-align: center;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-1</td>
+<td style="text-align: center;"> 350–400 MB/s</td>
+<td style="text-align: center;"> 1500+ MB/s</td>
+<td style="text-align: center;">160-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-256</td>
+<td style="text-align: center;"> 180–210 MB/s</td>
+<td style="text-align: center;"> 1000+ MB/s</td>
+<td style="text-align: center;">256-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">SHA-512</td>
+<td style="text-align: center;"> 250–280 MB/s</td>
+<td style="text-align: center;">Adətən yoxdur*</td>
+<td style="text-align: center;">512-bit</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>SHA-1 Aparat təminatı (Hardware):</strong> Müasir
+prosessorlarda (Intel SHA-NI dəstəyi ilə) SHA-1 aparat səviyyəsində
+sürətləndirilir və proqram səviyyəsindəki MD5-dən qat-qat sürətli
+olur.</p></li>
+<li><p><strong>SHA-512 Sürəti:</strong> 64-bitlik arxitekturalarda
+SHA-512-nin SHA-256-dan daha sürətli olmasının səbəbi onun 64-bitlik
+hesablamalardan istifadə etməsidir (eyni anda daha çox məlumat emal
+edilir).</p></li>
+<li><p><strong>Yaddaş:</strong> "Aşağı/Orta/Yüksək" yerinə daxili
+vəziyyətin (internal state) ölçüsünü bitlərlə göstərmək daha akademik
+yanaşmadır.</p></li>
+</ul>
+<h2 id="tətbiq-sahələrinə-görə-seçim">Tətbiq sahələrinə görə seçim</h2>
+<p>Müasir sistemlərdə heş funksiyasının seçilməsi həmin tətbiqin
+təhlükəsizlik tələblərindən və aparat resurslarından asılıdır:</p>
+<ul>
+<li><p><strong>Kriptovalyutalar (Bitcoin):</strong> SHA-256 (əsasən
+ikili SHA-256 əməliyyatı tətbiq olunur).</p></li>
+<li><p><strong>TLS/SSL sertifikatları:</strong> SHA-256 (müasir
+standartlar üçün minimum tələb), SHA-384 və SHA-512.</p></li>
+<li><p><strong>Şəbəkə protokolları (SSH, IPsec):</strong> SHA-256,
+SHA-384 və SHA-512.</p></li>
+<li><p><strong>Elektron poçt təhlükəsizliyi (GPG/PGP):</strong> SHA-256
+və SHA-512.</p></li>
+<li><p><strong>Versiya idarəetmə sistemləri (Git):</strong> SHA-1
+(tarixi olaraq istifadə olunur, lakin toqquşma riskinə görə SHA-256-ya
+keçid prosesi davam edir).</p></li>
+<li><p><strong>Parolların saxlanması:</strong> SHA-256/512 + duz
+(<em>salt</em>) istifadəsi ilə yanaşı, "brute-force" hücumlarına qarşı
+dayanıqlı yavaş heş alqoritmləri (<em>bcrypt, scrypt, Argon2</em>)
+tövsiyə olunur.</p></li>
+<li><p><strong>Fayl bütövlüyünün yoxlanılması:</strong> SHA-256 və
+SHA-512.</p></li>
+<li><p><strong>Mesaj autentifikasiyası (HMAC):</strong> HMAC-SHA-256 və
+HMAC-SHA-512.</p></li>
+</ul>
+<div class="importantbox">
+<p>Kritik sistemlərdə artıq MD5 və SHA-1 funksiyalarından istifadə
+edilməməli, onların yerinə SHA-2 ailəsi və ya daha müasir SHA-3
+standartları tətbiq olunmalıdır.</p>
+</div>
+<h1 id="praktik-tövsiyələr">Praktik tövsiyələr</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>MD5-dən qaçın:</strong> Təhlükəsizlik tələb edən heç bir
+infrastrukturda istifadə etməyin. Bu alqoritm yalnız qeyri-kriptoqrafik
+tətbiqlərdə (məsələn, sürətli checksum yoxlaması və ya qeyri-tənqidi
+indeksləşdirmə) istifadə oluna bilər.</p></li>
+<li><p><strong>SHA-1 istifadəsini dayandırın:</strong> Mövcud
+sistemlərdə SHA-1-i təcili olaraq SHA-2 və ya SHA-3 ilə əvəz edin.
+Unutmayın ki, müasir brauzerlər və Sertifikat Mərkəzləri SHA-1 əsaslı
+SSL sertifikatlarını artıq qəbul etmir.</p></li>
+<li><p><strong>SHA-256 standart seçimdir:</strong> SHA-256 alqoritmi
+təxminən 128-bit toqquşma dayanıqlığı və 256-bit ön-görüntü
+(<em>pre-image</em>) dayanıqlığı təmin edir. Bu səviyyə əksər müasir veb
+və proqram tətbiqləri üçün kifayətdir.</p></li>
+<li><p><strong>SHA-512 yüksək təhlükəsizlik üçün:</strong> Daha yüksək
+təhlükəsizlik marjası tələb edən sistemlərdə və ya 64-bitlik
+arxitekturalarda performans üstünlüyü qazanmaq üçün SHA-512 variantına
+üstünlük verin.</p></li>
+<li><p><strong>Uzunluq genişləndirmə hücumundan qorunma:</strong>
+Merkl-Damqord quruluşuna xas olan zəifliklərdən qaçmaq üçün <span
+class="math inline">\(H(K \parallel M)\)</span> tipli sadə birləşmələr
+əvəzinə, rəsmən sənədləşdirilmiş <strong>HMAC</strong> (<em>Hash-based
+Message Authentication Code</em>) konstruksiyasından istifadə
+edin.</p></li>
+<li><p><strong>Parol təhlükəsizliyi:</strong> SHA-2 ailəsi təkbaşına
+parol saxlanması üçün tövsiyə edilmir. Parolların "brute-force" və göy
+qurşağı cədvəlləri (<em>rainbow tables</em>) ilə sındırılmasının
+qarşısını almaq üçün <strong>PBKDF2, bcrypt, scrypt</strong> və ya
+müasir standart olan <strong>Argon2</strong> kimi yavaş, yaddaş tutumlu
+funksiyalardan istifadə edilməlidir.</p></li>
+<li><p><strong>Kriptoqrafik çeviklik (Cryptographic Agility):</strong>
+Uzunmüddətli layihələrdə sisteminizi elə dizayn edin ki, gələcəkdə
+alqoritmdə zəiflik tapılarsa, kod bazasını kökündən dəyişmədən başqa bir
+heş funksiyasına (məsələn, SHA-3) asanlıqla keçid edə
+biləsiniz.</p></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə məsələlər və
+çalışmalar</h1>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>MD5-in çıxış uzunluğu 128-bitdir.
+Ad günü paradoksuna əsasən, MD5-də toqquşma tapmaq üçün nəzəri
+mürəkkəblik nədir? Praktik mürəkkəblik nə qədər azaldılıb?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>SHA-1 üçün SHAttered hücumunun
+əhəmiyyətini izah edin. Bu hücum Git kimi versiya idarəetmə sistemlərinə
+necə təsir edir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>SHA-256 və SHA-512 arasında əsas
+fərqlər nələrdir? Hansı hallarda SHA-512 SHA-256-dan üstündür?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>MD5 və SHA-1-in uzunluq
+genişləndirmə hücumuna qarşı həssas olmasının səbəbi nədir? Bu problemi
+necə həll etmək olar?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>Bir serverdə köhnə sistemlə
+uyğunluq üçün MD5 istifadə olunur. Bu serverin təhlükəsizlik risklərini
+qiymətləndirin və keçid strategiyası təklif edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>SHA-256-nın daxili quruluşunda
+istifadə olunan <span class="math inline">\(Ch\)</span> və <span
+class="math inline">\(Maj\)</span> funksiyalarının məqsədi
+nədir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>Bitcoin-də niyə ikili SHA-256
+(SHA-256(SHA-256(x))) istifadə olunur?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em>2026-cı ildə yeni bir proqram
+sistemi qurursunuz. Hansı heş funksiyasını seçərdiniz və niyə?</em></p>
+</div>
+<h1 id="çalışmaların-həlli">Çalışmaların həlli</h1>
+<ul>
+<li><p>MD5-də nəzəri toqquşma tapmaq mürəkkəbliyi <span
+class="math inline">\(2^{n/2}\)</span> düsturuna əsasən <span
+class="math inline">\(2^{64}\)</span> əməliyyatdır. Wang və digərlərinin
+tədqiqatları bu mürəkkəbliyi <span class="math inline">\(2^{39}\)</span>
+əməliyyata endirmişdir. Hazırda MD5 üçün praktik toqquşma tapmaq
+saniyələr ərzində mümkündür.</p></li>
+<li><p>SHAttered hücumu SHA-1 üçün ilk praktik toqquşmanı (<span
+class="math inline">\(2^{63}\)</span> mürəkkəbliklə) nümayiş
+etdirmişdir. Git SHA-1-dən istifadə etsə də, Git obyektlərinə tip və
+uzunluq məlumatı (header) əlavə olunduğu üçün birbaşa PDF toqquşmaları
+Git-in bütövlüyünü dərhal pozmur. Lakin təhlükəsizlik naminə Git-in
+SHA-256-ya keçid prosesi planlanmışdır.</p></li>
+<li><p>SHA-256 32-bitlik, SHA-512 isə 64-bitlik sözlərlə işləyir.
+SHA-512 daha böyük daxili vəziyyətə (512-bit) malikdir. 64-bitlik müasir
+prosessorlarda SHA-512 hər dövrdə daha çox məlumat emal etdiyi üçün
+SHA-256-dan daha yüksək performans göstərə bilər.</p></li>
+<li><p>Bu funksiyalar Merkl-Damqord quruluşuna əsaslanır və heş çıxışı
+funksiyanın son daxili vəziyyətini (state) təmsil edir. Hücumçu bu
+vəziyyətdən başlayaraq mesajın sonuna yeni məlumatlar əlavə edə bilər.
+Həll yolu olaraq <span class="math inline">\(H(K \parallel M)\)</span>
+yerinə HMAC strukturundan istifadə edilməlidir.</p></li>
+<li><p>MD5 istifadəsi serveri rəqəmsal imzaların saxtalaşdırılması
+riskinə məruz qoyur. Keçid üçün: 1) Funksionallığı SHA-256-ya miqrasiya
+etmək; 2) Müvəqqəti olaraq həm MD5, həm SHA-256 heşlərini paralel
+saxlamaq; 3) Müştəri tərəfi yeniləmələri tətbiq edərək MD5 dəstəyini
+tamamilə ləğv etmək tövsiyə olunur.</p></li>
+<li><p><span class="math inline">\(Ch(x,y,z)\)</span> funksiyası <span
+class="math inline">\(x\)</span> bitinə əsasən <span
+class="math inline">\(y\)</span> və ya <span
+class="math inline">\(z\)</span> bitini seçən şərti seçim funksiyasıdır.
+<span class="math inline">\(Maj(x,y,z)\)</span> funksiyası isə üç giriş
+bitindən əksəriyyət təşkil edəni (2 və ya 3 bit eynidirsə) qaytarır. Bu
+funksiyalar alqoritmin qeyri-xəttiliyini təmin edir.</p></li>
+<li><p>Bitcoin-də ikili SHA-256 (Double SHA-256) istifadəsi əsasən
+uzunluq genişləndirmə hücumlarından (length extension attacks) qorunmaq
+və alqoritmin təhlükəsizlik ehtiyatını (margin) artırmaq məqsədi
+daşıyır.</p></li>
+<li><p>2026-cı ildə yeni sistemlər üçün <strong>SHA-256</strong> və ya
+<strong>SHA-512</strong> standart seçimdir. 128-bitlik toqquşma
+dayanıqlığı müasir tələblərə tam cavab verir. Yüksək kritiklikli və
+uzunmüddətli sistemlər üçün isə SHA-2-dən fərqli quruluşa malik olan
+<strong>SHA-3</strong> (Keccak) tövsiyə olunur.</p></li>
+</ul>
+<h1 id="xülasə">Xülasə</h1>
+<p>Bu mühazirədə kriptoqrafik heş funksiyalarının inkişaf tarixini və
+müasir vəziyyətini əhatə edən aşağıdakı əsas anlayışları öyrəndik:</p>
+<ul>
+<li><p><strong>MD5:</strong> Ron Rivest tərəfindən 1991-ci ildə
+hazırlanmış 128-bitlik heş funksiyasıdır. 2004-cü ildə tam toqquşma
+aşkar edildikdən sonra hal-hazırda <strong>tamamilə sındırılmış</strong>
+hesab edilir və təhlükəsizlik tətbiqlərində istifadəsi
+qadağandır.</p></li>
+<li><p><strong>SHA-1:</strong> NSA tərəfindən 1995-ci ildə təqdim
+edilmiş 160-bitlik heş funksiyasıdır. 2017-ci ildə <em>SHAttered</em>
+hücumu ilə ilk praktik toqquşma nümayiş etdirilmişdir. Hal-hazırda
+<strong>etibarsız</strong> hesab edilir və müasir standartlardan
+çıxarılmışdır.</p></li>
+<li><p><strong>SHA-2:</strong> NSA tərəfindən 2001-ci ildə hazırlanmış
+və daxilində SHA-224, SHA-256, SHA-384, SHA-512 kimi variantları
+birləşdirən heş funksiyaları ailəsidir. Hal-hazırda sənaye standartı
+olaraq <strong>təhlükəsiz</strong> qəbul edilir.</p></li>
+<li><p><strong>SHA-256:</strong> SHA-2 ailəsinin ən geniş tətbiq olunan
+variantıdır. 256-bitlik çıxış və 64 raundluq strukturu ilə Bitcoin,
+TLS/SSL və SSH kimi kritik sistemlərin əsasını təşkil edir.</p></li>
+<li><p><strong>SHA-512:</strong> 64-bitlik arxitekturalar üçün
+optimallaşdırılmış, 512-bitlik çıxış və 80 raundluq struktura malik
+SHA-2 variantıdır. Yüksək təhlükəsizlik marjası və performans üstünlüyü
+ilə seçilir.</p></li>
+</ul>
+<p><strong>Əsas nəticə:</strong> Kriptoqrafik təhlükəsizliyin təmin
+edilməsi üçün MD5 və SHA-1 kimi köhnəlmiş funksiyalardan imtina
+edilməli, onların yerinə <strong>SHA-256</strong> və ya
+<strong>SHA-512</strong> tətbiq olunmalıdır. Gələcək nəsil sistemlər
+üçün isə fərqli struktura malik olan <strong>SHA-3</strong> standartına
+keçid nəzərdən keçirilməlidir.</p>
+<h1 id="əlavə-oxu-üçün-materiallar">Əlavə oxu üçün materiallar</h1>
+<p>Mövzu ilə daha dərindən tanış olmaq və tədqiqatların orijinal
+mənbələrini araşdırmaq üçün aşağıdakı elmi materiallar tövsiyə
+olunur:</p>
+<ol>
+<li><p><strong>Rivest, R. (1992).</strong> "The MD5 Message-Digest
+Algorithm" — RFC 1321. MD5 alqoritminin müəllifi tərəfindən təqdim
+edilmiş orijinal spesifikasiya.</p></li>
+<li><p><strong>NIST (1995).</strong> "Secure Hash Standard" — FIPS PUB
+180-1. SHA-1 alqoritminin rəsmi standartı və texniki təsviri.</p></li>
+<li><p><strong>NIST (2015).</strong> "Secure Hash Standard (SHS)" — FIPS
+PUB 180-4. SHA-2 ailəsini (SHA-224, 256, 384, 512) əhatə edən müasir
+standart sənədi.</p></li>
+<li><p><strong>Wang, X. &amp; Yu, H. (2005).</strong> "How to Break MD5
+and Other Hash Functions". MD5 və digər heş funksiyalarına qarşı tarixi
+toqquşma hücumlarını izah edən fundamental tədqiqat.</p></li>
+<li><p><strong>Stevens, M. et al. (2017).</strong> "The First Collision
+for Full SHA-1" — SHAttered. SHA-1-in praktik olaraq sındırılmasını
+sübut edən elmi məqalə.</p></li>
+<li><p><strong>Dang, Q. (2011).</strong> "Updated Security
+Considerations for the MD5 Message-Digest and the HMAC-MD5 Algorithms" —
+RFC 6151. MD5-in müasir sistemlərdə istifadəsinin riskləri haqqında
+yenilənmiş təhlükəsizlik tövsiyələri.</p></li>
+</ol>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (4)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Wang &amp; Yu, 2005</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT 2005</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">How to Break MD5 and Other Hash Functions</h6>
+                    <p class="small text-secondary mb-0">Xiaoyun Wang and Hongbo Yu (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Stevens et al., 2009</span>
+                        <small class="text-muted">International Workshop on Fast Software Encryption (FSE 2009)</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Chosen-Prefix Collisions for MD5 and Applications</h6>
+                    <p class="small text-secondary mb-0">Marc Stevens and Arjen Lenstra and Benne de Weger (2009)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] NIST, 1995</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Secure Hash Standard</h6>
+                    <p class="small text-secondary mb-0">NIST (1995)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

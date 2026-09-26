@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_23</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 23</strong></p>
+<p><strong>Rəqəmsal İmza Sxemləri</strong></p>
+<p>Bu mühazirə rəqəmsal imza anlayışını, əsas təhlükəsizlik
+xüsusiyyətlərini, ən geniş yayılmış imza sxemlərini (RSA, DSA, ECDSA,
+Ed25519) və qabaqcıl imza növlərini əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni bitirdikdən sonra tələbələr:</p>
+<ul>
+<li><p>rəqəmsal imzanın sintaksisini və EUF-CMA təhlükəsizlik modelini
+verilmiş sxemə tətbiq etməyi <span class="citation"
+data-cites="katz2020introduction"></span>;</p></li>
+<li><p>rəqəmsal imza ilə mesaj autentifikasiya kodunun (MAK) etibar
+modelləri arasındakı fərqləri izah etməyi <span class="citation"
+data-cites="stinson2018cryptography"></span>;</p></li>
+<li><p>RSA-PSS, DSA, ECDSA və Ed25519 üçün imzalama və yoxlama
+mərhələlərini izləməyi, həmçinin birdəfəlik qiymət (<em>nonce</em>)
+tələblərini müqayisə etməyi <span class="citation"
+data-cites="ferguson2010cryptography menezes1996handbook johnson2001elliptic"></span>;</p></li>
+<li><p>verilmiş açar, parametr və kodlaşdırma şərtləri daxilində imzanın
+qəbul və ya rədd edilməsi qərarını əsaslandırmağı;</p></li>
+<li><p>kor, həlqə və hədd imzalarını tələb olunan məxfilik və idarəetmə
+məqsədlərinə uyğun seçməyi bacaracaqlar <span class="citation"
+data-cites="chaum1982blind rivest2001ring shamir1979share"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəl:</strong> 22-ci mühazirə ECDH protokolunu və əyri
+seçimini əhatə etdi, imza sxemlərinə isə yalnız ümumi icmal verdi.</p>
+<p><strong>İndi:</strong> RSA, DSA, ECDSA və Ed25519 üçün tam rəqəmsal
+imza modeli bu mühazirədə qurulur.</p>
+<p><strong>Sonra:</strong> 24-cü mühazirə açıq yoxlama açarının şəxs və
+ya təşkilatla necə bağlandığını PKI/X.509 infrastrukturu vasitəsilə
+göstərəcəkdir.</p>
+<p><strong>Kanon:</strong> <em>mesaj autentifikasiya kodu (MAK;
+MAC)</em> ilk dəfə, sonra <em>MAK</em>; <em>EUF-CMA</em>; <em>imzanın
+yoxlanması (doğrulanması)</em>; <em>Həlqə imzası</em>;
+<em>inkaredilməzlik</em>; <em>sonlu meydan</em>.</p>
+</div>
+<h1 id="giriş-rəqəmsal-imzaların-konseptual-və-riyazi-mahiyyəti">Giriş:
+Rəqəmsal İmzaların Konseptual və Riyazi Mahiyyəti</h1>
+<p>Rəqəmsal imzalar müasir informasiya təhlükəsizliyinin və açıq açar
+infrastrukturlarının (PKI) əsas komponentlərindəndir. Etibarlı imza
+mesajın verilmiş açıq açara görə bütövlüyünü və uyğun gizli açarla
+yaradıldığını yoxlamağa imkan verir <span class="citation"
+data-cites="katz2020introduction"></span>. Şəxsin identifikasiyası və
+hüquqi inkaredilməzlik isə açıq açarın sahibə bağlanması, gizli açarın
+qorunması, sertifikatın statusu, zaman sübutu və tətbiq olunan hüquqla
+birlikdə qiymətləndirilir.</p>
+<p>Simmetrik kriptoqrafiyaya əsaslanan <strong>MAK</strong> (Mesaj
+Autentifikasiya Kodu) mexanizmləri də verilənlərin bütövlüyünü və
+birtərəfli mənbə autentifikasiyasını təmin etmək qabiliyyətinə malikdir.
+Lakin MAK sistemlərinin fundamental məhdudiyyəti onların tamamilə
+<em>paylaşılan gizli açar</em> (<span class="math inline">\(K\)</span>)
+paradiqmasına söykənməsidir <span class="citation"
+data-cites="stinson2018cryptography"></span>. İnformasiyanı qəbul edən
+tərəf daxil olan paketin MAK dəyərini yoxlamaq üçün həmin gizli açara
+malik olmalıdır. Bu isə o deməkdir ki, qəbuledən şəxs riyazi olaraq
+göndərənlə eyni MAK strukturunu sərbəst şəkildə generasiya edə bilər.
+Nəticədə, üçüncü neytral tərəf (məsələn, məhkəmə və ya arbitr)
+qarşısında məlumatın məhz göndərən tərəfindən yaradıldığını sübut etmək
+qeyri-mümkündür; göndərən şəxs açarın digər tərəfdə də olduğunu əsas
+gətirərək əməliyyatı rahatlıqla inkar edə bilər.</p>
+<p>Rəqəmsal imza sxemləri isə asimmetrik açar asimmetriyasına
+əsaslanaraq bu problemi kökündən həll edir. Sistem iki fərqli, lakin
+riyazi əlaqəli açar üzərində qurulur:</p>
+<ul>
+<li><p><strong>Gizli açar</strong> (<span
+class="math inline">\(sk\)</span>): Yalnız imza müəllifinə məxsus olan
+və gizli saxlanılan parametrdir. İmza yaratma alqoritmi məhz bu açardan
+istifadə edərək mesaj üzərində müəyyən riyazi çevirmə aparır.</p></li>
+<li><p><strong>Açıq Açar</strong> (<span
+class="math inline">\(pk\)</span>): Şəbəkədəki hər kəsə açıq olan və
+müvafiq gizli açarla yaradılmış imzanın doğruluğunu yoxlamaq üçün
+istifadə edilən funksional elementdir.</p></li>
+</ul>
+<p>Asimmetrik struktur imzanı açıq şəkildə yoxlanılan kriptoqrafik
+sübuta çevirir <span class="citation"
+data-cites="stinson2018cryptography"></span>. Lakin
+<code>Verify</code>=1 yalnız mesaj, imza və açıq açarın uyğunluğunu
+göstərir; açarın komprometi, sahibin identifikasiyası və imzalama
+niyyəti ayrıca sübut və prosedur tələb edir.</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Struktur Fərqliliklər:</strong> Rəqəmsal imza sxemləri
+ilə simmetrik MAK alqoritmləri arasında riyazi model, açar idarəedilməsi
+və hüquqi etibarlılıq baxımından hansı fundamental fərqlər
+mövcuddur?</p></li>
+<li><p><strong>İnkaredilməzlik Prinsipləri:</strong> Kriptoqrafiyada
+inkaredilməzlik atributu riyazi olaraq necə formalaşdırılır və bu
+xüsusiyyət elektron ticarət və hüquqi müqavilələrdə niyə kritik
+əhəmiyyət kəsb edir?</p></li>
+<li><p><strong>RSA İmza Mexanizmləri:</strong> RSA imza sxemi "tərs
+şifrələmə" anlayışından riyazi olaraq necə ayrılır və deterministik RSA
+imzalarında təsadüfi doldurmanın (<code>PKCS#1 v1.5</code> və
+<code>RSA-PSS</code>) tətbiqi hansı hücum ssenarilərinin qarşısını
+alır?</p></li>
+<li><p><strong>DSA və RSA Müqayisəsi:</strong> Diskret loqarifm
+probleminə əsaslanan DSA-nın arxitekturası faktorizasiya əsaslı RSA-dan
+nə ilə fərqlənir və onun parametrlərinin generasiyası hansı zəiflikləri
+ehtiva edə bilər?</p></li>
+<li><p><strong>ECDSA-nın Riyazi Üstünlükləri:</strong> Elliptik Əyri
+Rəqəmsal İmza Alqoritmi (ECDSA) hansı hesablama və yaddaş səmərəliliyi
+təklif edir? Bitcoin və Ethereum kimi qlobal blokçeyn şəbəkələrinin məhz
+<code>secp256k1</code> əyrisi üzərində ECDSA tətbiq etməsinin səbəbləri
+nələrdir?</p></li>
+<li><p><strong>Ed25519 İnqilabı:</strong> Ed25519 imza alqoritminin
+arxasında dayanan riyazi dizayn fəlsəfəsi nədir və onu klassik ECDSA
+sistemlərindən daha sürətli, təhlükəsiz və fiziki yan kanal hücumlarına
+qarşı dözümlü edən faktorlar hansılardır?</p></li>
+<li><p><strong>İnkişaf Etmiş İmza Modellərinin Tətbiqi:</strong> Kor
+imza, Həlqə imzası və hədd imzası sxemlərinin riyazi quruluşu nədir? Bu
+inkişaf etmiş modellər rəqəmsal səsvermə, anonim kriptovalyutalar
+(məsələn, Monero) və çoxtərəfli təhlükəsiz hesablamalarda (MPC) necə
+tətbiq olunur?</p></li>
+</ul>
+</div>
+<h1
+id="rəqəmsal-imzanın-formal-riyazi-tərifi-və-təhlükəsizlik-modelləri">Rəqəmsal
+İmzanın Formal Riyazi Tərifi və Təhlükəsizlik Modelləri</h1>
+<h2 id="formal-sintaksis-və-düzgünlük-prinsipləri">Formal Sintaksis və
+Düzgünlük Prinsipləri</h2>
+<p>Müasir kriptoqrafiyada rəqəmsal imza sxemləri sadə funksional
+keçidlər deyil, ehtimal çoxhədli zaman (probabilistic polynomial-time,
+PPT) alqoritmlər ailəsi kimi formalaşdırılır. Rəqəmsal imza sxemi formal
+olaraq üç əsas PPT alqoritmindən ibarət olan <span
+class="math inline">\((\text{Gen}, \text{Sign}, \text{Verify})\)</span>
+üçlüyü ilə müəyyən edilir <span class="citation"
+data-cites="katz2020introduction"></span>:</p>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Rəqəmsal İmza Sxemi). <em>Tutaq ki, <span
+class="math inline">\(\mathcal{M}\)</span> mesaj fəzasını, <span
+class="math inline">\(\mathcal{S}\)</span> isə imzalar fəzasını təmsil
+edir. Rəqəmsal imza sxemi aşağıdakı sintaksisə malik üçlü tərəfindən
+idarə olunur:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\text{Gen}(1^n) \rightarrow (pk,
+sk)\)</span>: Açar generasiyası alqoritmidir. Giriş parametri olaraq
+unar (birtərəfli) formatda yazılmış <span
+class="math inline">\(1^n\)</span> (<span
+class="math inline">\(n\)</span> bit uzunluğunda <span
+class="math inline">\(1\)</span>-lər ardıcıllığı) təhlükəsizlik
+parametrini qəbul edir. Bu yazılış formal olaraq alqoritmin <span
+class="math inline">\(n\)</span> bitlik mürəkkəblik fəzasında çoxhədli
+zamanda işləməsini təmin edir. Çıxışda isə riyazi olaraq bir-biri ilə
+bağlı olan <span class="math inline">\((pk, sk)\)</span> açar cütünü
+generasiya edir.</em></p></li>
+<li><p><em><span class="math inline">\(\text{Sign}_{sk}(m) \rightarrow
+\sigma\)</span>: İmza yaradılması alqoritmidir. Bu alqoritm ümumiyyətlə
+ehtimal xarakterlidir (probabilistic). Giriş parametri kimi gizli açarı
+(<span class="math inline">\(sk\)</span>) və ixtiyari <span
+class="math inline">\(m \in \mathcal{M}\)</span> mesajını qəbul edərək,
+çıxışda mesajın rəqəmsal möhürü olan <span class="math inline">\(\sigma
+\in \mathcal{S}\)</span> imza dəyərini hasil edir.</em></p></li>
+<li><p><em><span class="math inline">\(\text{Verify}_{pk}(m, \sigma)
+\rightarrow \{0, 1\}\)</span>: İmzanın doğru olduğunu yoxlamaq
+alqoritmidir. Tamamilə deterministik xassəyə malikdir. Giriş parametri
+kimi açıq açarı (<span class="math inline">\(pk\)</span>), aidiyyatı
+<span class="math inline">\(m\)</span> mesajını və yoxlanılacaq <span
+class="math inline">\(\sigma\)</span> imzasını qəbul edir. Əgər imza
+riyazi olaraq etibarlıdırsa <code>1</code> (qəbul), əks halda
+<code>0</code> (rədd) qərarını qaytarır.</em></p></li>
+</ul>
+<p><em><strong>Sintaktik Düzgünlük (Correctness) Tələbi:</strong>
+Kriptoqrafik sistemin funksional olaraq qüsursuz işləməsi üçün, hər bir
+təhlükəsizlik parametri <span class="math inline">\(1^n\)</span>
+tərəfindən hasil edilən ixtiyari <span class="math inline">\((pk, sk)
+\leftarrow \text{Gen}(1^n)\)</span> açar cütü və ixtiyari <span
+class="math inline">\(m \in \mathcal{M}\)</span> mesajı üçün aşağıdakı
+riyazi eynilik mütləq şəkildə ödənilməlidir: <span
+class="math display">\[\Pr \left[ \text{Verify}_{pk}(m,
+\text{Sign}_{sk}(m)) = 1 \right] = 1\]</span></em></p>
+</div>
+<h2 id="formal-təhlükəsizlik-modeli-euf-cma">Formal Təhlükəsizlik
+Modeli: EUF-CMA</h2>
+<p>Rəqəmsal imza sxeminin təhlükəsizliyi <strong>seçilmiş mesaj hücumu
+altında mövcudluq saxtakarlığına qarşı dayanıqlıq (EUF-CMA</strong><a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a><strong>)</strong> modeli ilə müəyyən
+edilir. Bu modeldə hücumçuya (<span
+class="math inline">\(\mathcal{A}\)</span>) imza yaratma sorğuları
+vermək imkanı təqdim olunur. Hücumçu istədiyi <span
+class="math inline">\(m_1, m_2, \dots, m_q\)</span> mesajları üçün
+müvafiq <span class="math inline">\(\sigma_1, \sigma_2, \dots,
+\sigma_q\)</span> imzalarını əldə edir.</p>
+<p>Hücumçunun yekun hədəfi daha əvvəl sorğu mənbəyinə göndərmədiyi
+(<span class="math inline">\(m^* \notin \{m_1, \dots, m_q\}\)</span>)
+tamamilə yeni bir <span class="math inline">\(m^*\)</span> mesajı üçün
+etibarlı bir <span class="math inline">\(\sigma^*\)</span> imza
+cütlüyünü (<span class="math inline">\((m^*, \sigma^*)\)</span>)
+generasiya etməkdir. Əgər ixtiyari PPT hücumçunun bu oyunda qalib gəlmə
+ehtimalı (üstünlüyü - <span
+class="math inline">\(\text{Adv}_{\Sigma}^{\text{EUF-CMA}}(\mathcal{A})\)</span>)
+təhlükəsizlik parametrindən (<span class="math inline">\(n\)</span>)
+asılı olaraq cüzidirsə, həmin imza sxemi təhlükəsiz hesab olunur: <span
+class="math display">\[\text{Adv}_{\Sigma}^{\text{EUF-CMA}}(\mathcal{A})
+= \Pr \left[ \text{Verify}_{pk}(m^*, \sigma^*) = 1 \right] \le
+\text{negl}(n)\]</span></p>
+<h2 id="rəqəmsal-imza-və-mak-sistemlərinin-müqayisəli-analizi">Rəqəmsal
+İmza və MAK Sistemlərinin Müqayisəli Analizi</h2>
+<p>Asimmetrik struktura malik rəqəmsal imzalar ilə simmetrik
+arxitekturaya malik Mesaj Autentifikasiya Kodları (MAK) arasındakı
+fərqlər sadəcə açar sayından ibarət deyil; bu fərqlər sistemin həm
+riyazi, həm də operativ infrastrukturunu təyin edir.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Taksonomik Meyar</strong></th>
+<th style="text-align: left;"><strong>Rəqəmsal İmza
+Sxemləri</strong></th>
+<th style="text-align: left;"><strong>Mesaj Autentifikasiya Kodları
+(MAK)</strong></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Kriptoqrafik
+Paradiqma</strong></th>
+<th style="text-align: left;">Asimmetrik açar kriptoqrafiyası (Açıq açar
+infrastrukturu).</th>
+<th style="text-align: left;">Simmetrik açar kriptoqrafiyası (Gizli açar
+paylanması).</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Açar Arxitekturası</strong></td>
+<td style="text-align: left;">Riyazi asılılığı olan açar cütü: imzalama
+üçün <span class="math inline">\(sk\)</span>, yoxlama üçün <span
+class="math inline">\(pk\)</span>.</td>
+<td style="text-align: left;">Tərəflər arasında tamamilə eyni olan vahid
+gizli açar (<span class="math inline">\(K\)</span>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Açar Paylanma Kanalı</strong></td>
+<td style="text-align: left;">Açıq açar (<span
+class="math inline">\(pk\)</span>) hər kəsə elan edilir; konfidensiallıq
+kanalı tələb olunmur.</td>
+<td style="text-align: left;">Gizli açar (<span
+class="math inline">\(K\)</span>) tərəflər arasında ciddi mühafizə
+olunan xüsusi kanalla paylanmalıdır.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Üçüncü tərəf sübutu</strong></td>
+<td style="text-align: left;">Açıq yoxlama kriptoqrafik dəlil verir;
+hüquqi nəticə PKI, açar qorunması və qanundan asılıdır.</td>
+<td style="text-align: left;">Paylaşılan açara görə tərəfləri
+bir-birindən ayıran sübut vermir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Yoxlama
+Universallığı</strong></td>
+<td style="text-align: left;">Açıq və qlobal yoxlama. İstənilən kənar
+şəxs doğruluğu yoxlaya bilər.</td>
+<td style="text-align: left;">Məhdud yoxlama. Yalnız gizli açarı bilən
+tərəflər yoxlaya bilər.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hesablama
+Mürəkkəbliyi</strong></td>
+<td style="text-align: left;">Yüksək dərəcəli riyazi əməliyyatlar
+(Modulyar eksponentləşdirmə, skalyar vurma). Nisbətən yavaşdır.</td>
+<td style="text-align: left;">Çox aşağı hesablama yükü (Heş
+funksiyaları, blok şifrləri). Kəskin şəkildə sürətlidir.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Məlumat Ölçüsü və
+Trafik</strong></td>
+<td style="text-align: left;">Kriptoqrafik struktura görə böyük ölçülərə
+malikdir (256 bitdən 4096 bitə qədər).</td>
+<td style="text-align: left;">Olduqca kompaktdır. Tranzit paket yükünü
+artırmır (adətən 128–256 bit).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tipik Tətbiq
+Sahələri</strong></td>
+<td style="text-align: left;">Rəqəmsal xidmət sertifikatları (X.509),
+proqram təminatı imzalanması, Blokçeyn və konsensus.</td>
+<td style="text-align: left;">Real-zamansız IP paket mühafizəsi (IPsec),
+TLS yazı təbəqəsi, API sorğularının daxili autentifikasiyası.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inkaredilməzlik-non-repudiation">İnkaredilməzlik
+(Non-repudiation)</h2>
+<p>Rəqəmsal imza inkaredilməzlik sistemi üçün kriptoqrafik dəlil yarada
+bilər <span class="citation"
+data-cites="stinson2018cryptography"></span>. Nəticənin gücü açarın
+həmin şəxsə düzgün bağlanmasından, ələ keçirilmə tarixçəsindən, audit və
+zaman məlumatından asılıdır. MAK-da isə hər iki tərəf eyni açarla kod
+yarada bildiyi üçün üçüncü tərəf müəllifi təkcə MAK əsasında ayıra
+bilməz.</p>
+<div class="example">
+<p><strong>Nümunə 1</strong> (İnkar edilməzlik nümunəsi). <em>Tutaq ki,
+Alis Boba elektron müqavilə göndərir:</em></p>
+<ul>
+<li><p><em><strong>MAK ilə:</strong> Bob müqaviləni aldıqdan sonra Alis
+"Mən bu müqaviləni göndərmədim, Bob özü MAK-ı yaradıb" deyə
+bilər.</em></p></li>
+<li><p><em><strong>Rəqəmsal imza ilə:</strong> Bob imzanı, sertifikat
+zəncirini, zaman və audit sübutlarını təqdim edə bilər. Qərar açarın
+Alisə bağlanması və ələ keçirilməsi iddialarının araşdırılması ilə
+verilir.</em></p></li>
+</ul>
+</div>
+<h2 id="təhlükəsizlik-modelləri">Təhlükəsizlik Modelləri</h2>
+<p>Yuxarıdakı <strong>EUF-CMA</strong> oyunu bu mühazirənin vahid imza
+təhlükəsizliyi modelidir. Sonrakı RSA, DSA, ECDSA və Ed25519
+bölmələrində “təhlükəsiz” sözü işlədildikdə həmin sxemin uyğun parametr
+və reallaşdırma ilə bu oyunda cüzi saxtalaşdırma üstünlüyü verməsi
+nəzərdə tutulur. <strong>UF-CMA</strong> ayrıca ikinci model kimi təqdim
+edilmir; bu mətn boyunca standart ad yalnız EUF-CMA-dır.</p>
+<h2
+id="mesajın-sxem-daxilində-və-əvvəlcədən-heşlənməsi-variantları">Mesajın
+sxem daxilində və əvvəlcədən heşlənməsi variantları</h2>
+<p>Bir çox imza sxemi mesajı daxildə heşləyərək sabit ölçülü nümayəndə
+yaradır <span class="citation"
+data-cites="stinson2018cryptography"></span>. Lakin API səviyyəsində
+bütün sxemlərə ixtiyari xarici heş dəyəri vermək olmaz: sxemin
+kodlaşdırması, heş identifikatoru və domen ayrılması qaydaları
+qorunmalıdır.</p>
+<ol>
+<li><p><span class="math inline">\(h = H(m)\)</span> hesablanır (mesajın
+heş dəyəri)</p></li>
+<li><p><span class="math inline">\(\sigma = \text{Sign}_{sk}(h)\)</span>
+hesablanır (heş dəyərinin imzası)</p></li>
+<li><p><span class="math inline">\((m, \sigma)\)</span>
+göndərilir</p></li>
+</ol>
+<p>Yoxlama zamanı:</p>
+<ol>
+<li><p><span class="math inline">\(h&#39; = H(m)\)</span>
+hesablanır</p></li>
+<li><p><span class="math inline">\(\text{Ver}_{pk}(h&#39;,
+\sigma)\)</span> yoxlanılır</p></li>
+</ol>
+<ul>
+<li><p><strong>Səmərəlilik:</strong> Uzun mesajların birbaşa imzalanması
+əvəzinə qısa heş dəyəri imzalanır.</p></li>
+<li><p><strong>Təhlükəsizlik:</strong> Heş funksiyasının toqquşma
+dayanıqlılığı imzanın təhlükəsizliyini artırır.</p></li>
+<li><p><strong>Heşləmə və İnterfeys Rejimləri:</strong> RSA-PSS, DSA və
+ECDSA alqoritmləri daxilən öncədən heşlənmiş məlumat nümayəndəsi
+(<em>hashed message representative</em>) ilə işləyir. PureEd25519
+tətbiqi proqramlaşdırma interfeysi (API) daxilində birbaşa <strong>ilkin
+mesajı</strong> qəbul edir; Ed25519ph isə RFC 8032 standartında müəyyən
+edilmiş ayrıca öncədən heşləmə (<em>pre-hashing</em>) və domen ayırma
+(<em>domain separation</em>) variantıdır. PureEd25519 funksiyasını
+birbaşa öncədən heşlənmiş <span class="math inline">\(H(M)\)</span>
+dəyəri üzərində tətbiq etmək semantik olaraq eyni sxem hesab
+edilmir.</p></li>
+</ul>
+<h1 id="rsa-imza-sxemi-və-doldurma-standartları">RSA İmza Sxemi və
+Doldurma Standartları</h1>
+<h2 id="sadəlövh-baza-rsa-imzası">Sadəlövh (Baza) RSA İmzası</h2>
+<p>Baza RSA rəqəmsal imza sxemi (çox vaxt <em>bəsit RSA</em> adlanır),
+RSA asimmetrik şifrələmə alqoritminin riyazi kommutativlik xüsusiyyətinə
+əsaslanır <span class="citation"
+data-cites="katz2020introduction"></span>. Təhlükəsizlik cəhətdən zəif
+olsa da, sxemin fundamental riyazi strukturu aşağıdakı kimidir:</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Baza RSA İmza Sxemi). <em>Müvafiq riyazi
+strukturlar üç mərhələdə icra olunur:</em></p>
+<ul>
+<li><p><em><strong>Açar Generasiyası:</strong> İki böyük ixtiyari <span
+class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə ədədləri seçilir. Modul dəyəri
+<span class="math inline">\(n = p \cdot q\)</span> və Eyler funksiyası
+<span class="math inline">\(\varphi(n) = (p-1)(q-1)\)</span> hesablanır.
+<span class="math inline">\(\gcd(e, \varphi(n)) = 1\)</span> şərtini
+ödəyən ixtiyari qüvvət üstü <span class="math inline">\(e\)</span> (açıq
+eksponent) müəyyən edilir. Multiplikativ tərs element tapılır: <span
+class="math inline">\(d \equiv e^{-1} \pmod{\varphi(n)}\)</span> (gizli
+eksponent). Açıq açar: <span class="math inline">\((n, e)\)</span>,
+Gizli açar: <span class="math inline">\((n, d)\)</span>.</em></p></li>
+<li><p><em><strong>İmza Yaratma:</strong> <span class="math inline">\(m
+\in \mathbb{Z}_n\)</span> mesajını imzalamaq üçün gizli açardan istifadə
+edilərək <span class="math inline">\(\sigma\)</span> qiyməti hesablanır:
+<span class="math display">\[\sigma = m^d \bmod n\]</span></em></p></li>
+<li><p><em><strong>İmza Yoxlama:</strong> Alınan yoxlama <span
+class="math inline">\((m, \sigma)\)</span> cütlüyünü hər hansı bir şəxs
+açıq açarla yoxlaya bilər. Bunun üçün aşağıdakı bərabərlik yoxlanılır:
+<span class="math display">\[\sigma^e \equiv m \pmod n\]</span> Əgər
+bərabərlik doğrudursa, imza etibarlı sayılır.</em></p></li>
+</ul>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (Kiçik Ədədlərlə RSA İmzası). <em>Tutaq ki,
+<span class="math inline">\(p=11\)</span> və <span
+class="math inline">\(q=13\)</span> seçilib. O halda: <span
+class="math display">\[n = 11 \cdot 13 = 143, \quad \varphi(n) = 10
+\cdot 12 = 120\]</span> Açıq eksponent olaraq <span
+class="math inline">\(e=17\)</span> götürək. Genişləndirilmiş Evklid
+alqoritmi ilə gizli eksponent <span class="math inline">\(d\)</span>
+tapılır: <span class="math display">\[17 \cdot d \equiv 1 \pmod{120}
+\implies d = 113\]</span> İndi isə <span
+class="math inline">\(m=65\)</span> mesajını imzalayaq və yoxlayaq:
+<span class="math display">\[\begin{align*}
+\text{\textbf{İmzalama:}} \quad \sigma &amp;= 65^{113} \bmod 143 = 65 \\
+\text{\textbf{Yoxlama:}} \quad m&#39; &amp;= 65^{17} \bmod 143 = 65
+\implies m&#39; = m \quad (\text{Etibarlıdır})
+\end{align*}\]</span></em></p>
+</div>
+<h2 id="baza-rsa-sxeminin-struktural-zəiflikləri">Baza RSA Sxeminin
+Struktural Zəiflikləri</h2>
+<p>Doldurma mexanizmləri tətbiq edilməyən sadəlövh RSA sxemi tamamilə
+qeyri-təhlükəsizdir və UF-CMA modelində dərhal çökür:</p>
+<ol>
+<li><p><strong>Mövcudluq Saxtalakarlığı:</strong> Hücumçu hər hansı bir
+mesaj təyin etmədən birbaşa təsadüfi bir imza dəyəri <span
+class="math inline">\(\sigma \in \mathbb{Z}_n\)</span> seçə bilər. Daha
+sonra asanlıqla <span class="math inline">\(m = \sigma^e \bmod
+n\)</span> hesablayar. Alınan <span class="math inline">\((m,
+\sigma)\)</span> cütü sistem tərəfindən etibarlı qəbul olunacaqdır.
+Çünki <span class="math inline">\(\sigma^e \equiv m \pmod n\)</span>
+şərti avtomatik ödənir.</p></li>
+<li><p><strong>Multiplikativ Homomorfizm Hücumu:</strong> RSA imza
+alqoritmi multiplikativ xassəyə malikdir: <span
+class="math display">\[\text{Sign}_{sk}(m_1) \cdot \text{Sign}_{sk}(m_2)
+= m_1^d \cdot m_2^d \equiv (m_1 \cdot m_2)^d = \text{Sign}_{sk}(m_1
+\cdot m_2) \pmod n\]</span> Hücumçu <span
+class="math inline">\(m_1\)</span> və <span
+class="math inline">\(m_2\)</span> mesajlarının imzalarını (<span
+class="math inline">\(\sigma_1, \sigma_2\)</span>) orakıldan əldə
+etdikdən sonra, heç bir sorğu göndərmədən tamamilə yeni <span
+class="math inline">\(m_3 = m_1 \cdot m_2\)</span> mesajının saxta
+imzasını <span class="math inline">\(\sigma_3 = \sigma_1 \cdot \sigma_2
+\bmod n\)</span> formulu ilə yarada bilər.</p></li>
+<li><p><strong>Deterministik Struktur:</strong> Sxem tamamilə
+deterministikdir. Eyni mesaj fəzası həmişə eyni imzaya çevrilir ki, bu
+da məlumat sızmalarına və statistik analiz hücumlarına yol
+açır.</p></li>
+</ol>
+<h2 id="pkcs1-v1.5-doldurma-standartı">PKCS#1 v1.5 Doldurma
+Standartı</h2>
+<p>Bu struktural zəiflikləri aradan qaldırmaq üçün mesaj imza
+funksiyasına daxil olmazdan əvvəl xüsusi blok formatına salınmalıdır.
+PKCS#1 v1.5 standartında imzalanacaq heş dəyəri aşağıdakı deterministik
+bayt strukturuna malik bloka (<span class="math inline">\(EM\)</span>)
+çevrilir <span class="citation"
+data-cites="ferguson2010cryptography"></span>: <span
+class="math display">\[EM = \texttt{0x00} \parallel \texttt{0x01}
+\parallel PS \parallel \texttt{0x00} \parallel T\]</span> Burada:</p>
+<ul>
+<li><p><span class="math inline">\(\texttt{0x00} \parallel
+\texttt{0x01}\)</span>: Blokun rəqəmsal imza üçün nəzərdə tutulduğunu
+bildiriş edən prefiks baytları.</p></li>
+<li><p><span class="math inline">\(PS\)</span> (doldurma sətri): Blokun
+ümumi uzunluğunu modulun ölçüsünə (<span
+class="math inline">\(k\)</span> bayt) çatdırmaq üçün istifadə olunan və
+tamamilə <code>0xFF</code> baytlarından ibarət sətir (<span
+class="math inline">\(PS\)</span> sətirinin uzunluğu minimum 8 bayt
+olmalıdır).</p></li>
+<li><p><span class="math inline">\(T\)</span> (<code>DigestInfo</code>):
+İstifadə olunan heş alqoritminin ASN.1 obyekt identifikatoru (OID) və
+mesajın heş dəyərinin (<span class="math inline">\(H(m)\)</span>)
+birləşməsindən ibarət struktur.</p></li>
+</ul>
+<p>EMSA-PKCS1-v1_5 yoxlama alqoritmi bütün blok strukturunu, alqoritm
+identifikatorunu və bayt uzunluqlarını kənardan sıfır saxlamadan dəqiq
+yoxlamalıdır; güzəştli və ya yetərsiz <strong>sintaksis təhlilçiləri
+(<em>parsers</em>)</strong> aşağı dərəcəli üstlər (<span
+class="math inline">\(e=3\)</span>) zamanı Bleyhenbaher imza
+saxtalaşdırılması (<em>Bleichenbacher’s signature forgery</em>) hücumuna
+şərait yaradır. Bu zəifliyi RSAES-PKCS1-v1_5 şifrələməsinə qarşı
+yönəlmiş Bleyhenbaher doldurma sorğu mənbəyi (<em>padding oracle</em>)
+hücumu ilə qarışdırmaq olmaz.</p>
+<h2 id="rsa-pss-ehtimallı-imza-sxemi">RSA-PSS Ehtimallı İmza Sxemi</h2>
+<p>RSA-PSS (Ehtimallı İmza Sxemi) müasir kriptoqrafiyada RSA üçün qəbul
+edilmiş ən təhlükəsiz doldurma standartıdır və sübut oluna bilən
+təhlükəsizlik paradiqmasına əsaslanır. PSS sxemi təsadüfi duz dəyərindən
+istifadə etdiyi üçün ehtimallı xarakter daşıyır — eyni <span
+class="math inline">\(m\)</span> mesajı hər dəfə tam fərqli imzalar
+hasil edir.</p>
+<p>Sxemin əsasında maska yaratma funksiyası (MGF1) və kriptoqrafik heş
+funksiyaları dayanır. Aşağıdakı diaqramda RSA-PSS-in kodlaşdırma
+prinsipləri əks olunmuşdur:</p>
+<figure data-latex-placement="H">
+
+<figcaption>RSA-PSS İmza Prosesinin Funksional Blok
+Diaqramı</figcaption>
+</figure>
+<h2 id="rsa-pss-imzasının-yoxlanması">RSA-PSS imzasının yoxlanması</h2>
+<p>RSA-PSS imza yoxlama prosesi asimmetrik tərs funksiyanın tətbiqi və
+kodlaşdırılmış blokun (<span class="math inline">\(EM\)</span>) daxili
+strukturunun dekonstruksiyası (sökülməsi) üzərində qurulmuşdur.
+Qəbuledici tərəf <span class="math inline">\((m, \sigma)\)</span>
+cütlüyünü və müəllifin <span class="math inline">\((n, e)\)</span> açıq
+açarını daxil edərək aşağıdakı riyazi alqoritmi icra edir:</p>
+<ol>
+<li><p><strong>RSA Primitivinin Tətbiqi:</strong> İlk olaraq açıq
+açardan istifadə edilərək orijinal kodlaşdırılmış blok (<span
+class="math inline">\(EM&#39;\)</span>) bərpa olunur: <span
+class="math display">\[EM&#39; = \sigma^e \bmod n\]</span> Əgər <span
+class="math inline">\(EM&#39;\)</span> blokunun uzunluğu və ya sonuncu
+bayt strukturu standart qaydalara uyğun gəlmirsə, imza dərhal rədd
+edilir.</p></li>
+<li><p><strong>Mesajın Heşlənməsi:</strong> Daxil olan <span
+class="math inline">\(m\)</span> mesajının heş dəyəri müstəqil şəkildə
+yenidən hesablanır: <span class="math display">\[mDigest&#39; =
+H(m)\]</span></p></li>
+<li><p><strong>Maskanın Silinməsi:</strong> <span
+class="math inline">\(EM&#39;\)</span> bloku daxilindən maskalanmış duz
+(<em>maskedDB</em>) və idarəedici heş bloki (<span
+class="math inline">\(H\)</span>) ayrılır. Maskalama Funksiyası (<span
+class="math inline">\(MGF1\)</span>) vasitəsilə maska yenidən hasil
+edilir və XOR (<span class="math inline">\(\oplus\)</span>) məntiqi
+əməliyyatı ilə ilkin duz dəyəri bərpa olunur.</p></li>
+<li><p><strong>Sintaktik və Riyazi Qarşılaşdırma:</strong> Bərpa olunmuş
+duz və indicə hesablanmış <span
+class="math inline">\(mDigest&#39;\)</span> birləşdirilərək yeni bir
+referat blok (<span class="math inline">\(H&#39;\)</span>) yaradılır.
+Sonda aşağıdakı kritik yoxlama aparılır: <span
+class="math display">\[\text{Əgər } H&#39; == H \quad \text{olarsa, imza
+etibarlıdır (1), əks halda etibarsızdır (0).}\]</span></p></li>
+</ol>
+<p>Aşağıdakı diaqramda bu tərs yoxlama mexanizminin tam funksional
+strukturu göstərilmişdir:</p>
+<figure data-latex-placement="h">
+
+<figcaption>RSA-PSS İmza Yoxlama Prosesinin Funksional Blok
+Diaqramı</figcaption>
+</figure>
+<h1 id="dsa-rəqəmsal-imza-alqoritmi">DSA rəqəmsal imza alqoritmi</h1>
+<h2 id="tarixi-və-əsas-xüsusiyyətləri">Tarixi və Əsas
+Xüsusiyyətləri</h2>
+<p>DSA, 1991-ci ildə ABŞ Milli Standartlar İnstitutu (NIST) tərəfindən
+rəsmi rəqəmsal imza standartı (DSS) olaraq təklif edilmişdir <span
+class="citation" data-cites="menezes1996handbook"></span>. DSA
+fundamental olaraq ElGamal imza sxeminin modifikasiyasına əsaslanır və
+onun kriptoqrafik təhlükəsizliyi multiplikativ qruplarda Diskret
+Loqarifm Probleminin (DLP) həllinin hesablama baxımından çətinliyinə
+(mürəkkəbliyinə) söykənir.</p>
+<p>RSA imza sxemindən fərqli olaraq, DSA asimmetrik cütlüyü
+<strong>yalnız və yalnız rəqəmsal imza əməliyyatları üçün istifadə oluna
+bilər</strong>; bu parametrlərlə birbaşa verilənləri şifrələmək riyazi
+olaraq mümkün deyildir <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<h2 id="dsa-qlobal-parametrləri">DSA Qlobal Parametrləri</h2>
+<p>DSA alqoritmi sistem miqyasında təyin olunan və hamıya açıq olan
+aşağıdakı qlobal parametrlər çoxluğundan istifadə edir:</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span>: Çox böyük bir sadə ədəd
+(bit uzunluğu <span class="math inline">\(L\)</span> ilə işarə
+olunur).</p></li>
+<li><p><span class="math inline">\(q\)</span>: <span
+class="math inline">\((p-1)\)</span> ədədinin böyük bir sadə böləni (bit
+uzunluğu <span class="math inline">\(N\)</span> ilə işarə olunur).
+Riyazi olaraq, <span class="math inline">\(p \equiv 1 \pmod q\)</span>
+şərti ödənilir.</p></li>
+<li><p><span class="math inline">\(g\)</span>: <span
+class="math inline">\(\mathbb{Z}_p^*\)</span> qrupunun <span
+class="math inline">\(q\)</span> tərtibli alt qrupunun generatoru.
+İxtiyari <span class="math inline">\(1 &lt; h &lt; p-1\)</span> ədədi
+üçün aşağıdakı şəkildə hesablanır: <span class="math display">\[g =
+h^{(p-1)/q} \bmod p \quad (\text{şərt: } g &gt; 1)\]</span></p></li>
+</ul>
+<p>Tarixi DSA parametrləri aşağıdakı ölçülərdə işlədilib. Aktual FIPS
+186-5 yeni DSA imzalarının generasiyasını təsdiqləmir; DSA yalnız əvvəl
+yaradılmış imzaların yoxlanması üçün saxlanılır <span class="citation"
+data-cites="nist2019fips1865"></span>:</p>
+<ul>
+<li><p><span class="math inline">\(L = 2048 \text{ bit}, N = 224 \text{
+bit}\)</span> — 112-bitlik təhlükəsizlik səviyyəsi.</p></li>
+<li><p><span class="math inline">\(L = 3072 \text{ bit}, N = 256 \text{
+bit}\)</span> — təxminən 128-bitlik tarixi parametr dəsti; yeni dizayn
+üçün minimum tövsiyə deyil.</p></li>
+</ul>
+<h2 id="açar-generasiyası">Açar Generasiyası</h2>
+<p>Sistem parametrləri (<span class="math inline">\(p, q, g\)</span>)
+müəyyən edildikdən sonra hər bir istifadəçi fərdi açar cütünü yaratmaq
+üçün aşağıdakı addımları icra edir:</p>
+<ol>
+<li><p>Təsadüfi bir gizli açar <span class="math inline">\(x\)</span>
+seçilir: <span class="math inline">\(1 &lt; x &lt; q\)</span>.</p></li>
+<li><p>Həmin gizli açara müvafiq olan açıq açar <span
+class="math inline">\(y\)</span> riyazi qüvvətə yüksəltmə ilə
+hesablanır: <span class="math display">\[y = g^x \bmod
+p\]</span></p></li>
+</ol>
+<p>İstifadəçinin Gizli Açar fəzası: <span
+class="math inline">\(x\)</span>, Açıq Açar fəzası: <span
+class="math inline">\((p, q, g, y)\)</span>.</p>
+<h2 id="imza-yaratma-mexanizmi">İmza Yaratma Mexanizmi</h2>
+<p><span class="math inline">\(m\)</span> mesajını imzalamaq üçün
+göndərici (gizli açar <span class="math inline">\(x\)</span>-in sahibi)
+aşağıdakı procedural addımları yerinə yetirir:</p>
+<ol>
+<li><p>Hər bir mesaj üçün unikal və təsadüfi bir müvəqqəti açar <span
+class="math inline">\(k\)</span> seçilir: <span class="math inline">\(1
+&lt; k &lt; q\)</span>.</p></li>
+<li><p>İmzanın birinci komponenti olan <span
+class="math inline">\(r\)</span> hesablanır: <span
+class="math display">\[r = (g^k \bmod p) \bmod q\]</span> Əgər təsadüfən
+<span class="math inline">\(r = 0\)</span> alınarsa, yeni <span
+class="math inline">\(k\)</span> seçilməli və addım 1-ə
+qayıdılmalıdır.</p></li>
+<li><p>İmzanın ikinci komponenti olan <span
+class="math inline">\(s\)</span> hesablanır: <span
+class="math display">\[s = k^{-1} \cdot (H(m) + x \cdot r) \bmod
+q\]</span> Burada <span class="math inline">\(H(m)\)</span> mesajın
+kriptoqrafik heş dəyəridir (məsələn, SHA-256). Əgər <span
+class="math inline">\(s = 0\)</span> alınarsa, proses dayandırılır, yeni
+<span class="math inline">\(k\)</span> seçilir və addım 1-ə
+qayıdılır.</p></li>
+<li><p>Yekun rəqəmsal imza <span class="math inline">\((r, s)\)</span>
+cütlüyündən ibarət olur.</p></li>
+</ol>
+<h2 id="imzanın-yoxlanması-verification">İmzanın Yoxlanması
+(Verification)</h2>
+<p>Açıq açara <span class="math inline">\((p, q, g, y)\)</span> malik
+olan hər bir qəbuledici daxil olan <span class="math inline">\((m, r,
+s)\)</span> üçlüyünü yoxlamaq üçün aşağıdakı riyazi alqoritmi işə
+salır:</p>
+<ol>
+<li><p>İmzanın sintaktik doğruluğu yoxlanılır: <span
+class="math inline">\(0 &lt; r &lt; q\)</span> və <span
+class="math inline">\(0 &lt; s &lt; q\)</span> şərtləri ödənmirsə, imza
+dərhal rədd edilir.</p></li>
+<li><p><span class="math inline">\(s\)</span> komponentinin <span
+class="math inline">\(\mathbb{Z}_q^*\)</span> qrupundakı multiplikativ
+tərsi tapılır: <span class="math inline">\(w = s^{-1} \bmod
+q\)</span>.</p></li>
+<li><p>Köməkçi <span class="math inline">\(u_1\)</span> və <span
+class="math inline">\(u_2\)</span> dəyişənləri hesablanır: <span
+class="math display">\[u_1 = H(m) \cdot w \bmod q \quad \text{və} \quad
+u_2 = r \cdot w \bmod q\]</span></p></li>
+<li><p>Yoxlama parametri <span class="math inline">\(v\)</span> bərpa
+olunur: <span class="math display">\[v = ((g^{u_1} \cdot y^{u_2}) \bmod
+p) \bmod q\]</span></p></li>
+<li><p><strong>Qərar:</strong> Əgər <span class="math inline">\(v =
+r\)</span> şərti ödənərsə imza riyazi olaraq etibarlı sayılır, əks halda
+rədd edilir.</p></li>
+</ol>
+<div class="proof">
+<p><em>DSA Alqoritminin Riyazi Doğruluğunun Sübutu.</em> Doğrulama
+mərhələsində <span class="math inline">\(v = r\)</span> bərabərliyinin
+doğruluğunu nümayiş etdirmək üçün <span
+class="math inline">\(s\)</span>-in tərifindən başlayaq: <span
+class="math display">\[s \equiv k^{-1}(H(m) + xr) \pmod q \implies k
+\equiv s^{-1}(H(m) + xr) \pmod q\]</span> Burada <span
+class="math inline">\(s^{-1} \equiv w \pmod q\)</span> olduğunu nəzərə
+alsaq: <span class="math display">\[k \equiv w \cdot H(m) + w \cdot xr
+\equiv u_1 + u_2x \pmod q\]</span> İndi isə <span
+class="math inline">\(v\)</span> dəyişəninin düsturunda <span
+class="math inline">\(y = g^x \bmod p\)</span> əvəzləməsini aparaq:
+<span class="math display">\[g^{u_1} \cdot y^{u_2} \equiv g^{u_1} \cdot
+(g^x)^{u_2} \equiv g^{u_1 + u_2x} \equiv g^k \pmod p\]</span> Modul
+<span class="math inline">\(q\)</span> fəzasına keçid etdikdə isə ilkin
+bərabərlik tamamilə sübut olunur: <span class="math display">\[v =
+(g^{u_1} \cdot y^{u_2} \bmod p) \bmod q = (g^k \bmod p) \bmod q =
+r\]</span> ◻</p>
+</div>
+<h2 id="dsa-nın-kritik-təhlükəsizlik-xüsusiyyətləri">DSA-nın Kritik
+Təhlükəsizlik Xüsusiyyətləri</h2>
+<ul>
+<li><p><strong>Müvəqqəti Açar <span class="math inline">\(k\)</span>-nın
+Kritik Əhəmiyyəti:</strong> <span class="math inline">\(k\)</span>
+parametri tamamilə təsadüfi və hər imza üçün unikal olmalıdır. Əgər eyni
+<span class="math inline">\(k\)</span> dəyəri ilə iki fərqli <span
+class="math inline">\(m_1\)</span> və <span
+class="math inline">\(m_2\)</span> mesajı imzalanarsa, sistem tamamilə
+çökür. Hücumçu gizli açar <span class="math inline">\(x\)</span>-i
+aşağıdakı cəbri üsulla dərhal hesablaya bilər: <span
+class="math display">\[s_1 - s_2 = k^{-1}(H(m_1) - H(m_2)) \implies k =
+\frac{H(m_1) - H(m_2)}{s_1 - s_2} \bmod q\]</span> Müvəqqəti <span
+class="math inline">\(k\)</span> tapıldıqdan sonra gizli açar <span
+class="math inline">\(x\)</span> asanlıqla ifşa olunur: <span
+class="math display">\[x = \frac{s_1 \cdot k - H(m_1)}{r} \bmod
+q\]</span></p></li>
+<li><p><strong>Qeyri-Deterministik (Ehtimallı) Struktur:</strong> DSA
+təbiəti etibarilə ehtimallıdır. Eyni mesaj fərqli zamanlarda
+imzalandıqda, təsadüfi <span class="math inline">\(k\)</span> seçiminə
+görə tamamilə fərqli <span class="math inline">\((r, s)\)</span> imza
+cütləri yaradır.</p></li>
+<li><p><strong>Yığcam İmza Ölçüsü:</strong> RSA ilə müqayisədə DSA
+imzaları kifayət qədər yığcamdır. İmza ölçüsü modul <span
+class="math inline">\(p\)</span>-nin ölçüsündən deyil, yalnız <span
+class="math inline">\(q\)</span>-nun ölçüsündən asılıdır və tam olaraq
+<span class="math inline">\(2|q|\)</span> bit (məsələn, 256-bitlik <span
+class="math inline">\(q\)</span> üçün cəmi 512 bit) yer tutur.</p></li>
+</ul>
+<h1 id="ecdsa-elliptik-əyri-rəqəmsal-imza-alqoritmi">ECDSA elliptik əyri
+rəqəmsal imza alqoritmi</h1>
+<h2 id="ümumi-xüsusiyyətlər-və-riyazi-struktur">Ümumi Xüsusiyyətlər və
+Riyazi Struktur</h2>
+<p>ECDSA, DSA alqoritminin elliptik əyrilər kriptoqrafiyası (ECC)
+üzərindəki analoqudur <span class="citation"
+data-cites="johnson2001elliptic"></span>. Alqoritm sonlu meydanlar
+üzərində təyin olunmuş Veyerştras elliptik əyrilər qrupunda <em>elliptik
+əyri diskret loqarifm probleminin</em> (ECDLP) hesablama mürəkkəbliyinə
+əsaslanır.</p>
+<h2 id="ecdsa-sistem-parametrləri-və-açar-generasiyası">ECDSA Sistem
+Parametrləri və Açar Generasiyası</h2>
+<p>Sistem ilkin olaraq aşağıdakı qlobal kriptoqrafik parametrlər
+çoxluğunu təyin edir:</p>
+<ul>
+<li><p><span class="math inline">\(E(\mathbb{F}_p)\)</span>: <span
+class="math inline">\(\mathbb{F}_p\)</span> sonlu meydanı üzərində təyin
+olunmuş <span class="math inline">\(y^2 = x^3 + ax + b\)</span> formalı
+elliptik əyri.</p></li>
+<li><p><span class="math inline">\(G = (x_G, y_G)\)</span>: Əyri
+üzərində yerləşən və alt qrupu hasil edən baza nöqtəsi
+(generator).</p></li>
+<li><p><span class="math inline">\(n\)</span>: <span
+class="math inline">\(G\)</span> nöqtəsinin qrup tərtibi olan çox böyük
+sadə ədəd (<span class="math inline">\(n \cdot G = \mathcal{O}\)</span>,
+burada <span class="math inline">\(\mathcal{O}\)</span> sonsuzluqdakı
+neytral nöqtədir).</p></li>
+<li><p><span class="math inline">\(h\)</span>: Kofaktor dəyəri (<span
+class="math inline">\(h = \#E(\mathbb{F}_p)/n\)</span>).</p></li>
+</ul>
+<h4 id="açar-cütünün-yaradılması">Açar Cütünün Yaradılması:</h4>
+<ol>
+<li><p>Təsadüfi bir gizli açar <span class="math inline">\(d\)</span>
+seçilir: <span class="math inline">\(1 \le d \le n-1\)</span>.</p></li>
+<li><p>Açıq açar olaraq əyri üzərində bir <span
+class="math inline">\(Q\)</span> nöqtəsi hesablanır (skalyar vurma):
+<span class="math display">\[Q = d \cdot G\]</span></p></li>
+</ol>
+<p>İstifadəçinin Gizli Açarı: <span class="math inline">\(d\)</span>,
+Açıq Açarı: <span class="math inline">\(Q \in
+E(\mathbb{F}_p)\)</span>.</p>
+<h2 id="imza-yaratma-və-yoxlama-proseduru">İmza Yaratma və Yoxlama
+Proseduru</h2>
+<h4 id="imzanın-yaradılması">İmzanın Yaradılması:</h4>
+<p><span class="math inline">\(m\)</span> mesajını imzalamaq üçün gizli
+açar <span class="math inline">\(d\)</span>-nin sahibi aşağıdakı
+addımları icra edir:</p>
+<ol>
+<li><p><span class="math inline">\(1 \le k \le n-1\)</span> şərtini
+ödəyən müvəqqəti təsadüfi <span class="math inline">\(k\)</span> ədədi
+seçilir.</p></li>
+<li><p>Əyri üzərində <span class="math inline">\(k \cdot G = (x_1,
+y_1)\)</span> nöqtəsi hesablanır.</p></li>
+<li><p>İmzanın birinci komponenti tapılır: <span class="math inline">\(r
+= x_1 \bmod n\)</span>. Əgər <span class="math inline">\(r = 0\)</span>
+olarsa, addım 1-ə qayıdılır.</p></li>
+<li><p>İmzanın ikinci komponenti hesablanır: <span
+class="math display">\[s = k^{-1} \cdot (H(m) + d \cdot r) \bmod
+n\]</span> Burada <span class="math inline">\(H(m)\)</span> mesajın bit
+uzunluğu <span class="math inline">\(n\)</span>-in bit ölçüsünə
+uyğunlaşdırılmış heş dəyəridir. Əgər <span class="math inline">\(s =
+0\)</span> olarsa, addım 1-ə qayıdılır.</p></li>
+<li><p>Yekun imza <span class="math inline">\((r, s)\)</span>
+cütlüyüdür.</p></li>
+</ol>
+<h4 id="imzanın-yoxlanması">İmzanın Yoxlanması:</h4>
+<p><span class="math inline">\((m, r, s)\)</span> məlumatlarını qəbul
+edən tərəf müəllifin <span class="math inline">\(Q\)</span> açıq açarı
+vasitəsilə aşağıdakı yoxlamanı aparır:</p>
+<ol>
+<li><p><span class="math inline">\(r\)</span> və <span
+class="math inline">\(s\)</span> komponentlərinin <span
+class="math inline">\([1, n-1]\)</span> intervalında olduğu
+yoxlanılır.</p></li>
+<li><p><span class="math inline">\(w = s^{-1} \bmod n\)</span>
+hesablanır.</p></li>
+<li><p>Köməkçi parametrlər tapılır: <span class="math inline">\(u_1 =
+H(m) \cdot w \bmod n\)</span> və <span class="math inline">\(u_2 = r
+\cdot w \bmod n\)</span>.</p></li>
+<li><p>Əyri üzərində xüsusi bir <span class="math inline">\(X\)</span>
+nöqtəsi bərpa olunur: <span class="math display">\[X = u_1 \cdot G + u_2
+\cdot Q\]</span> Əgər <span class="math inline">\(X =
+\mathcal{O}\)</span> olarsa, imza etibarsız sayılır.</p></li>
+<li><p><span class="math inline">\(X = (x_1&#39;, y_1&#39;)\)</span>
+nöqtəsinin koordinatı yoxlanılır: Əgər <span
+class="math inline">\(x_1&#39; \bmod n == r\)</span> şərti ödənirsə,
+imza riyazi olaraq tam doğrudur.</p></li>
+</ol>
+<h2 id="klassik-rsa-ilə-müqayisədə-üstünlükləri">Klassik RSA ilə
+Müqayisədə Üstünlükləri</h2>
+<p>ECDSA riyazi strukturu sayəsində ənənəvi RSA sxemini bir çox
+parametrlərə görə üstündür:</p>
+<ul>
+<li><p><strong>Səmərəli açar uzunluğu:</strong> RSA-da subeksponensial
+sındırma alqoritmləri (GNFS) işlədiyi halda, ECC-də hələ də yalnız
+eksponensial alqoritmlər (Pollard ro üsulu) mövcuddur. Bu səbəbdən
+256-bitlik ECDSA açarı, 3072-bitlik RSA açarı ilə eyni kriptoqrafik
+müqaviməti (128-bit simmetrik təhlükəsizlik) təmin edir.</p></li>
+<li><p><strong>Hesablama və Resurs Səmərəliliyi:</strong> Daha kiçik bit
+ölçüləri ilə işləmək mobil cihazlarda, IoT (Əşyaların İnterneti) və
+ağıllı kartlarda həm enerji səmərəliliyinə, həm də RAM/Prosessor
+optimizasiyasına gətirib çıxarır.</p></li>
+</ul>
+<h2 id="kriptovalyutalar-və-secp256k1-standartı">Kriptovalyutalar və
+<code>secp256k1</code> Standartı</h2>
+<p>Bitcoin və Ethereum rəqəmsal imza infrastrukturlarında sadə meydan
+üzərində qısa Veyerştras əyrisi olan <strong>secp256k1</strong>-dən
+istifadə edir <span class="citation"
+data-cites="johnson2001elliptic"></span>. Onu ikili meydanlar üçün
+klassik Koblitz əyrisi adlandırmaq dəqiq deyil. Spesifikasiya
+belədir:</p>
+<ul>
+<li><p><strong>Kanonik Tənliyi:</strong> <span class="math inline">\(y^2
+= x^3 + 7 \pmod p \quad (\text{burada } a = 0, b = 7)\)</span></p></li>
+<li><p><strong>Sonlu Meydan Modulu:</strong> <span
+class="math inline">\(p = 2^{256} - 2^{32} - 2^9 - 2^8 - 2^7 - 2^6 - 2^4
+- 1 = 2^{256} - 2^{32} - 977\)</span></p></li>
+<li><p><strong>Mühəndislik xüsusiyyətləri:</strong> Kiçik <span
+class="math inline">\(a=0,b=7\)</span> parametrləri asan yoxlanır və
+əyri səmərəli GLV endomorfizminə malikdir. Sürətləndirmənin qazancı
+platforma, kitabxana və sabit-zaman tələblərindən asılıdır; parametr
+sadəliyi hər cür gələcək hücumu və reallaşdırma arxa qapısını istisna
+etmir.</p></li>
+</ul>
+<h2 id="ecdsa-və-təsadüfi-k-problemi">ECDSA və Təsadüfi <span
+class="math inline">\(k\)</span> Problemi</h2>
+<p>ECDSA-nın ən kritik zəif nöqtəsi imzalama zamanı istifadə olunan
+müvəqqəti birdəfəlik <span class="math inline">\(k\)</span> parametrinin
+generasiyasıdır. <span class="math inline">\(k\)</span>-nın zəif
+təsadüfi ədədlər generatoru (RNG) tərəfindən seçilməsi və ya təkrar
+istifadəsi birbaşa gizli açar <span class="math inline">\(d\)</span>-nin
+ifşasına yol açır.</p>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Sony PlayStation 3 Hadisəsi (2010)).
+<em>Sony PS3 konsolunun proqram təminatının qorunmasında istifadə olunan
+ECDSA sistemində proqramçılar strateji səhv edərək hər bir imzalama
+prosesi üçün <span class="math inline">\(k\)</span> parametrini unikal
+təsadüfi ədəd kimi deyil, sabit bir ədəd kimi təyin etmişdilər. Bu
+səbəbdən hücumçular iki fərqli sistem faylının imzasından (<span
+class="math inline">\(s_1\)</span> və <span
+class="math inline">\(s_2\)</span>) istifadə edərək əvvəlcə <span
+class="math inline">\(k\)</span>-nı, ardınca isə Sony-nin əsas kök gizli
+açarını (<span class="math inline">\(d\)</span>) sadə cəbri çıxarılışla
+əldə etdilər və konsolun mühafizə sistemini tamamilə sıradan
+çıxardılar.</em></p>
+</div>
+<h4 id="müasir-həll-yolu-rfc-6979-deterministik-imza">Müasir həll yolu —
+RFC 6979 deterministik imza:</h4>
+<p>RFC 6979 üzrə <span class="math inline">\(k\)</span> mesaj
+nümayəndəsi və gizli açardan HMAC əsaslı prosedurla deterministik
+törədilir. Bu, zəif xarici RNG səbəbli birdəfəlik dəyərin təkrarı
+riskini azaldır. Determinizm gizli açarın vaxt, keş, enerji və xəta
+inyeksiyası kanalları ilə sızmasını aradan qaldırmır; sabit-zamanlı və
+yoxlanmış reallaşdırma yenə tələb olunur.</p>
+<h1 id="ed25519---yüksək-performanslı-və-mühafizəli-imza-sxemi">Ed25519
+- Yüksək Performanslı və Mühafizəli İmza Sxemi</h1>
+<h2 id="nəzəri-əsaslar-və-riyazi-struktur">Nəzəri Əsaslar və Riyazi
+Struktur</h2>
+<p>Ed25519, Daniel J. Bernstein, Tanja Lange və digər kriptoqraflar
+tərəfindən 2011-ci ildə təklif edilmiş, EdDSA infrastrukturuna əsaslanan
+yüksək performanslı rəqəmsal imza sxemidir <span class="citation"
+data-cites="bernstein2012high"></span>. Ənənəvi ECDSA-da istifadə olunan
+Veyerştras əyrilərindən fərqli olaraq, Ed25519 riyazi olaraq sonlu <span
+class="math inline">\(\mathbb{F}_p\)</span> meydanı üzərində təyin
+olunmuş burulmuş Edvards əyrisindən istifadə edir.</p>
+<p>Alqoritmin nüvəsini təşkil edən əyrinin kanonik tənliyi aşağıdakı
+formadadır: <span class="math display">\[-x^2 + y^2 = 1 -
+\frac{121665}{121666}x^2y^2\]</span> Bu əyri, <span
+class="math inline">\(p = 2^{255} - 19\)</span> böyük sadə ədədi
+(psevdo-Mersenn sadə ədədi) ilə təyin olunmuş sonlu meydan üzərində
+qurulmuşdur. Riyazi olaraq, Ed25519 əyrisi, əsas açar mübadiləsi
+protokollarında (X25519) geniş istifadə olunan
+<strong>Curve25519</strong> Montqomeri əyrisi ilə birasional
+ekvivalentdir. Bu ekvivalentlik bir əyri üzərindəki nöqtələrin digər
+əyri üzərinə izomorfik köçürülməsini təmin edir.</p>
+<h2 id="ed25519-un-fundamental-kriptoqrafik-üstünlükləri">Ed25519-un
+Fundamental Kriptoqrafik Üstünlükləri</h2>
+<p>Ed25519 həm proqram təminatı, həm də aparat səviyyəsində
+təhlükəsizlik və sürət boşluqlarını azaltmaq üçün xüsusi olaraq
+layihələndirilmişdir:</p>
+<ul>
+<li><p><strong>Tam Toplama Düsturları:</strong> Burulmuş Edvards
+əyrilərinin ən mühüm cəhəti nöqtələrin toplanması üçün istifadə olunan
+cəbri düsturların tam olmasıdır. Yəni, iki nöqtənin toplanması, bir
+nöqtənin ikiqat yüksəldilməsi və ya sonsuzluqdakı neytral nöqtə (<span
+class="math inline">\(\mathcal{O}\)</span>) ilə əməliyyat aparılması
+zamanı alqoritmdə ayrıca istisna halı baş vermir. Proqram kodunda gizli
+veriləndən asılı şərt budaqlarına ehtiyac qalmır.</p></li>
+<li><p><strong>Yan kanal baxımından əlverişli dizayn:</strong> Tam
+toplama düsturları gizlidən asılı istisna budaqlarını azaltmağa kömək
+edir. RFC 8032 bununla belə skalyar vurma, yaddaş girişi, enerji analizi
+və xəta inyeksiyası hücumları üçün əlavə müdafiə tələb edir.</p></li>
+<li><p><strong>Daxili determinizm:</strong> Müvəqqəti <span
+class="math inline">\(r\)</span> xarici RNG-dən deyil, gizli ilkin
+toxumdan törədilən ön hissə və mesajın SHA-512 heşindən alınır. Bu,
+birdəfəlik dəyər üçün RNG-dən asılılığı azaldır, amma ilkin toxumun
+yaradılması və qorunması kritik qalır.</p></li>
+<li><p><strong>İmza tənliyi:</strong> <span
+class="math inline">\(r=H(prefix\parallel M)\bmod L\)</span>, <span
+class="math inline">\(R=rB\)</span> və <span
+class="math inline">\(k=H(R\parallel A\parallel M)\bmod L\)</span>
+hesablandıqdan sonra ikinci komponent <span
+class="math display">\[S=(r+k a)\bmod L\]</span> şəklindədir. Gizli
+skalyar <span class="math inline">\(a\)</span> yalnız çağırış <span
+class="math inline">\(k\)</span> ilə vurulur; bütün <span
+class="math inline">\((r+k)\)</span> cəmi ilə vurulmur.</p></li>
+</ul>
+<h2 id="klassik-ecdsa-və-ed25519-sxemlərinin-müqayisəsi">Klassik ECDSA
+və Ed25519 Sxemlərinin Müqayisəsi</h2>
+<p>Aşağıdakı cədvəldə müasir kriptoqrafiyanın iki ən güclü imza
+mexanizminin struktur, təhlükəsizlik və arxitektur xüsusiyyətlərinin
+müqayisəli təhlili verilmişdir:</p>
+<table>
+<caption>ECDSA və Ed25519 İmza Sxemlərinin Müqayisəli Kriptoqrafik
+Analizi <span class="citation"
+data-cites="bernstein2012high"></span></caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Meyar / xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>ECDSA (NIST P-256)</strong></th>
+<th style="text-align: left;"><strong>Ed25519</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Riyazi Əyri Modeli</strong></td>
+<td style="text-align: left;">Qısa Veyerştras (<span
+class="math inline">\(y^2 = x^3 - 3x + b\)</span>)</td>
+<td style="text-align: left;">Burulmuş Edwards (<span
+class="math inline">\(-x^2 + y^2 = 1 + dx^2y^2\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Müvəqqəti Açarı (<span
+class="math inline">\(k\)</span>) Hasilatı</strong></td>
+<td style="text-align: left;">Təsadüfi (və ya RFC 6979 ilə
+deterministik)</td>
+<td style="text-align: left;">Tamamilə Deterministik (SHA-512
+əsaslı)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Birdəfəlik dəyər/sirr sızması
+riski</strong></td>
+<td style="text-align: left;">Təkrar və ya proqnozlaşdırılan <span
+class="math inline">\(k\)</span> açarı ifşa edir</td>
+<td style="text-align: left;">Determinizm RNG riskini azaldır; yan
+kanal/xəta inyeksiyası riski qalır</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Açıq Açar Ölçüsü</strong></td>
+<td style="text-align: left;">33 bayt (sıxılmış) / 65 bayt</td>
+<td style="text-align: left;">32 bayt</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rəqəmsal İmza Ölçüsü</strong></td>
+<td style="text-align: left;">64 bayt ilə 72 bayt arası (DER
+formatı)</td>
+<td style="text-align: left;">Sabit 64 bayt</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Yan kanal müqaviməti</strong></td>
+<td style="text-align: left;">Reallaşdırmadan asılıdır</td>
+<td style="text-align: left;">Reallaşdırmadan asılıdır; sabit-zamanlı
+kod üçün əlverişlidir</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hesablama Sürəti</strong></td>
+<td style="text-align: left;">Orta səviyyəli</td>
+<td style="text-align: left;">Fövqəladə yüksək (Saniyədə on minlərlə
+imza)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Beynəlxalq standart</strong></td>
+<td style="text-align: left;">FIPS 186-5, ANSI X9.62</td>
+<td style="text-align: left;">IETF RFC 8032, NIST FIPS 186-5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="müasir-informasiya-sistemlərində-tətbiq-sahələri">Müasir
+İnformasiya Sistemlərində Tətbiq Sahələri</h2>
+<p>Ed25519 bir sıra müasir sistemlərdə istifadə olunur; konkret seçim
+protokol profilindən və reallaşdırmadan asılıdır:</p>
+<ul>
+<li><p><strong>TLS 1.3:</strong> RFC 9846 Ed25519-u imza sxemi kimi
+müəyyən edir; dəstək və tövsiyə vəziyyəti profil və reyestr ilə
+qiymətləndirilir <span class="citation"
+data-cites="rescorla2026rfc9846"></span>.</p></li>
+<li><p><strong>WireGuard:</strong> WireGuard Ed25519 imzası istifadə
+etmir; qarşı tərəfin autentifikasiyası Noise_IK əl sıxmasında statik
+Curve25519 DH açarları ilə qurulur.</p></li>
+<li><p><strong>OpenSSH Ekosistemi:</strong> SSH seanslarında
+autentifikasiya üçün köhnəlmiş RSA və DSA açarları əvəzinə cari dövrdə
+<code>ssh-ed25519</code> ən təhlükəsiz və tövsiyə olunan profil hesab
+olunur.</p></li>
+<li><p><strong>Paylanmış reyestrlər:</strong> Bəzi platformalar Ed25519
+və ya onun törəmələrini istifadə edir. Monero isə edwards25519 qrupunda
+CLSAG kimi ayrıca həlqə imzası protokolları tətbiq edir; bunu standart
+Ed25519 ilə eyniləşdirmək olmaz.</p></li>
+</ul>
+<h1 id="qabaqcıl-və-xüsusi-təyinatlı-imza-sxemləri">Qabaqcıl və Xüsusi
+Təyinatlı İmza Sxemləri</h1>
+<h2 id="kor-imza-blind-signature">Kor İmza (Blind Signature)</h2>
+<p>Kor imza imzalayan tərəfə mesajın məzmununu görmədən və öyrənmədən
+onu imzalamaq imkanı verir <span class="citation"
+data-cites="chaum1982blind"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong>. <em><span>Kor İmza
+Xassələri</span></em></p>
+<ul>
+<li><p><em><strong>Korluq (Blindness):</strong> İmzalayan tərəf
+imzaladığı mesajın məzmunu haqqında heç bir məlumat əldə edə
+bilmir.</em></p></li>
+<li><p><em><strong>Əlaqələndirilməzlik (Unlinkability):</strong> İmza
+açıq şəkildə istifadəyə verildikdən sonra imzalayan tərəf bu imzanı icra
+etdiyi xüsusi imzalama seansı ilə riyazi olaraq bağlayaraq
+identifikasiya edə bilmir.</em></p></li>
+</ul>
+</div>
+<h4 id="rsa-kor-imza-mexanizmi">RSA Kor İmza Mexanizmi:</h4>
+<ol>
+<li><p><strong>Korlama (Blinding):</strong> İstifadəçi <span
+class="math inline">\(m\)</span> mesajını gizlətmək üçün təsadüfi <span
+class="math inline">\(r \in \mathbb{Z}_n^*\)</span> seçir və korlanmış
+mesajı hesablayır: <span class="math display">\[m&#39; = m \cdot r^e
+\bmod n\]</span></p></li>
+<li><p><strong>İmzalama (Signing):</strong> Avtoritet <span
+class="math inline">\(m&#39;\)</span> mesajını öz gizli açarı (<span
+class="math inline">\(d\)</span>) ilə imzalayır: <span
+class="math display">\[s&#39; = (m&#39;)^d \equiv (m \cdot r^e)^d \equiv
+m^d \cdot r \pmod n\]</span></p></li>
+<li><p><strong>Korluğun Açılması (Unblinding):</strong> İstifadəçi <span
+class="math inline">\(s&#39;\)</span> imzasından <span
+class="math inline">\(r\)</span> faktorunu çıxararaq əsl imzanı bərpa
+edir: <span class="math display">\[s = s&#39; \cdot r^{-1} \equiv m^d
+\pmod n\]</span></p></li>
+</ol>
+<h2 id="həlqə-imzası-ring-signature">Həlqə İmzası (Ring Signature)</h2>
+<p>Həlqə imzası (Ring Signature) adlanan sxemdə imzalayan şəxs öz gizli
+açarından və <span class="math inline">\(N-1\)</span> sayda başqa
+müstəqil şəxslərin açıq açarlarından ibarət <strong>dinamik
+həlqə</strong> yaradır <span class="citation"
+data-cites="rivest2001ring"></span>.</p>
+<div class="keyconcept">
+<p><span>Həlqə İmzalarında Mərkəzsizləşmə və Dinamik Üzvlük</span> Qrup
+imzalarından (Group Signatures) fərqli olaraq, həlqə imzasında mərkəzi
+qrup meneceri (Group Manager) və ya inzibatçı yoxdur. İmzalayan şəxs
+digər <span class="math inline">\(N-1\)</span> iştirakçının icazəsi,
+xəbəri və ya köməyi olmadan onları imzalama həlqəsinə daxil edə bilər.
+Imza doğrulandıqda, onun məhz bu <span class="math inline">\(N\)</span>
+nəfərlik açıq açarlar siyahısındakı iştirakçılardan biri tərəfindən
+atıldığı riyazi olaraq sübut olunur, lakin imzalayanın dəqiq kimliyi tam
+anonim kalır.</p>
+</div>
+<h2 id="hədd-imzası-threshold-signature-scheme---tss">Hədd İmzası
+(Threshold Signature Scheme - TSS)</h2>
+<p><span class="math inline">\((t, n)\)</span> hədd imza sxemində vahid
+gizli açar (<span class="math inline">\(sk\)</span>) <span
+class="math inline">\(n\)</span> iştirakçı arasında paylanır (Secret
+Sharing). İmzanın yaradılması üçün mərkəzi bir açarı bərpa etmədən,
+minimum <span class="math inline">\(t\)</span> sayda iştirakçının
+paylanmış hesablamada (MPC) iştirak etməsi tələb olunur <span
+class="citation" data-cites="shamir1979share"></span>.</p>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Çoximza (Multi-sig):</strong> Tətbiq və ya blokçeyn
+təbəqəsində işləyir. <span class="math inline">\(t\)</span> sayda
+istifadəçi <span class="math inline">\(t\)</span> sayda tamamilə
+müstəqil imza atır. Bu imzalar blokçeyndə çox yer tutur, yüksək
+komissiya haqqı tələb edir və imzalayanların kimliyi şəbəkəyə
+sızır.</p></li>
+<li><p><strong>Hədd İmzası (TSS):</strong> Kriptoqrafik alqoritm
+təbəqəsində işləyir. İştirakçılar MPC protokolu vasitəsilə **cəmi bir
+ədəd standart imza** hasil edirlər. Xarici müşahidəçi imzanın tək şəxs,
+yoxsa <span class="math inline">\((t,n)\)</span> qrupu tərəfindən
+yaradıldığını riyazi olaraq fərqləndirə bilməz (Məxfilik və Yaddaş
+səmərəliliyi).</p></li>
+</ul>
+</div>
+<h2 id="birdəfəlik-imzalar-və-post-kvant-kriptoqrafiyası">Birdəfəlik
+İmzalar və Post-Kvant Kriptoqrafiyası</h2>
+<p>Kvant kompüterlərinin (Şor alqoritmi) inkişafı ilə ənənəvi
+faktorizasiya (RSA) və diskret loqarifm (DSA/ECDSA) əsaslı alqoritmlər
+zəifləyəcəyi üçün heş əsaslı post-kvant imza sxemləri böyük əhəmiyyət
+kəsb edir.</p>
+<h4 id="lamport-birdəfəlik-imza-sxemi-ots">Lamport Birdəfəlik İmza Sxemi
+(OTS):</h4>
+<p>Lamport sxemi yalnız birtərəfli heş funksiyalarına söykənir <span
+class="citation" data-cites="lamport1979constructing"></span>:</p>
+<ol>
+<li><p><strong>Gizli Açar (<span
+class="math inline">\(sK\)</span>):</strong> <span
+class="math inline">\(256 \times 2\)</span> ölçülü təsadüfi ədədlər
+matrisi (256-bitlik heş üçün).</p></li>
+<li><p><strong>Açıq Açar (<span
+class="math inline">\(pK\)</span>):</strong> Gizli açarın hər bir
+elementinin tek-tek heş dəyəri: <span class="math inline">\(pK_{i,j} =
+H(sK_{i,j})\)</span>.</p></li>
+<li><p><strong>İmzalama:</strong> Mesajın <span
+class="math inline">\(H(m)\)</span> heş dəyərinin <span
+class="math inline">\(i\)</span>-ci biti <span
+class="math inline">\(0\)</span>-dırsa <span
+class="math inline">\(sK_{i,0}\)</span>, <span
+class="math inline">\(1\)</span>-dirsa <span
+class="math inline">\(sK_{i,1}\)</span> gizli elementi
+açıqlanır.</p></li>
+</ol>
+<div class="warning">
+<p><span>Lamport OTS Açarının Təkrar İstifadə Təhlükəsi</span> Lamport
+imzasında gizli açarın yarısı doğrudan mətn şəklində açıqlanır. Əgər
+eyni gizli açarla ikinci fərqli mesaj imzalanarsa, hücumçu açıqlanan
+gizli elementləri birləşdirərək açarın böyük hissəsini bərpa edər və
+üçüncü saxta mesajı sərbəst imzalaya bilər.</p>
+</div>
+<h1 id="rəqəmsal-imzalara-qarşı-hücum-modelləri-və-təsnifatı">Rəqəmsal
+İmzalara Qarşı Hücum Modelləri və Təsnifatı</h1>
+<p>Rəqəmsal imza sxemlərinin təhlükəsizlik təhlili hücumçunun malik
+olduğu imkanlara (Hücum Modeli) və əldə etmək istədiyi nəticəyə
+(Saxtakarlıq Səviyyəsi) görə ikitərəfli təsnif edilir <span
+class="citation" data-cites="katz2020introduction"></span>:</p>
+<p><strong>Hücumçunun İmkana Görə Modelləri:</strong></p>
+<ol>
+<li><p><strong>NOCA (No-key Attack - Açarsız hücum):</strong> Hücumçunun
+hətta açıq açara da çıxışı yoxdur (nəzəri model).</p></li>
+<li><p><strong>KPA (Known-PublicKey Attack - Məlum Açıq açar
+hücumu):</strong> Hücumçu yalnız hədəfin açıq açarına (<span
+class="math inline">\(pk\)</span>) malikdir.</p></li>
+<li><p><strong>KMA (Known-Message Attack - Məlim mesaj hücumu):</strong>
+Hücumçu əvvəllər qanuni yolla imzalanmış <span
+class="math inline">\((m_i, \sigma_i)\)</span> cütlüklərini müşahidə edə
+bilir.</p></li>
+<li><p><strong>CMA (Chosen-Message Attack - Seçilmiş mesaj
+hücumu):</strong> Hücumçu adaptiv olaraq seçdiyi <span
+class="math inline">\(m_i\)</span> mesajlarını imzalada bilən interaktiv
+imza alətindən (Oracle) istifadə edir.</p></li>
+</ol>
+<p><strong>Saxtakarlıq (Break) Səviyyələri:</strong></p>
+<ol>
+<li><p><strong>Tam sındırma (Total Break):</strong> Hücumçu gizli açarı
+(<span class="math inline">\(sk\)</span>) tamamilə bərpa edir.</p></li>
+<li><p><strong>Seçmə saxtalaşdırma (Selective Forgery):</strong> Hücumçu
+öncədən hədəflədiyi xüsusi bir <span class="math inline">\(m^*\)</span>
+mesajı üçün etibarlı <span class="math inline">\(\sigma^*\)</span>
+imzasını yaradır.</p></li>
+<li><p><strong>Mövcudluq saxtalaşdırma (Existential Forgery):</strong>
+Hücumçu mənanın olub-olmamasından asılı olmayaraq, azı bir ədəd yeni
+<span class="math inline">\((m^*, \sigma^*)\)</span> cütü hasil
+edir.</p></li>
+</ol>
+<h1
+id="rəqəmsal-imzaların-praktik-və-protokol-səviyyəli-tətbiqləri">Rəqəmsal
+İmzaların Praktik və Protokol Səviyyəli Tətbiqləri</h1>
+<p>Rəqəmsal imza sxemləri bütövlük və açıq-açar üzrə autentifikasiya
+üçün istifadə olunur. Onlar özləri konfidensiallıq vermir; hüquqi
+inkaredilməzlik isə PKI, açar qorunması, audit, zaman və qanunla
+birlikdə yaranır.</p>
+<h2 id="x.509-sertifikatları-və-tlsssl-infrastrukturu">X.509
+Sertifikatları və TLS/SSL İnfrastrukturu</h2>
+<p>Veb təhlükəsizliyinin əsası olan TLS/SSL protokolu, açıq açarların
+autentifikasiyasını təmin etmək üçün <strong>X.509 v3</strong>
+standartlı rəqəmsal sertifikatlardan və açıq açar infrastrukturundan
+(PKI) istifadə edir <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<h4 id="etimad-zəncirinin-riyazi-yoxlanılması">Etimad Zəncirinin Riyazi
+Yoxlanılması:</h4>
+<ul>
+<li><p>Hər bir server öz açıq açarını və domen məlumatlarını ehtiva edən
+sertifikatı rəsmi sertifikat mərkəzinə (CA) təqdim edir.</p></li>
+<li><p>Sertifikat Mərkəzi serverin məlumatlarını yoxladıqdan sonra,
+həmin məlumatların kriptoqrafik heş dəyərini öz daxili gizli açarı ilə
+imzalayır.</p></li>
+<li><p>İstifadəçinin veb brauzeri (klient) serverə qoşulduqda, daxil
+olan sertifikat zəncirini yoxlayır. Brauzerin daxilində öncədən
+quraşdırılmış etibarlı kök sertifikat mərkəzlərinin açıq açarları
+vasitəsilə riyazi imza yoxlanılır. Əgər zəncirdəki hər hansı bir imza
+riyazi olaraq etibarsız olarsa, TLS bağlantısı dərhal kəsilir.</p></li>
+</ul>
+<h2 id="proqram-təminatının-imzalanması">Proqram Təminatının
+İmzalanması</h2>
+<p>Proqram təminatının bütövlüyünü və müəllifini təyin etmək üçün
+əməliyyat sistemləri (məsələn, Windows Authenticode, macOS Gatekeeper)
+rəqəmsal imza mexanizmlərindən istifadə edirlər <span class="citation"
+data-cites="ferguson2010cryptography"></span>.</p>
+<p>Yayımlanan proqram faylının ikili kodu heşlənir və proqram
+təminatçısının açarı ilə imzalanır. Məcburi və düzgün yoxlama ötürülmə
+zamanı dəyişikliyi aşkarlaya bilər. Kod imzalanması zərərli kodun qanuni
+və ya kompromet edilmiş təchizatçı açarı ilə imzalanmasını, yığım
+sisteminin komprometini və istifadəçinin xəbərdarlığı keçməsini öz-özünə
+önləmir.</p>
+<h2 id="blokçeyn-texnologiyaları-və-kriptovalyutalar">Blokçeyn
+Texnologiyaları və Kriptovalyutalar</h2>
+<p>Paylanmış reyestr sistemlərində mərkəzi idarəedici avtoritet olmadığı
+üçün tranzaksiyaların legitimliyi tamamilə asimmetrik rəqəmsal imzalara
+əsaslanır <span class="citation"
+data-cites="johnson2001elliptic"></span>.</p>
+<ul>
+<li><p><strong>Hesab Mülkiyyəti:</strong> Blokçeyndə "cüzdan ünvanı"
+istifadəçinin açıq açarının xüsusi bir heş formasıdır. Gizli açar isə
+vəsaitlər üzərində birbaşa mülkiyyət hüququnu təmsil edir.</p></li>
+<li><p><strong>Tranzaksiya autentifikasiyası:</strong> Bir istifadəçi
+digərinə kriptovalyuta göndərdikdə, o, tranzaksiyanın detallarını
+(göndərilən məbləğ, alıcının ünvanı, birdəfəlik dəyər) öz gizli açarı
+ilə imzalayır (məsələn, Bitcoin-də secp256k1 əyrisi ilə ECDSA, Solana-da
+isə Ed25519 vasitəsilə).</p></li>
+<li><p><strong>Asinxron şəbəkə yoxlaması:</strong> Şəbəkədəki bütün
+yoxlayıcı qovşaqlar (və ya mədənçi qovşaqlar) gələn tranzaksiyanı bloka
+daxil etməzdən əvvəl göndərənin açıq açarı ilə imzanın riyazi
+doğruluğunu yoxlayır. İmzasız və ya saxta imzalı tranzaksiyalar
+konsensus mexanizmi tərəfindən dərhal rədd edilir.</p></li>
+</ul>
+<h2 id="rəqəmsal-sənəd-dövriyyəsi-və-hüquqi-çərçivə">Rəqəmsal Sənəd
+Dövriyyəsi və Hüquqi Çərçivə</h2>
+<p>Elektron sənəd dövriyyəsi sistemlərində (e-hökumət, korporativ ERP
+sistemləri) rəqəmsal imzalar sənədin dəyişdirilmədiyini və müəllif
+tərəfindən təsdiqləndiyini qanuni olaraq sübut edir <span
+class="citation" data-cites="stinson2018cryptography"></span>.</p>
+<p>Elektron imzanın hüquqi nəticəsi yurisdiksiya və konkret imza növünə
+bağlıdır. Azərbaycan qanunvericiliyində gücləndirilmiş elektron imzanın
+hüquqi qüvvəsi tətbiq sahəsi və istisnalar daxilində müəyyən edilir.
+eIDAS isə Aİ-də ixtisaslaşdırılmış elektron imza (QES) üçün ayrıca
+tələblər qoyur; ASAN İmzanın QES-ə avtomatik transsərhəd ekvivalentliyi
+ayrıca tanınma sazişi və ya hüquqi mexanizm olmadan iddia edilə
+bilməz.</p>
+<h2
+id="dnssec-domen-adları-sisteminin-təhlükəsizlik-genişləndirmələri">DNSSEC:
+domen adları sisteminin təhlükəsizlik genişləndirmələri</h2>
+<p>Ənənəvi DNS protokolu verilənlərin autentifikasiyasını dəstəkləmədiyi
+üçün DNS-keş zəhərlənməsi və ortadakı vasitəçi (MitM) hücumlarına qarşı
+zəifdir. <strong>DNSSEC</strong>, DNS verilənlərinin bütövlüyünü
+kriptoqrafik olaraq qorumaq üçün iyerarxik rəqəmsal imza strukturunu
+tətbiq edir <span class="citation"
+data-cites="menezes1996handbook"></span>.</p>
+<p>DNSSEC strukturunda hər bir DNS zonası öz resurs qeyd dəstlərini
+(RRset) daxili gizli açarı ilə imzalayır və bu imza
+<strong>RRSIG</strong> yazısı olaraq saxlanılır. Sorğu göndərən tərəf
+zonanın açıq açarını ehtiva edən <strong>DNSKEY</strong> qeydi
+vasitəsilə imzanı yoxlayır. Zonaların açıq açarlarının həqiqiliyi isə
+üst zona tərəfindən <strong>DS</strong> qeydi ilə zəncirvari şəkildə
+imzalanaraq qlobal internetin kök zonasına qədər uzanan bir etibar
+iyerarxiyası formalaşdırır.</p>
+<h1 id="praktik-tövsiyələr-və-kriptoqrafik-seçim-strategiyaları">Praktik
+Tövsiyələr və Kriptoqrafik Seçim Strategiyaları</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Yeni Qurulan İnformasiya Sistemləri Üçün:</strong></p>
+<ul>
+<li><p>Uyğun standart profilində Ed25519 seçilə bilər; yoxlanmış
+sabit-zamanlı kitabxana, düzgün ilkin toxum generasiyası, açar
+saxlanması və xəta inyeksiyası/enerji analizi müdafiəsi ayrıca təmin
+edilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Mövcud və ya geriyə uyğunluq tələb edən sistemlər
+üçün:</strong></p>
+<ul>
+<li><p>RSA infrastrukturlarında köhnəlmiş PKCS#1 v1.5 doldurma sxemi
+əvəzinə mütləq <strong>RSA-PSS</strong> ehtimallı imza sxemindən
+istifadə edin.</p></li>
+<li><p>Beynəlxalq standartlara (NIST, BSI) uyğun olaraq, müasir
+sistemlərdə 128-bitlik simmetrik təhlükəsizlik ekvivalentini qorumaq
+üçün minimum açar uzunluqları: RSA üçün <strong>3072 bit</strong>, ECDSA
+üçün isə <strong>256 bit</strong> təyin edilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Blokçeyn və Paylanmış Reyestr Tətbiqləri
+Üçün:</strong></p>
+<ul>
+<li><p>Bitcoin və Ethereum ilə uyğunluq üçün sadə-meydan Veyerştras
+əyrisi olan <strong>secp256k1</strong> və həmin protokolun tələb etdiyi
+imza qaydaları istifadə olunur.</p></li>
+<li><p>Təhlükəsiz CSPRNG və ya uyğun profildə RFC 6979 kimi
+deterministik birdəfəlik dəyər proseduru seçilməli, yan kanal/xəta
+inyeksiyası müdafiəsi ayrıca təmin edilməlidir.</p></li>
+</ul></li>
+<li><p><strong>Fundamental Təhlükəsizlik Prinsipləri:</strong></p>
+<ul>
+<li><p>Sxemin müəyyən etdiyi API və domen ayrılması qaydalarına riayət
+edin. PureEd25519 mesaj qəbul edir, Ed25519ph isə ayrıca standart önheş
+variantıdır; özbaşına xarici heş dəyərini imzalamaq olmaz.</p></li>
+<li><p>Gizli açarlar proqram koduna sabit yazılmış və ya açıq mətn
+formasında saxlanıla bilməz; onların generasiyası və istifadəsi
+<strong>HSM</strong> və ya <strong>TPM</strong> aparat modulları
+daxilində izolyasiya edilməlidir.</p></li>
+<li><p>Müəyyən edilmiş zaman intervallarında açarların dövri yenilənməsi
+icra olunmalıdır.</p></li>
+</ul></li>
+<li><p><strong>Xüsusi Funksional Tələblər Üçün:</strong></p>
+<ul>
+<li><p>Sxemin təhlükəsizlik modelində imzalayan gizliliyi üçün:
+<strong>Həlqə İmzası</strong></p></li>
+<li><p>Çoxtərəfli paylanmış idarəetmə və vahid imza istehsalı üçün:
+<strong>Hədd İmzası</strong></p></li>
+<li><p>İmzalanacaq məzmunun imzalayandan gizlədilməsi üçün: <strong>Kor
+İmza</strong></p></li>
+<li><p>Post-kvant dövrünə hazırlıq üçün: Heş əsaslı
+<strong>XMSS</strong> və ya <strong>LMS</strong> imza sxemləri.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-auditoriya-çalışmaları">Nümunə Məsələlər və
+Auditoriya Çalışmaları</h1>
+<div class="tcolorbox">
+<p>İmza tapşırıqlarında əvvəlcə təhlükəsizlik oyunu, sonra alqoritm
+addımlarını yazın. Müəllim üçün cavab açarı yalnız ilkin cəhddən sonra
+açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong> (1). <em>Asimmetrik rəqəmsal imza sxemləri
+ilə simmetrik məlumatın autentifikasiya kodları (MAK; MAC) arasındakı üç
+əsas arxitektur fərqi sadalayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong> (2). <em>Doldurulmamış (saf) RSA imza
+sxemində hücumçunun gizli açarı bilmədən saxta imza-mesaj cütü
+yaratmasını təmin edən cəbri hücum modelini riyazi olaraq nümayiş
+etdirin və doldurma mexanizminin bu hücumu necə blokladığını izah
+edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong> (3). <em>DSA alqoritmində müvəqqəti
+təsadüfi <span class="math inline">\(k\)</span> parametrinin iki fərqli
+mesaj üçün eyni seçilməsinin yaratdığı təhlükəni riyazi olaraq
+əsaslandırın. Hücumçunun sistemin gizli açarı olan <span
+class="math inline">\(x\)</span>-i necə hesabladığını düsturlarla
+göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong> (4). <em>Elliptik Əyrilər
+Kriptoqrafiyasına əsaslanan ECDSA-nın klassik RSA imza sxemi ilə
+müqayisədə resurs məhdudiyyətli sistemlər (IoT, mobil cihazlar) üçün
+üstünlüklərini analiz edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong> (5). <em>Ed25519 sxeminin riyazi
+arxitekturasının yan kanal hücumlarına qarşı necə təbii müdafiə
+formalaşdırdığını və <span class="math inline">\(k\)</span> parametrinin
+deterministik generasiyasının mahiyyətini izah edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong> (6). <em>Kor imza, həlqə imzası və hədd
+imzası sxemlərinin hər birinin təmin etdiyi xüsusi kriptoqrafik xassəni
+vurğulayın və real tətbiq sahələrini göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong> (7). <em>Niyə Bitcoin protokolu secp256k1
+əyrisini tətbiq edir? Mövcud işlək blokçeyn sisteminin Ed25519 imza
+sxeminə miqrasiya etməsinin texniki çətinlikləri nələrdir?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong> (8). <em>Müasir TLS 1.3 şəbəkə
+protokolunda icazə verilən rəqəmsal imza alqoritmlərini sadalayın və
+onların təhlükəsizlik dərəcələrini müqayisə edin.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p><strong>Rəqəmsal İmza və MAK Arasındakı Fundamental
+Fərqlər:</strong></p>
+<ol>
+<li><p><em>Riyazi Arxitektura:</em> Rəqəmsal imza asimmetrik
+kriptoqrafiyaya (iki fərqli açar: gizli və açıq), MAK isə simmetrik
+kriptoqrafiyaya (eyni ortaq gizli açar) əsaslanır.</p></li>
+<li><p><em>Üçüncü tərəf sübutu:</em> Rəqəmsal imza açıq yoxlanan dəlil
+verir, lakin şəxsin identifikasiyası, açarın ələ keçirilməsi və hüquqi
+nəticə ayrıca qiymətləndirilir. MAK-da hər iki tərəf eyni açarla kod
+yarada bildiyi üçün müəllifi ayıran belə dəlil yoxdur.</p></li>
+<li><p><em>Yoxlama Universallığı:</em> Rəqəmsal imzanı müəllifin açıq
+açarına malik olan <em>istənilən şəxs</em> yoxlaya bilər. MAK-ı isə
+yalnız ortaq gizli açarı bilən tərəflər yoxlaya bilər.</p></li>
+</ol></li>
+<li><p><strong>Doldurulmamış RSA İmzasına Qarşı Hücumun Riyazi
+Sübutu:</strong> Doldurulmamış RSA-da imzalama <span
+class="math inline">\(s = m^d \pmod n\)</span> və yoxlama <span
+class="math inline">\(m = s^e \pmod n\)</span> kimidir. Hücumçu gizli
+açarı bilmədən ixtiyari bir <span class="math inline">\(s^* \in
+\mathbb{Z}_n^*\)</span> dəyəri seçir və <span class="math inline">\(m^*
+= (s^*)^e \pmod n\)</span> hesablayır. Əldə edilən <span
+class="math inline">\((m^*, s^*)\)</span> cütü riyazi olaraq tam keçərli
+bir sənəd-imza cütlüyünə çevrilir, çünki yoxlama alqoritmi <span
+class="math inline">\((s^*)^e \equiv m^* \pmod n\)</span> şərtini
+ödəyəcək; bu, mövcudluq saxtalaşdırmasıdır.</p>
+<p><strong>Kodlaşdırmanın rolu:</strong> RSA-PSS və EMSA-PKCS1-v1_5
+mesajı heş identifikatoru və ciddi blok strukturu ilə bağlayır. Təsadüfi
+seçilmiş RSA nümayəndəsinin düzgün kodlaşdırılmış mesaja uyğun gəlmə
+ehtimalı sıfır deyil, təhlükəsizlik parametri ilə cüzi olmalıdır;
+təhlükəsizlik tam parser yoxlaması və sxemin formal fərziyyələrinə
+bağlıdır.</p></li>
+<li><p><strong>DSA-da <span class="math inline">\(k\)</span>
+Parametrinin Təkrar İstifadəsindən Gizli Açarın Çıxarılması:</strong>
+Tutaq ki, eyni <span class="math inline">\(k\)</span> müvəqqəti açarı
+ilə iki fərqli <span class="math inline">\(m_1\)</span> və <span
+class="math inline">\(m_2\)</span> mesajları imzalanmışdır. Bu zaman hər
+iki imzanın birinci komponenti eyni olacaq: <span
+class="math inline">\(r = (g^k \bmod p) \bmod q\)</span>. İmzanın ikinci
+komponentləri: <span class="math display">\[s_1 = k^{-1}(H(m_1) + x
+\cdot r) \pmod q \quad \text{və} \quad s_2 = k^{-1}(H(m_2) + x \cdot r)
+\pmod q\]</span> Hücumçu bu tənliklər sistemini tərəf-tərəfə çıxaraq
+<span class="math inline">\(k\)</span> dəyərini asanlıqla tapır: <span
+class="math display">\[s_1 - s_2 = k^{-1}(H(m_1) - H(m_2)) \pmod q
+\implies k \equiv (H(m_1) - H(m_2))(s_1 - s_2)^{-1} \pmod q\]</span>
+<span class="math inline">\(k\)</span> tapıldıqdan sonra, sistemin kök
+gizli açarı olan <span class="math inline">\(x\)</span> birinci
+tənlikdən birbaşa bərpa olunur: <span class="math display">\[x =
+r^{-1}(s_1 \cdot k - H(m_1)) \pmod q\]</span></p></li>
+<li><p><strong>ECDSA-nın Resurs Məhdudiyyətli Sistemlərdə
+Üstünlükləri:</strong> ECDSA, elliptik əyri diskret loqarifm probleminin
+(ECDLP) yüksək hesablama mürəkkəbliyi sayəsində daha kiçik açar ölçüləri
+ilə işləyir. 256-bitlik bir ECDSA açarı, 3072-bitlik bir RSA açarı ilə
+eyni kriptoqrafik müqaviməti təmin edir. Bu, daha az yaddaş (RAM və fleş
+yaddaş) sərfi, şəbəkə üzərindən ötürülən məlumat paketlərinin kiçilməsi
+və mobil cihazlarda/IoT sensorlarında enerji səmərəliliyi
+deməkdir.</p></li>
+<li><p><strong>Ed25519-un Konstruktiv Üstünlükləri:</strong> Ed25519-un
+tam toplama düsturları gizlidən asılı istisna budaqlarını azaltmağa
+kömək edir. Bununla belə sabit-zamanlı meydan arifmetikası və yaddaş
+girişi, həmçinin enerji/xəta inyeksiyası müdafiəsi reallaşdırmada ayrıca
+təmin edilməlidir.</p>
+<p>Ed25519 birdəfəlik dəyəri gizli ön hissə və mesajdan deterministik
+törədir; bu, hər imza üçün RNG xətasını azaldır. Gizli ilkin toxumun
+zəif yaradılması və ya yan kanal vasitəsilə çıxarılması yenə açarı
+təhlükəyə atır.</p></li>
+<li><p><strong>Qabaqcıl İmza Sxemlərinin Mahiyyəti və
+Tətbiqi:</strong></p>
+<ul>
+<li><p><em>Kor İmza:</em> İmzalayan tərəf məzmunu görmədən kor sənədi
+imzalayır. Tətbiq: anonim rəqəmsal pullar, məxfi elektron
+səsvermə.</p></li>
+<li><p><em>Həlqə imzası:</em> Menecer olmadan həlqə üzvlərindən birinin
+imzasını göstərir; gizlilik konkret sxem, həlqə seçimi və metaverilənlər
+modelindən asılıdır. Monero ayrıca əlaqələndirilə bilən Həlqə imzası
+protokolları istifadə edir.</p></li>
+<li><p><em>Hədd İmzası:</em> <span class="math inline">\((t, n)\)</span>
+sxemi ilə gizli açar paylara bölünür. İmza üçün mütləq <span
+class="math inline">\(t\)</span> sayda iştirakçının paylanmış hesablama
+(MPC) aparması lazımdır. Tətbiq: Qurumsal kriptovalyuta cüzdanları, çox
+tərəfli strateji qərar sistemləri.</p></li>
+</ul></li>
+<li><p><strong>Bitcoin və secp256k1 Seçimi:</strong>
+<code>secp256k1</code> sadə meydan üzərində <span
+class="math inline">\(y^2=x^3+7\)</span> əyrisidir və effektiv GLV
+endomorfizminə malikdir; klassik ikili-meydan Koblitz əyrisi deyil.
+Satoşinin seçim motivləri sənədləşdirilməyib, buna görə performans və
+parametr şəffaflığı mümkün izahlardır, təsdiqlənmiş niyyət deyil.</p>
+<p>Yeni imza tipi ünvan və skript formatı, konsensus yoxlaması, cüzdan
+və aparat dəstəyi tələb edir. Dəyişiklik sərt ayrılma, yumşaq ayrılma və
+ya versiyalaşdırılmış skript yolu ilə edilə bilər; dəqiq mexanizm mövcud
+konsensus qaydalarından asılıdır.</p></li>
+<li><p><strong>TLS 1.3 Protokolunda İmza Sxemləri:</strong> RFC 9846 TLS
+1.3 əl sıxma imzaları üçün RSA-PSS, ECDSA və Ed25519/Ed448 daxil olmaqla
+imza sxemləri müəyyən edir. <code>SignatureScheme</code> registrində
+tövsiyə edilən, məcburi reallaşdırılan və yalnız sertifikat üçün olan
+istifadələr fərqləndirilir; RSA-PKCS1-v1_5 əl sıxma imzası kimi deyil,
+bəzi sertifikat zənciri yoxlamalarında xüsusi qaydalarla qala bilər.
+Universal “ən yaxşı” seçim profil, sertifikat infrastrukturu və
+kitabxanadan asılıdır <span class="citation"
+data-cites="rescorla2026rfc9846"></span>.</p></li>
+</ul>
+<h1 id="mühazirənin-xülasəsi">Mühazirənin Xülasəsi</h1>
+<p>Bu mühazirə çərçivəsində rəqəmsal imza arxitekturasının nəzəri
+əsasları, riyazi modelləri və müasir tətbiq sahələri ətraflı şəkildə
+təhlil edilmişdir. Öyrənilən əsas elmi müddəalar aşağıdakılardan
+ibarətdir:</p>
+<ul>
+<li><p><strong>Rəqəmsal imza paradigması:</strong> Mesajın açıq açara
+görə bütövlüyünü və uyğun gizli açarla yaradıldığını yoxlayan
+mexanizmdir; şəxsiyyət və hüquqi inkaredilməzlik əlavə PKI və hüquq
+qatlarından asılıdır.</p></li>
+<li><p><strong>Mesajın heşlənməsi:</strong> Heşləmə sxemin daxili
+kodlaşdırması və domen ayırma qaydaları ilə aparılır; PureEd25519 və
+Ed25519ph kimi variantlar bir-birindən fərqləndirilir.</p></li>
+<li><p><strong>RSA və Doldurma Sxemləri:</strong> RSA alqoritminin
+multiplikativ kommutativliyi doldurulmamış variantda sistemi zəiflədir.
+RSA-PSS doldurması sistemi EUF-CMA təhlükəsizlik səviyyəsinə
+qaldırır.</p></li>
+<li><p><strong>Diskret Loqarifm Əsaslı Sxemlər (DSA və ECDSA):</strong>
+Multiplikativ qruplarda və elliptik əyrilərdə diskret loqarifm
+probleminin çətinliyinə əsaslanırlar. Hər iki sxemdə müvəqqəti <span
+class="math inline">\(k\)</span> parametrinin keyfiyyəti təhlükəsizliyin
+əsas şərtidir.</p></li>
+<li><p><strong>Ed25519:</strong> Deterministik birdəfəlik dəyər və tam
+toplama düsturları təhlükəsiz reallaşdırmanı asanlaşdırır, lakin fiziki
+yan kanal və xəta inyeksiyası hücumlarına qarşı ayrıca tədbirlər tələb
+olunur.</p></li>
+<li><p><strong>Qabaqcıl və Post-Kvant Kriptoqrafiyası:</strong>
+Anonimlik və paylanmış nəzarət üçün kor, həlqə və hədd imzası sxemləri;
+gələcəkdə kvant təhdidlərinə tab gətirmək üçün isə heş əsaslı birdəfəlik
+və çoxdəfəlik imza (Lamport/Merkl) strukturları müasir kriptoqrafiyanın
+inkişaf vektorunu müəyyən edir.</p></li>
+</ul>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>EUF-CMA: <em>Existential Unforgeability under
+Chosen-Message Attack</em> .<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (12)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Katz &amp; Lindell, 2020</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Introduction to Modern Cryptography</h6>
+                    <p class="small text-secondary mb-0">Jonathan Katz and Yehuda Lindell (2020)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Ferguson et al., 2010</span>
+                        <small class="text-muted">Wiley</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography Engineering: Design Principles and Practical Applications</h6>
+                    <p class="small text-secondary mb-0">Niels Ferguson and Bruce Schneier and Tadayoshi Kohno (2010)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Menezes et al., 1996</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Handbook of Applied Cryptography</h6>
+                    <p class="small text-secondary mb-0">Alfred J. Menezes and Paul C. van Oorschot and Scott A. Vanstone (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Johnson et al., 2001</span>
+                        <small class="text-muted">International Journal of Information Security</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Elliptic Curve Digital Signature Algorithm (ECDSA)</h6>
+                    <p class="small text-secondary mb-0">Don Johnson and Alfred J. Menezes and Scott A. Vanstone (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Chaum, 1983</span>
+                        <small class="text-muted">Advances in Cryptology -- CRYPTO &#x27;82</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Blind Signatures for Untraceable Payments</h6>
+                    <p class="small text-secondary mb-0">David Chaum (1983)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Rivest et al., 2001</span>
+                        <small class="text-muted">Advances in Cryptology - ASIACRYPT 2001</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">How to Leak a Secret</h6>
+                    <p class="small text-secondary mb-0">Ronald L. Rivest and Adi Shamir and Yael Tauman (2001)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] Shamir, 1979</span>
+                        <small class="text-muted">Communications of the ACM</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">How to Share a Secret</h6>
+                    <p class="small text-secondary mb-0">Adi Shamir (1979)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] NIST, 2019</span>
+                        <small class="text-muted">National Institute of Standards and Technology</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Digital Signature Standard (DSS)</h6>
+                    <p class="small text-secondary mb-0">NIST (2019)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Bernstein et al., 2012</span>
+                        <small class="text-muted">Journal of Cryptographic Engineering</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">High-Speed High-Security Signatures</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein and Niels Duif and Tanja Lange and Peter Schwabe and Bo-Yin Yang (2012)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Rescorla, 2026</span>
+                        <small class="text-muted">RFC Editor</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The Transport Layer Security (TLS) Protocol Version 1.3</h6>
+                    <p class="small text-secondary mb-0">Eric Rescorla (2026)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Lamport, 1979</span>
+                        <small class="text-muted">SRI International</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Constructing Digital Signatures from a One-Way Function</h6>
+                    <p class="small text-secondary mb-0">Leslie Lamport (1979)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

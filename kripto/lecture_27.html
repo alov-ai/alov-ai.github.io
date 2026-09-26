@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mühazirə_27</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<div class="titlepage">
+<p><strong>KRİPTOQRAFİYA KURSU</strong></p>
+<p><strong>Mühazirə 27</strong></p>
+<p><strong>Kriptoanaliz və Yan Kanal Hücumları</strong></p>
+<p>Bu mühazirə kriptoanalizin əsas növlərini (diferensial, xətti), tam
+axtarış hücumlarını, yan kanal hücumlarını (vaxt, güc, elektromaqnit,
+keş, xəta inyeksiyası hücumları) və onlara qarşı müdafiə üsullarını
+əhatə edir.</p></div>
+<h1 id="mühazirənin-məqsədləri">Mühazirənin məqsədləri</h1>
+<p>Bu mühazirəni müvəffəqiyyətlə başa vurduqdan sonra tələbələr:</p>
+<ul>
+<li><p>Tam axtarış hücumunun (<em>brute-force</em>) mürəkkəbliyini
+açarın ölçüsünə əsasən hesablamağı, diferensial və xətti kriptoanalizin
+məlumat modellərini fərqləndirməyi <span class="citation"
+data-cites="biham1993differential matsui1993linear"></span>;</p></li>
+<li><p>DDT<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> və xətti yaxınlaşma nəticələrini
+ehtimal və kənarlaşma (<em>bias</em>) dili ilə şərh etməyi;</p></li>
+<li><p>Alqoritmik (riyazi) kriptoanaliz ilə icra müddəti, güc sızması,
+keş yaddaş, elektromaqnit şüalanma və xəta inyeksiyası kimi yan kanal
+müşahidələrini fərqləndirməyi <span class="citation"
+data-cites="kocher1996timing kocher1999differential"></span>;</p></li>
+<li><p>Verilmiş yan kanal izindən və ya səhv RSA-CRT<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+imzasından informasiya sızmasının səbəbini müəyyənləşdirməyi <span
+class="citation" data-cites="boneh1997fault"></span>;</p></li>
+<li><p>Verilmiş təhdid modelinə uygun olaraq sabit-zamanlı kodlaşdırma
+(<em>constant-time execution</em>), maskalama (<em>masking</em>),
+korlaşdırma (<em>blinding</em>) və çıxışın doğrulanması müdafiə
+kombinasiyalarını elmi şəkildə əsaslandırmağı bacaracaqlar <span
+class="citation" data-cites="mangard2007power"></span>.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Əvvəlki mühazirə:</strong> 17-ci mühazirədə Montqomeri
+nərdivanının (<em>Montgomery ladder</em>) təkbaşına sabit-zaman zəmanəti
+vermədiyi qeyd olunmuş, 19–26-cı mühazirələrdə müdaxiləyə davamlı
+təhlükəsiz protokollar təhlil edilmişdi.</p>
+<p><strong>Cari mühazirə:</strong> Əvvəlcə alqoritmik (kriptoqrafik),
+daha sonra implementasiya/fiziki (yan kanal) hücum modellərini iki
+müstəqil hissədə araşdırırıq.</p>
+<p><strong>Növbəti mühazirə:</strong> 28-ci mühazirə klassik açıq açar
+fərziyyələrinə kvant hücumlarını və PQC<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+keçid mexanizmlərini təhlil edəcək.</p>
+<p><strong>Terminologiya kanonu:</strong> <em>güc analizi (<em>power
+analysis</em>)</em>; <em>xəta inyeksiyası (<em>fault
+injection</em>)</em>; <em>raund açarının XOR</em> <em>ilə
+ixtisarı</em>.</p>
+</div>
+<h1 id="giriş">Giriş</h1>
+<p>Kriptoqrafik sistemlərin müasir təhlükəsizlik paradiqması iki əsas
+sütuna söykənir: <strong>alqoritmin riyazi (nəzəri) dayanıqlığı</strong>
+və <strong>implementasiyanın təhlükəsizliyi</strong>. Təhlükəsizlik
+modelində güclü qəbul edilən alqoritm real aparat və ya proqram
+təminatında icra olunarkən vaxt, güc, keş və başqa müşahidə olunan
+siqnallar sızdıra bilər.</p>
+<p>Bu mühazirə çərçivəsində kriptoqrafik sistemlərin riyazi
+zəifliklərini araşdıran klassik <strong>kriptoanalizi</strong> və
+alqoritmlərin icrası zamanı ortaya çıxan fiziki sızıntılardan (vaxt, güc
+sərfiyyatı, elektromaqnit şüalanma) yararlanan <strong>yan kanal
+hücumlarını</strong> müzakirə edəcəyik. Tələbələr həm şifrlərin riyazi
+olaraq necə təhlil edildiyini, həm də qara qutu modelindən kənara çıxan
+real hücumların mexanizmlərini öyrənəcəklər.</p>
+<div class="tcolorbox">
+<ul>
+<li><p>Kriptoanaliz nədir və o, hansı klassik hücum modelləri<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a> və metodologiyalarına
+bölünür?</p></li>
+<li><p>Diferensial kriptoanaliz<a href="#fn5" class="footnote-ref"
+id="fnref5" role="doc-noteref"><sup>5</sup></a> blok şifrələrə necə
+tətbiq olunur?</p></li>
+<li><p>Xətti kriptoanaliz<a href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> alqoritmlərin qeyri-xətti
+elementlərinin xətti yaxınlaşması prinsipinə necə əsaslanır?</p></li>
+<li><p>Tam axtarış<a href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a> hücumunun riyazi mürəkkəblik hədləri
+və iş amili necə müəyyən edilir?</p></li>
+<li><p>Yan kanal hücumları<a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a> nədir və onlar nə üçün
+ənənəvi alqoritmik kriptoanaliz metodlarından daha effektivdir?</p></li>
+<li><p>Vaxt hücumu (<em>timing attack</em>) proqram kodundakı şərti
+budaqlanmalar və şərti icra müddəti vasitəsilə gizli açarı necə aşkar
+edir?</p></li>
+<li><p>Sadə (SPA<a href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a>) və diferensial (DPA<a href="#fn10"
+class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>)
+güc analizi hücumlarının fundamental fərqləri nələrdir?</p></li>
+<li><p>Keş hücumları<a href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a> müasir prosessorların
+mikroarxitekturasından necə sui-istifadə edir?</p></li>
+<li><p>Xəta inyeksiyası hücumları<a href="#fn12" class="footnote-ref"
+id="fnref12" role="doc-noteref"><sup>12</sup></a> riyazi hesablama
+zəncirini pozmaqla açarı necə əldə edir?</p></li>
+<li><p>Bu hücum növlərinə qarşı hansı proqram (sabit-zamanlı kod,
+maskalama, korlaşdırma) və aparat səviyyəli müdafiə üsulları
+mövcuddur?</p></li>
+</ul>
+</div>
+<h1 class="unnumbered" id="i-hissə-alqoritmik-kriptoanaliz">I hissə:
+Alqoritmik kriptoanaliz</h1>
+<h1 id="kriptoanaliz-və-əsas-hücum-metodologiyaları">Kriptoanaliz və
+Əsas Hücum Metodologiyaları</h1>
+<p>Kriptoanaliz — şifrələmə alqoritmlərinin riyazi, struktur və ya
+fiziki zəifliklərini araşdıraraq, gizli açarı və ya açıq mətni əldə
+etmək məqsədi daşıyan elm sahəsidir. Müasir kriptoanaliz fundamental
+olaraq iki böyük kateqoriyaya bölünür: alqoritmin riyazi modelini hədəf
+alan <strong>Riyazi (Nəzəri) Kriptoanaliz</strong> və alqoritmin icra
+olunduğu fiziki mühiti hədəf alan <strong>Yan Kanal Hücumları (Yan Kanal
+Hücumları)</strong>.</p>
+<p>Aşağıda, təhlükəsizlik analizlərində istifadə olunan əsas üsulların
+qısa və fundamental izahı verilmişdir:</p>
+<h2 id="riyazi-və-struktur-kriptoanaliz-metodları">1. Riyazi və Struktur
+Kriptoanaliz Metodları</h2>
+<ul>
+<li><p><strong>Klassik hücum modelləri:</strong> Aşağıdakı modellər
+hücumçuya verilən sorğu və məlumat imkanlarını təsvir edir; onlar
+universal xərc sıralaması deyil. Konkret hücumun verilən, zaman və
+yaddaş mürəkkəbliyi seçilmiş primitivdən və təhlükəsizlik anlayışından
+asılıdır:</p>
+<ol>
+<li><p><em>Yalnız şifrəli mətn:</em> Hücumçu şifrəli mətnləri müşahidə
+edir, lakin uyğun açıq mətnə və sorğu mənbəyinə malik deyil.</p></li>
+<li><p><em>Məlum açıq mətn:</em> Hücumçu bəzi uyğun <span
+class="math inline">\((P_i,C_i)\)</span> cütlərini bilir.</p></li>
+<li><p><em>Seçilmiş açıq mətn (CPA):</em> Hücumçu seçdiyi açıq mətnlər
+üçün şifrələmə nəticəsini ala bilir; diferensial kriptoanaliz çox vaxt
+bu imkanla təqdim olunur.</p></li>
+<li><p><em>Seçilmiş şifrəli mətn (CCA):</em> Hücumçu təhlükəsizlik
+oyununda icazə verilən seçilmiş şifrəli mətnlər üçün deşifrə sorğusu
+verə bilir. Adaptiv CCA qaydaları sınaq mətninin özünü soruşmağa icazə
+vermir.</p></li>
+</ol>
+<div class="important">
+<p><span><strong>Primitiv və sxem fərqi:</strong></span> Daha güclü
+sorğu imkanına (<em>oracle accessibility</em>) malik hücumçu ən azı
+əvvəlki hücum modelindəki strategiyaları təkrar icra edə bilir; lakin
+bu, uğurlu hücumun mürəkkəbliyinin mütləq azalacağı və ya real
+ssenarilər üzrə monoton ehtimal paylanması yaradacağı mənasına
+gəlmir.</p>
+<p>CPA<a href="#fn13" class="footnote-ref" id="fnref13"
+role="doc-noteref"><sup>13</sup></a>/CCA<a href="#fn14"
+class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>
+təhlükəsizlik xassələri doldurma (<em>padding</em>), nons<a href="#fn15"
+class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a> 
+autentifikasiya teqi və xəta emalı davranışı daxil olmaqla <strong>bütöv
+şifrələmə sxemi</strong> üçün təyin edilir.</p>
+<p>İşlənməmiş AES<a href="#fn16" class="footnote-ref" id="fnref16"
+role="doc-noteref"><sup>16</sup></a> blok şifrinə birbaşa “CCA-davamlı
+AES” demək terminoloji baxımdan düzgün deyildir; məsələn, müvafiq AEAD<a
+href="#fn17" class="footnote-ref" id="fnref17"
+role="doc-noteref"><sup>17</sup></a> sxemi düzgün nons istifadəsi və
+tətbiq qaydaları çərçivəsində CCA tipli bütövlük və məxfilik tələblərini
+təmin edir.</p>
+</div></li>
+<li><p><strong>Tam axtarış hücumu:</strong> Alqoritmin daxili
+riyaziyyatına baxmadan mümkün açarları yoxlayır. İdeal <span
+class="math inline">\(n\)</span>-bit açarda ən pis halda <span
+class="math inline">\(2^n\)</span>, orta hesabla təxminən <span
+class="math inline">\(2^{n-1}\)</span> sınaq tələb olunur; 128-bit
+səviyyə cari klassik resurslarla praktik əlçatmaz sayılır, lakin
+sistemin real təhlükəsizliyi protokol və reallaşdırmadan da
+asılıdır.</p></li>
+<li><p><strong>Diferensial Kriptoanaliz:</strong> Seçilmiş açıq mətn
+hücumudur. Giriş mətnlərinin xüsusi olaraq seçilmiş fərqlərinin (<span
+class="math inline">\(\Delta P = P \oplus P&#39;\)</span>), şifrələmə
+raundları boyunca irəliləyərək çıxışda hansı fərqləri (<span
+class="math inline">\(\Delta C\)</span>) yaratma ehtimalını (stoxastik
+cığırları) izləyir. Qeyri-xətti S-qutularının daxili qeyri-bərabər
+paylanma ehtimallarından, yəni <strong>diferensial paylanma
+cədvəlindən</strong> (DDT) istifadə edərək sonuncu raundun açarını
+statistik səsvermə ilə tapır.</p></li>
+<li><p><strong>Xətti kriptoanaliz:</strong> Məlum açıq mətn hücumudur.
+S-qutusunun qeyri-xətti daxili strukturunu xətti tənliklərlə
+yaxınlaşdırmağa əsaslanır. Giriş bitləri ilə çıxış bitlərinin müəyyən
+xətti kombinasiyalarının (<span class="math inline">\(P_{i_1} \oplus
+\dots \oplus C_{j_1} \oplus \dots = K_{m_1}\)</span>) doğru olma
+ehtimalının <span class="math inline">\(1/2\)</span>-dən fərqlənmə
+dərəcəsini ölçərək gizli açar bitlərini süzüb çıxarır.</p></li>
+</ul>
+<h2 id="yan-kanal-hücumları-fiziki-hücumlar">2. Yan Kanal Hücumları
+(Fiziki Hücumlar)</h2>
+<p>Ənənəvi kriptoanaliz şifri "kağız üzərində" mükəmməl riyazi obyekt
+kimi görür. Yan kanal hücumları isə şifrin icra olunduğu real
+mikrosxemin, prosessorun fiziki sızıntılarını ölçür.</p>
+<ul>
+<li><p><strong>Yan Kanal Hücumlarının Effektivliyi:</strong> Yan kanal
+alqoritmin nəzəri açar-axtarış sərhədindən yan keçə bilər, lakin hücumun
+uğuru sızıntı modeli, ölçmə keyfiyyəti, giriş imkanı, iz sayı və
+əks-tədbirlərdən asılıdır. Nəticə bir neçə izdən uzun laboratoriya
+kampaniyasına qədər dəyişə bilər.</p></li>
+<li><p><strong>Vaxt Hücumu (<em>Vaxt Hücumu</em>):</strong> Gizlidən
+asılı budaq, yaddaş müraciəti və dəyişən müddətli əməliyyatların
+yaratdığı zaman paylanmalarından istifadə edir. Kifayət qədər siqnal,
+ölçmə və uyğun model olduqda açar barədə statistik məlumat bərpa oluna
+bilər.</p></li>
+<li><p><strong>Güc Analizi Hücumları (SPA və DPA):</strong></p>
+<ul>
+<li><p><em>Sadə Güc Analizi (SPA):</em> Kriptoqrafik cihazın cəmi bir və
+ya bir neçə şifrələmə zamanı xərclədiyi elektrik gücünün qrafikinə
+(osilloqramma) birbaşa vizual baxmaqla (məsələn, RSA alqoritmində
+kvadrata yüksəltmə və vurma əməliyyatlarının fərqli güc xərcləməsini
+görməklə) açarı oxuyur.</p></li>
+<li><p><em>Diferensial Güc Analizi (DPA):</em> Çoxsaylı güc izləri,
+sızıntı hipotezi və statistik testlə açar namizədlərini fərqləndirir.
+Tələb olunan iz sayı cihaz, model, küy və əks-tədbirlərdən
+asılıdır.</p></li>
+</ul></li>
+<li><p><strong>Keş Hücumları:</strong> Müasir prosessorların sürəti
+artırmaq üçün istifadə etdiyi keş yaddaşı arxitekturasını hədəf alır.
+S-qutularının yaddaşda yerləşdiyi ünvanların keşə
+yüklənib-yüklənməməsinə görə yaddaşa müraciət vaxtını ölçür
+(<em>Prime+Probe</em> və ya <em>Flush+Reload</em> üsulları ilə) və
+bununla da gizli açarın hansı S-qutusu indeksindən istifadə etdiyini
+ifşa edir.</p></li>
+<li><p><strong>Xəta İnyeksiyası Hücumları:</strong> Şifrələmə icra
+olunan anda cihaza fiziki müdaxilə (məsələn, lazer şüası, gərginlik və
+ya temperatur sıçrayışı) etməklə registrlərdəki bitləri qəsdən
+dəyişdirir (<span class="math inline">\(1 \to 0\)</span> və ya <span
+class="math inline">\(0 \to 1\)</span>). Səhv hesablanmış şifrəli mətnlə
+düzgün şifrəli mətni riyazi olaraq müqayisə edərək xətanın baş verdiyi
+raunddakı açar bitlərini tapır.</p></li>
+</ul>
+<h2 id="müdafiə-üsulları">3. Müdafiə Üsulları</h2>
+<p>Bu hücumlardan qorunmaq üçün həm proqram, həm də aparat səviyyəsində
+xüsusi əks-tədbirlər görülür:</p>
+<ol>
+<li><p><strong>Sabit Zamanlı Kod :</strong> Gizlidən asılı budaqlar,
+yaddaş ünvanları və dəyişən sayda əməliyyatlar aradan qaldırılır. Mənbə
+kodunun budaqsız görünməsi kifayət deyil: kompilyator çıxışı,
+mikroarxitektura və hədəf platforma ayrıca yoxlanmalıdır.</p></li>
+<li><p><strong>Maskalama :</strong> Həssas aralıq dəyərlər təsadüfi
+paylara bölünür və əməliyyatlar həmin paylar üzərində aparılır. Düzgün
+maskalama seçilmiş sızıntı modelində aşağı dərəcəli korrelyasiyanı
+azalda bilər; təsadüfilik keyfiyyəti, xəta impulslar və yüksək dərəcəli
+hücumlar nəzərə alınmalıdır.</p></li>
+<li><p><strong>Nəticənin Doğrulanması (<em>Result
+Verification</em>):</strong> Seçilmiş xəta modelinə (<em>fault
+model</em>) uyğun olaraq invariantlar, artıq hesablamalar (<em>redundant
+computation</em>) və ya birbaşa çıxışın doğrulanması tətbiq edilir.
+Məsələn, RSA-CRT imzası xaricə ötürülməzdən əvvəl mütləq açıq açarla
+doğrulanmalıdır. Müdafiə mexanizminin (<em>countermeasure</em>) özü də
+xəta impulsları (<em>glitch</em>)<a href="#fn18" class="footnote-ref"
+id="fnref18" role="doc-noteref"><sup>18</sup></a> vasitəsilə yan keçilmə
+(<em>bypass</em>) və yan kanal sızması baxımından
+qiymətləndirilməlidir.</p></li>
+</ol>
+<h1 id="tam-axtarış-hücumu">Tam axtarış hücumu</h1>
+<div class="definition">
+<p><strong>Tərif 1</strong> (Tam axtarış hücumu). <em>Tam axtarış hücumu
+— istifadə olunan kriptoqrafik alqoritmin daxili strukturuna və riyazi
+xüsusiyyətlərinə baxılmadan, mümkün olan bütün açar fəzasının ardıcıl və
+ya paralel şəkildə yoxlanılması vasitəsilə doğru açarın tapılması
+metodudur <span class="citation"
+data-cites="stinson2018cryptography"></span>.</em></p>
+</div>
+<p><strong>Alqoritmik mürəkkəblik:</strong> Simmetrik kriptoqrafiyada
+<span class="math inline">\(n\)</span>-bit uzunluğunda bir açar üçün tam
+axtarış hücumunun zaman mürəkkəbliyi <strong>ən pis hal</strong>
+ssenarisində <span class="math inline">\(\mathcal{O}(2^n)\)</span>,
+<strong>orta hal</strong> ssenarisində isə <span
+class="math inline">\(\mathcal{O}(2^{n-1})\)</span> bərabərdir.</p>
+<div class="example">
+<p><strong>Nümunə 1</strong> (DES-in mühəndislik üsulu ilə
+sındırılması). <em>DES alqoritmi 56-bitlik açar fəzasına (<span
+class="math inline">\(2^{56}\)</span> mümkün açar) malikdir. 1998-ci
+ildə <strong>Elektron Sərhəd Fondu (EFF)</strong> tərəfindən
+<strong>təxminən 250,000 ABŞ dolları</strong> büdcə ilə xüsusi
+layihələndirilmiş və paralel ASIC prosessorlardan ibarət olan <em>Deep
+Crack</em> aparat təminatı hazırlanmışdır. Bu maşın cəmi 22 saat 15
+dəqiqə ərzində bütün açar fəzasını yoxlayaraq DES-i uğurla sındırmış və
+o dövr üçün böyük bir sensasiyaya səbəb olmuşdur <span class="citation"
+data-cites="efficient1998desbook"></span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Nümunə 2</strong> (FPGA əsaslı ucuz kütləvi hücum:
+COPACOBANA). <em>EFF-in uğurundan sonra, 2006-cı ildə Almaniyanın Boxum
+və Saarlend universitetlərinin alimləri tərəfindən tamamilə fərqli bir
+yanaşma ilə <strong>COPACOBANA</strong> adlı xərc baxımından
+optimallaşdırılmış paralel kodsındıran xüsusi aparat təminatı
+layihələndirildi.</em></p>
+<p><em><em>Deep Crack</em> təxminən 250,000 ABŞ dolları büdcə ilə və
+yalnız bir məqsəd üçün istehsal olunmuş ASIC mikrosxemlərinə əsaslandığı
+halda, COPACOBANA layihəsində yenidən proqramlaşdırıla bilən və bazarda
+asanlıqla tapılan 120 ədəd ucuz <strong>FPGA</strong> (sahədə
+proqramlaşdırılan qapı matrisi) çipindən istifadə edildi:</em></p>
+<ul>
+<li><p><em><strong>İqtisadi Səmərəlilik:</strong> Cəmi <strong>10,000
+ABŞ dolları</strong> (təxminən 8,000 Avro) büdcə ilə hazırlanan bu
+maşın, xüsusi dövlət agentliklərinin milyon dollarlıq
+superkompüterlərinin gücünü akademik laboratoriyalara gətirdi (EFF-dən
+25 dəfə daha ucuz).</em></p></li>
+<li><p><em><strong>Sürət Göstəricisi:</strong> COPACOBANA saniyədə 30
+milyarddan çox DES açarını yoxlamaq gücü sayəsində, <span
+class="math inline">\(2^{56}\)</span> ölçülü bütün DES açar fəzasını
+ortalama <strong>9 gün daxilində</strong> (maksimum 17 gün) tamamilə
+skan edərək gizli açarı tapmağı bacarırdı.</em></p></li>
+</ul>
+<p><em>Bu layihə kriptoqrafiya dünyasına sübut etdi ki, blok uzunluğu və
+açar fəzası kiçik olan şifrlər (məsələn, 56-bit) təkcə dövlətlər
+tərəfindən deyil, kiçik büdcəli haker qrupları və ya akademik mühitlər
+tərəfindən də aparat təminatı səviyyəsində asanlıqla sındırıla
+bilər.</em></p>
+</div>
+<p>Yuxarıda qeyd olunan hər iki mühəndislik nümunəsi (EFF Deep Crack və
+COPACOBANA) rəsmi dövlət standartı olan DES alqoritminin praktiki olaraq
+təhlükəsizliyini itirdiyini qəti şəkildə sübut etdi. Bu isə öz
+növbəsində müasir tələblərə cavab verən yeni bir qlobal blok şifrələmə
+standartının yaradılmasını zəruri etdi. Nəticədə, ABŞ-ın NIST qurumu
+tərəfindən elan edilən beynəlxalq müsabiqə vasitəsilə Rijndael alqoritmi
+qalib seçilərək <strong>AES</strong> təkmil şifrələmə standartı kimi
+qəbul edildi.</p>
+<table id="tab:brute_force_complexity">
+<caption>Müxtəlif alqoritmlərin tam axtarış mürəkkəbliyi
+hədləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Alqoritm</strong></th>
+<th style="text-align: center;"><strong>Açar Uzunluğu</strong></th>
+<th style="text-align: center;"><strong>Zaman Mürəkkəbliyi</strong></th>
+<th style="text-align: left;"><strong>Təhlükəsizlik
+Statusu</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">DES</td>
+<td style="text-align: center;">56-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{56}\)</span></td>
+<td style="text-align: left;">Sındırılıb (Qeyri-təhlükəsiz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-128</td>
+<td style="text-align: center;">128-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{128}\)</span></td>
+<td style="text-align: left;">Müasir standart (Təhlükəsiz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">AES-256</td>
+<td style="text-align: center;">256-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{256}\)</span> klassik; Qrover: <span
+class="math inline">\(\approx 2^{128}\)</span></td>
+<td style="text-align: left;">Kvant modelində azalmış, lakin böyük
+ehtiyat</td>
+</tr>
+<tr>
+<td style="text-align: left;">RSA-2048</td>
+<td style="text-align: center;">2048-bit</td>
+<td style="text-align: center;"><span
+class="math inline">\(2^{112}\)</span> (Simmetrik ekv.)</td>
+<td style="text-align: left;">Asimmetrik standart</td>
+</tr>
+</tbody>
+</table>
+<h1 id="diferensial-kriptoanaliz">Diferensial Kriptoanaliz</h1>
+<p>Diferensial kriptoanaliz — <strong>Eli Biham</strong> və <strong>Adi
+Şamir</strong> tərəfindən 1990-cı ildə irəli sürülmüş, xüsusilə blok
+şifrlərə qarşı tətbiq olunan və <strong>seçilmiş açıq mətn</strong>
+modelinə əsaslanan sistemli hücum üsuludur <span class="citation"
+data-cites="biham1993differential"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 2</strong> (Diferensial kriptoanaliz). <em>Şifrələmə
+alqoritminə daxil olan iki fərqli açıq mətnin bit fərqlərinin (<em>giriş
+diferensialı</em>) raundlar boyunca necə dəyişdiyini izləyərək,
+çıxışdakı şifrəli mətnlərin bit fərqinə (<em>çıxış diferensialı</em>)
+olan təsirinin ehtimal nəzəriyyəsi baxımından analizidir.</em></p>
+</div>
+<h2 id="kritik-anlayış-raund-açarının-xor-ilə-ixtisarı">Kritik Anlayış:
+Raund Açarının XOR ilə İxtisarı</h2>
+<p>Diferensial analizin təməl məntiqi XOR (<span
+class="math inline">\(\oplus\)</span>) əməliyyatının xassəsinə
+əsaslanır. Tutaq ki, <span class="math inline">\(P\)</span> və <span
+class="math inline">\(P&#39;\)</span> kimi iki fərqli mətn eyni gizli
+<span class="math inline">\(K_1\)</span> raund açarı ilə XOR-lanır.
+Hücumçu bu iki mətnin daxili fərqinə (<span class="math inline">\(\Delta
+X\)</span>) baxdıqda: <span class="math display">\[\begin{equation}
+\Delta X = (P \oplus K_1) \oplus (P&#39; \oplus K_1) = P \oplus P&#39;
+\oplus K_1 \oplus K_1 = P \oplus P&#39; = \Delta P
+\end{equation}\]</span> Gizli <span class="math inline">\(K_1\)</span>
+açarı nə olursa olsun, iki mətnin fərqi hesablananda <strong>açarlar
+bir-birini sıfırlayır</strong>.</p>
+<p><em>Riyazi Dəqiqləşdirmə:</em> Eyni raund açarı hər AddRoundKey/XOR
+qatında iki icra arasında ləğv olunur: <span
+class="math inline">\((X\oplus K_r)\oplus(X&#39;\oplus K_r)=X\oplus
+X&#39;\)</span>. Qeyri-xətti S-qutusundan sonra isə verilmiş giriş fərqi
+tək bir çıxış fərqini deterministik müəyyən etmir; mümkün keçidlər DDT
+sayları və ehtimalları ilə izlənir. Son raund sub-açarının namizədləri
+qismən tərs hesablama və statistik səsvermə ilə fərqləndirilir.</p>
+<h2
+id="s-qutusu-asimmetriyası-və-diferensial-paylanma-cədvəli-ddt">S-Qutusu
+Asimmetriyası və Diferensial Paylanma Cədvəli (DDT)</h2>
+<p>Blok şifrlərdə XOR ilə açar əlavə edilməsi və bit permutasiyası fərqi
+deterministik ötürür, xətti diffuziya qatı isə fərqi öz xətti xəritəsinə
+görə dəyişir. Qeyri-xətti <strong>S-qutuları</strong> üçün DDT lazımdır.
+Təsadüfi seçilmiş <span class="math inline">\(n\to m\)</span> funksiya
+üçün sabit sıfırdan fərqli giriş fərqində DDT xanasının
+<em>gözlənilən</em> sayı <span
+class="math inline">\(2^{n-m}\)</span>-dir; konkret cədvəl tam bərabər
+olmur. Üstəlik <span class="math inline">\(S(x)\oplus
+S(x\oplus\Delta)\)</span> eyni nizamsız cüt üçün iki dəfə sayıldığına
+görə sıfırdan fərqli <span class="math inline">\(\Delta\)</span>
+sətrində bütün DDT sayları cütdür.</p>
+<p><em>Çoxlu S-Qutusu Reallığı (DES Nümunəsi):</em> DES kimi real blok
+şifrlərində paralel olaraq işləyən <strong>8 fərqli S-qutusu</strong>
+mövcuddur və hər biri <span class="math inline">\(m=4\)</span> bit çıxış
+istehsal edir. Hücumçu laboratoriya analizində hər bir qutunun öz fərdi
+DDT cədvəlini (<span class="math inline">\(2^6 \times 2^4\)</span>
+ölçülü) hesablayır. Raundun qlobal çıxış diferensialını tapmaq üçün isə
+aktiv olan (giriş fərqi sıfırdan fərqli olan) bütün S-qutularının fərdi
+keçid ehtimalları bir-birinə vurulur (<span
+class="math inline">\(p_{raund} = p_{S_1} \cdot p_{S_2} \dots\)</span>).
+Bu səbəbdən, haker diferensial cığırı qurarkən mümkün qədər az sayda
+S-qutusunu aktivləşdirən (yəni digər qutuların giriş fərqlərini <span
+class="math inline">\(\Delta P = 0\)</span> saxlayan) xüsusi giriş mətni
+cütləri seçməyə çalışır ki, ümumi vurma hasili kəskin şəkildə
+kiçilməsin.</p>
+<p>Hücumçu hələ real şifrələmə maşınına müdaxilə etmədən, kağız üzərində
+sırf S-qutusunun strukturunu analiz edərək <strong>diferensial paylanma
+cədvəlini</strong> (DDT) qurur.</p>
+<div class="example">
+<p><strong>Nümunə 3</strong> (Sadələşdirilmiş 2-bitlik S-qutusu üçün DDT
+analizi). <em>Tutaq ki, əlimizdə xətti olmayan <span
+class="math inline">\(S(X)\)</span> qutusu var. Hücumçu giriş fərqini
+<span class="math inline">\(\Delta P = 01_2\)</span> olaraq sabitləyir
+və bütün mümkün giriş cütlərini yoxlayır:</em></p>
+<ul>
+<li><p><em><span class="math inline">\(P = 00_2, P&#39; = 01_2 \implies
+\Delta P = 01_2\)</span>. S-qutusu çıxışları: <span
+class="math inline">\(S(00)=10_2, S(01)=11_2 \implies \Delta C = 10
+\oplus 11 = 01_2\)</span></em></p></li>
+<li><p><em><span class="math inline">\(P = 10_2, P&#39; = 11_2 \implies
+\Delta P = 01_2\)</span>. S-qutusu çıxışları: <span
+class="math inline">\(S(10)=00_2, S(11)=01_2 \implies \Delta C = 00
+\oplus 01 = 01_2\)</span></em></p></li>
+</ul>
+<p><em>Bu nümunədə dörd <span class="math inline">\(x\)</span> dəyəri
+iki nizamsız giriş cütünü iki istiqamətdə sayır. Göstərilən iki cüt üçün
+eyni çıxış fərqi alınırsa, uyğun DDT xanasının sayı ən azı <span
+class="math inline">\(4\)</span> və ehtimalı <span
+class="math inline">\(4/4=1\)</span> olar. Ümumiyyətlə, 2-bitlik sətrdə
+mümkün saylar <span class="math inline">\(0,2,4\)</span>-dür; <span
+class="math inline">\(3/4\)</span> mümkün deyil. Daha böyük S-qutuda,
+məsələn, <span class="math inline">\(6\)</span> uyğunluqdan <span
+class="math inline">\(6/16\)</span> ehtimal yarana bilər.</em></p>
+</div>
+<h2 id="riyazi-iş-prinsipi-və-mərhələləri">Riyazi İş Prinsipi və
+Mərhələləri</h2>
+<p>Diferensial hücum iki ardıcıl fazada icra edilir:</p>
+<ol>
+<li><p><strong>Mərhələ 1: Laboratoriya Analizi (Açarsız Diferensial
+Cığır):</strong> Hücumçu DDT cədvəlindəki ən yüksək ehtimallı fərq
+keçidlərini zəncirvari şəkildə birləşdirərək raundlararası qlobal bir
+<strong>diferensial cığır</strong> qurur. Məsələn, 3 raundlu bir şifrə
+üçün cığır belə görünə bilər: <span class="math display">\[\Delta P
+\xrightarrow{p_1} \Delta A \xrightarrow{p_2} \Delta B \xrightarrow{p_3}
+\Delta C_{son}\]</span> Bu cığırın ümumi başvermə ehtimalı raundların
+müstəqilliyi fərziyyəsi altında <span class="math inline">\(p_{qlobal} =
+p_1 \cdot p_2 \cdot p_3\)</span> kimi hesablanır.</p></li>
+<li><p><strong>Mərhələ 2: Real Hücum və Statistik Səsvermə (Açarın
+Bərpası):</strong> Haker aralarındakı fərq dəqiq <span
+class="math inline">\(\Delta P\)</span> olan <span
+class="math inline">\(N\)</span> sayda xüsusi mətn cütü (<span
+class="math inline">\(P_i \oplus P&#39;_i = \Delta P\)</span>)
+hazırlayır. Burada tələb olunan mətnlərin sayı ümumi ehtimalla tərs
+mütənasibdir (<span class="math inline">\(N \approx c /
+p_{qlobal}\)</span>).</p>
+<p>Bu cütləri hədəf sistemə göndərib çıxan şifrəli mətn cütlərini (<span
+class="math inline">\(C_i, C&#39;_i\)</span>) toplayır. Sonuncu raundun
+S-qutusuna təsir edən bütün mümkün sub-açar (<span
+class="math inline">\(K_{son}\)</span>) namizədlərini tək-tək
+simulyasiya edərək S-qutusundan geriyə doğru fərq hesablayır:</p>
+<ul>
+<li><p><strong>Səhv açar namizədləri:</strong> Seçilmiş diferensial üçün
+daha çox fon/küy səviyyəsində uyğunluq verir; paylanma avtomatik ideal
+təsadüfi və ya sıfır deyil.</p></li>
+<li><p><strong>Doğru açar namizədi:</strong> Kifayət qədər məlumat və
+yaxşı seçilmiş cığır olduqda statistik sayğacda gözlənilən meyli daha
+güclü göstərə bilər. Nəticə ayrıca tam açar yoxlaması ilə
+təsdiqlənir.</p></li>
+</ul></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 4</strong> (DES S-qutularının diferensial
+dayanıqlığı). <em>DES-in 16 raundlu tam strukturu diferensial
+kriptoanalizə qarşı gözləniləndən daha dayanıqlıdır. Biham və Şamir
+araşdırmaları zamanı aşkar etdilər ki, DES-in dizaynerləri (IBM və NSA)
+hələ 1970-ci illərdə bu hücum növündən gizlicə xəbərdar olmuş və
+S-qutularını diferensial xarakteristikaların ehtimalını minimuma
+endirəcək şəkildə xüsusi optimallaşdırmışlar. Tam 16 raundlu DES-i
+diferensial analizlə sındırmaq üçün <span
+class="math inline">\(2^{47}\)</span> seçilmiş açıq mətn tələb olunur
+ki, bu da tam axtarış hücumundan (<span
+class="math inline">\(2^{55}\)</span> orta halda) daha effektiv olsa da,
+hələ də praktiki cəhətdən çox ağırdır.</em></p>
+</div>
+<h1 id="xətti-kriptoanaliz">Xətti Kriptoanaliz</h1>
+<p>Xətti kriptoanaliz — <strong>Mitsuru Matsui</strong> tərəfindən
+1993-cü ildə təqdim edilən, <strong>məlum açıq mətn</strong> modelinə
+əsaslanan və blok şifrlərin daxili S-qutularının xətti funksiyalara
+yaxınlıq dərəcəsindən istifadə edən struktur hücum üsuludur <span
+class="citation" data-cites="matsui1993linear"></span>.</p>
+<div class="definition">
+<p><strong>Tərif 3</strong> (Xətti kriptoanaliz). <em>Açıq mətn, şifrəli
+mətn və daxili raund açarlarının müəyyən bitlərinin xətti
+kombinasiyasını (XOR cəmini) yüksək ehtimallı statistik asılılıq tənliyi
+şəklində ifadə edən analiz üsuludur.</em></p>
+</div>
+<p><strong>Kritik Anlayış:</strong> Bu hücum modelində şifrələmə üçün
+istifadə olunan gizli <span class="math inline">\(K\)</span> açarı
+<strong>sabitdir və yeganədir</strong>. Hücumçu eyni gizli açarla
+şifrələnmiş çoxlu sayda (<span class="math inline">\(N\)</span> sayda)
+fərqli <span class="math inline">\(P\)</span> və <span
+class="math inline">\(C\)</span> cütlərinə malikdir. Tənliklərdə görünən
+indekslər paketlərin sayını deyil, <strong>bir paketin daxilindəki
+konkret bit mövqelərini</strong> (məsələn, 3-cü, 5-ci bit) göstərir.</p>
+<h2 id="riyazi-iş-prinsipi-və-mərhələləri-1">Riyazi İş Prinsipi və
+Mərhələləri</h2>
+<ol>
+<li><p><strong>Xətti yaxınlaşma tənliyinin qurulması:</strong>
+S-qutularındakı qeyri-xəttiliyi yan keçmək üçün açıq mətnin, şifrəli
+mətnin və gizli açarın müəyyən sabit bitləri arasında xətti bir cığır
+formalaşdırılır: <span class="math display">\[\begin{equation}
+    P[i] \oplus P[j] \oplus C[m] = K[k]
+\end{equation}\]</span> Burada sol tərəf hakerə məlumdur və hər şəbəkə
+paketi üçün dinamik olaraq dəyişir. Sağ tərəf (<span
+class="math inline">\(K[k]\)</span>) isə naməlumdur, lakin bütün
+paketlər boyunca sabitdir (<span class="math inline">\(0\)</span> və ya
+<span class="math inline">\(1\)</span>).</p>
+<div class="tcolorbox">
+<p>Kombinatorika nöqteyi-nəzərindən <span
+class="math inline">\(k\)</span>-bitlik bir blokda bu formada qurula
+biləcək bütün mümkün tənliklərin ümumi sayı təxminən <span
+class="math inline">\(\binom{k}{2} \cdot k \cdot k \approx
+\mathcal{O}(k^4)\)</span> dərəcəsindədir. Lakin blok şifrlərdə tətbiq
+olunan <strong>uçqun effekti</strong> və güclü
+<strong>diffuziya</strong> mexanizmləri səbəbindən, raundların sayı
+artdıqca bu sadə tənliklərin meyllilik dərəcəsi sürətlə sıfıra (<span
+class="math inline">\(\epsilon \to 0\)</span>) enir. Bu səbəbdən
+analitiklər <span class="math inline">\(\mathcal{O}(k^4)\)</span>
+mürəkkəblikli qlobal axtarış aparmaq yerinə, hər bir raundun daxili
+S-qutularını lokal olaraq tədqiq edirlər.</p>
+</div></li>
+<li><p><strong>Xətti Meyllilik Dərəcəsinin Rolu:</strong> Qurulmuş bu
+xətti tənliyin doğru olma ehtimalı <span
+class="math inline">\(p\)</span> ilə işarə edilir. İdeal bir şifrdə bu
+ehtimal dəqiq <span class="math inline">\(p = 1/2\)</span> (<span
+class="math inline">\(50\%\)</span>) olmalıdır. Xətti kriptoanalizdə isə
+bu ehtimalın yarıdan fərqlənmə dərəcəsi, yəni <strong>meyllilik
+dərəcəsi</strong> (<span class="math inline">\(\epsilon\)</span>)
+axtarılır: <span class="math display">\[\begin{equation}
+    \epsilon = p - \frac{1}{2}
+\end{equation}\]</span> Hücumun reallaşması üçün mütləq <span
+class="math inline">\(\epsilon \neq 0\)</span> olmalıdır. Meylliliyin
+olması şifrələmə alqoritminin daxildə tam təsadüfi işləmədiyini və
+kənara statistik sızıntı verdiyini göstərir.</p></li>
+<li><p><strong>Məlumat mürəkkəbliyinin müəyyən edilməsi:</strong>
+Statistikada Matsui teoremi ilə sübut olunur ki, təsadüfi küyü üstələmək
+və bu asılılığı aşkar etmək üçün tələb olunan fərqli məlum mətn
+cütlərinin ümumi sayısı (<span class="math inline">\(N\)</span>)
+meylliliyin kvadratı ilə tərs mütənasibdir: <span
+class="math display">\[\begin{equation}
+    N \propto \frac{1}{\epsilon^2}
+\end{equation}\]</span></p></li>
+<li><p><strong>Açar bitlərinin statistik səsvermə ilə bərpası:</strong>
+Hücum edən şəxs əlindəki <span class="math inline">\(N\)</span> sayda
+fərqli <span class="math inline">\(P\)</span> və <span
+class="math inline">\(C\)</span> cütlərini tənliyin sol tərəfində yerinə
+qoyaraq nəticələrin tezliyini hesablayır. Əgər paketlərin böyük
+əksəriyyətində sol tərəfin cavabı <span class="math inline">\(1\)</span>
+alınırsa, sistem sabit <span class="math inline">\(K[k]\)</span> açar
+bitinin <span class="math inline">\(1\)</span> olduğuna doğru meyllənir;
+əks halda bit <span class="math inline">\(0\)</span> qəbul
+edilir.</p></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 5</strong> (DES alqoritminin xətti kriptoanaliz ilə
+sındırılması). <em>Mitsuru Matsui 1994-cü ildə bu metodun gücünü nümayiş
+etdirmək üçün eyni açarla şifrələnmiş <span
+class="math inline">\(2^{43}\)</span> (təxminən 8.8 trilyon) məlum
+fərqli açıq mətn-şifrəli mətn cütünü statistik analizdən keçirərək, 16
+raundlu standart DES alqoritminin gizli açarını ilk dəfə grafik olaraq
+bərpa etməyi bacarmışdır <span class="citation"
+data-cites="matsui1994first"></span>.</em></p>
+</div>
+<h2
+id="meyllilik-dərəcəsinin-analitik-tapılması-metodologiyası">Meyllilik
+Dərəcəsinin Analitik Tapılması Metodologiyası</h2>
+<p>Hücum edən şəxs xətti tənliyin doğru olma ehtimalını (<span
+class="math inline">\(p\)</span>) və meyllilik dərəcəsini (<span
+class="math inline">\(\epsilon\)</span>) hələ hücuma başlamadan öncə,
+tamamilə açardan müstəqil şəkildə, şifrin hamıya məlum olan açıq riyazi
+strukturu (S-qutusu cədvəlləri) üzərindən iki mərhələdə hesablayır:</p>
+<ol>
+<li><p><strong>Lokal Səviyyədə — Xətti Yaxınlaşma Cədvəlinin (LAT)
+Qurulması:</strong> Analitik, S-qutusunun bütün mümkün giriş bit
+kombinasiyalarını və onlara qarşılıq çıxan çıxış bitlərini kompüter
+mühitində simulyasiya edir. Giriş və çıxış bitlərinin xətti
+kombinasiyalarının neçə vəziyyətdə ödənildiyi sayılır və hər bir
+S-qutusu komponenti üçün lokal meyllilik dərəcəsi (<span
+class="math inline">\(\epsilon_{sbox} = p_{sbox} - 1/2\)</span>)
+hesablanaraq cədvələ yazılır.</p></li>
+<li><p><strong>Qlobal Səviyyədə — Matsuinin Yığılma Lemmasının
+Tətbiqi:</strong> Raundlar boyunca uzanan çoxlu sayda lokal xətti
+tənliklər bir-birinə zəncirvari şəkildə bağlanaraq qlobal bir "xətti
+cığır" formalaşdırır. Müstəqil raundların lokal meylliliklərini
+birləşdirərək alqoritmin ümumi qlobal meylliliyini (<span
+class="math inline">\(\epsilon_{total}\)</span>) hesablamaq üçün
+Matsuinin yığılma lemmasından istifadə olunur. <span
+class="math inline">\(n\)</span> sayda müstəqil xətti yaxınlaşma üçün
+qlobal meyllilik aşağıdakı düsturla müəyyən edilir: <span
+class="math display">\[\begin{equation}
+    \epsilon_{total} = 2^{n-1} \prod_{i=1}^{n} \epsilon_i
+\end{equation}\]</span></p></li>
+</ol>
+<h2 class="unnumbered"
+id="matsuinin-yığılma-lemmasının-riyazi-izbatı">Matsuinin Yığılma
+Lemmasının Riyazi İzbatı</h2>
+<p>Lemmanın mahiyyətini anlamaq üçün daxili strukturu tam müstəqil olan
+iki təsadüfi ikili (<span class="math inline">\(0\)</span> və ya <span
+class="math inline">\(1\)</span>) dəyişənə baxaq: <span
+class="math inline">\(X_1\)</span> və <span
+class="math inline">\(X_2\)</span>. Bu dəyişənlərin <span
+class="math inline">\(0\)</span>-a bərabər olma ehtimalları müvafiq
+olaraq <span class="math inline">\(p_1\)</span> və <span
+class="math inline">\(p_2\)</span> olsun: <span
+class="math display">\[\begin{equation}
+P(X_1 = 0) = p_1 = \frac{1}{2} + \epsilon_1 \quad \text{və} \quad P(X_2
+= 0) = p_2 = \frac{1}{2} + \epsilon_2
+\end{equation}\]</span> Burada <span
+class="math inline">\(\epsilon_1\)</span> və <span
+class="math inline">\(\epsilon_2\)</span> uyğun olaraq dəyişənlərin
+lokal meyllilik dərəcələridir. Onda bu dəyişənlərin <span
+class="math inline">\(1\)</span> olma ehtimalları avtomatik olaraq
+aşağıdakı kimi olar: <span class="math display">\[\begin{equation}
+P(X_1 = 1) = 1 - p_1 = \frac{1}{2} - \epsilon_1 \quad \text{və} \quad
+P(X_2 = 1) = 1 - p_2 = \frac{1}{2} - \epsilon_2
+\end{equation}\]</span></p>
+<p>Xətti kriptoanalizdə biz raundları XOR əməliyyatı ilə birləşdiririk.
+Gəlin bu iki müstəqil raundun cəminin (<span class="math inline">\(X_1
+\oplus X_2 = 0\)</span>) doğru olma ehtimalını (<span
+class="math inline">\(p_{1,2}\)</span>) hesablayaq. İki bitin XOR
+cəminin <span class="math inline">\(0\)</span> verməsi üçün gərək hər
+iki bit bir-birinə bərabər olsun (yəni ya hər ikisi <span
+class="math inline">\(0\)</span>, ya da hər ikisi <span
+class="math inline">\(1\)</span> olmalıdır): <span
+class="math display">\[\begin{equation}
+p_{1,2} = P(X_1 \oplus X_2 = 0) = P(X_1 = 0, X_2 = 0) + P(X_1 = 1, X_2 =
+1)
+\end{equation}\]</span> Dəyişənlər müstəqil olduğu üçün birgə ehtimalı
+onların hasili şəklində yaza bilərik: <span
+class="math display">\[\begin{align}
+p_{1,2} &amp;= p_1 p_2 + (1 - p_1)(1 - p_2) \\
+&amp;= \left(\frac{1}{2} + \epsilon_1\right)\left(\frac{1}{2} +
+\epsilon_2\right) + \left(\frac{1}{2} -
+\epsilon_1\right)\left(\frac{1}{2} - \epsilon_2\right) \\
+&amp;= \left(\frac{1}{4} + \frac{\epsilon_1}{2} + \frac{\epsilon_2}{2} +
+\epsilon_1\epsilon_2\right) + \left(\frac{1}{4} - \frac{\epsilon_1}{2} -
+\frac{\epsilon_2}{2} + \epsilon_1\epsilon_2\right)
+\end{align}\]</span> Tənlikdəki <span
+class="math inline">\(\frac{\epsilon_1}{2}\)</span> və <span
+class="math inline">\(\frac{\epsilon_2}{2}\)</span> ifadələri əks
+işarəli olduqları üçün bir-birini islah edir. Yerdə qalan hədləri
+topladıqda alırıq: <span class="math display">\[\begin{equation}
+p_{1,2} = \frac{1}{4} + \frac{1}{4} + 2\epsilon_1\epsilon_2 =
+\frac{1}{2} + 2\epsilon_1\epsilon_2
+\end{equation}\]</span> Tərifə görə, iki raund üçün birləşmiş meyllilik
+dərəcəsi <span class="math inline">\(\epsilon_{1,2} = p_{1,2} -
+1/2\)</span> bərabərdir. Yuxarıdakı nəticədən <span
+class="math inline">\(1/2\)</span>-ni çıxdıqda tapırıq: <span
+class="math display">\[\begin{equation}
+\epsilon_{1,2} = 2\epsilon_1\epsilon_2
+\end{equation}\]</span></p>
+<p>Riyazi induksiya metodunu tətbiq edərək bu məntiqi <span
+class="math inline">\(n\)</span> sayda müstəqil raund dəyişəni üçün
+genişləndirdikdə, hər növbəti raundda hasilin qarşısına əlavə bir <span
+class="math inline">\(2\)</span> əmsalı gəlir və ümumi düstur öz
+isbatını tapır: <span class="math display">\[\begin{equation}
+\epsilon_{total} = 2^{n-1} \prod_{i=1}^{n} \epsilon_i
+\end{equation}\]</span> Bu isbat aydın şəkildə nümayiş etdirir ki,
+raundların sayı (<span class="math inline">\(n\)</span>) artdıqca
+meyllilik dərəcələri bir-birinə vurulur və kəsr ədədlər sürətlə
+kiçildiyi üçün qlobal meyllilik sıfıra doğru yaxınlaşır (<span
+class="math inline">\(\epsilon_{total} \to 0\)</span>). Bu səbəbdən
+raund sayını artırmaq blok şifr alqoritmlərini xətti kriptoanalizə qarşı
+eksponensial dərəcədə dayanıqlı edir.</p>
+<p>Beləliklə, analitik şifrin riyazi modelindən çıxış edərək qlobal
+<span class="math inline">\(\epsilon\)</span> dəyərini tam dəqiq
+hesablayır. Bu rəqəm hücum edən şəxsə tələb olunan minimal fərqli məlum
+mətn sayını (<span class="math inline">\(N \propto
+\epsilon^{-2}\)</span>) hücumdan əvvəl proqnozlaşdırmağa imkan
+verir.</p>
+<h2
+id="diferensial-və-xətti-kriptoanalizin-müqayisəli-təhlili">Diferensial
+və Xətti Kriptoanalizin Müqayisəli Təhlili</h2>
+<p>Hər iki kriptoanaliz növü blok şifrlərin struktur asılılıqlarını
+hədəf alsa da, tələb etdikləri məlumat modelləri və riyazi yanaşmaları
+baxımından fərqlənirlər.</p>
+<table id="tab:diff_vs_linear">
+<caption>Diferensial və xətti kriptoanalizin müqayisəli
+xüsusiyyətləri</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Xüsusiyyət</strong></th>
+<th style="text-align: left;"><strong>Diferensial
+Kriptoanaliz</strong></th>
+<th style="text-align: left;"><strong>Xətti Kriptoanaliz</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Riyazi Əsas</strong></td>
+<td style="text-align: left;">XOR fərqlərinin yayılması (<span
+class="math inline">\(\Delta\)</span>)</td>
+<td style="text-align: left;">Xətti yaxınlaşma və meyllilik (<span
+class="math inline">\(\epsilon\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Məlumat modeli</strong></td>
+<td style="text-align: left;">Seçilmiş açıq mətn</td>
+<td style="text-align: left;">Məlum açıq mətn</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Məlumat Mürəkkəbliyi
+(DES)</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(2^{47}\)</span> seçilmiş mətn cütü</td>
+<td style="text-align: left;"><span
+class="math inline">\(2^{43}\)</span> məlum mətn cütü</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hesablama (Zaman)
+Mürəkkəbliyi</strong></td>
+<td style="text-align: left;"><span
+class="math inline">\(2^{47}\)</span> əməliyyat (Nəzəri olaraq tam
+axtarışdan sürətli)</td>
+<td style="text-align: left;"><span
+class="math inline">\(2^{43}\)</span> əməliyyat (Praktiki olaraq icra
+edilib)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hədəf Komponent</strong></td>
+<td style="text-align: left;">S-qutularının diferensial keçidləri</td>
+<td style="text-align: left;">S-qutularının xətti yaxınlaşması</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Təqdimatçı və İl</strong></td>
+<td style="text-align: left;">E. Biham, A. Şamir (1990)</td>
+<td style="text-align: left;">M. Matsui (1993 – Nəzəriyyə, 1994 –
+Praktika)</td>
+</tr>
+</tbody>
+</table>
+<div class="tcolorbox">
+<p>Bu nöqtədə tələbə tam axtarışın, diferensial və xətti kriptoanalizin
+primitivin riyazi strukturuna və açar fəzasına yönəldiyini izah
+etməlidir. Növbəti hissədə isə primitiv deyil, onun real icrası və
+ölçülə bilən sızıntılar hədəf alınır.</p>
+</div>
+<h1 class="unnumbered"
+id="ii-hissə-implementasiya-və-fiziki-sızıntılar">II hissə:
+İmplementasiya və fiziki sızıntılar</h1>
+<h1 id="yan-kanal-hücumlarına-giriş">Yan Kanal Hücumlarına Giriş</h1>
+<div class="definition">
+<p><strong>Tərif 4</strong> (Yan kanal hücumu). <em>Yan kanal hücumu
+(SCA) — kriptoqrafik alqoritmin riyazi quruluşundakı zəiflikdən deyil,
+onun real mikrosxem, prosessor və ya aparat təminatı üzərindəki
+<strong>fiziki reallaşdırılmasından</strong> ətraf mühitə sızan
+məlumatdan istifadə edən hücum üsuludur <span class="citation"
+data-cites="kocher1996timing"></span>.</em></p>
+</div>
+<p><strong>Fiziki və Məntiqi Yan Kanal Mənbələri:</strong> Hücumçunun
+hədəf aldığı sızıntı xarakterindən asılı olaraq yan kanallar aşağıdakı
+qruplara ayrılır:</p>
+<ul>
+<li><p><strong>İcra müddəti:</strong> Müəyyən daxili riyazi
+əməliyyatların (məsələn, modul dərəcəyə yüksəltmə və ya şərti budaqlar)
+icra müddətinin gizli açarın bitlərindən asılı olaraq
+dəyişməsi.</p></li>
+<li><p><strong>Güc sərfiyyatı:</strong> Tranzistorların keçidi zamanı
+mikrosxemin daxili şinlərindən çəkdiyi elektrik cərəyanının dinamik
+dəyişməsi (SPA və DPA hücumları) <span class="citation"
+data-cites="kocher1999differential"></span>.</p></li>
+<li><p><strong>Elektromaqnit şüalanması (EM):</strong> Prosessorun
+daxili elementlərindən yüksək tezliklərdə işləyən cərəyan keçərkən
+mikrosxem ətrafında yaranan parazit EM sahələr.</p></li>
+<li><p><strong>Akustik sızıntı:</strong> Cihazın gərginlik
+tənzimləyiciləri və kondensatorlarından əməliyyat zamanı yaranan yüksək
+tezlikli ultrasəs dalğaları.</p></li>
+<li><p><strong>İstilik:</strong> Uzunmüddətli ağır şifrələmə
+əməliyyatları zamanı çipin müəyyən zonalarının lokal qızma
+dərəcəsi.</p></li>
+<li><p><strong>Keş yaddaş kanalları (<em>Keş-vaxt</em>):</strong>
+Proqram təminatının prosessorun keş yaddaşına (<em>L1/L2 Keş</em>)
+müraciət fərqləri (məsələn, AES-in <span
+class="math inline">\(T\)</span>-cədvəllərinin keş daxilində törətdiyi
+sızıntılar).</p></li>
+<li><p><strong>Xəta mesajları və doldurma xətası üzrə sorğu
+mənbələri:</strong> Protokol səviyyəsində şifrəli mətnin struktur
+xətalarının kənara fərqli kodlarla qaytarılması.</p></li>
+</ul>
+<p><strong>Əsas fərq:</strong> Ənənəvi kriptoanaliz (məsələn,
+diferensial və xətti analizlər) alqoritmi daxili dəyişənləri və açarı
+tapılmalı olan riyazi qara qutu kimi qəbul edir. Yan kanal hücumları isə
+alqoritmin icra olunduğu fiziki mühiti müşahidə edilə bilən boz qutu
+modelinə çevirir.</p>
+<figure data-latex-placement="h">
+<div class="tcolorbox">
+<div class="minipage">
+<p><strong>İnformasiya Seli və Sızıntı İstiqamətləri:</strong> <span
+class="math display">\[\text{Açıq Mətn } (P) \longrightarrow
+\boxed{\quad\text{Kriptoqrafik Cihaz / Gizli Açar } (K)\quad}
+\longrightarrow \text{ Şifrəli Mətn } (C)\]</span> <span
+class="math display">\[\quad \ \
+\rotatebox[origin=c]{-90}{$\longrightarrow$} \ \text{ Fiziki Yan
+Kanallar: } \{\text{Vaxt, Güc, EM Şüalanma, Keş
+sızıntısı}\}\]</span></p>
+</div>
+</div>
+<figcaption>Klassik şifrələmə zəncirində fiziki yan kanalların
+formalaşması</figcaption>
+</figure>
+<h1 id="vaxt-hücumu-vaxt-hücumu">Vaxt Hücumu (Vaxt Hücumu)</h1>
+<h2 id="iş-prinsipi">İş Prinsipi</h2>
+<p>Vaxt hücumu — <strong>Paul Kocher</strong> tərəfindən 1996-cı ildə
+kəşf edilmiş fundamental yan kanal hücumudur <span class="citation"
+data-cites="kocher1996timing"></span>. Bu hücum metodu, kriptoqrafik
+alqoritmin icra olunduğu prosessorda əməliyyatların tamamlanma
+müddətində yaranan mikrosaniyəlik və ya nanosaniyəlik fərqləri hədəf
+alır.</p>
+<div class="definition">
+<p><strong>Tərif 5</strong> (Vaxt hücumu). <em>Kriptoqrafik cihazın
+daxili hesablama müddətinin gizli açarın bit dəyərlərindən və ya daxil
+edilən verilənlərdən funksional olaraq asılı olmasından istifadə edərək,
+statistik analiz vasitəsilə gizli açarı addım-addım bərpa edən hücum
+metodudur.</em></p>
+</div>
+<p><strong>Fundamental Analitik Prinsip:</strong></p>
+<ul>
+<li><p><strong>Dinamik zamanlama:</strong> Prosessorun daxilində icra
+olunan şərti budaqlar və ya asimmetrik riyazi əməliyyatlar fərqli giriş
+verilənləri üçün müxtəlif takt sayları tələb edir.</p></li>
+<li><p><strong>Statistik Süzgəc:</strong> Hücumçu hədəf sistemə çoxlu
+sayda fərqli giriş göndərir və hər birinin icra müddətini dəqiq qeyd
+edir. İcra müddətindəki küyü aradan qaldırmaq üçün böyük verilənlər
+üzərində statistik korrelyasiya təhlilləri aparılır.</p></li>
+<li><p><strong>Addımlı Təxmin:</strong> Gizli açarın bitləri soldan sağa
+doğru bir-bir test edilir. Hər bir bit təxmini üçün hesablanan nəzəri
+zamanlama modeli real ölçülmüş zamanla müqayisə edilərək doğru bit
+müəyyənləşdirilir.</p></li>
+</ul>
+<h2 id="rsa-alqoritminə-qarşı-vaxt-hücumu">RSA Alqoritminə qarşı Vaxt
+Hücumu</h2>
+<p>RSA asimmetrik şifrələməsində və rəqəmsal imzada istifadə olunan
+<span class="math inline">\(M^d \pmod n\)</span> modul dərəcəyə
+yüksəltmə əməliyyatı hesablama resurslarına qənaət etmək üçün
+<strong>kvadrata yüksəltmə və vurma</strong> alqoritmi ilə icra
+edilir.</p>
+<div class="tcolorbox">
+<p><strong>Giriş:</strong> Giriş əsası <span
+class="math inline">\(g\)</span>, gizli dərəcə <span
+class="math inline">\(x = (x_k x_{k-1} \dots x_0)_2\)</span>, modul
+<span class="math inline">\(p\)</span><br />
+<strong>Çıxış:</strong> Nəticə <span class="math inline">\(R = g^x \pmod
+p\)</span></p>
+<hr />
+<ol>
+<li><p><span class="math inline">\(R \leftarrow 1\)</span>
+edilir.</p></li>
+<li><p><span class="math inline">\(i = k\)</span>-dan <span
+class="math inline">\(0\)</span>-a qədər hər bir bit üçün ardıcıl dövr
+icra olunur:</p>
+<ol>
+<li><p><span class="math inline">\(R \leftarrow (R \times R) \pmod
+p\)</span> <em>(Kvadrata Yüksəltmə — hər bir bit üçün)</em></p></li>
+<li><p><strong>Əgər</strong> gizli açarın cari biti <span
+class="math inline">\(x_i == 1\)</span> olarsa:</p></li>
+<li><p><span class="math inline">\(R \leftarrow (R \times g) \pmod
+p\)</span> <em>(<strong>Kritik Asimmetriya:</strong> Yalnız bit 1
+olduqda)</em></p></li>
+</ol></li>
+<li><p><span class="math inline">\(R\)</span> dəyəri geri
+qaytarılır.</p></li>
+</ol>
+</div>
+<p><strong>Asimmetriya Problemi və Sızıntı Mexanizmi:</strong>
+Yuxarıdakı alqoritmdən göründüyü kimi, gizli açarın (<span
+class="math inline">\(x\)</span>) cari biti <span
+class="math inline">\(0\)</span> olduqda dövr daxilində yalnız 1 böyük
+modul əməliyyatı (Kvadrata yüksəltmə) icra olunur. Lakin bit <span
+class="math inline">\(1\)</span> olduqda ardıcıl olaraq 2 böyük modul
+əməliyyatı (Kvadrata yüksəltmə və Vurma) icra edilir. İki modul
+əməliyyatının icrası zaman baxımından bir əməliyyatdan nəzərəçarpacaq
+dərəcədə çox çəkir. Bu zaman fərqi birbaşa olaraq gizli açarın daxili
+bitləri haqqında kənara ifşaedici siqnal ötürür.</p>
+<h2 id="nəzəri-müdafiə-strategiyaları">Nəzəri Müdafiə
+Strategiyaları</h2>
+<ol>
+<li><p><strong>Sabit-Zamanlı İkili Alqoritmlər (<em>Constant-Time Binary
+Algorithms</em>):</strong> Montqomeri nərdivanı (<em>Montgomery
+ladder</em>) və ya "həmişə vur" (<em>always-multiply</em>) yanaşması
+emal edilən hər bir bit üçün eyni formal əməliyyat ardıcıllığını icra
+edir. Ara nəticələrin gizli bitin qiymətindən asılı olaraq seçilməsi
+şərti budaqlanmasız (<em>branchless</em>) sabit-zamanlı mübadilə/seçmə
+(<em>constant-time swap/select</em>) əməliyyatları ilə aparılmalıdır.
+Həmçinin kompilyatorun optimallaşdırma çıxışı və böyük-ədəd arifmetikası
+(<em>bignum arithmetic</em>) kitabxanalarının dəyişən müddətli icra
+xarakteristikası yoxlanılmalıdır.</p></li>
+<li><p><strong>Kriptoqrafik Korlaşdırma (<em>Cryptographic
+Blinding</em>):</strong> RSA alqoritmində vaxt (<em>timing attack</em>)
+və güc sızmalarına (<em>DPA</em>) qarşı effektiv müdafiə qatıdır. Cihaz
+gizli eksponentlə hesablama aparmazdan əvvəl daxil olan mesajı təsadüfi
+və modula görə tərs elementə malik maskalama faktoru ilə korlaşdırır:
+<span class="math display">\[\begin{equation}
+        M&#39; = (M \cdot r^e) \bmod n
+\end{equation}\]</span> Daha sonra <span
+class="math inline">\(M&#39;\)</span> üzərində gizli dərəcəyə yüksəltmə
+əməliyyatı <span class="math inline">\(C&#39; = (M&#39;)^d \bmod
+n\)</span> icra olunur və nəticə <span class="math inline">\(r^{-1}
+\bmod n\)</span> vurğunu ilə bərpa edilir (<em>unblinding</em>): <span
+class="math display">\[\begin{equation}
+        M = (C&#39; \cdot r^{-1}) \bmod n
+\end{equation}\]</span> Kriptoqrafik baxımdan təhlükəsiz təsadüfi ədəd
+generatoru (TRNG/CSPRNG) və düzgün reallaşdırma statistik korrelyasiyanı
+kəskin azaldır. Lakin qalıq fiziki sızma, RNG çatışmazlığı və xəta
+inyeksiyası (<em>fault injection</em>) hücumlarına qarşı əlavə nəzarət
+mexanizmləri tətbiq olunmalıdır.</p></li>
+</ol>
+<h1 id="güc-analizi">Güc Analizi</h1>
+<h2 id="spa-simple-güc-analizi-sadə-güc-analizi">SPA (Simple Güc Analizi
+— Sadə Güc Analizi)</h2>
+<div class="definition">
+<p><strong>Tərif 6</strong> (SPA). <em>SPA — kriptoqrafik cihazın tək
+bir şifrələmə əməliyyatı zamanı istehlak etdiyi cərəyanın <strong>zaman
+qrafikindən (güc izindən)</strong> birbaşa vizual analiz vasitəsilə
+gizli açarı və ya icra olunan əməliyyatların ardıcıllığını oxumağa imkan
+verən hücum metodudur <span class="citation"
+data-cites="kocher1999differential"></span>.</em></p>
+</div>
+<p><strong>Fundamental İş Prinsipi:</strong></p>
+<ul>
+<li><p><strong>Əməliyyat Asılılığı:</strong> CMOS mikrosxemlərində
+fərqli riyazi əməliyyatlar (məsələn, böyük ədədlərin vurulması ilə
+toplanması) fərqli sayda tranzistor keçidi tələb edir və bu da güc
+əyrisində xarakterik dalğalar yaradır.</p></li>
+<li><p><strong>Görünüşə görə tanıma:</strong> Kvadrata yüksəltmə və
+vurma alqoritmində kvadrata yüksəltmə və vurma əməliyyatlarının güc
+profilləri fərqlidir. Hücumçu osilloqraf ekranındakı dalğalara baxaraq
+gizli açarın <span class="math inline">\(0\)</span> (tək dalğa) və ya
+<span class="math inline">\(1\)</span> (qoşa dalğa) olduğunu birbaşa
+müəyyən edir.</p></li>
+</ul>
+<div class="tcolorbox">
+<p><strong>Güc İstehlakı (<span class="math inline">\(\Delta
+I\)</span>)</strong><br />
+<span class="math inline">\(\uparrow\)</span></p>
+<table id="tab:spa_profile">
+<caption>Sadə Güc Analizində əməliyyatların vizual ayrılması</caption>
+<tbody>
+<tr>
+<td style="text-align: center;"><span>2-2</span></td>
+<td style="text-align: center;"><strong>Kvadrata Yüksəltmə</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Kvadrata Yüksəltmə</strong></td>
+<td style="text-align: center;"><strong>Əlavə Vurma</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(Geniş dalğa)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(Geniş dalğa)</td>
+<td style="text-align: center;">(Dar dalğa)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span>2-2</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<hr />
+<p><strong>Zaman (<span class="math inline">\(t\)</span>)</strong> <span
+class="math inline">\(\longrightarrow\)</span> [Təxmin edilən gizli bit
+ardıcıllığı: <span class="math inline">\(\mathbf{0} \to
+\mathbf{1}\)</span>]</p>
+</div>
+<h2 id="dpa-differential-güc-analizi-diferensial-güc-analizi">DPA
+(Differential Güc Analizi — Diferensial Güc Analizi)</h2>
+<div class="definition">
+<p><strong>Tərif 7</strong> (DPA). <em>DPA — çoxsaylı kriptoqrafik
+əməliyyatdan toplanan güc izlərini <strong>statistik və ehtimal
+metodları</strong> ilə analiz edib sızıntı hipotezlərini açar
+namizədləri üzrə yoxlayan hücum üsuludur; tələb olunan iz sayı sabit
+deyil <span class="citation"
+data-cites="kocher1999differential"></span>.</em></p>
+</div>
+<p><strong>Alqoritmik İcra Addımları:</strong></p>
+<ol>
+<li><p><strong>Verilənlərin Toplanması:</strong> Cihaza <span
+class="math inline">\(N\)</span> sayda fərqli təsadüfi <span
+class="math inline">\(P_i\)</span> açıq mətnləri göndərilir və hər bir
+icra üçün cərəyan dəyişməsi (<span class="math inline">\(T_i(t)\)</span>
+izləri) yaddaşa yazılır.</p></li>
+<li><p><strong>Açar Təxmini və Proqnoz:</strong> Hücumçu gizli açarın
+kiçik bir hissəsi (məsələn, AES-in ilk baytı) üçün mümkün olan bütün
+qiymətləri təxmin edir.</p></li>
+<li><p><strong>Aralıq dəyişənin hesablanması:</strong> Hər bir təxmin
+üçün şifrələmənin daxili bir aralıq nöqtəsindəki (məsələn, S-qutusunun
+çıxışı) dəyər hesablanır.</p></li>
+<li><p><strong>Qruplaşdırma (Diferensiallama):</strong> Hesablanan
+dəyərin müəyyən bir bitinin <span class="math inline">\(0\)</span> və ya
+<span class="math inline">\(1\)</span> olmasına əsasən, toplanmış bütün
+<span class="math inline">\(T_i(t)\)</span> izləri iki fərqli qrupa
+ayrılır.</p></li>
+<li><p><strong>Statistik Fərq:</strong> Bu iki qrupun orta hesabi
+qiymətlərinin fərqi (<span class="math inline">\(\Delta D\)</span>)
+hesablanır. Əgər açar təxmini səhvdirsə, qrafik sıfıra yaxın düz xətt
+olacaq. Əgər təxmin doğrudursa, real cərəyan istehlakı ilə korrelyasiya
+yarandığı üçün fərq qrafikində kəskin korrelyasiya pikləri (sıçrayışlar)
+görünəcək.</p></li>
+</ol>
+<h2 id="nəzəri-müdafiə-strategiyaları-1">Nəzəri Müdafiə
+Strategiyaları</h2>
+<ol>
+<li><p><strong>Kriptoqrafik Maskalama :</strong> Daxili həssas
+dəyişənlərin (məsələn, <span class="math inline">\(x\)</span>) güc
+sızıntısını kəsmək üçün onlar cihaz daxilində tam təsadüfi <span
+class="math inline">\(r\)</span> maskası ilə modifikasiya edilir: <span
+class="math display">\[x_{\text{masked}} = x \oplus r\]</span> Bütün
+aralıq əməliyyatlar bu maskalanmış dəyər üzərində aparılır. Yalnız ən
+sonda maska riyazi olaraq çıxarılır. Hücumçu cərəyanı ölçsə belə, hər
+şifrələmədə <span class="math inline">\(r\)</span> dəyişdiyi üçün güc
+istehlakı gizli açarla heç bir statistik əlaqəyə malik olmur.</p></li>
+<li><p><strong>Prototip Səviyyəsində Körləşdirmə :</strong> RSA kimi
+asimmetrik alqoritmlərdə açarın riyazi olaraq maskalanmasıdır: <span
+class="math display">\[d_{\text{blinded}} = d + k \cdot \varphi(n) \quad
+(\text{burada } k \text{ təsadüfi ədəddir})\]</span> Euler teoreminə
+uyğun olaraq nəticə qorunur; eksponentin hər icrada dəyişməsi sadə iz
+korrelyasiyasını azalda bilər, lakin bütün sızıntını aradan qaldırdığı
+fərz edilməməlidir.</p></li>
+<li><p><strong>Aparat Təminatı Səviyyəsində Müdafiə :</strong></p>
+<ul>
+<li><p><strong>Səs-küy inyeksiyası:</strong> Çip daxilinə parazit
+cərəyan çəkən generatorların yerləşdirilməsi.</p></li>
+<li><p><strong>Ardıcıllığın qarışdırılması:</strong> Müstəqil daxili
+əməliyyatların (məsələn, AES S-qutularının) icra ardıcıllığının hər dəfə
+təsadüfi olaraq dəyişdirilməsi.</p></li>
+</ul></li>
+</ol>
+<h1 id="elektromaqnit-hücumları-ema">Elektromaqnit Hücumları (EMA)</h1>
+<div class="definition">
+<p><strong>Tərif 8</strong> (EMA). <em>EMA — kriptoqrafik qurğunun
+daxili keçid şinlərindən və tranzistorlarından yüksək tezliklərdə keçən
+cərəyanın mikrosxem ətrafında yaratdığı parazit elektromaqnit sahələrini
+(şüalanmanı) <strong>xüsusi antenalar və zondlar</strong> vasitəsilə
+qeydə alaraq gizli məlumatları əldə edən yan kanal hücumudur <span
+class="citation" data-cites="mangard2007power"></span>.</em></p>
+</div>
+<p><strong>Fundamental Xüsusiyyətləri:</strong></p>
+<ul>
+<li><p><strong>Təmassız və uzaqdan təhlil:</strong> Güc analizindən
+fərqli olaraq, cihazın elektrik xəttinə fiziki müdaxilə (məsələn,
+müqavimət lehimləmək) tələb olunmur. Hücum bir neçə millimetrdən (yerli
+EMA) bir neçə metrə qədər məsafədən icra edilə bilər.</p></li>
+<li><p><strong>Məkan seçiciliyi:</strong> EM zondları mikrosxemin
+konkret zonasına yönəldilərək başqa bloklardan gələn küyü azalda və
+yerli sızıntını gücləndirə bilər; küy tam sıfırlanmır.</p></li>
+<li><p><strong>TEMPEST Standartları:</strong> Hərbi və dövlət
+əhəmiyyətli informasiya sistemlərinin bu növ EM sızıntılarına qarşı
+müdafiə səviyyəsini tənzimləyən beynəlxalq təhlükəsizlik standartlar
+toplusudur. Cihazların Faraday qəfəsi və ya xüsusi ekranlaşdırıcı
+materiallarla izolyasiyasını tələb edir.</p></li>
+</ul>
+<h1 id="keş-yaddaş-hücumları-keş-hücumları">Keş Yaddaş Hücumları
+(<em>Keş Hücumları</em>)</h1>
+<div class="definition">
+<p><strong>Tərif 9</strong> (Keş hücumu). <em>Keş hücumu — müasir
+prosessorların daxili keş yaddaş iyerarxiyasındakı (<em>L1, L2,
+LLC</em>) verilənlərə müraciət sürətlərinin fərqliliyinə (<em>keşə
+düşmə</em> və <em>keşdən yayınma</em> zaman fərqləri) əsaslanaraq, eyni
+prosessorda işləyən digər qurban proqramın gizli məlumatlarını və
+kriptoqrafik açarlarını əldə edən mikroarxitektur yan kanal hücumudur
+<span class="citation" data-cites="bernstein2005cache"></span>.</em></p>
+</div>
+<p><strong>Fundamental Mexanizm və Əsas Növləri:</strong> Hücumçu
+birbaşa olaraq qurbanın yaddaşını oxuya bilmir, lakin prosessorun keş
+sətrlərini ortaq resurs kimi manipulyasiya edir:</p>
+<ol>
+<li><p><strong>Prime+Probe (Doldur və Yoxla):</strong></p>
+<ul>
+<li><p><strong>Prime:</strong> Hücumçu keş yaddaşın hədəf setini
+tamamilə özünün mənasız verilənləri ilə doldurur.</p></li>
+<li><p><strong>Gözləmə:</strong> Qurban proqramın (məsələn, AES
+şifrələməsinin) icrasına icazə verilir. Əgər qurban hücumçunun
+doldurduğu çoxluğa aid olan bir ünvana müraciət edərsə, hücumçunun
+verilənlərini keşdən sıxışdırıb çıxarır.</p></li>
+<li><p><strong>Yoxlama:</strong> Hücumçu öz verilənlərinə yenidən
+müraciət edir və keçən zamanı ölçür. Əgər müraciət müddətisə uzundursa
+(<em>keşdən yayınma</em>), deməli qurban proqram həmin konkret keş
+sətrindən istifadə edib.</p></li>
+</ul></li>
+<li><p><strong>Flush+Yenidən yükləmə (Təmizlə və Yenidən
+Yüklə):</strong></p>
+<ul>
+<li><p><strong>Ön şərt:</strong> Hücumçu ilə qurban arasında paylaşılmış
+kitabxanaların (məsələn, <em>crypto.dll</em> və ya
+<em>libcrypto.so</em>) mövcudluğunu tələb edir.</p></li>
+<li><p><strong>Flush:</strong> Hücumçu xüsusi prosessor əmri ilə
+(məsələn, <code>clflush</code>) hədəf aldığı yaddaş ünvanını keş
+yaddaşdan tamamilə silir.</p></li>
+<li><p><strong>Gözləmə:</strong> Qurban proqramın icrası
+gözlənilir.</p></li>
+<li><p><strong>Yenidən yükləmə:</strong> Hücumçu həmin ünvana yenidən
+müraciət edir. Əgər müraciət inanılmaz dərəcədə sürətlidirsə (<em>keşə
+düşmə</em>), deməli qurban bu zaman kəsiyində həmin funksiyaya və ya
+cədvələ müraciət edərək onu yenidən keşə gətirib.</p></li>
+</ul></li>
+</ol>
+<div class="example">
+<p><strong>Nümunə 6</strong> (AES T-Cədvəllərinə qarşı keş hücumu).
+<em>Proqram təminatı səviyyəsində icra olunan sürətli AES
+reallaşdırmaları daxili <em>SubBytes</em>, <em>ShiftRows</em> və
+<em>MixColumns</em> mərhələlərini birləşdirərək onları əvvəlcədən
+hesablanmış T-cədvəlləri şəklində saxlayır. Hücumçu yuxarıdakı
+metodlarla cədvəlin hansı indekslərinə (məsələn, <span
+class="math inline">\(T_0[i]\)</span>) müraciət edildiyini keş vaxtından
+tutmaqla, <span class="math inline">\(i = P \oplus K\)</span>
+əlaqəsindən gizli açarı (<span class="math inline">\(K\)</span>) riyazi
+olaraq hesablayır.</em></p>
+</div>
+<h1 id="xəta-inyeksiyası-hücumları-xəta-inyeksiyası-hücumları">Xəta
+İnyeksiyası Hücumları (<em>Xəta İnyeksiyası Hücumları</em>)</h1>
+<div class="definition">
+<p><strong>Tərif 10</strong> (Xəta inyeksiyası hücumu). <em>Xəta
+inyeksiyası hücumu — kriptoqrafik əməliyyatın icrası zamanı xarici
+fiziki təsirlər (məsələn, gərginlik sıçrayışları, saat tezliyinin
+manipulyasiyası, lazer impulsları və ya temperatur) vasitəsilə cihazın
+aparat təminatında qəsdən <strong>hesablama xətası tətbiq
+edərək</strong> səhv nəticələr əldə etmə və bu xətaların təbiətini
+analiz edərək gizli açarı çıxarma üsuludur <span class="citation"
+data-cites="boneh1997fault"></span>.</em></p>
+</div>
+<h2 id="dfa-diferensial-xəta-analizi">DFA: diferensial xəta analizi</h2>
+<div class="definition">
+<p><strong>Tərif 11</strong> (DFA). <em>DFA — eyni giriş verilənləri
+üçün cihazdan alınan <strong>düzgün şifrəli mətn</strong> (<span
+class="math inline">\(C\)</span>) ilə xəta vurulmuş <strong>səhv şifrəli
+mətnin</strong> (<span class="math inline">\(\hat{C}\)</span>) bit
+səviyyəsində fərqlərini müqayisə edərək, kriptoqrafik alqoritmin daxili
+diffuziya mexanizmini geriyə doğru izləyən və açarı tapan kriptoanalitik
+üsuldur <span class="citation"
+data-cites="biham1997differential"></span>.</em></p>
+</div>
+<h2
+id="rsa-crt-alqoritminə-qarşı-bellcore-xəta-inyeksiyası-hücumu">RSA-CRT
+Alqoritminə qarşı Bellcore Xəta İnyeksiyası Hücumu</h2>
+<p>RSA imzalama əməliyyatını sürətləndirmək üçün Çin qalıqlar
+teoremindən (CRT) istifadə edilir. Sistem <span class="math inline">\(n
+= p \cdot q\)</span> modulu üzərində birbaşa hesablama aparmaq əvəzinə,
+əməliyyatı daha kiçik olan <span class="math inline">\(p\)</span> və
+<span class="math inline">\(q\)</span> modulları üzrə iki müstəqil qola
+ayırır:</p>
+<p><span class="math display">\[\begin{align*}
+d_p &amp;= d \bmod (p-1), &amp; s_1 &amp;= m^{d_p} \bmod p,\\
+d_q &amp;= d \bmod (q-1), &amp; s_2 &amp;= m^{d_q} \bmod q.
+\end{align*}\]</span></p>
+<p>Sonda bu iki aralıq dəyər CRT riyazi strukturu ilə birləşdirilərək
+yekun <span class="math inline">\(s\)</span> imzası alınır.</p>
+<p><strong>Sızıntı və Hücum Mexanizmi:</strong> Hücumçu cihaz <span
+class="math inline">\(s_1\)</span> dəyərini hesablayan zaman gərginliyi
+anlıq dəyişərək xəta törədir və nəticədə səhv <span
+class="math inline">\(\hat{s}_1\)</span> dəyəri alınır. Lakin <span
+class="math inline">\(s_2\)</span> hesablama qolu tamamilə düzgün icra
+olunur. Bu halda birləşdirilmiş yekun imza səhv (<span
+class="math inline">\(\hat{s}\)</span>) olur.</p>
+<p>Bu zaman riyazi olaraq aşağıdakı şərtlər yaranır: <span
+class="math display">\[\begin{align*}
+\hat{s} &amp;\not\equiv s_1 \pmod p \implies (\hat{s}^e - m) \not\equiv
+0 \pmod p \\
+\hat{s} &amp;\equiv s_2 \pmod q \implies (\hat{s}^e - m) \equiv 0 \pmod
+q
+\end{align*}\]</span></p>
+<p>Bu o deməkdir ki, <span class="math inline">\((\hat{s}^e -
+m)\)</span> ədədi <span class="math inline">\(q\)</span>-yə tam bölünür,
+lakin <span class="math inline">\(p\)</span>-yə bölünmür. Hücumçu açıq
+eksponenti (<span class="math inline">\(e\)</span>), kodlaşdırılmış
+mesaj nümayəndəsini (<span class="math inline">\(m\)</span>) və səhv
+imzanı (<span class="math inline">\(\hat{s}\)</span>) istifadə edərək ən
+böyük ortaq bölən (ƏBOB) vasitəsilə gizli <span
+class="math inline">\(q\)</span> vuruğunu hesablaya bilər: <span
+class="math display">\[\gcd(\hat{s}^e - m, n) = q\]</span> Bu ƏBOB
+hesablaması böyük ədədlər üçün grafik olaraq ucuzdur; əsas çətinlik
+uyğun xəta inyeksiyası modelində səhv imzanı əldə etməkdir.</p>
+<h2 id="nəzəri-müdafiə-strategiyaları-2">Nəzəri Müdafiə
+Strategiyaları</h2>
+<ul>
+<li><p><strong>Çıxışın Yoxlanması (<em>Çıxışın
+Yoxlanması</em>):</strong> Cihaz yekun nəticəni kənara ötürməzdən əvvəl
+imzanı açıq açarla yoxlayır; bəsit nümayəndəsi üçün <span
+class="math inline">\(s^e \bmod n = m\)</span>, real sxemdə isə
+RSA-PSS/PKCS#1 kodlaşdırmasının tam yoxlama proseduru tətbiq olunur.
+Yoxlama uğursuz olarsa səhv imza çıxışa verilməməlidir. Alternativ sübut
+edilmiş xətaya davamlı CRT sxemi seçilə bilər.</p></li>
+<li><p><strong>İnvariantların və Paritetin Yoxlanılması:</strong>
+Hesablama registrlərinə paritet bitləri əlavə edilir. Əgər fiziki
+müdaxilə zamanı hər hansı bir bit çevrilərsə, paritet xətası aparat
+səviyyəsində əməliyyatı dayandırır.</p></li>
+<li><p><strong>Körləşdirmənin Məhdudiyyəti:</strong> Mesaj və eksponent
+korlaşdırması bəzi vaxt/güc sızıntılarını azaltmağa kömək edir, lakin
+Bellcore xəta inyeksiyası hücumuna əsas müdafiə deyil. Xəta korlaşdırma
+açıldıqdan sonra səhv imza kimi çıxa bilər və məlum mesajla ƏBOB əlaqəsi
+yenə qurular. Buna görə korlaşdırma çıxış yoxlamasını əvəz
+etməməlidir.</p></li>
+</ul>
+<h1 id="digər-yan-kanal-hücumları">Digər Yan Kanal Hücumları</h1>
+<h2 id="akustik-kriptoanaliz">Akustik Kriptoanaliz</h2>
+<div class="definition">
+<p><strong>Tərif 12</strong> (Akustik kriptoanaliz). <em>Akustik
+kriptoanaliz — mərkəzi prosessor (CPU), gərginlik requlyatorları və ya
+daxiletmə-xaricetmə qurğularının (klaviatura, printer) hesablama zamanı
+strukturdakı gərginlik dəyişmələrinə bağlı olaraq ətrafa yaydığı
+<strong>yüksek tezlikli akustik dalğaları (ultrasəsləri)</strong> xüsusi
+mikrofonlarla qeydə alaraq gizli məlumatları və açarları bərpa edən
+hücum metodudur <span class="citation"
+data-cites="genkin2014acoustic"></span>.</em></p>
+</div>
+<p><strong>Mexanizmi:</strong> 2013-cü il təcrübələrində GnuPG RSA
+reallaşdırılmasından açar çıxarma xüsusi seçilmiş şifrəli mətnlər və
+akustik ölçmələrlə göstərilmişdi. Məsafə sensor və qurğudan asılı idi:
+parabolik mikrofonla metr səviyyəsi, bəzi telefon sınaqlarında isə daha
+yaxın məsafə istifadə olunurdu. Bu nəticə bütün CPU-lar və RSA
+reallaşdırmaları üçün universal deyil.</p>
+<h2 id="soyuq-yükləmə-hücumu">Soyuq yükləmə hücumu</h2>
+<div class="definition">
+<p><strong>Tərif 13</strong> (Soyuq yükləmə hücumu). <em>Soyuq yükləmə
+hücumu — kompüter və ya ağıllı cihaz anlıq olaraq söndürüldükdən və ya
+yenidən başladıldıqdan sonra, əməliyyat yaddaşındakı (<em>DRAM</em>)
+kondensatorların tam boşalmaması səbəbindən <strong>remonentlik
+(məlumatın yaddaşda qalma) effektindən</strong> istifadə edərək gizli
+kriptoqrafik açarları fiziki olaraq oxumağa çalışan hücum üsuludur <span
+class="citation" data-cites="halderman2009cold"></span>.</em></p>
+</div>
+<p><strong>Fiziki İcra Addımları:</strong></p>
+<ol>
+<li><p><strong>Termal Sabitləşdirmə:</strong> İşlək vəziyyətdə olan
+cihazın yaddaş modulları (<em>RAM</em>) xüsusi soyuducu qazlar (məsələn,
+maye azot və ya sıxılmış hava aerozolu) vasitəsilə təxminən -50°C ile
+-100°C aralığına qədər dondurulur. Bu fiziki soyutma yaddaş
+hüceyrələrindəki elektrik yüklərinin sızma sürətini azaldır və
+remonentlik müddətini bir neçə saniyədən bir neçə dəqiqəyə (bəzən saata)
+qədər uzadır.</p></li>
+<li><p><strong>Fiziki köçürmə:</strong> Cihazın gücü bir anlıq kəsilir,
+RAM modulları sürətlə yerindən çıxarılır və hücumçunun nəzarətində olan
+xüsusi proqram təminatlı digər bir kompüterə taxılır.</p></li>
+<li><p><strong>Yaddaşın Surətinin Çıxarılması:</strong> Hücumçu cihazı
+öz xüsusi yükləmə diski (məsələn, yüngül Linux nüvəsi) ilə başladaraq
+RAM-ın xalis məzmununu xarici daşıyıcıya köçürür və daxildəki AES, RSA
+açarlarının struktur izlərini tapır.</p></li>
+</ol>
+<h2 id="optik-hücumlar">Optik Hücumlar</h2>
+<div class="definition">
+<p><strong>Tərif 14</strong> (Optik hücum). <em>Mikrosxemin fiziki
+səthini mikroskoplar, infraqırmızı kameralar və ya lazer şüaları
+vasitəsilə <strong>vizual və ya fotonik olaraq təhlil edərək</strong>
+daxili registrlərin vəziyyətini oxumağa çalışan hücum üsuludur.</em></p>
+</div>
+<ul>
+<li><p><strong>Passiv Optik Analiz:</strong> Emissiya mikroskopiyası
+(EMMI) vasitəsilə tranzistorların kommutasiya zamanı yaydığı görünməz
+foton sızıntılarının şəklini çəkməklə daxili məlumat axınını müəyyən
+etmək.</p></li>
+<li><p><strong>Aktiv Optik Analiz:</strong> Çipin daxili yarımkeçirici
+silisium təbəqəsinə yönəldilmiş dəqiq fokuslu lazer impulsları ilə
+müəyyən məntiqi qapılarda anlıq foto-cərəyan yaradaraq bit çevrilməsi
+xətası törətmək (lazer xəta inyeksiyası).</p></li>
+</ul>
+<h1 id="yan-kanal-hücumlarına-qarşı-sistem-səviyyəli-müdafiə">Yan Kanal
+Hücumlarına Qarşı Sistem Səviyyəli Müdafiə</h1>
+<h2 id="aparat-səviyyəsində-müdafiə">Aparat Səviyyəsində Müdafiə </h2>
+<ul>
+<li><p><strong>Faraday Qəfəsi və Ekranlaşdırma:</strong> Elektromaqnit
+sızıntılarını (EMA) minimuma endirmək üçün çipin və ya bütün ana
+lövhənin xüsusi metal izolyasiya qatları ilə örtülməsi.</p></li>
+<li><p><strong>Daxili Gərginlik Filtrləri:</strong> Güc sızıntılarını
+(SPA/DPA) boğmaq üçün çip daxilinə inteqrasiya edilmiş xüsusi
+kondensatorlar və gərginlik tənzimləyiciləri vasitəsilə istehlak edilən
+ümumi cərəyan profilinin düzləşdirilməsi.</p></li>
+<li><p><strong>Təsadüfi saat tərəddüdü:</strong> İcra izlərini zaman
+oxunda sürüşdürərək sadə hizalamanı çətinləşdirə bilər. Siqnal emalı ilə
+izlər yenidən hizalana bildiyi üçün bu, maskalama və başqa müdafiələri
+əvəz etmir.</p></li>
+<li><p><strong>İkiyollu Diferensial Məntiq Qapıları:</strong> Bit və
+onun tamamlayıcısını iki fiziki yol ilə emal etməklə güc profilini
+balanslaşdırmağa çalışır. Marşrut asimmetriyası, keçid xətası və proses
+variasiyası qalıq sızıntı yarada bilər; sabit güc sərfi zəmanəti
+deyil.</p></li>
+</ul>
+<h2 id="proqram-səviyyəsində-müdafiə">Proqram Səviyyəsində Müdafiə </h2>
+<ol>
+<li><p><strong>Sabit Zamanlı Müqayisə Alqoritmləri :</strong> Gizli
+açarların və ya heş dəyərlərinin yoxlanılması zamanı (məsələn, HMAC
+təsdiqlənməsi) standart sətir müqayisəsi ilk səhv bitdə dayandığı üçün
+vaxt sızıntısı yaradır. Bunun qarşısını almaq üçün bit səviyyəli XOR
+(<span class="math inline">\(\oplus\)</span>) və OR (<span
+class="math inline">\(\lor\)</span>) operatorlarına əsaslanan sabit
+zamanlı riyazi müqayisə modeli tətbiq olunur.</p>
+<p><strong>Konseptual Model:</strong> Eyni uzunluqlu <span
+class="math inline">\(A\)</span> və <span
+class="math inline">\(B\)</span> massivləri üçün kifayət qədər geniş
+unsigned accumulator seçilir və <span class="math inline">\(R
+\mathrel{|}= A[i]\oplus B[i]\)</span> bütün indekslər üzrə hesablanır;
+sonda <span class="math inline">\(R=0\)</span> yoxlanır. OR accumulator
+toplamadakı overflow problemini daşımır. Bunun həqiqətən sabit-zamanlı
+olub-olmadığı kompilyatorun yaratdığı maşın kodu və hədəf platforma üzrə
+yoxlanmalıdır; uzunluq adətən ictimai parametr olmalıdır.</p></li>
+<li><p><strong>Kriptoqrafik Maskalama və Körləşdirmə:</strong> Daxili
+dəyişənlərin və dərəcələrin təsadüfi ədədlərlə (<span
+class="math inline">\(x \oplus r\)</span> və ya <span
+class="math inline">\(d + k\varphi(n)\)</span>) modifikasiyası.</p></li>
+<li><p><strong>Əməliyyatların Qarışdırılması:</strong> Müstəqil
+funksiyaların və ya keş yaddaş cədvəllərinin oxunma ardıcıllığının hər
+icrada təsadüfi permütasiya ilə qarışdırılması.</p></li>
+</ol>
+<h2 id="kriptoqrafik-protokol-səviyyəsində-müdafiə">Kriptoqrafik
+Protokol Səviyyəsində Müdafiə</h2>
+<ul>
+<li><p><strong>Dinamik Yenidən Açarlama:</strong> Eyni açar altında
+toplanan izlərin sayını məhdudlaşdıra bilər, lakin tələb olunan iz sayı
+hücum və sızıntı modelindən asılıdır; açarın dəyişdirilməsi mövcud
+izləri və əsas açar sızıntısını aradan qaldırmır.</p></li>
+<li><p><strong>Müvəqqəti Açarların İstifadəsi:</strong> Düzgün yaradılan
+və silinən sessiya açarları uzunmüddətli açarın sonrakı kompromatının
+təsirini azalda bilər. Sessiya sirri, RNG və ya reallaşdırma sızarsa
+keçmiş trafik yenə riskə düşə bilər.</p></li>
+<li><p><strong>Sessiya Limitləri və Orakıl Bloklanması:</strong> Eyni
+açarla icra olunan uğursuz cəhdlərin və ya xətalı şifrəli mətn
+sorğularının sayının protokol səviyyəsində sərt şəkildə
+məhdudlaşdırılması.</p></li>
+</ul>
+<h1 id="yan-kanal-hücumlarının-müqayisəli-analizi">Yan Kanal
+Hücumlarının Müqayisəli Analizi</h1>
+<p>Mühazirə boyu keçdiyimiz hücum metodlarının xüsusiyyətlərini, tələb
+olunan resurs mürəkkəbliyini və hədəf sızıntı mənbələrini
+sistemləşdirmək üçün aşağıdakı analitik müqayisə cədvəli
+hazırlanmışdır.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hücum Növü</strong></th>
+<th style="text-align: left;"><strong>Sızıntı Mənbəyi</strong></th>
+<th style="text-align: left;"><strong>Resurs Mürəkkəbliyi</strong></th>
+<th style="text-align: left;"><strong>Fiziki Məsafə
+(Əlçatanlıq)</strong></th>
+<th style="text-align: left;"><strong>Əsas Müdafiə
+Strategiyası</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hücum Növü</strong></td>
+<td style="text-align: left;"><strong>Sızıntı Mənbəyi</strong></td>
+<td style="text-align: left;"><strong>Resurs Mürəkkəbliyi</strong></td>
+<td style="text-align: left;"><strong>Fiziki Məsafə
+(Əlçatanlıq)</strong></td>
+<td style="text-align: left;"><strong>Əsas Müdafiə
+Strategiyası</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Vaxt Hücumu</td>
+<td style="text-align: left;">İcra müddəti</td>
+<td style="text-align: left;">Modeldən asılı</td>
+<td style="text-align: left;">Yerli və ya uzaqdan, siqnal-küy
+nisbətindən asılı</td>
+<td style="text-align: left;">Sabit-zamanlı kod və ölçmə</td>
+</tr>
+<tr>
+<td style="text-align: left;">SPA</td>
+<td style="text-align: left;">Birbaşa güc istehlakı</td>
+<td style="text-align: left;">Qurğudan asılı</td>
+<td style="text-align: left;">Adətən yaxın/fiziki ölçmə</td>
+<td style="text-align: left;">Əməliyyat simmetriyası və sızıntı
+testi</td>
+</tr>
+<tr>
+<td style="text-align: left;">DPA</td>
+<td style="text-align: left;">Statistik güc sızıntısı</td>
+<td style="text-align: left;">İz sayı və modeldən asılı</td>
+<td style="text-align: left;">Adətən yaxın/fiziki ölçmə</td>
+<td style="text-align: left;">Düzgün maskalama və sızıntı testi</td>
+</tr>
+<tr>
+<td style="text-align: left;">EMA</td>
+<td style="text-align: left;">Elektromaqnit şüalanma</td>
+<td style="text-align: left;">Sensor və qurğudan asılı</td>
+<td style="text-align: left;">Təmassız, məsafə qurğudan asılı</td>
+<td style="text-align: left;">Ekranlaşdırma, yerləşim və sızıntı
+testi</td>
+</tr>
+<tr>
+<td style="text-align: left;">Keş Hücumları</td>
+<td style="text-align: left;">Keş yaddaş müraciət zamanı</td>
+<td style="text-align: left;">Orta</td>
+<td style="text-align: left;">Yerli (Mikroarxitektur)</td>
+<td style="text-align: left;">Cədvəllərin ləğvi, <em>Bit
+dilimləmə</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Xəta İnyeksiyası Hücumları</td>
+<td style="text-align: left;">Aparatın hesablama xətası</td>
+<td style="text-align: left;">Xəta üsulundan asılı</td>
+<td style="text-align: left;">Adətən fiziki və ya yaxın təsir</td>
+<td style="text-align: left;">İnvariant/artıqlıq və çıxış yoxlaması</td>
+</tr>
+<tr>
+<td style="text-align: left;">Akustik Analiz</td>
+<td style="text-align: left;">CPU/Komponent ultrasəsləri</td>
+<td style="text-align: left;">Yüksək</td>
+<td style="text-align: left;">Lokal (Mikrofon məsafəsi)</td>
+<td style="text-align: left;">Akustik səsboğucular, sabit cərəyan
+çəkimi</td>
+</tr>
+<tr>
+<td style="text-align: left;">Soyuq Yükləmə</td>
+<td style="text-align: left;">RAM remonentliyi (yük qalığı)</td>
+<td style="text-align: left;">Yüksək</td>
+<td style="text-align: left;">Yerli (Fiziki müdaxilə)</td>
+<td style="text-align: left;">Yaddaşın avtomatik silinməsi, RAM
+şifrələməsi</td>
+</tr>
+</tbody>
+</table>
+<h1 id="praktik-layihələndirmə-tövsiyələri">Praktik Layihələndirmə
+Tövsiyələri</h1>
+<div class="tcolorbox">
+<ul>
+<li><p><strong>Təhlükəsiz Proqramlaşdırma Prinsipləri :</strong></p>
+<ul>
+<li><p>Gizlidən asılı budaq və yaddaş müraciətlərindən qaçın; yoxlanmış
+sabit-zamanlı kitabxana API-si istifadə edin və nəticə maşın kodunu
+hədəf platformada test edin.</p></li>
+<li><p>Gizlidən asılı indeksli S-qutusu axtarışlarından qaçın.
+Platformaya uyğun bit dilimləmə, aparat AES və ya sabit-zamanlı
+səpələmə/yığma kimi yoxlanmış yanaşma seçin.</p></li>
+<li><p><strong>Bit Dilimləmə :</strong> Cədvəl müraciətlərini bit
+səviyyəli məntiq əməliyyatları ilə əvəz edə və keş-vaxt səthini azalda
+bilər. Performans və başqa mikroarxitektur sızıntılar platforma üzrə
+ölçülməlidir.</p></li>
+</ul></li>
+<li><p><strong>Aparat Səviyyəsində Təhlükəsizlik :</strong></p>
+<ul>
+<li><p>Dual-rail logic, gərginlik tənzimləyicisi və ekranlaşdırmanı
+təhdid modelinə uyğun qatlar kimi qiymətləndirin; heç biri təkbaşına
+sabit cərəyan zəmanəti vermir.</p></li>
+<li><p>Təsadüfi saat tərəddüdü izlərin hizalanmasını çətinləşdirə bilər,
+lakin statistik yenidən hizalamaya davamlı əsas müdafiə kimi qəbul
+edilməməlidir.</p></li>
+<li><p>Elektromaqnit radiasiyasını lokallaşdırmaq üçün çip səviyyəsində
+fiziki ekranlaşdırma qatlarını tətbiq edin.</p></li>
+</ul></li>
+<li><p><strong>Sertifikatlaşdırılmış Kitabxanalar və
+Modullar:</strong></p>
+<ul>
+<li><p>Sıfırdan kriptoqrafiya yazmaq əvəzinə, seçilmiş platforma və
+versiya üçün yan-kanal xüsusiyyətləri sənədləşdirilmiş
+<code>libsodium</code>, <code>BearSSL</code> və ya OpenSSL API-lərindən
+istifadə edin; kitabxana adı bütün konfiqurasiyalar üçün avtomatik
+zəmanət deyil.</p></li>
+<li><p>Kritik açarların saxlanması və əməliyyatların aparılması üçün
+xüsusi fiziki qorunmaya malik <strong>HSM</strong> (aparat təhlükəsizlik
+modulu) və ya <strong>TPM</strong> (etibarlı platforma modulu) çiplərinə
+üstünlük verin.</p></li>
+</ul></li>
+<li><p><strong>Test və Verifikasiya Alətləri:</strong></p>
+<ul>
+<li><p><strong>dudect:</strong> Kodun sabit zamanlı olub-olmadığını
+diferensial sınaq metodu və <span
+class="math inline">\(t\)</span>-sınağı statistikası ilə yoxlayan
+effektiv təhlil aləti.</p></li>
+<li><p><strong>ctgrind:</strong> Valgrind platforması üzərində işləyən
+və gizli açardan asılı olan yaddaş müraciətlərini və budaqlanmaları
+aşkarlayan test modulu.</p></li>
+<li><p><strong>ChipWhisperer:</strong> Avadanlıq səviyyəsində real SPA,
+DPA və xəta inyeksiyası hücumlarını simulyasiya edən və aparatın
+dözümlülüyünü yoxlayan açıq qaynaqlı laboratoriya platforması.</p></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="nümunə-məsələlər-və-çalışmalar">Nümunə Məsələlər və
+Çalışmalar</h1>
+<div class="tcolorbox">
+<p>Əvvəlcə hücumçunun müşahidəsini, fərziyyəni və ölçülən siqnalı
+ayırın; sonra müdafiə seçin. Müəllim üçün cavab açarı yalnız ilkin
+cəhddən sonra açılmalıdır.</p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 1</strong>. <em>Tam axtarış hücumu ilə <span
+class="math inline">\(40\)</span>-bitlik gizli açarı tapmaq üçün ehtimal
+nəzəriyyəsinə görə orta hesabla neçə sınaq lazımdır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 2</strong>. <em>Klassik kriptoanaliz metodlarından
+olan Diferensial və Xətti kriptoanaliz arasında <span
+class="math inline">\(3\)</span> əsas konseptual fərqi
+sadalayın.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 3</strong>. <em>"Kvadrata yeksəltmə və vurma"
+alqoritminin sadə reallaşdırması niyə vaxt hücumlarına və SPA-ya qarşı
+kritik dərəcədə həssasdır? Bu həssaslığı azaldan sabit-zamanlı riyazi
+yanaşmanı alqoritmik olaraq təsvir edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 4</strong>. <em>Sadə Güc Analizi (SPA) ilə
+Diferensial Güc Analizi (DPA) arasındakı fundamental fərqlər
+hansılardır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 5</strong>. <em>Mikroarxitektur yan kanal
+hücumlarından olan <em>Prime+Probe</em> keş hücumunun üç mərhələ üzrə
+işləmə mexanizmini şərh edin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 6</strong>. <em>RSA-CRT (Çin Qalıqlar Teoremi əsaslı
+RSA) imzalama strukturuna qarşı icra olunan Bellcore xəta inyeksiyası
+hücumunun riyazi prinsipini və sızıntı tənliyini göstərin.</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 7</strong>. <em>AES alqoritminin proqram təminatında
+axtarış cədvəlləri və T-cədvəlləri vasitəsilə icra edilməsi niyə keş
+yaddaş hücumlarına şərait yaradır?</em></p>
+</div>
+<div class="exercise">
+<p><strong>Çalışma 8</strong>. <em>Yan kanal sızıntılarının qarşısını
+proqram təminatı səviyyəsində almaq üçün tətbiq edilən <span
+class="math inline">\(3\)</span> əsas müdafiə strategiyasını
+sadalayın.</em></p>
+</div>
+<h1 id="müəllim-üçün-cavab-açarı">Müəllim üçün cavab açarı</h1>
+<ul>
+<li><p><span class="math inline">\(40\)</span>-bitlik açar fəzasında
+ümumi variantların sayı <span class="math inline">\(2^{40}\)</span>-dir.
+Tam axtarış hücumu zamanı açarın tapılması üçün orta hesabla bütün
+fəzanın yarısı (<span class="math inline">\(2^{n-1}\)</span> sınaq)
+yoxlanılmalıdır: <span class="math display">\[\frac{2^{40}}{2} = 2^{39}
+\approx 5.49 \times 10^{11} \text{ sınaq}.\]</span></p></li>
+<li><p>Diferensial və xətti kriptoanaliz arasındakı <span
+class="math inline">\(3\)</span> əsas fərq:</p>
+<ol>
+<li><p><strong>Məlumat növü:</strong> Diferensial kriptoanaliz
+hücumçudan seçilmiş açıq mətn tələb etdiyi halda, xətti kriptoanaliz
+yalnız məlum açıq mətn əsasında icra oluna bilir.</p></li>
+<li><p><strong>Riyazi əsas:</strong> Diferensial analiz giriş və çıxış
+XOR fərqlərinin yayılma ehtimallarına (<span
+class="math inline">\(\Delta X \to \Delta Y\)</span>), xətti analiz isə
+qeyri-xətti komponentlərin (S-Box) xətti tənliklərlə aproksimasiya
+(yaxınlaşma) meylinə əsaslanır.</p></li>
+<li><p><strong>Hədəf strukturu:</strong> Diferensial analiz daha çox
+blok şifrələrinin daxili diffuziyasını sındırmağa yönəlir, xətti analiz
+isə qapalı daxili bitlərin xətti korrelyasiyasını tapmağa
+fokuslanır.</p></li>
+</ol></li>
+<li><p>Sadə квадрата yüksəltmə və vurma alqoritmində gizli dərəcənin
+cari biti <span class="math inline">\(0\)</span> olduqda dövr daxilində
+yalnız bir dərəcəyə yüksəltmə (<span class="math inline">\(R \times
+R\)</span>) icra olunur, lakin bit <span
+class="math inline">\(1\)</span> olduqda əlavə olaraq vurma (<span
+class="math inline">\(R \times g\)</span>) əməliyyatı da yerinə
+yetirilir. Bu asimmetriya həm icra müddətində (vaxt hücumu), həm də
+cərəyan istehlakında (SPA) kəskin vizual fərqlər sızdırır.</p>
+<p><strong>Sabit Zamanlı Həll (Alqoritmik Təsvir):</strong> Budaqlanmanı
+ləğv etmək üçün hər bir bitdən asılı olmayaraq həm kvadrat, həm də vurma
+əməliyyatları mütləq icra edilməlidir. Əgər bit <span
+class="math inline">\(0\)</span>-dırsa, vurmanın nəticəsi
+saxta/müvəqqəti bir <span class="math inline">\(Saxta\_R\)</span>
+dəyişəninə mənsub edilir:</p>
+<ol>
+<li><p>Dövr daxilində hər bir bit üçün:</p></li>
+<li><p><span class="math inline">\(R \leftarrow (R \times R) \pmod
+p\)</span></p></li>
+<li><p><span class="math inline">\(\mathit{Müvəqqəti\_R} \leftarrow (R
+\times g) \pmod p\)</span></p></li>
+<li><p><strong>Şərt əvəzinə bit maskası ilə mənsubetmə:</strong> <span
+class="math inline">\(R \leftarrow (\text{bit} \times
+\mathit{Müvəqqəti\_R}) + ((1 - \text{bit}) \times R)\)</span></p></li>
+</ol>
+<p>Bu struktur gizli bitdən asılı əməliyyat sayını bərabərləşdirir,
+lakin maskalı seçim compiler tərəfindən budağa çevrilə bilər və
+multiply/reduction mikroarxitektur olaraq dəyişən zamanlı ola bilər.
+Buna görə sabit-zamanlı primitive və maşın-kod yoxlaması tələb olunur;
+eyni güc sərfi ayrıca təmin edilmir.</p></li>
+<li><p>SPA bir və ya az sayda güc izində seçilən əməliyyat
+nümunələrindən istifadə edir. DPA/CPA isə çoxsaylı izdə sızıntı
+hipotezini statistik yoxlayır; tələb olunan iz sayı və küyə davamlılıq
+qurğu, model və əks-tədbirlərdən asılıdır.</p></li>
+<li><p><em>Prime+Probe</em> hücumunun iş mexanizmi <span
+class="math inline">\(3\)</span> mərhələdən ibarətdir:</p>
+<ol>
+<li><p><strong>Prime (Doldurma):</strong> Hücumçu hədəf keş setlərini
+özünün mənasız verilənləri ilə tamamilə doldurur və keşi nəzarətə
+götürür.</p></li>
+<li><p><strong>İcra:</strong> Qurban proqramın kriptoqrafik əməliyyatı
+icra etməsi gözlənilir. Əgər qurban hədəf setə müraciət edərsə,
+hücumçunun verilənlərini oradan sıxışdırıb çıxarır.</p></li>
+<li><p><strong>Yoxlama (Yoxlama):</strong> Hücumçu öz verilənlərini
+yenidən oxuyub zamanı ölçür. Gecikmə seçilmiş keş set-də qurban
+aktivliyinə dair statistik siqnal verir; tək ölçmə konkret ünvan
+girişinin qəti sübutu deyil.</p></li>
+</ol></li>
+<li><p>RSA-CRT strukturunda imzalama zamanı <span
+class="math inline">\(p\)</span> moduluna aid olan <span
+class="math inline">\(s_1\)</span> qolunun hesablanmasında xəta
+törədilərsə, səhv <span class="math inline">\(\hat{s}_1\)</span> alınır,
+lakin <span class="math inline">\(q\)</span> moduluna aid <span
+class="math inline">\(s_2\)</span> qolu düzgün hesablanır. CRT
+birləşməsindən sonra əldə edilən səhv <span
+class="math inline">\(\hat{s}\)</span> imzası üçün Bellcore sızıntı
+düsturu belə qurulur: <span class="math display">\[\gcd(\hat{s}^e - m,
+n) = q\]</span> Burada <span class="math inline">\(\hat{s}^e -
+m\)</span> fərqi <span class="math inline">\(q\)</span>-yə tam
+bölündüyü, lakin <span class="math inline">\(p\)</span>-yə bölünmədiyi
+üçün bir ƏBOB hesablaması modulun gizli <span
+class="math inline">\(q\)</span> vuruğunu, sonra isə <span
+class="math inline">\(p=n/q\)</span> dəyərini verir.</p></li>
+<li><p>Bəzi proqram AES reallaşdırmaları əməliyyatları T-cədvəllərində
+birləşdirir və cədvəl indeksi açardan asılı olur. Keş müşahidələri
+indeks barədə statistik məlumat sızdıra və kifayət qədər ölçmə/model ilə
+açar namizədlərini daralda bilər. Hücumun grafikliyi keş paylaşımı,
+planlaşdırıcı, müdafiələr və reallaşdırmadan asılıdır.</p></li>
+<li><p>Proqram təminatı səviyyəsində <span
+class="math inline">\(3\)</span> fundamental müdafiə üsulu:</p>
+<ol>
+<li><p><strong>Sabit zamanlı reallaşdırma :</strong> Şərti keçidləri və
+yaddaş müraciətlərini zamandan asılı olmayan riyazi strukturlara
+çevirmək.</p></li>
+<li><p><strong>Kriptoqrafik maskalama :</strong> Daxili bütün həssas
+aralıq dəyişənləri hər əməliyyatda təsadüfi bir <span
+class="math inline">\(r\)</span> maskası ilə (<span
+class="math inline">\(x \oplus r\)</span>) gizlətmək.</p></li>
+<li><p><strong>Bit Dilimləmə :</strong> Bütün cədvəl müraciətlərini ləğv
+edərək məlumatları bit səviyyəli parallel məntiqi qapı zəncirləri ilə
+emal etmək.</p></li>
+</ol></li>
+</ul>
+<h1 id="xülasə-və-yekun-nəticələr">Xülasə və Yekun Nəticələr</h1>
+<p>Bu mühazirə çərçivəsində kriptoqrafik sistemlərin təhlükəsizlik
+mühitini tamamilə fərqli bir perspektivdən — riyazi abstraksiyadan
+fiziki reallığa keçid müstəvisində araşdırdıq. Sənəd boyu öyrənilən
+fundamental anlayışların xülasəsi aşağıdakı kimidir:</p>
+<ul>
+<li><p><strong>Klassik kriptoqrafik hücumlar:</strong> Alqoritmlərin
+daxili riyazi və məntiqi zəifliklərini hədəf alan diferensial, xətti və
+tam axtarış kriptoanaliz üsullarının iş prinsipləri sənədləşdirilmişdir
+<span class="citation"
+data-cites="biham1993differential matsui1993linear"></span>.</p></li>
+<li><p><strong>Yan Kanal Hücumlarının Təbiəti:</strong> Bu hücum növünün
+alqoritmin riyazi gücünə deyil, onun fiziki aparat və ya proqram
+təminatı səviyyəsindəki reallaşdırılması zamanı ətrafa sızdırdığı fiziki
+parametrlərə (vaxt, cərəyan, şüalanma) əsaslandığı nümayiş etdirilmişdir
+<span class="citation" data-cites="kocher1996timing"></span>.</p></li>
+<li><p><strong>Vaxt hücumları:</strong> Gizli verilənlərdən asılı icra
+müddətinin açar sızıntısına yol aça bilməsi və sabit-zamanlı
+proqramlaşdırmanın digər sistem əks-tədbirləri ilə birlikdə əsas
+müdafiələrdən biri olduğu göstərilmişdir <span class="citation"
+data-cites="kocher1996timing"></span>.</p></li>
+<li><p><strong>Güc istehlakı analizi:</strong> Bir və ya az sayda izin
+görünən xüsusiyyətlərindən istifadə edə bilən SPA ilə çoxsaylı iz
+üzərində statistik fərziyyə yoxlayan DPA fərqləndirilmişdir. İz sayı
+qurğu, model və küydən asılıdır; maskalama yalnız düzgün tətbiq və
+sınaqla müdafiə qatına çevrilir <span class="citation"
+data-cites="kocher1999differential mangard2007power"></span>.</p></li>
+<li><p><strong>Elektromaqnit İzləmə Hücumları (EMA):</strong> Cihazların
+daxili komponentlərinin keçirdiyi cərəyanın yaratdığı təmassız
+sızıntılar və distansion təhlükələr araşdırılmış, TEMPEST standartları
+çərçivəsində ekranlaşdırma texnikalarına toxunulmuşdur <span
+class="citation" data-cites="mangard2007power"></span>.</p></li>
+<li><p><strong>Mikroarxitektur Keş Hücumları:</strong>
+<em>Prime+Probe</em> və <em>Flush+Reload</em> kimi metodlarla
+prosessorun keş yaddaş statusundan gizli məlumatların bərpası
+prinsipləri öyrənilmiş, proqram səviyyəsində sabit-zamanlı cədvəl
+müraciətləri və bit dilimləmə metodologiyasının əhəmiyyəti
+vurğulanmışdır <span class="citation"
+data-cites="bernstein2005cache"></span>.</p></li>
+<li><p><strong>Xəta İnyeksiyası Hücumları :</strong> DFA və RSA-CRT
+Bellcore modelinin riyazi fəsadları təhlil edilmişdir. RSA-CRT üçün səhv
+imzanı buraxmazdan əvvəl açıq açarla yoxlama və ya sübut olunmuş xətaya
+davamlı CRT əsas müdafiədir; korlaşdırma vaxt/Güc üçün faydalı olsa da
+bu yoxlamanı əvəz etmir <span class="citation"
+data-cites="boneh1997fault biham1997differential"></span>.</p></li>
+<li><p><strong>Qeyri-Klassik Fiziki Hücumlar:</strong> Akustik
+(ultrasəs), soyuq yükləmə və optik analiz kimi cihazın yerləşdiyi fiziki
+mühitin təsirinə əsaslanan qabaqcıl yan kanal hücumlarının iş
+prinsipləri ümumiləşdirilmişdir <span class="citation"
+data-cites="genkin2014acoustic halderman2009cold"></span>.</p></li>
+</ul>
+<p><strong>Əsas Nəticə:</strong> Kriptoqrafik sistemin təhlükəsizliyi
+yalnız primitivin nəzəri açar ölçüsü ilə ölçülmür. Reallaşdırma
+sızıntısı və xəta inyeksiyası modeli nəzəri axtarış sərhədindən yan keçə
+bilər, lakin grafik xərc cihaz və hücum imkanlarından asılıdır. Müdafiə
+təhdid modeli, yoxlanmış sabit-zamanlı kod, düzgün maskalama/xəta
+inyeksiyası yoxlaması, aparat qatları və empirik sızıntı sınağının
+birlikdə tətbiqini tələb edir.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>DDT (<em>Difference Distribution Table</em> — Fərqlərin
+Paylanması Cədvəli): S-boks (<em>Substitution-box</em>) kimi qeyri-xətti
+elementlərin giriş fərqlərinin çıxış fərqlərinə necə çevrildiyini və
+diferensial hücumlar üçün ehtimalları göstərən cədvəl.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>RSA-CRT (<em>Rivest-Shamir-Adleman with Chinese
+Remainder Theorem</em> — Çin Qalıq Teoremi ilə RSA): RSA rəqəmsal
+imzalama və deşifrələmə əməliyyatlarını 3-4 dəfə sürətləndirmək üçün
+modul hesablamalarını <span class="math inline">\(p\)</span> və <span
+class="math inline">\(q\)</span> sadə ədədləri üzrə ayrı-ayrı aparan
+alqoritmik reallaşdırma.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>PQC (<em>Post-Quantum Cryptography</em> — Kvantdan
+Sonrakı Kriptoqrafiya): Kvant kompüterlərinin Şor (<em>Shor</em>)
+alqoritmi ilə sındıra bilməyəcəyi (məsələn, qəfəs əsaslı) yeni nəsil
+kriptoqrafik alqoritmlər kompleksi.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Klassik kriptoanalitik hücum modelləri: Yalnız şifrəli
+mətn (<em>ciphertext-only</em>), məlum açıq mətn
+(<em>known-plaintext</em>), seçilmiş açıq mətn
+(<em>chosen-plaintext</em>) və seçilmiş şifrəli mətn
+(<em>chosen-ciphertext</em>) hücumları.<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Diferensial kriptoanaliz: Açıq mətn cütlüklərinin
+fərqlərinin (<em>input differences</em>) şifrəli mətn fərqlərinə
+(<em>output differences</em>) keçmə ehtimallarını (DDT vasitəsilə)
+analiz edərək raund açarlarını əldə edən metod.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Xətti kriptoanaliz: Mətn bitləri, şifrəli mətn bitləri
+və açar bitləri arasında xətti bərabərliklər (yaxınlaşmalar) quraraq
+kənarlaşma (<em>bias</em>) ehtimalı əsasında açarı aşkar edən metod.<a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Tam axtarış (<em>brute-force search</em>): Mümkün olan
+bütün açar fəzasını sırayla yoxlamaqla doğru açarı tapan riyazi hücum
+metodu.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Yan kanal hücumları (<em>side-channel attacks</em>):
+Algoritmin riyazi zəifliyinə yox, onun fiziki reallaşdırılması zamanı
+yaranan fiziki parametrlərə (icra müddəti, güc sərfi, EM şüalanma, keş
+gecikmələri) əsaslanan hücumlar.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>SPA (<em>Simple Power Analysis</em> — Sadə Güc Analizi):
+Bir və ya bir neçə osilloqram kəsiyini birbaşa vizual olaraq təhlil
+etməklə kriptoqrafik əməliyyatları və açar bitlərini oxuma metodu.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>DPA (<em>Differential Power Analysis</em> — Diferensial
+Güc Analizi): Çoxsaylı güc göstəricilərinin statistik təhlili (məsələn,
+Pirsan korrelyasiyası) vasitəsilə küy dərəcəsini azaldıb gizli açarı
+müəyyənləşdirən metod.<a href="#fnref10" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Keş hücumları (<em>cache attacks</em>): Prosessorun RAM
+və Keş yaddaşları arasındakı giriş vaxtı fərqliliyindən (Flush+Reload,
+Prime+Probe) istifadə edərək gizli açarla bağlı yaddaş ünvanlarını oxuma
+texnikası.<a href="#fnref11" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Xəta inyeksiyası hücumları (<em>fault injection
+attacks</em>): Kriptoqrafik hesablama gedən anda mikrosxemə gərginlik
+impulsu, saat tezliyi dəyişikliyi və ya lazer şüası vurmaqla xətalı
+nəticə alıb (DFA) açarı hesablama texnikası.<a href="#fnref12"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>CPA (<em>Chosen-Plaintext Attack</em> — Seçilmiş Açıq
+Mətn Hücumu): Hücumçunun istədiyi açıq mətni seçib ona uyğun şifrəli
+mətni əldə edə bildiyi hücum modeli.<a href="#fnref13"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>CCA (<em>Chosen-Ciphertext Attack</em> — Seçilmiş
+Şifrəli Mətn Hücumu): Hücumçunun deşifrələmə orakuluna sorğu göndərərək
+istədiyi şifrəli mətnin (seçilmiş hədəf mətni istisna olmaqla) deşifrə
+olunmuş açıq mətnini əldə edə bildiyi ən güclü hücum modeli.<a
+href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>Nons (<em>Nonce — Number used Once</em>): Eyni açarla
+şifrələnən hər bir mesaj üçün yalnız bir dəfə istifadə olunan təsadüfi
+və ya unikal dəyər.<a href="#fnref15" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>AES (<em>Advanced Encryption Standard</em> — Qabaqcıl
+Şifrələmə Standartı): 128-bitlik blok ölçüsünə malik simmetrik blok
+şifrə primitivi.<a href="#fnref16" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>AEAD (<em>Authenticated Encryption with Associated
+Data</em> — Əlaqəli Məlumatlı Autentifikasiyalı Şifrələmə): Məlumatın
+həm məxfiliyini, həm də autentifikasiyasını (bütövlüyünü) eyni anda
+təmin edən şifrələmə sxemi rejimi (məsələn, AES-GCM).<a href="#fnref17"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>Xəta impulsu (<em>glitch</em>): Mikrosxemə vurulan
+anlıq gərginlik, saat tezliyi dəyişikliyi və ya lazer müdaxiləsi
+vasitəsilə proqram axınını pozan fiziki müdaxilə.<a href="#fnref18"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+<!-- İSTİNADLAR (REFERENCES)                                             -->
+<!-- =================================================================== -->
+<section id="istinadlar" class="lecture-bib-section mt-5">
+    <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+        <span class="badge bg-primary fs-6 p-2 rounded-3"><i class="bi bi-journal-bookmark-fill"></i></span>
+        <h2 class="h3 fw-bold mb-0">İstinadlar (13)</h2>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[1] Biham &amp; Shamir, 1993</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Differential Cryptanalysis of the Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Eli Biham and Adi Shamir (1993)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[2] Matsui, 1994</span>
+                        <small class="text-muted">Advances in Cryptology — EUROCRYPT &#x27;93</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Linear Cryptanalysis Method for DES Cipher</h6>
+                    <p class="small text-secondary mb-0">Mitsuru Matsui (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[3] Kocher, 1996</span>
+                        <small class="text-muted">Advances in Cryptology --- CRYPTO &#x27;96</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Timing Attacks on Implementations of Diffie-Hellman</h6>
+                    <p class="small text-secondary mb-0">Paul C. Kocher (1996)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[4] Kocher et al., 1999</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;99</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Differential Power Analysis</h6>
+                    <p class="small text-secondary mb-0">Paul C. Kocher and Joshua Jaffe and Benjamin Jun (1999)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[5] Boneh et al., 1997</span>
+                        <small class="text-muted">Advances in Cryptology - EUROCRYPT &#x27;97</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">On the Importance of Checking Cryptographic Protocols for Faults</h6>
+                    <p class="small text-secondary mb-0">Dan Boneh and Richard A. DeMillo and Richard J. Lipton (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[6] Mangard et al., 2007</span>
+                        <small class="text-muted">Springer</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Power Analysis Attacks: Revealing the Secrets of Smart Cards</h6>
+                    <p class="small text-secondary mb-0">Stefan Mangard and Elisabeth Oswald and Thomas Popp (2007)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[7] Stinson &amp; Paterson, 2018</span>
+                        <small class="text-muted">CRC Press</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cryptography: Theory and Practice</h6>
+                    <p class="small text-secondary mb-0">Douglas R. Stinson and Maura B. Paterson (2018)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[8] ElectronicFrontierFoundation, 1998</span>
+                        <small class="text-muted">O&#x27;Reilly Media</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cracking DES: Secrets of Encryption Research, Wiretap Politics &amp; Chip Design</h6>
+                    <p class="small text-secondary mb-0">ElectronicFrontierFoundation (1998)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[9] Matsui, 1994</span>
+                        <small class="text-muted">Advances in Cryptology — CRYPTO &#x27;94</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">The First Experimental Cryptanalysis of the Data Encryption Standard</h6>
+                    <p class="small text-secondary mb-0">Mitsuru Matsui (1994)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[10] Bernstein, 2005</span>
+                        <small class="text-muted">ECRYPT Workshop</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Cache-Timing Attacks on AES</h6>
+                    <p class="small text-secondary mb-0">Daniel J. Bernstein (2005)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[11] Biham &amp; Shamir, 1997</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO &#x27;97</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Differential Fault Analysis of Secret Key Cryptosystems</h6>
+                    <p class="small text-secondary mb-0">Eli Biham and Adi Shamir (1997)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[12] Genkin et al., 2014</span>
+                        <small class="text-muted">Advances in Cryptology - CRYPTO 2014</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">RSA Key Extraction via Low-Bandwidth Acoustic Cryptanalysis</h6>
+                    <p class="small text-secondary mb-0">Daniel Genkin and Adi Shamir and Eran Tromer (2014)</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-3 border rounded-3 bg-card h-100 d-flex flex-column justify-content-between shadow-sm">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary-subtle text-primary fw-bold">[13] Halderman et al., 2008</span>
+                        <small class="text-muted">USENIX Security Symposium</small>
+                    </div>
+                    <h6 class="fw-bold mb-1 text-heading">Lest We Remember: Cold Boot Attacks on Encryption Keys</h6>
+                    <p class="small text-secondary mb-0">J. Alex Halderman and Seth D. Schoen and Nadia Heninger and William Clarkson and William Paul and Joseph A. Calandrino and Ariel J. Feldman and Jacob Appelbaum and Edward W. Felten (2008)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
